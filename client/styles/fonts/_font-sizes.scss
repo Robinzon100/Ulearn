@@ -1,0 +1,63 @@
+.paragraph-biggest {
+    font-size: calc(20px + (24 - 20) * ((100vw - 300px) / (1900 - 700))) !important;
+    letter-spacing: 1.1px;
+    line-height: 135%;
+}
+
+.paragraph-big {
+    font-size: calc(18px + (22 - 18) * ((100vw - 300px) / (1900 - 700))) !important;
+}
+
+.paragraph-regular {
+    font-size: calc(15px + (20 - 15) * ((100vw - 300px) / (1900 - 700))) !important;
+}
+
+.paragraph-medium {
+    font-size: calc(14px + (18 - 14) * ((100vw - 300px) / (1900 - 700))) !important;
+}
+
+.paragraph-small {
+    font-size: calc(13px + (15 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
+}
+
+.paragraph-smallest {
+    font-size: calc(12px + (14 - 12) * ((100vw - 300px) / (1900 - 700))) !important;
+}
+
+/// =============================== HEADING
+
+.heading-1 {
+    font-size: calc(35px + (65 - 35) * ((100vw - 300px) / (1900 - 700))) !important;
+}
+
+.heading-2 {
+    font-size: calc(30px + (55 - 30) * ((100vw - 300px) / (1900 - 700))) !important;
+}
+
+.heading-2_5 {
+    font-size: calc(25px + (50 - 25) * ((100vw - 300px) / (1900 - 700))) !important;
+}
+
+.heading-3 {
+    font-size: calc(25px + (45 - 25) * ((100vw - 300px) / (1900 - 700))) !important;
+}
+
+.heading-4 {
+    font-size: calc(20px + (35 - 20) * ((100vw - 300px) / (1900 - 700))) !important;
+}
+
+.heading-5 {
+    font-size: calc(18px + (30 - 18) * ((100vw - 300px) / (1900 - 700))) !important;
+}
+
+
+
+
+// ====================== IN VARIABLES
+$paragraph-biggest: calc(16px + (22 - 16) * ((100vw - 300px) / (1900 - 700))) !important;
+$paragraph-big: calc(16px + (18 - 16) * ((100vw - 300px) / (1900 - 700))) !important;
+
+$paragraph: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
+
+$paragraph-medium: calc(12px + (17 - 12) * ((100vw - 300px) / (1900 - 700))) !important;
+$paragraph-small: calc(13px + (15 - 13) * ((100vw - 300px) / (1900 - 700))) !important;

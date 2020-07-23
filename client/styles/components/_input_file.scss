@@ -1,0 +1,64 @@
+.input_file_input {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	position: relative;
+
+	background: white;
+	box-shadow: $input-fields-box-shadow;
+	background-repeat: no-repeat;
+	background-size: contain;
+	width: 100%;
+	height: 5.5rem;
+	display: block;
+	cursor: pointer;
+	border-radius: 10px;
+	transition: $transition;
+
+	input {
+		opacity: 0;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+	}
+
+	p {
+		position: absolute;
+		transform: translate(-50%, -50%);
+		top: 44%;
+		left: 50%;
+		width: 100%;
+		text-align: center;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		height: 1rem;
+		color: rgba($color: black, $alpha: 0.3);
+		// align-content: center;
+
+		span {
+			transform: scale(1.8);
+			opacity: 0.5;
+			margin-left: 4rem;
+		}
+	}
+}
+
+.input_file_input:hover {
+	box-shadow: $input-fields-box-shadow-focus;
+}
+
+.input_file_input:hover p{
+	color: rgba($color: black, $alpha: 0.8);
+
+}
+
+
+.input_file_active {
+	box-shadow: 0 0 3px $green, 0 5 10px rgba($color: $green, $alpha: 0.5);
+
+	p {
+		color: $green;
+		font-weight: bold;
+	}
+}

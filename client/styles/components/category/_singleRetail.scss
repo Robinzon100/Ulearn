@@ -1,0 +1,281 @@
+
+//! ყველა გვერდი რაც კი გაკეთებულია ant design-ით  
+//!მთავარი დიზაინ კოდები არის აქ,ერთი ორის გარდა,მაგრამ ყველაფერი აქედან მოდის ბოლოს
+
+.spam_left {
+    margin-left: 2rem;
+}
+
+.singleRetail {
+    // margin-top: 6em;
+
+    &__container {
+        display: grid;
+        grid-template-columns: 45% 60%;
+
+
+    }
+
+    //! FREE TRADE IMG
+    .free_trade {
+        width: 58%;
+        height: 100vh;
+
+        background: no-repeat url("/pictures/free_trade.jpg");
+        background-size: cover;
+        background-position: 205px center;
+        gap: 100px 0px;
+        position: fixed;
+        right: 0% !important;
+    }
+
+    .trade_fair {
+        width: 58%;
+        height: 100vh;
+
+        background: no-repeat url("/pictures/Trade_fair.png");
+        background-size: cover;
+        background-position: center;
+        gap: 100px 0px;
+        position: fixed;
+        right: 0% !important;
+    }
+
+
+    .statistics_img {
+        width: 58%;
+        height: 100vh;
+
+        background: no-repeat url("/pictures/singleProduct/სტატისტიკა.png");
+        background-size: cover;
+        background-position: center;
+        gap: 100px 0px;
+        position: fixed;
+        right: 0% !important;
+    }
+
+    &__img {
+        width: 58%;
+        height: 100vh;
+
+        background: no-repeat url("/pictures/sacalo.png");
+        background-size: cover;
+        background-position: center -20%;
+        gap: 100px 0px;
+        position: fixed;
+        right: 0% !important;
+    }
+
+    .sideMenu {
+        margin-top: 20rem;
+        display: grid;
+        // justify-content: center;
+        grid-template-rows: 15rem 1fr;
+        position: relative;
+        z-index: 2;
+        gap: 40px;
+
+
+
+        p {
+            color: $black !important;
+            display: inline-block;
+
+
+        }
+
+        a {
+            text-decoration: none;
+            color: $primary-light;
+           
+            margin-top: 1rem;
+            // margin-left: .1rem;
+            // white-space: pre-line;
+            // line-break: anywhere !important;
+            // white-space: pre-wrap !important;
+            // overflow-wrap: break-word !important;
+            // overflow: hidden !important;
+            &:hover {
+                color: $primary-light;
+            }
+        }
+
+        &__heading {
+            display: flex;
+            justify-content: flex-start;
+            margin-left: 6vw;
+        }
+
+        &__layout {
+            box-shadow: $box-shadow-for-side-menu;
+            left: 15%;
+            width: 58vw;
+            // margin-top: 3.5rem;
+            transform: translateX(11%);
+            margin-top: -4rem;
+        }
+
+        .ant-collapse-borderless>.ant-collapse-item>.ant-collapse-content>.ant-collapse-content-box {
+            padding: 15px;
+
+
+
+            p {
+                color: $black;
+            }
+        }
+
+
+        .ant-collapse>.ant-collapse-item>.ant-collapse-header {
+
+            padding: 20px 30px;
+
+        }
+
+        div.ant-collapse-item:last-child {
+            border-bottom: none !important;
+        }
+
+    }
+}
+
+
+
+
+@media only screen and (max-width: 1650px) {
+
+    .singleRetail__container {
+        display: grid;
+        grid-template-columns: 50% 60%;
+    }
+
+    .singleRetail__img {
+        width: 50%;
+    }
+
+     //! FREE TRADE IMG
+     .singleRetail .free_trade {
+        width: 50%;
+    }
+
+    
+    .singleRetail .trade_fair {
+        width: 50%;
+       
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+    .singleRetail__img {
+        width: 48%;
+    }
+
+
+    //! FREE TRADE IMG
+    .singleRetail .free_trade {
+        width: 48%;
+    }
+
+    
+    .singleRetail .trade_fair {
+        width: 48%;
+       
+    }
+
+}
+
+@media only screen and (max-width: 1280px) {
+   
+
+
+    .singleRetail .sideMenu {
+
+        grid-template-rows: 12.5rem 1fr;
+    }
+}
+
+
+@media only screen and (max-width: 1024px) {
+
+
+
+    .singleRetail .sideMenu__heading {
+
+        margin-left: initial !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .free_heading {
+        margin-left: initial !important;
+        text-align: center;
+    }
+
+    .singleRetail__container {
+        display: grid;
+        /*! grid-template-columns: 40% 60%; */
+        grid-template-rows: 1fr;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        grid-template-columns: 1fr;
+        padding: 0 4vw;
+    }
+
+    .singleRetail__img {
+
+       
+        display: none !important;
+    }
+
+    //! FREE TRADE IMG
+    .free_trade {
+
+        display: none !important;
+    }
+
+    .singleRetail .trade_fair {
+        // width: 48%;
+        display: none !important;
+    }
+
+    .singleRetail .sideMenu {
+        margin-top: 15rem;
+
+        grid-template-rows: auto 1fr;
+
+        grid-template-columns: initial !important;
+
+
+    }
+
+    .singleRetail .sideMenu__layout {
+        margin-top: 5rem !important;
+        left: 15%;
+        width: 100%;
+        transform: initial !important;
+
+    }
+
+    .sideMenu {
+        a {
+            white-space: pre-line;
+            line-break: anywhere !important;
+            white-space: pre-wrap !important;
+            overflow-wrap: break-word !important;
+        }
+    }
+}
+
+@media only screen and (max-width:  468px) {
+    .ant-collapse > .ant-collapse-item > .ant-collapse-header .ant-collapse-arrow {
+       left: 0px !important;
+    }
+    .spam_left {
+        margin-left: initial !important; 
+    }
+
+
+   
+      
+}

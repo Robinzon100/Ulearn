@@ -1,0 +1,122 @@
+$nav-height: 11rem;
+$nav-paddings: 0vw 5.3vw;
+$nav-hight-after-observe: 10rem;
+$padding: 4rem;
+
+
+header {
+    // background-color: gray;
+    width: 100%;
+
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    -webkit-overflow-scrolling: touch;
+
+
+    .header_container {
+        padding: $padding;
+
+        background-color: $white !important;
+        @include hundred-w-h;
+        @include flex;
+        transition: all .2s ease;
+        height: $nav-height;
+        box-shadow: 0px 20px 60px -24px rgba(0, 0, 0, 0.1);
+    }
+
+    .observer-nav {
+        // height: 100vh;
+        height: $nav-hight-after-observe;
+
+        box-shadow: 0px 20px 60px -24px rgba(0, 0, 0, 0.3);
+        transition: all .2s ease;
+        // box-shadow: $box-shadow-for-navigation;
+    }
+
+    .logo {
+        width: 20rem;
+        height: 9rem;
+        cursor: pointer;
+
+        .main_logo {
+            width: 100%;
+            height: 100%;
+            // margin-left: -1vw;
+
+        }
+
+
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .searchIsActive {
+        display: none;
+    }
+
+    .navigation_menu {
+        position: relative;
+        // width: 45vw;
+        height: 100%;
+        // transition: all .3s ease-in;
+        z-index: 100;
+
+
+        &__list {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            list-style-type: none;
+
+
+            .activeLink {
+
+                a {
+                    color: $yellow;
+                    opacity: 100%;
+                    cursor: pointer;
+
+
+                }
+
+
+
+            }
+
+
+
+
+            &__items {
+                list-style-type: none;
+                position: relative;
+                 margin-right: 1vw;
+
+                a {
+                    text-decoration: none;
+                    // opacity: 30%;
+                    color: $new-blue-for-links;
+                    cursor: pointer;
+
+                    &:hover {
+                        opacity: 45%;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    .for_mobile {
+        display: none;
+    }
+
+
+
+
+}

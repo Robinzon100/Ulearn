@@ -1,0 +1,46 @@
+@keyframes example {
+
+    0% {
+        top: -50rem;
+        opacity: 0;
+    }
+
+    // 50% {
+    //     top: -200px;
+
+    // }
+
+    100% {
+        top: 0px;
+        opacity: 1;
+    }
+}
+
+
+.animation {
+
+    animation: example 2s forwards;
+}
+
+
+
+.display_block {
+    display: block;
+    // animation: example 1.5s forwards;
+}
+
+.display_none {
+    display: none !important;
+
+}
+
+.display_flex {
+    display: flex;
+    animation: example 1.5s forwards;
+
+}
+
+.display_grid {
+    display: grid;
+    animation: example 1.5s forwards;
+}

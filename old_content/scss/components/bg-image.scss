@@ -1,0 +1,18 @@
+.logo-mark {
+	&:after {
+   content: "";
+   display: block;
+   position: absolute;
+   width: 12%;
+	height: 50%;
+	top: -25%;
+	left: -5%;
+   mix-blend-mode: color-burn;
+   @include background-properties;
+
+
+   background: {
+   image: url("../pictures/logomark.svg");
+      }
+   }
+}

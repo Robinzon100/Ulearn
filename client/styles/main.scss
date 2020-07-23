@@ -1,0 +1,32 @@
+/// === === ===  ABSTRACTS === === === ===
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/grids_classes";
+@import "abstracts/margin_and_paddings";
+
+
+/// === === ===  BASE=== === === ===
+@import "base/base";
+
+/// === === ===  FONTS === === === ===
+@import "fonts/font-face";
+@import "fonts/font-sizes";
+@import "fonts/font-styles";
+
+
+/// === === === PAGES === === === ===
+@import "pages/landing";
+
+
+/// === === === QUERYS=== === === ===
+@import "media-querys/navigation_query";
+
+
+
+/// === === ===  COMPONENTS === === === ===
+@import "components/nav-bar";
+@import "components/buttons";
+@import "components/footer";
+ 
+
+@import "functions/navigation";

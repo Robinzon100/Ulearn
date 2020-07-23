@@ -1,0 +1,154 @@
+.handle_errors {
+    font-size: 16px;
+    color: $red;
+    font-family: $paragraph-regular;
+    margin-top: 1vw;
+}
+
+.display {
+    display: block;
+}
+
+.none {
+    display: none;
+}
+
+
+
+.input_fields {
+    padding: 1.2rem 0rem 1.2rem 1.2rem;
+    width: 100%;
+    opacity: 95%;
+    border-radius: 8px;
+    border: 1px solid $primary-light;
+    outline: none;
+    box-shadow: $input-fields-box-shadow;
+    outline-style: none;
+    // box-shadow: none;
+    border-color: transparent;
+    transition: $transition;
+
+    &:focus {
+        box-shadow: $input-fields-box-shadow-focus;
+        color: $black;
+        opacity: 100%;
+        background-color: white;
+        padding: 1.2rem 0rem 1.2rem 1.2rem;
+        animation: inputCursorAnimation ease 0.1s forwards // font-weight: bold;
+    }
+
+    @keyframes inputCursorAnimation {
+        from {
+            padding: 1.2rem 0rem 1.2rem 0rem;
+        }
+
+        to {
+            padding: 1.2rem 0rem 1.2rem 1.2rem;
+        }
+    }
+
+    
+
+    &::placeholder {
+        color: $black;
+        opacity: 40%;
+    }
+}
+
+.input_fields_errorMessage {
+    color: $red;
+}
+
+// !  Don't touch
+// ANT desing select iput redesign
+
+.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+    border: none;
+    /*! height: 60px; */
+    height: initial !important;
+    padding: 1.5rem 1.5rem 1.5rem 1.5rem !important;
+    border-radius: 8px !important;
+    background-color: $yellow !important;
+}
+
+.ant-select-single.ant-select-show-arrow .ant-select-selection-item,
+.ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder {
+    padding-right: 40px !important;
+    color: $white !important;
+    opacity: 100% !important;
+    font-size: calc(12px + (16 - 12) * ((100vw - 300px) / (1900 - 700))) !important;
+
+    font-family: $button-semi-bold !important;
+}
+
+.choose_product>div:nth-child(1)>span:nth-child(2)>span:nth-child(1)>svg:nth-child(1) {
+    display: none !important;
+}
+
+.ant-select-arrow {
+    background: no-repeat url("/pictures/down_arrow.png") !important;
+    background-size: contain !important;
+    background-position: center!important;
+    width: 4rem !important;
+    height: 1.5rem !important;
+    top: 50% !important;
+}
+
+.choose_product>div:nth-child(1)>span:nth-child(2)>span:nth-child(1) {
+    display: none !important;
+}
+
+.ant-select {
+    width: 100% !important;
+}
+
+.ant-select-item-option-content {
+    font-family: $paragraph-regular !important;
+    font-size: $paragraph-small !important;
+    color: $black;
+}
+
+.select_btns {
+    display: flex;
+    align-items: center;
+    width: 94%;
+    // flex-wrap: wrap;
+
+    .choose_country {
+        margin-left: 4.5rem;
+        width: 50%;
+    }
+
+    .choose_product {
+        width: 50%;
+    }
+
+   
+}
+
+.choose_product>div:nth-child(1)>div:nth-child(1) {
+    border: none;
+}
+
+.ant-select-open>span:nth-child(2)>span:nth-child(1) {
+    display: none !important;
+}
+
+.choose_country>div:nth-child(1)>span:nth-child(2)>span:nth-child(1) {
+    display: none !important;
+}
+
+.anticon.anticon-down {
+    display: none !important;
+}
+
+// !  Don't touch
+
+
+@media only screen and (max-width: 468px) {
+    .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+
+        padding: 1.1rem 1.1rem 1.1rem 1.1rem !important;
+
+    }
+}

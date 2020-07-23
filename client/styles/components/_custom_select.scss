@@ -1,0 +1,52 @@
+.custom_select {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	position: relative;
+
+	background: white;
+	box-shadow: $input-fields-box-shadow;
+	background-repeat: no-repeat;
+	background-size: contain;
+	width: 100%;
+	height: 5.5rem;
+	display: block;
+	cursor: pointer;
+	border-radius: 10px;
+	border: none;
+	transition: $transition;
+	padding: 1rem;
+
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	text-indent: 1px;
+	text-overflow: "";
+
+	outline: none;
+	color: black;
+	box-shadow: $input-fields-box-shadow;
+	transition: $transition;
+
+	text-indent: 0.01px;
+
+	position: relative;
+
+	&::-ms-expand {
+		display: none;
+	}
+
+	&:hover {
+		box-shadow: $input-fields-box-shadow-focus;
+	}
+
+	// &::after {
+	// 	content: "▼";
+	// 	font: 17px "Consolas", monospace;
+	// 	color: #333;
+	// 	-webkit-transform: rotate(90deg);
+	// 	-moz-transform: rotate(90deg);
+	// 	-ms-transform: rotate(90deg);
+	// 	transform: rotate(90deg);
+	// 	right: 11px;
+	// }
+}

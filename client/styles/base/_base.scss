@@ -1,0 +1,49 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    box-sizing: border-box;
+    line-height: 1.3;
+    position: relative;
+    background-color: #FBFBFB !important;
+
+    p {
+        margin-bottom: 0rem;
+    }
+
+    overflow-x: hidden;
+}
+
+.body-overflow {
+    overflow: hidden;
+}
+
+html {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased !important;
+    font-weight: 400;
+    // scroll-behavior: smooth;
+}
+
+/**
+ * Firefox specific rule
+ */
+@-moz-document url-prefix() {
+    body {
+        font-weight: lighter !important;
+    }
+}
+
+// .main_container {
+//   margin-top: 7rem;
+// }

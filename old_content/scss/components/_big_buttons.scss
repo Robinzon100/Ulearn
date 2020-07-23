@@ -1,0 +1,27 @@
+.big-button {
+    text-decoration: none;
+	border-radius: 2px;
+	width: 33rem;
+	padding: 2rem;
+	color: white;
+	font-family: 'primary-text';
+	display: block;
+	text-align: center;
+	position: relative;
+    background: $main-color;
+    box-shadow: $box-shadow-for-btn-blue;
+    font-size: calc(15px + (22 - 15) * ((100vw - 300px) / (1900 - 700))) !important;
+
+    &:after {
+        content: "";
+        position: absolute;
+        right: -31.3%;
+        top: 45%;
+        display: block;
+        width: 50%;
+        height: 130%;
+        z-index: -1;
+
+        // @include background-properties("../pictures/decoration blue.svg");
+    }
+}
