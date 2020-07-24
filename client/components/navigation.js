@@ -4,8 +4,7 @@ import { useRouter } from "next/router";
 
 // import Search from "../components/search";
 
-import Logo from "public/vercel.svg";
-import Hamburger from "public/vercel.svg";
+
 
 
 //! ─── ACTIONS ────────────────────────────────────────────────────────────────────
@@ -24,6 +23,10 @@ const NavLink = (props) => {
 };
 
 const Navigation = (props) => {
+    const Logo = "vercel.svg";
+    const Hamburger = "vercel.svg";
+
+
 
     const [open, isOpen] = useState(false);
     const [newPageLinks, setNewPageLinks] = useState([]);

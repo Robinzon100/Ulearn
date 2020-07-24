@@ -1,8 +1,8 @@
-import '../styles/main.css'
+import '../styles/main.scss'
 // import "antd/dist/antd.css";
 // import 'react-quill/dist/quill.bubble.css';
 // import 'react-quill/dist/quill.snow.css';
-// import 'react-quill/dist/quill.core.css';
+// import 'react-quill/dist/quill.core.css'; 
 
 
 function MyApp({ Component, pageProps }) {
@@ -20,5 +20,4 @@ function MyApp({ Component, pageProps }) {
 //
 //   return { ...appProps }
 // }
-
 export default MyApp
