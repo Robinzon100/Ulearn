@@ -1,9 +1,17 @@
+
 import Head from 'next/head'
 import BaseLayout from "components/base-layout";
 
-export default function Home() {
+
+const Home = () => {
+  
+ 
+
+
   return (
     <BaseLayout>
+
+
 
       <div className="main--decoration-red"></div>
 
@@ -17,9 +25,10 @@ export default function Home() {
             </div>
             <div className="window--two">
               <p className="window--two--info">
+
                 ჩვენ გასწავლით,თუ როგორ შეუქმნათ
                 საკუთარ თავს კარიერა.ხოლო კურსების დასრულების შემდეგ,თქვენ შეძლებთ იყოთ მოწინავე ამ
-							ინდუსტრიაში</p>
+							ინდუსტრიაში </p>
             </div>
             <div className="window--three"><a href="#" className="window--three--btn" title="join">გაწევრიანდით</a>
             </div>
@@ -98,7 +107,7 @@ export default function Home() {
             <div className="offers-card--title offers-title"> <span style={{ color: "#FF5C4D" }}> პროფესიონალი</span> და
 						<span style={{ color: "#338EFF" }}>ხანგძლივი</span> კურსები</div>
             <div className="offers-card--info offers-info ">ჩვენი კურსები საშუალებას გაძლევს რომ შეიქმნა ნამდვილი
-						პროფესიონალი კარიერეა, მოგცემთ საშუალებას ასევე რომ კურსის</div>
+						პროფესიონალი კარიერეა, მოგცემთ საშუალებას ასევე რომ {process.env.NEXT_PUBLIC_FRONT_URL} </div>
           </div>
 
         </div>
@@ -168,7 +177,7 @@ export default function Home() {
 
               <div className="card">
                 <div className="card--image">
-                  <div className="card--image--placed" style={{backgroundImage: "url('pictures/react.png')"}}>
+                  <div className="card--image--placed" style={{ backgroundImage: "url('pictures/react.png')" }}>
                   </div>
                 </div>
                 <div className="card--title">Node.js სრულყოფილი 6 საათიანი კურსი</div>
@@ -189,7 +198,7 @@ export default function Home() {
 
               <div className="card">
                 <div className="card--image">
-                  <div className="card--image--placed" style={{backgroundImage: "url('pictures/react.png')"}}>
+                  <div className="card--image--placed" style={{ backgroundImage: "url('pictures/react.png')" }}>
                   </div>
                 </div>
                 <div className="card--title">Node.js სრულყოფილი 6 საათიანი კურსი</div>
@@ -211,7 +220,7 @@ export default function Home() {
 
               <div className="card">
                 <div className="card--image">
-                  <div className="card--image--placed" style={{backgroundImage: "url('pictures/react.png')"}}>
+                  <div className="card--image--placed" style={{ backgroundImage: "url('pictures/react.png')" }}>
                   </div>
                 </div>
                 <div className="card--title">Node.js სრულყოფილი 6 საათიანი კურსი</div>
@@ -231,7 +240,7 @@ export default function Home() {
 
               <div className="card">
                 <div className="card--image">
-                  <div className="card--image--placed" style={{backgroundImage: "url('pictures/react.png')"}}>
+                  <div className="card--image--placed" style={{ backgroundImage: "url('pictures/react.png')" }}>
                   </div>
                 </div>
                 <div className="card--title">Node.js სრულყოფილი 6 საათიანი კურსი</div>
@@ -251,7 +260,7 @@ export default function Home() {
 
               <div className="card">
                 <div className="card--image">
-                  <div className="card--image--placed" style={{backgroundImage: "url('pictures/react.png')"}}>
+                  <div className="card--image--placed" style={{ backgroundImage: "url('pictures/react.png')" }}>
                   </div>
                 </div>
                 <div className="card--title">Node.js სრულყოფილი 6 საათიანი კურსი</div>
@@ -271,7 +280,7 @@ export default function Home() {
 
               <div className="card">
                 <div className="card--image">
-                  <div className="card--image--placed" style={{backgroundImage: "url('pictures/react.png')"}}>
+                  <div className="card--image--placed" style={{ backgroundImage: "url('pictures/react.png')" }}>
                   </div>
                 </div>
                 <div className="card--title">Node.js სრულყოფილი 6 საათიანი კურსი</div>
@@ -291,7 +300,7 @@ export default function Home() {
 
               <div className="card">
                 <div className="card--image">
-                  <div className="card--image--placed" style={{backgroundImage: "url('pictures/react.png')"}}>
+                  <div className="card--image--placed" style={{ backgroundImage: "url('pictures/react.png')" }}>
                   </div>
                 </div>
                 <div className="card--title">Node.js სრულყოფილი 6 საათიანი კურსი</div>
@@ -342,3 +351,6 @@ export default function Home() {
     </BaseLayout>
   )
 }
+
+
+export default Home
