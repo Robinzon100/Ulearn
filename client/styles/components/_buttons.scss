@@ -1,8 +1,8 @@
 .btn {
     text-decoration: none;
-    border-radius: 3px;
-    width: 35rem;
-    padding: 1.6rem;
+    border-radius: 8px;
+    width: 30rem;
+    padding: 18px 92px;
     display: block;
     text-align: center;
     position: relative;
@@ -12,7 +12,40 @@
     cursor: pointer;
     border: none;
     color: $white;
-    outline:  none ;
+    outline: none;
+    font-family: $paragraph-regular;
 
+}
+
+.btn-blue {
+    background: $button-blue-gradient;
+    border: 1px solid $primary-blue;
+
+    &:hover {
+        background: $white;
+        color: $primary-blue;
+        // border: 1px solid $primary-blue;
+    }
+}
+.btn-yellow {
+    background: $primary-yellow;
+    border: 1px solid $primary-yellow;
+
+    &:hover {
+        background:$white;
+        color: $primary-yellow;
+        // border: 1px solid $primary-blue;
+    }
+}
+
+.btn-green {
+    background: $button-green-gradient;
+    border: 1px solid $primary-green;
+
+    &:hover {
+        background: $white;
+        color: $primary-green;
+        // border: 1px solid $primary-blue;
+    }
 }
 

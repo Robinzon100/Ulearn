@@ -1,80 +1,31 @@
 
-//! ULEARN FONTS
+
+/// ====================== Noto
 
 @font-face {
-    font-family: "bpg_arial";
-    src: url("/fonts/Ulearn/bpg_arial_2009.ttf");
+    font-family: "georgian-paragraph-light";
+    src: url("/fonts/Noto/NotoSansGeorgian-Light.ttf");
 }
 
 @font-face {
-    font-family: "bpg_nino_mtavruli_bold";
-    src: url("/fonts/Ulearn/bpg_nino_mtavruli_bold.ttf");
+    font-family: "georgian-paragraph-regular";
+    src: url("/fonts/Noto/NotoSansGeorgian-Regular.ttf");
 }
 
 @font-face {
-    font-family: "Gilroy-bold";
-    src: url("/fonts/Ulearn/Gilroy-bold.ttf");
+    font-family: "georgian-button-semi-bold";
+    src: url("/fonts/Noto/NotoSansGeorgian-SemiBold.ttf");
 }
-@font-face {
-    font-family: "LexandDeca";
-    src: url("/fonts/Ulearn/LexandDeca-Regular.ttf");
-}
-
-
 
 @font-face {
-    font-family: "sailec";
-    src: url("/fonts/Ulearn/Sailec.otf");
+    font-family: "georgian-heading-bold";
+    src: url("/fonts/Noto/NotoSansGeorgian-Bold.ttf");
 }
 
-
-
-
-// /// ====================== Noto
-
-// @font-face {
-//     font-family: "georgian-paragraph-light";
-//     src: url("/fonts/Noto/NotoSansGeorgian-Light.ttf");
-// }
-
-// @font-face {
-//     font-family: "georgian-paragraph-regular";
-//     src: url("/fonts/Noto/NotoSansGeorgian-Regular.ttf");
-// }
-
-// @font-face {
-//     font-family: "georgian-button-semi-bold";
-//     src: url("/fonts/Noto/NotoSansGeorgian-SemiBold.ttf");
-// }
-
-// @font-face {
-//     font-family: "georgian-heading-bold";
-//     src: url("/fonts/Noto/NotoSansGeorgian-Bold.ttf");
-// }
-
-
-
-
-// /// ARIAL-UNICODE
-
-// @font-face {
-//     font-family: "georgian-paragraph-regular-arial";
-//     src: url("/fonts/Arial-Unicode/Arial-Unicode-MS-Regular.ttf");
-// }
-
-
-
-
-
-// /// NINO-MTAVRULI
-
-// @font-face {
-//     font-family: "nino_bold";
-//     src: url("/fonts/nino_mtavruli_bold.ttf");
-// }
-// @font-face {
-//     font-family: "nino_regular";
-//     src: url("/fonts/nino_mtavruli_normal.ttf");
-// }
+// === === === === EINA
+@font-face {
+    font-family: "Eina-semibold";
+    src: url("/fonts/Eina/Eina-SemiBold.ttf");
+}
 
 

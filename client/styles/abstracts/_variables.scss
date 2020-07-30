@@ -1,9 +1,36 @@
 /// Ulearn COLORS 
-$main-grey:#3C4854;
-$main-red:#FF5C4D;
-$main-blue:#338EFF;
+$primary-red:#FF5C4D;
+$primary-blue:#338EFF;
+$primary-dark-blue:#2448E7;
+$primary-green:#00E267;
+$primary-yellow:#FFD703;
+$primary-dark: #191B1F;
+$primary-grey:#F5F5F5;
 
-$opacity-grey: rgba(0, 0, 0, 0.53);
+
+// SECONDARU-COLORS
+$secondary-dark-red:#F94505;
+$secondary-light-red:#FF948D;
+$secondary-dark-blue:#0B6BD7;
+$secondary-light-blue:#4B9BFE;
+$secondary-dark-dark-blue:#0C3BEA;
+$secondary-light-dark-blue-purple:#7A90F0;
+$secondary-dark-green:#009E48;
+$secondary-light-green:#15F37A;
+$secondary-dark-yellow:#FFC703;
+$secondary-light-yellow:#FCE984;
+$secondary-light-grey:#F9F9F9;
+$secondary-dark-grey:#C9C9C9;
+$secondary-light-grey:#636469;
+$secondary-darkest-gray:#9D9D9D;
+$white:#ffffff;
+
+
+/// GRADIENTS
+$button-blue-gradient:linear-gradient(116.21deg, #338EFF 49.31%, #0B6BD7 141.46%);
+$button-green-gradient:linear-gradient(109.89deg, #00E267 24.65%, #009E48 162.79%);
+
+
 
 // MAX WIDTH
 $max-width-in-rem:170rem;
@@ -46,11 +73,7 @@ $box-shadow-for-navigation: 0px 20px 60px -24px rgba(0, 0, 0, 0.3);
 
 
 
-$main-color: #338EFF;
-$low-black-for-text: #3C4854;
-$for-text-low-black-opacity:#3c4854ad;
-$brn-red: #FF5C4D;
-$white:#FFFFFF;
+
 
 /// BOX Shadow
 $box-shadow-for-btn-blue: 0px 30px 35px -20px rgba(51, 142, 255, 0.80);
@@ -63,28 +86,6 @@ $box-shadow-for-btn-black:0px 30px 35px -20px rgba(0, 0, 0, 0.40);
 
 
 
-
-/// MAIN-COLORS
-$primary-dark:#1B83FE;
-$primary-light:#32C7F9;
-$new-primary:#092A53;
-$new-primary-2:#0F98DC;
-$new-purple:#9F138E;
-$new-gray:#505050;
-$new-dark:#017DAF;
-$new-yellow:#FFB81E;
-$new-blue-for-links:#00425C;
-
-$single-product-color:#27378E;
-
-
-/// SECONDATY-COLORS
-$yellow:#ffc71d;
-$green:#49DD8F;
-$red:#FF5A56;
-$black:#070707;
-$white:#FDFDFD;
-$green: #49DD8F;
 
 
 
@@ -139,10 +140,10 @@ $box-shadow-for-publication-cards-hover:0px 0px 14px rgba(0, 0, 0, 0),
 
 
 
-/// !MAIN-padding
-$padding:0vw 6vw;
-/// !MAIN-padding
-$padding-for-hero: 0vw 4.6vw;
+// /// !MAIN-padding
+// $padding:0vw 6vw;
+// /// !MAIN-padding
+// $padding-for-hero: 0vw 4.6vw;
 
 
 

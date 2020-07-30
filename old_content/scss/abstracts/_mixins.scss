@@ -43,7 +43,7 @@
 @mixin title {
 	font-family: "mtavruli bold";
 	font-weight: normal;
-	color: $low-black-for-text;
+	// color: $low-black-for-text;
 	line-height: 1;
 	position: relative;
 
@@ -51,7 +51,7 @@
 
 @mixin info {
 	font-family: 'primary-text';
-	color: $for-text-low-black-opacity;
+	// color: $for-text-low-black-opacity;
 	margin: 2.5rem 0rem;
 }
 

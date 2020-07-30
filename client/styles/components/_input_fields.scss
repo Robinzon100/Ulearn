@@ -1,0 +1,79 @@
+.input_field {
+    width: 40rem;
+    padding: 1.5rem;
+    background: #FFFFFF;
+    border: 0.9px solid $secondary-dark-grey;
+    box-sizing: border-box;
+    box-shadow: 0px 1.9px 0px $secondary-dark-grey;
+    border-radius: 8px;
+    outline: none !important;
+
+    &:focus {
+        border: 0.9px solid $secondary-light-grey;
+        box-sizing: border-box;
+        box-shadow: 0px 1.9px 0px $secondary-light-grey;
+        border-radius: 8px;
+    }
+}
+
+
+
+.input_container {
+    position: relative;
+
+    .input_field-with-search {
+        width: 40rem;
+        padding: 1.5rem 1.5rem 1.5rem 4rem;
+        background: #FFFFFF;
+        border: 0.9px solid $secondary-dark-grey;
+        box-sizing: border-box;
+        box-shadow: 0px 1.9px 0px $secondary-dark-grey;
+        border-radius: 8px;
+        outline: none !important;
+    
+        &:focus {
+            border: 0.9px solid $secondary-light-grey;
+            box-sizing: border-box;
+            box-shadow: 0px 1.9px 0px $secondary-light-grey;
+            border-radius: 8px;
+            opacity: 100%;
+
+        }
+
+        &::placeholder {
+            opacity: 70%;
+        }
+    }
+
+    .search {
+        position: absolute;
+        left: 1%;
+        top: 30%;
+    }
+    
+}
+
+
+
+.select_field {
+    // width: 25rem;
+    padding: 1.5rem 3rem 1.5rem 1.5rem;
+    border: 0.9px solid $secondary-dark-grey;
+    box-sizing: border-box;
+    box-shadow: 0px 1.9px 0px  $secondary-dark-grey;
+    border-radius: 8px;
+    outline: none !important;
+    background:url('/pictures/select_arrow.svg') 90% 50% no-repeat;
+    -webkit-appearance: none !important ;
+    -moz-appearance:none !important;
+    appearance: none !important;
+    // clip-path: circle(50% at 50% 50%);
+    
+
+    option {
+        border: 0.9px solid #C9C9C9;
+        box-sizing: border-box;
+        border-radius: 8px;
+       
+    }
+}
