@@ -1,49 +1,76 @@
-/// ========================= HEADING
 
-$heading-bold: "georgian-heading-bold",
-"sailec";
-$button-semi-bold: "georgian-button-semi-bold",
-"sailec";
+$bpg_arial:"bpg_arial","sailec";
 
-/// ========================= PARAGRAPH
-$paragraph-light: "georgian-paragraph-light",
-"sailec";
-$paragraph-regular: "georgian-paragraph-regular",
-"sailec";
-$paragraph-regular-arial: "georgian-paragraph-regular-arial",
-"sailec";
+$bpg_nino_mtavruli_bold:"bpg_nino_mtavruli_bold","sailec";
 
-/// ========================= NINO-MTAVRULI
+$Gilroy-bold:"Gilroy-bold","sailec";
 
-$nino-mtavruli-bold:"nino_bold";
-$nino-mtavruli-regular:"nino_regular";
+$LexandDeca:"LexandDeca","sailec";
 
 
-
-.heading-bold {
-    font-family: $heading-bold;
+.bpg_arial {
+    font-family: $bpg_arial;
 }
 
-.heading-semi-bold {
-    font-family: $button-semi-bold;
+.bpg_nino_mtavruli_bold {
+    font-family: $bpg_nino_mtavruli_bold;
 }
 
-.paragraph-light {
-    font-family: $paragraph-light;
+.Gilroy-bold {
+    font-family: $Gilroy-bold;
 }
 
-.paragraph-regular {
-    font-family: $paragraph-regular;
+.LexandDeca {
+    font-family: $LexandDeca;
 }
 
-.paragraph-regular-arial {
-    font-family: $paragraph-regular-arial;
-}
 
-// NINO-MTAVRULI
-.nino-mtavruli-bold {
-    font-family:$nino-mtavruli-bold;
-}
-.nino-mtavruli-normal {
-    font-family: $nino-mtavruli-regular;
-}
+// /// ========================= HEADING
+
+// $heading-bold: "georgian-heading-bold",
+// "sailec";
+// $button-semi-bold: "georgian-button-semi-bold",
+// "sailec";
+
+// /// ========================= PARAGRAPH
+// $paragraph-light: "georgian-paragraph-light",
+// "sailec";
+// $paragraph-regular: "georgian-paragraph-regular",
+// "sailec";
+// $paragraph-regular-arial: "georgian-paragraph-regular-arial",
+// "sailec";
+
+// /// ========================= NINO-MTAVRULI
+
+// $nino-mtavruli-bold:"nino_bold";
+// $nino-mtavruli-regular:"nino_regular";
+
+
+
+// .heading-bold {
+//     font-family: $heading-bold;
+// }
+
+// .heading-semi-bold {
+//     font-family: $button-semi-bold;
+// }
+
+// .paragraph-light {
+//     font-family: $paragraph-light;
+// }
+
+// .paragraph-regular {
+//     font-family: $paragraph-regular;
+// }
+
+// .paragraph-regular-arial {
+//     font-family: $paragraph-regular-arial;
+// }
+
+// // NINO-MTAVRULI
+// .nino-mtavruli-bold {
+//     font-family:$nino-mtavruli-bold;
+// }
+// .nino-mtavruli-normal {
+//     font-family: $nino-mtavruli-regular;
+// }

@@ -15,7 +15,7 @@ const NavLink = (props) => {
     const { route, title, children } = props;
     return (
         <Link href={route}>
-            <a className='paragraph-medium heading-semi-bold'>{title}
+            <a classNameName='paragraph-medium heading-semi-bold'>{title}
                 {children}
             </a>
         </Link>
@@ -28,32 +28,32 @@ const Navigation = (props) => {
 
 
 
-    const [open, isOpen] = useState(false);
-    const [newPageLinks, setNewPageLinks] = useState([]);
+    // const [open, isOpen] = useState(false);
+    // const [newPageLinks, setNewPageLinks] = useState([]);
 
-    useEffect(() => {
-        getNewPagesLinks()
-            .then(links =>{
-                if(links && links.links) {
-                    setNewPageLinks(links.links)
-                }
-            })
-        return () => {
-        }       
-    },[])
+    // useEffect(() => {
+    //     getNewPagesLinks()
+    //         .then(links =>{
+    //             if(links && links.links) {
+    //                 setNewPageLinks(links.links)
+    //             }
+    //         })
+    //     return () => {
+    //     }       
+    // },[])
 
-    const router = useRouter();
+    // const router = useRouter();
     
     
-    let toggle = () => {
-        isOpen((open) => !open);
-    };
+    // let toggle = () => {
+    //     isOpen((open) => !open);
+    // };
 
-    const [search, setSearch] = useState(false);
+    // const [search, setSearch] = useState(false);
 
-    let searchToggle = () => {
-        setSearch((search) => !search);
-    };
+    // let searchToggle = () => {
+    //     setSearch((search) => !search);
+    // };
     
 
     return (
@@ -67,121 +67,74 @@ const Navigation = (props) => {
                     key='viewport'
                 />
             </Head> */}
-            <header>
-                
-                <div className='header_container observer-nav'>
-                    <div className='logo'>
+       
+	<header className="header">
 
-                        <NavLink route='/' >  <img src={Logo} alt='Main-Logo' className='main_logo' /> </NavLink>
-                    </div>
+		
+		<div className="header--logo"></div>
 
-                    <div
-                        className={
-                            open
-                                ? "navigation_menu active_nav"
-                                : "navigation_menu  "
-                        }>
-                        <ul className='navigation_menu__list'>
-                            <li
-                               
-                                className={
-                                    router.pathname == "/"
-                                        ? "navigation_menu__list__items activeLink"
-                                        : "navigation_menu__list__items "
-                                }>
-                                <NavLink route='/' title='მთავარი' />
-                               
-                            </li>
-                            <li
-                               
-                                className={
-                                    router.pathname == "/about"
-                                        ? " navigation_menu__list__items activeLink"
-                                        : "navigation_menu__list__items"
-                                }>
-                                <NavLink route='/about' title='ჩვენს შესახებ' />
-                            </li>
+		<div className="menu">
 
-                            <li
-                               
-                                className={
-                                    router.pathname == "/news"
-                                        ? "navigation_menu__list__items activeLink"
-                                        : "navigation_menu__list__items"
-                                }>
-                                <NavLink route='/news' title='სიახლეები' />
-                            </li>
+			<ul className="menu--list">
 
-                            <li
-                               
-                                className={
-                                    router.pathname == "/publications"
-                                        ? " navigation_menu__list__items activeLink"
-                                        : "navigation_menu__list__items"
-                                }>
-                                <NavLink
-                                    route='/publications'
-                                    title='პუბლიკაციები'
-                                />
-                            </li>
+				<li className="menu--list--items">
+					<a href="#" title="courses" className="menu--list--items--links bpg_arial">კურსები</a>
+				</li>
+				<li className="menu--list--items">
+					<a href="#" title="lecturer" className="menu--list--items--links bpg_arial">გახდი ლექტორი</a>
+				</li>
+				<li className="menu--list--items">
+					<a href="#" title="sign" className="menu--list--items--links bpg_arial">შესვლა</a>
+				</li>
+				<li className="menu--list--items">
+					<a href="#" title="About" className="menu--list--items--links bpg_arial">ჩვენს შესახებ</a>
+				</li>
+				<li className="menu--list--items">
+					<a href="#" title="contact" className="menu--list--items--links bpg_arial">კონტაქტი</a>
+				</li>
 
+			</ul>
+		</div>
 
+	
+	
+{/* 
+		<div className="mobile-nav">
 
-                            {newPageLinks ? 
-                                newPageLinks.length > 0 ?
-                                    newPageLinks.map((link, index) => (
-                                    <li
-                                        key={index}
-                                        className={
-                                            router.asPath == `/newPage/${link._id}`
-                                                ? " navigation_menu__list__items activeLink"
-                                                : "navigation_menu__list__items"
-                                        }>
-                                        <NavLink
-                                            route={'/newPage/' + link._id}
-                                            title={link.menuTitle}
-                                        />
-                                    </li>
-                                ))
-                             : null 
+			<div className="round">
+				<div className="round--item"></div>
+			</div>
+			<div className="menu--nav">
+				<ul className="menu--nav--list ">
 
-                             : null}
+					<li className="menu--nav--list--items">
+						<a href="#" className="menu--nav--list--items--links links" alt=""><span style="color:#00FF66">შესვლა</span></a>
+						<img src="pictures/enter-1.svg" alt="enter" />
+					</li>
+					<li className="menu--nav--list--items">
+						<a href="#" className="menu--nav--list--items--links links" alt="">კურსები</a>
+						<img src="pictures/courses.svg" alt="courses" />
+					</li>
+					<li className="menu--nav--list--items">
+						<a href="#" className="menu--nav--list--items--links links" alt="">გახდი ლექტორი</a>
+						<img src="pictures/lectur.svg" alt="courses" />
+					</li>
+					<li className="menu--nav--list--items">
+						<a href="#" className="menu--nav--list--items--links links" alt="">კონტაქტი</a>
+						<img src="pictures/contact.svg" alt="courses" />
+					</li>
+					<li className="menu--nav--list--items">
+						<a href="#" className="menu--nav--list--items--links links" alt="">ჩვენს შესახებ</a>
+						<img src="pictures/about.svg" alt="courses" />
+					</li>
+
+				</ul>
+			</div>
+		</div> */}
 
 
 
-                            <li
-                               
-                                className={
-                                    router.pathname == "/contact"
-                                        ? " navigation_menu__list__items activeLink"
-                                        : "navigation_menu__list__items"
-                                }>
-                                <NavLink route='/contact' title='კონტაქტი' />
-                            </li>
-                            
-                         
-                            
-                         
-
-
-                        </ul>
-                    </div>
-
-
-                    <div className='hamburer_container searchIsActive'>
-                        <div className='hamburger'>
-                            <img
-                                src={Hamburger}
-                                onClick={toggle}
-                                alt='hamburger'
-                            />
-                        </div>
-                    </div>
-                </div>
-                <div className='side-nav'></div>
-
-                {/* <Search searchToggle={searchToggle} search={search} /> */}
-            </header>
+	</header>
         </React.Fragment>
     );
 }

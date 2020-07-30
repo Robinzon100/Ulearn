@@ -74,7 +74,7 @@
     left: 50%;
 
     &--title {
-      @include title;
+    //   @include title;
       // font-size: calc(20px + (55 - 20) * ((100vw - 300px) / (1900 - 700))) !important;
 
       &:after {
@@ -157,7 +157,7 @@
     align-self: right;
 
     &--title {
-      @include title;
+    //   @include title;
     }
 
     &--two {
@@ -269,9 +269,7 @@
         width: 50%;
         text-align: center;
 
-        &--title {
-          @include title;
-        }
+     
 
         &--info {
           // @include info;

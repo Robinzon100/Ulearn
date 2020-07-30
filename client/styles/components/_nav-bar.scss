@@ -1,122 +1,56 @@
-$nav-height: 11rem;
-$nav-paddings: 0vw 5.3vw;
-$nav-hight-after-observe: 10rem;
-$padding: 4rem;
-
-
-header {
-    // background-color: gray;
-    width: 100%;
-
-    z-index: 99;
+.header {
     position: fixed;
-    top: 0;
-    -webkit-overflow-scrolling: touch;
+    background-color: white;
+    // border: 1px solid red;
+    width: 100%;
+    height: 7vh;
+    padding: 0rem 3vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
+    box-shadow: $box-shadow-for-navigation;
 
+    &--logo {
+        display: inline-block;
 
-    .header_container {
-        padding: $padding;
-
-        background-color: $white !important;
-        @include hundred-w-h;
-        @include flex;
-        transition: all .2s ease;
-        height: $nav-height;
-        box-shadow: 0px 20px 60px -24px rgba(0, 0, 0, 0.1);
-    }
-
-    .observer-nav {
-        // height: 100vh;
-        height: $nav-hight-after-observe;
-
-        box-shadow: 0px 20px 60px -24px rgba(0, 0, 0, 0.3);
-        transition: all .2s ease;
-        // box-shadow: $box-shadow-for-navigation;
-    }
-
-    .logo {
-        width: 20rem;
-        height: 9rem;
-        cursor: pointer;
-
-        .main_logo {
-            width: 100%;
-            height: 100%;
-            // margin-left: -1vw;
-
+        background: {
+            image: url("/pictures/logo.svg");
+            size: contain;
+            position: center;
+            repeat: no-repeat;
         }
 
-
-    }
-
-    .hamburger {
-        display: none;
-    }
-
-    .searchIsActive {
-        display: none;
-    }
-
-    .navigation_menu {
-        position: relative;
-        // width: 45vw;
+        width: 10vh;
         height: 100%;
-        // transition: all .3s ease-in;
-        z-index: 100;
+        cursor: pointer;
+    }
 
-
-        &__list {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+    .menu {
+        &--list {
             width: 100%;
-            height: 100%;
-            list-style-type: none;
 
+            &--items {
+                list-style: none;
+                display: inline-block;
 
-            .activeLink {
-
-                a {
-                    color: $yellow;
-                    opacity: 100%;
-                    cursor: pointer;
-
-
+                &:not(:last-child) {
+                    margin-right: 5rem;
                 }
 
-
-
-            }
-
-
-
-
-            &__items {
-                list-style-type: none;
-                position: relative;
-                 margin-right: 1vw;
-
-                a {
+                &--links {
+                    
+                    
                     text-decoration: none;
-                    // opacity: 30%;
-                    color: $new-blue-for-links;
+                    font-size: 1.44rem;
+                    font-weight: 500;
+                    color: $low-black-for-text;
                     cursor: pointer;
-
-                    &:hover {
-                        opacity: 45%;
-                    }
                 }
             }
         }
     }
 
-
-
-    .for_mobile {
-        display: none;
-    }
-
-
-
-
+  
 }
+
