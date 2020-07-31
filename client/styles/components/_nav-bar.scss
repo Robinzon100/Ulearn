@@ -4,12 +4,12 @@
     // border: 1px solid red;
     width: 100%;
     height: 7vh;
-    padding: 0rem 3vw;
+    padding: 0rem 4vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 999;
-    box-shadow: $box-shadow-for-navigation;
+    // box-shadow: $box-shadow-for-navigation;
 
     &--logo {
         display: inline-block;
@@ -35,22 +35,33 @@
                 display: inline-block;
 
                 &:not(:last-child) {
-                    margin-right: 5rem;
+                    margin-right: 10rem;
                 }
 
                 &--links {
-                    
-                    
+                    color: #262d35;
                     text-decoration: none;
                     font-size: 1.44rem;
                     font-weight: 500;
                     // color: $low-black-for-text;
                     cursor: pointer;
+
+                    &:hover {
+                        color: #262d35b7;
+                    }
                 }
             }
         }
     }
 
+
+    .unregistered_user {
+       background: no-repeat url("/pictures/unregistered_user.svg");
+       background-size: cover;
+       background-position: center;
+       width: 4rem;
+       height: 4rem;
+    }
   
 }
 

@@ -2,36 +2,49 @@ import React,{Fragment} from 'react'
 import { Search, Upload } from 'react-feather';
 
 
+
+
 export default function hero() {
 return (
 <Fragment>
-    {/* <section className="hero">
+    <section className="hero">
         <div className="hero--steps">
             <div className="hero--steps__info">
                 <div className="hero--steps__info--heading">
-                    <h1 className="bpg_nino_mtavruli_bold  heading-1 icon">გადადგი შენი პირველი კარიერული ნაბიჯები
+                    <h1 className="heading-semi-bold-Noto heading-4">გადადგი შენი პირველი კარიერული ნაბიჯები
                         ჩვენთან ერთად</h1>
                 </div>
                 <div className="hero--steps__info--paragraph">
-                    <p className="bpg_arial paragraph-medium">
+                    <p className="paragraph-regular-Noto paragraph-medium">
                         ჩვენ გასწავლით,თუ როგორ შეუქმნათ
                         საკუთარ თავს კარიერა.ხოლო კურსების დასრულების შემდეგ,თქვენ შეძლებთ იყოთ მოწინავე ამ
                         ინდუსტრიაში
                     </p>
                 </div>
                 <div className="hero--steps__btn">
-                    <a href="#" className="btn bpg_arial paragraph-regular" title="join">შემოგვიერთდით</a>
+                    <a href="#" className="btn btn-blue heading-semi-bold-Noto paragraph-medium"
+                       >შემოგვიერთდი</a>
                 </div>
             </div>
         </div>
 
-        <div className="hero--image">
-            <div className="hero--image__container"></div>
+        <div className="hero--video">
+            <video  autoPlay="autoPlay" loop="loop">
+                <source src="/Videos/hero_section_animation.mp4" type="video/mp4" />
+                {/* <source src="movie.ogg" type="video/ogg" /> */}
+              
+            </video>
         </div>
 
 
-    </section> */}
-    <a href="#" className="btn btn-blue">ღილაკი</a>
+    </section>
+
+
+
+
+
+
+    {/* <a href="#" className="btn btn-blue">ღილაკი</a>
     <a href="#" className="btn btn-yellow">ღილაკი</a>
     <a href="#" className="btn btn-green">ღილაკი</a>
 
@@ -40,7 +53,7 @@ return (
         <input type="text" className="input_field-with-search" placeholder="მოძებნე სასურველი კურსი" />
         <Search className="search" size={20} />
     </div>
-    
+
 
     <div className="upload_container">
         <label htmlFor="file-upload" className="custom-file-upload">
@@ -60,7 +73,7 @@ return (
         <option value="saab">Saab</option>
         <option value="opel">Opel</option>
         <option value="audi">Audi</option>
-    </select>
+    </select> */}
 
 </Fragment>
 )
