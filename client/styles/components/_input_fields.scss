@@ -40,15 +40,19 @@
 
         }
 
-        &::placeholder {
-            opacity: 70%;
-        }
+       
+    }
+    &::placeholder {
+        opacity: 50% !important;
+        font-family: $paragraph-regular !important;
+        font-size: $paragraph-medium !important;
     }
 
     .search {
         position: absolute;
         left: 1%;
         top: 30%;
+        opacity: 70%;
     }
     
 }

@@ -78,25 +78,27 @@ const Navigation = (props) => {
 			<ul className="menu--list">
 
 				<li className="menu--list--items">
-					<a href="#" title="courses" className="menu--list--items--links bpg_arial">კურსები</a>
+					<a href="#" title="courses" className="menu--list--items--links paragraph-regular-Noto paragraph-small">კურსები</a>
 				</li>
 				<li className="menu--list--items">
-					<a href="#" title="lecturer" className="menu--list--items--links bpg_arial">გახდი ლექტორი</a>
+					<a href="#" title="lecturer" className="menu--list--items--links paragraph-regular-Noto paragraph-small">გახდი ლექტორი</a>
 				</li>
 				<li className="menu--list--items">
-					<a href="#" title="sign" className="menu--list--items--links bpg_arial">შესვლა</a>
+					<a href="#" title="sign" className="menu--list--items--links paragraph-regular-Noto paragraph-small">შესვლა</a>
 				</li>
 				<li className="menu--list--items">
-					<a href="#" title="About" className="menu--list--items--links bpg_arial">ჩვენს შესახებ</a>
+					<a href="#" title="About" className="menu--list--items--links paragraph-regular-Noto paragraph-small">ჩვენს შესახებ</a>
 				</li>
 				<li className="menu--list--items">
-					<a href="#" title="contact" className="menu--list--items--links bpg_arial">კონტაქტი</a>
+					<a href="#" title="contact" className="menu--list--items--links paragraph-regular-Noto paragraph-small">კონტაქტი</a>
 				</li>
 
 			</ul>
 		</div>
 
-	
+	<div className="unregistered_user">
+
+    </div>
 	
 {/* 
 		<div className="mobile-nav">
