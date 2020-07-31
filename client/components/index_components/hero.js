@@ -1,6 +1,5 @@
 import React,{Fragment} from 'react'
-import { Search } from 'react-feather';
-import { Upload } from 'react-feather';
+import { Search, Upload } from 'react-feather';
 
 
 export default function hero() {

@@ -1,7 +1,6 @@
 
-import Head from 'next/head'
 import BaseLayout from "components/base-layout";
-import Hero from "../components/index_components/hero";
+import Hero from "components/index_components/hero";
 
 
 const Index = () => {
@@ -9,7 +8,7 @@ const Index = () => {
     return (
     <BaseLayout>
             <Hero/>
-           
+             
     </BaseLayout>
   )
 }
