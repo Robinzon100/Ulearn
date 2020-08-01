@@ -30,7 +30,7 @@ return (
 
         <div className="hero--video">
             <video  autoPlay="autoPlay" loop="loop">
-                <source src="/Videos/hero_section_animation.mp4" type="video/mp4" />
+                <source src="/Videos/hero_section_animation.mp4" type="video/mp4"  />
                 {/* <source src="movie.ogg" type="video/ogg" /> */}
               
             </video>
