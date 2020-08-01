@@ -40,7 +40,7 @@ return (
                     <div className="card">
                         <div className="card__img"></div>
                         <div className="card__title">
-                            <p className="heading-bold-Noto paragraph-medium">რაიმე კურსის სათაური რომელიც არ აღემატება
+                            <p className="heading-bold-Noto paragraph-medium ">რაიმე კურსის სათაური რომელიც არ აღემატება
                                 ორ ხაზს ...</p>
                         </div>
                         <div className="card__raiting">

@@ -13,7 +13,7 @@
 }
 
 .paragraph-medium {
-    font-size: calc(14px + (18 - 14) * ((100vw - 300px) / (1900 - 700))) !important;
+    font-size: calc(14px + (19 - 14) * ((100vw - 300px) / (1900 - 700))) !important;
 }
 
 .paragraph-small {
@@ -23,6 +23,7 @@
 .paragraph-smallest {
     font-size: calc(12px + (14 - 12) * ((100vw - 300px) / (1900 - 700))) !important;
 }
+
 
 /// =============================== HEADING
 
@@ -41,6 +42,11 @@
 .heading-3 {
     font-size: calc(25px + (45 - 25) * ((100vw - 300px) / (1900 - 700))) !important;
 }
+
+.heading-3_5 {
+    font-size: calc(20px + (37 - 20) * ((100vw - 300px) / (1900 - 700))) !important;
+}
+
 
 .heading-4 {
     font-size: calc(20px + (35 - 20) * ((100vw - 300px) / (1900 - 700))) !important;

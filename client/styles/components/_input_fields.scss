@@ -20,6 +20,8 @@
 
 .input_container {
     position: relative;
+    display:flex;
+    align-items: center;
 
     .input_field-with-search {
         width: 40rem;
@@ -50,9 +52,10 @@
 
     .search {
         position: absolute;
-        left: 1%;
-        top: 30%;
+        // left: 1%;
+        // top: 30%;
         opacity: 70%;
+        margin-left: 1rem;
     }
     
 }
