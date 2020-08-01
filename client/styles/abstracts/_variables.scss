@@ -34,13 +34,14 @@ $button-green-gradient:linear-gradient(109.89deg, #00E267 24.65%, #009E48 162.79
 
 // MAX WIDTH
 $max-width-in-rem:170rem;
-
-
-
 $main-pading:0vw 4vw;
 
 
 
+
+
+/// BOX Shadow
+$box-shadow-for-btn-blue: 0px 30px 35px -20px rgba(51, 142, 255, 0.4);
 $box-shadow-for-navigation: 0px 20px 60px -24px rgba(0, 0, 0, 0.3);
 
 
@@ -69,14 +70,6 @@ $box-shadow-for-navigation: 0px 20px 60px -24px rgba(0, 0, 0, 0.3);
 
 
 
-
-
-
-
-
-
-/// BOX Shadow
-$box-shadow-for-btn-blue: 0px 30px 35px -20px rgba(51, 142, 255, 0.80);
 $box-shadow-for-btn-red:0px 30px 35px -20px rgba(255, 92, 77, 0.80);
 $box-shadow-for-btn-black:0px 30px 35px -20px rgba(0, 0, 0, 0.40);
 

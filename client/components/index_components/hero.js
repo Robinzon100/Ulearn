@@ -11,8 +11,7 @@ return (
         <div className="hero--steps">
             <div className="hero--steps__info">
                 <div className="hero--steps__info--heading">
-                    <h1 className="heading-semi-bold-Noto heading-4">გადადგი შენი პირველი კარიერული ნაბიჯები
-                        ჩვენთან ერთად</h1>
+                    <h1 className="heading-bold-Noto heading-3_5">რაღაცა ტექსტი იქნება აქ რომელიც აღწერს სერვის</h1>
                 </div>
                 <div className="hero--steps__info--paragraph">
                     <p className="paragraph-regular-Noto paragraph-medium">
@@ -22,7 +21,7 @@ return (
                     </p>
                 </div>
                 <div className="hero--steps__btn">
-                    <a href="#" className="btn btn-blue heading-semi-bold-Noto paragraph-medium"
+                    <a href="#" className="btn btn-blue heading-bold-Noto paragraph-medium"
                        >შემოგვიერთდი</a>
                 </div>
             </div>

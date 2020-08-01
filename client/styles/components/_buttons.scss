@@ -22,12 +22,12 @@
     border: 1px solid $primary-blue;
     transition: all .4s;
 
-    &:hover {
-        background: $white;
-        color: $primary-blue;
+    // &:hover {
+    //     background: $white;
+    //     color: $primary-blue;
         
-        // border: 1px solid $primary-blue;
-    }
+    //     // border: 1px solid $primary-blue;
+    // }
 }
 .btn-yellow {
     background: $primary-yellow;
@@ -44,11 +44,12 @@
     background: $button-green-gradient;
     border: 1px solid $primary-green;
     transition: all .5s;
-    &:hover {
-        background: $white;
-        color: $primary-green;
-        // border: 1px solid $primary-blue;
-    }
+
+    // &:hover {
+    //     background: $white;
+    //     color: $primary-green;
+    //     // border: 1px solid $primary-blue;
+    // }
 }
 
 
