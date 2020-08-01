@@ -2,15 +2,17 @@ $hero-paragraph-margin:1vw 0vw 3vw 0vw;
 
 
 .hero {
+    overflow: hidden;
     display: grid;
     grid-template-columns: 50% 50%;
     align-items: center;
     justify-items: center;
     position: relative;
-    height: 75vh;
+    // height: 75vh;
+    height:70rem;
     width: 100%;
     padding:0vw 12vw;
-    
+    // margin-top: 6rem;
 
     
     &--video {

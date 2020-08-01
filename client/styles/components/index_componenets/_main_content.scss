@@ -1,6 +1,7 @@
 .main_content {
     height: 150vh;
     width: 100%;
+    margin-top: 6rem;
 
     &--container {
         width: 100%;
@@ -17,26 +18,33 @@
        
         &--input {
             @include flex;
-            margin-bottom: 5rem;
+            align-items: flex-start !important;
+            margin-bottom: 2rem;
 
 
             .input_styles {
-                width: 86rem !important;
+                width: 97% !important;
+                font-family: $paragraph-regular !important;
+                font-size: $paragraph-medium !important;
+                // opacity: 20%;
+                letter-spacing: 1px;
+                font-weight: normal;
             }
 
             .sorting {
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
+                width: 47%;
 
                 &__heading {
-                    margin-right: 2rem;
+                    margin-right: 1.3rem;
                 }
 
                 &__select {
-
+                    width: 100%;
                     .select_field {
-                        width: 26rem;
+                        width: 100%;
                     }
                 }
             }

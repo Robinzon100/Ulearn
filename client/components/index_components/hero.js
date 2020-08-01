@@ -28,9 +28,9 @@ return (
         </div>
 
         <div className="hero--video">
-            <video  autoPlay="autoPlay" loop="loop">
+            <video  autoPlay="autoPlay" loop="loop" muted playsInline>
                 <source src="/Videos/hero_section_animation.mp4" type="video/mp4" />
-                {/* <source src="movie.ogg" type="video/ogg" /> */}
+                <source src="/Videos/hero_section_animation.ogg" type="video/ogg" />
               
             </video>
         </div>
