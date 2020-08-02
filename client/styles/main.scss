@@ -24,13 +24,16 @@
 
 /// === === ===  COMPONENTS === === === ===
 @import "components/nav-bar";
-@import "components/buttons";
 @import "components/footer";
-@import "components/input_fields";
 @import "components/file_uploads";
+
+// === === === === GLOBAL-COMPONENTS === === === ===
+@import "components/global_components/buttons";
+@import "components/global_components/input_fields";
+@import "components/global_components/card_detail";
 // === === === === HERO-COMPONENTS === === === ===
-@import "components/index_componenets/hero";
-@import "components/index_componenets/main_content";
+@import "components/index_components/hero";
+@import "components/index_components/main_content";
 
 @import "functions/navigation";
 
