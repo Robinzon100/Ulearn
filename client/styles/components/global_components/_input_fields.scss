@@ -143,18 +143,13 @@
     right: 0;
     height: 0%;
     opacity: 0;
-    // display: none;
-    // visibility: hidden;
-    // transition: opacity 0.2s linear, visibility 0.2s linear; 
+    
     transition: opacity .3s linear, height .3s;
 
     &__item {
         padding: 1rem;
         font-size: 1.4rem;
-        //   width: 10rem;
-        // height: 0;
-        // display: none;
-        // opacity: 0;
+      
         
     }
 
@@ -164,7 +159,7 @@
 .dropdown_animation {
     height: 12rem;
     display: block;
-    // height: 10rem;
+  
     opacity: 1;
 }
 

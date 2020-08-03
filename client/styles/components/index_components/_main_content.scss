@@ -1,3 +1,6 @@
+//! აქ არის ყველა მეინ-კონტენტის ყველა სტილი კარდა კარტებისა
+$overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 255, 255, 0) 100.55%);
+
 .main_content {
     height: 150vh;
     width: 100%;
@@ -9,13 +12,111 @@
         display: grid;
         grid-template-columns: 25% 75%;
         padding: $main-pading;
+        gap: 30px;
 
+    }
+
+
+    .categories {
+        display: flex;
+        flex-direction: column;
+
+        .list {
+            display: flex;
+            justify-content: space-between;
+            
+            //! ამას კარდა მეორესი ყველა მარგინს აძლევს
+            &:not(:nth-child(2)) {
+                margin-top: 1.8vw;
+            }
+            //! ეს კატეგორიასგან ჩამოყავს ქვემოთ
+            &:nth-child(2) {
+                margin-top: 5.3vw;
+            }
+               
+
+            &__container {
+                display: flex;
+                // justify-content: space-between;
+                width: 100%;
+
+                &--arrow {
+                    margin-top: .3vw;
+                }
+
+                &--name {
+                    margin-left: .5vw;
+                    width: 89.9%;
+
+
+                    .inside_list {
+                        width: 100%;
+                        height: auto;
+                        margin-left: 1.5vw;
+
+                        ul {
+                            list-style-type: none !important;
+
+                            li {
+                                width: 100%;
+                                margin-top: .8vw;
+                                display: flex;
+                                justify-content:space-between;
+                                align-items: center;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .check {
+                border: 1px solid black;
+                border-radius:5px;
+                width: 2rem;
+                height: 2rem;
+                cursor: pointer;
+            }
+           
+        }
     }
 
     .courses {
         display: grid;
         // grid-template-rows: 1fr;
-       
+        position: relative;
+
+        .overlay_container {
+            position: absolute;
+            width: 100%;
+            // height: 19vw;
+            background: $overlay-container-gradient;
+            bottom: 0;
+            height: 24vw;
+            z-index: 1;
+            
+
+            .wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                @include hundred-w-h;
+                margin-top: -5rem;
+            }
+
+            .see_more_arrow {
+                margin-left: 1rem;
+                margin-top: .5rem;
+                cursor: pointer;
+            }
+
+            p {
+                color: $primary-green;
+                cursor: pointer;
+            }
+        }
+
+
+
         &--input {
             @include flex;
             align-items: flex-start !important;
@@ -43,6 +144,7 @@
 
                 &__select {
                     width: 100%;
+
                     .select_field {
                         width: 100%;
                     }
@@ -79,13 +181,13 @@
                 &__raiting {
                     @include flex;
                     justify-content: space-between;
-                    
+
                     width: 100%;
                     margin: 0vw 0vw 0.5vw 0vw;
 
                     &--container {
                         @include flex;
-                       
+
 
                         .numbers {
                             margin-left: 1rem;
@@ -102,9 +204,9 @@
 
                 &__like {
                     @include flex;
-             
+
                     justify-content: space-between;
-                   
+
                     width: 100%;
 
                     svg {

@@ -2,8 +2,12 @@ import React from 'react'
 
 export default function MainCards() {
 return (
+
 <div className="card">
-    <div className="card__img"></div>
+    <a href="#">
+        <div className="card__img"></div>
+    </a>
+
     <div className="card__title">
         <p className="heading-bold-Noto paragraph-medium ">რაიმე კურსის სათაური რომელიც არ აღემატება
             ორ ხაზს ...</p>
