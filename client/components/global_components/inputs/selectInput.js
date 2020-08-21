@@ -47,7 +47,7 @@ export default function selectInput() {
         }
      
       </div>
-      <div className={toggle ? "dropdown-list dropdown_animation" : "dropdown-list "}>
+      <div className={toggle ? "dropdown-list dropdown_animation" : "dropdown-list"}>
         <div className="dropdown-list__item">Pepsi</div>
         <div className="dropdown-list__item">Coca</div>
         <div className="dropdown-list__item">Monster</div>

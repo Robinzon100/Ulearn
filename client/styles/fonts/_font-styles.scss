@@ -6,6 +6,7 @@ $heading-bold: "georgian-heading-bold";
 
 $button-semi-bold: "georgian-button-semi-bold";
 
+$heading-medium: "georgian-heading-medium";
 
 /// ========================= PARAGRAPH
 $paragraph-light: "georgian-paragraph-light";
@@ -22,6 +23,10 @@ $paragraph-regular-arial: "georgian-paragraph-regular-arial";
 
 .heading-semi-bold-Noto {
     font-family: $button-semi-bold;
+}
+
+.heading-medium-Noto {
+    font-family: $heading-medium;
 }
 
 .paragraph-light-Noto {
