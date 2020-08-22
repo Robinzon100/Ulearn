@@ -12,7 +12,7 @@ const Index = () => {
     <BaseLayout>
             <Hero/>
            <Content/>
-           {/* <CardDetail/> */}
+           <CardDetail/>
     </BaseLayout>
   )
 }

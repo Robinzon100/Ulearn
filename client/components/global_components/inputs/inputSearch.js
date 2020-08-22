@@ -3,14 +3,14 @@ import { Search } from 'react-feather';
 
 
 
-export default function inputSearch({placeHolder}) {
+export default function inputSearch({ placeHolder }) {
     return (
-     
+
         <div className="input_container">
-                <input type="text" className="input_field-with-search input_styles"
-                    placeholder={placeHolder} />
+            <input type="text" className="input_field-with-search input_styles"
+                placeholder={placeHolder} />
             <Search className="search" size={22} />
         </div>
-        
+
     )
 }
