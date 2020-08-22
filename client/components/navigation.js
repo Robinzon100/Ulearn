@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-
+import { ShoppingCart } from 'react-feather';
 // import Search from "../components/search";
 
 
+
+import InputSearch from "components/global_components/inputs/inputSearch";
 
 
 //! ─── ACTIONS ────────────────────────────────────────────────────────────────────
@@ -26,6 +28,8 @@ const Navigation = (props) => {
     const Logo = "vercel.svg";
     const Hamburger = "vercel.svg";
 
+    const [placeHolder, setPlaceHolder] = useState("მოძებნე სასურველი კურსი")
+
 
 
     // const [open, isOpen] = useState(false);
@@ -43,8 +47,8 @@ const Navigation = (props) => {
     // },[])
 
     // const router = useRouter();
-    
-    
+
+
     // let toggle = () => {
     //     isOpen((open) => !open);
     // };
@@ -54,7 +58,7 @@ const Navigation = (props) => {
     // let searchToggle = () => {
     //     setSearch((search) => !search);
     // };
-    
+
 
     return (
         <React.Fragment>
@@ -67,40 +71,69 @@ const Navigation = (props) => {
                     key='viewport'
                 />
             </Head> */}
-       
-	<header className="header">
 
-		
-		<div className="header--logo"></div>
+            <header className="header">
 
-		<div className="menu">
 
-			<ul className="menu--list">
 
-				<li className="menu--list--items">
-					<a href="#" title="courses" className="menu--list--items--links paragraph-regular-Noto paragraph-small">კურსები</a>
-				</li>
-				<li className="menu--list--items">
-					<a href="#" title="lecturer" className="menu--list--items--links paragraph-regular-Noto paragraph-small">გახდი ლექტორი</a>
-				</li>
-				<li className="menu--list--items">
-					<a href="#" title="sign" className="menu--list--items--links paragraph-regular-Noto paragraph-small">შესვლა</a>
-				</li>
-				<li className="menu--list--items">
-					<a href="#" title="About" className="menu--list--items--links paragraph-regular-Noto paragraph-small">ჩვენს შესახებ</a>
-				</li>
-				<li className="menu--list--items">
-					<a href="#" title="contact" className="menu--list--items--links paragraph-regular-Noto paragraph-small">კონტაქტი</a>
-				</li>
+                <div className="logo_container">
+                    <div className="logo"></div>
 
-			</ul>
-		</div>
+                    <div className="input input-shadow input-shadow-onFocus">
+                        <InputSearch placeHolder={placeHolder} />
+                    </div>
+                </div>
 
-	<div className="unregistered_user">
 
-    </div>
-	
-{/* 
+                <div className="menu_container">
+
+                    <div className="menu">
+
+                        <ul className="menu--list">
+
+                            <li className="menu--list--items">
+                                <a href="#" title="courses" className="menu--list--items--links paragraph-regular-Noto paragraph-medium-small">კურსები</a>
+                            </li>
+                            <li className="menu--list--items">
+                                <a href="#" title="lecturer" className="menu--list--items--links paragraph-regular-Noto paragraph-medium-small">გახდი ლექტორი</a>
+                            </li>
+                            <li className="menu--list--items">
+                                <a href="#" title="sign" className="menu--list--items--links paragraph-regular-Noto paragraph-medium-small">შესვლა</a>
+                            </li>
+                            <li className="menu--list--items">
+                                <a href="#" title="About" className="menu--list--items--links paragraph-regular-Noto paragraph-medium-small">ჩვენს შესახებ</a>
+                            </li>
+                            <li className="menu--list--items">
+                                <a href="#" title="contact" className="menu--list--items--links paragraph-regular-Noto paragraph-medium-small">კონტაქტი</a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <div className="login">
+                        <a href="#">
+                            <p className="Eina-semibold">login / sign up</p>
+                        </a>
+                    </div>
+
+                    <div className="cart">
+                        <a href="#">
+                            <ShoppingCart />
+                        </a>
+                        
+                    </div>
+
+                    <a href="#">
+                    <div className="unregistered_user">
+
+                    </div>
+                    </a>
+                   
+                </div>
+
+
+
+                {/* 
 		<div className="mobile-nav">
 
 			<div className="round">
@@ -136,7 +169,7 @@ const Navigation = (props) => {
 
 
 
-	</header>
+            </header>
         </React.Fragment>
     );
 }

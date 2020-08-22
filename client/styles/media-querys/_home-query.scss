@@ -1,257 +1,63 @@
-//============================
-//============================
-//! Here you will only see Hero section media-queries
-//! All other main_page comp queries are placed in (test_comp,news_comp),and so on scss files
-//! There were too many lines and it was hard to see other comps media-queries
-//? ALSO ADD BETTER-COMMENT EXTENSION TO KNOW WHY THERE ARE LOTS OF EXCLAMATION MARKS
-//============================
-//============================
+@media only screen and (max-width: 1440px) {
+    .hero {
+        padding: 0vw 4vw !important;
+        margin-top: 6rem;
 
-$high-res: 1440px;
-$medium-res: 1280px;
-$small-res: 1024px;
-$smaller-res: 834px;
-$smallest-res: 468px;
-
-@media only screen and (max-width: $high-res) {
-	// ! HERO
-
-	section .hero__container .introduction {
-		padding: initial !important;
-
-		.heading {
-			// color: #070707;
-			width: 90%;
-		}
-	}
-
-	.pic1,
-	.pic2,
-	.pic3 {
-		height: 77vh !important;
-	}
-}
-
-@media only screen and (max-width: $medium-res) {
-	section .hero__container .introduction {
-		max-width: 90rem;
-	}
-
-	// ! hero_section
-	.select_btns {
-		width: 60% !important;
-		align-items: center !important;
-		flex-direction: column !important;
-
-		.choose_country {
-			width: 60% !important;
-		}
-
-		.choose_product {
-			margin-top: 1.5rem;
-			width: 60% !important;
-		}
-
-		.send_product {
-			width: 100%;
-
-			button {
-				// background-color: $new-primary-2 !important;
-			}
-		}
-	}
-
-	//  ! HERO SECTION
-	.hero {
-		.search {
-			display: none !important;
-		}
-
-		.introduction {
-			margin-top: 4rem;
-			width: 100%;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-
-			.heading {
-				width: 100% !important;
-				@include placed-center;
-
-				p {
-					width: 60%;
-				}
-			}
-
-			.paragraph {
-				width: 100% !important;
-				margin: 2vw 0 3vw 0 !important;
-				@include placed-center;
-
-				p {
-					width: 60%;
-					line-height: 25px;
-				}
-			}
-		}
-	}
-
-	.pic1,
-	.pic2,
-	.pic3 {
-		height: 74vh !important;
-	}
-}
-
-@media only screen and (max-width: $small-res) {
-	section .hero {
-		height: initial !important;
-		// padding: 5rem 0rem !important;
-	}
-
-	.pic1,
-	.pic2,
-	.pic3 {
-		height: 69rem !important;
-	}
-}
-
-@media only screen and (max-width: $smaller-res) {
-	// ! HERO-SECTION
-	.hero {
-		.product_selects_container {
-			display: flex;
-			flex-direction: column !important;
-			justify-content: space-between;
-			width: 100%;
-            margin: 0 auto !important;
-            align-items: center;
-
-		    // div:nth-child(2) {
-			// 	margin-top: 1rem !important;
-			// }
-		    div:first-child {
-				margin-right: 0 !important;
-			}
-
-			.choose_product {
-				width: 100%;
-				margin-right: 3rem;
-			}
-			.choose_country {
-				width: 100%;
-                margin-left: 0;
-                margin-top: 2rem !important;
-            }
-        }
-        
-        .send_product{
-            width: 60% !important;
-        }
-
-		.introduction {
-			// margin-top: 6rem !important;
-
-			.paragraph {
-				width: 100% !important;
-				margin: 4vw 0vw 4vw 0vw !important;
-
-				p {
-					line-height: 20px;
-				}
-			}
-		}
-
-		&__container {
-			.buttons {
-				.btn {
-					width: 100% !important;
-				}
-			}
-		}
-	}
-
-	.pic1,
-	.pic2,
-	.pic3 {
-		height: 65rem !important;
     }
-    
-    .select_btns {
+}
+
+@media only screen and (max-width: 1024px) {
+    .hero {
+        height: auto !important;
+        grid-template-rows: 1fr 1fr !important;
+        grid-template-columns: initial !important;
+
+        &--video {
+            width: auto !important;
+            height: auto !important;
+        }
+    }
+
+    .hero--steps__info {
+      
+        position: initial !important; 
+        transform: initial !important; 
+        top:initial !important;
+        left: initial !important;
+        padding: 0vw 8vw !important;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .hero {
+      margin-top: 12rem !important;
+      grid-template-rows: 1fr 2fr !important;
+    }
+
+    .hero--steps__info {
+        
+        padding:initial !important;
+      }
+
+      .hero--steps__info--paragraph {
+        
+        margin: 4vw 0vw 8vw 0vw !important;
+       
+      }
+
+      .hero--video {
+        width: 200% !important;
+        
+      }
+
+      .btn {
         width: 100% !important;
-         }
+       }
+       
 }
-
-@media only screen and (max-width: 468px) {
-	// ! HERO-SECTION
-	.hero .earth__container {
-		height: 30rem;
-	}
-
-	.hero .select_btns .choose_country,
-	.hero .select_btns .choose_product {
-		width: 100% !important;
-    }
+@media only screen and (max-width: 320px) {
     
-    section .hero {
-		height: initial !important;
-
-		.introduction {
-			.heading {
-				
-
-				p {
-					width: 100% !important;
-				}
-			}
-
-			.paragraph {
-				p {
-					width: 100% !important;
-				}
-			}
-		}
-	}
-
-	.sectionOne .categories .items_container .items .item a .text {
-		margin-top: 2rem !important;
-	}
-
-	.pic1,
-	.pic2,
-	.pic3 {
-		height: 80vh !important;
-    }
-    
-    .hero .send_product {
-        width: 100% !important; 
-    }
-
-    .sectionOne .categories .items_container {
-        
-        margin-top: 2rem !important;
-        }
-}
-
-@media only screen and (max-width: 375px) {
-	// ! CATEGORY-SECTION
-
-	// ! HERO-SECTION
-	
-
-	.earth {
-		margin-top: 8rem;
-	}
-
-	section .hero {
-		margin-top: 3rem;
-    }
-    
-    
-	.pic1,
-	.pic2,
-	.pic3 {
-		height: 100vh !important;
-    }
+    .hero--steps__info--paragraph {
+         max-width: initial !important; 
+       
+      }
 }

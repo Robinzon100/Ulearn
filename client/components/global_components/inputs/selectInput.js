@@ -22,6 +22,7 @@ export default function selectInput() {
     </select> */}
 
 
+<<<<<<< HEAD
       <div className="dropdown">
         <div className="dropdown-select">
           <span className="select paragraph-regular-Noto paragraph-small">რეიტინგით</span>
@@ -52,6 +53,37 @@ export default function selectInput() {
           <div className="dropdown-list__item">Coca</div>
           <div className="dropdown-list__item">Monster</div>
         </div>
+=======
+<div className="dropdown input-shadow input-shadow-onFocus">
+      <div className="dropdown-select">
+        <span className="select paragraph-regular-Noto paragraph-small">დახარისხება</span>
+        {/* <i className="fa fa-caret-down icon"></i> */}
+        {toggle ?   
+           <motion.img 
+           src="./pictures/select_arrow.svg" 
+           alt="arrow" 
+           onClick={handleSelect}
+           animate={{ rotate: 180 }}
+           transition={{ duration: .3 }}
+          />
+          : 
+          <motion.img 
+             src="./pictures/select_arrow.svg" 
+            alt="arrow" 
+            onClick={handleSelect}
+            animate={{ rotate: 0 }}
+            transition={{ duration: .3 }}
+         />
+    
+    
+        }
+     
+      </div>
+      <div className={toggle ? "dropdown-list dropdown_animation" : "dropdown-list"}>
+        <div className="dropdown-list__item">Pepsi</div>
+        <div className="dropdown-list__item">Coca</div>
+        <div className="dropdown-list__item">Monster</div>
+>>>>>>> 8f9a3a452c9ec9facd1aaf3c19f43f336903c2b5
       </div>
     </div>
 

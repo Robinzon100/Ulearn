@@ -1,38 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function MainCards() {
-return (
+    const [addToFavorites, setAddToFavorites] = useState(false);
+    return (
 
-<div className="card">
-    <a href="#">
-        <div className="card__img"></div>
-    </a>
+        <div className="card">
+            <a href="#">
+                <div className="card__img">
+                    <div className="price">
+                    <p className="Eina-semibold paragraph-big">15<span style={{color:"#00E267",fontWeight:"bold"}}>&#8382;</span></p>
+                        
+                    </div>
+                </div>
+                
+            </a>
 
-    <div className="card__title">
-        <p className="heading-bold-Noto paragraph-medium ">რაიმე კურსის სათაური რომელიც არ აღემატება
+            <div className="card__title">
+                <p className="heading-bold-Noto paragraph-medium ">რაიმე კურსის სათაური რომელიც არ აღემატება
             ორ ხაზს ...</p>
-    </div>
-    <div className="card__raiting">
-        <div className="card__raiting--container">
-            <div className="star">
-                <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M7.99401 1.41497C8.37173 0.714397 9.37673 0.714397 9.75445 1.41497L11.6834 4.99273C11.8354 5.27475 12.1134 5.46683 12.431 5.50933L16.5911 6.06603C17.4383 6.17941 17.762 7.23465 17.124 7.80355L14.2328 10.3818C13.9713 10.6149 13.8509 10.9679 13.9154 11.3123L14.6128 15.0348C14.7637 15.8405 13.9345 16.4755 13.1961 16.12L9.30804 14.248C9.03389 14.116 8.71457 14.116 8.44042 14.248L4.5524 16.12C3.81391 16.4755 2.98477 15.8405 3.13569 15.0348L3.83306 11.3123C3.89756 10.9679 3.77717 10.6149 3.5157 10.3818L0.624446 7.80355C-0.0135249 7.23465 0.310129 6.17941 1.15736 6.06603L5.31748 5.50933C5.63505 5.46683 5.91302 5.27475 6.06507 4.99273L7.99401 1.41497Z"
-                        fill="#FFD703" />
-                </svg>
+            </div>
+            <div className="card__raiting">
+                <div className="card__raiting--container">
+                    <div className="star">
+                        <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M7.99401 1.41497C8.37173 0.714397 9.37673 0.714397 9.75445 1.41497L11.6834 4.99273C11.8354 5.27475 12.1134 5.46683 12.431 5.50933L16.5911 6.06603C17.4383 6.17941 17.762 7.23465 17.124 7.80355L14.2328 10.3818C13.9713 10.6149 13.8509 10.9679 13.9154 11.3123L14.6128 15.0348C14.7637 15.8405 13.9345 16.4755 13.1961 16.12L9.30804 14.248C9.03389 14.116 8.71457 14.116 8.44042 14.248L4.5524 16.12C3.81391 16.4755 2.98477 15.8405 3.13569 15.0348L3.83306 11.3123C3.89756 10.9679 3.77717 10.6149 3.5157 10.3818L0.624446 7.80355C-0.0135249 7.23465 0.310129 6.17941 1.15736 6.06603L5.31748 5.50933C5.63505 5.46683 5.91302 5.27475 6.06507 4.99273L7.99401 1.41497Z"
+                                fill="#FFD703" />
+                        </svg>
 
+                    </div>
+                    <div className="numbers">
+                        <p className="Eina-semibold paragraph-small">4.5 (12)</p>
+                    </div>
+                </div>
+                <div className="card__raiting--name">
+                    <p className="heading-semi-bold-Noto  paragraph-small">ბექა არაბიძე</p>
+                </div>
             </div>
-            <div className="numbers">
-                <p className="Eina-semibold paragraph-small">4.5 (12)</p>
-            </div>
-        </div>
-        <div className="card__raiting--name">
-            <p className="heading-semi-bold-Noto  paragraph-small">ბექა არაბიძე</p>
-        </div>
-    </div>
-    <div className="card__like">
-        <label href="#" className="label heading-semi-bold-Noto paragraph-smallest">ბესტსელერი</label>
-        <svg viewBox="0 0 59 61" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div className="card__like">
+                <label href="#" className="label heading-semi-bold-Noto paragraph-smallest">ბესტსელერი</label>
+
+                <div className={addToFavorites ? "full-heart-svg" : "stroke-heart-svg" } onClick={() => setAddToFavorites(true)}></div>
+
+                {/* <svg viewBox="0 0 59 61" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d)">
                 <ellipse cx="29.7295" cy="23.4179" rx="18.27" ry="18.8669" fill="white" />
             </g>
@@ -51,9 +61,9 @@ return (
                     <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
                 </filter>
             </defs>
-        </svg>
+        </svg> */}
 
-    </div>
-</div>
-)
+            </div>
+        </div>
+    )
 }

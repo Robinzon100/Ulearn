@@ -7,9 +7,13 @@ export default function inputSearch({ placeHolder }) {
     return (
 
         <div className="input_container">
-            <input type="text" className="input_field-with-search input_styles"
+                <input type="text" 
+                className="input_field-with-search input-shadow input-shadow-onFocus input_styles paragraph-regular-Noto paragraph-small"
                 placeholder={placeHolder} />
-            <Search className="search" size={22} />
+
+            <Search 
+            className="search" 
+            size={22} />
         </div>
 
     )
