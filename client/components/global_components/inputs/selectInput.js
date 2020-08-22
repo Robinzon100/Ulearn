@@ -22,9 +22,9 @@ export default function selectInput() {
     </select> */}
 
 
-<div className="dropdown">
+<div className="dropdown input-shadow input-shadow-onFocus">
       <div className="dropdown-select">
-        <span className="select paragraph-regular-Noto paragraph-small">რეიტინგით</span>
+        <span className="select paragraph-regular-Noto paragraph-small">დახარისხება</span>
         {/* <i className="fa fa-caret-down icon"></i> */}
         {toggle ?   
            <motion.img 

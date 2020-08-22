@@ -79,7 +79,7 @@ const Navigation = (props) => {
                 <div className="logo_container">
                     <div className="logo"></div>
 
-                    <div className="input">
+                    <div className="input input-shadow input-shadow-onFocus">
                         <InputSearch placeHolder={placeHolder} />
                     </div>
                 </div>

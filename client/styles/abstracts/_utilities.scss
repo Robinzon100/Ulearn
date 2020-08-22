@@ -1,0 +1,9 @@
+.input-shadow {
+    box-shadow: $input;
+}
+.input-shadow-onFocus {
+    &:focus {
+        box-shadow: $input-onFocus;
+    }
+    
+}

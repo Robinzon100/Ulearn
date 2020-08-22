@@ -53,6 +53,59 @@
 }
 
 
+.btn-red {
+    background: $primary-red;
+    border: 1px solid $primary-blue;
+    transition: all .4s;
+
+    // &:hover {
+    //     background: $white;
+    //     color: $primary-blue;
+        
+    //     // border: 1px solid $primary-blue;
+    // }
+}
+
+
+
+.video-files {
+
+    &__link {
+        .btn-for-video-files {
+            background: $button-green-gradiend-forFile;
+            border-radius: 8px;
+            box-shadow: $box-shadow-for-video-files;
+            // width: 20rem;
+            // height: 5rem;
+            padding: 2.3rem;
+            text-decoration: none;
+            color: $white;
+            position: relative;
+        
+            // &:after {
+            //     content: "";
+            //     position: absolute;
+            //     background: no-repeat url("/pictures/courses/folder.svg");
+            //     background-size: cover;
+            //     background-position: center;
+            //     width: 2rem;
+            //     height: 2rem;
+            //     left: 0;
+            //     // top: 0;
+            // }
+        }
+    }
+    
+    
+
+    &__icon {
+        // background: no-repeat url("/pictures/courses/folder.svg");
+        // background-size: cover;
+        // background-position: center;
+        width: 2rem;
+        height: 2rem;
+    }
+}
 
 
 .label {

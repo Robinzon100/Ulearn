@@ -29,7 +29,7 @@ $white:#ffffff;
 /// GRADIENTS
 $button-blue-gradient:linear-gradient(116.21deg, #338EFF 49.31%, #0B6BD7 141.46%);
 $button-green-gradient:linear-gradient(109.89deg, #00E267 24.65%, #009E48 162.79%);
-
+$button-green-gradiend-forFile:linear-gradient(95.7deg, #009E48 -8.31%, #48AE7D 138.61%);
 
 
 // MAX WIDTH
@@ -43,9 +43,9 @@ $main-pading:0vw 3.8vw;
 /// BOX Shadow
 $box-shadow-for-btn-blue: 0px 30px 35px -20px rgba(51, 142, 255, 0.4);
 $box-shadow-for-navigation: 0px 3px 94px -20px rgba(0, 0, 0, 0.13);
-$input-with-search:0px 4.4px 12px rgba(17, 23, 53, 0.12);
-$input-with-search-onFocus:0px 0.9px 2px 1px rgba(99, 100, 105, 0.3);
-
+$input:0px 4.4px 12px rgba(17, 23, 53, 0.12);
+$input-onFocus:0px 0.9px 2px 1px rgba(99, 100, 105, 0.3);
+$box-shadow-for-video-files:0px 5.4px 23px rgba(0, 158, 72, 0.5);
 
 
 
