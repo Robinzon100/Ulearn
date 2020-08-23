@@ -17,7 +17,7 @@ const NavLink = (props) => {
     const { route, title, children } = props;
     return (
         <Link href={route}>
-            <a classNameName='paragraph-medium heading-semi-bold'>{title}
+            <a className='menu--list--items--links  paragraph-regular-Noto paragraph-medium-small'>{title}
                 {children}
             </a>
         </Link>
@@ -92,19 +92,23 @@ const Navigation = (props) => {
                         <ul className="menu--list">
 
                             <li className="menu--list--items">
-                                <a href="#" title="courses" className="menu--list--items--links paragraph-regular-Noto paragraph-medium-small">კურსები</a>
+                                <NavLink route="/courses" title="კურსები"/>
+                                {/* <a href="#" title="courses" className="menu--list--items--links paragraph-regular-Noto paragraph-medium-small">კურსები</a> */}
                             </li>
                             <li className="menu--list--items">
-                                <a href="#" title="lecturer" className="menu--list--items--links paragraph-regular-Noto paragraph-medium-small">გახდი ლექტორი</a>
+                                <NavLink route="/lecturers" title="გახდი ლექტორი"/>
+                                {/* <a href="#" title="lecturer" className="menu--list--items--links paragraph-regular-Noto paragraph-medium-small">გახდი ლექტორი</a> */}
                             </li>
                             {/* <li className="menu--list--items">
                                 <a href="#" title="sign" className="menu--list--items--links paragraph-regular-Noto paragraph-medium-small">შესვლა</a>
                             </li> */}
                             <li className="menu--list--items">
-                                <a href="#" title="About" className="menu--list--items--links paragraph-regular-Noto paragraph-medium-small">ჩვენს კურსები</a>
+                                <NavLink route="/courses" title="ჩვენი კურსები"/>
+                                {/* <a href="#" title="About" className="menu--list--items--links paragraph-regular-Noto paragraph-medium-small">ჩვენს კურსები</a> */}
                             </li>
                             <li className="menu--list--items">
-                                <a href="#" title="contact" className="menu--list--items--links paragraph-regular-Noto paragraph-medium-small">ჩვენს შესახებ</a>
+                            <NavLink route="/about" title="ჩვენს შესახებ"/>
+                                {/* <a href="#" title="contact" className="menu--list--items--links paragraph-regular-Noto paragraph-medium-small">ჩვენს შესახებ</a> */}
                             </li>
 
                         </ul>

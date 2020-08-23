@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function MainCards() {
+export default function MainCards({price,title,author,rating,bestseller}) {
     const [addToFavorites, setAddToFavorites] = useState(false);
     return (
 
@@ -8,7 +8,7 @@ export default function MainCards() {
             <a href="#">
                 <div className="card__img">
                     <div className="price">
-                    <p className="Eina-semibold paragraph-big">15<span style={{color:"#00E267",fontWeight:"bold"}}>&#8382;</span></p>
+                    <p className="Eina-semibold paragraph-big">{price}<span style={{color:"#00E267",fontWeight:"bold"}}>&#8382;</span></p>
                         
                     </div>
                 </div>
@@ -16,8 +16,7 @@ export default function MainCards() {
             </a>
 
             <div className="card__title">
-                <p className="heading-bold-Noto paragraph-medium ">რაიმე კურსის სათაური რომელიც არ აღემატება
-            ორ ხაზს ...</p>
+                <p className="heading-bold-Noto paragraph-medium ">{title}</p>
             </div>
             <div className="card__raiting">
                 <div className="card__raiting--container">
@@ -30,15 +29,15 @@ export default function MainCards() {
 
                     </div>
                     <div className="numbers">
-                        <p className="Eina-semibold paragraph-small">4.5 (12)</p>
+                        <p className="Eina-semibold paragraph-small">{rating}</p>
                     </div>
                 </div>
                 <div className="card__raiting--name">
-                    <p className="heading-semi-bold-Noto  paragraph-small">ბექა არაბიძე</p>
+                        <p className="heading-semi-bold-Noto  paragraph-small">{author}</p>
                 </div>
             </div>
             <div className="card__like">
-                <label href="#" className="label heading-semi-bold-Noto paragraph-smallest">ბესტსელერი</label>
+                <label href="#" className="label heading-semi-bold-Noto paragraph-smallest">{bestseller}</label>
 
                 <div className={addToFavorites ? "full-heart-svg" : "stroke-heart-svg" } onClick={() => setAddToFavorites(true)}></div>
 

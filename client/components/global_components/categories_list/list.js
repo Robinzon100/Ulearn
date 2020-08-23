@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { ChevronRight } from 'react-feather';
 
 
-export default function list() {
+export default function list({ title, subtitle }) {
     return (
         <Fragment>
             <div className="list">
@@ -11,24 +11,24 @@ export default function list() {
                         <ChevronRight />
                     </div>
                     <div className="list__container--name">
-                        <p className="paragraph-regular-Noto paragraph-medium">დეველოპმენტი</p>
+                        <div className="title">
+                            <p className="paragraph-regular-Noto paragraph-medium">{title}</p>
+                            <div className="check"></div>
+                        </div>
 
                         <div className="inside_list">
                             <ul>
                                 <li>
-                                    <p className="paragraph-regular-Noto paragraph-medium-small">სერვის-მენეჯმენტი</p>
+                                    <p className="paragraph-regular-Noto paragraph-medium-small">{subtitle}</p>
                                     <div className="check"></div>
                                 </li>
-                                <li>
-                                    <p className="paragraph-regular-Noto paragraph-medium-small">ნეთვორქინგი</p>
-                                    <div className="check"></div>
-                                </li>
+
                             </ul>
                         </div>
                     </div>
 
                 </div>
-                <div className="check"></div>
+
             </div>
         </Fragment>
     )

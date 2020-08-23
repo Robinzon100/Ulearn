@@ -9,6 +9,7 @@ import List from "components/global_components/categories_list/list";
 
 
 export default function main_content() {
+
     const [placeHolder, setPlaceHolder] = useState("მოძებნე სასურველი კურსი")
 
     return (
@@ -21,7 +22,11 @@ export default function main_content() {
                         </div>
 
                         {/* //! ეს არის ლისტები მთავარ გვერძე რაც არის მარცხნივ */}
-                        <List />
+                        <List 
+                            title="დეველოპმენტი"
+                            subtitle="სერვის-მენეჯმენტი"
+                            
+                        />
                         {/* <List /> */}
 
                     </div>
@@ -55,14 +60,81 @@ export default function main_content() {
                         </div>
                         <div className="courses--cards">
                             {/* //! ეს არის მთავარი გვერდზე რაც კარტებია */}
-                            <MainContentCard />
-                            <MainContentCard />
-                            <MainContentCard />
-                            <MainContentCard />
-                            <MainContentCard />
-                            <MainContentCard />
-                            <MainContentCard />
-                            <MainContentCard />
+
+                            {/* //! აქ კიდევ აკლია სურათის და მოწონების პროპი,როცა ბაზიდან წამოვა მაშინ ჩავამატებ  */}
+                            <MainContentCard 
+                            title="რაიმე კურსის სათაური რომელიც არ აღემატება
+                                    ორ ხაზს ..." 
+                            author="ბექა არაბიძე" 
+                            rating="4.5(12)"
+                            bestseller="ბესტსელერი"
+                            price="15"
+                            
+                            />
+                            <MainContentCard 
+                            title="რაიმე კურსის სათაური რომელიც არ აღემატება
+                                    ორ ხაზს ..." 
+                            author="ბექა არაბიძე" 
+                            rating="4.5(12)"
+                            bestseller="ბესტსელერი"
+                            price="15"
+                            
+                            />
+                            <MainContentCard 
+                            title="რაიმე კურსის სათაური რომელიც არ აღემატება
+                                    ორ ხაზს ..." 
+                            author="ბექა არაბიძე" 
+                            rating="4.5(12)"
+                            bestseller="ბესტსელერი"
+                            price="15"
+                            
+                            />
+                            <MainContentCard 
+                            title="რაიმე კურსის სათაური რომელიც არ აღემატება
+                                    ორ ხაზს ..." 
+                            author="ბექა არაბიძე" 
+                            rating="4.5(12)"
+                            bestseller="ბესტსელერი"
+                            price="15"
+                            
+                            />
+                            <MainContentCard 
+                            title="რაიმე კურსის სათაური რომელიც არ აღემატება
+                                    ორ ხაზს ..." 
+                            author="ბექა არაბიძე" 
+                            rating="4.5(12)"
+                            bestseller="ბესტსელერი"
+                            price="15"
+                            
+                            />
+                            <MainContentCard 
+                            title="რაიმე კურსის სათაური რომელიც არ აღემატება
+                                    ორ ხაზს ..." 
+                            author="ბექა არაბიძე" 
+                            rating="4.5(12)"
+                            bestseller="ბესტსელერი"
+                            price="15"
+                            
+                            />
+                            <MainContentCard 
+                            title="რაიმე კურსის სათაური რომელიც არ აღემატება
+                                    ორ ხაზს ..." 
+                            author="ბექა არაბიძე" 
+                            rating="4.5(12)"
+                            bestseller="ბესტსელერი"
+                            price="15"
+                            
+                            />
+                            <MainContentCard 
+                            title="რაიმე კურსის სათაური რომელიც არ აღემატება
+                                    ორ ხაზს ..." 
+                            author="ბექა არაბიძე" 
+                            rating="4.5(12)"
+                            bestseller="ბესტსელერი"
+                            price="15"
+                            
+                            />
+                            
 
                         </div>
                     </div>

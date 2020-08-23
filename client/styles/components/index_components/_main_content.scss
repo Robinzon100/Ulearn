@@ -49,6 +49,10 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
                     margin-left: .5vw;
                     width: 100%;
 
+                    .title {
+                        @include flex;
+                    }
+
 
                     .inside_list {
                         // width: 100%;
