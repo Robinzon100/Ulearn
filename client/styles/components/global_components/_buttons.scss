@@ -13,7 +13,7 @@
     border: none;
     color: $white;
     outline: none;
-    font-family: $paragraph-regular;
+    // font-family: $paragraph-regular;
 
 }
 
@@ -65,6 +65,21 @@
     //     // border: 1px solid $primary-blue;
     // }
 }
+
+.btn-white {
+    background: $white;
+    border: 1px solid $primary-blue;
+    transition: all .4s;
+
+    // &:hover {
+    //     background: $white;
+    //     color: $primary-blue;
+        
+    //     // border: 1px solid $primary-blue;
+    // }
+}
+
+
 
 
 

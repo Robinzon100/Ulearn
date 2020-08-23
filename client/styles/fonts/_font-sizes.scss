@@ -19,7 +19,7 @@
 
 
 .paragraph-medium-small {
-    font-size: calc(14px + (17 - 14) * ((100vw - 300px) / (1900 - 700))) !important;
+    font-size: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
 }
 
 
@@ -70,7 +70,7 @@
 
 // ====================== IN VARIABLES
 $paragraph-biggest: calc(16px + (22 - 16) * ((100vw - 300px) / (1900 - 700))) !important;
-$paragraph-big: calc(16px + (18 - 16) * ((100vw - 300px) / (1900 - 700))) !important;
+$paragraph-big: calc(12px + (18 - 12) * ((100vw - 300px) / (1900 - 700))) !important;
 
 $paragraph: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
 

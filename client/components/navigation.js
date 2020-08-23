@@ -79,7 +79,7 @@ const Navigation = (props) => {
                 <div className="logo_container">
                     <div className="logo"></div>
 
-                    <div className="input input-shadow input-shadow-onFocus">
+                    <div className="input">
                         <InputSearch placeHolder={placeHolder} />
                     </div>
                 </div>
@@ -97,14 +97,14 @@ const Navigation = (props) => {
                             <li className="menu--list--items">
                                 <a href="#" title="lecturer" className="menu--list--items--links paragraph-regular-Noto paragraph-medium-small">გახდი ლექტორი</a>
                             </li>
-                            <li className="menu--list--items">
+                            {/* <li className="menu--list--items">
                                 <a href="#" title="sign" className="menu--list--items--links paragraph-regular-Noto paragraph-medium-small">შესვლა</a>
+                            </li> */}
+                            <li className="menu--list--items">
+                                <a href="#" title="About" className="menu--list--items--links paragraph-regular-Noto paragraph-medium-small">ჩვენს კურსები</a>
                             </li>
                             <li className="menu--list--items">
-                                <a href="#" title="About" className="menu--list--items--links paragraph-regular-Noto paragraph-medium-small">ჩვენს შესახებ</a>
-                            </li>
-                            <li className="menu--list--items">
-                                <a href="#" title="contact" className="menu--list--items--links paragraph-regular-Noto paragraph-medium-small">კონტაქტი</a>
+                                <a href="#" title="contact" className="menu--list--items--links paragraph-regular-Noto paragraph-medium-small">ჩვენს შესახებ</a>
                             </li>
 
                         </ul>

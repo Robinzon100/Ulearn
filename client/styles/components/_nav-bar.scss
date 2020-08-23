@@ -1,5 +1,5 @@
 
-$logo_container_width:48%;
+$logo_container_width:47%;
 $menu_container-width:55%;
 
 .header {
@@ -41,7 +41,7 @@ $menu_container-width:55%;
         
         .input {
             width: 100%;
-            margin: 0vw 1.3vw;
+            margin: 0vw 1vw;
 
           
         }
@@ -66,6 +66,7 @@ $menu_container-width:55%;
         }
         .cart {
             transform: rotateY(-180deg);
+            // margin: 0vw 0.5vw;
 
             a {
                 text-decoration: none;
@@ -99,7 +100,7 @@ $menu_container-width:55%;
                     display: inline-block;
     
                     &:not(:last-child) {
-                        margin-right: 1.5vw;
+                        margin-right: 2vw;
                     }
     
                     &--links {
@@ -118,9 +119,5 @@ $menu_container-width:55%;
             }
         }
     }
-    
-   
-
-  
 }
 
