@@ -103,7 +103,7 @@ const Navigation = (props) => {
                                 <a href="#" title="sign" className="menu--list--items--links paragraph-regular-Noto paragraph-medium-small">შესვლა</a>
                             </li> */}
                             <li className="menu--list--items">
-                                <NavLink route="/courses" title="ჩვენი კურსები"/>
+                                <NavLink route="/ourCourses" title="ჩვენი კურსები"/>
                                 {/* <a href="#" title="About" className="menu--list--items--links paragraph-regular-Noto paragraph-medium-small">ჩვენს კურსები</a> */}
                             </li>
                             <li className="menu--list--items">
