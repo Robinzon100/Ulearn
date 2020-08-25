@@ -27,6 +27,7 @@ export default function main_content() {
                             subtitle="სერვის-მენეჯმენტი"
                             
                         />
+                       
                         {/* <List /> */}
 
                     </div>
@@ -68,7 +69,7 @@ export default function main_content() {
                             author="ბექა არაბიძე" 
                             rating="4.5(12)"
                             bestseller="ბესტსელერი"
-                            price="15"
+                            price="20"
                             
                             />
                             <MainContentCard 
@@ -77,7 +78,7 @@ export default function main_content() {
                             author="ბექა არაბიძე" 
                             rating="4.5(12)"
                             bestseller="ბესტსელერი"
-                            price="15"
+                            price="20"
                             
                             />
                             <MainContentCard 
@@ -86,7 +87,7 @@ export default function main_content() {
                             author="ბექა არაბიძე" 
                             rating="4.5(12)"
                             bestseller="ბესტსელერი"
-                            price="15"
+                            price="20"
                             
                             />
                             <MainContentCard 
@@ -95,7 +96,7 @@ export default function main_content() {
                             author="ბექა არაბიძე" 
                             rating="4.5(12)"
                             bestseller="ბესტსელერი"
-                            price="15"
+                            price="20"
                             
                             />
                             <MainContentCard 
@@ -104,7 +105,7 @@ export default function main_content() {
                             author="ბექა არაბიძე" 
                             rating="4.5(12)"
                             bestseller="ბესტსელერი"
-                            price="15"
+                            price="20"
                             
                             />
                             <MainContentCard 
@@ -113,7 +114,7 @@ export default function main_content() {
                             author="ბექა არაბიძე" 
                             rating="4.5(12)"
                             bestseller="ბესტსელერი"
-                            price="15"
+                            price="20"
                             
                             />
                             <MainContentCard 
@@ -122,7 +123,7 @@ export default function main_content() {
                             author="ბექა არაბიძე" 
                             rating="4.5(12)"
                             bestseller="ბესტსელერი"
-                            price="15"
+                            price="20"
                             
                             />
                             <MainContentCard 
@@ -131,7 +132,7 @@ export default function main_content() {
                             author="ბექა არაბიძე" 
                             rating="4.5(12)"
                             bestseller="ბესტსელერი"
-                            price="15"
+                            price="20"
                             
                             />
                             
@@ -145,7 +146,7 @@ export default function main_content() {
             <div className="video-files__icon">
                 <svg width="46" height="40" viewBox="0 0 46 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
-                        d="M45.7392 35.3447C45.7392 36.5164 45.2573 37.6402 44.3995 38.4687C43.5418 39.2973 42.3784 39.7627 41.1653 39.7627H4.57392C3.36084 39.7627 2.19745 39.2973 1.33967 38.4687C0.481894 37.6402 0 36.5164 0 35.3447V4.41808C0 3.24633 0.481894 2.12258 1.33967 1.29403C2.19745 0.465475 3.36084 0 4.57392 0H14.4341C15.4201 0 16.3431 0.484464 16.9031 1.29592L19.6882 5.3312C20.2483 6.14266 21.1713 6.62712 22.1572 6.62712H41.1653C42.3784 6.62712 43.5418 7.0926 44.3995 7.92115C45.2573 8.7497 45.7392 9.87346 45.7392 11.0452V35.3447Z"
+                        d="M45.7392 35.3447C45.7392 36.5164 45.2573 37.6402 44.3995 38.4687C43.5418 39.2973 42.3784 39.7627 41.1653 39.7627H4.57392C3.36084 39.7627 2.19745 39.2973 1.33967 38.4687C0.481894 37.6402 0 36.5164 0 35.3447V4.41808C0 3.24633 0.481894 2.12258 1.33967 1.29403C2.19745 0.465475 3.36084 0 4.57392 0H14.4341C20.4201 0 16.3431 0.484464 16.9031 1.29592L19.6882 5.3312C20.2483 6.14266 21.1713 6.62712 22.2072 6.62712H41.1653C42.3784 6.62712 43.5418 7.0926 44.3995 7.92120C45.2573 8.7497 45.7392 9.87346 45.7392 11.0452V35.3447Z"
                         fill="url(#paint0_linear)" />
                     <defs>
                         <linearGradient id="paint0_linear" x1="-5.33124e-07" y1="1.52703" x2="44.375" y2="41.2854"

@@ -7,3 +7,78 @@
     }
     
 }
+
+//! ფასის სტილები მთავარ გვედზე რომ არის
+.normal-price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+    width: 6rem;
+    height: 4rem;
+    background-color: $white;
+    color: $primary-dark;
+    border-radius: 8px 0px 15px;
+
+}
+
+.removed-price-tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: -1rem;
+    position: relative;
+    width: 6rem;
+    height: 4rem;
+    background-color: $white;
+    color: $primary-dark;
+    border-radius: 8px 0px 0px;
+
+    p {
+        opacity: 60%;
+    }
+
+    &:after {
+        content:"";
+        position: absolute;
+        width: 4.4rem;
+        height: .3rem;
+        background-color: $primary-red;
+        top: 2rem;
+        opacity: 60%;
+    }
+}
+//! CHECKBOX on Index
+
+.outside-list-check {
+    @include checkbox;
+}
+
+.inside-list-check {
+    @include checkbox;
+}
+
+
+.checked-checkbox {
+    width: 2rem;
+    height: 2rem;
+    background: no-repeat url("/pictures/courses/checkbox__checked_black.svg");
+    background-size: cover;
+    background-position: center;
+}
+
+//! CHECKBOX on Index
+
+
+
+.clip-path-hide {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%) !important;
+    height: 0;
+    // opacity: 0;
+}
+
+.clip-path-reveal {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    height: auto;
+    // opacity: 1;
+}

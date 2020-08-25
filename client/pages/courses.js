@@ -8,7 +8,7 @@ export default function Courses() {
         <Fragment>
             <BaseLayout>
 
-                <div className="courses">
+                <div className="courses-page">
                     <div className="courses-container">
                         <div className="section-courses">
                             <div className="section-courses--about">

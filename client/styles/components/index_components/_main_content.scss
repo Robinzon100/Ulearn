@@ -25,7 +25,7 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
             display: flex;
             justify-content: space-between;
             margin-top: 5rem;
-            
+
             // //! ამას კარდა მეორესი ყველა მარგინს აძლევს
             // &:not(:nth-child(2)) {
             //     margin-top: 1.8vw;
@@ -34,55 +34,64 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
             // &:nth-child(2) {
             //     margin-top: 5.3vw;
             // }
-               
+
 
             &__container {
-                display: flex;
+                // display: flex;
                 // justify-content: space-between;
                 width: 100%;
 
-                &--arrow {
-                    margin-top: .3vw;
-                }
+                .course-list {
+                    display: flex;
 
-                &--name {
-                    margin-left: .5vw;
-                    width: 100%;
-
-                    .title {
-                        @include flex;
+                    &--arrow {
+                        margin-top: .3vw;
+                        cursor: pointer;
+                        // transform: rotateZ(90deg);
+                        
                     }
+    
+                    &--name {
+                        margin-left: .5vw;
+                        width: 100%;
+    
+                        .title {
+                            @include flex;
+                        }
+    
+    
+                        .inside_list {
+                            // width: 100%;
+                            // height: auto;
+                            // margin-left: 1.5vw;
+                            transition: all .3s;
+    
+                            ul {
+                                list-style-type: none !important;
+                                margin-top: .5vw;
+    
+                                li {
+                                    width: 100%;
+                                    
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
 
+                                    // .check {
+                                    //     opacity: 70%;
+                                    // }
 
-                    .inside_list {
-                        // width: 100%;
-                        // height: auto;
-                        // margin-left: 1.5vw;
-
-                        ul {
-                            list-style-type: none !important;
-
-                            li {
-                                width: 100%;
-                                margin-top: .8vw;
-                                display: flex;
-                                justify-content:space-between;
-                                align-items: center;
+                                }
                             }
                         }
                     }
-                }
+                }   
+
+                
             }
 
-            .check {
-                border: 1px solid black;
-                border-radius:5px;
-                width: 2rem;
-                height: 2rem;
-                cursor: pointer;
-                margin-left: -2rem;
-            }
-           
+            
+
         }
     }
 
@@ -99,7 +108,7 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
             bottom: 0;
             height: 25vw;
             z-index: 1;
-            
+
 
             .wrapper {
                 display: flex;
@@ -131,7 +140,7 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
 
             .input_styles {
                 width: 96% !important;
-                
+
                 letter-spacing: 1px;
                 font-weight: normal;
             }
@@ -184,24 +193,19 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
                     border-radius: 18px;
                     position: relative;
 
-                    .price {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
+                    .price-tag {
                         right: 0;
                         bottom: 0;
                         position: absolute;
-                        width: 6rem;
-                        height: 4rem;
-                        background-color: $white;
-                        color: $primary-dark;
-                        border-radius: 8px 0px 15px;
-
-                        
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
                     }
+
+
                 }
 
-                
+
 
                 &__raiting {
                     @include flex;
@@ -249,7 +253,7 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
                         background-size: cover;
                         background-position: center;
                         cursor: pointer;
-                    }   
+                    }
                 }
             }
 

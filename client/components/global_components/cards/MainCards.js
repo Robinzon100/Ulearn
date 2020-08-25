@@ -1,18 +1,19 @@
 import React, { useState } from 'react'
+import Price from "components/global_components/price/price";
 
-export default function MainCards({price,title,author,rating,bestseller}) {
+
+
+export default function MainCards({ price, title, author, rating, bestseller }) {
     const [addToFavorites, setAddToFavorites] = useState(false);
+
     return (
 
         <div className="card">
             <a href="#">
                 <div className="card__img">
-                    <div className="price">
-                    <p className="Eina-semibold paragraph-big">{price}<span style={{color:"#00E267",fontWeight:"bold"}}>&#8382;</span></p>
-                        
-                    </div>
+                   <Price price={price}/>
                 </div>
-                
+
             </a>
 
             <div className="card__title">
@@ -33,13 +34,13 @@ export default function MainCards({price,title,author,rating,bestseller}) {
                     </div>
                 </div>
                 <div className="card__raiting--name">
-                        <p className="heading-semi-bold-Noto  paragraph-small">{author}</p>
+                    <p className="heading-semi-bold-Noto  paragraph-small">{author}</p>
                 </div>
             </div>
             <div className="card__like">
                 <label href="#" className="label heading-semi-bold-Noto paragraph-smallest">{bestseller}</label>
 
-                <div className={addToFavorites ? "full-heart-svg" : "stroke-heart-svg" } onClick={() => setAddToFavorites(true)}></div>
+                <div className={addToFavorites ? "full-heart-svg" : "stroke-heart-svg"} onClick={() => setAddToFavorites(true)}></div>
 
                 {/* <svg viewBox="0 0 59 61" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d)">
