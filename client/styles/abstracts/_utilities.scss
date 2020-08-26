@@ -50,6 +50,10 @@
 }
 //! CHECKBOX on Index
 
+.side-menu-checkbox {
+    @include checkbox;
+}
+
 .outside-list-check {
     @include checkbox;
 }
@@ -82,3 +86,38 @@
     height: auto;
     // opacity: 1;
 }
+
+//! BORDER
+.gray-border {
+    // opacity: 0.5;
+    border-bottom:1px solid $secondary-dark-grey;
+}
+.blue-border {
+    border-bottom:1px solid $primary-blue;
+    filter: blur(9px);
+}
+.yellow-border {
+    border-bottom:1px solid $primary-yellow;
+    filter: blur(9px);
+}
+
+.yellow-border {
+    border-bottom:1px solid $primary-green;
+    filter: blur(9px);
+}
+
+.yellow-border {
+    border-bottom:1px solid $primary-red;
+    filter: blur(9px);
+}
+
+
+// .border-blue {
+//     opacity: 0.47;
+//     // border: 2px solid rgb(51, 142, 255);
+//     filter: blur(9px);
+//     border-image: linear-gradient(to right, rgb(51, 142, 255));
+//     border-image-slice: 100%;
+//     border-image-width: 1;
+//     border-image-slice: 1;
+// }

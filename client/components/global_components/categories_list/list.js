@@ -7,7 +7,9 @@ import { ChevronRight } from 'react-feather';
 export default function list({ title, subtitle }) {
     const [revealSubList, setRevealSubList] = useState(false)
 
-    const [checkCheckBox, setCheckCheckBox] = useState(false)
+    const [checkBox, setCheckBox] = useState(false)
+
+   
 
     const ref = useRef();
 
@@ -18,6 +20,31 @@ export default function list({ title, subtitle }) {
 
         // if(currentRef.classList.contains)
     }
+
+    const handleSetCheckBox = () => {
+        // debugger;
+        // const sideMenuCheckbox = document.getElementsByClassName("side-menu-checkbox");
+        // const outsideListCheck = document.getElementsByClassName("outside-list-check");
+
+        // const sideMenuCheckbox = ref.current;
+        // const outsideListCheck = ref.current;
+
+        // if(sideMenuCheckbox.classList.contains("checked-checkbox")) {
+        //     outsideListCheck.classList.remove("checked-checkbox");
+        //     outsideListCheck.classList.add("outside-list-check");
+           
+        // }else {
+        //     outsideListCheck.classList.add("checked-checkbox");
+        //     outsideListCheck.classList.remove("outside-list-check");
+        // }
+
+
+        // outsideListCheck.classList.add("checked-checkbox");
+        // outsideListCheck.classList.remove("outside-list-check");
+        
+        setCheckBox((checkBox) => !checkBox);
+    }
+
 
 
     return (
@@ -41,7 +68,7 @@ export default function list({ title, subtitle }) {
                                 <motion.div
                                     onClick={handleReveal}
                                     animate={{ rotate: 0 }}
-                                    transition={{ duration: 0.3 }}
+                                    
                                 >
                                     <ChevronRight />
                                 </motion.div>
@@ -52,9 +79,10 @@ export default function list({ title, subtitle }) {
 
                         </div>
                         <div className="course-list--name">
-                            <div className="title">
+                            <div id="uniqueTitle" className="title">
                                 <p className="paragraph-regular-Noto paragraph-medium">{title}</p>
-                                <div className="outside-list-check"></div>
+                                {/* //! side menu checkbox changing */}
+                                <div ref={ref}  className={checkBox ? "checked-checkbox" : "side-menu-checkbox" } onClick={handleSetCheckBox}></div>
                             </div>
 
 
@@ -65,7 +93,7 @@ export default function list({ title, subtitle }) {
                                 <ul>
                                     <li>
                                         <p className="paragraph-regular-Noto paragraph-medium-small">{subtitle}</p>
-                                        <div className="inside-list-check"></div>
+                                        <div ref={ref} className="outside-list-check"></div>
                                     </li>
 
                                 </ul>

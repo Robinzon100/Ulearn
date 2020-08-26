@@ -70,7 +70,7 @@ export default function main_content() {
                             rating="4.5(12)"
                             bestseller="ბესტსელერი"
                             price="20"
-                            
+                            newPrice="15"
                             />
                             <MainContentCard 
                             title="რაიმე კურსის სათაური რომელიც არ აღემატება
@@ -79,7 +79,7 @@ export default function main_content() {
                             rating="4.5(12)"
                             bestseller="ბესტსელერი"
                             price="20"
-                            
+                            newPrice="15"
                             />
                             <MainContentCard 
                             title="რაიმე კურსის სათაური რომელიც არ აღემატება
@@ -88,7 +88,7 @@ export default function main_content() {
                             rating="4.5(12)"
                             bestseller="ბესტსელერი"
                             price="20"
-                            
+                            newPrice="15"
                             />
                             <MainContentCard 
                             title="რაიმე კურსის სათაური რომელიც არ აღემატება
@@ -97,7 +97,7 @@ export default function main_content() {
                             rating="4.5(12)"
                             bestseller="ბესტსელერი"
                             price="20"
-                            
+                            newPrice="15"
                             />
                             <MainContentCard 
                             title="რაიმე კურსის სათაური რომელიც არ აღემატება
@@ -106,7 +106,7 @@ export default function main_content() {
                             rating="4.5(12)"
                             bestseller="ბესტსელერი"
                             price="20"
-                            
+                            newPrice="15"
                             />
                             <MainContentCard 
                             title="რაიმე კურსის სათაური რომელიც არ აღემატება
@@ -115,7 +115,7 @@ export default function main_content() {
                             rating="4.5(12)"
                             bestseller="ბესტსელერი"
                             price="20"
-                            
+                            newPrice="15"
                             />
                             <MainContentCard 
                             title="რაიმე კურსის სათაური რომელიც არ აღემატება
@@ -124,7 +124,7 @@ export default function main_content() {
                             rating="4.5(12)"
                             bestseller="ბესტსელერი"
                             price="20"
-                            
+                            newPrice="15"
                             />
                             <MainContentCard 
                             title="რაიმე კურსის სათაური რომელიც არ აღემატება
@@ -133,7 +133,7 @@ export default function main_content() {
                             rating="4.5(12)"
                             bestseller="ბესტსელერი"
                             price="20"
-                            
+                            newPrice="15"
                             />
                             
 

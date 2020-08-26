@@ -40,10 +40,41 @@
 
             &--tablist {
                 @include flex;
+                margin: 3rem auto;
+                padding: 0 1.5vw;
+                width: 68%;
+                position: relative;
 
                 .flex-container {
                     @include flex
+
                 }
+
+                .four-color-border{
+                    padding: 1vw 0;
+                    position: relative;
+
+                   
+                }
+
+                .tablist_description  {
+
+                    &--heading {
+                        margin-left: .8vw;
+                    }
+                }
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    background-color: $primary-red;
+                    width: 20%;
+                    height: 3%;
+                    filter: blur(1px);
+                    bottom: -2px;
+                    left: 0;
+                }
+                
             }
         }
     }

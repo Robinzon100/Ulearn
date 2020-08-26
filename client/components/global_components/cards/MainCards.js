@@ -1,17 +1,35 @@
 import React, { useState } from 'react'
-import Price from "components/global_components/price/price";
 
 
 
-export default function MainCards({ price, title, author, rating, bestseller }) {
+export default function MainCards({ price, title, author, rating, bestseller, newPrice }) {
     const [addToFavorites, setAddToFavorites] = useState(false);
+
+    const [checkNewPrice, setCheckNewPrice] = useState(false);
+
+    const handleCheckNewPrice = () => {
+        setCheckNewPrice(true);
+    }
+
+    const handleSetAddToFavorites = () => {
+        
+    }
 
     return (
 
         <div className="card">
             <a href="#">
                 <div className="card__img">
-                   <Price price={price}/>
+                    <div className="price-tag">
+
+                        {!checkNewPrice ? <div className="removed-price-tag">
+                            <p className="Eina-semibold paragraph-big">{newPrice}<span style={{ color: "#00E267", fontWeight: "bold" }}>&#8382;</span></p>
+                        </div> : null}
+
+                        <div className="normal-price">
+                            <p className="Eina-semibold paragraph-big">{price}<span style={{ color: "#00E267", fontWeight: "bold" }}>&#8382;</span></p>
+                        </div>
+                    </div>
                 </div>
 
             </a>
@@ -40,7 +58,7 @@ export default function MainCards({ price, title, author, rating, bestseller }) 
             <div className="card__like">
                 <label href="#" className="label heading-semi-bold-Noto paragraph-smallest">{bestseller}</label>
 
-                <div className={addToFavorites ? "full-heart-svg" : "stroke-heart-svg"} onClick={() => setAddToFavorites(true)}></div>
+                <div className={addToFavorites ? "full-heart-svg" : "stroke-heart-svg"} onClick={() => setAddToFavorites((addToFavorites) => !addToFavorites)}></div>
 
                 {/* <svg viewBox="0 0 59 61" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d)">
