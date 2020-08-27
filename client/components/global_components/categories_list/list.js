@@ -9,6 +9,7 @@ export default function list({ title, subtitle }) {
 
     const [checkBox, setCheckBox] = useState(false)
 
+    const [subListCheckBox, setSubListCheckBox] = useState(false)
    
 
     const ref = useRef();
@@ -23,8 +24,8 @@ export default function list({ title, subtitle }) {
 
     const handleSetCheckBox = () => {
         // debugger;
-        // const sideMenuCheckbox = document.getElementsByClassName("side-menu-checkbox");
-        // const outsideListCheck = document.getElementsByClassName("outside-list-check");
+        // const sideMenuCheckbox = document.querySelectorAll(".side-menu-checkbox");
+        // const outsideListCheck = document.querySelectorAll(".outside-list-check");
 
         // const sideMenuCheckbox = ref.current;
         // const outsideListCheck = ref.current;
@@ -43,6 +44,10 @@ export default function list({ title, subtitle }) {
         // outsideListCheck.classList.remove("outside-list-check");
         
         setCheckBox((checkBox) => !checkBox);
+    }
+
+    const handleSubListCheckBox = () => {
+        setSubListCheckBox((subListCheckBox) => !subListCheckBox);
     }
 
 
@@ -93,9 +98,10 @@ export default function list({ title, subtitle }) {
                                 <ul>
                                     <li>
                                         <p className="paragraph-regular-Noto paragraph-medium-small">{subtitle}</p>
-                                        <div ref={ref} className="outside-list-check"></div>
+                                        <div   className="outside-list-check"></div>
                                     </li>
 
+                                 
                                 </ul>
                             </div>
                         </div>

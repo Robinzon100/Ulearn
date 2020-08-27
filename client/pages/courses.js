@@ -1,9 +1,48 @@
-import React, { Fragment } from 'react'
+import React, { Fragment,useState,useRef } from 'react'
 import { Eye } from 'react-feather';
 import BaseLayout from "components/base-layout";
 
 
 export default function Courses() {
+
+    const ref = useRef();
+
+    // //! ეს არის რაც მერე ბაზიდან რომ წამოვა ის კონტენტის მაგალითი
+    // const [revealContent, setRevealContent] = useState([
+    //     "beqa",
+    //     "robo",
+    //     "levani",
+    //     "saba"
+    // ])
+    // //! ეს არის ის სახელები რაც კურსის გვერდზე კატეგორიებს რომ ჰქვია
+    // const [names, setNames] = useState([
+    //     "აღწერა",
+    //     "კითხვა-პასუხი",
+    //     "რესურსები",
+    //     "შეფასებები"
+    // ])
+
+    // //! აქ ჩავარდება ყველა ის html რაც წამოვა ბაზიდან
+    // const [revealHtml, setRevealHtml] = useState("");
+    // //! ეს ყოცველი შემთხვევისთვის იყოს. თუ რამე დეფაულტად იქნება
+    // //! ტექსტი თავიდანვე მაგისთვისაა. პაქტობრივად არაფერს აკეთებს ამ წამს
+    // const [defaultText, setDefaultText] = useState(true)
+
+    // const getHtml = (e) => {
+    //     // debugger;
+    //     if(e.currentTarget.attributes["data-title"]) {
+    //         //** აქ ვიღებთ ყველა იმს კონტენტს დატა-ატრიბუტის საშუალებით */
+    //         const htmlContent = e.currentTarget.attributes["data-title"].nodeValue;
+
+    //         const currentText = ref.current.childNodes;
+
+    //         //** აქ ვარდება ის კონტენტი */
+    //         setRevealHtml(htmlContent);
+    //     }
+    // }
+
+
+
     return (
         <Fragment>
             <BaseLayout>
@@ -33,7 +72,21 @@ export default function Courses() {
 
 
                             <div className="section-courses--tablist gray-border">
-                                <div className="tablist_description flex-container four-color-border">
+                                <div className="tablist_description flex-container four-color-border" ref={ref}>
+
+                                    {/* //! აქ ბრუნდება კონტენტი */}
+                                    {/* { revealContent ? names.map((name,index) => (
+                                        <p 
+                                        data-title={revealContent[index]}
+                                        onClick={(e) => {getHtml(e);setDefaultText(false) }}
+                                        key={index}
+                                        >
+                                            {name}
+                                        </p>
+                                    )):null} */}
+                                     {/* //! აქ ბრუნდება კონტენტი */}
+
+
                                     <div className="tablist_description--clipboard">
                                         <svg width="19" height="23" viewBox="0 0 19 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M13.8193 3.58154H15.8193C16.3497 3.58154 16.8584 3.79226 17.2335 4.16733C17.6086 4.5424 17.8193 5.05111 17.8193 5.58154V19.5815C17.8193 20.112 17.6086 20.6207 17.2335 20.9958C16.8584 21.3708 16.3497 21.5815 15.8193 21.5815H3.81931C3.28887 21.5815 2.78016 21.3708 2.40509 20.9958C2.03002 20.6207 1.81931 20.112 1.81931 19.5815V5.58154C1.81931 5.05111 2.03002 4.5424 2.40509 4.16733C2.78016 3.79226 3.28887 3.58154 3.81931 3.58154H5.81931" stroke="#338EFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -92,11 +145,29 @@ export default function Courses() {
                                     </div>
                                 </div>
                             </div>
+                            
 
 
+                            {/* //! აქ გამოჩნდება კონტენტი */}
+                            {/* {revealContent ? defaultText ? revealContent[0] : revealHtml : null} */}
+                            {/* //! აქ გამოჩნდება კონტენტი */}
 
                         </div>
-                        <div className="side-menu"></div>
+                        <div className="side-menu">
+                            <div className="side-menu__container">
+                                <div className="card">
+                                    <div className="card__number">
+                                        <p className="Eina-semibold paragraph-medium">1</p>
+                                    </div>
+                                    <div className="card__text">
+                                       <p className="heading-medium-Noto paragraph-medium">javascript-ის ძირითადები.</p> 
+                                    </div>
+                                    <div className="card__time">
+                                        <p className="Eina-semibold paragraph-smallest"> 45m</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

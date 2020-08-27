@@ -47,17 +47,16 @@
 
                 .flex-container {
                     @include flex
-
                 }
 
-                .four-color-border{
+                .four-color-border {
                     padding: 1vw 0;
                     position: relative;
 
-                   
+
                 }
 
-                .tablist_description  {
+                .tablist_description {
 
                     &--heading {
                         margin-left: .8vw;
@@ -74,7 +73,57 @@
                     bottom: -2px;
                     left: 0;
                 }
-                
+
+            }
+        }
+
+
+        //* SIDE_MENU
+        .side-menu {
+            margin-top: 9.4rem;
+
+            &__container {
+
+
+                .card {
+                    display: flex;
+                    justify-content:flex-start;
+                    align-items: center;
+                    // background: #8b8b8b;
+                    border: 0.5px solid $secondary-dark-grey;
+                    box-sizing: border-box;
+                    border-radius: 8px;
+                    width: 100%;
+                    height: auto;
+                    padding: 2rem;
+                    position: relative;
+
+                    &__number {
+                        // background: #FFFFFF;
+                        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.06);
+                        border-radius: 8px;
+                        padding: 1rem 1.5rem 1rem 1.5rem;
+                    }
+
+                    &__text {
+                        margin-left: 2.3rem;
+                    }
+
+                    &__time {
+                        position: absolute;
+                        top: -1.5rem;
+                        right: 1rem;
+                        padding: .3rem;
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.10);
+                        border-radius: 5px;
+
+                        p{
+                            opacity: 65%;
+                            line-height: 134.99%;
+                            // color: $primary-dark;
+                        }
+                    }
+                }
             }
         }
     }
