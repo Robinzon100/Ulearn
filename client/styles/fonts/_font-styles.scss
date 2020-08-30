@@ -2,18 +2,18 @@
 
 /// ========================= HEADING
 
-$heading-bold: "georgian-heading-bold","Eina-semibold";
+$heading-bold: "georgian-heading-bold","Eina-regular";
 
-$button-semi-bold: "georgian-button-semi-bold","Eina-semibold";
+$button-semi-bold: "georgian-button-semi-bold","Eina-regular";
 
-$heading-medium: "georgian-heading-medium","Eina-semibold";
+$heading-medium: "georgian-heading-medium","Eina-regular";
 
 /// ========================= PARAGRAPH
-$paragraph-light: "georgian-paragraph-light","Eina-semibold";
+$paragraph-light: "georgian-paragraph-light","Eina-regular";
 
-$paragraph-regular: "georgian-paragraph-regular","Eina-semibold";
+$paragraph-regular: "georgian-paragraph-regular","Eina-regular";
 
-$paragraph-regular-arial: "georgian-paragraph-regular-arial","Eina-semibold";
+$paragraph-regular-arial: "georgian-paragraph-regular-arial","Eina-regular";
 
 
 
@@ -45,6 +45,11 @@ $paragraph-regular-arial: "georgian-paragraph-regular-arial","Eina-semibold";
 /// ================ FOR NUMBERS
 $Eina-semibold: "Eina-semibold";
 
+$Eina-regular: "Eina-regular";
+
 .Eina-semibold {
-    font-family: $Eina-semibold;
+    font-family: $Eina-semibold !important;
+}
+.Eina-regular {
+    font-family: $Eina-regular;
 }

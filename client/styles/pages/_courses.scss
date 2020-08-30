@@ -1,5 +1,11 @@
 $card-shadow:0px 19px 72px -2px rgba(25, 27, 29, 0.14);
 
+.without-border {
+    border:none !important;
+    box-shadow:$card-shadow !important;
+
+}
+
 .courses-page {
     margin-top: 10rem;
     padding: $main-pading;
@@ -42,11 +48,27 @@ $card-shadow:0px 19px 72px -2px rgba(25, 27, 29, 0.14);
             }
 
             &--tablist {
-                @include flex;
+                
                 margin: 3rem auto;
                 padding: 0 1.5vw;
                 width: 68%;
-                position: relative;
+
+                &__container {
+                    @include flex;
+                    position: relative;
+
+
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        background-color: $primary-red;
+                        width: 20%;
+                        height: 3%;
+                        filter: blur(1px);
+                        bottom: -2px;
+                        left: 0;
+                    }
+                }
 
                 .flex-container {
                     @include flex
@@ -66,17 +88,22 @@ $card-shadow:0px 19px 72px -2px rgba(25, 27, 29, 0.14);
                     }
                 }
 
-                &:after {
-                    content: "";
-                    position: absolute;
-                    background-color: $primary-red;
-                    width: 20%;
-                    height: 3%;
-                    filter: blur(1px);
-                    bottom: -2px;
-                    left: 0;
+                
+
+            }
+
+
+            .courses_content {
+                margin-top: 4rem;
+
+                &--container {
+                    .heading {
+                        // background-color: #000000;
+                        // line-height: 168.28%;
+                    }
                 }
 
+               
             }
         }
 
@@ -85,21 +112,33 @@ $card-shadow:0px 19px 72px -2px rgba(25, 27, 29, 0.14);
         .side-menu {
             margin-top: 9.4rem;
 
+            &__container {
+                position: fixed;
+                width: 23%;
+                // box-shadow:$card-shadow;
+                border: 0.5px solid $secondary-dark-grey;
+                border-radius: 8px;
+
+            }
+
             .card_container {
+                box-shadow: none;
 
                 .card {
                     display: flex;
                     justify-content: flex-start;
                     align-items: center;
                     // background: #8b8b8b;
-                    border: 0.5px solid $secondary-dark-grey;
+                    
                     box-sizing: border-box;
-                    border-radius: 8px;
+                   
                     width: 100%;
                     height: auto;
                     padding: 2rem;
                     position: relative;
-                    background-color: $white;
+                    // background-color: $white;
+                    cursor: pointer;
+                    
 
                     &__number {
                         // background: #FFFFFF;
@@ -119,53 +158,69 @@ $card-shadow:0px 19px 72px -2px rgba(25, 27, 29, 0.14);
                         padding: .4rem;
                         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.10);
                         border-radius: 5px;
+                        background-color: $white;
 
                         p {
-                            opacity: 80%;
+                            opacity: 1;
                             line-height: 134.99%;
                             // color: $primary-dark;
                         }
                     }
                 }
+            }
 
-                &__info {
-                    border-left: 2px solid $primary-green;
-                    box-shadow: $card-shadow;
+            //! რაც იკეცება და იშლება
+            .card_container__info{
+                background-color: white;
+                border-left: 2px solid $primary-green;
+                // box-shadow: $card-shadow;
+                // border-radius: 8px;
 
-                    &--details {
-                        display: flex;
-                        justify-content: flex-start;
-                        align-items: center;
-                        width: 100%;
-                        padding: 2rem 2rem 2rem 0rem;
-                        
-                        
-                        .details_finished {
-                            // border-radius: 50%;
-                            width: 2rem;
-                            height: 2rem;
-                            // border: 1px solid $secondary-dark-grey;
-                            margin-left: 3rem;
-                            background: no-repeat url("/pictures/courses/courses-white-eclipse.svg");
-                            background-size: cover;
-                            background-position: center;
-
-                        }
-
-                        .details_heading{
-                            margin-left: 1.8rem;
-
-                          
-                            span {
-                                margin-left: 1rem;
-                            }
-                           
-                           
-                        }
-
+                
+                &--details {
+                    display: flex;
+                    // justify-content: flex-start;
+                    // align-items: center;
+                    width: 100%;
+                    padding: 2rem 0rem 2rem 0rem;
+                    cursor: pointer;
+                    
+                    
+                    .details_not_finished {
+                        height: 2rem;
+                        margin-left: 3rem;
+                        background: no-repeat url("/pictures/courses/courses-white-eclipse.svg");
+                        background-position: center;
+                        display: inline-block;
+                        padding-left: 20px;
+                        margin-bottom: 0;
+                        margin-top: 0;
                     }
-                }
 
+                    .details_finished {
+                        height: 2rem;
+                        margin-left: 3rem;
+                        background: no-repeat url("/pictures/courses/courses_side_menu_finished.svg");
+                        background-position: center;
+                        display: inline-block;
+                        padding-left: 20px;
+                        margin-bottom: 0;
+                        margin-top: 0;
+                    }
+
+
+                    .details_heading{
+                        margin-left: 1.2rem;
+                        margin-top: -0.45rem;
+                      
+                        span {
+                            margin-left: .8rem;
+                        }
+                       
+                       
+                    }
+
+                }
             }
 
         }
