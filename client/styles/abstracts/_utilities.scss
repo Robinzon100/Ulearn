@@ -122,3 +122,27 @@
 //     border-image-width: 1;
 //     border-image-slice: 1;
 // }
+
+
+//! კურსის გვერდზე რონ სპიტკაა მისი ანთება ჩაქრობა
+.details_not_finished {
+    height: 2rem;
+    margin-left: 3rem;
+    background: no-repeat url("/pictures/courses/courses-white-eclipse.svg");
+    background-position: center;
+    display: inline-block;
+    padding-left: 20px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.details_finished {
+    height: 2rem;
+    margin-left: 3rem;
+    background: no-repeat url("/pictures/courses/courses_side_menu_finished.svg");
+    background-position: center;
+    display: inline-block;
+    padding-left: 20px;
+    margin-bottom: 0;
+    margin-top: 0;
+}

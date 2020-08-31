@@ -51,11 +51,12 @@ $card-shadow:0px 19px 72px -2px rgba(25, 27, 29, 0.14);
                 
                 margin: 3rem auto;
                 padding: 0 1.5vw;
-                width: 68%;
+                width: 73%;
 
                 &__container {
                     @include flex;
                     position: relative;
+                    padding: 0rem 2rem 0rem 2rem;
 
 
                     &:after {
@@ -92,17 +93,142 @@ $card-shadow:0px 19px 72px -2px rgba(25, 27, 29, 0.14);
 
             }
 
-
+           
             .courses_content {
-                margin-top: 4rem;
+                margin-top: 5rem;
 
                 &--container {
+
+                     //! ეს არის აღწერის კონტენტი
                     .heading {
                         // background-color: #000000;
                         // line-height: 168.28%;
+                        position: relative;
+
+                        //! უკანა შავი ბაქგრაუნდი
+
+                        &:after {
+                            content: "";
+                            position: absolute;
+                            background-color:#000000;
+                            height: 2rem;
+                            width: 88%;
+                            top: 20%;
+                            opacity: 30%;
+                        }
+                    }
+
+                    .learning-list {
+
+                        ul {
+                            list-style: none !important;
+                            margin-left: 1.5rem;
+
+                            li {
+                                position: relative;
+                                margin-top: .8vw;
+
+                                &:before {
+                                    content: "";
+                                    position: absolute;
+                                    background: no-repeat url("/pictures/courses/blue_bullet.svg");
+                                    background-size: cover;
+                                    background-position: center;
+                                    // color:$secondary-light-blue;
+                                    // border-radius: 50%;
+                                    // font-weight: bold;
+                                    display: inline-block; 
+                                    width: 1.2rem;
+                                    height: 1.2rem;
+                                    margin-left: -2.2rem;
+                                    top: 35%;
+                                }
+                            }
+                        }
+
+                        &__line {
+                            width: 85%;
+                            background-color: #C9C9C9;
+                            height: 1px;
+                            margin: 5rem auto;
+                             
+                        }
+
+                       
                     }
                 }
 
+                .portfolio {
+                            
+                    .portfolio-pic {
+                        background: no-repeat url("/pictures/courses/portfolio_photo.png");
+                        background-size: contain;
+                        background-position: center;
+                        width: 85%;
+                        height: 53vh;
+                        margin: 0 auto;
+                        
+                    }
+
+                    .portfolio-paragraph {
+                        text-align: justify;
+                    }
+                    
+                }
+                //! ეს არის აღწერის კონტენტი
+
+
+
+                //! ეს არის კითხვა-პასუხის კონტენტი
+                .question-answer {
+                    display: flex;
+                    flex-direction: row;
+                    // align-items: center;
+                    justify-content: flex-start;
+                    // margin-top: 2rem;
+
+                    &__pic {
+                        background: no-repeat url("/pictures/courses/profile_picture.png");
+                        background-size: cover;
+                        background-position: center;
+                        width: 7vw;
+                        height: 4.5vw;
+                        
+                    }
+
+                    &__text {
+                        margin-left: 2.5rem;
+
+                        .about-user {
+                            display: flex;
+                            align-items: center;
+
+
+                            &__time {
+                                margin-left: 1.2vw;
+                                color: #636469;
+                            }
+
+                        }
+
+                        .user-comment {
+                            width: 75%;
+                            margin:0.3vw 0vw 1.5vw 0vw;
+                        }
+
+
+                        .user-answer {
+                            a {
+                                color: $primary-dark;
+                                width: 19rem !important;
+                                padding: 0.8rem !important;
+                            }
+                        }
+                    }
+                    
+                }
+
+                //! ეს არის კითხვა-პასუხის კონტენტი
                
             }
         }
@@ -185,30 +311,6 @@ $card-shadow:0px 19px 72px -2px rgba(25, 27, 29, 0.14);
                     padding: 2rem 0rem 2rem 0rem;
                     cursor: pointer;
                     
-                    
-                    .details_not_finished {
-                        height: 2rem;
-                        margin-left: 3rem;
-                        background: no-repeat url("/pictures/courses/courses-white-eclipse.svg");
-                        background-position: center;
-                        display: inline-block;
-                        padding-left: 20px;
-                        margin-bottom: 0;
-                        margin-top: 0;
-                    }
-
-                    .details_finished {
-                        height: 2rem;
-                        margin-left: 3rem;
-                        background: no-repeat url("/pictures/courses/courses_side_menu_finished.svg");
-                        background-position: center;
-                        display: inline-block;
-                        padding-left: 20px;
-                        margin-bottom: 0;
-                        margin-top: 0;
-                    }
-
-
                     .details_heading{
                         margin-left: 1.2rem;
                         margin-top: -0.45rem;

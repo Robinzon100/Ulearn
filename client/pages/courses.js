@@ -165,23 +165,123 @@ export default function Courses() {
                                     </div>
                                 </div>
 
-                                 {/* //! აქ გამოჩნდება კონტენტი */}
-                            {/* {revealContent ? defaultText ? revealContent[0] : revealHtml : null} */}
+                                {/* //! აქ გამოჩნდება კონტენტი */}
+                                {/* {revealContent ? defaultText ? revealContent[0] : revealHtml : null} */}
 
-                            <div className="courses_content">
-                                <div className="courses_content--container">
-                                    <div className="heading">
-                                        <p className="heading-bold-Noto paragraph-big">ამ კურსის სწავლებით შეძლებთ რომ ისწავლოთ javascript</p>
+                                <div className="courses_content">
+                                    <div className="courses_content--container">
+                                        {/* //! === 1-ეს არის კითხვა-პასუხის ჰტმლი ===*/}
+
+                                        {/* <div className="question-answer">
+                                            <div className="question-answer__pic"></div>
+                                            <div className="question-answer__text">
+                                                <div className="about-user">
+                                                    <div className="about-user__name">
+                                                        <p className="heading-semi-bold-Noto paragraph-regular">სახელა სახელაშვილი</p>
+                                                    </div>
+                                                    <div className="about-user__time">
+                                                        <p className="paragraph-light-Noto paragraph-medium-small">(1 წლის წინ)</p>
+                                                    </div>
+                                                </div>
+                                                <div className="user-comment">
+                                                    <p className="paragraph-regular-Noto paragraph-medium-small">
+                                                        ვინმეს შეუძლია რომ დამეხმაროს კოდში ? რატომღაც როცა ვაკეთებ
+                                                        console log(“welo world”)
+                                                        რათომღაც არ მიწერს არაფერს
+                                                    </p>
+                                                </div>
+
+                                                <div className="user-answer">
+                                                    <a href="#" className="btn btn-black heading-bold-Noto paragraph-medium-small">პასუხის გაცემა</a>
+                                                </div>
+                                            </div>
+                                        </div> */}
+
+
+
+                                        {/* //! === 1-ეს არის კითხვა-პასუხის ჰტმლი ===*/}
+                                        
+
+                                        {/* //! === 1-ეს არის აღწერის ჰტმლი ===*/}
+                                        <div className="heading">
+                                            <p className="heading-bold-Noto paragraph-big">ამ კურსის სწავლებით შეძლებთ რომ ისწავლოთ javascript</p>
+                                        </div>
+                                        <br />
+
+                                        <div className="explanation">
+                                            <p className="paragraph-regular-Noto paragraph-medium-small">
+                                                კურსის დასაწყისში ვისწავლით თუ რას წარმოადგენს ეს პროგრამირების ენა და რატო გვჭირდება ვებ-დეველოპერებს.
+                                        </p>
+                                        </div>
+
+                                        <br />
+                                        <br />
+
+                                        <div className="learning-list">
+                                            <div className="learning-list__heading">
+                                                <p className="heading-bold-Noto paragraph-medium-small">
+                                                    გავივლით ყველაზე ძირითად თემებს როგორიცაა:
+                                            </p>
+                                            </div>
+
+                                            <br />
+
+                                            <ul>
+                                                <li className="paragraph-regular-Noto paragraph-medium-small">
+                                                    javascrip ენის სინტაქსი და პროგრამირების ძირითადებ
+                                                    </li>
+                                                <li className="paragraph-regular-Noto paragraph-medium-small">
+                                                    რა არის DOM და DOM მანიპულირება
+                                                        </li>
+                                                <li className="paragraph-regular-Noto paragraph-medium-small">
+                                                    ინტერაქიულობის შექმნა
+                                                    </li>
+                                                <li className="paragraph-regular-Noto paragraph-medium-small">
+                                                    სხვა და სხვა ტიპი even-ები და მათი დანიშნულება
+                                                        </li>
+                                                <li className="paragraph-regular-Noto paragraph-medium-small">
+                                                    რთული ინტერაქტივები
+                                                    </li>
+                                            </ul>
+
+                                            <div className="learning-list__line"></div>
+
+                                        </div>
+
+                                        <div className="portfolio">
+                                            <div className="portfolio-heading">
+                                                <p className="paragraph-regular-Noto paragraph-medium-small">
+                                                ამ კურსზე შევქმნით თვენი პორფოლიოსთვის პროექტებს რომელიც საშუალებას მოგცემს რომ დაიწყოთ ამ ინდუსტრიში მუშობა, როგორც კომპანიაში ასევე თვენივე ბიზნესში.
+                                                </p>
+                                            </div>
+                                            <div className="portfolio-pic"></div>
+                                            <div className="portfolio-paragraph">
+                                                <p className="paragraph-regular-Noto paragraph-medium-small">ეს არის ერთერთი პროექტის სურათი რომელსაც ჩვენ გავაკეთებთ და ყველა ელემენტს დიდი ყურადღებას მივაქცევთ და საჭირო ელემენტებს გავდით ინტერაქტულს რათა თქვენმა მომხმარებელმა მაქსიმალურად დიდხანს ისარგებლოს თვენი საიტის სერვისით და შდაბეჭდილება მოახდინოს.</p>
+                                            </div>
+
+                                        </div>
+
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                        <div className="courses_content__other-courses">
+                                            <div className="other-courses__heading">
+                                                <p className="paragraph-regular-Noto paragraph-medium-small">
+                                                    <span className="heading-semi-bold-Noto paragraph-medium-small">იმ შემთხვევაში თუ არ იცით რა არის HTML ან CSS</span> შეგიძლიათ ნახოთ ჩემი სხვა კურსი სადაც დეტალურად ვხსნი ამ ორ ენას
+                                                </p>
+                                            </div>
+
+                                            <div className="other_courses"></div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            {/* //! აქ გამოჩნდება კონტენტი */}
+                                {/* //! აქ გამოჩნდება კონტენტი */}
 
                             </div>
 
 
 
-                           
+
                         </div>
 
                         <SideMenu />
