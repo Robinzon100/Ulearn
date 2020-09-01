@@ -113,17 +113,6 @@
 
 
 
-// .border-blue {
-//     opacity: 0.47;
-//     // border: 2px solid rgb(51, 142, 255);
-//     filter: blur(9px);
-//     border-image: linear-gradient(to right, rgb(51, 142, 255));
-//     border-image-slice: 100%;
-//     border-image-width: 1;
-//     border-image-slice: 1;
-// }
-
-
 //! კურსის გვერდზე რონ სპიტკაა მისი ანთება ჩაქრობა
 .details_not_finished {
     height: 2rem;
@@ -145,4 +134,13 @@
     padding-left: 20px;
     margin-bottom: 0;
     margin-top: 0;
+}
+
+
+.dummy_pics {
+    background: no-repeat url("/pictures/courses/profile_picture.png");
+    // background-size: cover;
+    background-position: center;
+    width: 7vw;
+    height: 4.5vw;
 }

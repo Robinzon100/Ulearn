@@ -27,14 +27,19 @@
 @import "components/footer";
 @import "components/file_uploads";
 
+@import "components/courses_components(page)/courses_components";
+
 // === === === === GLOBAL-COMPONENTS === === === ===
 @import "components/global_components/buttons";
 @import "components/global_components/input_fields";
 @import "components/global_components/card_detail";
+@import "components/global_components/comment";
 // === === === === HERO-COMPONENTS === === === ===
 @import "components/index_components/hero";
 @import "components/index_components/main_content";
 
 @import "functions/navigation";
+
+
 
 

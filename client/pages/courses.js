@@ -1,13 +1,18 @@
 import React, { Fragment, useState, useRef, useEffect } from 'react'
+
 import { Eye } from 'react-feather';
+
 import BaseLayout from "components/base-layout";
+
 import SideMenu from "components/global_components/side_menu/sideMenu";
+
+import Input from "components/global_components/inputs/input";
+
+
 
 export default function Courses() {
 
-
-
-
+    const [placeHolder, setPlaceHolder] = useState("მოძებნე სასურველი კურსი")
 
     // //! ეს არის რაც მერე ბაზიდან რომ წამოვა ის კონტენტის მაგალითი
     // const [revealContent, setRevealContent] = useState([
@@ -170,40 +175,170 @@ export default function Courses() {
 
                                 <div className="courses_content">
                                     <div className="courses_content--container">
-                                        {/* //! === 1-ეს არის კითხვა-პასუხის ჰტმლი ===*/}
+                                        {/* //! === 4-ეს არის შეფასების ჰტმლი ===*/}
+
+                                        <div className="estimates">
+                                            <div className="estimates__container">
+                                                <div className="add_comment">
+                                                    <div className="add_comment--picture dummy_pics"></div>
+                                                    <div className="add_comment--input">
+                                                        <div className="about_user">
+                                                            <div className="about_user--name">
+                                                                <p className="heading-semi-bold-Noto paragraph-medium ">ბარკალა დორუჩოღლუ</p>
+                                                            </div>
+                                                            <div className="about_user--star">აქ იქნება ვარსკვლავები</div>
+                                                        </div>
+
+                                                        <div className="comment_field">
+                                                            {/* //! აქ კომპონენტად ჩადე ინფუთი. ჩვეულებრივი ინფუთის კომპონენეტი შექმენი */}
+
+                                                            <Input placeHolder={placeHolder} />
+                                                        </div>
+
+                                                        <div className="add_btn btn btn-green">
+                                                            <a href="#">
+                                                                <p className="heading-semi-bold-Noto paragraph-medium ">დაკომენტარება</p>
+                                                            </a>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                                {/* <div className="comment">
+                                                    <div className="comment__pic"></div>
+
+                                                    <div className="comment__text">
+                                                        <div className="about-user">
+                                                            <div className="about-user__name">
+                                                                <p className="heading-semi-bold-Noto paragraph-regular">სახელა სახელაშვილი</p>
+                                                            </div>
+                                                            <div className="about-user__time">
+                                                                <p className="paragraph-light-Noto paragraph-medium-small">(1 წლის წინ)</p>
+                                                            </div>
+                                                        </div>
+                                                        <div className="user-comment">
+                                                            <p className="paragraph-regular-Noto paragraph-medium-small">
+                                                                ვინმეს შეუძლია რომ დამეხმაროს კოდში ? რატომღაც როცა ვაკეთებ
+                                                                console log(“welo world”)
+                                                                რათომღაც არ მიწერს არაფერს
+                                                            </p>
+                                                        </div>
+
+                                                      
+                                                    </div>
+                                                </div> */}
+                                            </div>
+                                        </div>
+
+                                        {/* //! === 4-ეს არის შეფასების ჰტმლი ===*/}
+
+
+
+
+                                        {/* //! === 3-ეს არის რესურსების ჰტმლი ===*/}
+                                        {/* <div className="resources">
+                                                <div className="resources__container">
+                                                    <div className="resources__container--heading">
+                                                        <p className="heading-bold-Noto paragraph-big">ვიდეოზე ნახსენები საიტების და დამატებითი რესურსების ლინკები, ასევე ამ ვიდეოში დაწერილი კოდის ფაილები</p>
+                                                    </div>
+
+                                                    <div className="resources__container--links">
+                                                        <p className="paragraph-regular-Noto paragraph-medium-small">
+                                                        vs code გადმოსაწერილი ლინკი:
+                                                            <a href="#">https://vscode.com</a>
+                                                        </p>
+                                                        <p className="paragraph-regular-Noto paragraph-medium-small">
+                                                        ვიდეოში ნანახი ბლოგპოსტის ლინკი: 
+                                                            <a href="#">https://medium.com</a>
+                                                        </p>
+                                                    </div>
+
+                                                    <div className="resources__container--files">
+                                                        <div>
+                                                            <p className="heading-bold-Noto paragraph-medium-small">ამ ვიდეოში დაწერილი კოდის ფაილი:</p>
+                                                        </div>
+
+                                                        <div className="exercise-files">
+                                                            <div className="files">
+                                                                <a href="#" className="btn btn-for-video-files">
+                                                                    <p className="heading-bold-Noto paragraph-big ">დავალების ფაილები</p>
+                                                                    </a>
+                                                        <div className="folder-icon icon"></div>
+
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> */}
+
+                                        {/* //! === 3-ეს არის რესურსების ჰტმლი ===*/}
+
+
+                                        {/* //! === 2-ეს არის კითხვა-პასუხის ჰტმლი ===*/}
 
                                         {/* <div className="question-answer">
-                                            <div className="question-answer__pic"></div>
-                                            <div className="question-answer__text">
-                                                <div className="about-user">
-                                                    <div className="about-user__name">
-                                                        <p className="heading-semi-bold-Noto paragraph-regular">სახელა სახელაშვილი</p>
-                                                    </div>
-                                                    <div className="about-user__time">
-                                                        <p className="paragraph-light-Noto paragraph-medium-small">(1 წლის წინ)</p>
-                                                    </div>
-                                                </div>
-                                                <div className="user-comment">
-                                                    <p className="paragraph-regular-Noto paragraph-medium-small">
-                                                        ვინმეს შეუძლია რომ დამეხმაროს კოდში ? რატომღაც როცა ვაკეთებ
-                                                        console log(“welo world”)
-                                                        რათომღაც არ მიწერს არაფერს
-                                                    </p>
-                                                </div>
+                                            <div className="main-comment">
 
-                                                <div className="user-answer">
-                                                    <a href="#" className="btn btn-black heading-bold-Noto paragraph-medium-small">პასუხის გაცემა</a>
+                                                <div className="main-comment__pic"></div>
+
+                                                <div className="main-comment__text">
+                                                    <div className="about-user">
+                                                        <div className="about-user__name">
+                                                            <p className="heading-semi-bold-Noto paragraph-regular">სახელა სახელაშვილი</p>
+                                                        </div>
+                                                        <div className="about-user__time">
+                                                            <p className="paragraph-light-Noto paragraph-medium-small">(1 წლის წინ)</p>
+                                                        </div>
+                                                    </div>
+                                                    <div className="user-comment">
+                                                        <p className="paragraph-regular-Noto paragraph-medium-small">
+                                                            ვინმეს შეუძლია რომ დამეხმაროს კოდში ? რატომღაც როცა ვაკეთებ
+                                                            console log(“welo world”)
+                                                            რათომღაც არ მიწერს არაფერს
+                                                    </p>
+                                                    </div>
+
+                                                    <div className="user-answer">
+                                                        <a href="#" className="btn btn-black heading-bold-Noto paragraph-medium-small">პასუხის გაცემა</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            
+                                            <div className="sub-comment">
+                                                <div className="sub-comment__pic"></div>
+
+                                                <div className="sub-comment__text">
+                                                    <div className="about-user">
+                                                        <div className="about-user__name">
+                                                            <p className="heading-semi-bold-Noto paragraph-regular">სახელა სახელაშვილი</p>
+                                                        </div>
+                                                        <div className="about-user__time">
+                                                            <p className="paragraph-light-Noto paragraph-medium-small">(1 წლის წინ)</p>
+                                                        </div>
+                                                    </div>
+                                                    <div className="user-comment">
+                                                        <p className="paragraph-regular-Noto paragraph-medium-small">
+                                                            ვინმეს შეუძლია რომ დამეხმაროს კოდში ? რატომღაც როცა ვაკეთებ
+                                                            console log(“welo world”)
+                                                            რათომღაც არ მიწერს არაფერს
+                                                    </p>
+                                                    </div>
+
+                                                    <div className="user-answer">
+                                                        <a href="#" className="btn btn-black heading-bold-Noto paragraph-medium-small">პასუხის გაცემა</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div> */}
+                                        {/* //! === 2-ეს არის კითხვა-პასუხის ჰტმლი ===*/}
 
 
 
-                                        {/* //! === 1-ეს არის კითხვა-პასუხის ჰტმლი ===*/}
-                                        
 
                                         {/* //! === 1-ეს არის აღწერის ჰტმლი ===*/}
-                                        <div className="heading">
+                                        {/* <div className="heading">
                                             <p className="heading-bold-Noto paragraph-big">ამ კურსის სწავლებით შეძლებთ რომ ისწავლოთ javascript</p>
                                         </div>
                                         <br />
@@ -272,7 +407,7 @@ export default function Courses() {
                                             </div>
 
                                             <div className="other_courses"></div>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                                 {/* //! აქ გამოჩნდება კონტენტი */}

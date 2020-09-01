@@ -1,0 +1,43 @@
+.comment {
+    display: flex;
+    flex-direction: row;
+    margin-top: 7rem;
+
+
+    &__pic {
+        background: no-repeat url("/pictures/courses/profile_picture.png");
+        background-size: cover;
+        background-position: center;
+        width: 7vw;
+        height: 4.5vw;
+    }
+
+    &__text {
+        margin-left: 2.5rem;
+
+        .about-user {
+            display: flex;
+            align-items: center;
+
+
+            &__time {
+                margin-left: 1.2vw;
+                color: #636469;
+            }
+
+        }
+
+        .user-comment {
+            width: 75%;
+            margin: 0.3vw 0vw 1.5vw 0vw;
+
+            p {
+                line-height: 180%;
+
+            }
+        }
+
+
+        
+    }
+}
