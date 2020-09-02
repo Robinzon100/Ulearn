@@ -108,8 +108,8 @@
 
             &__pic {
                 background: no-repeat url("/pictures/courses/profile_picture.png");
-                background-size: cover;
-                background-position: center;
+                // background-size: cover;
+                background-position: left;
                 width: 7vw;
                 height: 4.5vw;
 
@@ -201,56 +201,5 @@
         }
     }
 
-    //! ეს არის რესურსების ცსს
-
-
-    //! ეს არის შეფასებების ცსს
-
-    .estimates {
-
-        &__container {
-            
-            .add_comment {
-                display: flex;
-                flex-direction: row;
-                width: 100%;
-
-                &--input {
-                    width: 100%;
-                    margin-left: 2rem;
-                    display: flex;
-                    flex-direction: column;
-
-                    .about_user {
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-
-                        &--star {
-                            margin-left: 2rem;
-                        }
-                    }
-
-                    .comment_field {
-                        margin:.8vw 0vw .8vw 0vw;
-                    }
-
-                    .add_btn {
-                        align-self: flex-end;
-                        padding: 1.2rem;
-                        width: 25rem;
-
-                        a{
-                            text-decoration: none;
-                            color: $white;
-
-                        }
-                    }
-                }
-            }
-        }
-    }
-    //! ეს არის შეფასებების ცსს
-
-
+    
 }

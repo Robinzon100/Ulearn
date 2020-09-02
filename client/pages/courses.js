@@ -6,8 +6,8 @@ import BaseLayout from "components/base-layout";
 
 import SideMenu from "components/global_components/side_menu/sideMenu";
 
-import Input from "components/global_components/inputs/input";
-
+import  CommentCards from "components/global_components/comment_cards/comment_cards";
+import  InputCards from "components/global_components/comment_cards/input_cards";
 
 
 export default function Courses() {
@@ -179,55 +179,11 @@ export default function Courses() {
 
                                         <div className="estimates">
                                             <div className="estimates__container">
-                                                <div className="add_comment">
-                                                    <div className="add_comment--picture dummy_pics"></div>
-                                                    <div className="add_comment--input">
-                                                        <div className="about_user">
-                                                            <div className="about_user--name">
-                                                                <p className="heading-semi-bold-Noto paragraph-medium ">ბარკალა დორუჩოღლუ</p>
-                                                            </div>
-                                                            <div className="about_user--star">აქ იქნება ვარსკვლავები</div>
-                                                        </div>
+                                                <InputCards placeHolder={placeHolder}/>
+                                                <CommentCards/>
+                                                
 
-                                                        <div className="comment_field">
-                                                            {/* //! აქ კომპონენტად ჩადე ინფუთი. ჩვეულებრივი ინფუთის კომპონენეტი შექმენი */}
-
-                                                            <Input placeHolder={placeHolder} />
-                                                        </div>
-
-                                                        <div className="add_btn btn btn-green">
-                                                            <a href="#">
-                                                                <p className="heading-semi-bold-Noto paragraph-medium ">დაკომენტარება</p>
-                                                            </a>
-
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-
-                                                {/* <div className="comment">
-                                                    <div className="comment__pic"></div>
-
-                                                    <div className="comment__text">
-                                                        <div className="about-user">
-                                                            <div className="about-user__name">
-                                                                <p className="heading-semi-bold-Noto paragraph-regular">სახელა სახელაშვილი</p>
-                                                            </div>
-                                                            <div className="about-user__time">
-                                                                <p className="paragraph-light-Noto paragraph-medium-small">(1 წლის წინ)</p>
-                                                            </div>
-                                                        </div>
-                                                        <div className="user-comment">
-                                                            <p className="paragraph-regular-Noto paragraph-medium-small">
-                                                                ვინმეს შეუძლია რომ დამეხმაროს კოდში ? რატომღაც როცა ვაკეთებ
-                                                                console log(“welo world”)
-                                                                რათომღაც არ მიწერს არაფერს
-                                                            </p>
-                                                        </div>
-
-                                                      
-                                                    </div>
-                                                </div> */}
+                                               
                                             </div>
                                         </div>
 
