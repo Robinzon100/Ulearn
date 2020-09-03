@@ -9,23 +9,30 @@ $hero-paragraph-margin:0vw 0vw 3vw 0vw;
     // justify-items: center;
     position: relative;
     border-radius: 21px;
-    height:72vh;
+    height: 72vh;
     width: 100%;
-    padding:$main-pading;
+    padding: 0vw 3.8vw 0vw 3.8vw;
     margin-top: 14rem;
+    filter: url(#offset);
 
-    
+
     &--video {
         overflow: hidden;
         width: 100%;
         border-radius: 21px;
         height: 100%;
-        
         z-index: -1;
+
+
         video {
             height: 100%;
             margin-left: -10rem;
+            // filter: url(#offset);
+
+
         }
+
+
     }
 
 
@@ -47,7 +54,7 @@ $hero-paragraph-margin:0vw 0vw 3vw 0vw;
         padding: 2.5rem 2.5rem 4rem 2.5rem;
 
 
-        
+
         &--line {
             background-color: $white;
             width: 5vw;
@@ -55,42 +62,42 @@ $hero-paragraph-margin:0vw 0vw 3vw 0vw;
             margin: 1.3vw 0vw 1vw 0vw;
         }
 
-        &__info{
+        &__info {
             width: 100%;
-            
+
             &--heading {
-                
-               
-                h1{ 
+
+
+                h1 {
                     line-height: 150.28%;
                     color: $white;
-                    
+
                 }
             }
-    
-            &--paragraph{
+
+            &--paragraph {
                 // color: $opacity-grey;
                 // max-width: 85%;
                 width: 100%;
-                margin:$hero-paragraph-margin;
+                margin: $hero-paragraph-margin;
                 // opacity: 50%;
                 color: $white;
-               
-                p{
+
+                p {
                     line-height: 168.28%;
                     max-width: 87%;
                 }
-                
-    
+
+
                 // &--info {
                 //     font-family: "primary-text";
                 //     // color: $for-text-low-black-opacity;
                 //     margin: 2.8rem 0 4.8rem;
-    
+
                 // }
             }
-    
-           
+
+
         }
 
         &__btn {
@@ -102,10 +109,10 @@ $hero-paragraph-margin:0vw 0vw 3vw 0vw;
                 //     transform: translateY(-2%);
                 //     box-shadow: $box-shadow-for-btn-blue;
                 // }
-               
+
             }
         }
-        
+
 
     }
 }
@@ -117,6 +124,26 @@ $hero-paragraph-margin:0vw 0vw 3vw 0vw;
         background: rgba(207, 207, 207, 0.26);
         box-shadow: inset 0px 0px 10px rgba(255, 255, 255, 0.4);
         backdrop-filter: blur(47px);
-       
+
     }
+}
+
+
+@media screen and (max-width: 1600px) {
+
+
+    .hero--video {
+
+        video {
+            margin-left: -21rem !important;
+
+        }
+    }
+
+    .hero--steps {
+        width: 38.3% !important;
+
+    }
+
+
 }

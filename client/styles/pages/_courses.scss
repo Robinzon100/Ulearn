@@ -5,6 +5,7 @@ $card-shadow:0px 19px 72px -2px rgba(25, 27, 29, 0.14);
     box-shadow: $card-shadow !important;
 
 }
+
 //! აქ არის კურსის გვერდის მთავარი სტილები,ხოლო(აღწერა,კითხვა-პასუხის და ა.შ)
 //! ცსს არის კურსის კომპონენეტის ფაილში.აქ ძალიან დიდდებოდა ამიტომ გადატანა მომიხდა
 .courses-page {
@@ -30,11 +31,15 @@ $card-shadow:0px 19px 72px -2px rgba(25, 27, 29, 0.14);
 
                 .viewers {
                     @include flex;
-                    width: 13%;
+                    // width: 13%;
                     padding: 0.3rem 1rem 0.3rem 1rem;
                     background-color: #F2F2F2;
                     border-radius: 8px;
-                    margin-right: -2.5rem;
+                    margin-right: -4.5rem;
+
+                    p {
+                        margin-left: 1rem;
+                    }
                 }
             }
 
@@ -69,6 +74,7 @@ $card-shadow:0px 19px 72px -2px rgba(25, 27, 29, 0.14);
                         filter: blur(1px);
                         bottom: -2px;
                         left: 0;
+                        box-shadow: $input;
                     }
                 }
 
@@ -94,101 +100,18 @@ $card-shadow:0px 19px 72px -2px rgba(25, 27, 29, 0.14);
 
             }
 
-            
-        }
-
-
-        //* SIDE_MENU
-        .side-menu {
-            margin-top: 9.4rem;
-
-            &__container {
-                position: fixed;
-                width: 23%;
-                // box-shadow:$card-shadow;
-                border: 0.5px solid $secondary-dark-grey;
-                border-radius: 8px;
-
-            }
-
-            .card_container {
-                box-shadow: none;
-
-                .card {
-                    display: flex;
-                    justify-content: flex-start;
-                    align-items: center;
-                    // background: #8b8b8b;
-
-                    box-sizing: border-box;
-
-                    width: 100%;
-                    height: auto;
-                    padding: 2rem;
-                    position: relative;
-                    // background-color: $white;
-                    cursor: pointer;
-
-
-                    &__number {
-                        // background: #FFFFFF;
-                        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.06);
-                        border-radius: 8px;
-                        padding: 1rem 1.5rem 1rem 1.5rem;
-                    }
-
-                    &__text {
-                        margin-left: 2.3rem;
-                    }
-
-                    &__time {
-                        position: absolute;
-                        top: -1.5rem;
-                        right: 1rem;
-                        padding: .4rem;
-                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.10);
-                        border-radius: 5px;
-                        background-color: $white;
-
-                        p {
-                            opacity: 1;
-                            line-height: 134.99%;
-                            // color: $primary-dark;
-                        }
-                    }
-                }
-            }
-
-            //! რაც იკეცება და იშლება
-            .card_container__info {
-                background-color: white;
-                border-left: 2px solid $primary-green;
-                // box-shadow: $card-shadow;
-                border-radius: 3px;
-
-
-                &--details {
-                    display: flex;
-                    // justify-content: flex-start;
-                    // align-items: center;
-                    width: 100%;
-                    padding: 2rem 0rem 2rem 0rem;
-                    cursor: pointer;
-
-                    .details_heading {
-                        margin-left: 1.2rem;
-                        margin-top: -0.45rem;
-
-                        span {
-                            margin-left: .8rem;
-                        }
-
-
-                    }
-
-                }
-            }
 
         }
+
+    }
+}
+
+
+
+@media screen and (max-width: 1600px) {
+    .courses-page .courses-container .section-courses--heading {
+
+        width: 50% !important;
+
     }
 }

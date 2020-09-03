@@ -5,6 +5,7 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
     height: 150vh;
     width: 100%;
     margin-top: 5rem;
+    // background-color: white;
 
     &--container {
         width: 100%;
@@ -48,31 +49,31 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
                         margin-top: .3vw;
                         cursor: pointer;
                         // transform: rotateZ(90deg);
-                        
+
                     }
-    
+
                     &--name {
                         margin-left: .5vw;
                         width: 100%;
-    
+
                         .title {
                             @include flex;
                         }
-    
-    
+
+
                         .inside_list {
                             // width: 100%;
                             // height: auto;
                             // margin-left: 1.5vw;
                             // transition: all .3s;
-    
+
                             ul {
                                 list-style-type: none !important;
                                 margin-top: .5vw;
-    
+
                                 li {
                                     width: 100%;
-                                    
+
                                     display: flex;
                                     justify-content: space-between;
                                     align-items: center;
@@ -85,12 +86,12 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
                             }
                         }
                     }
-                }   
+                }
 
-                
+
             }
 
-            
+
 
         }
     }

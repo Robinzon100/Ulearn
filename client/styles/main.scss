@@ -19,7 +19,7 @@
 
 /// === === === QUERYS=== === === ===
 @import "media-querys/navigation_query";
-
+@import "media-querys/courses";
 
 
 /// === === ===  COMPONENTS === === === ===
@@ -35,12 +35,9 @@
 @import "components/global_components/card_detail";
 @import "components/global_components/comment_cards";
 @import "components/global_components/input_cards";
+@import "components/global_components/side_menu";
 // === === === === HERO-COMPONENTS === === === ===
 @import "components/index_components/hero";
 @import "components/index_components/main_content";
 
 @import "functions/navigation";
-
-
-
-

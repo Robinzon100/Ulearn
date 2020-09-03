@@ -1,19 +1,39 @@
 .input-shadow {
     box-shadow: $input;
 }
+
 .input-shadow-onFocus {
     &:focus {
         box-shadow: $input-onFocus;
     }
-    
+
 }
+
+//! რომ არ მოინიშნოს დაჭერისას
+.noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+    supported by Chrome, Edge, Opera and Firefox */
+}
+
+
 
 //! ფასის სტილები მთავარ გვედზე რომ არის
 .normal-price {
     display: flex;
     align-items: center;
     justify-content: center;
-   
+
     width: 6rem;
     height: 4rem;
     background-color: $white;
@@ -39,7 +59,7 @@
     }
 
     &:after {
-        content:"";
+        content: "";
         position: absolute;
         width: 4.4rem;
         height: .3rem;
@@ -48,6 +68,7 @@
         opacity: 60%;
     }
 }
+
 //! CHECKBOX on Index
 
 .side-menu-checkbox {
@@ -90,24 +111,26 @@
 //! BORDER
 .gray-border {
     // opacity: 0.5;
-    border-bottom:1px solid $secondary-dark-grey;
+    border-bottom: 1px solid $secondary-dark-grey;
 }
+
 .blue-border {
-    border-bottom:1px solid $primary-blue;
-    filter: blur(9px);
-}
-.yellow-border {
-    border-bottom:1px solid $primary-yellow;
+    border-bottom: 1px solid $primary-blue;
     filter: blur(9px);
 }
 
 .yellow-border {
-    border-bottom:1px solid $primary-green;
+    border-bottom: 1px solid $primary-yellow;
     filter: blur(9px);
 }
 
 .yellow-border {
-    border-bottom:1px solid $primary-red;
+    border-bottom: 1px solid $primary-green;
+    filter: blur(9px);
+}
+
+.yellow-border {
+    border-bottom: 1px solid $primary-red;
     filter: blur(9px);
 }
 
@@ -142,5 +165,5 @@
     background-size: cover;
     background-position: center;
     width: 8rem;
-    height:7rem;
+    height: 7rem;
 }
