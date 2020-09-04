@@ -6,7 +6,6 @@ $hero-paragraph-margin:0vw 0vw 3vw 0vw;
     display: grid;
     grid-template-columns: 1fr;
     align-items: center;
-    // justify-items: center;
     position: relative;
     border-radius: 21px;
     height: 72vh;
@@ -89,12 +88,6 @@ $hero-paragraph-margin:0vw 0vw 3vw 0vw;
                 }
 
 
-                // &--info {
-                //     font-family: "primary-text";
-                //     // color: $for-text-low-black-opacity;
-                //     margin: 2.8rem 0 4.8rem;
-
-                // }
             }
 
 
@@ -102,13 +95,10 @@ $hero-paragraph-margin:0vw 0vw 3vw 0vw;
 
         &__btn {
             a {
-                // transition: all .3s;
+
                 color: $primary-dark;
                 line-height: 137.57%;
-                // &:hover {
-                //     transform: translateY(-2%);
-                //     box-shadow: $box-shadow-for-btn-blue;
-                // }
+
 
             }
         }

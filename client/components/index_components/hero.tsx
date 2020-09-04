@@ -32,7 +32,7 @@ export default function hero() {
         </div>
 
         <div className="hero--video">
-          <video autoPlay="autoPlay" loop="loop" muted playsInline>
+          <video autoPlay loop muted playsInline>
             <source src="/Videos/new_hero_video.mp4" type="video/mp4" />
             {/* <source src="/Videos/hero_section_animation.ogg" type="video/ogg" /> */}
 

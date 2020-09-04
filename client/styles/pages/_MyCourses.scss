@@ -1,0 +1,142 @@
+$mycourse-padding:0vw 10vw 0vw 10vw;
+
+.mycourses {
+
+    &__container {
+
+        .mycourses-hero {
+            // background-color: wheat;
+            width: 100%;
+            height: 55vh;
+            display: grid;
+            grid-template-columns: 70% 30%;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: $mycourse-padding;
+            margin-top: 8rem;
+            color: white;
+            background: no-repeat url("/pictures/mycourses/hero_img.png");
+            background-size: cover;
+            background-position: center;
+
+
+            &__about-course {
+                // padding: 0rem 0rem 0rem 11.5rem;
+
+                &--heading,
+                &--paragraph,
+                &--btns {
+                    color: white;
+                }
+
+                &--heading {
+                    width: 80%;
+
+                    p {
+                        line-height: 168.28%;
+
+                    }
+                }
+
+                &--paragraph {
+                    margin: .8vw 0vw 3vw 0vw;
+                    width: 60%;
+
+                    p {
+                        line-height: 180%;
+
+                    }
+                }
+
+                &--btns {
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+
+                    .save-bucket,
+                    .buy-course {
+                        a {
+                            width: 28rem !important;
+                        }
+                    }
+
+                    .save-bucket {
+                        margin-left: 4rem;
+                    }
+
+                }
+
+            }
+
+
+            &__raiting-course {}
+
+
+
+        }
+
+
+        .mycourses-content {
+            width: 100%;
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 70% 30%;
+            // align-items: center;
+            // justify-content: center;
+            position: relative;
+            margin-top: 6rem;
+            padding: $mycourse-padding;
+
+            &__course-details {
+
+
+                .you-learn {
+
+                    &--list {
+                        width: 88%;
+
+                        ul {
+                            display: grid;
+                            grid-template-columns: 1fr 1fr;
+                            list-style-type: none !important;
+                            // margin-top: .5vw;
+                            padding: 0;
+                            margin-top: -1rem;
+
+                            li {
+                                width: 100%;
+                                margin-top: 4.5rem;
+                                display: flex;
+                                // justify-content: space-between;
+                                align-items: center;
+
+                                .checked {
+                                    margin-left: 0;
+                                    background-size: cover !important;
+                                    height: 2.5rem !important;
+                                    width: 2.5rem !important;
+                                    margin-right: 2rem;
+                                }
+
+                                p {
+                                    margin-top: -0.5rem;
+                                }
+
+
+                            }
+                        }
+
+                    }
+                }
+            }
+
+            &__side-menu {
+                .side-menu {
+                    margin-top: 0;
+                }
+            }
+
+        }
+    }
+}

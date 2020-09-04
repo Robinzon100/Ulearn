@@ -9,8 +9,12 @@ import SideMenu from "components/global_components/side_menu/sideMenu";
 import CommentCards from "components/global_components/comment_cards/comment_cards";
 import InputCards from "components/global_components/comment_cards/input_cards";
 
-export default function Courses() {
-  const [placeHolder, setPlaceHolder] = useState("მოძებნე სასურველი კურსი");
+interface Props {
+  text: string;
+}
+
+export const Courses: React.FC<Props> = () => {
+  //   const [placeHolder, setPlaceHolder] = useState({ text: "hello" });
 
   // //! ეს არის რაც მერე ბაზიდან რომ წამოვა ის კონტენტის მაგალითი
   // const [revealContent, setRevealContent] = useState([
@@ -217,7 +221,7 @@ export default function Courses() {
 
                     <div className="estimates">
                       <div className="estimates__container">
-                        <InputCards placeHolder={placeHolder} />
+                        <InputCards />
                         <CommentCards />
                       </div>
                     </div>
@@ -404,4 +408,6 @@ export default function Courses() {
       </BaseLayout>
     </Fragment>
   );
-}
+};
+
+export default Courses;

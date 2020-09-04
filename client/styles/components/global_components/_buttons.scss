@@ -14,7 +14,7 @@
     color: $white;
     outline: none;
     // font-family: $paragraph-regular;
-    
+
 
 }
 
@@ -36,11 +36,11 @@
     border: 1px solid $primary-yellow;
     transition: all .5s;
 
-    &:hover {
-        background: $white;
-        color: $primary-yellow;
-        // border: 1px solid $primary-blue;
-    }
+    // &:hover {
+    //     background: $white;
+    //     color: $primary-yellow;
+    //     // border: 1px solid $primary-blue;
+    // }
 }
 
 .btn-green {
