@@ -21,8 +21,10 @@ const NavLink = (props) => {
   );
 };
 
-const Navigation = (props) => {
-  const [placeHolder, setPlaceHolder] = useState("მოძებნე სასურველი კურსი");
+const Navigation: React.FC = () => {
+  const [placeHolder, setPlaceHolder] = useState<string>(
+    "მოძებნე სასურველი კურსი"
+  );
 
   // const [open, isOpen] = useState(false);
   // const [newPageLinks, setNewPageLinks] = useState([]);

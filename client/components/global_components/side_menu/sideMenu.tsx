@@ -1,11 +1,18 @@
 import React, { Fragment, useState, useRef } from "react";
 
-export default function sideMenu() {
+// interface Props {
+//   title: string;
+//   courseTime: number;
+//   subTitle: string;
+//   subTaskTime: number;
+// }
+
+const sideMenu: React.FC = () => {
   const ref = useRef();
 
-  const [revealContent, setRevealContent] = useState(false);
+  const [revealContent, setRevealContent] = useState<boolean>(false);
 
-  const [finished, setFinished] = useState(false);
+  const [finished, setFinished] = useState<boolean>(false);
 
   const handleSetRevealContent = () => {
     setRevealContent((revealContent) => !revealContent);
@@ -57,7 +64,7 @@ export default function sideMenu() {
               ></div>
               <div className="details_heading">
                 <p className="paragraph-regular-Noto paragraph-medium-small ">
-                  რა არის javascript{" "}
+                  რა არის javascript
                   <span className="Eina-semibold paragraph-smallest">(5m)</span>
                 </p>
               </div>
@@ -66,7 +73,7 @@ export default function sideMenu() {
               <div className="details_not_finished"></div>
               <div className="details_heading">
                 <p className="paragraph-regular-Noto paragraph-medium-small ">
-                  ჯავასკტიპტის ფუნდამენტები, რისი გაკეთება შეგიძლია{" "}
+                  ჯავასკტიპტის ფუნდამენტები, რისი გაკეთება შეგიძლია
                   <span className="Eina-semibold paragraph-smallest">(5m)</span>
                 </p>
               </div>
@@ -75,7 +82,7 @@ export default function sideMenu() {
               <div className="details_not_finished"></div>
               <div className="details_heading">
                 <p className="paragraph-regular-Noto paragraph-medium-small ">
-                  რა არის ცვლადები{" "}
+                  რა არის ცვლადები
                   <span className="Eina-semibold paragraph-smallest">(5m)</span>
                 </p>
               </div>
@@ -85,4 +92,6 @@ export default function sideMenu() {
       </div>
     </Fragment>
   );
-}
+};
+
+export default sideMenu;

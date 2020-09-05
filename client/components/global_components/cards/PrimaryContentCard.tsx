@@ -1,13 +1,24 @@
 import React, { useState } from "react";
 
-export default function MainCards({
+interface Props {
+  title: string;
+  author: string;
+  raiting: number;
+  bestseller: boolean;
+  price: number;
+  newPrice: number;
+  numberOfVotes: number;
+}
+
+const PrimaryContentCard: React.FC<Props> = ({
   price,
   title,
   author,
-  rating,
+  raiting,
   bestseller,
   newPrice,
-}) {
+  numberOfVotes,
+}) => {
   const [addToFavorites, setAddToFavorites] = useState(false);
 
   const [checkNewPrice, setCheckNewPrice] = useState(false);
@@ -23,7 +34,7 @@ export default function MainCards({
       <a href="#">
         <div className="card__img">
           <div className="price-tag">
-            {!checkNewPrice ? (
+            {checkNewPrice ? (
               <div className="removed-price-tag">
                 <p className="Eina-semibold paragraph-big">
                   {newPrice}
@@ -66,7 +77,9 @@ export default function MainCards({
             </svg>
           </div>
           <div className="numbers">
-            <p className="Eina-semibold paragraph-small">{rating}</p>
+            <p className="Eina-semibold paragraph-small">
+              {raiting}({numberOfVotes})
+            </p>
           </div>
         </div>
         <div className="card__raiting--name">
@@ -76,6 +89,7 @@ export default function MainCards({
       <div className="card__like">
         <label className="label heading-semi-bold-Noto paragraph-smallest">
           {bestseller}
+          ბესტსელერი
         </label>
 
         <div
@@ -106,4 +120,6 @@ export default function MainCards({
       </div>
     </div>
   );
-}
+};
+
+export default PrimaryContentCard;

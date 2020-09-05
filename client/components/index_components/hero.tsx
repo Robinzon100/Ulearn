@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Search, Upload } from "react-feather";
 
-export default function hero() {
+const Hero: React.FC = () => {
   return (
     <Fragment>
       <section className="hero">
@@ -97,4 +97,6 @@ export default function hero() {
     </select> */}
     </Fragment>
   );
-}
+};
+
+export default Hero;

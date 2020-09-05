@@ -7,14 +7,10 @@ import BaseLayout from "components/base-layout";
 import SideMenu from "components/global_components/side_menu/sideMenu";
 
 import CommentCards from "components/global_components/comment_cards/comment_cards";
-import InputCards from "components/global_components/comment_cards/input_cards";
+import InputCommentCards from "components/global_components/comment_cards/inputComment_cards";
 
-interface Props {
-  text: string;
-}
-
-export const Courses: React.FC<Props> = () => {
-  //   const [placeHolder, setPlaceHolder] = useState({ text: "hello" });
+export const Courses: React.FC = () => {
+  const [placeHolder, setPlaceHolder] = useState<string>("დაწერე რაც გინდა");
 
   // //! ეს არის რაც მერე ბაზიდან რომ წამოვა ის კონტენტის მაგალითი
   // const [revealContent, setRevealContent] = useState([
@@ -221,8 +217,12 @@ export const Courses: React.FC<Props> = () => {
 
                     <div className="estimates">
                       <div className="estimates__container">
-                        <InputCards />
-                        <CommentCards />
+                        <InputCommentCards name={"beqa"} comment={"sdgfg"} />
+                        <CommentCards
+                          name={"beqa"}
+                          registrationDay={1}
+                          addedComment={"bla"}
+                        />
                       </div>
                     </div>
 

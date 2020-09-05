@@ -1,101 +1,85 @@
 //! აქ არის ყველა მეინ-კონტენტის ყველა სტილი კარდა კარტებისა
 $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 255, 255, 0) 100.55%);
+$carousel-card-shadow:0px 25.4px 42px 9px rgba(17, 23, 53, 0.04);
+
+
 
 .main_content {
-    height: 150vh;
+    // height: 150vh;
     width: 100%;
     margin-top: 5rem;
     // background-color: white;
-
-    &--container {
-        width: 100%;
-        height: 100%;
-        display: grid;
-        grid-template-columns: 25% 73%;
-        padding: $main-pading;
-        gap: 0px 35px;
-
-    }
+    padding: $main-pading;
+    display: flex;
+    flex-direction: column;
 
 
-    .categories {
+
+    &--carousel {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
 
-        .list {
+        .carousel_card {
             display: flex;
-            justify-content: space-between;
-            margin-top: 5rem;
+            flex-direction: row;
+            box-shadow: $carousel-card-shadow;
 
-            // //! ამას კარდა მეორესი ყველა მარგინს აძლევს
-            // &:not(:nth-child(2)) {
-            //     margin-top: 1.8vw;
-            // }
-            // //! ეს კატეგორიასგან ჩამოყავს ქვემოთ
-            // &:nth-child(2) {
-            //     margin-top: 5.3vw;
-            // }
-
-
-            &__container {
-                // display: flex;
-                // justify-content: space-between;
+            &--pic {
+                background: no-repeat url("/pictures/courses/carousel_pic.png");
+                background-size: cover;
+                background-position: center;
                 width: 100%;
-
-                .course-list {
-                    display: flex;
-
-                    &--arrow {
-                        margin-top: .3vw;
-                        cursor: pointer;
-                        // transform: rotateZ(90deg);
-
-                    }
-
-                    &--name {
-                        margin-left: .5vw;
-                        width: 100%;
-
-                        .title {
-                            @include flex;
-                        }
-
-
-                        .inside_list {
-
-                            ul {
-                                list-style-type: none !important;
-                                margin-top: .5vw;
-
-                                li {
-                                    width: 100%;
-
-                                    display: flex;
-                                    justify-content: space-between;
-                                    align-items: center;
-
-                                    // .check {
-                                    //     opacity: 70%;
-                                    // }
-
-                                }
-                            }
-                        }
-                    }
-                }
-
-
+                height: 5rem;
+                border-radius: 18px;
             }
-
-
-
         }
     }
 
+
+    &--input {
+        @include flex;
+        align-items: flex-start !important;
+        // margin-bottom: 2rem;
+        align-self: flex-end;
+        width: 74.5%;
+
+
+        .input_styles {
+            width: 96% !important;
+
+            letter-spacing: 1px;
+            font-weight: normal;
+        }
+
+        .sorting {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            width: 46%;
+
+            &__heading {
+                margin-right: 1.3rem;
+            }
+
+            &__select {
+                width: 100%;
+
+                .select_field {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+
+
     .courses {
-        display: grid;
-        // grid-template-rows: 1fr;
         position: relative;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0px 35px;
+
 
         .overlay_container {
             position: absolute;
@@ -103,7 +87,7 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
             // height: 19vw;
             background: $overlay-container-gradient;
             bottom: 0;
-            height: 25vw;
+            height: 21vw;
             z-index: 1;
 
 
@@ -129,38 +113,7 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
 
 
 
-        &--input {
-            @include flex;
-            align-items: flex-start !important;
-            // margin-bottom: 2rem;
 
-
-            .input_styles {
-                width: 96% !important;
-
-                letter-spacing: 1px;
-                font-weight: normal;
-            }
-
-            .sorting {
-                display: flex;
-                align-items: center;
-                justify-content: flex-end;
-                width: 46%;
-
-                &__heading {
-                    margin-right: 1.3rem;
-                }
-
-                &__select {
-                    width: 100%;
-
-                    .select_field {
-                        width: 100%;
-                    }
-                }
-            }
-        }
 
         &--cards {
             width: 100%;
@@ -168,7 +121,7 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 100px 40px;
-            margin-top: 4rem;
+            margin-top: 8rem;
 
             .card {
                 position: relative;
@@ -258,3 +211,79 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
     }
 
 }
+
+
+
+// .categories {
+//     display: flex;
+//     flex-direction: column;
+
+//     .list {
+//         display: flex;
+//         justify-content: space-between;
+//         margin-top: 5rem;
+
+//         // //! ამას კარდა მეორესი ყველა მარგინს აძლევს
+//         // &:not(:nth-child(2)) {
+//         //     margin-top: 1.8vw;
+//         // }
+//         // //! ეს კატეგორიასგან ჩამოყავს ქვემოთ
+//         // &:nth-child(2) {
+//         //     margin-top: 5.3vw;
+//         // }
+
+
+//         &__container {
+//             // display: flex;
+//             // justify-content: space-between;
+//             width: 100%;
+
+//             .course-list {
+//                 display: flex;
+
+//                 &--arrow {
+//                     margin-top: .3vw;
+//                     cursor: pointer;
+//                     // transform: rotateZ(90deg);
+
+//                 }
+
+//                 &--name {
+//                     margin-left: .5vw;
+//                     width: 100%;
+
+//                     .title {
+//                         @include flex;
+//                     }
+
+
+//                     .inside_list {
+
+//                         ul {
+//                             list-style-type: none !important;
+//                             margin-top: .5vw;
+
+//                             li {
+//                                 width: 100%;
+
+//                                 display: flex;
+//                                 justify-content: space-between;
+//                                 align-items: center;
+
+//                                 // .check {
+//                                 //     opacity: 70%;
+//                                 // }
+
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
+
+
+//         }
+
+
+
+//     }
+// }

@@ -6,11 +6,11 @@
 
     &__pic {
         background: no-repeat url("/pictures/courses/profile_picture.png");
-         background-size: cover;
+        background-size: cover;
         background-position: center;
-        width: 25rem;
+        width: 7rem;
         height: 7rem;
-    
+
     }
 
     &__text {
@@ -27,17 +27,17 @@
             }
 
             &__raiting {
-            margin: 0.5vw 0vw 0.2vw 0vw;
-            
+                margin: 0.5vw 0vw 0.2vw 0vw;
+
 
             }
 
         }
-       
+
         .added-comment {
             // margin: 0.3vw 0vw 0vw 0vw;
             width: 100%;
-            
+
 
             p {
                 line-height: 180%;
@@ -56,11 +56,11 @@
             }
 
             &__thumbs-down {
-                margin-left:3rem;
+                margin-left: 3rem;
             }
         }
 
 
-        
+
     }
 }

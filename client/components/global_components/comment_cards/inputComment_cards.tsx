@@ -1,7 +1,13 @@
 import React, { Fragment, useState } from "react";
 import Input from "components/global_components/inputs/input";
 
-export default function input_cards() {
+interface Props {
+  name: string;
+  // raiting:
+  comment: string;
+}
+
+const InputCommentCards: React.FC<Props> = ({ name, comment }) => {
   const [placeHolder, setPlaceHolder] = useState<string>(
     "მოძებნე სასურველი კურსი"
   );
@@ -35,4 +41,6 @@ export default function input_cards() {
       </div>
     </Fragment>
   );
-}
+};
+
+export default InputCommentCards;
