@@ -12,7 +12,7 @@
     cursor: pointer;
     border: none;
     color: $white;
-    outline: none;
+    outline: none !important;
     // font-family: $paragraph-regular;
 
 
@@ -58,7 +58,7 @@
 
 .btn-red {
     background: $primary-red;
-    border: 1px solid $primary-blue;
+    border: 1px solid $primary-red;
     transition: all .4s;
 
     // &:hover {

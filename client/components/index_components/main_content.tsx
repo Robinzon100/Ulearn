@@ -17,7 +17,7 @@ const main_content: React.FC = () => {
       <div className="main_content">
         {/* //! კარუსელი */}
 
-        {/* <Carousel /> */}
+        <Carousel id={1} title={"ბიზნესი"} />
 
         {/* //! ინფუთები */}
         <div className="main_content--input">
@@ -58,6 +58,7 @@ const main_content: React.FC = () => {
 
               {/* //! აქ კიდევ აკლია სურათის და მოწონების პროპი,როცა ბაზიდან წამოვა მაშინ ჩავამატებ  */}
               <PrimaryContentCard
+                id={1}
                 title="რაიმე კურსის სათაური რომელიც არ აღემატება
                 ორ ხაზს ..."
                 author="ბექა არაბიძე"
@@ -68,6 +69,7 @@ const main_content: React.FC = () => {
                 newPrice={15}
               />
               <PrimaryContentCard
+                id={2}
                 title="რაიმე კურსის სათაური რომელიც არ აღემატება
                 ორ ხაზს ..."
                 author="ბექა არაბიძე"
@@ -78,6 +80,7 @@ const main_content: React.FC = () => {
                 newPrice={15}
               />
               <PrimaryContentCard
+                id={3}
                 title="რაიმე კურსის სათაური რომელიც არ აღემატება
                 ორ ხაზს ..."
                 author="ბექა არაბიძე"
@@ -88,6 +91,7 @@ const main_content: React.FC = () => {
                 newPrice={15}
               />
               <PrimaryContentCard
+                id={4}
                 title="რაიმე კურსის სათაური რომელიც არ აღემატება
                 ორ ხაზს ..."
                 author="ბექა არაბიძე"
@@ -98,6 +102,7 @@ const main_content: React.FC = () => {
                 newPrice={15}
               />
               <PrimaryContentCard
+                id={5}
                 title="რაიმე კურსის სათაური რომელიც არ აღემატება
                 ორ ხაზს ..."
                 author="ბექა არაბიძე"
@@ -108,6 +113,7 @@ const main_content: React.FC = () => {
                 newPrice={15}
               />
               <PrimaryContentCard
+                id={6}
                 title="რაიმე კურსის სათაური რომელიც არ აღემატება
                 ორ ხაზს ..."
                 author="ბექა არაბიძე"
@@ -118,6 +124,7 @@ const main_content: React.FC = () => {
                 newPrice={15}
               />
               <PrimaryContentCard
+                id={7}
                 title="რაიმე კურსის სათაური რომელიც არ აღემატება
                 ორ ხაზს ..."
                 author="ბექა არაბიძე"
@@ -128,6 +135,7 @@ const main_content: React.FC = () => {
                 newPrice={15}
               />
               <PrimaryContentCard
+                id={8}
                 title="რაიმე კურსის სათაური რომელიც არ აღემატება
                 ორ ხაზს ..."
                 author="ბექა არაბიძე"
@@ -138,6 +146,7 @@ const main_content: React.FC = () => {
                 newPrice={15}
               />
               <PrimaryContentCard
+                id={9}
                 title="რაიმე კურსის სათაური რომელიც არ აღემატება
                 ორ ხაზს ..."
                 author="ბექა არაბიძე"
@@ -148,6 +157,7 @@ const main_content: React.FC = () => {
                 newPrice={15}
               />
               <PrimaryContentCard
+                id={10}
                 title="რაიმე კურსის სათაური რომელიც არ აღემატება
                 ორ ხაზს ..."
                 author="ბექა არაბიძე"
@@ -158,6 +168,7 @@ const main_content: React.FC = () => {
                 newPrice={15}
               />
               <PrimaryContentCard
+                id={11}
                 title="რაიმე კურსის სათაური რომელიც არ აღემატება
                 ორ ხაზს ..."
                 author="ბექა არაბიძე"
@@ -168,6 +179,7 @@ const main_content: React.FC = () => {
                 newPrice={15}
               />
               <PrimaryContentCard
+                id={12}
                 title="რაიმე კურსის სათაური რომელიც არ აღემატება
                 ორ ხაზს ..."
                 author="ბექა არაბიძე"

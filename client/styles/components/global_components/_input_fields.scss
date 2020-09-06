@@ -1,6 +1,7 @@
 .input_field {
     width: 100%;
     padding: 1.5rem;
+    // padding: 1rem 2rem 2rem 6rem;
     background: #FFFFFF;
     border: 0.9px solid $secondary-dark-grey;
     box-sizing: border-box;
@@ -15,7 +16,7 @@
         border-radius: 8px;
     }
 
-   
+
 }
 
 
@@ -29,7 +30,7 @@
     .input_field-with-search {
         width: 100%;
         // width: 40rem;
-        padding: 1.3rem 1.3rem 1.3rem 4rem;
+        padding: 2rem 2rem 2rem 6rem;
         background: #FFFFFF;
         border: none !important;
         box-sizing: border-box;
@@ -60,7 +61,7 @@
         // left: 1%;
         // top: 30%;
         opacity: 80%;
-        margin-left: 1rem;
+        margin-left: 2rem;
     }
 
 }
@@ -113,7 +114,8 @@
 
 .dropdown-select {
     // background:url("/pictures/select_arrow.svg") 75% 53% no-repeat;
-    padding: 1.3rem 1.3rem 1.3rem 1.3rem;
+    padding: 2rem 2rem 2rem 2rem;
+    // padding: 1.3rem 1.3rem 1.3rem 1.3rem;
     position: relative;
     border-radius: 8px;
     background-color: white;
@@ -132,9 +134,9 @@
     }
 
 
-    // .select {
-    //     opacity: 70%;
-    // }
+    .select {
+        opacity: 25%;
+    }
 }
 
 .dropdown-list {

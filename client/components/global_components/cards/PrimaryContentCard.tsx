@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 interface Props {
+  id: number;
   title: string;
   author: string;
   raiting: number;
@@ -11,6 +12,7 @@ interface Props {
 }
 
 const PrimaryContentCard: React.FC<Props> = ({
+  id,
   price,
   title,
   author,

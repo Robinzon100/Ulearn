@@ -215,7 +215,7 @@ export const Courses: React.FC = () => {
                   <div className="courses_content--container">
                     {/* //! === 4-ეს არის შეფასების ჰტმლი ===*/}
 
-                    <div className="estimates">
+                    {/* <div className="estimates">
                       <div className="estimates__container">
                         <InputCommentCards name={"beqa"} comment={"sdgfg"} />
                         <CommentCards
@@ -224,7 +224,7 @@ export const Courses: React.FC = () => {
                           addedComment={"bla"}
                         />
                       </div>
-                    </div>
+                    </div> */}
 
                     {/* //! === 4-ეს არის შეფასების ჰტმლი ===*/}
 
@@ -326,76 +326,89 @@ export const Courses: React.FC = () => {
                     {/* //! === 2-ეს არის კითხვა-პასუხის ჰტმლი ===*/}
 
                     {/* //! === 1-ეს არის აღწერის ჰტმლი ===*/}
-                    {/* <div className="heading">
-                                            <p className="heading-bold-Noto paragraph-big">ამ კურსის სწავლებით შეძლებთ რომ ისწავლოთ javascript</p>
-                                        </div>
-                                        <br />
+                    <div className="heading">
+                      <p className="heading-bold-Noto paragraph-big">
+                        ამ კურსის სწავლებით შეძლებთ რომ ისწავლოთ javascript
+                      </p>
+                    </div>
+                    <br />
 
-                                        <div className="explanation">
-                                            <p className="paragraph-regular-Noto paragraph-medium-small">
-                                                კურსის დასაწყისში ვისწავლით თუ რას წარმოადგენს ეს პროგრამირების ენა და რატო გვჭირდება ვებ-დეველოპერებს.
-                                        </p>
-                                        </div>
+                    <div className="explanation">
+                      <p className="paragraph-regular-Noto paragraph-medium-small">
+                        კურსის დასაწყისში ვისწავლით თუ რას წარმოადგენს ეს
+                        პროგრამირების ენა და რატო გვჭირდება ვებ-დეველოპერებს.
+                      </p>
+                    </div>
 
-                                        <br />
-                                        <br />
+                    <br />
+                    <br />
 
-                                        <div className="learning-list">
-                                            <div className="learning-list__heading">
-                                                <p className="heading-bold-Noto paragraph-medium-small">
-                                                    გავივლით ყველაზე ძირითად თემებს როგორიცაა:
-                                            </p>
-                                            </div>
+                    <div className="learning-list">
+                      <div className="learning-list__heading">
+                        <p className="heading-bold-Noto paragraph-medium-small">
+                          გავივლით ყველაზე ძირითად თემებს როგორიცაა:
+                        </p>
+                      </div>
 
-                                            <br />
+                      <br />
 
-                                            <ul>
-                                                <li className="paragraph-regular-Noto paragraph-medium-small">
-                                                    javascrip ენის სინტაქსი და პროგრამირების ძირითადებ
-                                                    </li>
-                                                <li className="paragraph-regular-Noto paragraph-medium-small">
-                                                    რა არის DOM და DOM მანიპულირება
-                                                        </li>
-                                                <li className="paragraph-regular-Noto paragraph-medium-small">
-                                                    ინტერაქიულობის შექმნა
-                                                    </li>
-                                                <li className="paragraph-regular-Noto paragraph-medium-small">
-                                                    სხვა და სხვა ტიპი even-ები და მათი დანიშნულება
-                                                        </li>
-                                                <li className="paragraph-regular-Noto paragraph-medium-small">
-                                                    რთული ინტერაქტივები
-                                                    </li>
-                                            </ul>
+                      <ul>
+                        <li className="paragraph-regular-Noto paragraph-medium-small">
+                          javascrip ენის სინტაქსი და პროგრამირების ძირითადებ
+                        </li>
+                        <li className="paragraph-regular-Noto paragraph-medium-small">
+                          რა არის DOM და DOM მანიპულირება
+                        </li>
+                        <li className="paragraph-regular-Noto paragraph-medium-small">
+                          ინტერაქიულობის შექმნა
+                        </li>
+                        <li className="paragraph-regular-Noto paragraph-medium-small">
+                          სხვა და სხვა ტიპი even-ები და მათი დანიშნულება
+                        </li>
+                        <li className="paragraph-regular-Noto paragraph-medium-small">
+                          რთული ინტერაქტივები
+                        </li>
+                      </ul>
 
-                                            <div className="learning-list__line"></div>
+                      <div className="learning-list__line"></div>
+                    </div>
 
-                                        </div>
+                    <div className="portfolio">
+                      <div className="portfolio-heading">
+                        <p className="paragraph-regular-Noto paragraph-medium-small">
+                          ამ კურსზე შევქმნით თვენი პორფოლიოსთვის პროექტებს
+                          რომელიც საშუალებას მოგცემს რომ დაიწყოთ ამ ინდუსტრიში
+                          მუშობა, როგორც კომპანიაში ასევე თვენივე ბიზნესში.
+                        </p>
+                      </div>
+                      <div className="portfolio-pic"></div>
+                      <div className="portfolio-paragraph">
+                        <p className="paragraph-regular-Noto paragraph-medium-small">
+                          ეს არის ერთერთი პროექტის სურათი რომელსაც ჩვენ
+                          გავაკეთებთ და ყველა ელემენტს დიდი ყურადღებას მივაქცევთ
+                          და საჭირო ელემენტებს გავდით ინტერაქტულს რათა თქვენმა
+                          მომხმარებელმა მაქსიმალურად დიდხანს ისარგებლოს თვენი
+                          საიტის სერვისით და შდაბეჭდილება მოახდინოს.
+                        </p>
+                      </div>
+                    </div>
 
-                                        <div className="portfolio">
-                                            <div className="portfolio-heading">
-                                                <p className="paragraph-regular-Noto paragraph-medium-small">
-                                                ამ კურსზე შევქმნით თვენი პორფოლიოსთვის პროექტებს რომელიც საშუალებას მოგცემს რომ დაიწყოთ ამ ინდუსტრიში მუშობა, როგორც კომპანიაში ასევე თვენივე ბიზნესში.
-                                                </p>
-                                            </div>
-                                            <div className="portfolio-pic"></div>
-                                            <div className="portfolio-paragraph">
-                                                <p className="paragraph-regular-Noto paragraph-medium-small">ეს არის ერთერთი პროექტის სურათი რომელსაც ჩვენ გავაკეთებთ და ყველა ელემენტს დიდი ყურადღებას მივაქცევთ და საჭირო ელემენტებს გავდით ინტერაქტულს რათა თქვენმა მომხმარებელმა მაქსიმალურად დიდხანს ისარგებლოს თვენი საიტის სერვისით და შდაბეჭდილება მოახდინოს.</p>
-                                            </div>
+                    <br />
+                    <br />
+                    <br />
+                    <div className="courses_content__other-courses">
+                      <div className="other-courses__heading">
+                        <p className="paragraph-regular-Noto paragraph-medium-small">
+                          <span className="heading-semi-bold-Noto paragraph-medium-small">
+                            იმ შემთხვევაში თუ არ იცით რა არის HTML ან CSS
+                          </span>{" "}
+                          შეგიძლიათ ნახოთ ჩემი სხვა კურსი სადაც დეტალურად ვხსნი
+                          ამ ორ ენას
+                        </p>
+                      </div>
 
-                                        </div>
-
-                                            <br/>
-                                            <br/>
-                                            <br/>
-                                        <div className="courses_content__other-courses">
-                                            <div className="other-courses__heading">
-                                                <p className="paragraph-regular-Noto paragraph-medium-small">
-                                                    <span className="heading-semi-bold-Noto paragraph-medium-small">იმ შემთხვევაში თუ არ იცით რა არის HTML ან CSS</span> შეგიძლიათ ნახოთ ჩემი სხვა კურსი სადაც დეტალურად ვხსნი ამ ორ ენას
-                                                </p>
-                                            </div>
-
-                                            <div className="other_courses"></div>
-                                        </div> */}
+                      <div className="other_courses"></div>
+                    </div>
                   </div>
                 </div>
                 {/* //! აქ გამოჩნდება კონტენტი */}

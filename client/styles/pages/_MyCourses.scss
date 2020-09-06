@@ -1,5 +1,11 @@
 $mycourse-padding:0vw 10vw 0vw 10vw;
 
+.mycourse-line {
+    margin: 8rem 0 !important;
+    width: 70% !important;
+}
+
+
 .mycourses {
 
     &__container {
@@ -85,12 +91,12 @@ $mycourse-padding:0vw 10vw 0vw 10vw;
             // align-items: center;
             // justify-content: center;
             position: relative;
-            margin-top: 6rem;
+            margin-top: 7rem;
             padding: $mycourse-padding;
 
             &__course-details {
 
-
+                //! შენ ისწავლი
                 .you-learn {
 
                     &--list {
@@ -128,15 +134,88 @@ $mycourse-padding:0vw 10vw 0vw 10vw;
                         }
 
                     }
+
+
+                }
+
+
+
+
+                //! ჩემი კურსის შესახებ
+                .about_mycourse {
+
+                    &--paragraph {
+                        p.paragraph-regular-Noto:nth-child(3) {
+                            width: 90%;
+                        }
+
+                    }
+
+                    &--list {
+
+                        &__paragraph {
+
+                            width: 90%;
+                        }
+
+                    }
+
+
+                }
+
+                //! ინსტრუქტორის შესახებ
+
+                .instructor_profile {
+                    display: flex;
+
+
+                    &--pic {
+                        border-radius: 18px;
+                        background: no-repeat url("/pictures/instructor_pic.png");
+                        background-size: cover;
+                        background-position: center;
+                        width: 8rem;
+                        height: 8rem;
+                    }
+
+                    &--about {
+                        margin-left: 2rem;
+
+                        .course,
+                        .students {
+                            a {
+                                text-decoration: none !important;
+                                color: $primary-blue;
+                            }
+
+
+                        }
+                    }
+
+                    .about_instructor {
+                        .instructor_comment {
+                            p {
+                                color: $primary-dark;
+                            }
+                        }
+                    }
+
+
+                    .instructor_btn {
+                        a {
+                            width: 32rem !important;
+                            padding: 1.7rem !important;
+                        }
+                    }
                 }
             }
-
-            &__side-menu {
-                .side-menu {
-                    margin-top: 0;
-                }
-            }
-
         }
+
+        &__side-menu {
+            .side-menu {
+                margin-top: 0;
+            }
+        }
+
     }
 }

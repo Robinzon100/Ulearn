@@ -1,0 +1,5 @@
+@media screen and (max-width: 1600px) {
+    .main_content .courses--cards {
+        grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)) !important;
+    }
+}
