@@ -18,7 +18,7 @@ const MyCourses: React.FC = () => {
                   </p>
                 </div>
                 <div className="mycourses-hero__about-course--paragraph">
-                  <p className="paragraph-regular-Noto paragraph-small">
+                  <p className="paragraph-regular-Noto paragraph-small line-height">
                     გავივლით DJ-ის პროფესიის ყველა ნიუანს, რას აკეთებს რეალრად
                     DJ რა ევალება ნებისმიერ დაწესებულებაში და ასევე შევქმნით
                     რამოდენიმე ტრეკს რომლის გაყიდვას და გაპიარებასაც შეძლებთ
@@ -120,7 +120,7 @@ const MyCourses: React.FC = () => {
                       ამ კურსის სწავლებით შეძლებთ რომ ისწავლოთ javascript
                     </p>
                     <br />
-                    <p className="paragraph-regular-Noto paragraph-medium-small">
+                    <p className="paragraph-regular-Noto paragraph-medium-small line-height ">
                       კურსის დასაწყისში ვისწავლით თუ რას წარმოადგენს ეს
                       პროგრამირების ენა და რატო გვჭირდება ვებ-დეველოპერებს.
                     </p>
@@ -162,7 +162,7 @@ const MyCourses: React.FC = () => {
                     <br />
 
                     <div className="about_mycourse--list__paragraph">
-                      <p className="paragraph-regular-Noto paragraph-medium-small ">
+                      <p className="paragraph-regular-Noto paragraph-medium-small line-height ">
                         ამ კურსზე შევქმნით თვენი პორფოლიოსთვის პროექტებს რომელიც
                         საშუალებას მოგცემს რომ დაიწყოთ ამ ინდუსტრიში მუშობა,
                         როგორც კომპანიაში ასევე თვენივე ბიზნესში.
@@ -213,7 +213,7 @@ const MyCourses: React.FC = () => {
                   <br />
                   <div className="instructor_comment">
                     <div className="">
-                      <p className="paragraph-regular-Noto  paragraph-medium-small">
+                      <p className="paragraph-regular-Noto  paragraph-medium-small line-height ">
                         ვარ fullstack დეველოპერი რომესაც აქვს წლების
                         გამოცდილება, როგორც front-end დეველოპმენტში ასევე
                         back-end დეველოპმენტში, ვცხოვრობ რუსთავში და მაქვს
@@ -222,7 +222,7 @@ const MyCourses: React.FC = () => {
                       </p>
                       <br />
                       <br />
-                      <p className="paragraph-regular-Noto  paragraph-medium-small">
+                      <p className="paragraph-regular-Noto  paragraph-medium-small line-height ">
                         ჩემი ერთ-ერთი ყველაზე დიდი პროექტი არის სწორედ ეს საიტი
                         სადაც ნებისმიერი შეძლებს ქართული რესურსებით ისწავლოს
                         ნებისმიერი პროფესია ან ჰობი.

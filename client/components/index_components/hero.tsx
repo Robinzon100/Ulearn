@@ -64,37 +64,6 @@ const Hero: React.FC = () => {
           </video>
         </div>
       </section>
-
-      {/* <a href="#" className="btn btn-blue">ღილაკი</a>
-    <a href="#" className="btn btn-yellow">ღილაკი</a>
-    <a href="#" className="btn btn-green">ღილაკი</a>
-
-    <input type="text" className="input_field" />
-    <div className="input_container">
-        <input type="text" className="input_field-with-search" placeholder="მოძებნე სასურველი კურსი" />
-        <Search className="search" size={20} />
-    </div>
-
-
-    <div className="upload_container">
-        <label htmlFor="file-upload" className="custom-file-upload">
-            <div className="upload_dashed">
-                <Upload style={{opacity:'50%'}} className="upload" size={35} />
-
-                <input id="file-upload" type="file" />
-
-                <p className="heading-semi-bold-Noto paragraph-regular ">ფაილის ატვირთვა</p>
-            </div>
-        </label>
-    </div>
-
-
-    <select className="select_field" name="cars" id="cars">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="opel">Opel</option>
-        <option value="audi">Audi</option>
-    </select> */}
     </Fragment>
   );
 };

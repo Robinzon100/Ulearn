@@ -8,11 +8,12 @@ $hero-paragraph-margin:0vw 0vw 3vw 0vw;
     align-items: center;
     position: relative;
     border-radius: 21px;
-    height: 72vh;
+    height: 71vh;
     width: 100%;
     padding: 0vw 3.8vw 0vw 3.8vw;
     margin-top: 14rem;
-    // filter: url(#offset);
+    filter: url(#offset);
+    // filter: none !important;
 
 
     &--video {
@@ -108,8 +109,8 @@ $hero-paragraph-margin:0vw 0vw 3vw 0vw;
 }
 
 
-
-@supports ((-webkit-backdrop-filter: blur(47px)) or (backdrop-filter: blur(47px))) {
+//! ეს არის ჰიროუზე რომ მარცხნივ კოლოფია მისი ფილტრი
+@supports ((-webkit-backdrop-filter: blur(47px)) or (filter: blur(47px))) {
     .hero--steps {
         background: rgba(207, 207, 207, 0.26);
         box-shadow: inset 0px 0px 10px rgba(255, 255, 255, 0.4);
@@ -119,13 +120,24 @@ $hero-paragraph-margin:0vw 0vw 3vw 0vw;
 }
 
 
-@media screen and (max-width: 1600px) {
+// @supports ((-webkit-filter:url(#offset)) or (filter: blur(47px))) {
+//     .hero {
+//         filter: url(#offset);
+//     }
+// }
 
+
+
+@media screen and (max-width: 1680px) {
+
+    .hero {
+        margin-top: 13rem !important;
+    }
 
     .hero--video {
 
         video {
-            margin-left: -21rem !important;
+            margin-left: -12rem !important;
 
         }
     }

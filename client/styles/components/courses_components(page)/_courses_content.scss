@@ -1,0 +1,256 @@
+//! კურსის კონტენტის დასაწყისი
+.courses_content {
+    margin-top: 5rem;
+
+
+    h1 {
+
+        font-size: calc(18px + (23 - 18) * ((100vw - 300px) / (1900 - 700))) !important;
+        display: inline-block;
+        font-family: $button-semi-bold;
+        line-height: 180%;
+
+    }
+
+
+
+
+    p {
+
+        font-size: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
+        display: inline-block;
+        font-family: $paragraph-regular;
+        line-height: 180%;
+
+        span {
+            font-size: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
+            font-family: $button-semi-bold !important;
+
+        }
+    }
+
+
+
+
+
+    ul {
+        list-style: none !important;
+        margin-left: 1.5rem;
+
+        li {
+            position: relative;
+            margin-top: .8vw;
+
+            p {
+                font-size: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
+                display: inline-block;
+                font-family: $paragraph-regular;
+                line-height: 180%;
+            }
+
+            &:before {
+                content: "";
+                position: absolute;
+                background: no-repeat url("/pictures/courses/blue_bullet.svg");
+                background-size: cover;
+                background-position: center;
+                // color:$secondary-light-blue;
+                // border-radius: 50%;
+                // font-weight: bold;
+                display: inline-block;
+                width: 1.2rem;
+                height: 1.2rem;
+                margin-left: -2.2rem;
+                top: 35%;
+            }
+        }
+    }
+
+    hr {
+        width: 85%;
+        margin: 5rem auto;
+        border: 1px solid #C9C9C961;
+    }
+
+    //! ეს არის აღწერის ცსს
+
+    .portfolio-pic {
+        background: no-repeat url("/pictures/courses/portfolio_photo.png");
+        background-size: contain;
+        background-position: center;
+        width: 85%;
+        height: 53vh;
+        margin: 0 auto;
+    }
+
+
+
+
+    //! ეს არის კითხვა-პასუხის ცსს
+    .question-answer {
+        display: flex;
+        flex-direction: column;
+        // align-items: center;
+        justify-content: flex-start;
+        // margin-top: 2rem;
+
+        //! ეს არის ღილაკი
+        .user-answer {
+            a {
+                color: $primary-dark;
+                width: 18rem !important;
+                padding: 0.6rem !important;
+            }
+        }
+
+        .main-comment,
+        .sub-comment {
+            display: flex;
+            flex-direction: row;
+
+
+            &__pic {
+                background: no-repeat url("/pictures/courses/profile_picture.png");
+                // background-size: cover;
+                background-position: left;
+                width: 7vw;
+                height: 4.5vw;
+
+            }
+
+            &__text {
+                margin-left: 2.5rem;
+
+                .about-user {
+                    display: flex;
+                    align-items: center;
+
+
+                    &__time {
+                        margin-left: 1.2vw;
+                        color: #636469;
+                    }
+
+                }
+
+                .user-comment {
+                    width: 75%;
+                    margin: 0.3vw 0vw 1.5vw 0vw;
+
+                    p {
+                        line-height: 180%;
+
+                    }
+                }
+
+
+
+            }
+
+
+
+        }
+
+        .sub-comment {
+            margin: 5rem 0rem 0rem 5rem;
+        }
+
+
+    }
+
+    //! ეს არის კითხვა-პასუხის ცსს
+
+
+    //! ეს არის რესურსების ცსს
+
+    .resources {
+
+
+
+
+        &_links {
+            margin: 1vw 0vw 3vw 0vw;
+        }
+
+        &_files {
+
+
+
+            .files {
+                position: relative;
+
+                a {
+                    text-decoration: none;
+                    color: $white;
+                    width: 48%;
+                    padding: 3rem;
+
+                    h1 {
+                        margin-left: 4vw;
+                    }
+                }
+
+                .icon {
+                    position: absolute;
+                    top: 24%;
+                    z-index: 1;
+                    left: 3.5%;
+                }
+            }
+
+
+
+        }
+
+    }
+
+
+    .estimates {
+
+        &__container {
+
+            .add_comment {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+
+                &--input {
+                    width: 100%;
+                    margin-left: 2rem;
+                    display: flex;
+                    flex-direction: column;
+
+                    .about_user {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+
+                        &--star {
+                            margin-left: 2rem;
+                        }
+                    }
+
+                    .comment_field {
+                        margin: .8vw 0vw .8vw 0vw;
+                    }
+
+                    .add_btn {
+                        align-self: flex-end;
+                        padding: 1.2rem;
+                        width: 25rem;
+
+                        a {
+                            text-decoration: none;
+                            color: $white;
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //! ეს არის შეფასებების ცსს
+
+
+}

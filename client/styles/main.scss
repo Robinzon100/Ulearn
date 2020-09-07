@@ -27,7 +27,7 @@
 @import "components/footer";
 @import "components/file_uploads";
 
-@import "components/courses_components(page)/courses_components";
+@import "components/courses_components(page)/courses_content";
 
 // === === === === GLOBAL-COMPONENTS === === === ===
 @import "components/global_components/buttons";
@@ -39,5 +39,5 @@
 // === === === === HERO-COMPONENTS === === === ===
 @import "components/index_components/hero";
 @import "components/index_components/main_content";
-
+@import "components/index_components/carousel";
 @import "functions/navigation";

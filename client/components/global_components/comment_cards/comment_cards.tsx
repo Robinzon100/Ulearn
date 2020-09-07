@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 
 import { ThumbsUp, ThumbsDown } from "react-feather";
 
-import Stars from "components/global_components/stars/stars";
+import Stars from "components/global_components/svg/stars/Stars";
 
 interface CommentCards {
   name: string;
@@ -23,13 +23,11 @@ const comment_cards: React.FC<CommentCards> = ({
         <div className="comment__text">
           <div className="about-user">
             <div className="about-user__name">
-              <p className="heading-semi-bold-Noto paragraph-regular">{name}</p>
+              <p>{name}</p>
             </div>
 
             <div className="about-user__time">
-              <p className="paragraph-light-Noto paragraph-medium-small">
-                ({registrationDay} წლის წინ)
-              </p>
+              <p>({registrationDay} წლის წინ)</p>
             </div>
           </div>
 
@@ -37,9 +35,7 @@ const comment_cards: React.FC<CommentCards> = ({
             <Stars />
           </div>
           <div className="added-comment">
-            <p className="paragraph-regular-Noto paragraph-medium-small">
-              {addedComment}
-            </p>
+            <p>{addedComment}</p>
           </div>
 
           <div className="like">

@@ -1,0 +1,63 @@
+$carousel-card-shadow:0px 25.4px 42px 9px rgba(17, 23, 53, 0.05);
+$right_slider_btn-gradient:linear-gradient(271.08deg, #FFFFFF 62.68%, rgba(255, 255, 255, 0) 99.18%);
+
+.main_content--carousel {
+    position: relative;
+
+    .right_slider_btn {
+        position: absolute;
+        background: $right_slider_btn-gradient;
+        right: -2%;
+        width: 25rem;
+        height: 11rem;
+        top: 5%;
+        z-index: 1;
+        cursor: pointer;
+
+        svg {
+            margin-left: 10rem;
+            position: relative;
+        }
+
+    }
+
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+        position: relative;
+    }
+
+
+
+    .carousel_card {
+        display: flex;
+        flex-direction: row;
+        box-shadow: $carousel-card-shadow;
+        padding: 1.5rem 0rem 1.5rem 1.5rem;
+        border-radius: 18px;
+        margin: 0rem 0 12rem 0rem;
+        cursor: pointer;
+
+        &:not(:first-child) {
+            margin-left: 4rem;
+        }
+
+
+        &--pic {
+            background: no-repeat url("/pictures/courses/carousel_pic.png");
+            background-size: cover;
+            background-position: center;
+            width: 10rem;
+            height: 9rem;
+            border-radius: 18px;
+        }
+
+
+        &--heading {
+            align-self: center;
+            margin: 0 7rem;
+        }
+    }
+}
