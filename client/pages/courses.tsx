@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-import Head from 'next/head'
+import Head from "next/head";
 
 import { Eye, Star, Clipboard, Folder, HelpCircle } from "react-feather";
 
@@ -54,19 +54,18 @@ export const Courses: React.FC = () => {
   // }
 
   useEffect(() => {
-    let player = new Playerjs({ id: "player", file: "https://s4106-05.imovies.cc/video/imovie_hash_code/13/2020090407424983_high_ENG.mp4?md5=rA9rOqon_6iIRw66z_27zQ&expires=1599556606&data=YTozOntzOjc6InVzZXJfaXAiO3M6MTU6IjE3Ni4yMjEuMTMyLjIxMCI7czoxMDoidXNlcl9hZ2VudCI7czoxMTQ6Ik1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS84NS4wLjQxODMuODMgU2FmYXJpLzUzNy4zNiI7czo3OiJyZWZlcmVyIjtzOjIzOiJodHRwczovL3d3dy5pbW92aWVzLmNjLyI7fQ==" });
-  }, [])
-
-
+    let player = new Playerjs({
+      id: "player",
+      file:
+        "https://s4106-05.imovies.cc/video/imovie_hash_code/13/2020090407424983_high_ENG.mp4?md5=rA9rOqon_6iIRw66z_27zQ&expires=1599556606&data=YTozOntzOjc6InVzZXJfaXAiO3M6MTU6IjE3Ni4yMjEuMTMyLjIxMCI7czoxMDoidXNlcl9hZ2VudCI7czoxMTQ6Ik1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS84NS4wLjQxODMuODMgU2FmYXJpLzUzNy4zNiI7czo3OiJyZWZlcmVyIjtzOjIzOiJodHRwczovL3d3dy5pbW92aWVzLmNjLyI7fQ==",
+    });
+  }, []);
 
   return (
     <Fragment>
       <Head>
         <script src="js/player.js" async defer></script>
-
       </Head>
-
-
 
       <BaseLayout>
         <div className="courses-page">
@@ -341,8 +340,55 @@ export const Courses: React.FC = () => {
                 </div>
               </div>
             </div>
+            <div className="side-menu noselect ">
+              <SideMenu
+                id={1}
+                title={"javascript"}
+                courseTime={45}
+                subTitle={"რა არის ჯავასკრიპტი"}
+                subTaskTime={5}
+              />
+              <br />
+              <br />
 
-            <SideMenu />
+              <SideMenu
+                id={2}
+                title={"PHP"}
+                courseTime={45}
+                subTitle={"რა არის პჩპ"}
+                subTaskTime={5}
+              />
+              <br />
+              <br />
+
+              <SideMenu
+                id={3}
+                title={"Angular"}
+                courseTime={45}
+                subTitle={"რა არის ანგულარი"}
+                subTaskTime={5}
+              />
+              <br />
+              <br />
+
+              <SideMenu
+                id={4}
+                title={"React"}
+                courseTime={45}
+                subTitle={"რა არის რეაქტი"}
+                subTaskTime={5}
+              />
+              <br />
+              <br />
+
+              <SideMenu
+                id={5}
+                title={"Vue"}
+                courseTime={45}
+                subTitle={"რა არის ვიუ"}
+                subTaskTime={5}
+              />
+            </div>
           </div>
         </div>
       </BaseLayout>
