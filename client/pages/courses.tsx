@@ -10,15 +10,10 @@ import SideMenu from "components/global_components/side_menu/sideMenu";
 import CommentCards from "components/global_components/comment_cards/comment_cards";
 import InputCommentCards from "components/global_components/comment_cards/inputComment_cards";
 
-//!================== СOURSE SVGS
-// import QuestionAnswer from "components/global_components/svg/course_svg/QuestionAnswer";
-// import Description from "components/global_components/svg/course_svg/Description";
-// import Resources from "components/global_components/svg/course_svg/Resources";
-// import Estimates from "components/global_components/svg/course_svg/Estimates";
-
 export const Courses: React.FC = () => {
   const [placeHolder, setPlaceHolder] = useState<string>("დაწერე რაც გინდა");
 
+<<<<<<< HEAD
   // //! ეს არის რაც მერე ბაზიდან რომ წამოვა ის კონტენტის მაგალითი
   // const [revealContent, setRevealContent] = useState([
   // "beqa",
@@ -68,6 +63,8 @@ export const Courses: React.FC = () => {
 
 
 
+=======
+>>>>>>> 200b7f1df4a33584223b486f44be0abd10843c89
   useEffect(() => {
     let player = new Playerjs({
       id: "player",
@@ -230,7 +227,7 @@ export const Courses: React.FC = () => {
 
                   {/* //! === 2-ეს არის კითხვა-პასუხის ჰტმლი ===*/}
 
-                  {/* <div className="question-answer">
+                  <div className="question-answer">
                     <div className="main-comment">
                       <div className="main-comment__pic"></div>
 
@@ -294,12 +291,12 @@ export const Courses: React.FC = () => {
                         </div>
                       </div>
                     </div>
-                  </div> */}
+                  </div>
                   {/* //! === 2-ეს არის კითხვა-პასუხის ჰტმლი ===*/}
 
                   {/* //! === 1-ეს არის აღწერის ჰტმლი ===*/}
 
-                  <h1>ამ კურსის სწავლებით შეძლებთ რომ ისწავლოთ javascript</h1>
+                  {/* <h1>ამ კურსის სწავლებით შეძლებთ რომ ისწავლოთ javascript</h1>
                   <br />
                   <br />
                   <p>
@@ -350,7 +347,7 @@ export const Courses: React.FC = () => {
                     შეგიძლიათ ნახოთ ჩემი სხვა კურსი სადაც დეტალურად ვხსნი ამ ორ
                     ენას
                   </p>
-                  <div className="other_courses"></div>
+                  <div className="other_courses"></div> */}
                   {/* //! აქ გამოჩნდება კონტენტი */}
                 </div>
               </div>
