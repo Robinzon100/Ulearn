@@ -1,24 +1,18 @@
 import React, { Fragment, useState, useRef } from "react";
+import { videoList } from '../../../interfaces/coursePage.interface';
 
-interface Props {
-  id: number;
-  title: string;
-  courseTime: number;
-  subTitle: string;
-  subTaskTime: number;
-}
 
-const sideMenu: React.FC<Props> = ({
+
+const sideMenu: React.FC<videoList> = ({
   id,
   title,
-  courseTime,
-  subTitle,
+  courseChapterTime,
+  subTitles,
   subTaskTime,
 }) => {
-  const ref = useRef();
+
 
   const [revealContent, setRevealContent] = useState<boolean>(false);
-
   const [finished, setFinished] = useState<boolean>(false);
 
   const handleSetRevealContent = () => {
@@ -30,8 +24,9 @@ const sideMenu: React.FC<Props> = ({
   };
 
   return (
-    <Fragment>
+    <>
       <div
+        data-id={id}
         className={
           !revealContent
             ? "side-menu__container"
@@ -44,13 +39,13 @@ const sideMenu: React.FC<Props> = ({
               <p className="Eina-semibold paragraph-medium">{id}</p>
             </div>
             <div className="card__text">
-              <p className="paragraph-regular-Noto paragraph-medium">
-                <span className="Eina-semibold">{title}</span>-ის ძირითადები.
+              <p className=" Eina-semibold paragraph-medium">
+                {title}
               </p>
             </div>
             <div className="card__time">
               <p className="paragraph-light-Noto paragraph-smallest">
-                {courseTime}m
+                {courseChapterTime}m
               </p>
             </div>
           </div>
@@ -62,43 +57,23 @@ const sideMenu: React.FC<Props> = ({
               : "clip-path-reveal card_container__info"
           }
         >
-          <div className="card_container__info--details">
-            <div
-              className={
-                !finished ? "details_not_finished" : "details_finished"
-              }
-              onClick={handleSetFinished}
-            ></div>
-            <div className="details_heading">
-              <p className="paragraph-regular-Noto paragraph-medium-small ">
-                {subTitle}
-                <span className="Eina-semibold paragraph-smallest">(5m)</span>
-              </p>
+          {subTitles.map((sub, index) => (
+            <div key={sub.id} className="card_container__info--details" onClick={handleSetFinished}>
+
+              <div
+                className={!finished ? "details_not_finished" : "details_finished"}
+              ></div>
+              <div className="details_heading">
+                <p className="paragraph-regular-Noto paragraph-medium-small ">
+                  {sub.text}
+                  <span className="Eina-semibold paragraph-smallest">(5m)</span>
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="card_container__info--details">
-            <div className="details_not_finished"></div>
-            <div className="details_heading">
-              <p className="paragraph-regular-Noto paragraph-medium-small ">
-                ჯავასკტიპტის ფუნდამენტები, რისი გაკეთება შეგიძლია
-                <span className="Eina-semibold paragraph-smallest">(5m)</span>
-              </p>
-            </div>
-          </div>
-          <div className="card_container__info--details">
-            <div className="details_not_finished"></div>
-            <div className="details_heading">
-              <p className="paragraph-regular-Noto paragraph-medium-small ">
-                რა არის ცვლადები
-                <span className="Eina-semibold paragraph-smallest">
-                  ({subTaskTime}m)
-                </span>
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
-    </Fragment>
+    </>
   );
 };
 
