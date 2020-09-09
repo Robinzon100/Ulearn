@@ -10,6 +10,10 @@ import CommentCards from "components/global_components/comment_cards/comment_car
 import InputCommentCards from "components/global_components/comment_cards/inputComment_cards";
 import CoursesJson from "../public/json/Courses.json";
 
+import Description from "../public/SVG/CoursesSvg/Clipboard";
+
+import Resources from "../public/SVG/CoursesSvg/HelpCircle";
+
 export const Courses: React.FC = () => {
   const [placeHolder, setPlaceHolder] = useState<string>("დაწერე რაც გინდა");
 
@@ -24,6 +28,14 @@ export const Courses: React.FC = () => {
     const htmlContent = e.currentTarget.attributes["data-title"].nodeValue;
     const currentText = ref.current;
     setRevealHtml(htmlContent);
+  };
+
+  const renderIcon = (icon) => {
+    if (icon == "აღწერა") {
+      return <Description />;
+    } else if (icon == "რესურსები") {
+      return <Resources />;
+    }
   };
 
   let subTitles = [
@@ -87,17 +99,26 @@ export const Courses: React.FC = () => {
                 <div className="section-courses--tablist__container gray-border">
                   {CoursesJson
                     ? CoursesJson.content.map((coursesContent, i) => (
-                        <p
-                          style={{ cursor: "pointer" }}
-                          className="heading-semi-bold-Noto paragraph-medium"
-                          data-title={coursesContent.html}
-                          onClick={(e) => {
-                            getHtml(e);
-                          }}
-                          key={i}
-                        >
-                          {coursesContent.title}
-                        </p>
+                        <Fragment>
+                          <div
+                            className="renderedContent"
+                            style={{ cursor: "pointer" }}
+                            data-title={coursesContent.html}
+                            onClick={(e) => {
+                              getHtml(e);
+                            }}
+                            key={i}
+                          >
+                            <div className="rendered_icon">
+                              {renderIcon(coursesContent.title)}
+                            </div>
+                            <div className="rendered_title">
+                              <p className="heading-semi-bold-Noto paragraph-medium">
+                                {coursesContent.title}
+                              </p>
+                            </div>
+                          </div>
+                        </Fragment>
                       ))
                     : null}
                   {/* <div className="tablist_description flex-container four-color-border">

@@ -61,10 +61,19 @@ $card-shadow:0px 19px 72px -2px rgba(25, 27, 29, 0.14);
                 padding: 0 1.5vw;
                 width: 73%;
 
+                .renderedContent {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .rendered_title {
+                    margin-left: 1rem;
+                }
+
                 &__container {
                     @include flex;
                     position: relative;
-                    padding: 0rem 2rem 0rem 2rem;
+                    padding: 1.5rem 2rem 1.5rem 2rem;
 
 
                     &:after {
