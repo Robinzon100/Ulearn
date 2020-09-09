@@ -128,7 +128,7 @@ $mycourse-padding:0vw 10vw 0vw 10vw;
             padding: 0;
             margin-top: -1rem;
             width: 88%;
-            margin-left: 3rem;
+            // margin-left: 3rem;
 
 
             li {
@@ -136,18 +136,27 @@ $mycourse-padding:0vw 10vw 0vw 10vw;
                 margin-top: 4.5rem;
                 display: flex;
                 // justify-content: space-between;
-                align-items: center;
+                // align-items: center;
+                position: relative;
+
 
                 .checked {
                     margin-left: 0;
                     background-size: cover !important;
                     height: 2.5rem !important;
                     width: 2.6rem !important;
-                    margin-right: 2.5rem;
+
+                    background: no-repeat url("/pictures/courses/courses_side_menu_finished.svg");
+                    background-position: center;
+                    display: inline-block;
+
+
+
                 }
 
                 p {
                     margin-top: -0.5rem;
+                    margin-left: 1.5rem;
                 }
 
 

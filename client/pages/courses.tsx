@@ -1,70 +1,48 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect, useRef } from "react";
 import Head from "next/head";
-
+import ReactHtmlParser from "react-html-parser";
 import { Eye, Star, Clipboard, Folder, HelpCircle } from "react-feather";
 
+//! ==== OTHER IMPORTS
 import BaseLayout from "components/base-layout";
-
-import SideMenu from "components/global_components/side_menu/sideMenu";
-
+import SideMenu from "components/sideMenu";
 import CommentCards from "components/global_components/comment_cards/comment_cards";
 import InputCommentCards from "components/global_components/comment_cards/inputComment_cards";
+import CoursesJson from "../public/json/Courses.json";
 
 export const Courses: React.FC = () => {
   const [placeHolder, setPlaceHolder] = useState<string>("დაწერე რაც გინდა");
 
-<<<<<<< HEAD
-  // //! ეს არის რაც მერე ბაზიდან რომ წამოვა ის კონტენტის მაგალითი
-  // const [revealContent, setRevealContent] = useState([
-  // "beqa",
-  // "robo",
-  // "levani",
-  // "saba"
-  // ])
-  // //! ეს არის ის სახელები რაც კურსის გვერდზე კატეგორიებს რომ ჰქვია
-  // const [names, setNames] = useState([
-  // "აღწერა",
-  // "კითხვა-პასუხი",
-  // "რესურსები",
-  // "შეფასებები"
-  // ])
+  const ref = useRef();
 
-  // //! აქ ჩავარდება ყველა ის html რაც წამოვა ბაზიდან
-  // const [revealHtml, setRevealHtml] = useState("");
-  // //! ეს ყოცველი შემთხვევისთვის იყოს. თუ რამე დეფაულტად იქნება
-  // //! ტექსტი თავიდანვე მაგისთვისაა. პაქტობრივად არაფერს აკეთებს ამ წამს
-  // const [defaultText, setDefaultText] = useState(true)
+  const [revealHtml, setRevealHtml] = useState<string>(
+    CoursesJson.content[0].html
+  );
 
-  // const getHtml = (e) => {
-  // // debugger;
-  // if(e.currentTarget.attributes["data-title"]) {
-  // //** აქ ვიღებთ ყველა იმს კონტენტს დატა-ატრიბუტის საშუალებით */
-  // const htmlContent = e.currentTarget.attributes["data-title"].nodeValue;
+  const getHtml = (e) => {
+    // debugger;
+    const htmlContent = e.currentTarget.attributes["data-title"].nodeValue;
+    const currentText = ref.current;
+    setRevealHtml(htmlContent);
+  };
 
-  // const currentText = ref.current.childNodes;
+  let subTitles = [
+    {
+      id: 1,
+      text: "java mana",
+      videoUrl:
+        "https://s4106-05.imovies.cc/video/imovie_hash_code/1/2020090407554015_high_ENG.mp4?md5=Ul1cPbbjqASrVDkrD7Cmqg&expires=1599656612&data=YTozOntzOjc6InVzZXJfaXAiO3M6MTU6IjE3Ni4yMjEuMTMyLjIxMCI7czoxMDoidXNlcl9hZ2VudCI7czoxMTQ6Ik1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS84NS4wLjQxODMuODMgU2FmYXJpLzUzNy4zNiI7czo3OiJyZWZlcmVyIjtzOjIzOiJodHRwczovL3d3dy5pbW92aWVzLmNjLyI7fQ==",
+      amountOfMinutes: 12,
+    },
+    {
+      id: 2,
+      text: "java asdasd as",
+      videoUrl:
+        "https://s4114-21.imovies.cc/video/imovie_hash_code/3/2017050923065223_high_eng.mp4?md5=W1C5ex9RqZWL-Rejf4JUqw&expires=1599656434&data=YTozOntzOjc6InVzZXJfaXAiO3M6MTU6IjE3Ni4yMjEuMTMyLjIxMCI7czoxMDoidXNlcl9hZ2VudCI7czoxMTQ6Ik1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS84NS4wLjQxODMuODMgU2FmYXJpLzUzNy4zNiI7czo3OiJyZWZlcmVyIjtzOjIzOiJodHRwczovL3d3dy5pbW92aWVzLmNjLyI7fQ==",
+      amountOfMinutes: 12,
+    },
+  ];
 
-  // //** აქ ვარდება ის კონტენტი */
-  // setRevealHtml(htmlContent);
-  // }
-  // }
-
-  let subTitles = [{
-    id: 1,
-    text: "java mana",
-    videoUrl: "https://s4106-05.imovies.cc/video/imovie_hash_code/1/2020090407554015_high_ENG.mp4?md5=Ul1cPbbjqASrVDkrD7Cmqg&expires=1599656612&data=YTozOntzOjc6InVzZXJfaXAiO3M6MTU6IjE3Ni4yMjEuMTMyLjIxMCI7czoxMDoidXNlcl9hZ2VudCI7czoxMTQ6Ik1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS84NS4wLjQxODMuODMgU2FmYXJpLzUzNy4zNiI7czo3OiJyZWZlcmVyIjtzOjIzOiJodHRwczovL3d3dy5pbW92aWVzLmNjLyI7fQ==",
-    amountOfMinutes: 12
-  },
-  {
-    id: 2,
-    text: "java asdasd as",
-    videoUrl: "https://s4114-21.imovies.cc/video/imovie_hash_code/3/2017050923065223_high_eng.mp4?md5=W1C5ex9RqZWL-Rejf4JUqw&expires=1599656434&data=YTozOntzOjc6InVzZXJfaXAiO3M6MTU6IjE3Ni4yMjEuMTMyLjIxMCI7czoxMDoidXNlcl9hZ2VudCI7czoxMTQ6Ik1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS84NS4wLjQxODMuODMgU2FmYXJpLzUzNy4zNiI7czo3OiJyZWZlcmVyIjtzOjIzOiJodHRwczovL3d3dy5pbW92aWVzLmNjLyI7fQ==",
-    amountOfMinutes: 12
-  }]
-
-
-
-=======
->>>>>>> 200b7f1df4a33584223b486f44be0abd10843c89
   useEffect(() => {
     let player = new Playerjs({
       id: "player",
@@ -107,16 +85,23 @@ export const Courses: React.FC = () => {
 
               <div className="section-courses--tablist">
                 <div className="section-courses--tablist__container gray-border">
-                  <div className="tablist_description flex-container four-color-border">
-                    {/* //! აქ ბრუნდება კონტენტი */}
-                    {/* { revealContent ? names.map((name,index) => (
-                        <p data-title={revealContent[index]} onClick={(e)=> {getHtmsetDefaultText(false) }}
-                        key={index}
+                  {CoursesJson
+                    ? CoursesJson.content.map((coursesContent, i) => (
+                        <p
+                          style={{ cursor: "pointer" }}
+                          className="heading-semi-bold-Noto paragraph-medium"
+                          data-title={coursesContent.html}
+                          onClick={(e) => {
+                            getHtml(e);
+                          }}
+                          key={i}
                         >
-                        {name}
+                          {coursesContent.title}
                         </p>
-                        )):null} */}
-                    {/* //! აქ ბრუნდება კონტენტი */}
+                      ))
+                    : null}
+                  {/* <div className="tablist_description flex-container four-color-border">
+                   
 
                     <div className="tablist_description--clipboard">
                       <Clipboard style={{ color: "#338EFF" }} />
@@ -158,15 +143,13 @@ export const Courses: React.FC = () => {
                         შეფასებები
                       </p>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
 
                 {/* //! აქ გამოჩნდება კონტენტი */}
-                {/* {revealContent ? defaultText ? revealContent[0] : revealHtml : null} */}
 
-                <div className="courses_content">
+                <div className="courses_content" ref={ref}>
                   {/* //! === 4-ეს არის შეფასების ჰტმლი ===*/}
-
                   {/* <div className="estimates">
                     <div className="estimates__container">
                       <InputCommentCards name={"beqa"} comment={"sdgfg"} />
@@ -180,174 +163,56 @@ export const Courses: React.FC = () => {
 
                   {/* //! === 4-ეს არის შეფასების ჰტმლი ===*/}
 
-                  {/* //! === 3-ეს არის რესურსების ჰტმლი ===*/}
-                  {/* <div className="resources">
-                    <h1>
-                      ვიდეოზე ნახსენები საიტების და დამატებითი რესურსების
-                      ლინკები, ასევე ამ ვიდეოში დაწერილი კოდის ფაილები
-                    </h1>
-
-                    <p className="paragraph-regular-Noto paragraph-medium-small">
-                      vs code გადმოსაწერილი ლინკი:
-                      <a href="#">https://vscode.com</a>
-                    </p>
-                    <p className="paragraph-regular-Noto paragraph-medium-small">
-                      ვიდეოში ნანახი ბლოგპოსტის ლინკი:
-                      <a href="#">https://medium.com</a>
-                    </p>
-
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-
-                    <h1 className="heading-bold-Noto paragraph-medium-small">
-                      ამ ვიდეოში დაწერილი კოდის ფაილი:
-                    </h1>
-                    <br />
-                    <br />
-                    <div className="resources_files">
-                      <div className="files">
-                        <a href="#" className="btn btn-for-video-files">
-                          <h1>დავალების ფაილები</h1>
-                        </a>
-                        <div className="folder-icon icon">
-                          <Folder
-                            style={{ fill: "#FFFFFF", color: "#FFFFFF" }}
-                            size={50}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div> */}
-
-                  {/* //! === 3-ეს არის რესურსების ჰტმლი ===*/}
+                  <div className="ResourvesReveal"></div>
 
                   {/* //! === 2-ეს არის კითხვა-პასუხის ჰტმლი ===*/}
+                  <div className="QuestionAnswerReveal">
+                    {/* <div className="question-answer">
+                      <div className="main-comment">
+                        <img
+                          src="./pictures/courses/profile_picture.png"
+                          className="main-comment__pic"
+                        ></img>
 
-                  <div className="question-answer">
-                    <div className="main-comment">
-                      <div className="main-comment__pic"></div>
-
-                      <div className="main-comment__text">
-                        <div className="about-user">
-                          <div className="about-user__name">
-                            <h1>სახელა სახელაშვილი</h1>
+                        <div className="main-comment__text">
+                          <div className="about-user">
+                            <div className="about-user__name">
+                              <h1>სახელა სახელაშვილი</h1>
+                            </div>
+                            <div className="about-user__time">
+                              <p>(1 წლის წინ)</p>
+                            </div>
                           </div>
-                          <div className="about-user__time">
-                            <p>(1 წლის წინ)</p>
-                          </div>
-                        </div>
-                        <div className="user-comment">
-                          <p>
-                            ვინმეს შეუძლია რომ დამეხმაროს კოდში ? რატომღაც როცა
-                            ვაკეთებ console log(“welo world”) რათომღაც არ მიწერს
-                            არაფერს
-                          </p>
-                        </div>
-
-                        <div className="user-answer">
-                          <a
-                            href="#"
-                            className="btn btn-black heading-bold-Noto paragraph-medium-small"
-                          >
-                            პასუხის გაცემა
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="sub-comment">
-                      <div className="sub-comment__pic"></div>
-
-                      <div className="sub-comment__text">
-                        <div className="about-user">
-                          <div className="about-user__name">
-                            <h1>სახელა სახელაშვილი</h1>
-                          </div>
-                          <div className="about-user__time">
-                            <p className="paragraph-light-Noto paragraph-medium-small">
-                              (1 წლის წინ)
+                          <div className="user-comment">
+                            <p>
+                              ვინმეს შეუძლია რომ დამეხმაროს კოდში ? რატომღაც
+                              როცა ვაკეთებ console log(“welo world”) რათომღაც არ
+                              მიწერს არაფერს
                             </p>
                           </div>
-                        </div>
-                        <div className="user-comment">
-                          <p className="paragraph-regular-Noto paragraph-medium-small">
-                            ვინმეს შეუძლია რომ დამეხმაროს კოდში ? რატომღაც როცა
-                            ვაკეთებ console log(“welo world”) რათომღაც არ მიწერს
-                            არაფერს
-                          </p>
-                        </div>
 
-                        <div className="user-answer">
-                          <a
-                            href="#"
-                            className="btn btn-black heading-bold-Noto paragraph-medium-small"
-                          >
-                            პასუხის გაცემა
-                          </a>
+                          <div className="user-answer">
+                            <a
+                              href="#"
+                              className="btn btn-black heading-bold-Noto paragraph-medium-small"
+                            >
+                              პასუხის გაცემა
+                            </a>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
+
                   {/* //! === 2-ეს არის კითხვა-პასუხის ჰტმლი ===*/}
 
-                  {/* //! === 1-ეს არის აღწერის ჰტმლი ===*/}
+                  {/* //! აქ იპარსებია თხასავით*/}
+                  <div className="СontentReveal">
+                    {ReactHtmlParser(revealHtml)}
 
-                  {/* <h1>ამ კურსის სწავლებით შეძლებთ რომ ისწავლოთ javascript</h1>
-                  <br />
-                  <br />
-                  <p>
-                    კურსის დასაწყისში ვისწავლით თუ რას წარმოადგენს ეს
-                    პროგრამირების ენა და რატო გვჭირდება ვებ-დეველოპერებს.
-                  </p>
-                  <br />
-                  <br />
-                  <br />
-                  <p>გავივლით ყველაზე ძირითად თემებს როგორიცაა:</p>
-                  <br />
-                  <ul>
-                    <li>
-                      <p>javascrip ენის სინტაქსი და პროგრამირების ძირითადებ</p>
-                    </li>
-                    <li>
-                      <p>რა არის DOM და DOM მანიპულირება</p>
-                    </li>
-                    <li>
-                      <p>ინტერაქიულობის შექმნა</p>
-                    </li>
-                    <li>
-                      <p>სხვა და სხვა ტიპი even-ები და მათი დანიშნულება</p>
-                    </li>
-                    <li>
-                      <p>რთული ინტერაქტივები</p>
-                    </li>
-                  </ul>
-                  <hr />
-                  <p>
-                    ამ კურსზე შევქმნით თვენი პორფოლიოსთვის პროექტებს რომელიც
-                    საშუალებას მოგცემს რომ დაიწყოთ ამ ინდუსტრიში მუშობა, როგორც
-                    კომპანიაში ასევე თვენივე ბიზნესში.
-                  </p>
-                  <div className="portfolio-pic"></div>
-                  <p>
-                    ეს არის ერთერთი პროექტის სურათი რომელსაც ჩვენ გავაკეთებთ და
-                    ყველა ელემენტს დიდი ყურადღებას მივაქცევთ და საჭირო
-                    ელემენტებს გავდით ინტერაქტულს რათა თქვენმა მომხმარებელმა
-                    მაქსიმალურად დიდხანს ისარგებლოს თვენი საიტის სერვისით და
-                    შდაბეჭდილება მოახდინოს.
-                  </p>
-                  <br />
-                  <br />
-                  <br />
-                  <p>
-                    <span>იმ შემთხვევაში თუ არ იცით რა არის HTML ან CSS</span>{" "}
-                    შეგიძლიათ ნახოთ ჩემი სხვა კურსი სადაც დეტალურად ვხსნი ამ ორ
-                    ენას
-                  </p>
-                  <div className="other_courses"></div> */}
+                    <div className="other_courses"></div>
+                  </div>
+
                   {/* //! აქ გამოჩნდება კონტენტი */}
                 </div>
               </div>
@@ -362,8 +227,6 @@ export const Courses: React.FC = () => {
               />
               <br />
               <br />
-
-
             </div>
           </div>
         </div>

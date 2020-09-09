@@ -1,6 +1,7 @@
 //! კურსის კონტენტის დასაწყისი
-.courses_content {
-    margin-top: 5rem;
+
+
+.СontentReveal {
 
 
     h1 {
@@ -54,9 +55,6 @@
                 background: no-repeat url("/pictures/courses/blue_bullet.svg");
                 background-size: cover;
                 background-position: center;
-                // color:$secondary-light-blue;
-                // border-radius: 50%;
-                // font-weight: bold;
                 display: inline-block;
                 width: 1.2rem;
                 height: 1.2rem;
@@ -74,25 +72,65 @@
 
     //! ეს არის აღწერის ცსს
 
-    .portfolio-pic {
+
+}
+
+
+.СontentReveal {
+    img {
         background: no-repeat url("/pictures/courses/portfolio_photo.png");
-        background-size: contain;
+        background-size: cover;
         background-position: center;
         width: 85%;
-        height: 53vh;
+        height: 45vh;
         margin: 0 auto;
+        border-radius: 20px;
+    }
+}
+
+.СontentReveal {
+    h1 {
+        a {
+            background: $button-green-gradiend-forFile;
+            border-radius: 8px;
+            box-shadow: $box-shadow-for-video-files;
+            padding: 2.7rem 2.5rem 2.7rem 2.5rem;
+            text-decoration: none;
+            color: $white;
+            position: relative;
+            cursor: pointer;
+            width: 42rem;
+            display: block;
+
+            &:before {
+                content: "";
+                background: no-repeat url("/pictures/courses/folder.svg");
+                background-size: cover;
+                background-position: center;
+                position: absolute;
+                top: 30%;
+                z-index: 1;
+                left: 8%;
+                width: 4.5rem;
+                height: 3.5rem;
+            }
+
+            h1 {
+                margin-left: 9rem;
+            }
+        }
     }
 
+}
 
+.courses_content {
+    margin-top: 5rem;
 
-
-    //! ეს არის კითხვა-პასუხის ცსს
     .question-answer {
         display: flex;
         flex-direction: column;
-        // align-items: center;
         justify-content: flex-start;
-        // margin-top: 2rem;
+
 
         //! ეს არის ღილაკი
         .user-answer {
@@ -110,9 +148,7 @@
 
 
             &__pic {
-                background: no-repeat url("/pictures/courses/profile_picture.png");
-                // background-size: cover;
-                background-position: left;
+
                 width: 7vw;
                 height: 4.5vw;
 
@@ -151,9 +187,7 @@
 
         }
 
-        .sub-comment {
-            margin: 5rem 0rem 0rem 5rem;
-        }
+        .sub-comment {}
 
 
     }
