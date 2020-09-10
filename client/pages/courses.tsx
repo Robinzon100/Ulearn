@@ -19,8 +19,6 @@ import Estimates from "../public/SVG/CoursesSvg/Estimates";
  
 
 
-
-
 //! === INTERFACES
 import { Description_type,QuestionAnswer_type,Resources_type,Estimates_type } from "../interfaces/coursePage.interface";
 
@@ -236,13 +234,15 @@ export const Courses: React.FC = () => {
                     <>
                       {ReactHtmlParser(tabContent.html)}
                         
-                      
+                      <br/>
+                    <br/>
                       <div className="resources">
                         
                         <div className="resources_files">
                           <a href={tabContent.resource.filePath} className="btn btn-for-video-files">
                           <div className="files">
                               <h1>{tabContent.resource.title}</h1>
+                              
                             <div className="folder-icon icon">
                               <Folder
                                 style={{ fill: "#FFFFFF", color: "#FFFFFF" }}
