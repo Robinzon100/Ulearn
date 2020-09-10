@@ -1,7 +1,7 @@
-import React, { Fragment, useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import ReactHtmlParser from "react-html-parser";
-import { Eye } from "react-feather";
+import { Eye,Folder } from "react-feather";
 
 //! ==== OTHER IMPORTS
 import BaseLayout from "components/base-layout";
@@ -16,67 +16,81 @@ import Resources from "../public/SVG/CoursesSvg/Folder";
 import QuestionAnswer from "../public/SVG/CoursesSvg/HelpCircle";
 import Estimates from "../public/SVG/CoursesSvg/Estimates";
 
+ 
+
+
+
+
+//! === INTERFACES
+import { Description_type,QuestionAnswer_type,Resources_type,Estimates_type } from "../interfaces/coursePage.interface";
+
+
 export const Courses: React.FC = () => {
   const [placeHolder, setPlaceHolder] = useState<string>("დაწერე რაც გინდა");
 
-  const ref = useRef();
+  const courseTabs = [
+    {
+      title: "აღწერა",
+      iconComponent: "Description",
+      route: "/description",
+    },
+    {
+      title: "კითხვა-პასუხი",
+      iconComponent: "QuestionAnswer",
+      route: "/questionAnswer",
+    },
+    {
+      title: "რესურსები",
+      iconComponent: "Resources",
+      route: "/resources",
+    },
+    {
+      title: "შეფასებები",
+      iconComponent: "Estimates",
+      route: "/estimates",
+    },
+  ];
 
-  const [revealHtml, setRevealHtml] = useState<string>(
-    CoursesJson.content[0].html
-  );
+  const [tabContent, setTabContent] = useState<object>(CoursesJson.description);
+  const [tabIndex, setTabIndex] = useState<number>(0);
 
-  const getHtml = (e) => {
-    // debugger;
-    const htmlContent = e.currentTarget.attributes["data-title"].nodeValue;
-    // const currentText = ref.current;
 
-    setRevealHtml(htmlContent);
+
+
+  // const fetchTabConent = (courseId: number,route: string):Description | QuestionAnswer | Resources | Estimates => {
+    
+  // };
+  const fetchTabConent = (courseId: number, route: string):Description_type | QuestionAnswer_type | Resources_type | Estimates_type => {
+    switch (route) {
+      case "/description":
+        return CoursesJson.description
+        break;
+    
+      case "/questionAnswer":
+        return CoursesJson.questionAnswers
+        break;
+    
+      case "/resources":
+        return CoursesJson.Resources
+        break;
+    
+      case "/estimates":
+        return CoursesJson.ratings
+        break;
+    
+      default:
+        break;
+    }
   };
 
-  useEffect(() => {
-    //! კურსის გვერდზე ხაზის გადანაცვლების კოდი
-    const colors = ["#338EFF", "#FF5C4D", "#00E267", "#FFD703"];
-    let index = 1;
-    const navComponent = document.querySelector<HTMLElement>(
-      ".renderedContent_list"
-    );
-    const navArr = navComponent.querySelectorAll<HTMLElement>(
-      ".renderedContent_list--item"
-    );
-    const navUnderLine = navComponent.querySelector<HTMLElement>(".underline");
-
-    navUnderLine.style.backgroundColor = colors[0];
-
-    navUnderLine.style.left = `${navArr[0].offsetLeft}px`;
-    navUnderLine.style.width = `${navArr[0].offsetWidth}px`;
-
-    navArr.forEach((navItem) => {
-      let navLeftPos = navItem.offsetLeft;
-      let navItemWidth = navItem.offsetWidth;
-      //! ეს ანაცვლებს ფერებს რომ დაემთხვეს იმ დივს რომელიც საჭიროა
-      let color = colors.shift();
-      colors.push(color);
-
-      navItem.addEventListener("click", (e) => {
-        navUnderLine.style.left = `${navLeftPos}px`;
-        navUnderLine.style.width = `${navItemWidth}px`;
-
-        navUnderLine.style.backgroundColor = color;
-        // navUnderLine.style.transition = " width 100s";
-        // console.log(e.currentTarget);
-      });
-    });
-  }, []);
-
-  //! ეს არენდერებს აიქონებს ჯეისონიდან
   const renderIcon = (icon) => {
-    if (icon == "აღწერა") {
+    if (icon == "Description") {
       return <Description />;
-    } else if (icon == "რესურსები") {
+    } else if (icon == "Resources") {
       return <Resources />;
-    } else if (icon == "კითხვა-პასუხი") {
+    } else if (icon == "QuestionAnswer") {
       return <QuestionAnswer />;
-    } else if (icon == "შეფასებები") {
+    } else if (icon == "Estimates") {
       return <Estimates />;
     }
   };
@@ -107,7 +121,7 @@ export const Courses: React.FC = () => {
   }, []);
 
   return (
-    <Fragment>
+    <>
       <Head>
         <script src="js/player.js" async defer></script>
       </Head>
@@ -141,23 +155,23 @@ export const Courses: React.FC = () => {
               <div className="section-courses--tablist">
                 <div className="section-courses--tablist__container gray-border">
                   <ul className="renderedContent_list">
-                    {CoursesJson
-                      ? CoursesJson.content.map((coursesContent, i) => (
+                    {courseTabs
+                      ? courseTabs.map((courseTab, i) => (
                           <li
                             className="renderedContent_list--item"
-                            style={{ cursor: "pointer" }}
-                            data-title={coursesContent.html}
                             onClick={(e) => {
-                              getHtml(e);
+                              setTabContent(fetchTabConent(1, courseTab.route))
+                              setTabIndex(i)
+                              // moveTabLine();
                             }}
                             key={i}
                           >
                             <div className="rendered_icon">
-                              {renderIcon(coursesContent.title)}
+                              {renderIcon(courseTab.iconComponent)}
                             </div>
                             <div className="rendered_title">
                               <p className="heading-semi-bold-Noto paragraph-medium">
-                                {coursesContent.title}
+                                {courseTab.title}
                               </p>
                             </div>
                           </li>
@@ -167,74 +181,91 @@ export const Courses: React.FC = () => {
                   </ul>
                 </div>
 
-                {/* //! აქ გამოჩნდება კონტენტი */}
+               
 
-                <div className="courses_content" ref={ref}>
-                  {/* //! === 4-ეს არის შეფასების ჰტმლი ===*/}
-                  {/* <div className="estimates">
-                    <div className="estimates__container">
-                      <InputCommentCards name={"beqa"} comment={"sdgfg"} />
-                      <CommentCards
-                        name={"beqa"}
-                        registrationDay={1}
-                        addedComment={"bla"}
-                      />
-                    </div>
-                  </div> */}
+                <div className="courses_content">
+              
+                  <div className="СontentReveal">
 
-                  {/* //! === 4-ეს არის შეფასების ჰტმლი ===*/}
-
-                  <div className="ResourvesReveal"></div>
-
-                  {/* //! === 2-ეს არის კითხვა-პასუხის ჰტმლი ===*/}
-                  <div className="QuestionAnswerReveal">
-                    {/* <div className="question-answer">
-                      <div className="main-comment">
-                        <img
-                          src="./pictures/courses/profile_picture.png"
-                          className="main-comment__pic"
-                        ></img>
-
-                        <div className="main-comment__text">
-                          <div className="about-user">
-                            <div className="about-user__name">
-                              <h1>სახელა სახელაშვილი</h1>
+                    {tabIndex == 0 ? 
+                      ReactHtmlParser(tabContent.html)
+                 
+                 
+                 
+                 
+                    : tabIndex == 1 ? 
+                    <div className="QuestionAnswerReveal">   
+                      {tabContent.questionAnswers.map(question =>(
+                        <div className="question-answer">
+                          <div className="main-comment">
+                            <div
+                              style={{backgroundImage: `url(${question.imageUrl})`}}
+                              className="main-comment__pic"
+                            ></div>
+                            <div className="main-comment__text">
+                              <div className="about-user">
+                                <div className="about-user__name">
+                                  <h1>{question.userName}</h1>
+                                </div>
+                                <div className="about-user__time">
+                                  <p>{question.datePosted}</p>
+                                </div>
+                              </div>
+                              <div className="user-comment">
+                                <p>
+                                  {question.text}
+                                </p>
+                              </div>
+                              <div className="user-answer">
+                                <a
+                                  href="#"
+                                  className="btn btn-black heading-bold-Noto paragraph-medium-small"
+                                >
+                                  პასუხის გაცემა
+                                </a>
+                              </div>
                             </div>
-                            <div className="about-user__time">
-                              <p>(1 წლის წინ)</p>
-                            </div>
-                          </div>
-                          <div className="user-comment">
-                            <p>
-                              ვინმეს შეუძლია რომ დამეხმაროს კოდში ? რატომღაც
-                              როცა ვაკეთებ console log(“welo world”) რათომღაც არ
-                              მიწერს არაფერს
-                            </p>
-                          </div>
-
-                          <div className="user-answer">
-                            <a
-                              href="#"
-                              className="btn btn-black heading-bold-Noto paragraph-medium-small"
-                            >
-                              პასუხის გაცემა
-                            </a>
                           </div>
                         </div>
+                      ))}
+                    </div>
+                    
+                    
+                    
+                    : tabIndex == 2 ? 
+                    <>
+                      {ReactHtmlParser(tabContent.html)}
+                        
+                      
+                      <div className="resources">
+                        
+                        <div className="resources_files">
+                          <a href={tabContent.resource.filePath} className="btn btn-for-video-files">
+                          <div className="files">
+                              <h1>{tabContent.resource.title}</h1>
+                            <div className="folder-icon icon">
+                              <Folder
+                                style={{ fill: "#FFFFFF", color: "#FFFFFF" }}
+                                size={50}
+                                />
+                            </div>
+                          </div>
+                          </a>
+                        </div>
+                              
                       </div>
-                    </div> */}
+                    </>
+                    
+                    : tabIndex == 3 ?
+                  
+                        console.log("beq")
+                  
+                    :null }
+
+
                   </div>
 
-                  {/* //! === 2-ეს არის კითხვა-პასუხის ჰტმლი ===*/}
-
-                  {/* //! აქ იპარსებია თხასავით*/}
-                  <div className="СontentReveal">
-                    {ReactHtmlParser(revealHtml)}
-
-                    <div className="other_courses"></div>
-                  </div>
-
-                  {/* //! აქ გამოჩნდება კონტენტი */}
+              
                 </div>
               </div>
             </div>
@@ -252,7 +283,7 @@ export const Courses: React.FC = () => {
           </div>
         </div>
       </BaseLayout>
-    </Fragment>
+    </>
   );
 };
 

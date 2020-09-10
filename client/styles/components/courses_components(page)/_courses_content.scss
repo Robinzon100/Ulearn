@@ -148,7 +148,9 @@
 
 
             &__pic {
-
+                background: no-repeat url("/pictures/courses/folder.svg");
+                background-size: cover;
+                background-position: center;
                 width: 7vw;
                 height: 4.5vw;
 
