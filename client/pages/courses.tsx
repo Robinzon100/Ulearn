@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect, useRef } from "react";
 import Head from "next/head";
 import ReactHtmlParser from "react-html-parser";
-import { Eye, Star, Clipboard, Folder, HelpCircle } from "react-feather";
+import { Eye } from "react-feather";
 
 //! ==== OTHER IMPORTS
 import BaseLayout from "components/base-layout";
@@ -10,9 +10,11 @@ import CommentCards from "components/global_components/comment_cards/comment_car
 import InputCommentCards from "components/global_components/comment_cards/inputComment_cards";
 import CoursesJson from "../public/json/Courses.json";
 
+//! === IMPORTED ICONS FROM Courses.json
 import Description from "../public/SVG/CoursesSvg/Clipboard";
-
-import Resources from "../public/SVG/CoursesSvg/HelpCircle";
+import Resources from "../public/SVG/CoursesSvg/Folder";
+import QuestionAnswer from "../public/SVG/CoursesSvg/HelpCircle";
+import Estimates from "../public/SVG/CoursesSvg/Estimates";
 
 export const Courses: React.FC = () => {
   const [placeHolder, setPlaceHolder] = useState<string>("დაწერე რაც გინდა");
@@ -26,15 +28,56 @@ export const Courses: React.FC = () => {
   const getHtml = (e) => {
     // debugger;
     const htmlContent = e.currentTarget.attributes["data-title"].nodeValue;
-    const currentText = ref.current;
+    // const currentText = ref.current;
+
     setRevealHtml(htmlContent);
   };
 
+  useEffect(() => {
+    //! კურსის გვერდზე ხაზის გადანაცვლების კოდი
+    const colors = ["#338EFF", "#FF5C4D", "#00E267", "#FFD703"];
+    let index = 1;
+    const navComponent = document.querySelector<HTMLElement>(
+      ".renderedContent_list"
+    );
+    const navArr = navComponent.querySelectorAll<HTMLElement>(
+      ".renderedContent_list--item"
+    );
+    const navUnderLine = navComponent.querySelector<HTMLElement>(".underline");
+
+    navUnderLine.style.backgroundColor = colors[0];
+
+    navUnderLine.style.left = `${navArr[0].offsetLeft}px`;
+    navUnderLine.style.width = `${navArr[0].offsetWidth}px`;
+
+    navArr.forEach((navItem) => {
+      let navLeftPos = navItem.offsetLeft;
+      let navItemWidth = navItem.offsetWidth;
+      //! ეს ანაცვლებს ფერებს რომ დაემთხვეს იმ დივს რომელიც საჭიროა
+      let color = colors.shift();
+      colors.push(color);
+
+      navItem.addEventListener("click", (e) => {
+        navUnderLine.style.left = `${navLeftPos}px`;
+        navUnderLine.style.width = `${navItemWidth}px`;
+
+        navUnderLine.style.backgroundColor = color;
+        // navUnderLine.style.transition = " width 100s";
+        // console.log(e.currentTarget);
+      });
+    });
+  }, []);
+
+  //! ეს არენდერებს აიქონებს ჯეისონიდან
   const renderIcon = (icon) => {
     if (icon == "აღწერა") {
       return <Description />;
     } else if (icon == "რესურსები") {
       return <Resources />;
+    } else if (icon == "კითხვა-პასუხი") {
+      return <QuestionAnswer />;
+    } else if (icon == "შეფასებები") {
+      return <Estimates />;
     }
   };
 
@@ -97,11 +140,11 @@ export const Courses: React.FC = () => {
 
               <div className="section-courses--tablist">
                 <div className="section-courses--tablist__container gray-border">
-                  {CoursesJson
-                    ? CoursesJson.content.map((coursesContent, i) => (
-                        <Fragment>
-                          <div
-                            className="renderedContent"
+                  <ul className="renderedContent_list">
+                    {CoursesJson
+                      ? CoursesJson.content.map((coursesContent, i) => (
+                          <li
+                            className="renderedContent_list--item"
                             style={{ cursor: "pointer" }}
                             data-title={coursesContent.html}
                             onClick={(e) => {
@@ -117,54 +160,11 @@ export const Courses: React.FC = () => {
                                 {coursesContent.title}
                               </p>
                             </div>
-                          </div>
-                        </Fragment>
-                      ))
-                    : null}
-                  {/* <div className="tablist_description flex-container four-color-border">
-                   
-
-                    <div className="tablist_description--clipboard">
-                      <Clipboard style={{ color: "#338EFF" }} />
-                    </div>
-                    <div className="tablist_description--heading">
-                      <p className="heading-semi-bold-Noto paragraph-medium">
-                        აღწერა
-                      </p>
-                    </div>
-                  </div>
-                  <div className="tablist_question flex-container four-color-border">
-                    <div className="tablist_description--question">
-                      <HelpCircle style={{ color: "#FF5C4D" }} />
-                    </div>
-                    <div className="tablist_description--heading">
-                      <p className="heading-semi-bold-Noto paragraph-medium">
-                        კითხვა-პასუხი
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="tablist_resources flex-container four-color-border">
-                    <div className="tablist_description--folder">
-                      <Folder style={{ color: "#00E267" }} />
-                    </div>
-                    <div className="tablist_description--heading">
-                      <p className="heading-semi-bold-Noto paragraph-medium">
-                        რესურსები
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="tablist_rate flex-container four-color-border">
-                    <div className="tablist_description--star">
-                      <Star style={{ color: "#FFD703" }} />
-                    </div>
-                    <div className="tablist_description--heading">
-                      <p className="heading-semi-bold-Noto paragraph-medium">
-                        შეფასებები
-                      </p>
-                    </div>
-                  </div> */}
+                          </li>
+                        ))
+                      : null}
+                    <span className="underline"></span>
+                  </ul>
                 </div>
 
                 {/* //! აქ გამოჩნდება კონტენტი */}

@@ -61,9 +61,16 @@ $card-shadow:0px 19px 72px -2px rgba(25, 27, 29, 0.14);
                 padding: 0 1.5vw;
                 width: 73%;
 
-                .renderedContent {
+                .renderedContent_list {
                     display: flex;
                     align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+
+                    li {
+                        @include flex;
+                        padding: 0rem 2rem 0rem 2rem;
+                    }
                 }
 
                 .rendered_title {
@@ -73,20 +80,34 @@ $card-shadow:0px 19px 72px -2px rgba(25, 27, 29, 0.14);
                 &__container {
                     @include flex;
                     position: relative;
-                    padding: 1.5rem 2rem 1.5rem 2rem;
+                    padding: 1.5rem 0rem 1.5rem 0rem;
 
 
-                    &:after {
-                        content: "";
+                    .underline {
+                        transition: left 10s ease-out, right 10s ease-out, width 10s ease-in;
                         position: absolute;
-                        background-color: $primary-red;
+
+                        // background-color: $primary-blue;
                         width: 20%;
                         height: 3%;
                         filter: blur(1px);
                         bottom: -2px;
                         left: 0;
                         box-shadow: $input;
+
                     }
+
+                    // &:after {
+                    //     content: "";
+                    //     position: absolute;
+                    //     background-color: $primary-red;
+                    //     width: 20%;
+                    //     height: 3%;
+                    //     filter: blur(1px);
+                    //     bottom: -2px;
+                    //     left: 0;
+                    //     box-shadow: $input;
+                    // }
                 }
 
                 .flex-container {

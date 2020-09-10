@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
-import { Folder } from "react-feather";
+import { HelpCircle } from "react-feather";
 
-export default function Resources() {
+export default function QuestionAnswer() {
   return (
     <Fragment>
-      <Folder style={{ color: "#00E267" }} />
+      <HelpCircle style={{ color: "#FF5C4D" }} />
     </Fragment>
   );
 }
