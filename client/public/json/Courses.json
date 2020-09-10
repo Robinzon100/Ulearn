@@ -1,0 +1,75 @@
+{
+  "description":{
+    "html": "<h1>ამ კურსის სწავლებით შეძლებთ რომ ისწავლოთ javascript</h1><br /><br /><p>კურსის დასაწყისში ვისწავლით თუ რას წარმოადგენს ეს პროგრამირების ენა და რატო გვჭირდება ვებ-დეველოპერებს.</p><br /><br /><br /><p>გავივლით ყველაზე ძირითად თემებს როგორიცაა:</p><br /><ul><li><p>javascrip ენის სინტაქსი და პროგრამირების ძირითადებ</p></li><li><p>რა არის DOM და DOM მანიპულირება</p></li><li><p>ინტერაქიულობის შექმნა</p></li><li><p>სხვა და სხვა ტიპი even-ები და მათი დანიშნულება</p></li><li><p>რთული ინტერაქტივები</p></li></ul><hr /><p>ამ კურსზე შევქმნით თვენი პორფოლიოსთვის პროექტებს რომელიცსაშუალებას მოგცემს რომ დაიწყოთ ამ ინდუსტრიში მუშობა,როგორც კომპანიაში ასევე თვენივე ბიზნესში.</p><br /><br /><br /><img></img><br /><br/><p>ეს არის ერთერთი პროექტის სურათი რომელსაც ჩვენ გავაკეთებთდა ყველა ელემენტს დიდი ყურადღებას მივაქცევთ და საჭირო ელემენტებს გავდით ინტერაქტულს რათა თქვენმა მომხმარებელმა მაქსიმალურად დიდხანს ისარგებლოს თვენი საიტის სერვისით და შდაბეჭდილება მოახდინოს.</p><br /><br /><br /><p><span>იმ შემთხვევაში თუ არ იცით რა არის HTML ან CSS</span>შეგიძლიათ ნახოთ ჩემი სხვა კურსი სადაც დეტალურად ვხსნი ამ ორ ენას </p>"
+  },
+ 
+  "questionAnswers":{
+    "questionAnswers": [
+      {
+        "userName": "robo sokhashvili",
+        "imageUrl": "https://images.unsplash.com/photo-1593642634367-d91a135587b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "datePosted": "2020-02-18",
+        "text":"  ვინმეს შეუძლია რომ დამეხმაროს კოდში ? რატომღაცროცა ვაკეთებ console log“welo world”) რათომღაც არმიწერს არაფერს",
+        "amountOfAnswer": 12,
+        "answers":[
+          {
+            "userName":"კარლო კაკაბაძე",
+            "imageUrl":"https://images.unsplash.com/photo-1599677099934-d3c4e07056d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+            "datePosted":"2020-02-20",
+            "text":"უჰ,რა მაგარი იყო. აბა თქვენ იცით"
+          }
+        ]
+      },
+      {
+        "userName": "beqa arabidze",
+        "imageUrl": "https://images.unsplash.com/photo-1599677099934-d3c4e07056d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+        "datePosted": "2020-03-22",
+        "text":"  ვინმეს შეუძლია რომ დამეხმაროს კოდში ? რატომღაც როცა ვაკეთებ console log(“welo world”) რათომღაც არ მიწერს არაფერს",
+        "amountOfAnswer": 1,
+        "answers":[
+          {
+            "userName":"saxeli saxelasvili",
+            "imageUrl":"https://images.unsplash.com/photo-1593642634367-d91a135587b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+            "datePosted":"2020-08-20",
+            "text":"მიდი მოვდივარ გუთანო"
+          }
+        ]
+      }
+    ]
+  },
+
+  "Resources":{
+    "html": "<h1>რესურსები</h1>",
+    "resource": {
+      "title": "რესურსები",
+      "filePath": "https://images.unsplash.com/photo-1599677099934-d3c4e07056d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" 
+    }
+  },
+
+
+  "ratings": {
+    "ratings": [
+      {
+        "userName": "beqa arabidze",
+        "datePosted": "2020-08-12",  
+        "amountOfStars": 4,
+        "comment": "დიდი მადლობა ამ კურსისთვის ძალიან დამეხმარა ამ კურსმა მომცა საშუალება, რომ ჩემს კოლეგებთან ერთად მემუშავა უფრო ეფექტურად, თუმცა კურსის ბოლო ვიდეოები დანარჩენებთან შედარებით სუსტი იყო.",
+        "dislike": 0,
+        "like": 20,
+        "isLikedByInstructor": true
+      },
+      {
+        "userName": "robo kruzovi",
+        "datePosted": "2020-08-12",  
+        "amountOfStars": 2,
+        "comment": "ეს ძალიან მომეწონა ეს კურსი და ეხლა თამამად შემიძლია ვთვა რომ ვარ javascript დეველოპერი და სამსახურსაც ადვიალდ ვიშოვი ამ ინდუსტრიაში, დიდი მადლობა ბექას რომ წარგივდგინა ასეთი კარგი კურსი ვიდეობი იყო გასაგები და რაც მთავარია ქართულად რამაც ძალიან დამეხმარა",
+        "dislike": 0,
+        "like": 2,
+        "isLikedByInstructor": false
+      }
+    ]
+  }
+ 
+
+
+}

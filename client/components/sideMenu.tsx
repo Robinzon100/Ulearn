@@ -1,7 +1,5 @@
-import React, { Fragment, useState, useRef } from "react";
-import { videoList } from '../../../interfaces/coursePage.interface';
-
-
+import React, { Fragment, useState, useRef, useEffect } from "react";
+import { videoList } from "../interfaces/coursePage.interface";
 
 const sideMenu: React.FC<videoList> = ({
   id,
@@ -10,17 +8,27 @@ const sideMenu: React.FC<videoList> = ({
   subTitles,
   subTaskTime,
 }) => {
-
-
   const [revealContent, setRevealContent] = useState<boolean>(false);
   const [finished, setFinished] = useState<boolean>(false);
+  const ref = useRef();
 
   const handleSetRevealContent = () => {
     setRevealContent((revealContent) => !revealContent);
   };
 
-  const handleSetFinished = () => {
-    setFinished((finished) => !finished);
+  //! ეს ცვლის სტილს დაამთავრა თუ არა ესა თუ ის დავალება
+  const handleSetFinished = (e) => {
+    // debugger;
+
+    const menuElements = document.querySelectorAll(".details_not_finished");
+
+    menuElements.forEach((element) => {
+      if (element.classList.contains("details_finished")) {
+        element.classList.remove("details_finished");
+      }
+    });
+
+    e.currentTarget.classList.toggle("details_finished");
   };
 
   return (
@@ -39,9 +47,7 @@ const sideMenu: React.FC<videoList> = ({
               <p className="Eina-semibold paragraph-medium">{id}</p>
             </div>
             <div className="card__text">
-              <p className=" Eina-semibold paragraph-medium">
-                {title}
-              </p>
+              <p className=" Eina-semibold paragraph-medium">{title}</p>
             </div>
             <div className="card__time">
               <p className="paragraph-light-Noto paragraph-smallest">
@@ -56,13 +62,16 @@ const sideMenu: React.FC<videoList> = ({
               ? "card_container__info clip-path-hide"
               : "clip-path-reveal card_container__info"
           }
+          ref={ref}
         >
           {subTitles.map((sub, index) => (
-            <div key={sub.id} className="card_container__info--details" onClick={handleSetFinished}>
-
-              <div
-                className={!finished ? "details_not_finished" : "details_finished"}
-              ></div>
+            <div
+              key={sub.id}
+              className="card_container__info--details details_not_finished"
+              onClick={(e) => handleSetFinished(e)}
+              data-title={sub.id}
+            >
+              {/* <div className="details_not_finished"></div> */}
               <div className="details_heading">
                 <p className="paragraph-regular-Noto paragraph-medium-small ">
                   {sub.text}

@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 
 import BaseLayout from "components/base-layout";
 
-import SideMenu from "components/global_components/side_menu/sideMenu";
+import SideMenu from "components/sideMenu";
 
 const MyCourses: React.FC = () => {
   return (
@@ -50,40 +50,40 @@ const MyCourses: React.FC = () => {
               <div className="mycourses-content__course-details">
                 {/* //! შენ ისწავლი*/}
 
-                <p className="heading-bold-Noto heading-6">
+                <h1 className="heading-bold-Noto heading-6">
                   რას ისწავლი ამ კურსზე
-                </p>
+                </h1>
 
                 <ul>
                   <div>
                     <li>
-                      <div className="checked details_finished"></div>
+                      <div className="checked "></div>
                       <p>გარემიქსებას ნებისმიერი მუსიკის</p>
                     </li>
                     <li>
-                      <div className="checked details_finished"></div>
+                      <div className="checked"></div>
 
                       <p>DJ-ის მოწყობილობების გამოყენება</p>
                     </li>
                     <li>
-                      <div className="checked details_finished"></div>
+                      <div className="checked"></div>
 
                       <p>მუსიკის იზოლირება სიმღერიდან</p>
                     </li>
                   </div>
                   <div>
                     <li>
-                      <div className="checked details_finished"></div>
+                      <div className="checked"></div>
 
                       <p>მუსიკის გადაკეთება და რა არის BPS</p>
                     </li>
                     <li>
-                      <div className="checked details_finished"></div>
+                      <div className="checked"></div>
 
                       <p>საუკეთესო პრაქტიკები</p>
                     </li>
                     <li>
-                      <div className="checked details_finished"></div>
+                      <div className="checked"></div>
 
                       <p>
                         როგორ მოძებნო კლიენტი და გაყიდო თქვენი მუსიკა და
@@ -103,7 +103,11 @@ const MyCourses: React.FC = () => {
                 <br />
                 <br />
 
-                <p>ამ კურსის სწავლებით შეძლებთ რომ ისწავლოთ javascript</p>
+                <p>
+                  <strong>
+                    ამ კურსის სწავლებით შეძლებთ რომ ისწავლოთ javascript
+                  </strong>
+                </p>
 
                 <br />
                 <br />
