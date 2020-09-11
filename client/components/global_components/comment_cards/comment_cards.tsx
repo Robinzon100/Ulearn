@@ -6,19 +6,21 @@ import Stars from "components/global_components/svg/stars/Stars";
 
 interface CommentCards {
   name: string;
-  registrationDay: number;
+  registrationDay: string;
   addedComment: string;
+  imageUrl:string
 }
 
 const comment_cards: React.FC<CommentCards> = ({
   name,
   registrationDay,
   addedComment,
+  imageUrl
 }) => {
   return (
     <Fragment>
       <div className="comment">
-        <div className="comment__pic"></div>
+        <div className="comment__pic" style={{backgroundImage:`url(${imageUrl})`}}></div>
 
         <div className="comment__text">
           <div className="about-user">
@@ -27,7 +29,7 @@ const comment_cards: React.FC<CommentCards> = ({
             </div>
 
             <div className="about-user__time">
-              <p>({registrationDay} წლის წინ)</p>
+              <p>({registrationDay})</p>
             </div>
           </div>
 

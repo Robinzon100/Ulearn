@@ -9,7 +9,7 @@
         "userName": "robo sokhashvili",
         "imageUrl": "https://images.unsplash.com/photo-1593642634367-d91a135587b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
         "datePosted": "(2020-02-18)",
-        "text":"  ვინმეს შეუძლია რომ დამეხმაროს კოდში ? რატომღაცროცა ვაკეთებ console log“welo world”) რათომღაც არმიწერს არაფერს",
+        "text":"ვინმეს შეუძლია რომ დამეხმაროს კოდში ? რატომღაცროცა ვაკეთებ console log“welo world”) რათომღაც არმიწერს არაფერს",
         "amountOfAnswer": 12,
         "answers":[
           {
@@ -31,15 +31,17 @@
             "userName":"saxeli saxelasvili",
             "imageUrl":"https://images.unsplash.com/photo-1593642634367-d91a135587b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
             "datePosted":"(2020-08-20)",
-            "text":"მიდი მოვდივარ გუთანო"
+            "text":"ასე იქნება სწორი ჩემო ძმის გულო,აა ბრატ - console.log(“hello world”)"
           }
         ]
       }
     ]
   },
 
+
+  
   "Resources":{
-    "html": "<h1>რესურსები</h1>",
+    "html": "<h1>ვიდეოზე ნახსენები საიტების და დამატებითი რესურსების ლინკები, ასევე ამ ვიდეოში დაწერილი კოდის ფაილები</h1><br/><p>vs code გადმოსაწერილი ლინკი : <a href=\"https://vscode.com\">https://vscode.com</a></p> <p>ვიდეოში ნანახი ბლოგპოსტის ლინკი: <a href=\"https://medium.com\"> https://medium.com</a></p><br/><br/><br/><br/><br/><br/><p><strong>ამ ვიდეოში დაწერილი კოდის ფაილები:</strong></p>",
     "resource": {
       "title": "დავალების ფაილები",
       "filePath": "https://images.unsplash.com/photo-1599677099934-d3c4e07056d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" 
@@ -50,10 +52,12 @@
   "ratings": {
     "ratings": [
       {
+          
         "userName": "beqa arabidze",
         "datePosted": "2020-08-12",  
         "amountOfStars": 4,
         "comment": "დიდი მადლობა ამ კურსისთვის ძალიან დამეხმარა ამ კურსმა მომცა საშუალება, რომ ჩემს კოლეგებთან ერთად მემუშავა უფრო ეფექტურად, თუმცა კურსის ბოლო ვიდეოები დანარჩენებთან შედარებით სუსტი იყო.",
+        "imageUrl":"https://images.unsplash.com/photo-1593642634367-d91a135587b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
         "dislike": 0,
         "like": 20,
         "isLikedByInstructor": true
@@ -63,6 +67,7 @@
         "datePosted": "2020-08-12",  
         "amountOfStars": 2,
         "comment": "ეს ძალიან მომეწონა ეს კურსი და ეხლა თამამად შემიძლია ვთვა რომ ვარ javascript დეველოპერი და სამსახურსაც ადვიალდ ვიშოვი ამ ინდუსტრიაში, დიდი მადლობა ბექას რომ წარგივდგინა ასეთი კარგი კურსი ვიდეობი იყო გასაგები და რაც მთავარია ქართულად რამაც ძალიან დამეხმარა",
+        "imageUrl":"https://images.unsplash.com/photo-1593642634367-d91a135587b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
         "dislike": 0,
         "like": 2,
         "isLikedByInstructor": false

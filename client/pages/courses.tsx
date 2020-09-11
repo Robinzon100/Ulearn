@@ -49,6 +49,43 @@ export const Courses: React.FC = () => {
     },
   ];
 
+
+
+  useEffect(() => {
+    const colors = ["#338EFF", "#FF5C4D", "#00E267", "#FFD703"];
+    let index = 1;
+    const navComponent = document.querySelector<HTMLElement>(
+      ".renderedContent_list"
+    );
+    const navArr = navComponent.querySelectorAll<HTMLElement>(
+      ".renderedContent_list--item"
+    );
+    const navUnderLine = navComponent.querySelector<HTMLElement>(".underline");
+
+    navUnderLine.style.backgroundColor = colors[0];
+
+    navUnderLine.style.left = `${navArr[0].offsetLeft}px`;
+    navUnderLine.style.width = `${navArr[0].offsetWidth}px`;
+
+    navArr.forEach((navItem) => {
+      let navLeftPos = navItem.offsetLeft;
+      let navItemWidth = navItem.offsetWidth;
+      //! ეს ანაცვლებს ფერებს რომ დაემთხვეს იმ დივს რომელიც საჭიროა
+      let color = colors.shift();
+      colors.push(color);
+
+      navItem.addEventListener("click", (e) => {
+        navUnderLine.style.left = `${navLeftPos}px`;
+        navUnderLine.style.width = `${navItemWidth}px`;
+
+        navUnderLine.style.backgroundColor = color;
+        // navUnderLine.style.transition = " width 100s";
+        // console.log(e.currentTarget);
+      });
+    });
+  }, [])
+
+
   const [tabContent, setTabContent] = useState<object>(CoursesJson.description);
   const [tabIndex, setTabIndex] = useState<number>(0);
 
@@ -156,11 +193,12 @@ export const Courses: React.FC = () => {
                     {courseTabs
                       ? courseTabs.map((courseTab, i) => (
                           <li
-                            className="renderedContent_list--item"
+                            style={{cursor:"pointer"}}
+                            className="renderedContent_list--item noselect"
                             onClick={(e) => {
                               setTabContent(fetchTabConent(1, courseTab.route))
                               setTabIndex(i)
-                              // moveTabLine();
+                            //   moveTabLine();
                             }}
                             key={i}
                           >
@@ -224,6 +262,8 @@ export const Courses: React.FC = () => {
                               </div>
                             </div>
                           </div>
+               
+                
                         </div>
                       ))}
                     </div>
@@ -257,8 +297,26 @@ export const Courses: React.FC = () => {
                     </>
                     
                     : tabIndex == 3 ?
-                  
-                        console.log("beq")
+                        <>
+                         <div className="estimates">
+                    <div className="estimates__container">
+                        {tabContent.ratings.map(rating => (
+                            <>
+                                {/* <InputCommentCards name={rating.userName} rating={rating.amoutOfStars}  /> */}
+                            <CommentCards
+                              name={rating.userName}
+                              registrationDay={rating.datePosted}
+                              addedComment={rating.comment}
+                              imageUrl={rating.imageUrl}
+                            />
+                            </>
+                            
+                        ))}
+                      
+                    </div>
+                    </div>
+                        </>
+                        
                   
                     :null }
 

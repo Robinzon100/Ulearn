@@ -3,11 +3,11 @@ import Input from "components/global_components/inputs/input";
 
 interface Props {
   name: string;
-  // raiting:
-  comment: string;
+  rating:number
+  
 }
 
-const InputCommentCards: React.FC<Props> = ({ name, comment }) => {
+const InputCommentCards: React.FC<Props> = ({ name, rating }) => {
   const [placeHolder, setPlaceHolder] = useState<string>(
     "მოძებნე სასურველი კურსი"
   );
@@ -18,9 +18,9 @@ const InputCommentCards: React.FC<Props> = ({ name, comment }) => {
         <div className="add_comment--picture dummy_pics"></div>
         <div className="add_comment--input">
           <div className="about_user">
-            <h1>ბარკალა დორუჩოღლუ</h1>
+                <h1>{name}</h1>
 
-            <div className="about_user--star">აქ იქნება ვარსკვლავები</div>
+            <div className="about_user--star">{rating}</div>
           </div>
 
           <div className="comment_field">
