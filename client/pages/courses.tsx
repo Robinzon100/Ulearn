@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import ReactHtmlParser from "react-html-parser";
-<<<<<<< HEAD
-import { Eye, Folder } from "react-feather";
-=======
 import { Eye,Folder } from "react-feather";
->>>>>>> d9cdf1a18866b1f5bb88bdc961c9d427614e625d
 
 //! ==== OTHER IMPORTS
 import BaseLayout from "components/base-layout";
@@ -20,21 +16,11 @@ import Resources from "../public/SVG/CoursesSvg/Folder";
 import QuestionAnswer from "../public/SVG/CoursesSvg/HelpCircle";
 import Estimates from "../public/SVG/CoursesSvg/Estimates";
 
-<<<<<<< HEAD
-
-
-
-
-
-//! === INTERFACES
-import { Description_type, QuestionAnswer_type, Resources_type, Estimates_type } from "../interfaces/coursePage.interface";
-=======
  
 
 
 //! === INTERFACES
 import { Description_type,QuestionAnswer_type,Resources_type,Estimates_type } from "../interfaces/coursePage.interface";
->>>>>>> d9cdf1a18866b1f5bb88bdc961c9d427614e625d
 
 
 export const Courses: React.FC = () => {
@@ -107,34 +93,13 @@ export const Courses: React.FC = () => {
 
 
   // const fetchTabConent = (courseId: number,route: string):Description | QuestionAnswer | Resources | Estimates => {
-<<<<<<< HEAD
-
-  // };
-  const fetchTabConent = (courseId: number, route: string): Description_type | QuestionAnswer_type | Resources_type | Estimates_type => {
-=======
     
   // };
   const fetchTabConent = (courseId: number, route: string):Description_type | QuestionAnswer_type | Resources_type | Estimates_type => {
->>>>>>> d9cdf1a18866b1f5bb88bdc961c9d427614e625d
     switch (route) {
       case "/description":
         return CoursesJson.description
         break;
-<<<<<<< HEAD
-
-      case "/questionAnswer":
-        return CoursesJson.questionAnswers
-        break;
-
-      case "/resources":
-        return CoursesJson.Resources
-        break;
-
-      case "/estimates":
-        return CoursesJson.ratings
-        break;
-
-=======
     
       case "/questionAnswer":
         return CoursesJson.questionAnswers
@@ -148,7 +113,6 @@ export const Courses: React.FC = () => {
         return CoursesJson.ratings
         break;
     
->>>>>>> d9cdf1a18866b1f5bb88bdc961c9d427614e625d
       default:
         break;
     }
@@ -228,27 +192,6 @@ export const Courses: React.FC = () => {
                   <ul className="renderedContent_list">
                     {courseTabs
                       ? courseTabs.map((courseTab, i) => (
-<<<<<<< HEAD
-                        <li
-                          className="renderedContent_list--item"
-                          onClick={(e) => {
-                            setTabContent(fetchTabConent(1, courseTab.route))
-                            setTabIndex(i)
-                            // moveTabLine();
-                          }}
-                          key={i}
-                        >
-                          <div className="rendered_icon">
-                            {renderIcon(courseTab.iconComponent)}
-                          </div>
-                          <div className="rendered_title">
-                            <p className="heading-semi-bold-Noto paragraph-medium">
-                              {courseTab.title}
-                            </p>
-                          </div>
-                        </li>
-                      ))
-=======
                           <li
                             style={{cursor:"pointer"}}
                             className="renderedContent_list--item noselect"
@@ -269,94 +212,11 @@ export const Courses: React.FC = () => {
                             </div>
                           </li>
                         ))
->>>>>>> d9cdf1a18866b1f5bb88bdc961c9d427614e625d
                       : null}
                     <span className="underline"></span>
                   </ul>
                 </div>
 
-<<<<<<< HEAD
-
-
-                <div className="courses_content">
-
-                  <div className="СontentReveal">
-
-                    {tabIndex == 0 ?
-                      ReactHtmlParser(tabContent.html)
-
-
-
-
-                      : tabIndex == 1 ?
-                        <div className="QuestionAnswerReveal">
-                          {tabContent.questionAnswers.map(question => (
-                            <div className="question-answer">
-                              <div className="main-comment">
-                                <div
-                                  style={{ backgroundImage: `url(${question.imageUrl})` }}
-                                  className="main-comment__pic"
-                                ></div>
-                                <div className="main-comment__text">
-                                  <div className="about-user">
-                                    <div className="about-user__name">
-                                      <h1>{question.userName}</h1>
-                                    </div>
-                                    <div className="about-user__time">
-                                      <p>{question.datePosted}</p>
-                                    </div>
-                                  </div>
-                                  <div className="user-comment">
-                                    <p>
-                                      {question.text}
-                                    </p>
-                                  </div>
-                                  <div className="user-answer">
-                                    <a
-                                      href="#"
-                                      className="btn btn-black heading-bold-Noto paragraph-medium-small"
-                                    >
-                                      პასუხის გაცემა
-                                </a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-
-
-
-                        : tabIndex == 2 ?
-                          <>
-                            {ReactHtmlParser(tabContent.html)}
-
-
-                            <div className="resources">
-
-                              <div className="resources_files">
-                                <a href={tabContent.resource.filePath} className="btn btn-for-video-files">
-                                  <div className="files">
-                                    <h1>{tabContent.resource.title}</h1>
-                                    <div className="folder-icon icon">
-                                      <Folder
-                                        style={{ fill: "#FFFFFF", color: "#FFFFFF" }}
-                                        size={50}
-                                      />
-                                    </div>
-                                  </div>
-                                </a>
-                              </div>
-
-                            </div>
-                          </>
-
-                          : tabIndex == 3 ?
-
-                            console.log("beq")
-
-                            : null}
-=======
                
 
                 <div className="courses_content">
@@ -460,16 +320,11 @@ export const Courses: React.FC = () => {
                         
                   
                     :null }
->>>>>>> d9cdf1a18866b1f5bb88bdc961c9d427614e625d
 
 
                   </div>
 
-<<<<<<< HEAD
-
-=======
               
->>>>>>> d9cdf1a18866b1f5bb88bdc961c9d427614e625d
                 </div>
               </div>
             </div>
