@@ -5,6 +5,29 @@ import BaseLayout from "components/base-layout";
 import SideMenu from "components/sideMenu";
 
 const MyCourses: React.FC = () => {
+
+
+    let subTitles = [
+        {
+          id: 1,
+          text: "ჯავა და მიში ჯანი",
+          videoUrl:
+            "https://s4106-05.imovies.cc/video/imovie_hash_code/1/2020090407554015_high_ENG.mp4?md5=Ul1cPbbjqASrVDkrD7Cmqg&expires=1599656612&data=YTozOntzOjc6InVzZXJfaXAiO3M6MTU6IjE3Ni4yMjEuMTMyLjIxMCI7czoxMDoidXNlcl9hZ2VudCI7czoxMTQ6Ik1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS84NS4wLjQxODMuODMgU2FmYXJpLzUzNy4zNiI7czo3OiJyZWZlcmVyIjtzOjIzOiJodHRwczovL3d3dy5pbW92aWVzLmNjLyI7fQ==",
+          amountOfMinutes: 12,
+        },
+        {
+          id: 2,
+          text: "მიდი მიდი აბა რა",
+          videoUrl:
+            "https://s4114-21.imovies.cc/video/imovie_hash_code/3/2017050923065223_high_eng.mp4?md5=W1C5ex9RqZWL-Rejf4JUqw&expires=1599656434&data=YTozOntzOjc6InVzZXJfaXAiO3M6MTU6IjE3Ni4yMjEuMTMyLjIxMCI7czoxMDoidXNlcl9hZ2VudCI7czoxMTQ6Ik1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS84NS4wLjQxODMuODMgU2FmYXJpLzUzNy4zNiI7czo3OiJyZWZlcmVyIjtzOjIzOiJodHRwczovL3d3dy5pbW92aWVzLmNjLyI7fQ==",
+          amountOfMinutes: 12,
+        },
+      ];
+    
+
+
+
+
   return (
     <Fragment>
       <BaseLayout>
@@ -43,10 +66,12 @@ const MyCourses: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <div className="mycourses-hero__raiting-course"></div>
+              <div className="mycourses-hero__rating-course">
+                  
+              </div>
             </div>
 
-            <div className="mycourses-content">
+            <div className="СontentReveal">
               <div className="mycourses-content__course-details">
                 {/* //! შენ ისწავლი*/}
 
@@ -54,7 +79,7 @@ const MyCourses: React.FC = () => {
                   რას ისწავლი ამ კურსზე
                 </h1>
 
-                <ul>
+                <ul className="details_list">
                   <div>
                     <li>
                       <div className="checked "></div>
@@ -159,7 +184,7 @@ const MyCourses: React.FC = () => {
                 <br />
                 <br />
                 <br />
-                <br />
+                
 
                 <p>
                   ამ კურსზე შევქმნით თვენი პორფოლიოსთვის პროექტებს რომელიც
@@ -213,23 +238,21 @@ const MyCourses: React.FC = () => {
                 <br />
                 <br />
                 <div className="instructor_btn">
-                  <a
-                    href="#"
-                    className="btn btn-red heading-bold-Noto paragraph-medium-small"
-                  >
-                    ინსტრუქტორის გამოწერა
+                  <a href="#" className="btn btn-red">
+                 
+                      <p>ინსტრუქტორის გამოწერა</p>
                   </a>
                 </div>
               </div>
 
               <div className="side-menu noselect ">
-                {/* <SideMenu
+                <SideMenu
                   id={3}
                   title={"Angular"}
-                  courseTime={45}
-                  subTitle={"რა არის ანგულარი"}
+                  courseChapterTime={45}
+                  subTitles={subTitles}
                   subTaskTime={5}
-                /> */}
+                />
               </div>
             </div>
           </div>

@@ -19,10 +19,7 @@
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            // background: #8b8b8b;
-
             box-sizing: border-box;
-
             width: 100%;
             height: auto;
             padding: 2rem;
@@ -40,6 +37,12 @@
 
             &__text {
                 margin-left: 2.3rem;
+
+                p{
+                font-size: calc(14px + (19 - 14) * ((100vw - 300px) / (1900 - 700))) !important;
+
+                }
+
             }
 
             &__time {
@@ -54,7 +57,7 @@
                 p {
                     opacity: 1;
                     line-height: 134.99%;
-                    // color: $primary-dark;
+                    font-size: calc(11px + (14 - 11) * ((100vw - 300px) / (1900 - 700))) !important;
                 }
             }
         }

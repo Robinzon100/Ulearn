@@ -80,6 +80,7 @@ export interface videoList {
     dislike: number,
     like: number,
     isLikedByInstructor: boolean
+    imageUrl:string
   }
 
   export interface Estimates_type {

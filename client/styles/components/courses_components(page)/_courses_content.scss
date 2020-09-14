@@ -85,52 +85,26 @@
         height: 45vh;
         margin: 0 auto;
         border-radius: 20px;
+        object-fit: cover;
     }
 }
 
-.СontentReveal {
-    h1 {
-        a {
-            background: $button-green-gradiend-forFile;
-            border-radius: 8px;
-            box-shadow: $box-shadow-for-video-files;
-            padding: 2.7rem 2.5rem 2.7rem 2.5rem;
-            text-decoration: none;
-            color: $white;
-            position: relative;
-            cursor: pointer;
-            width: 42rem;
-            display: block;
 
-            &:before {
-                content: "";
-                background: no-repeat url("/pictures/courses/folder.svg");
-                background-size: cover;
-                background-position: center;
-                position: absolute;
-                top: 30%;
-                z-index: 1;
-                left: 8%;
-                width: 4.5rem;
-                height: 3.5rem;
-            }
-
-            h1 {
-                margin-left: 9rem;
-            }
-        }
-    }
-
-}
 
 .courses_content {
     margin-top: 5rem;
+
+
 
     .question-answer {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
 
+
+        &:not(:first-child) {
+            margin-top: 5rem;
+        }
 
         //! ეს არის ღილაკი
         .user-answer {
@@ -148,12 +122,13 @@
 
 
             &__pic {
-                background: no-repeat url("/pictures/courses/folder.svg");
+                background-image: url("/pictures/courses/folder.svg");
+                background-repeat: no-repeat;
                 background-size: cover;
                 background-position: center;
                 width: 7vw;
                 height: 4.5vw;
-
+                border-radius: 50%;
             }
 
             &__text {
@@ -189,7 +164,9 @@
 
         }
 
-        .sub-comment {}
+        .sub-comment {
+            margin:5rem 0rem 0rem 5rem;
+        }
 
 
     }
@@ -211,29 +188,28 @@
         &_files {
 
 
+            a {
+                text-decoration: none;
+                color: $white;
+                width: 48%;
+                padding: 3rem;
+                .files {
+                    position: relative;
+                    display: flex;
+                    flex-direction: row-reverse;
+                    align-items: center;
 
-            .files {
-                position: relative;
 
-                a {
-                    text-decoration: none;
-                    color: $white;
-                    width: 48%;
-                    padding: 3rem;
+                    // h1 {
+                    //     margin-left: 4vw;
+                    // }
 
-                    h1 {
-                        margin-left: 4vw;
+                    .icon {
+                        margin-right: 3rem;
                     }
                 }
 
-                .icon {
-                    position: absolute;
-                    top: 24%;
-                    z-index: 1;
-                    left: 3.5%;
-                }
             }
-
 
 
         }
