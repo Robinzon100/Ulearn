@@ -7,7 +7,7 @@ $mycourse-padding:0vw 10vw 0vw 10vw;
 
 
 .mycourses {
-    
+
     .mycourses-hero {
         // background-color: wheat;
         width: 100%;
@@ -74,9 +74,61 @@ $mycourse-padding:0vw 10vw 0vw 10vw;
         }
 
         &__rating-course {
-            
-        }
+            margin-top: 3rem;
 
+            .ratings,.ratings-about {
+                border-radius: 18px;
+                border: 0.5px solid #ffffff6b;
+                padding: 2rem;
+                text-align: center;
+            }
+            .ratings {
+                &__with-number {
+
+                    &--voice {
+                        display: flex;
+                        align-items: center;
+
+                        p {
+                            margin-left: .5rem;
+                        }
+                    }
+                }
+            }
+
+            .ratings-about {
+                margin-top: 2rem;
+                &__container {
+                    display: flex;
+                    align-items: center;
+         
+
+                    // &:not(:first-child) {
+                    //     margin-left: 2rem;
+                    // }
+
+                    .difficulty {
+
+                        position: relative;
+
+                        .graph {
+
+                            background: no-repeat url("/pictures/mycourses/graph.svg");
+                            // background-size: cover;
+                            background-position: center;
+                            // width: 5rem;
+                            height: 5rem;
+                        }
+                    }
+
+                    .learning {
+                        margin: 0 5rem;
+                    }
+                }
+
+
+            }
+        }
 
     }
 
@@ -119,113 +171,71 @@ $mycourse-padding:0vw 10vw 0vw 10vw;
 
 
 
-        .details_list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            list-style-type: none !important;
-            padding: 0;
-            margin-top: -1rem;
-            width: 88%;
-          
+        &__mycourse-details {
+            hr {
+                width: 70%;
+                margin: 5rem 0;
+                border: 1px solid #C9C9C961;
+            }
 
 
-            li {
-                width: 100%;
-                margin-top: 4.5rem;
+
+            //! ინსტრუქტორის შესახებ
+
+            .instructor_profile {
                 display: flex;
-                position: relative;
 
-                &:before {
-                    display: none !important;
-                }
-                
-                .checked {
-                    margin-left: 0;
-                    background-size: cover !important;
-                    height: 2.5rem !important;
-                    width: 2.6rem !important;
-                    background: no-repeat url("/pictures/courses/courses_side_menu_finished.svg");
+
+                &--pic {
+                    border-radius: 18px;
+                    background: no-repeat url("/pictures/instructor_pic.png");
+                    background-size: cover;
                     background-position: center;
-                    display: inline-block;
-                    padding: 1.3rem;
-
-
+                    width: 8rem;
+                    height: 8rem;
                 }
 
-                p {
-                    margin-top: -0.5rem;
-                    margin-left: 1.5rem;
+                &--about {
+                    margin-left: 2rem;
+                    display: flex;
+                    flex-direction: column;
                 }
 
-
             }
-        }
-        
-        
-        .list {
-            ul {
-                display: block !important;
-                padding: initial !important;
-                margin-left: 7rem;
-                
-
-                li {
-                    margin-top: 0.8vw !important;
-
-                   
-                    
-                }
-            }
-        }
-
-
-        
-
-
-        //! ინსტრუქტორის შესახებ
-
-        .instructor_profile {
-            display: flex;
-
-
-            &--pic {
-                border-radius: 18px;
-                background: no-repeat url("/pictures/instructor_pic.png");
-                background-size: cover;
-                background-position: center;
-                width: 8rem;
-                height: 8rem;
-            }
-
-            &--about {
-                margin-left: 2rem;
-                display: flex;
-                flex-direction: column;
-            }
-
-
-
 
             .instructor_btn {
                 a {
                     width: 32rem !important;
                     padding: 1.7rem !important;
-                    p{
+
+                    p {
                         font-size: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
 
                     }
 
                 }
             }
+
         }
 
+
+
+
+        .side-menu {
+            width: 50rem;
+            margin-top: 0;
+        }
     }
-    
-    .side-menu {
-        width: 50rem;
-        margin-top: 0;
-    }
+
 }
 
 
 
+@supports ((-webkit-backdrop-filter: blur(47px)) or (filter: blur(47px))) {
+    .ratings-about,.ratings {
+        background: rgba(207, 207, 207, 0.26);
+        box-shadow: inset 0px 0px 10px rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(47px);
+
+    }
+}

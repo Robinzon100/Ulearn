@@ -300,9 +300,10 @@ export const Courses: React.FC = () => {
                         <>
                          <div className="estimates">
                     <div className="estimates__container">
+                         <InputCommentCards name={"beqa"} rating={6}  />
                         {tabContent.ratings.map(rating => (
                             <>
-                                {/* <InputCommentCards name={rating.userName} rating={rating.amoutOfStars}  /> */}
+                               
                             <CommentCards
                               name={rating.userName}
                               registrationDay={rating.datePosted}

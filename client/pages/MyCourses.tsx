@@ -1,8 +1,20 @@
 import React, { Fragment } from "react";
+import ReactHtmlParser from "react-html-parser";
+import { ArrowUp } from "react-feather";
+
+
 
 import BaseLayout from "components/base-layout";
-
 import SideMenu from "components/sideMenu";
+import Stars from "components/global_components/svg/stars/Stars";
+import MyCoursesJson from "../public/json/MyCourses.json";
+
+
+
+//! === INTERFACES
+import { MyCoursePageHtml,Instructor } from "../interfaces/MyCoursesPage.interface";
+
+
 
 const MyCourses: React.FC = () => {
 
@@ -22,7 +34,7 @@ const MyCourses: React.FC = () => {
             "https://s4114-21.imovies.cc/video/imovie_hash_code/3/2017050923065223_high_eng.mp4?md5=W1C5ex9RqZWL-Rejf4JUqw&expires=1599656434&data=YTozOntzOjc6InVzZXJfaXAiO3M6MTU6IjE3Ni4yMjEuMTMyLjIxMCI7czoxMDoidXNlcl9hZ2VudCI7czoxMTQ6Ik1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS84NS4wLjQxODMuODMgU2FmYXJpLzUzNy4zNiI7czo3OiJyZWZlcmVyIjtzOjIzOiJodHRwczovL3d3dy5pbW92aWVzLmNjLyI7fQ==",
           amountOfMinutes: 12,
         },
-      ];
+    ];
     
 
 
@@ -66,61 +78,93 @@ const MyCourses: React.FC = () => {
                   </div>
                 </div>
               </div>
+              {/* //! რეიტინგები */}
               <div className="mycourses-hero__rating-course">
-                  
+                  <div className="ratings ">
+                      <div className="ratings__with-number">
+                          <div className="ratings__with-number--heading">
+                            <p className="Eina-semibold heading-1">4.4</p>
+                          </div>
+                            <div className="ratings__with-number--stars">
+                                <Stars />
+                                
+                            </div>
+                            <div className="ratings__with-number--voice">
+                                <ArrowUp size={15}/>
+                                <p className="paragraph-regular-Noto paragraph-small">ხმა</p>
+                            </div>
+                           
+                      </div>
+                      <div className="ratings__with-percentage"></div>
+                  </div>
+                  <div className="ratings-about">
+                      <div className="ratings-about__container">
+                      <div className="difficulty">
+                            <div className="graph"></div>
+                            <p className="paragraph-small heading-semi-bold-Noto ">სირთულე</p>
+                        </div>
+                        <div className="learning">
+                            <p className="Eina-semibold heading-5">2000</p>
+                            <p className="paragraph-small heading-semi-bold-Noto">სწავლობს</p>
+                        </div>
+                        <div className="time-length">
+                            <p className="Eina-semibold heading-5">8<span className="heading-semi-bold-Noto  heading-5">სთ</span></p>
+                            <p className="paragraph-small heading-semi-bold-Noto">ხანგძლივობა</p>
+                        </div>
+                      </div>
+                        
+                  </div>
               </div>
             </div>
 
             <div className="СontentReveal">
-              <div className="mycourses-content__course-details">
+              <div className="СontentReveal__mycourse-details">
                 {/* //! შენ ისწავლი*/}
 
-                <h1 className="heading-bold-Noto heading-6">
+                <h1 >
                   რას ისწავლი ამ კურსზე
                 </h1>
 
-                <ul className="details_list">
-                  <div>
+                <ol >
+               
                     <li>
-                      <div className="checked "></div>
+                      
                       <p>გარემიქსებას ნებისმიერი მუსიკის</p>
                     </li>
                     <li>
-                      <div className="checked"></div>
+                      
 
                       <p>DJ-ის მოწყობილობების გამოყენება</p>
                     </li>
                     <li>
-                      <div className="checked"></div>
+                      
 
                       <p>მუსიკის იზოლირება სიმღერიდან</p>
                     </li>
-                  </div>
-                  <div>
+             
+              
                     <li>
-                      <div className="checked"></div>
+                      
 
                       <p>მუსიკის გადაკეთება და რა არის BPS</p>
                     </li>
                     <li>
-                      <div className="checked"></div>
+                      
 
                       <p>საუკეთესო პრაქტიკები</p>
                     </li>
                     <li>
-                      <div className="checked"></div>
-
-                      <p>
+                    <p>
                         როგორ მოძებნო კლიენტი და გაყიდო თქვენი მუსიკა და
                         სერვისები
-                      </p>
+                    </p>
                     </li>
-                  </div>
-                </ul>
+               
+                </ol>
 
-                <hr className="mycourse-line learning-list__line"></hr>
+                <hr></hr>
 
-                {/* //! ჩემი კურსების შესახებ */}
+              
 
                 <h1>დეტალები კურსის შესახებ</h1>
 
@@ -146,40 +190,40 @@ const MyCourses: React.FC = () => {
                 <br />
                 <br />
 
-                <h1>გავივლით ყველაზე ძირითად თემებს როგორიცაა:</h1>
+                <p><strong>გავივლით ყველაზე ძირითად თემებს როგორიცაა:</strong></p>
 
                 <br />
                 <br />
 
-                <div className="list">
+            
                   <ul>
                     <li>
-                      <p className="paragraph-regular-Noto paragraph-medium-small">
+                      <p >
                         javascrip ენის სინტაქსი და პროგრამირების ძირითადებ
                       </p>
                     </li>
                     <li>
-                      <p className="paragraph-regular-Noto paragraph-medium-small">
+                      <p >
                         რა არის DOM და DOM მანიპულირება
                       </p>
                     </li>
                     <li>
-                      <p className="paragraph-regular-Noto paragraph-medium-small">
+                      <p >
                         ინტერაქიულობის შექმნა
                       </p>
                     </li>
                     <li>
-                      <p className="paragraph-regular-Noto paragraph-medium-small">
+                      <p >
                         სხვა და სხვა ტიპი even-ები და მათი დანიშნულება
                       </p>
                     </li>
                     <li>
-                      <p className="paragraph-regular-Noto paragraph-medium-small">
+                      <p >
                         რთული ინტერაქტივები
                       </p>
                     </li>
                   </ul>
-                </div>
+    
 
                 <br />
                 <br />
@@ -192,7 +236,7 @@ const MyCourses: React.FC = () => {
                   კომპანიაში ასევე თვენივე ბიზნესში.
                 </p>
 
-                <hr className="mycourse-line learning-list__line"></hr>
+                <hr></hr>
 
                 {/* //! ინსტრუქტორის შესახებ */}
 
@@ -208,10 +252,10 @@ const MyCourses: React.FC = () => {
                   <div className="instructor_profile--about">
                     <p>ბექა არაბიძე</p>
 
-                    <a href="#">(23) კურსი</a>
+                    <a href="#"><strong>(23) კურსი</strong></a>
 
                     <div className="students">
-                      <a href="#">(5232) სტუდენტი</a>
+                      <a href="#"><strong>(5232) სტუდენტი</strong></a>
                       <div className="stars"></div>
                     </div>
                   </div>
@@ -239,8 +283,7 @@ const MyCourses: React.FC = () => {
                 <br />
                 <div className="instructor_btn">
                   <a href="#" className="btn btn-red">
-                 
-                      <p>ინსტრუქტორის გამოწერა</p>
+                    <p><strong>ინსტრუქტორის გამოწერა</strong></p>
                   </a>
                 </div>
               </div>
@@ -253,6 +296,7 @@ const MyCourses: React.FC = () => {
                   subTitles={subTitles}
                   subTaskTime={5}
                 />
+
               </div>
             </div>
           </div>
