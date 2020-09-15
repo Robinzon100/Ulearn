@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 
 import { ThumbsUp, ThumbsDown } from "react-feather";
 
-import Stars from "components/global_components/svg/stars/Stars";
+import Stars from "components/global_components/svg/Stars";
 
 interface CommentCards {
   name: string;

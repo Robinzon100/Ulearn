@@ -1,11 +1,16 @@
 import React, { Fragment } from "react";
 
-export default function stars() {
+
+interface StarsWith {
+    StarWidth:number;
+}
+
+const stars:React.FC<StarsWith> = ({StarWidth}) => {
   return (
     <Fragment>
       <svg
-        width="152"
-        height="22"
+        width={`${StarWidth}%`}
+        height="20"
         viewBox="0 0 152 22"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -34,3 +39,6 @@ export default function stars() {
     </Fragment>
   );
 }
+
+
+export default stars;

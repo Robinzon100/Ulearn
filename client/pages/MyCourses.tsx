@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
 import ReactHtmlParser from "react-html-parser";
-import { ArrowUp } from "react-feather";
 
 
 
 import BaseLayout from "components/base-layout";
 import SideMenu from "components/sideMenu";
-import Stars from "components/global_components/svg/stars/Stars";
+import RatingsMenu from "components/RatingsMyCourseMenu";
+import { ShoppingCart } from "react-feather";
 import MyCoursesJson from "../public/json/MyCourses.json";
 
 
@@ -73,47 +73,19 @@ const MyCourses: React.FC = () => {
                       href="#"
                       className="btn btn-yellow heading-semi-bold-Noto paragraph-medium-small"
                     >
-                      კალათაში შენახვა
+                      
+                      <p>კალათაში შენახვა</p>
+                      <div className="shopping_cart">
+                        <ShoppingCart/>
+                    </div>
                     </a>
+                    
                   </div>
                 </div>
               </div>
               {/* //! რეიტინგები */}
               <div className="mycourses-hero__rating-course">
-                  <div className="ratings ">
-                      <div className="ratings__with-number">
-                          <div className="ratings__with-number--heading">
-                            <p className="Eina-semibold heading-1">4.4</p>
-                          </div>
-                            <div className="ratings__with-number--stars">
-                                <Stars />
-                                
-                            </div>
-                            <div className="ratings__with-number--voice">
-                                <ArrowUp size={15}/>
-                                <p className="paragraph-regular-Noto paragraph-small">ხმა</p>
-                            </div>
-                           
-                      </div>
-                      <div className="ratings__with-percentage"></div>
-                  </div>
-                  <div className="ratings-about">
-                      <div className="ratings-about__container">
-                      <div className="difficulty">
-                            <div className="graph"></div>
-                            <p className="paragraph-small heading-semi-bold-Noto ">სირთულე</p>
-                        </div>
-                        <div className="learning">
-                            <p className="Eina-semibold heading-5">2000</p>
-                            <p className="paragraph-small heading-semi-bold-Noto">სწავლობს</p>
-                        </div>
-                        <div className="time-length">
-                            <p className="Eina-semibold heading-5">8<span className="heading-semi-bold-Noto  heading-5">სთ</span></p>
-                            <p className="paragraph-small heading-semi-bold-Noto">ხანგძლივობა</p>
-                        </div>
-                      </div>
-                        
-                  </div>
+                  <RatingsMenu/>
               </div>
             </div>
 
@@ -126,10 +98,8 @@ const MyCourses: React.FC = () => {
                 </h1>
 
                 <ol >
-               
                     <li>
-                      
-                      <p>გარემიქსებას ნებისმიერი მუსიკის</p>
+                        <p>გარემიქსებას ნებისმიერი მუსიკის</p>
                     </li>
                     <li>
                       
@@ -163,10 +133,8 @@ const MyCourses: React.FC = () => {
                 </ol>
 
                 <hr></hr>
-
-              
-
-                <h1>დეტალები კურსის შესახებ</h1>
+                
+                 <h1>დეტალები კურსის შესახებ</h1>
 
                 <br />
                 <br />
