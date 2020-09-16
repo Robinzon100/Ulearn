@@ -300,7 +300,7 @@ export const Courses: React.FC = () => {
                         <>
                          <div className="estimates">
                     <div className="estimates__container">
-                         <InputCommentCards name={"beqa"} rating={6}  />
+                         <InputCommentCards name={"beqa"} rating={2} />
                         {tabContent.ratings.map(rating => (
                             <>
                                
@@ -309,6 +309,9 @@ export const Courses: React.FC = () => {
                               registrationDay={rating.datePosted}
                               addedComment={rating.comment}
                               imageUrl={rating.imageUrl}
+                              rating={rating.amountOfStars}
+                              like={rating.like}
+                              dislike={rating.dislike}
                             />
                             </>
                             

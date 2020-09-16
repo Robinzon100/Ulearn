@@ -1,0 +1,20 @@
+.stars {
+    display: flex;
+    margin-left: .3rem;
+}
+
+.star_component {
+    input[type="radio"] {
+        display: none !important;
+    }
+
+    &:not(:first-child) {
+        margin-left: .2rem;
+
+    }
+
+    .star {
+        cursor: pointer;
+        transition: color 200ms;
+    }
+}

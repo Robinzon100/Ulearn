@@ -5,7 +5,7 @@ import ReactHtmlParser from "react-html-parser";
 
 import BaseLayout from "components/base-layout";
 import SideMenu from "components/sideMenu";
-import RatingsMenu from "components/RatingsMyCourseMenu";
+import RatingsMenu from "components/RatingsMenu";
 import { ShoppingCart } from "react-feather";
 import MyCoursesJson from "../public/json/MyCourses.json";
 
