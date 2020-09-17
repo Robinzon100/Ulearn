@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { ThumbsUp, ThumbsDown } from "react-feather";
+import { ThumbsUp, ThumbsDown, Heart } from "react-feather";
 
 import Stars from "components/global_components/svg/Stars";
 
@@ -11,7 +11,8 @@ interface CommentCards {
     imageUrl: string,
     rating: number,
     like: number,
-    dislike: number
+    dislike: number,
+    isLikedByInstructor: boolean
 }
 
 const comment_cards: React.FC<CommentCards> = ({
@@ -21,7 +22,8 @@ const comment_cards: React.FC<CommentCards> = ({
     imageUrl,
     rating,
     like,
-    dislike
+    dislike,
+    isLikedByInstructor
 }) => {
     const [thumbsUp, setThumbsUp] = useState<number>(like)
 
@@ -55,7 +57,7 @@ const comment_cards: React.FC<CommentCards> = ({
         }
     }
 
-    
+
 
     return (
         <>
@@ -80,29 +82,42 @@ const comment_cards: React.FC<CommentCards> = ({
                         <p>{addedComment}</p>
                     </div>
 
-                    <div className="like">
-                        <div className="like__thumbs-up"
+                    <div className="like-dislike">
+                        <div className="like-dislike__thumbs-up"
                             onClick={handleSetThumbsUp}>
-                            <ThumbsUp 
-                            fill={onClickLike ? "#338EFF" : "#ffffff"} 
-                            color={onClickLike ? "#ffffff" : "#191B1F"}
-                            size={22} />
+                            <ThumbsUp
+                                fill={onClickLike ? "#338EFF" : "#ffffff"}
+                                color={onClickLike ? "#ffffff" : "#191B1F"}
+                                size={22} />
                             <div className="like_counter">
                                 <p>
                                     <strong>{thumbsUp}</strong>
                                 </p>
                             </div>
                         </div>
-                        <div className="like__thumbs-down" onClick={handleSetThumbsDown}>
-                            <ThumbsDown 
-                             fill={onClickDislike ? "#338EFF" : "#ffffff"} 
-                             color={onClickDislike ? "#ffffff" : "#191B1F"}
-                            size={22} />
+                        <div className="like-dislike__thumbs-down" onClick={handleSetThumbsDown}>
+                            <ThumbsDown
+                                fill={onClickDislike ? "#338EFF" : "#ffffff"}
+                                color={onClickDislike ? "#ffffff" : "#191B1F"}
+                                size={22} />
                             <div className="unlike_counter">
                                 <p><strong>{thumbsDown}</strong></p>
                             </div>
 
                         </div>
+
+
+                        {isLikedByInstructor ?
+
+                            <div className="instructor_like">
+                                <div style={{ backgroundImage: `url(${imageUrl})` }} className="instructor__photo"></div>
+                                <div className="heart">
+                                    <Heart fill="#FF5C4D" color="#FF5C4D" size={23} />
+                                </div>
+                            </div>
+
+                            : null}
+
                     </div>
                 </div>
             </div>

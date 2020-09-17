@@ -48,7 +48,7 @@
             }
         }
 
-        .like {
+        .like-dislike {
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -58,18 +58,45 @@
                 cursor: pointer;
             }
 
-            &__thumbs-down,&__thumbs-up {
+            &__thumbs-down,
+            &__thumbs-up {
                 display: flex;
                 align-items: center;
 
-                p{
+                p {
                     margin-left: .3rem;
                 }
             }
+
             &__thumbs-down {
-                margin-left: 2.5rem;
+                margin-left: 2rem;
+                width: 3vw;
             }
 
+
+            .instructor_like {
+                position: relative;
+                margin-left: 2rem;
+
+                .instructor__photo {
+                    background-image: url("/pictures/courses/profile_picture.png");
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                    width:3rem;
+                    height: 3rem;
+                    border-radius: 50%;
+                    // padding: 4rem;
+                }
+
+                .heart {
+                    position: absolute;                    
+                    right: -22%;
+                    top: 30%;
+
+
+                }
+            }
         }
 
 

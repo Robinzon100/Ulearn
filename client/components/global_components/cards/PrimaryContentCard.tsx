@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Star } from "react-feather";
 
+import CardDetail from './CardDetail';
+
 interface Props {
   id: number;
   title: string;
@@ -26,14 +28,21 @@ const PrimaryContentCard: React.FC<Props> = ({
 
   const [checkNewPrice, setCheckNewPrice] = useState<boolean>(false);
 
+  const [hover, setHover] = useState<boolean | null>(false);
+
   const handleCheckNewPrice = () => {
     setCheckNewPrice(true);
   };
 
-  const handleSetAddToFavorites = () => {};
+
 
   return (
-    <div className="card">
+    <div className="card" 
+    onMouseEnter={() => setHover((hover) => !hover)}
+    onMouseLeave={() => setHover(null)}
+    >
+        {/* {hover ? <CardDetail/> : null} */}
+
       <a href="#">
         <div className="card__img">
           <div className="price-tag">

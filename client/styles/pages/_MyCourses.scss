@@ -243,28 +243,42 @@ $ratings-padding:1.3rem 1.5rem 1.3rem 1.5rem;
                 border: 1px solid #C9C9C961;
             }
 
+            p {
+                width: 87%;
+            }
+
 
 
             //! ინსტრუქტორის შესახებ
 
             .instructor_profile {
                 display: flex;
+                flex-direction: column;
 
+                &__info {
+                display: flex;
 
-                &--pic {
-                    border-radius: 18px;
-                    background: no-repeat url("/pictures/instructor_pic.png");
-                    background-size: cover;
-                    background-position: center;
-                    width: 8rem;
-                    height: 8rem;
-                }
-
-                &--about {
-                    margin-left: 2rem;
-                    display: flex;
-                    flex-direction: column;
-                }
+                    &--pic {
+                        border-radius: 18px;
+                        background: no-repeat url("/pictures/instructor_pic.png");
+                        background-size: cover;
+                        background-position: center;
+                        width: 8rem;
+                        height: 8rem;
+                    }
+    
+                    &--about {
+                        margin-left: 2rem;
+                        display: flex;
+                        flex-direction: column;
+    
+                         p{
+                            width: 100% !important;
+                            margin-bottom: 0.5rem;
+                         }
+                    }
+                }   
+                
 
             }
 
@@ -288,7 +302,7 @@ $ratings-padding:1.3rem 1.5rem 1.3rem 1.5rem;
 
         .side-menu {
             width: 46rem;
-            margin-top: 0;
+            // margin-top: 0;
         }
     }
 
