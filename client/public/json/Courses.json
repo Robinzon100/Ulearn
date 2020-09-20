@@ -53,22 +53,22 @@
     "ratings": [
       {
           
-        "userName": "beqa arabidze",
+        "userName": "ბექა არაბიძე",
         "datePosted": "2020-08-12",  
         "amountOfStars": 4,
         "comment": "დიდი მადლობა ამ კურსისთვის ძალიან დამეხმარა ამ კურსმა მომცა საშუალება, რომ ჩემს კოლეგებთან ერთად მემუშავა უფრო ეფექტურად, თუმცა კურსის ბოლო ვიდეოები დანარჩენებთან შედარებით სუსტი იყო.",
         "imageUrl":"https://images.unsplash.com/photo-1593642634367-d91a135587b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-        "dislike": 0,
+        "dislike": 10,
         "like": 20,
         "isLikedByInstructor": true
       },
       {
-        "userName": "robo kruzovi",
+        "userName": "რობო რობოვიჩი",
         "datePosted": "2020-08-12",  
         "amountOfStars": 2,
         "comment": "ეს ძალიან მომეწონა ეს კურსი და ეხლა თამამად შემიძლია ვთვა რომ ვარ javascript დეველოპერი და სამსახურსაც ადვიალდ ვიშოვი ამ ინდუსტრიაში, დიდი მადლობა ბექას რომ წარგივდგინა ასეთი კარგი კურსი ვიდეობი იყო გასაგები და რაც მთავარია ქართულად რამაც ძალიან დამეხმარა",
         "imageUrl":"https://images.unsplash.com/photo-1593642634367-d91a135587b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-        "dislike": 0,
+        "dislike":10,
         "like": 2,
         "isLikedByInstructor": false
       }

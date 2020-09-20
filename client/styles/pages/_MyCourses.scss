@@ -1,4 +1,5 @@
 $mycourse-padding:0vw 10vw 0vw 10vw;
+$ratings-padding:1.3rem 1.5rem 1.3rem 1.5rem;
 
 .mycourse-line {
     margin: 8rem 0 !important;
@@ -7,7 +8,7 @@ $mycourse-padding:0vw 10vw 0vw 10vw;
 
 
 .mycourses {
-    
+
     .mycourses-hero {
         // background-color: wheat;
         width: 100%;
@@ -67,16 +68,132 @@ $mycourse-padding:0vw 10vw 0vw 10vw;
 
                 .save-bucket {
                     margin-left: 4rem;
+                    position: relative;
+
+                    a {
+
+                        p {
+                            margin-left: 4rem;
+                        }
+
+                        .shopping_cart {
+                            position: absolute;
+                            top: 30%;
+                            left: 8%;
+                        }
+                    }
                 }
 
+                
             }
 
         }
 
         &__rating-course {
-            
-        }
+            margin-top: 4rem;
 
+            .ratings,
+            .ratings-about {
+                border-radius: 18px;
+                border: 0.5px solid #ffffff6b;
+                padding: $ratings-padding;
+                text-align: center;
+            }
+
+            .ratings {
+                display: grid;
+                grid-template-columns: 40% 60%;
+
+                &__with-number {
+                    margin-top: -2.5rem;
+
+                    & > div {
+                        width: 82%;
+                    }
+
+                    &--voice {
+                        display: flex;
+                        align-items: center;
+
+                        p {
+                            margin-left: .5rem;
+                        }
+                    }
+
+                    &--stars,&--voice {
+                        margin-left: 1rem;
+                    }
+
+                    
+                }
+
+                &__with-percentage {
+                    // width: 60%;
+                    // margin-left: 5rem;
+
+
+                    .percentage_container {
+                        // margin-top: 1rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        &:not(:first-child) {
+                            margin-top: .5rem;
+                        }
+
+
+
+                        .lines_stars {
+                            display: flex;
+                            flex-direction: column;
+                        }
+
+                        .percentage_number {
+                            align-self: flex-end;
+                        }
+                    }
+                }
+            }
+
+            .ratings-about {
+                margin-top: 2rem;
+
+                &__container {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    p {
+                        margin-top: 1rem;
+                    }
+                    
+                    // &:not(:first-child) {
+                    //     margin-left: 2rem;
+                    // }
+
+                    .difficulty {
+
+                        position: relative;
+
+                        .graph {
+
+                            background: no-repeat url("/pictures/mycourses/graph.svg");
+                            // background-size: cover;
+                            background-position: center;
+                            // width: 5rem;
+                            height: 5rem;
+                        }
+                    }
+
+                    .learning {
+                        margin: 0 5rem;
+                    }
+                }
+
+
+            }
+        }
 
     }
 
@@ -119,113 +236,98 @@ $mycourse-padding:0vw 10vw 0vw 10vw;
 
 
 
-        .details_list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            list-style-type: none !important;
-            padding: 0;
-            margin-top: -1rem;
-            width: 88%;
-          
-
-
-            li {
-                width: 100%;
-                margin-top: 4.5rem;
-                display: flex;
-                position: relative;
-
-                &:before {
-                    display: none !important;
-                }
-                
-                .checked {
-                    margin-left: 0;
-                    background-size: cover !important;
-                    height: 2.5rem !important;
-                    width: 2.6rem !important;
-                    background: no-repeat url("/pictures/courses/courses_side_menu_finished.svg");
-                    background-position: center;
-                    display: inline-block;
-                    padding: 1.3rem;
-
-
-                }
-
-                p {
-                    margin-top: -0.5rem;
-                    margin-left: 1.5rem;
-                }
-
-
-            }
-        }
-        
-        
-        .list {
-            ul {
-                display: block !important;
-                padding: initial !important;
-                margin-left: 7rem;
-                
-
-                li {
-                    margin-top: 0.8vw !important;
-
-                   
-                    
-                }
-            }
-        }
-
-
-        
-
-
-        //! ინსტრუქტორის შესახებ
-
-        .instructor_profile {
-            display: flex;
-
-
-            &--pic {
-                border-radius: 18px;
-                background: no-repeat url("/pictures/instructor_pic.png");
-                background-size: cover;
-                background-position: center;
-                width: 8rem;
-                height: 8rem;
+        &__mycourse-details {
+            hr {
+                width: 70%;
+                margin: 5rem 0;
+                border: 1px solid #C9C9C961;
             }
 
-            &--about {
-                margin-left: 2rem;
+            p {
+                width: 87%;
+            }
+
+
+
+            //! ინსტრუქტორის შესახებ
+
+            .instructor_profile {
                 display: flex;
                 flex-direction: column;
+
+                &__info {
+                display: flex;
+                // align-items: center;
+
+                    &--pic {
+                        border-radius: 18px;
+                        background-image:  url("/pictures/instructor_pic.png");
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        width: 8rem;
+                        height: 8rem;
+                        margin-top: 1rem;
+                    }
+    
+                    &--about {
+                        margin-left: 2rem;
+                        display: flex;
+                        flex-direction: column;
+    
+                         p,a,div{
+                            width: 100% !important;
+                            margin-bottom: 0.3rem;
+                         }
+
+                         .students {
+
+                            .stars {
+                                margin-left: 0 !important;
+                                margin-top: 0.3rem;
+                            }
+                         }
+                    }
+                }   
+                
+
             }
-
-
-
 
             .instructor_btn {
                 a {
                     width: 32rem !important;
                     padding: 1.7rem !important;
-                    p{
+
+                    p {
                         font-size: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
 
                     }
 
                 }
             }
+
         }
 
+
+
+
+        .side-menu {
+            width: 46rem;
+            // margin-top: 0;
+        }
     }
-    
-    .side-menu {
-        width: 50rem;
-        margin-top: 0;
-    }
+
 }
 
 
 
+@supports ((-webkit-backdrop-filter: blur(47px)) or (filter: blur(47px))) {
+
+    .ratings-about,
+    .ratings {
+        background: rgba(207, 207, 207, 0.26);
+        box-shadow: inset 0px 0px 10px rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(47px);
+
+    }
+}

@@ -93,26 +93,26 @@ export const Courses: React.FC = () => {
 
 
   // const fetchTabConent = (courseId: number,route: string):Description | QuestionAnswer | Resources | Estimates => {
-
+    
   // };
-  const fetchTabConent = (courseId: number, route: string): Description_type | QuestionAnswer_type | Resources_type | Estimates_type => {
+  const fetchTabConent = (courseId: number, route: string):Description_type | QuestionAnswer_type | Resources_type | Estimates_type => {
     switch (route) {
       case "/description":
         return CoursesJson.description
         break;
-
+    
       case "/questionAnswer":
         return CoursesJson.questionAnswers
         break;
-
+    
       case "/resources":
         return CoursesJson.Resources
         break;
-
+    
       case "/estimates":
         return CoursesJson.ratings
         break;
-
+    
       default:
         break;
     }
@@ -300,15 +300,23 @@ export const Courses: React.FC = () => {
                         <>
                          <div className="estimates">
                     <div className="estimates__container">
-                        {tabContent.ratings.map(rating => (
+                         <InputCommentCards name={"ბექა არაბიძე"} rating={2} />
+                        {tabContent.ratings.map((rating,i) => (
                             <>
-                                {/* <InputCommentCards name={rating.userName} rating={rating.amoutOfStars}  /> */}
+                               
                             <CommentCards
+                                key={i}
                               name={rating.userName}
                               registrationDay={rating.datePosted}
                               addedComment={rating.comment}
                               imageUrl={rating.imageUrl}
+                              rating={rating.amountOfStars}
+                              like={rating.like}
+                              dislike={rating.dislike}
+                              isLikedByInstructor={rating.isLikedByInstructor}
+                              
                             />
+                            
                             </>
                             
                         ))}
@@ -323,6 +331,7 @@ export const Courses: React.FC = () => {
 
                   </div>
 
+              
                 </div>
               </div>
             </div>

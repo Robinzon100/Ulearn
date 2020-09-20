@@ -24,20 +24,14 @@ const main_content: React.FC = () => {
           <InputSearch placeHolder={placeHolder} />
 
           <div className="sorting">
-            {/* <div className="sorting__heading">
-                            <p className="paragraph-regular-Noto paragraph-medium-small">დახარისხება:</p>
-                        </div> */}
+    
             <div className="sorting__select">
               <SelectInput />
             </div>
           </div>
         </div>
         <div className="main_content--container">
-          {/* <div className="categories">
-            <div className="categories__heading">
-              <p className="heading-bold-Noto heading-6">აირჩიე კატეგორიები</p>
-            </div>
-          </div> */}
+         
           <div className="courses">
             <div className="overlay_container">
               <div className="wrapper">

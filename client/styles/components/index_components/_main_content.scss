@@ -101,6 +101,7 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 100px 40px;
             margin-top: 8rem;
+            overflow: hidden;
 
             .card {
                 position: relative;

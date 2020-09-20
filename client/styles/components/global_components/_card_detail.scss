@@ -2,11 +2,23 @@ $card-detail-padding:.5vw .8vw 2.5vw .8vw;
 $card-detail-shadow:35px 41px 99px 27px rgba(19, 21, 26, 0.3);
 
 
+.cardDetail_container {
+    position: absolute;
+    z-index: 5;
+    left: 105%;
+    background-color:$white;
+    // border-radius: 13px;
+
+}
+
 .card_detail {
-    height: 100vh;
+    // height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
+    // border-radius: 13px;
+    // z-index: 10;
+
     
 
     .inside_content {
@@ -20,7 +32,7 @@ $card-detail-shadow:35px 41px 99px 27px rgba(19, 21, 26, 0.3);
     &--container {
         width: 26vw;
         box-shadow: $card-detail-shadow;
-        border-radius: 13px 13px 0px 0px;
+        border-radius: 20px;
 
         &__img {
             background: no-repeat url("/pictures/courses/card_picture.png");
@@ -28,7 +40,7 @@ $card-detail-shadow:35px 41px 99px 27px rgba(19, 21, 26, 0.3);
             background-position: center;
             width: 100%;
             height: 12rem;
-            border-radius: 13px 13px 0px 0px;
+            border-radius: 20px 20px 0px 0px;
         }
 
         &__title {
@@ -42,21 +54,19 @@ $card-detail-shadow:35px 41px 99px 27px rgba(19, 21, 26, 0.3);
 
         &__list {
             ul{
+                padding: 0 !important;
                 li{
                     margin-top: 0.7vw;
                     display: flex;
-                    align-items: center;
+                    position: relative;
+                    // align-items: center;
 
-                    // .stitka {
-                    //     background: no-repeat url("/pictures/courses/Stitka.svg");
-                    //     // background-size: cover;
-                    //     background-position:top;
-                    //     width: 2.5vw;
-                    //     height: 1.7vw;
-                    //     // margin-left: 1.5rem;
-                    // }                   
+                    .check {
+                        position: absolute;
+                        margin-top: .5vw;
+                    }
                     .paragraph {
-                        margin-left: 1.2rem;
+                        margin-left: 3rem;
                     }
                 }
             }
