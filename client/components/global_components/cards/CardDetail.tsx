@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { ShoppingCart } from 'react-feather';
+import { ShoppingCart,Check } from 'react-feather';
 
 
 
@@ -14,11 +14,11 @@ export default function CardDetail() {
                             <p className="heading-bold-Noto paragraph-regular">რაიმე კურსის სათაური რომელიც არ აღემატება ორ ხაზს მაგრამ ტეტალების კარტაში მთლიანი სათაური იქნება</p>
                         </div>
                         <div className="card_detail--container__date">
-                            <p className="paragraph-light-Noto paragraph-smallest" style={{ color: "#00E267" }}>დაიდო:
-                            <span className="paragraph-smallest Eina-semibold">2019.03.15</span>
+                            <p className="paragraph-light-Noto paragraph-smallest" style={{ color: "#00E267" }}> დაიდო:
+                             <span className="paragraph-smallest Eina-semibold"> 2019.03.15 </span>
                             </p>
                             <p className="paragraph-light-Noto paragraph-smallest" style={{ color: "#636469" }}>სირთულე:
-                            <span className="" style={{ color: "#FFD703" }}>საშუალო</span>
+                             <span className="" style={{ color: "#FFD703" }}> საშუალო </span>
                             </p>
                         </div>
                         <div className="card_detail--container__description">
@@ -27,24 +27,24 @@ export default function CardDetail() {
                         <div className="card_detail--container__list">
                             <ul>
                                 <li>
-                                    <div className="stitka">
-                                        <img src="/pictures/courses/stitka.svg" alt="" />
+                                    <div className="check">
+                                    <Check size={15}/>
                                     </div>
                                     <div className="paragraph">
                                         <p className="paragraph-light-Noto paragraph-small ">მოკლე-მოკლედ რა არის კურსზე რომელიც 2 ხაზს არ უნდა აღემატოს</p>
                                     </div>
                                 </li>
                                 <li>
-                                    <div className="stitka">
-                                        <img src="/pictures/courses/stitka.svg" alt="" />
+                                    <div className="check">
+                                        <Check size={15}/>
                                     </div>
                                     <div className="paragraph">
                                         <p className="paragraph-light-Noto paragraph-small ">მოკლე-მოკლედ რა არის კურსზე რომელიც 1</p>
                                     </div>
                                 </li>
                                 <li>
-                                    <div className="stitka">
-                                        <img src="./pictures/courses/stitka.svg" alt="" />
+                                    <div className="check">
+                                    <Check size={15}/>
                                     </div>
                                     <div className="paragraph">
                                         <p className="paragraph-light-Noto paragraph-small ">მოკლე-მოკლედ რა არის კურსზე რომელიც 2 ხაზს არ უნდა აღემატოს</p>

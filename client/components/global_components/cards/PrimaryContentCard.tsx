@@ -41,7 +41,11 @@ const PrimaryContentCard: React.FC<Props> = ({
     onMouseEnter={() => setHover((hover) => !hover)}
     onMouseLeave={() => setHover(null)}
     >
-        {/* {hover ? <CardDetail/> : null} */}
+        {hover ? 
+            <div className="cardDetail_container">
+                <CardDetail/>
+            </div> 
+        : null}
 
       <a href="#">
         <div className="card__img">

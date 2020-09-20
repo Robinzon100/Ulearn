@@ -257,14 +257,17 @@ $ratings-padding:1.3rem 1.5rem 1.3rem 1.5rem;
 
                 &__info {
                 display: flex;
+                // align-items: center;
 
                     &--pic {
                         border-radius: 18px;
-                        background: no-repeat url("/pictures/instructor_pic.png");
+                        background-image:  url("/pictures/instructor_pic.png");
                         background-size: cover;
                         background-position: center;
+                        background-repeat: no-repeat;
                         width: 8rem;
                         height: 8rem;
+                        margin-top: 1rem;
                     }
     
                     &--about {
@@ -272,9 +275,17 @@ $ratings-padding:1.3rem 1.5rem 1.3rem 1.5rem;
                         display: flex;
                         flex-direction: column;
     
-                         p{
+                         p,a,div{
                             width: 100% !important;
-                            margin-bottom: 0.5rem;
+                            margin-bottom: 0.3rem;
+                         }
+
+                         .students {
+
+                            .stars {
+                                margin-left: 0 !important;
+                                margin-top: 0.3rem;
+                            }
                          }
                     }
                 }   

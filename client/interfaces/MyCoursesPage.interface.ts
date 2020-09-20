@@ -3,15 +3,18 @@ import { stars } from "../type/course.type";
 
 
 
-export interface MyCoursePageHtml {
-    html:string
-}
-
-export interface Instructor {
+interface instructor {
     userName:string,
     numberOfCourses:number,
     numberOfStudents:number,
     amountOfStars: stars,
+    amountOfVotes:number
     aboutInstructor:string,
     
 }
+
+export interface MyCoursePageContent {
+    html:string,
+    instructors:instructor[]
+}
+

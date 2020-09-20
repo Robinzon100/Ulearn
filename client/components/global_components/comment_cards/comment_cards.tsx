@@ -5,6 +5,7 @@ import { ThumbsUp, ThumbsDown, Heart } from "react-feather";
 import Stars from "components/global_components/svg/Stars";
 
 interface CommentCards {
+   id:number
     name: string;
     registrationDay: string;
     addedComment: string;
@@ -16,6 +17,7 @@ interface CommentCards {
 }
 
 const comment_cards: React.FC<CommentCards> = ({
+    id,
     name,
     registrationDay,
     addedComment,
@@ -61,7 +63,7 @@ const comment_cards: React.FC<CommentCards> = ({
 
     return (
         <>
-            <div className="comment">
+            <div className="comment" key={id}>
                 <div className="comment__pic" style={{ backgroundImage: `url(${imageUrl})` }}></div>
 
                 <div className="comment__text">

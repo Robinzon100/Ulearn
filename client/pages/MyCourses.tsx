@@ -11,10 +11,7 @@ import Stars from "components/global_components/svg/Stars";
 import MyCoursesJson from "../public/json/MyCourses.json";
 
 //! === INTERFACES
-import {
-  MyCoursePageHtml,
-  Instructor,
-} from "../interfaces/MyCoursesPage.interface";
+import { MyCoursePageContent } from "../interfaces/MyCoursesPage.interface";
 
 
 
@@ -96,33 +93,35 @@ const MyCourses: React.FC = () => {
 
                 {/* //! ინსტრუქტორის შესახებ */}
 
-                {/* <h1 className="heading-bold-Noto heading-6">
+                <h1 className="heading-bold-Noto heading-6">
                   ინსტრუქტორის ონფორმაცია
-                </h1> */}
+                </h1>
 
                 <br />
                 <br />
                 <br />
                 <div className="instructor_profile">
-                  {/* {MyCoursesJson.instructors.map(instructor => (
+                  {MyCoursesJson.instructors.instructor.map((instructorInfo,i) => (
                     <>
-                      <div className="instructor_profile__info">
-                        <div className="instructor_profile__info--pic" style={{backgroundImage:`url(&{instructor.imageUrl})`}}></div>
+                      <div className="instructor_profile__info" key={i}>
+                        <div className="instructor_profile__info--pic" style={{backgroundImage:`url(${instructorInfo.imageUrl})`}}></div>
                         <div className="instructor_profile__info--about">
                           <p>
-                            <strong>{instructor.userName}</strong>
+                            <strong>{instructorInfo.userName}</strong>
                           </p>
 
                           <a href="#">
-                            <strong>{instructor.numberOfCourses} კურსი</strong>
+                            <strong>({instructorInfo.numberOfCourses}) კურსი</strong>
                           </a>
 
                           <div className="students">
                             <a href="#">
-                              <strong>{instructor.numberOfStudents} სტუდენტი</strong>
+                              <strong>({instructorInfo.numberOfStudents}) სტუდენტი</strong>
                             </a>
                             <div className="stars">
-                            <Stars StarWidth={15} numberOfStars={instructor.amountOfStars}/>
+                            <Stars StarWidth={18} numberOfStars={instructorInfo.amountOfStars}/>
+                            {/* <p>({instructorInfo.amountOfVotes})</p> */}
+                            
                             </div>
                           </div>
                         </div>
@@ -130,36 +129,23 @@ const MyCourses: React.FC = () => {
 
                       <br />
                       <br />
-
-                      <p>
-                        ვარ fullstack დეველოპერი რომესაც აქვს წლების
-                        გამოცდილება, როგორც front-end დეველოპმენტში ასევე
-                        back-end დეველოპმენტში, ვცხოვრობ რუსთავში და მაქვს
-                        უმაღლესი განათლება მიღებული ქართულ-ამერიკულ
-                        უნივერსიტეტში.
-                      </p>
-                      <br />
-                      <br />
-                      <p>
-                        ჩემი ერთ-ერთი ყველაზე დიდი პროექტი არის სწორედ ეს საიტი
-                        სადაც ნებისმიერი შეძლებს ქართული რესურსებით ისწავლოს
-                        ნებისმიერი პროფესია ან ჰობი.
-                      </p>
+                        {ReactHtmlParser(instructorInfo.aboutInstructor)}
+                      
                     </>
-                  ))} */}
+                  ))}
                 </div>
 
                 <br />
                 <br />
                 <br />
                 <br />
-                {/* <div className="instructor_btn">
+                <div className="instructor_btn">
                   <a href="#" className="btn btn-red">
                     <p>
                       <strong>ინსტრუქტორის გამოწერა</strong>
                     </p>
                   </a>
-                </div> */}
+                </div>
               </div>
 
               <div className="side-menu noselect ">

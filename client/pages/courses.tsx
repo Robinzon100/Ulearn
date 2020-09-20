@@ -301,10 +301,11 @@ export const Courses: React.FC = () => {
                          <div className="estimates">
                     <div className="estimates__container">
                          <InputCommentCards name={"ბექა არაბიძე"} rating={2} />
-                        {tabContent.ratings.map(rating => (
+                        {tabContent.ratings.map((rating,i) => (
                             <>
                                
                             <CommentCards
+                                key={i}
                               name={rating.userName}
                               registrationDay={rating.datePosted}
                               addedComment={rating.comment}
@@ -313,6 +314,7 @@ export const Courses: React.FC = () => {
                               like={rating.like}
                               dislike={rating.dislike}
                               isLikedByInstructor={rating.isLikedByInstructor}
+                              
                             />
                             
                             </>
