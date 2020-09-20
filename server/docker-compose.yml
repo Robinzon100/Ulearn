@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  postgres:
+    container_name: postgres_container
+    image: postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - postgres:/var/lib/postgresql/data
+      - ./postgresql/conf:/etc/postgresql/
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres
+    restart: always
+
+  adminer:
+    container_name: adminer
+    image: adminer
+    volumes:
+      - ./adminer:/var/lib/pgadmin:Z
+    ports:
+      - 8080:8080
+    networks:
+      - postgres
+    restart: always
+    tty: true
+
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+  postgres:
+  pgadmin:

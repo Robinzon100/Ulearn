@@ -1,7 +1,7 @@
 import Express, { Request, Response, NextFunction } from 'express'
-import morgan from "morgan";
-import bodyParser from 'body-parser'
 import path from 'path'
+import { baseMiddlewares } from './middleware/server/base';
+
 
 
 const app = Express()
@@ -20,25 +20,14 @@ const mongoConnect = require('./utils/database').mongoConnect;
 const PORT = process.env.PORT || 5000
 
 
-//! ─── APP USE ──────────────────────────────────────────────────────────────────────
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+//! ─── BASE MIDDLEWARES ────────────────────────────────────────────────────────────
+baseMiddlewares(app)
 
-app.use(morgan('dev'))
-
-app.use((req: Request, res: Response, next: NextFunction) => {
-    res.setHeader('Access-Control-Allow-Origin', `*`);
-    res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', '*');
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-    next();
-});
 
 
 
 //!  ─── ROUTE IMPORTS ──────────────────────────────────────────────────────────────────────
-import clientRoutes  from './routes/client/client.routes';
+import clientRoutes from './routes/client/client.routes';
 
 
 app.use("/api/client/", clientRoutes)
