@@ -12,7 +12,6 @@ require('dotenv').config()
 
 
 // !─── MY MODULES ─────────────────────────────────────────────────────────────────
-const mongoConnect = require('./utils/database').mongoConnect;
 // const auth = require("./middleware/auth")
 
 
@@ -27,11 +26,6 @@ baseMiddlewares(app)
 
 
 //!  ─── ROUTE IMPORTS ──────────────────────────────────────────────────────────────────────
-import clientRoutes from './routes/client/client.routes';
-
-
-app.use("/api/client/", clientRoutes)
-
 
 app.get('/api', (req: Request, res: Response, next: NextFunction) => {
     res.json({
