@@ -1,11 +1,15 @@
 import morgan from "morgan";
 import bodyParser from 'body-parser'
-import { Request, Response, NextFunction } from 'express'
+import express, { Application, Request, Response, NextFunction } from 'express'
 
 
-export const baseMiddlewares = (app: any) => {
-    app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded({ extended: true }));
+export const baseMiddlewares = (app: Application) => {
+    // app.use(bodyParser.json());
+    // app.use(bodyParser.urlencoded({ extended: true }));
+
+    app.use(express.json()) // for parsing application/json
+    app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
 
     app.use(morgan('dev'))
 

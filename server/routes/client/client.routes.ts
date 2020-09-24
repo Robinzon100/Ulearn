@@ -4,17 +4,17 @@ import { Router, RouterOptions } from 'express';
 
 const clientRoutes = Router()
 
-// ─── CUSTOM MODULES ─────────────────────────────────────────────────────────────
+//! ─── CUSTOM MODULES ─────────────────────────────────────────────────────────────
 
 
-// ─── CONTOLLERS ─────────────────────────────────────────────────────────────────
-const authController = require('../../controllers/client/auth.controller')
+//! ─── CONTOLLERS ─────────────────────────────────────────────────────────────────
+import { postRegister } from "../../controllers/client/register.controller";
 
 
-// ─── ADMIN LOGIN ─────────────────────────────────────────────────────────────────
+//! ─── REGISTER ─────────────────────────────────────────────────────────────────
 clientRoutes
-    .route("/login")
-    .post(authController.postLogin)
+    .route("/register")
+    .post(postRegister)
 
 
 

@@ -1,4 +1,4 @@
-import Express, { Request, Response, NextFunction } from 'express'
+import Express, { Application, Request, Response, NextFunction } from 'express'
 import path from 'path'
 import { baseMiddlewares } from './middleware/server/base';
 
@@ -27,14 +27,14 @@ baseMiddlewares(app)
 
 //!  ─── ROUTE IMPORTS ──────────────────────────────────────────────────────────────────────
 
-app.get('/api', (req: Request, res: Response, next: NextFunction) => {
-    res.json({
-        name: "asdjkf hlaksjdf"
-    });
+app.post('/api', (req: Request, res: Response, next: NextFunction) => {
+    console.log(req.body)
+
+    res.json(req.body);
 });
 
 
 
 app.listen(PORT, () => {
-    console.log("running on port " + PORT)
+    console.log("running http://localhost:" + PORT)
 });
