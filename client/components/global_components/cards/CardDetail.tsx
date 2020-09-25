@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
 import { ShoppingCart,Check } from 'react-feather';
 
-
+ 
 
 export default function CardDetail() {
     return (
-        <Fragment>
+        <>
             <div className="card_detail">
                 <div className="card_detail--container">
                     <div className="card_detail--container__img"></div>
@@ -65,6 +65,6 @@ export default function CardDetail() {
 
                 </div>
             </div>
-        </Fragment>
+        </>
     )
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import ReactHtmlParser from "react-html-parser";
-import { Eye,Folder } from "react-feather";
+import { Eye, Folder } from "react-feather";
 
 //! ==== OTHER IMPORTS
 import BaseLayout from "components/base-layout";
@@ -16,11 +16,12 @@ import Resources from "../public/SVG/CoursesSvg/Folder";
 import QuestionAnswer from "../public/SVG/CoursesSvg/HelpCircle";
 import Estimates from "../public/SVG/CoursesSvg/Estimates";
 
- 
+
 
 
 //! === INTERFACES
-import { Description_type,QuestionAnswer_type,Resources_type,Estimates_type } from "../interfaces/coursePage.interface";
+import { Description_type, QuestionAnswer_type, Resources_type, Estimates_type } from "../interfaces/coursePage.interface";
+import { changeTabPositionAndColor } from '../function/courses/content';
 
 
 export const Courses: React.FC = () => {
@@ -52,37 +53,7 @@ export const Courses: React.FC = () => {
 
 
   useEffect(() => {
-    const colors = ["#338EFF", "#FF5C4D", "#00E267", "#FFD703"];
-    let index = 1;
-    const navComponent = document.querySelector<HTMLElement>(
-      ".renderedContent_list"
-    );
-    const navArr = navComponent.querySelectorAll<HTMLElement>(
-      ".renderedContent_list--item"
-    );
-    const navUnderLine = navComponent.querySelector<HTMLElement>(".underline");
-
-    navUnderLine.style.backgroundColor = colors[0];
-
-    navUnderLine.style.left = `${navArr[0].offsetLeft}px`;
-    navUnderLine.style.width = `${navArr[0].offsetWidth}px`;
-
-    navArr.forEach((navItem) => {
-      let navLeftPos = navItem.offsetLeft;
-      let navItemWidth = navItem.offsetWidth;
-      //! ეს ანაცვლებს ფერებს რომ დაემთხვეს იმ დივს რომელიც საჭიროა
-      let color = colors.shift();
-      colors.push(color);
-
-      navItem.addEventListener("click", (e) => {
-        navUnderLine.style.left = `${navLeftPos}px`;
-        navUnderLine.style.width = `${navItemWidth}px`;
-
-        navUnderLine.style.backgroundColor = color;
-        // navUnderLine.style.transition = " width 100s";
-        // console.log(e.currentTarget);
-      });
-    });
+    changeTabPositionAndColor(".renderedContent_list", ".renderedContent_list")
   }, [])
 
 
@@ -93,26 +64,26 @@ export const Courses: React.FC = () => {
 
 
   // const fetchTabConent = (courseId: number,route: string):Description | QuestionAnswer | Resources | Estimates => {
-    
+
   // };
-  const fetchTabConent = (courseId: number, route: string):Description_type | QuestionAnswer_type | Resources_type | Estimates_type => {
+  const fetchTabConent = (courseId: number, route: string): Description_type | QuestionAnswer_type | Resources_type | Estimates_type => {
     switch (route) {
       case "/description":
         return CoursesJson.description
         break;
-    
+
       case "/questionAnswer":
         return CoursesJson.questionAnswers
         break;
-    
+
       case "/resources":
         return CoursesJson.Resources
         break;
-    
+
       case "/estimates":
         return CoursesJson.ratings
         break;
-    
+
       default:
         break;
     }
@@ -192,146 +163,146 @@ export const Courses: React.FC = () => {
                   <ul className="renderedContent_list">
                     {courseTabs
                       ? courseTabs.map((courseTab, i) => (
-                          <li
-                            style={{cursor:"pointer"}}
-                            className="renderedContent_list--item noselect"
-                            onClick={(e) => {
-                              setTabContent(fetchTabConent(1, courseTab.route))
-                              setTabIndex(i)
+                        <li
+                          style={{ cursor: "pointer" }}
+                          className="renderedContent_list--item noselect"
+                          onClick={(e) => {
+                            setTabContent(fetchTabConent(1, courseTab.route))
+                            setTabIndex(i)
                             //   moveTabLine();
-                            }}
-                            key={i}
-                          >
-                            <div className="rendered_icon">
-                              {renderIcon(courseTab.iconComponent)}
-                            </div>
-                            <div className="rendered_title">
-                              <p className="heading-semi-bold-Noto paragraph-medium">
-                                {courseTab.title}
-                              </p>
-                            </div>
-                          </li>
-                        ))
+                          }}
+                          key={i}
+                        >
+                          <div className="rendered_icon">
+                            {renderIcon(courseTab.iconComponent)}
+                          </div>
+                          <div className="rendered_title">
+                            <p className="heading-semi-bold-Noto paragraph-medium">
+                              {courseTab.title}
+                            </p>
+                          </div>
+                        </li>
+                      ))
                       : null}
                     <span className="underline"></span>
                   </ul>
                 </div>
 
-               
+
 
                 <div className="courses_content">
-              
+
                   <div className="СontentReveal">
 
-                    {tabIndex == 0 ? 
+                    {tabIndex == 0 ?
                       ReactHtmlParser(tabContent.html)
-                 
-                 
-                 
-                 
-                    : tabIndex == 1 ? 
-                    <div className="QuestionAnswerReveal">   
-                      {tabContent.questionAnswers.map(question =>(
-                        <div className="question-answer">
-                          <div className="main-comment">
-                            <div
-                              style={{backgroundImage: `url(${question.imageUrl})`}}
-                              className="main-comment__pic"
-                            ></div>
-                            <div className="main-comment__text">
-                              <div className="about-user">
-                                <div className="about-user__name">
-                                  <h1>{question.userName}</h1>
-                                </div>
-                                <div className="about-user__time">
-                                  <p>{question.datePosted}</p>
+
+
+
+
+                      : tabIndex == 1 ?
+                        <div className="QuestionAnswerReveal">
+                          {tabContent.questionAnswers.map(question => (
+                            <div className="question-answer">
+                              <div className="main-comment">
+                                <div
+                                  style={{ backgroundImage: `url(${question.imageUrl})` }}
+                                  className="main-comment__pic"
+                                ></div>
+                                <div className="main-comment__text">
+                                  <div className="about-user">
+                                    <div className="about-user__name">
+                                      <h1>{question.userName}</h1>
+                                    </div>
+                                    <div className="about-user__time">
+                                      <p>{question.datePosted}</p>
+                                    </div>
+                                  </div>
+                                  <div className="user-comment">
+                                    <p>
+                                      {question.text}
+                                    </p>
+                                  </div>
+                                  <div className="user-answer">
+                                    <a
+                                      href="#"
+                                      className="btn btn-black heading-bold-Noto paragraph-medium-small"
+                                    >
+                                      პასუხის გაცემა
+                                </a>
+                                  </div>
                                 </div>
                               </div>
-                              <div className="user-comment">
-                                <p>
-                                  {question.text}
-                                </p>
-                              </div>
-                              <div className="user-answer">
-                                <a
-                                  href="#"
-                                  className="btn btn-black heading-bold-Noto paragraph-medium-small"
-                                >
-                                  პასუხის გაცემა
+
+
+                            </div>
+                          ))}
+                        </div>
+
+
+
+                        : tabIndex == 2 ?
+                          <>
+                            {ReactHtmlParser(tabContent.html)}
+
+                            <br />
+                            <br />
+                            <div className="resources">
+
+                              <div className="resources_files">
+                                <a href={tabContent.resource.filePath} className="btn btn-for-video-files">
+                                  <div className="files">
+                                    <h1>{tabContent.resource.title}</h1>
+
+                                    <div className="folder-icon icon">
+                                      <Folder
+                                        style={{ fill: "#FFFFFF", color: "#FFFFFF" }}
+                                        size={50}
+                                      />
+                                    </div>
+                                  </div>
                                 </a>
                               </div>
+
                             </div>
-                          </div>
-               
-                
-                        </div>
-                      ))}
-                    </div>
-                    
-                    
-                    
-                    : tabIndex == 2 ? 
-                    <>
-                      {ReactHtmlParser(tabContent.html)}
-                        
-                      <br/>
-                    <br/>
-                      <div className="resources">
-                        
-                        <div className="resources_files">
-                          <a href={tabContent.resource.filePath} className="btn btn-for-video-files">
-                          <div className="files">
-                              <h1>{tabContent.resource.title}</h1>
-                              
-                            <div className="folder-icon icon">
-                              <Folder
-                                style={{ fill: "#FFFFFF", color: "#FFFFFF" }}
-                                size={50}
-                                />
-                            </div>
-                          </div>
-                          </a>
-                        </div>
-                              
-                      </div>
-                    </>
-                    
-                    : tabIndex == 3 ?
-                        <>
-                         <div className="estimates">
-                    <div className="estimates__container">
-                         <InputCommentCards name={"ბექა არაბიძე"} rating={2} />
-                        {tabContent.ratings.map((rating,i) => (
+                          </>
+
+                          : tabIndex == 3 ?
                             <>
-                               
-                            <CommentCards
-                                key={i}
-                              name={rating.userName}
-                              registrationDay={rating.datePosted}
-                              addedComment={rating.comment}
-                              imageUrl={rating.imageUrl}
-                              rating={rating.amountOfStars}
-                              like={rating.like}
-                              dislike={rating.dislike}
-                              isLikedByInstructor={rating.isLikedByInstructor}
-                              
-                            />
-                            
+                              <div className="estimates">
+                                <div className="estimates__container">
+                                  <InputCommentCards name={"ბექა არაბიძე"} rating={2} />
+                                  {tabContent.ratings.map((rating, i) => (
+                                    <>
+
+                                      <CommentCards
+                                        key={i}
+                                        name={rating.userName}
+                                        registrationDay={rating.datePosted}
+                                        addedComment={rating.comment}
+                                        imageUrl={rating.imageUrl}
+                                        rating={rating.amountOfStars}
+                                        like={rating.like}
+                                        dislike={rating.dislike}
+                                        isLikedByInstructor={rating.isLikedByInstructor}
+
+                                      />
+
+                                    </>
+
+                                  ))}
+
+                                </div>
+                              </div>
                             </>
-                            
-                        ))}
-                      
-                    </div>
-                    </div>
-                        </>
-                        
-                  
-                    :null }
+
+
+                            : null}
 
 
                   </div>
 
-              
+
                 </div>
               </div>
             </div>
