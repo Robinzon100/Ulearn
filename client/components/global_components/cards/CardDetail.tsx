@@ -1,13 +1,26 @@
-import React, { Fragment } from 'react'
+import React, { Fragment,useEffect } from 'react'
 import { ShoppingCart,Check } from 'react-feather';
 
  
+interface CardDetail {
+    isLastCard:boolean
+    
+}
 
-export default function CardDetail() {
+
+const CardDetail:React.FC<CardDetail> = ({isLastCard})=> {
+
+    useEffect(() => {
+        if(isLastCard) {
+            console.log("left");
+            
+        }
+    }, [isLastCard])
+    
     return (
         <>
             <div className="card_detail">
-                <div className="card_detail--container">
+                <div className="card_detail--container" >
                     <div className="card_detail--container__img"></div>
                     <div className="inside_content">
                         <div className="card_detail--container__title">
@@ -68,3 +81,6 @@ export default function CardDetail() {
         </>
     )
 }
+
+
+export default CardDetail;
