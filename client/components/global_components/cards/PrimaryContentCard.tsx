@@ -1,4 +1,4 @@
-import React, { useState,useRef } from "react";
+import React, { useState,useEffect} from "react";
 import { Star } from "react-feather";
 
 import CardDetail from './CardDetail';
@@ -6,6 +6,7 @@ import CardDetail from './CardDetail';
 
 //! ==================INTERFACE
 import {PrimaryContentCardProps} from "../../../interfaces/PrimaryContentCardProps.interface";
+
 
 
 const PrimaryContentCard: React.FC<PrimaryContentCardProps> = ({
@@ -31,25 +32,27 @@ const PrimaryContentCard: React.FC<PrimaryContentCardProps> = ({
    
 
     const cardHoverHandler = (e: React.MouseEvent<HTMLDivElement, MouseEvent>)  => {
-        setHover((hover) => !hover)
-     
+        setHover(true)
+        // debugger
         
-        
-        if(((window.innerWidth / 2 ) - 30.5) < e.currentTarget.offsetLeft) {
-            
+        if(((window.innerWidth / 2 ) - 30.5) < e.currentTarget.offsetLeft) {    
+            // console.log("var ifshi")
             setIsLastCard(true);
         }
     }
-    
+
+   
     return (
     <div className="PrimaryContentCard" 
         onMouseEnter={(e) => cardHoverHandler(e)}
         onMouseLeave={() => setHover(null)}
     >
         {hover ? 
-            <div className="cardDetail_container" id="exp">
-                <CardDetail isLastCard={isLastCard} />
-            </div> 
+        <div className="cardDetail_container" id="hoverCard">
+
+            <CardDetail id={id} isLastCard={isLastCard} />
+         </div> 
+            
         : null}
 
       <a href="#">
