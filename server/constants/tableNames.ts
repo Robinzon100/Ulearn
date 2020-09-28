@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     users: "users",
     user_types: "user_types", 
     rating_titles: "rating_titles",
