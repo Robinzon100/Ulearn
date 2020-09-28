@@ -1,13 +1,40 @@
-import React, { Fragment } from 'react'
-import { ShoppingCart,Check } from 'react-feather';
+import React, { Fragment, useEffect } from 'react'
+import { ShoppingCart, Check } from 'react-feather';
 
- 
 
-export default function CardDetail() {
+interface CardDetail {
+    id: number,
+    isLastCard: boolean
+
+}
+
+
+const CardDetail: React.FC<CardDetail> = ({ isLastCard, id }) => {
+
+
+
+    const handleHoverCardsStyle = () => {
+        const hoverCards = document.querySelectorAll<HTMLElement>(".cardDetail_container");
+        hoverCards.forEach(card => {
+            card.style.left = "-26.1vw"
+            // if(window.innerWidth < 1630) {
+            //     card.style.left = "-91%"
+            // }
+
+        })
+    }
+
+    useEffect(() => {
+        if (isLastCard) {
+            console.log("left");
+            handleHoverCardsStyle();
+        }
+    }, [isLastCard])
+
     return (
         <>
-            <div className="card_detail">
-                <div className="card_detail--container">
+            <div className="card_detail" key={id}>
+                <div className="card_detail--container" >
                     <div className="card_detail--container__img"></div>
                     <div className="inside_content">
                         <div className="card_detail--container__title">
@@ -28,7 +55,7 @@ export default function CardDetail() {
                             <ul>
                                 <li>
                                     <div className="check">
-                                    <Check size={15}/>
+                                        <Check size={15} />
                                     </div>
                                     <div className="paragraph">
                                         <p className="paragraph-light-Noto paragraph-small ">მოკლე-მოკლედ რა არის კურსზე რომელიც 2 ხაზს არ უნდა აღემატოს</p>
@@ -36,7 +63,7 @@ export default function CardDetail() {
                                 </li>
                                 <li>
                                     <div className="check">
-                                        <Check size={15}/>
+                                        <Check size={15} />
                                     </div>
                                     <div className="paragraph">
                                         <p className="paragraph-light-Noto paragraph-small ">მოკლე-მოკლედ რა არის კურსზე რომელიც 1</p>
@@ -44,7 +71,7 @@ export default function CardDetail() {
                                 </li>
                                 <li>
                                     <div className="check">
-                                    <Check size={15}/>
+                                        <Check size={15} />
                                     </div>
                                     <div className="paragraph">
                                         <p className="paragraph-light-Noto paragraph-small ">მოკლე-მოკლედ რა არის კურსზე რომელიც 2 ხაზს არ უნდა აღემატოს</p>
@@ -68,3 +95,6 @@ export default function CardDetail() {
         </>
     )
 }
+
+
+export default CardDetail;

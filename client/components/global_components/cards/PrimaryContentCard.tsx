@@ -1,20 +1,15 @@
-import React, { useState } from "react";
+import React, { useState,useEffect} from "react";
 import { Star } from "react-feather";
 
 import CardDetail from './CardDetail';
 
-interface Props {
-  id: number;
-  title: string;
-  author: string;
-  raiting: number;
-  bestseller: boolean;
-  price: number;
-  newPrice: number;
-  numberOfVotes: number;
-}
 
-const PrimaryContentCard: React.FC<Props> = ({
+//! ==================INTERFACE
+import {PrimaryContentCardProps} from "../../../interfaces/PrimaryContentCardProps.interface";
+
+
+
+const PrimaryContentCard: React.FC<PrimaryContentCardProps> = ({
   id,
   price,
   title,
@@ -24,31 +19,44 @@ const PrimaryContentCard: React.FC<Props> = ({
   newPrice,
   numberOfVotes,
 }) => {
-  const [addToFavorites, setAddToFavorites] = useState<boolean>(false);
+    
+    const [addToFavorites, setAddToFavorites] = useState<boolean>(false);
 
-  const [checkNewPrice, setCheckNewPrice] = useState<boolean>(false);
+    const [checkNewPrice, setCheckNewPrice] = useState<boolean>(false);
 
-  const [hover, setHover] = useState<boolean | null>(false);
+    const [hover, setHover] = useState<boolean | null>(false);
 
-  const handleCheckNewPrice = () => {
-    setCheckNewPrice(true);
-  };
-
+    const [isLastCard, setIsLastCard] = useState<boolean>(false);
 
 
-  return (
-    <div className="card" 
-    onMouseEnter={() => setHover((hover) => !hover)}
-    onMouseLeave={() => setHover(null)}
+   
+
+    const cardHoverHandler = (e: React.MouseEvent<HTMLDivElement, MouseEvent>)  => {
+        setHover(true)
+        // debugger
+        
+        if(((window.innerWidth / 2 ) - 30.5) < e.currentTarget.offsetLeft) {    
+            // console.log("var ifshi")
+            setIsLastCard(true);
+        }
+    }
+
+   
+    return (
+    <div className="PrimaryContentCard" 
+        onMouseEnter={(e) => cardHoverHandler(e)}
+        onMouseLeave={() => setHover(null)}
     >
         {hover ? 
-            <div className="cardDetail_container">
-                <CardDetail/>
-            </div> 
+        <div className="cardDetail_container" id="hoverCard">
+
+            <CardDetail id={id} isLastCard={isLastCard} />
+         </div> 
+            
         : null}
 
       <a href="#">
-        <div className="card__img">
+        <div className="PrimaryContentCard__img">
           <div className="price-tag">
             {checkNewPrice ? (
               <div className="removed-price-tag">
@@ -73,11 +81,11 @@ const PrimaryContentCard: React.FC<Props> = ({
         </div>
       </a>
 
-      <div className="card__title">
+      <div className="PrimaryContentCard__title">
         <p className="heading-bold-Noto paragraph-medium ">{title}</p>
       </div>
-      <div className="card__raiting">
-        <div className="card__raiting--container">
+      <div className="PrimaryContentCard__raiting">
+        <div className="PrimaryContentCard__raiting--container">
           <div className="star">
             <Star style={{ fill: "#FFD703", color: "#FFD703" }} />
           </div>
@@ -87,11 +95,11 @@ const PrimaryContentCard: React.FC<Props> = ({
             </p>
           </div>
         </div>
-        <div className="card__raiting--name">
+        <div className="PrimaryContentCard__raiting--name">
           <p className="heading-semi-bold-Noto  paragraph-small">{author}</p>
         </div>
       </div>
-      <div className="card__like">
+      <div className="PrimaryContentCard__like">
         <label className="label heading-semi-bold-Noto paragraph-smallest">
           {bestseller}
           ბესტსელერი

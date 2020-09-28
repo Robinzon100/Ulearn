@@ -5,7 +5,7 @@ $card-detail-shadow:35px 41px 99px 27px rgba(19, 21, 26, 0.3);
 .cardDetail_container {
     position: absolute;
     z-index: 5;
-    left: 105%;
+    left: 21.3vw;
     background-color:$white;
     // border-radius: 13px;
 
@@ -16,8 +16,11 @@ $card-detail-shadow:35px 41px 99px 27px rgba(19, 21, 26, 0.3);
     width: 100%;
     display: flex;
     justify-content: center;
-    // border-radius: 13px;
+    border-radius: 25px;
     // z-index: 10;
+    cursor: pointer;
+    box-shadow: $card-detail-shadow;
+    border-radius: 20px 20px 20px 20px;
 
     
 
@@ -31,7 +34,6 @@ $card-detail-shadow:35px 41px 99px 27px rgba(19, 21, 26, 0.3);
 
     &--container {
         width: 26vw;
-        box-shadow: $card-detail-shadow;
         border-radius: 20px;
 
         &__img {
@@ -43,9 +45,7 @@ $card-detail-shadow:35px 41px 99px 27px rgba(19, 21, 26, 0.3);
             border-radius: 20px 20px 0px 0px;
         }
 
-        &__title {
-
-        }
+       
 
         &__date {
             @include flex;
