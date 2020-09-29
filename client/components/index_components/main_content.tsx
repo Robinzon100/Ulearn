@@ -1,11 +1,13 @@
 import React, { Fragment, useState } from "react";
-import { Search, Upload, ChevronDown, ChevronRight } from "react-feather";
+import { ChevronDown} from "react-feather";
 
 import InputSearch from "components/global_components/inputs/inputSearch";
 import SelectInput from "components/global_components/inputs/selectInput";
 import PrimaryContentCard from "components/global_components/cards/PrimaryContentCard";
 import Carousel from "components/index_components/carousel/carousel";
 import List from "components/global_components/categories_list/list";
+
+
 
 const main_content: React.FC = () => {
   const [placeHolder, setPlaceHolder] = useState<string>(
@@ -26,7 +28,7 @@ const main_content: React.FC = () => {
           <div className="sorting">
     
             <div className="sorting__select">
-              <SelectInput />
+              <SelectInput  />
             </div>
           </div>
         </div>
