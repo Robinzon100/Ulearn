@@ -107,10 +107,6 @@
 
 }
 
-//   .dropdown:hover .dropdown-list {
-//     opacity: 1;
-//     visibility: visible;
-//   }
 
 .dropdown-select {
     // background:url("/pictures/select_arrow.svg") 75% 53% no-repeat;
@@ -126,21 +122,37 @@
     font-size: 1.6rem;
     // cursor: pointer;
     @include flex;
+    transition: all 0.3s;
 
-    img {
+    .toggleArrow {
         cursor: pointer;
         // position: absolute;
         margin-left: 1.5rem;
+        transform:rotate(0deg);
     }
 
+    .animatedArrow {
+        transform:rotate(180deg);
+
+    }
 
     .select {
         opacity: 25%;
     }
+    
+    
 }
 
 .dropdown-list {
-    border-radius: 4px;
+    &::-ms-expand {
+        display: none ;
+    }
+    /* for Firefox */
+    -moz-appearance: none;
+    /* for Chrome */
+    -webkit-appearance: none;
+    outline: none;
+    width: 100%;
     background-color: white;
     position: absolute;
     top: 110%;
@@ -148,13 +160,25 @@
     right: 0;
     height: 0;
     opacity: 0;
-
-    transition: height .2s;
+    padding: 1.5rem;
+    border: 0.9px solid #C9C9C9;
+    border-radius: 8px;
+    // transition: all .2s;
+    
 
     &__item {
         padding: 1rem;
-        font-size: 1.4rem;
-        // display: none;
+        font-size: 1.2rem;
+        
+
+        .radio {
+            display: none;
+        }
+        label {
+            display: block;
+            width: 100%;
+            cursor: pointer;
+        }
     }
 
 }
@@ -162,9 +186,12 @@
 
 .dropdown_animation {
     height: auto;
-    max-width: 300px;
+    // max-width: 300px;
     display: block;
     opacity: 1;
+    z-index: 5;
+    cursor: pointer;
+    
 }
 
 .dropdown_animation__list {
