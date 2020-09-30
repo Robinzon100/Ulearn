@@ -1,38 +1,42 @@
 import * as Knex from "knex";
 import tableNames from "../../constants/tableNames"
+import { addSimpleIdAndName, references } from '../lib/table functions/createTables';
+
 
 
 export async function up(knex: Knex): Promise<void> {
     await Promise.all([
+        //! Rating title
         knex.schema.createTable(tableNames.rating_titles, (table) => {
-            table.increments('id');
-            table.string('name', 255).unique();
+            addSimpleIdAndName(table)
         }),
 
+        //! User types
         knex.schema.createTable(tableNames.user_types, (table) => {
-            table.increments('id');
-            table.string('name', 255).unique();
+            addSimpleIdAndName(table)
             table.string('badge_image_url', 2084)
         }),
+
+        //! Report types
         knex.schema.createTable(tableNames.types_of_reports, (table) => {
-            table.increments('id');
-            table.string('name', 255).unique();
+            addSimpleIdAndName(table)
         }),
+        //! Complaint types
         knex.schema.createTable(tableNames.complaint_types, (table) => {
-            table.increments('id');
-            table.string('name', 255).unique();
+            addSimpleIdAndName(table)
         }),
     ]);
-    await knex.schema
-        .createTable(tableNames.sub_categories, function (subCategory) {
-            subCategory.increments('id').primary();
-            subCategory.string('name', 255).unique();
-        })
-        .createTable(tableNames.main_categories, function (main) {
-            main.increments('id').primary();
-            main.string('name', 255).unique();
-            main.integer('id').references('id').inTable(tableNames.sub_categories).onDelete('cascade');
-        });
+
+    //! Category and sub-category
+    await knex.schema.createTable(tableNames.sub_categories, (table) => {
+        addSimpleIdAndName(table)
+    });
+
+    await knex.schema.createTable(tableNames.main_categories, (table) => {
+        table.increments('id');
+        table.string('name', 255).unique();
+        references(table, tableNames.sub_categories)
+    });
 }
 
 
@@ -40,7 +44,11 @@ export async function down(knex: Knex): Promise<void> {
     await Promise.all(
         [
             tableNames.rating_titles,
-            tableNames.user_types
+            tableNames.user_types,
+            tableNames.main_categories,
+            tableNames.sub_categories,
+            tableNames.types_of_reports,
+            tableNames.complaint_types,
         ].map((tableName) => knex.schema.dropTableIfExists(tableName))
     );
 }
