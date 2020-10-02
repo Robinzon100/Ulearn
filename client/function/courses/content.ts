@@ -1,6 +1,6 @@
 export const changeTabPositionAndColor = (containerClass: string, childrenClass: string) => {
     const colors = ["#338EFF", "#FF5C4D", "#00E267", "#FFD703"];
-    let index = 1;
+    
     const navComponent = document.querySelector<HTMLElement>(
         containerClass
     );
