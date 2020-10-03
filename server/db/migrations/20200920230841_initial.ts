@@ -1,6 +1,6 @@
 import * as Knex from "knex";
 import tableNames from "../../constants/tableNames"
-import { addSimpleIdAndName, references } from '../lib/table functions/createTables';
+import { addSimpleIdAndName, references } from '../lib/table functions/tableUtils';
 
 
 
@@ -33,9 +33,9 @@ export async function up(knex: Knex): Promise<void> {
     });
 
     await knex.schema.createTable(tableNames.main_categories, (table) => {
-        table.increments('id');
+        table.increments('id').notNullable();
         table.string('name', 255).unique();
-        references(table, tableNames.sub_categories)
+        table.json("sub_categories_ids")
     });
 }
 
