@@ -14,6 +14,8 @@ const main_content: React.FC = () => {
     "მოძებნე სასურველი კურსი"
   );
 
+  
+
   return (
     <Fragment>
       <div className="main_content">
@@ -28,7 +30,7 @@ const main_content: React.FC = () => {
           <div className="sorting">
     
             <div className="sorting__select">
-              <SelectInput  />
+              <SelectInput SelectInputId={1} />
             </div>
           </div>
         </div>

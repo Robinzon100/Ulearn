@@ -5,11 +5,11 @@ import CardDetail from './CardDetail';
 
 
 //! ==================INTERFACE
-import {PrimaryContentCardProps} from "../../../interfaces/PrimaryContentCardProps.interface";
+import {PrimaryContentCards} from "../../../interfaces/PrimaryContentCard.interface";
 
 
 
-const PrimaryContentCard: React.FC<PrimaryContentCardProps> = ({
+const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
   id,
   price,
   title,
@@ -33,12 +33,11 @@ const PrimaryContentCard: React.FC<PrimaryContentCardProps> = ({
 
     const cardHoverHandler = (e: React.MouseEvent<HTMLDivElement, MouseEvent>)  => {
         setHover(true)
-        // debugger
         
         if(((window.innerWidth / 2 ) - 30.5) < e.currentTarget.offsetLeft) {    
-            // console.log("var ifshi")
             setIsLastCard(true);
         }
+        
     }
 
    
@@ -48,10 +47,10 @@ const PrimaryContentCard: React.FC<PrimaryContentCardProps> = ({
         onMouseLeave={() => setHover(null)}
     >
         {hover ? 
-        <div className="cardDetail_container" id="hoverCard">
+        
 
-            <CardDetail id={id} isLastCard={isLastCard} />
-         </div> 
+        <CardDetail id={id} isLastCard={isLastCard} />
+         
             
         : null}
 

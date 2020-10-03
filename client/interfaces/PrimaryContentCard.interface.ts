@@ -1,4 +1,4 @@
-export interface PrimaryContentCardProps {
+export interface PrimaryContentCards {
     id: number;
     title: string;
     author: string;

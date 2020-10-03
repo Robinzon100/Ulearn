@@ -53,7 +53,7 @@ export const Courses: React.FC = () => {
 
 
   useEffect(() => {
-    changeTabPositionAndColor(".renderedContent_list", ".renderedContent_list")
+    changeTabPositionAndColor(".renderedContent_list", ".renderedContent_list--item")
   }, [])
 
 

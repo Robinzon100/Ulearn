@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 interface selects {
-    id: number,
-    name: string
+    SelectInputId: number,
+    id:number,
+    name: string,
+
 }
 
 
-const selectInput = () => {
+const selectInput:React.FC<selects> = ({SelectInputId,id,name}) => {
     const [toggle, setToggle] = useState(false);
 
     const handleToggle = () => {
@@ -37,23 +39,21 @@ const selectInput = () => {
         const openedContainer = document.querySelector(".dropdown-list");
         const toggleArrow = document.querySelector('.toggleArrow')
 
-        setProducts(e.target.value);
         toggleArrow.classList.remove("animatedArrow");
         openedContainer.classList.remove("dropdown_animation");
+        setProducts(e.target.value);
+        setToggle(false);
+        
     }
-
     
-
     return (
         <>
-            <div className="dropdown input-shadow input-shadow-onFocus">
+            <div className="dropdown input-shadow input-shadow-onFocus" key={SelectInputId}>
                 <div className="dropdown-select">
                     <span className="select paragraph-regular-Noto paragraph-small">
                         {products}
                     </span>
-                    {/* <i className="fa fa-caret-down icon"></i> */}
-                    
-                        <motion.img
+                    <img
                             src="./pictures/select_arrow.svg"
                             alt="arrow"
                             onClick={handleToggle}
@@ -71,16 +71,17 @@ const selectInput = () => {
                     {selectProducts.map((product, i) => (
                         <>
 
-                            <div className="dropdown-list__item"
+                            <div 
+                            className="dropdown-list__item"
+                            key={i}
                             >
                                 <input
+                                    value={product.name}
+                                    id={product.name}
                                     onChange={handleSelect}
                                     checked={products === product.name}
                                     type="radio"
                                     className="radio"
-                                    key={i}
-                                    value={product.name}
-                                    id={product.name}
                                 />
                                 <label
                                 className="paragraph-regular-Noto paragraph-smallest"
