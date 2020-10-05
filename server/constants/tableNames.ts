@@ -10,6 +10,11 @@ export default {
     comment: "comment",
 
     reports: "reports",
+    made_reports: "made_reports",
     types_of_reports: "types_of_reports",
-    complaint_types: "complaint_types"
+    complaint_types: "complaint_types",
+
+    "shopping_cart": "shopping_cart",
+
+    "viewed_courses": "viewed_courses"
 }
