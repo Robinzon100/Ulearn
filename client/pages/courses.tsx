@@ -8,6 +8,7 @@ import BaseLayout from "components/base-layout";
 import SideMenu from "components/sideMenu";
 import CommentCards from "components/global_components/comment_cards/comment_cards";
 import InputCommentCards from "components/global_components/comment_cards/inputComment_cards";
+import AnswerUserComments from "components/answerUserComments";
 import CoursesJson from "../public/json/Courses.json";
 
 //! === IMPORTED ICONS FROM Courses.json
@@ -60,12 +61,10 @@ export const Courses: React.FC = () => {
   const [tabContent, setTabContent] = useState<object>(CoursesJson.description);
   const [tabIndex, setTabIndex] = useState<number>(0);
 
+  
+  
 
 
-
-  // const fetchTabConent = (courseId: number,route: string):Description | QuestionAnswer | Resources | Estimates => {
-
-  // };
   const fetchTabConent = (courseId: number, route: string): Description_type | QuestionAnswer_type | Resources_type | Estimates_type => {
     switch (route) {
       case "/description":
@@ -196,20 +195,17 @@ export const Courses: React.FC = () => {
 
                     {tabIndex == 0 ?
                       ReactHtmlParser(tabContent.html)
-
-
-
-
+                      
                       : tabIndex == 1 ?
                         <div className="QuestionAnswerReveal">
-                          {tabContent.questionAnswers.map(question => (
+                          {tabContent.questionAnswers.map((question,i:number) => (
                             <div className="question-answer">
                               <div className="main-comment">
                                 <div
                                   style={{ backgroundImage: `url(${question.imageUrl})` }}
                                   className="main-comment__pic"
                                 ></div>
-                                <div className="main-comment__text">
+                                <div className="main-comment__text" >
                                   <div className="about-user">
                                     <div className="about-user__name">
                                       <h1>{question.userName}</h1>
@@ -223,14 +219,7 @@ export const Courses: React.FC = () => {
                                       {question.text}
                                     </p>
                                   </div>
-                                  <div className="user-answer">
-                                    <a
-                                      href="#"
-                                      className="btn btn-black heading-bold-Noto paragraph-medium-small"
-                                    >
-                                      პასუხის გაცემა
-                                </a>
-                                  </div>
+                                  <AnswerUserComments id={i}/>
                                 </div>
                               </div>
 
