@@ -265,7 +265,7 @@ export const Courses: React.FC = () => {
                                     <>
 
                                       <CommentCards
-                                        key={i}
+                                        id={i}
                                         name={rating.userName}
                                         registrationDay={rating.datePosted}
                                         addedComment={rating.comment}
