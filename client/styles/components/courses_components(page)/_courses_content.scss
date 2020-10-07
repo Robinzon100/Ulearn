@@ -65,7 +65,7 @@
         }
     }
 
-    
+
 
     ol {
         display: grid;
@@ -74,7 +74,7 @@
         padding: 0;
         margin-top: -1rem;
         width: 88%;
-      
+
 
 
         li {
@@ -97,18 +97,18 @@
                 padding: 1.3rem;
                 position: absolute;
             }
-            
+
             p {
                 margin-top: -0.5rem;
                 margin-left: 4rem;
 
-                
+
             }
 
 
         }
     }
-   
+
 
     hr {
         width: 85%;
@@ -155,10 +155,28 @@
 
         //! ეს არის ღილაკი
         .user-answer {
-            a {
-                color: $primary-dark;
-                width: 18rem !important;
-                padding: 0.6rem !important;
+            &--heading {
+
+                p {
+                    color: $primary-dark;
+                    width: 19rem !important;
+                    padding: 0.6rem !important;
+                    font-weight: bold;
+                }
+            }
+
+            &--input {
+                display: flex;
+                flex-direction: column;
+
+                &__btn {
+                    align-self: flex-end;
+                    margin-top: 2rem;
+                    p{
+                        width: 19rem !important;
+                        padding: 0.6rem !important;
+                    }
+                }
             }
         }
 
@@ -212,7 +230,7 @@
         }
 
         .sub-comment {
-            margin:5rem 0rem 0rem 5rem;
+            margin: 5rem 0rem 0rem 5rem;
         }
 
 
@@ -240,6 +258,7 @@
                 color: $white;
                 width: 48%;
                 padding: 3rem;
+
                 .files {
                     position: relative;
                     display: flex;
