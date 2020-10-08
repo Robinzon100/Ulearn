@@ -17,8 +17,8 @@ export async function up(knex: Knex): Promise<void> {
     
     await knex.schema.createTable(tableNames.made_reports, table => {
         table.increments('id');
-        references(table, tableNames.reports);
-        references(table, tableNames.users);
+        references(table, tableNames.reports, true, 'report');
+        references(table, tableNames.users, true, 'user');
         addTimestamps(table)
     })
 }

@@ -6,7 +6,7 @@ import { course } from "../../constants/defaults";
 
 
 export async function up(knex: Knex): Promise<void> {
-    await knex.schema.createTable(tableNames.courses, table =>{
+    await knex.schema.createTable(tableNames.courses, table => {
         table.increments();
         table.string("name", 70).notNullable();
         table.string("description", 70).notNullable();
@@ -21,20 +21,21 @@ export async function up(knex: Knex): Promise<void> {
         table.float('overall_rating');
         table.json('course_content').notNullable();
         table.json('units_sold').notNullable();
-        
+
         table.float('price');
         table.float('ulearn_coin_price');
         table.float('discount_price');
         table.float('affiliation_price');
         addTimestamps(table);
 
-        references(table, tableNames.main_categories)
-        references(table, tableNames.subscriptions)
+        references(table, tableNames.main_categories, true, 'main_category')
+        references(table, tableNames.sub_categories, true, 'sub_category')
 
     })
 }
 
 
 export async function down(knex: Knex): Promise<void> {
+    await knex.schema.dropTable(tableNames.courses)
 }
 

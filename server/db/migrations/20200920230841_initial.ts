@@ -35,7 +35,7 @@ export async function up(knex: Knex): Promise<void> {
 
     await knex.schema.createTable(tableNames.sub_categories, (table) => {
         addSimpleIdAndName(table)
-        references(table, tableNames.main_categories)
+        references(table, tableNames.main_categories, true, 'main_category')
     });
 }
 
