@@ -1,6 +1,6 @@
 import * as Knex from "knex";
 import tableNames from "../../constants/tableNames";
-import { references } from "../lib/table functions/tableUtils";
+import { references, addTimestamps } from '../lib/table functions/tableUtils';
 
 
 export async function up(knex: Knex): Promise<void> {
@@ -11,14 +11,15 @@ export async function up(knex: Knex): Promise<void> {
         references(table, tableNames.users, false, "reported");
         references(table, tableNames.users, true, "sender");
         references(table, tableNames.complaint_types, true, "complaint_type");
-
+        addTimestamps(table)
     })
-
+    
     
     await knex.schema.createTable(tableNames.made_reports, table => {
         table.increments('id');
         references(table, tableNames.reports);
         references(table, tableNames.users);
+        addTimestamps(table)
     })
 }
 

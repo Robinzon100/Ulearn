@@ -1,5 +1,7 @@
 version: "3.8"
 
+#TODO: rename the postgres image to "db"
+
 services:
   postgres:
     container_name: postgres_container
