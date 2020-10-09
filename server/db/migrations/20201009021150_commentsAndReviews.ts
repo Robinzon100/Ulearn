@@ -1,5 +1,4 @@
 import * as Knex from "knex";
-import { defaults } from "pg";
 import tableNames from "../../constants/tableNames";
 import { references } from '../lib/table functions/tableUtils';
 import { comment } from "../../constants/defaults";

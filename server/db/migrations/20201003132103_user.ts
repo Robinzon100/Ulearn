@@ -44,7 +44,7 @@ export async function up(knex: Knex): Promise<void> {
         table.json("generated_sub_category_ids");
         table.json('liked_courses_ids')
 
-        references(table, tableNames.user_types);
+        references(table, tableNames.user_types, true, 'user_type');
         addTimestamps(table);
     })
 

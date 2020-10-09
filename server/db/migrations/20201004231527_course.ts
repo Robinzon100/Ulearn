@@ -36,6 +36,11 @@ export async function up(knex: Knex): Promise<void> {
 
 
 export async function down(knex: Knex): Promise<void> {
-    await knex.schema.dropTable(tableNames.courses)
+    await Promise.all(
+        [
+            tableNames.questions,
+            tableNames.comments,
+            tableNames.courses
+        ].map(async (tableName) => await knex.schema.dropTableIfExists(tableName)))
 }
 

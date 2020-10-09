@@ -43,10 +43,10 @@ export async function up(knex: Knex): Promise<void> {
 export async function down(knex: Knex): Promise<void> {
     await Promise.all(
         [
+            tableNames.sub_categories,
             tableNames.rating_titles,
             tableNames.user_types,
             tableNames.main_categories,
-            tableNames.sub_categories,
             tableNames.types_of_reports,
             tableNames.complaint_types,
         ].map((tableName) => knex.schema.dropTableIfExists(tableName))
