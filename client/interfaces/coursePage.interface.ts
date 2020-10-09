@@ -3,6 +3,12 @@ import { stars } from "../type/course.type";
 
 
 
+//!  about course 
+export interface AboutCourse {
+    title:string,
+    peopleWatched:number
+}
+
 
 
 //! video content
@@ -19,7 +25,7 @@ export interface videoList {
     title: string;
     courseChapterTime: number;
     subTitles: subTitle[];
-    subTaskTime: number;
+    // subTaskTime: number;
 }
 
 

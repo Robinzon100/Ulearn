@@ -1,80 +1,122 @@
 {
-  "description":{
-    "html": "<h1>ამ კურსის სწავლებით შეძლებთ რომ ისწავლოთ javascript</h1><br /><br /><p>კურსის დასაწყისში ვისწავლით თუ რას წარმოადგენს ეს პროგრამირების ენა და რატო გვჭირდება ვებ-დეველოპერებს.</p><br /><br /><br /><p>გავივლით ყველაზე ძირითად თემებს როგორიცაა:</p><br /><ul><li><p>javascrip ენის სინტაქსი და პროგრამირების ძირითადებ</p></li><li><p>რა არის DOM და DOM მანიპულირება</p></li><li><p>ინტერაქიულობის შექმნა</p></li><li><p>სხვა და სხვა ტიპი even-ები და მათი დანიშნულება</p></li><li><p>რთული ინტერაქტივები</p></li></ul><hr /><p>ამ კურსზე შევქმნით თვენი პორფოლიოსთვის პროექტებს რომელიცსაშუალებას მოგცემს რომ დაიწყოთ ამ ინდუსტრიში მუშობა,როგორც კომპანიაში ასევე თვენივე ბიზნესში.</p><br /><br /><br /><img></img><br /><br/><p>ეს არის ერთერთი პროექტის სურათი რომელსაც ჩვენ გავაკეთებთდა ყველა ელემენტს დიდი ყურადღებას მივაქცევთ და საჭირო ელემენტებს გავდით ინტერაქტულს რათა თქვენმა მომხმარებელმა მაქსიმალურად დიდხანს ისარგებლოს თვენი საიტის სერვისით და შდაბეჭდილება მოახდინოს.</p><br /><br /><br /><p><span>იმ შემთხვევაში თუ არ იცით რა არის HTML ან CSS</span>შეგიძლიათ ნახოთ ჩემი სხვა კურსი სადაც დეტალურად ვხსნი ამ ორ ენას </p>"
-  },
- 
-  "questionAnswers":{
-    "questionAnswers": [
-      {
-        "userName": "robo sokhashvili",
-        "imageUrl": "https://images.unsplash.com/photo-1593642634367-d91a135587b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-        "datePosted": "(2020-02-18)",
-        "text":"ვინმეს შეუძლია რომ დამეხმაროს კოდში ? რატომღაცროცა ვაკეთებ console log“welo world”) რათომღაც არმიწერს არაფერს",
-        "amountOfAnswer": 12,
-        "answers":[
-          {
-            "userName":"კარლო კაკაბაძე",
-            "imageUrl":"https://images.unsplash.com/photo-1599677099934-d3c4e07056d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
-            "datePosted":"(2020-02-20)",
-            "text":"უჰ,რა მაგარი იყო. აბა თქვენ იცით"
-          }
+    "aboutCourses": {
+        "aboutCourse": {
+            "title": "ჯავასკრიპტი",
+            "peopleWatched": "755"
+        }
+    },
+    "description": {
+        "html": "<h1>ამ კურსის სწავლებით შეძლებთ რომ ისწავლოთ javascript</h1><br /><br /><p>კურსის დასაწყისში ვისწავლით თუ რას წარმოადგენს ეს პროგრამირების ენა და რატო გვჭირდება ვებ-დეველოპერებს.</p><br /><br /><br /><p>გავივლით ყველაზე ძირითად თემებს როგორიცაა:</p><br /><ul><li><p>javascrip ენის სინტაქსი და პროგრამირების ძირითადებ</p></li><li><p>რა არის DOM და DOM მანიპულირება</p></li><li><p>ინტერაქიულობის შექმნა</p></li><li><p>სხვა და სხვა ტიპი even-ები და მათი დანიშნულება</p></li><li><p>რთული ინტერაქტივები</p></li></ul><hr /><p>ამ კურსზე შევქმნით თვენი პორფოლიოსთვის პროექტებს რომელიცსაშუალებას მოგცემს რომ დაიწყოთ ამ ინდუსტრიში მუშობა,როგორც კომპანიაში ასევე თვენივე ბიზნესში.</p><br /><br /><br /><img></img><br /><br/><p>ეს არის ერთერთი პროექტის სურათი რომელსაც ჩვენ გავაკეთებთდა ყველა ელემენტს დიდი ყურადღებას მივაქცევთ და საჭირო ელემენტებს გავდით ინტერაქტულს რათა თქვენმა მომხმარებელმა მაქსიმალურად დიდხანს ისარგებლოს თვენი საიტის სერვისით და შდაბეჭდილება მოახდინოს.</p><br /><br /><br /><p><span>იმ შემთხვევაში თუ არ იცით რა არის HTML ან CSS</span>შეგიძლიათ ნახოთ ჩემი სხვა კურსი სადაც დეტალურად ვხსნი ამ ორ ენას </p>"
+    },
+    "questionAnswers": {
+        "questionAnswers": [
+            {
+                "userName": "robo sokhashvili",
+                "imageUrl": "https://images.unsplash.com/photo-1593642634367-d91a135587b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+                "datePosted": "(2020-02-18)",
+                "text": "ვინმეს შეუძლია რომ დამეხმაროს კოდში ? რატომღაცროცა ვაკეთებ console log“welo world”) რათომღაც არმიწერს არაფერს",
+                "amountOfAnswer": 12,
+                "answers": [
+                    {
+                        "userName": "კარლო კაკაბაძე",
+                        "imageUrl": "https://images.unsplash.com/photo-1599677099934-d3c4e07056d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+                        "datePosted": "(2020-02-20)",
+                        "text": "უჰ,რა მაგარი იყო. აბა თქვენ იცით"
+                    }
+                ]
+            },
+            {
+                "userName": "beqa arabidze",
+                "imageUrl": "https://images.unsplash.com/photo-1599677099934-d3c4e07056d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+                "datePosted": "(2020-03-22)",
+                "text": "  ვინმეს შეუძლია რომ დამეხმაროს კოდში ? რატომღაც როცა ვაკეთებ console log(“welo world”) რათომღაც არ მიწერს არაფერს",
+                "amountOfAnswer": 1,
+                "answers": [
+                    {
+                        "userName": "saxeli saxelasvili",
+                        "imageUrl": "https://images.unsplash.com/photo-1593642634367-d91a135587b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+                        "datePosted": "(2020-08-20)",
+                        "text": "ასე იქნება სწორი ჩემო ძმის გულო,აა ბრატ - console.log(“hello world”)"
+                    }
+                ]
+            }
         ]
-      },
-      {
-        "userName": "beqa arabidze",
-        "imageUrl": "https://images.unsplash.com/photo-1599677099934-d3c4e07056d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
-        "datePosted": "(2020-03-22)",
-        "text":"  ვინმეს შეუძლია რომ დამეხმაროს კოდში ? რატომღაც როცა ვაკეთებ console log(“welo world”) რათომღაც არ მიწერს არაფერს",
-        "amountOfAnswer": 1,
-        "answers":[
-          {
-            "userName":"saxeli saxelasvili",
-            "imageUrl":"https://images.unsplash.com/photo-1593642634367-d91a135587b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-            "datePosted":"(2020-08-20)",
-            "text":"ასე იქნება სწორი ჩემო ძმის გულო,აა ბრატ - console.log(“hello world”)"
-          }
+    },
+    "Resources": {
+        "html": "<h1>ვიდეოზე ნახსენები საიტების და დამატებითი რესურსების ლინკები, ასევე ამ ვიდეოში დაწერილი კოდის ფაილები</h1><br/><p>vs code გადმოსაწერილი ლინკი : <a href=\"https://vscode.com\">https://vscode.com</a></p> <p>ვიდეოში ნანახი ბლოგპოსტის ლინკი: <a href=\"https://medium.com\"> https://medium.com</a></p><br/><br/><br/><br/><br/><br/><p><strong>ამ ვიდეოში დაწერილი კოდის ფაილები:</strong></p>",
+        "resource": {
+            "title": "დავალების ფაილები",
+            "filePath": "https://images.unsplash.com/photo-1599677099934-d3c4e07056d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+        }
+    },
+    "ratings": {
+        "ratings": [
+            {
+                "userName": "ბექა არაბიძე",
+                "datePosted": "2020-08-12",
+                "amountOfStars": 4,
+                "comment": "დიდი მადლობა ამ კურსისთვის ძალიან დამეხმარა ამ კურსმა მომცა საშუალება, რომ ჩემს კოლეგებთან ერთად მემუშავა უფრო ეფექტურად, თუმცა კურსის ბოლო ვიდეოები დანარჩენებთან შედარებით სუსტი იყო.",
+                "imageUrl": "https://images.unsplash.com/photo-1593642634367-d91a135587b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+                "dislike": 10,
+                "like": 20,
+                "isLikedByInstructor": true
+            },
+            {
+                "userName": "რობო რობოვიჩი",
+                "datePosted": "2020-08-12",
+                "amountOfStars": 2,
+                "comment": "ეს ძალიან მომეწონა ეს კურსი და ეხლა თამამად შემიძლია ვთვა რომ ვარ javascript დეველოპერი და სამსახურსაც ადვიალდ ვიშოვი ამ ინდუსტრიაში, დიდი მადლობა ბექას რომ წარგივდგინა ასეთი კარგი კურსი ვიდეობი იყო გასაგები და რაც მთავარია ქართულად რამაც ძალიან დამეხმარა",
+                "imageUrl": "https://images.unsplash.com/photo-1593642634367-d91a135587b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+                "dislike": 10,
+                "like": 2,
+                "isLikedByInstructor": false
+            }
         ]
-      }
-    ]
-  },
-
-
-  
-  "Resources":{
-    "html": "<h1>ვიდეოზე ნახსენები საიტების და დამატებითი რესურსების ლინკები, ასევე ამ ვიდეოში დაწერილი კოდის ფაილები</h1><br/><p>vs code გადმოსაწერილი ლინკი : <a href=\"https://vscode.com\">https://vscode.com</a></p> <p>ვიდეოში ნანახი ბლოგპოსტის ლინკი: <a href=\"https://medium.com\"> https://medium.com</a></p><br/><br/><br/><br/><br/><br/><p><strong>ამ ვიდეოში დაწერილი კოდის ფაილები:</strong></p>",
-    "resource": {
-      "title": "დავალების ფაილები",
-      "filePath": "https://images.unsplash.com/photo-1599677099934-d3c4e07056d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" 
+    },
+    "videoLists": {
+        "Lists": [
+            {
+                "id":1,
+                "title": "ჯავასკრიპტის ძირითადები",
+                "courseChapterTime": 20,
+                "subTitles": [
+                    {
+                        "id":1,
+                        "text": "რა აროს javascript",
+                        "videoUrl": "https://s4106-05.imovies.cc/video/imovie_hash_code/1/2020090407554015_high_ENG.mp4?md5=Ul1cPbbjqASrVDkrD7Cmqg&expires=1599656612&data=YTozOntzOjc6InVzZXJfaXAiO3M6MTU6IjE3Ni4yMjEuMTMyLjIxMCI7czoxMDoidXNlcl9hZ2VudCI7czoxMTQ6Ik1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS84NS4wLjQxODMuODMgU2FmYXJpLzUzNy4zNiI7czo3OiJyZWZlcmVyIjtzOjIzOiJodHRwczovL3d3dy5pbW92aWVzLmNjLyI7fQ==",
+                        "amountOfMinutes": 10
+                    },
+                    {
+                        "id":2,
+                        "text": "რა არის ცვლადები",
+                        "videoUrl": "https://s4106-05.imovies.cc/video/imovie_hash_code/1/2020090407554015_high_ENG.mp4?md5=Ul1cPbbjqASrVDkrD7Cmqg&expires=1599656612&data=YTozOntzOjc6InVzZXJfaXAiO3M6MTU6IjE3Ni4yMjEuMTMyLjIxMCI7czoxMDoidXNlcl9hZ2VudCI7czoxMTQ6Ik1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS84NS4wLjQxODMuODMgU2FmYXJpLzUzNy4zNiI7czo3OiJyZWZlcmVyIjtzOjIzOiJodHRwczovL3d3dy5pbW92aWVzLmNjLyI7fQ==",
+                        "amountOfMinutes": 10
+                    }
+                    
+                ]
+                
+            },
+            {
+                "id":2,
+                "title": "საიტის მანიპულირება",
+                "courseChapterTime":15,
+                "subTitles": [
+                    {
+                        "id":1,
+                        "text": "როგორ შევცვალოთ სტილები",
+                        "videoUrl": "https://s4106-05.imovies.cc/video/imovie_hash_code/1/2020090407554015_high_ENG.mp4?md5=Ul1cPbbjqASrVDkrD7Cmqg&expires=1599656612&data=YTozOntzOjc6InVzZXJfaXAiO3M6MTU6IjE3Ni4yMjEuMTMyLjIxMCI7czoxMDoidXNlcl9hZ2VudCI7czoxMTQ6Ik1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS84NS4wLjQxODMuODMgU2FmYXJpLzUzNy4zNiI7czo3OiJyZWZlcmVyIjtzOjIzOiJodHRwczovL3d3dy5pbW92aWVzLmNjLyI7fQ==",
+                        "amountOfMinutes": 10
+                    },
+                    {
+                        "id":2,
+                        "text": "განსხვავებული სელექტორები",
+                        "videoUrl": "https://s4106-05.imovies.cc/video/imovie_hash_code/1/2020090407554015_high_ENG.mp4?md5=Ul1cPbbjqASrVDkrD7Cmqg&expires=1599656612&data=YTozOntzOjc6InVzZXJfaXAiO3M6MTU6IjE3Ni4yMjEuMTMyLjIxMCI7czoxMDoidXNlcl9hZ2VudCI7czoxMTQ6Ik1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS84NS4wLjQxODMuODMgU2FmYXJpLzUzNy4zNiI7czo3OiJyZWZlcmVyIjtzOjIzOiJodHRwczovL3d3dy5pbW92aWVzLmNjLyI7fQ==",
+                        "amountOfMinutes": 5
+                    }
+                    
+                ]
+                
+            }
+        ]
     }
-  },
-
-
-  "ratings": {
-    "ratings": [
-      {
-          
-        "userName": "ბექა არაბიძე",
-        "datePosted": "2020-08-12",  
-        "amountOfStars": 4,
-        "comment": "დიდი მადლობა ამ კურსისთვის ძალიან დამეხმარა ამ კურსმა მომცა საშუალება, რომ ჩემს კოლეგებთან ერთად მემუშავა უფრო ეფექტურად, თუმცა კურსის ბოლო ვიდეოები დანარჩენებთან შედარებით სუსტი იყო.",
-        "imageUrl":"https://images.unsplash.com/photo-1593642634367-d91a135587b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-        "dislike": 10,
-        "like": 20,
-        "isLikedByInstructor": true
-      },
-      {
-        "userName": "რობო რობოვიჩი",
-        "datePosted": "2020-08-12",  
-        "amountOfStars": 2,
-        "comment": "ეს ძალიან მომეწონა ეს კურსი და ეხლა თამამად შემიძლია ვთვა რომ ვარ javascript დეველოპერი და სამსახურსაც ადვიალდ ვიშოვი ამ ინდუსტრიაში, დიდი მადლობა ბექას რომ წარგივდგინა ასეთი კარგი კურსი ვიდეობი იყო გასაგები და რაც მთავარია ქართულად რამაც ძალიან დამეხმარა",
-        "imageUrl":"https://images.unsplash.com/photo-1593642634367-d91a135587b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-        "dislike":10,
-        "like": 2,
-        "isLikedByInstructor": false
-      }
-    ]
-  }
- 
-
-
 }
