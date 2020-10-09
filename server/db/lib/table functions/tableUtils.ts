@@ -8,6 +8,10 @@ export const addSimpleIdAndName = async (table: CreateTableBuilder) => {
 }
 
 
+export const addTimestamps = async (table: CreateTableBuilder) => {
+    table.timestamps(false, true);
+    table.dateTime('deleted_at');
+}
 
 
 export const references = (table: CreateTableBuilder, tableName: string, notNullable = true, columnName = '') => {
