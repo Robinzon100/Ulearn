@@ -6,10 +6,16 @@
     position: sticky;
     top: 100px;
 
+    
+
     &__container {
         border: 0.5px solid $secondary-dark-grey;
         border-radius: 8px;
-
+        
+        &:not(:first-child) {
+            margin-top: 2rem;
+            
+        }
     }
 
     .card_container {
