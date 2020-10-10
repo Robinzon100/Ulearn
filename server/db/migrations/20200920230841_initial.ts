@@ -21,10 +21,11 @@ export async function up(knex: Knex): Promise<void> {
         knex.schema.createTable(tableNames.types_of_reports, (table) => {
             addSimpleIdAndName(table)
         }),
-        //! Complaint types
-        knex.schema.createTable(tableNames.complaint_types, (table) => {
-            addSimpleIdAndName(table)
-        }),
+
+        // //! Complaint types
+        // knex.schema.createTable(tableNames.complaint_types, (table) => {
+        //     addSimpleIdAndName(table)
+        // }),
     ]);
 
     //! Category and sub-category
@@ -48,7 +49,7 @@ export async function down(knex: Knex): Promise<void> {
             tableNames.user_types,
             tableNames.main_categories,
             tableNames.types_of_reports,
-            tableNames.complaint_types,
+            // tableNames.complaint_types,
         ].map((tableName) => knex.schema.dropTableIfExists(tableName))
     );
 }
