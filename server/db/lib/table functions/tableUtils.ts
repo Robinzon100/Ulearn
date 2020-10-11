@@ -2,7 +2,7 @@ import { CreateTableBuilder } from "knex";
 
 export const addSimpleIdAndName = async (table: CreateTableBuilder) => {
     table.increments('id').notNullable();
-    table.string('name', 255).unique();
+    table.string('name', 255);
     table.timestamps(false, true);
     table.dateTime('deleted_at');
 }

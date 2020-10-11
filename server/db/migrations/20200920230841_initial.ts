@@ -9,12 +9,13 @@ export async function up(knex: Knex): Promise<void> {
         //! Rating title
         knex.schema.createTable(tableNames.rating_titles, (table) => {
             addSimpleIdAndName(table)
+            table.string('badge_image_url', 2084)
+
         }),
 
         //! User types
         knex.schema.createTable(tableNames.user_types, (table) => {
             addSimpleIdAndName(table)
-            table.string('badge_image_url', 2084)
         }),
 
         //! Report types
@@ -38,12 +39,18 @@ export async function up(knex: Knex): Promise<void> {
         addSimpleIdAndName(table)
         references(table, tableNames.main_categories, true, 'main_category')
     });
+
+    await knex.schema.createTable(tableNames.sub_sub_categories, (table) => {
+        addSimpleIdAndName(table)
+        references(table, tableNames.sub_categories, true, 'sub_category')
+    });
 }
 
 
 export async function down(knex: Knex): Promise<void> {
     await Promise.all(
         [
+            tableNames.sub_sub_categories,
             tableNames.sub_categories,
             tableNames.rating_titles,
             tableNames.user_types,

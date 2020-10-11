@@ -4,6 +4,13 @@ import tableNames from "../../constants/tableNames";
 
 export async function seed(knex: Knex): Promise<void> {
 
+
+    await knex(tableNames.user_types).del()
+    await knex(tableNames.rating_titles).del()
+    await knex(tableNames.types_of_reports).del()
+
+
+
     // Inserts seed entries
     let userTypes = await knex(tableNames.user_types).insert([
         { id: 1, name: "admin" },
@@ -27,42 +34,6 @@ export async function seed(knex: Knex): Promise<void> {
     ]).returning('*');
 
 
-    let main_categories = await knex(tableNames.main_categories).insert([
-        { id: 1, name: "დეველოპმენტი" },
-        { id: 2, name: "დიზაინი" },
-        { id: 3, name: "ფინანსები და ბუღალტერია" },
-        { id: 4, name: "IT ტექნოლოგია" },
-        { id: 5, name: "ფოტოგრაფია" },
-        { id: 6, name: "ბიზნესი" },
-        { id: 7, name: "მარკეტინგი" },
-        { id: 8, name: "მუსიკა" },
-        { id: 9, name: "ცევკვა" },
-        { id: 10, name: "ჯამრთელობა და ფიტნესი" },
-        { id: 11, name: "ცხოვრების სტილი" },
-        { id: 12, name: "სამზარეულო" },
-        { id: 13, name: "ოფისის პროდუქტიულობა" },
-    ]).returning('*');
-
-    
-    let syb_categories = await knex(tableNames.sub_categories).insert([
-        // დეველოპმენტი
-        { id: 1, name: "full-stack დეველოპმენტი", main_category_id: 1}
-        
-    ]).returning('*');
-
-
-
-    
-
-    console.log({ userTypes }, { ratting_titles }, { types_of_reports }, { main_categories })
-
-
-
-    await Promise.all(
-        orderedTableNames.map(tableName => knex(tableName).del())
-    )
-
-
-
+    // console.log({ userTypes }, { ratting_titles }, { types_of_reports })
 
 };
