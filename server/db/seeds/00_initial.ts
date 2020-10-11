@@ -3,11 +3,7 @@ import orderedTableNames from "../../constants/orderedTableNames";
 import tableNames from "../../constants/tableNames";
 
 export async function seed(knex: Knex): Promise<void> {
-    await Promise.all(Object.keys(tableNames).map((name) => knex(name).del()));
-
-    // await knex(tableNames.user_types).del()
-    // await knex(tableNames.rating_titles).del()
-    // await knex(tableNames.types_of_reports).del()
+    await Promise.all(orderedTableNames.map((name) => knex(name).del()));
 
 
 

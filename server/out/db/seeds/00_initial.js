@@ -39,74 +39,46 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.down = exports.up = void 0;
+exports.seed = void 0;
+var orderedTableNames_1 = __importDefault(require("../../constants/orderedTableNames"));
 var tableNames_1 = __importDefault(require("../../constants/tableNames"));
-var tableUtils_1 = require("../lib/table functions/tableUtils");
-function up(knex) {
+function seed(knex) {
     return __awaiter(this, void 0, void 0, function () {
+        var userTypes, ratting_titles, types_of_reports;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, Promise.all([
-                        //! Rating title
-                        knex.schema.createTable(tableNames_1.default.rating_titles, function (table) {
-                            tableUtils_1.addSimpleIdAndName(table);
-                            table.string('badge_image_url', 2084);
-                        }),
-                        //! User types
-                        knex.schema.createTable(tableNames_1.default.user_types, function (table) {
-                            tableUtils_1.addSimpleIdAndName(table);
-                        }),
-                        //! Report types
-                        knex.schema.createTable(tableNames_1.default.types_of_reports, function (table) {
-                            tableUtils_1.addSimpleIdAndName(table);
-                        }),
-                    ])];
+                case 0: return [4 /*yield*/, Promise.all(orderedTableNames_1.default.map(function (name) { return knex(name).del(); }))];
                 case 1:
                     _a.sent();
-                    //! Category and sub-category
-                    return [4 /*yield*/, knex.schema.createTable(tableNames_1.default.main_categories, function (table) {
-                            table.increments('id').notNullable();
-                            table.string('name', 255).unique();
-                        })];
+                    return [4 /*yield*/, knex(tableNames_1.default.user_types).insert([
+                            { id: 1, name: "admin" },
+                            { id: 2, name: "moderator" },
+                            { id: 3, name: "user" },
+                        ]).returning('*')];
                 case 2:
-                    //! Category and sub-category
-                    _a.sent();
-                    return [4 /*yield*/, knex.schema.createTable(tableNames_1.default.sub_categories, function (table) {
-                            tableUtils_1.addSimpleIdAndName(table);
-                            tableUtils_1.references(table, tableNames_1.default.main_categories, true, 'main_category');
-                        })];
+                    userTypes = _a.sent();
+                    return [4 /*yield*/, knex(tableNames_1.default.rating_titles).insert([
+                            { id: 1, name: "Bronze", badge_image_url: "https://www.inelobooster.com/wp-content/uploads/2017/12/Bronze_Rank_of_League_of_Legends.png" },
+                            { id: 2, name: "Silver", badge_image_url: "https://www.inelobooster.com/wp-content/uploads/2017/12/Silver_Rank_of_League_of_Legends.png" },
+                            { id: 3, name: "Gold", badge_image_url: "https://www.inelobooster.com/wp-content/uploads/2017/12/Gold_Rank_of_League_of_Legends.png" },
+                            { id: 4, name: "Platinum", badge_image_url: "https://www.inelobooster.com/wp-content/uploads/2017/12/Platinum_Rank_of_League_of_Legends.png" },
+                        ]).returning('*')];
                 case 3:
-                    _a.sent();
-                    return [4 /*yield*/, knex.schema.createTable(tableNames_1.default.sub_sub_categories, function (table) {
-                            tableUtils_1.addSimpleIdAndName(table);
-                            tableUtils_1.references(table, tableNames_1.default.sub_categories, true, 'sub_category');
-                        })];
+                    ratting_titles = _a.sent();
+                    return [4 /*yield*/, knex(tableNames_1.default.types_of_reports).insert([
+                            { id: 1, name: "კურსის შეუსაბამო შინაარსი" },
+                            { id: 2, name: "შეუსაბამო ქცევა" },
+                            { id: 3, name: "ულეარის პოლისის დარღვევა" },
+                            { id: 4, name: "სპამი" },
+                            { id: 5, name: "სხვა" },
+                        ]).returning('*')];
                 case 4:
-                    _a.sent();
+                    types_of_reports = _a.sent();
                     return [2 /*return*/];
             }
         });
     });
 }
-exports.up = up;
-function down(knex) {
-    return __awaiter(this, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, Promise.all([
-                        tableNames_1.default.sub_sub_categories,
-                        tableNames_1.default.sub_categories,
-                        tableNames_1.default.rating_titles,
-                        tableNames_1.default.user_types,
-                        tableNames_1.default.main_categories,
-                        tableNames_1.default.types_of_reports,
-                    ].map(function (tableName) { return knex.schema.dropTableIfExists(tableName); }))];
-                case 1:
-                    _a.sent();
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
-exports.down = down;
-//# sourceMappingURL=20200920230841_initial.js.map
+exports.seed = seed;
+;
+//# sourceMappingURL=00_initial.js.map

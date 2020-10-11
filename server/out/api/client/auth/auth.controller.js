@@ -35,36 +35,24 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.references = exports.addTimestamps = exports.addSimpleIdAndName = void 0;
-exports.addSimpleIdAndName = function (table) { return __awaiter(void 0, void 0, void 0, function () {
-    return __generator(this, function (_a) {
-        table.increments('id').notNullable();
-        table.string('name', 255);
-        table.timestamps(false, true);
-        table.dateTime('deleted_at');
-        return [2 /*return*/];
-    });
-}); };
-exports.addTimestamps = function (table) { return __awaiter(void 0, void 0, void 0, function () {
-    return __generator(this, function (_a) {
-        table.timestamps(false, true);
-        table.dateTime('deleted_at');
-        return [2 /*return*/];
-    });
-}); };
-exports.references = function (table, tableName, notNullable, columnName) {
-    if (notNullable === void 0) { notNullable = true; }
-    if (columnName === void 0) { columnName = ''; }
-    var definition = table
-        .integer((columnName || tableName) + "_id")
-        .unsigned()
-        .references('id')
-        .inTable(tableName)
-        .onDelete('cascade');
-    if (notNullable) {
-        definition.notNullable();
-    }
-    return definition;
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-//# sourceMappingURL=tableUtils.js.map
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.registrationController = void 0;
+var user_model_1 = __importDefault(require("./../../user/user.model"));
+exports.registrationController = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+    var users;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, user_model_1.default.query()];
+            case 1:
+                users = _a.sent();
+                res.status(200).json({
+                    users: users
+                });
+                return [2 /*return*/];
+        }
+    });
+}); };
+//# sourceMappingURL=auth.controller.js.map
