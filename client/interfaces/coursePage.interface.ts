@@ -88,7 +88,7 @@ export interface videoList {
     isLikedByInstructor: boolean
     imageUrl:string
   }
-
+ 
   export interface Estimates_type {
     ratings: Rating[];
   }

@@ -102,3 +102,17 @@ $card-detail-shadow:35px 41px 99px 27px rgba(19, 21, 26, 0.3);
         }
     }
 }
+
+@media only screen and (max-width: 1550px) {
+    
+    .card_detail  {
+        left: 28vw;
+    }
+}
+
+@media only screen and (max-width: 1150px) {
+    
+    .card_detail  {
+        left: 45vw;
+    }
+}
