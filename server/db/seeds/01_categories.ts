@@ -6,8 +6,8 @@ import tableNames from "../../constants/tableNames";
 export async function seed(knex: Knex): Promise<void> {
 
     
-    await knex(tableNames.sub_categories).del()
-    await knex(tableNames.main_categories).del()
+    // await knex(tableNames.sub_categories).del()
+    // await knex(tableNames.main_categories).del()
 
 
      
