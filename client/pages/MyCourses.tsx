@@ -17,7 +17,7 @@ import { MyCoursePageContent } from "../interfaces/MyCoursesPage.interface";
 
 
 
-const MyCourses: React.FC = () => {
+const MyCourses: React.FC<MyCoursePageContent> = () => {
   let subTitles = [
     {
       id: 1,

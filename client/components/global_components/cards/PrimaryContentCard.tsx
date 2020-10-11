@@ -34,7 +34,7 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
     const cardHoverHandler = (e: React.MouseEvent<HTMLDivElement, MouseEvent>)  => {
         setHover(true)
         
-        if(((window.innerWidth / 2 ) - 30.5) < e.currentTarget.offsetLeft) {    
+        if(((window.innerWidth / 2 ) - 40.5) < e.currentTarget.offsetLeft) {    
             setIsLastCard(true);
         }
         

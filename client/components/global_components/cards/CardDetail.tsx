@@ -22,12 +22,17 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
         const hoverCards = document.querySelectorAll<HTMLElement>(".card_detail");
 
         hoverCards.forEach((card) => {
-            card.style.left = "-27.8vw";
+            card.style.left = "-27.7vw";
+            if(window.innerWidth < 1200) {
+                card.style.left = "-29vw";
+            }
             
 
         }); 
     };
 
+    
+    
     // let handleDetectCardPosition = () => {
     //     const hoverCards = document.querySelectorAll<HTMLElement>(".card_detail");
 
@@ -44,13 +49,13 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
 
     useEffect(() => {
         if (isLastCard) {
-            // console.log("left");
-            handleHoverCardsStyle();
-        }else {
-            // window.addEventListener("resize", handleDetectCardPosition = () =>{console.log('resize!')}, false);
-            // handleDetectCardPosition()
+            console.log("left");
+           handleHoverCardsStyle(); 
         }
+        
     }, [isLastCard]);
+
+
 
     return (
         <>
