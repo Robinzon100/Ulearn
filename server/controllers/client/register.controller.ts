@@ -12,30 +12,19 @@ const jwt = require("jsonwebtoken")
 export const postRegister = async (req: Request, res: Response) => {
     const { name, password } = req.body;
 
+    const _id = 'result';
 
-    try {
-        
-                const { _id } = result;
-
-                if (_id) {
-                    const token = jwt.sign({ _id: _id }, process.env.JWT_TOKEN)
-                    res.header("auth-token", token)
-                    res.json({
-                        message: "logedIn",
-                        token: token
-                    })
-                }else{
-                    res.json({
-                        message: "notLogedIn",
-                    })
-                }
-
-
-            });
-    } catch (error) {
+    if (_id) {
+        const token = jwt.sign({ _id: _id }, process.env.JWT_TOKEN)
+        res.header("auth-token", token)
+        res.json({
+            message: "logedIn",
+            token: token
+        })
+    } else {
         res.json({
             message: "notLogedIn",
         })
     }
-};
+}
 

@@ -11,10 +11,10 @@ export async function up(knex: Knex): Promise<void> {
         table.string("name", 70).notNullable();
         table.string("description", 70).notNullable();
         table.string("detaled_description", 70).notNullable();
+        table.integer("difficulty", 4).unsigned().notNullable();
         table.string("thumbnail_imageUrl", 254).notNullable();
         table.string("intro_videoUrl", 254).notNullable();
         table.float("duration");
-        table.integer("difficulty", 5).unsigned().notNullable();
         table.json('what_will_you_learn').notNullable();
         table.integer("student_amount").defaultTo(course.student_amount);
         table.json('detaled_rating').notNullable().defaultTo(JSON.stringify(course.detaled_rating))

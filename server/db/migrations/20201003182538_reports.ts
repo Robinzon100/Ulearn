@@ -10,7 +10,6 @@ export async function up(knex: Knex): Promise<void> {
         references(table, tableNames.types_of_reports, true, "type_of_report");
         references(table, tableNames.users, false, "reported");
         references(table, tableNames.users, true, "sender");
-        references(table, tableNames.complaint_types, true, "complaint_type");
         addTimestamps(table)
     })
     
