@@ -1,6 +1,9 @@
 import morgan from "morgan";
 import bodyParser from 'body-parser'
 import express, { Application, Request, Response, NextFunction } from 'express'
+import helmet from "helmet"
+const compression = require('compression');
+
 
 
 export const baseMiddlewares = (app: Application) => {
@@ -12,6 +15,8 @@ export const baseMiddlewares = (app: Application) => {
 
 
     app.use(morgan('dev'))
+    app.use(compression());
+    app.use(helmet())
 
     app.use((req: Request, res: Response, next: NextFunction) => {
         res.setHeader('Access-Control-Allow-Origin', `*`);

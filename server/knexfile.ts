@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-module.exports = {
+export = {
   development: {
     client: "pg",
     connection: {

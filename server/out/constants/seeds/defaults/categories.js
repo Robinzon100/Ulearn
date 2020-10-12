@@ -106,7 +106,7 @@ var subCategoriesWithoutIds = [
 ];
 var subCategories = subCategoriesWithoutIds.map(function (_a, i) {
     var name = _a.name, main_category_id = _a.main_category_id;
-    return { id: i, name: name, main_category_id: main_category_id };
+    return { id: i + 1, name: name, main_category_id: main_category_id };
 });
 exports.subCategories = subCategories;
 //# sourceMappingURL=categories.js.map
