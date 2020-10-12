@@ -1,14 +1,14 @@
 
-interface cardDetailList {
+interface hoverCardDetailList {
     descriptionList:string,
 }
 
 export interface PrimaryContentCardHover{
     id: number,
-    imgUrl:string,
+    imageUrl:string,
     title:string,
     posted: string,
     difficulty:string,
     description:string,
-    list:cardDetailList[]
+    hoverCardDetailLists:hoverCardDetailList[]
 }

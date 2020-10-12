@@ -10,12 +10,12 @@ interface isLastCard {
 
 const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
     id,
-    imgUrl,
+    imageUrl,
     title,
     posted,
     difficulty,
     description,
-    list,
+    hoverCardDetailLists,
     isLastCard,
 }) => {
     const handleHoverCardsStyle = () => {

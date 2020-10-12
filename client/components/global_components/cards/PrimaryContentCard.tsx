@@ -6,7 +6,7 @@ import CardDetail from './CardDetail';
 
 //! ==================INTERFACE
 import {PrimaryContentCards} from "../../../interfaces/PrimaryContentCard.interface";
-
+import { PrimaryContentCardHover } from "../../../interfaces/PrimaryContentCardHover.interface";
 
 
 const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
@@ -18,17 +18,20 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
   bestseller,
   newPrice,
   numberOfVotes,
+  imageUrl,
+  isLiked
+//   PrimaryContentCardHovers
 }) => {
     
-    const [addToFavorites, setAddToFavorites] = useState<boolean>(false);
+    const [addToFavorites, setAddToFavorites] = useState<boolean>(isLiked);
 
-    const [checkNewPrice, setCheckNewPrice] = useState<boolean>(false);
+    const [checkNewPrice, setCheckNewPrice] = useState<boolean | number>(newPrice);
 
     const [hover, setHover] = useState<boolean | null>(false);
 
     const [isLastCard, setIsLastCard] = useState<boolean>(false);
 
-
+    const [isBestSeller, setIsBestSeller] = useState<boolean | string>(bestseller)
    
 
     const cardHoverHandler = (e: React.MouseEvent<HTMLDivElement, MouseEvent>)  => {
@@ -42,20 +45,29 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
 
    
     return (
-    <div className="PrimaryContentCard" 
+    <div className="PrimaryContentCard"
+        key={id}
         onMouseEnter={(e) => cardHoverHandler(e)}
         onMouseLeave={() => setHover(null)}
     >
         {hover ? 
+            
+                <CardDetail 
+                id={id} 
+                // title={cardHover.title} 
+                // imageUrl={cardHover.imageUrl} 
+                // posted={cardHover.posted}  
+                // difficulty={cardHover.difficulty}
+                // description={cardHover.description}
+                // hoverCardDetailLists={cardHover.cardDetailLists}
+                // isLastCard={isLastCard} 
+                />
         
-
-        <CardDetail id={id} isLastCard={isLastCard} />
-         
             
         : null}
 
       <a href="#">
-        <div className="PrimaryContentCard__img">
+        <div className="PrimaryContentCard__img" style={{backgroundImage:`url(${imageUrl})`}}>
           <div className="price-tag">
             {checkNewPrice ? (
               <div className="removed-price-tag">
@@ -90,7 +102,7 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
           </div>
           <div className="numbers">
             <p className="Eina-semibold paragraph-small">
-              {raiting}({numberOfVotes})
+              {raiting} ({numberOfVotes})
             </p>
           </div>
         </div>
@@ -99,9 +111,10 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
         </div>
       </div>
       <div className="PrimaryContentCard__like">
-        <label className="label heading-semi-bold-Noto paragraph-smallest">
-          {bestseller}
-          ბესტსელერი
+        <label className={isBestSeller ? "label heading-semi-bold-Noto paragraph-smallest" : null} >
+        {bestseller }
+         
+          
         </label>
 
         <div

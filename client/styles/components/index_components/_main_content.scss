@@ -109,19 +109,20 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
                 height: 100%;
                 display: flex;
                 flex-direction: column;
-
+                cursor: pointer;
                 &__title {
                     margin: 1vw 0vw;
                 }
 
                 &__img {
-                    background: no-repeat url("/pictures/courses/card_picture.png");
+                    background:url("/pictures/courses/card_picture.png");
                     background-size: cover;
-                    background-position: center;
+                    background-position: center 18%;
                     width: 100%;
                     height: 21rem;
                     border-radius: 18px;
                     position: relative;
+                    background-repeat: no-repeat;
 
                     .price-tag {
                         right: 0;
@@ -191,79 +192,3 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
     }
 
 }
-
-
-
-// .categories {
-//     display: flex;
-//     flex-direction: column;
-
-//     .list {
-//         display: flex;
-//         justify-content: space-between;
-//         margin-top: 5rem;
-
-//         // //! ამას კარდა მეორესი ყველა მარგინს აძლევს
-//         // &:not(:nth-child(2)) {
-//         //     margin-top: 1.8vw;
-//         // }
-//         // //! ეს კატეგორიასგან ჩამოყავს ქვემოთ
-//         // &:nth-child(2) {
-//         //     margin-top: 5.3vw;
-//         // }
-
-
-//         &__container {
-//             // display: flex;
-//             // justify-content: space-between;
-//             width: 100%;
-
-//             .course-list {
-//                 display: flex;
-
-//                 &--arrow {
-//                     margin-top: .3vw;
-//                     cursor: pointer;
-//                     // transform: rotateZ(90deg);
-
-//                 }
-
-//                 &--name {
-//                     margin-left: .5vw;
-//                     width: 100%;
-
-//                     .title {
-//                         @include flex;
-//                     }
-
-
-//                     .inside_list {
-
-//                         ul {
-//                             list-style-type: none !important;
-//                             margin-top: .5vw;
-
-//                             li {
-//                                 width: 100%;
-
-//                                 display: flex;
-//                                 justify-content: space-between;
-//                                 align-items: center;
-
-//                                 // .check {
-//                                 //     opacity: 70%;
-//                                 // }
-
-//                             }
-//                         }
-//                     }
-//                 }
-//             }
-
-
-//         }
-
-
-
-//     }
-// }
