@@ -31,7 +31,7 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
 
     const [isLastCard, setIsLastCard] = useState<boolean>(false);
 
-    const [isBestSeller, setIsBestSeller] = useState<boolean | string>(bestseller)
+    const [isBestSeller, setIsBestSeller] = useState<boolean>(bestseller)
    
 
     const cardHoverHandler = (e: React.MouseEvent<HTMLDivElement, MouseEvent>)  => {
@@ -112,8 +112,8 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
       </div>
       <div className="PrimaryContentCard__like">
         <label className={isBestSeller ? "label heading-semi-bold-Noto paragraph-smallest" : null} >
-        {bestseller }
-         
+        {isBestSeller ?  <p>ბესტსელერი</p> : null }
+        
           
         </label>
 

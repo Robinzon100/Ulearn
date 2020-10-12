@@ -11,7 +11,7 @@ export interface PrimaryContentCards {
     author: string;
     raiting: number;
     numberOfVotes: number;
-    bestseller: string;
+    bestseller: boolean;
     price: number;
     newPrice: number | boolean;
     imageUrl:string
