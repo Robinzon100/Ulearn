@@ -1,0 +1,23 @@
+{
+    "hoverCard": 
+    [
+        {
+            "id": 1,
+            "imageUrl": "https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+            "title": "ჯავასკრიპტის კურსი",
+            "posted": "1/2/2020",
+            "difficulty": "საშუალო",
+            "description": "მოკლე აღწერა კურსის შესახებ რომელიც ეტყვის მომხარებელს რა უნდა იცოდეს წინასწარ, რას ისწავლის და კურსის დამთავრების მერე რას შეძლებს რომ გააკეთოს ან რა სამსახურში შეძლებს მუშაობას"
+            
+        },
+        {
+            "id": 2,
+            "imageUrl": "https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+            "title": "ჯავdsdsfdsfასკრიპტის კურსი",
+            "posted": "1/2/2020",
+            "difficulty": "საშუალო",
+            "description": "მოკლე აღწერა კურსის შესახებ რომელიც ეტყვის მომხარებელს რა უნდა იცოდეს წინასწარ, რას ისწავლის და კურსის დამთავრების მერე რას შეძლებს რომ გააკეთოს ან რა სამსახურში შეძლებს მუშაობას"
+            
+        }
+    ]
+}

@@ -1,0 +1,296 @@
+{
+    "contentCard": [
+        {
+            "id": 1,
+            "title": "ჯავასკრიპტის კურსი",
+            "author": "ბექა არაბიძე",
+            "raiting": 4,
+            "numberOfVotes": 12,
+            "bestseller": false,
+            "price": 20,
+            "newPrice": 15,
+            "imageUrl": "https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+            "isLiked": false,
+            "posted": "1/2/2020",
+            "difficulty": "საშუალო",
+            "description": "მოკლე აღწერა",
+            "hoverCardList": [
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                },
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                },
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "PHP კურსი",
+            "author": "რობო რობოვიჩ მაღალი",
+            "raiting": 3,
+            "numberOfVotes": 20,
+            "bestseller": false,
+            "price": 20,
+            "newPrice": 15,
+            "imageUrl": "https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+            "isLiked": false,
+            "posted": "1/2/2020",
+            "difficulty": "საშუალო",
+            "description": "მოკლე აღწერა კურსის შესახებ რომელიც ეტყვის მომხარებელს რა უნდა იცოდეს წინასწარ, რას ისწავლის და კურსის დამთავრების მერე რას შეძლებს რომ გააკეთოს ან რა სამსახურში შეძლებს მუშაობას",
+            "hoverCardList": [
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                },
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                },
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "title": "როგორ ავიწიოთ შარვალი?",
+            "author": "ბექა არაბიძე მაღალ შარვალა",
+            "raiting": 9,
+            "numberOfVotes": 25,
+            "bestseller": false,
+            "price": 120,
+            "newPrice": 30,
+            "imageUrl": "https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+            "isLiked": true,
+            "description": "მოკლე აღწერა",
+            "hoverCardList": [
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                },
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                },
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "title": "როგორ გავიტლიკოთ ხელი?",
+            "author": "ბექა არაბიძე",
+            "raiting": 5,
+            "numberOfVotes": 48,
+            "bestseller": true,
+            "price": 100,
+            "newPrice": false,
+            "imageUrl": "https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+            "isLiked": false,
+            "description": "მოკლე აღწერა",
+            "hoverCardList": [
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                },
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                },
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "title": "როგორ დავამშვიდოთ საბა",
+            "author": "რობო სოხაშვილი",
+            "raiting": 5,
+            "numberOfVotes": 10,
+            "bestseller": true,
+            "price": 100,
+            "newPrice": 20,
+            "imageUrl": "https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+            "isLiked": false,
+            "description": "მოკლე აღწერა",
+            "hoverCardList": [
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                },
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                },
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "title": "Typescript კურსი",
+            "author": "ბექა არაბიძე",
+            "raiting": 5,
+            "numberOfVotes": 16,
+            "bestseller": true,
+            "price": 105,
+            "newPrice": false,
+            "imageUrl": "https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+            "isLiked": true,
+            "description": "მოკლე აღწერა",
+            "hoverCardList": [
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                },
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                },
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "title": "ჯავასკრიპტის კურსი",
+            "author": "ბექა არაბიძე",
+            "raiting": 4,
+            "numberOfVotes": 12,
+            "bestseller": true,
+            "price": 20,
+            "newPrice": 15,
+            "imageUrl": "https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+            "isLiked": true,
+            "description": "მოკლე აღწერა",
+            "hoverCardList": [
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                },
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                },
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "title": "PHP კურსი",
+            "author": "რობო რობოვიჩ მაღალი",
+            "raiting": 3,
+            "numberOfVotes": 20,
+            "bestseller": true,
+            "price": 20,
+            "newPrice": 15,
+            "imageUrl": "https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+            "isLiked": true,
+            "description": "მოკლე აღწერა",
+            "hoverCardList": [
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                },
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                },
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "title": "როგორ ავიწიოთ შარვალი?",
+            "author": "ბექა არაბიძე მაღალ შარვალა",
+            "raiting": 9,
+            "numberOfVotes": 25,
+            "bestseller": true,
+            "price": 120,
+            "newPrice": 20,
+            "imageUrl": "https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+            "isLiked": true,
+            "description": "მოკლე აღწერა",
+            "hoverCardList": [
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                },
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                },
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "title": "როგორ გავიტლიკოთ ხელი?",
+            "author": "ბექა არაბიძე",
+            "raiting": 5,
+            "numberOfVotes": 48,
+            "bestseller": true,
+            "price": 100,
+            "newPrice": false,
+            "imageUrl": "https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+            "isLiked": true,
+            "description": "მოკლე აღწერა",
+            "hoverCardList": [
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                },
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                },
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                }
+            ]
+        },
+        {
+            "id": 11,
+            "title": "როგორ დავამშვიდოთ საბა",
+            "author": "რობო სოხაშვილი",
+            "raiting": 5,
+            "numberOfVotes": 10,
+            "bestseller": true,
+            "price": 100,
+            "newPrice": 20,
+            "imageUrl": "https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+            "isLiked": true,
+            "description": "მოკლე აღწერა",
+            "hoverCardList": [
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                },
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                },
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                }
+            ]
+        },
+        {
+            "id": 12,
+            "title": "Typescript კურსი",
+            "author": "ბექა არაბიძე",
+            "raiting": 5,
+            "numberOfVotes": 16,
+            "bestseller": true,
+            "price": 105,
+            "newPrice": 10,
+            "imageUrl": "https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+            "isLiked": false,
+            "description": "მოკლე აღწერა",
+            "hoverCardList": [
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                },
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                },
+                {
+                    "list": "afsdsdgdfgdfgdfgdf"
+                }
+            ]
+        }
+    ]
+}
