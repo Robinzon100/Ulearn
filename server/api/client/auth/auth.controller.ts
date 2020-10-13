@@ -1,86 +1,69 @@
 import { Request, Response, NextFunction } from "express";
 import { user } from "../../../constants/defaults";
-import User from "./../../user/user.model";
+import User from '../../../models/user/user.model';
 
 
 export const registrationController = async (req: Request, res: Response, next: NextFunction) => {
 
+    const inserteduser = await User.query()
 
-    const insertTestUser = {
-        Ulearn_coins: 21,
-        affiliate_link: "null",
-        created_at: "2020-10-11T19:01:38.584Z",
-        deleted_at: "2020-10-11T19:01:38.584Z",
-        description: "description",
-        detailed_rattings: {
-            0: 0,
-            1: 0,
-            2: 0,
-            3: 0,
-            4: 0,
-            5: 0
-        },
-        email: "email",
-        favorite_main_category_id: 1,
-        favorite_sub_category_ids: [1],
-        full_name: "rowValue1",
-        generated_categories_id: 1,
-        generated_sub_category_ids: 1,
-        image_url: "image_url",
-        isInstructor: true,
-        last_login: "2018-01-03T03:54:56.867Z",
-        last_searched: [
-            {
-                name: "asd"
-            }
-        ],
-        liked_courses_ids: [
-            {
-                name: "asd"
-            }
-        ],
-        notifications: {
-            name: "asd"
-        },
-        password: "password",
-        paynment_info: {
-            name: "asd"
-        },
-        personal_detales: {
-            facebook: "",
-            instagram: "",
-            twitter: "",
-            website: "",
-            youtube: ""
-        },
-        purchased_courses_Receipts: {
-            name: "asd"
-        },
-        rating_titles_id: 2,
-        ratting: 2,
-        recovery_email: "recovery_email",
-        restore_token: "restore_token",
-        review_amount: 2,
-        show_details_public: true,
-        socials: {
-            name: "asd"
-        },
-        student_amount: 1,
-        subscriber_count: 123,
-        token_expiration: "token_expiration",
-        total_minutes_of_courses: 12,
-        updated_at: "2020-10-11T19:01:38.584Z",
-        user_type_id: 1,
-        verified: true,
-        viewed_courses_ids: []
+    res.status(200).json({
+        body: req.body
+
+    })
+
+    console.log(req.body)
+
+    // const insertTestUser = {
+    //     full_name: "rowValue1",
+    //     email: "email",
+    //     password: "password",
+    //     recovery_email: "recovery_email",
+    //     description: "description",
+    //     last_login: "2018-01-03 07:54",
+    //     restore_token: "restore_token",
+    //     token_expiration: '1602611766048',
+    //     image_url: "image_url",
+    //     notifications: JSON.stringify([{ name: "asd" }]),
+    //     paynment_info: JSON.stringify([{ name: "asd" }]),
+    //     student_amount: 1,
+    //     review_amount: 2,
+    //     total_minutes_of_courses: 12,
+    //     detailed_ratings: user.rating_starts,
+    //     rating: 2,
+    //     verified: true,
+    //     isInstructor: true,
+    //     subscriber_count: 123,
+    //     show_details_public: true,
+    //     personal_detales: user.socials,
+    //     socials: JSON.stringify({ name: "asd" }),
+    //     purchased_courses_Receipts: JSON.stringify({ name: "asd" }),
+    //     Ulearn_coins: 21,
+    //     affiliate_link: "alsdkfjla.com",
+    //     last_searched: JSON.stringify([{ name: "asd" }]),
+    //     liked_courses_ids: JSON.stringify([1, 3]),
+    //     viewed_courses_ids: JSON.stringify([]),
+    //     favorite_main_category_ids: JSON.stringify([1, 2]),
+    //     favorite_sub_category_ids: JSON.stringify([1, 2]),
+    //     generated_categories_ids: JSON.stringify([1, 2]),
+    //     generated_sub_category_ids: JSON.stringify([1, 2]),
+    //     rating_title_id: 1,
+    //     favorite_main_category_id: 1,
+    //     instructor_category_id: 2,
+    //     user_type_id: 1,
+    // }
+
+    try {
+        const inserteduser = await User.query().insert(req.body)
+
+
+        res.status(200).json({
+            users: inserteduser
+        })
+    } catch (error) {
+        console.log(error)
     }
 
 
-    const inserteduser = await User.query().insert(insertTestUser)
 
-
-
-    res.status(200).json({
-        users: inserteduser
-    })
 }

@@ -14,7 +14,7 @@ export async function seed(knex: Knex): Promise<void> {
         { id: 3, name: "user" },
     ]).returning('*');
 
-    let ratting_titles = await knex(tableNames.rating_titles).insert([
+    let rating_titles = await knex(tableNames.rating_titles).insert([
         { id: 1, name: "Bronze", badge_image_url: "https://www.inelobooster.com/wp-content/uploads/2017/12/Bronze_Rank_of_League_of_Legends.png" },
         { id: 2, name: "Silver", badge_image_url: "https://www.inelobooster.com/wp-content/uploads/2017/12/Silver_Rank_of_League_of_Legends.png" },
         { id: 3, name: "Gold", badge_image_url: "https://www.inelobooster.com/wp-content/uploads/2017/12/Gold_Rank_of_League_of_Legends.png" },
@@ -30,6 +30,6 @@ export async function seed(knex: Knex): Promise<void> {
     ]).returning('*');
 
 
-    // console.log({ userTypes }, { ratting_titles }, { types_of_reports })
+    // console.log({ userTypes }, { rating_titles }, { types_of_reports })
 
 };

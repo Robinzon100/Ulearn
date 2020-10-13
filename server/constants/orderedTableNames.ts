@@ -1,12 +1,12 @@
 import tableNames from "./tableNames";
 
 export default [
+    tableNames.users,
     tableNames.sub_categories,
     tableNames.sub_sub_categories,
-    tableNames.users,
     tableNames.reports,
     tableNames.subscriptions,
-
+    
     tableNames.main_categories,
     tableNames.rating_titles,
     tableNames.user_types,
