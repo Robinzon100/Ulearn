@@ -55,8 +55,11 @@ const main_content: React.FC = () => {
 
             <div className="courses--cards">
               {/* //! ეს არის მთავარი გვერდზე რაც კარტებია */}
-
-              {/* //! აქ კიდევ აკლია სურათის და მოწონების პროპი,როცა ბაზიდან წამოვა მაშინ ჩავამატებ  */}
+              
+              {/* //! აქ რომ არის ლისტ რომ გადავცემ(descriptionList) თაიფი ვერ გავუწერე წესიერად. 
+                //! PrimaryContentCard.json ში არის არის მონაცემები ხოლო PrimaryContentCard.interface ში თაიფები
+                //! და მე ასე მგონია რომ ჰოვერისა და ჩვეულებრივი კარტის json ერთად არ უნდა იყოს მგონი
+             */}
               
               {CardsJson.map((card) => (
                 <PrimaryContentCard
@@ -70,8 +73,13 @@ const main_content: React.FC = () => {
                   price={card.price}
                   newPrice={card.newPrice}
                   isLiked={card.isLiked}
-                //   PrimaryContentCardHovers={card.hoverCard}
+                  posted={card.posted}
+                  difficulty={card.difficulty}
+                  description={card.description}
+                  
+                  descriptionList={card.hoverCardList}
                 />
+                
               ))}
               
             </div>

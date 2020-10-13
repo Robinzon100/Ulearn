@@ -1,28 +1,32 @@
-import React, { useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Star } from "react-feather";
 
 import CardDetail from './CardDetail';
-
+// import PrimaryContentCardHoverJson from "../../../public/json/PrimaryContentCardHover.json";
 
 //! ==================INTERFACE
-import {PrimaryContentCards} from "../../../interfaces/PrimaryContentCard.interface";
-import { PrimaryContentCardHover } from "../../../interfaces/PrimaryContentCardHover.interface";
+import { PrimaryContentCards } from "../../../interfaces/PrimaryContentCard.interface";
+// import { PrimaryContentCardHover } from "../../../interfaces/PrimaryContentCardHover.interface";
 
 
 const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
-  id,
-  price,
-  title,
-  author,
-  raiting,
-  bestseller,
-  newPrice,
-  numberOfVotes,
-  imageUrl,
-  isLiked
-//   PrimaryContentCardHovers
+    id,
+    price,
+    title,
+    author,
+    raiting,
+    bestseller,
+    newPrice,
+    numberOfVotes,
+    imageUrl,
+    isLiked,
+    posted,
+    difficulty,
+    description,
+    descriptionList
 }) => {
-    
+    // const [cardHoverJson, setCardHoverJson] = useState(hoverCards);
+
     const [addToFavorites, setAddToFavorites] = useState<boolean>(isLiked);
 
     const [checkNewPrice, setCheckNewPrice] = useState<boolean | number>(newPrice);
@@ -32,98 +36,99 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
     const [isLastCard, setIsLastCard] = useState<boolean>(false);
 
     const [isBestSeller, setIsBestSeller] = useState<boolean>(bestseller)
-   
 
-    const cardHoverHandler = (e: React.MouseEvent<HTMLDivElement, MouseEvent>)  => {
+
+    const cardHoverHandler = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         setHover(true)
-        
-        if(((window.innerWidth / 2 ) - 40.5) < e.currentTarget.offsetLeft) {    
+
+        if (((window.innerWidth / 2) - 40.5) < e.currentTarget.offsetLeft) {
             setIsLastCard(true);
         }
-        
+
     }
 
-   
+
     return (
-    <div className="PrimaryContentCard"
-        key={id}
-        onMouseEnter={(e) => cardHoverHandler(e)}
-        onMouseLeave={() => setHover(null)}
-    >
-        {hover ? 
-            
-                <CardDetail 
-                id={id} 
-                // title={cardHover.title} 
-                // imageUrl={cardHover.imageUrl} 
-                // posted={cardHover.posted}  
-                // difficulty={cardHover.difficulty}
-                // description={cardHover.description}
-                // hoverCardDetailLists={cardHover.cardDetailLists}
-                // isLastCard={isLastCard} 
+        <div className="PrimaryContentCard"
+            key={id}
+            onMouseEnter={(e) => cardHoverHandler(e)}
+            onMouseLeave={() => setHover(null)}
+        >
+            {
+                
+                hover &&
+                <CardDetail
+                    id={id}
+                    title={title}
+                    imageUrl={imageUrl}
+                    posted={posted}
+                    difficulty={difficulty}
+                    description={description}
+                    descriptionList={descriptionList}
+                    isLastCard={isLastCard}
                 />
-        
-            
-        : null}
 
-      <a href="#">
-        <div className="PrimaryContentCard__img" style={{backgroundImage:`url(${imageUrl})`}}>
-          <div className="price-tag">
-            {checkNewPrice ? (
-              <div className="removed-price-tag">
-                <p className="Eina-semibold paragraph-big">
-                  {newPrice}
-                  <span style={{ color: "#00E267", fontWeight: "bold" }}>
-                    &#8382;
+
+            }
+
+            <a href="#">
+                <div className="PrimaryContentCard__img" style={{ backgroundImage: `url(${imageUrl})` }}>
+                    <div className="price-tag">
+                        {checkNewPrice && (
+                            <div className="removed-price-tag">
+                                <p className="Eina-semibold paragraph-big">
+                                    {newPrice}
+                                    <span style={{ color: "#00E267", fontWeight: "bold" }}>
+                                        &#8382;
                   </span>
-                </p>
-              </div>
-            ) : null}
+                                </p>
+                            </div>
+                        )}
 
-            <div className="normal-price">
-              <p className="Eina-semibold paragraph-big">
-                {price}
-                <span style={{ color: "#00E267", fontWeight: "bold" }}>
-                  &#8382;
+                        <div className="normal-price">
+                            <p className="Eina-semibold paragraph-big">
+                                {price}
+                                <span style={{ color: "#00E267", fontWeight: "bold" }}>
+                                    &#8382;
                 </span>
-              </p>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <div className="PrimaryContentCard__title">
+                <p className="heading-bold-Noto paragraph-medium ">{title}</p>
             </div>
-          </div>
-        </div>
-      </a>
-
-      <div className="PrimaryContentCard__title">
-        <p className="heading-bold-Noto paragraph-medium ">{title}</p>
-      </div>
-      <div className="PrimaryContentCard__raiting">
-        <div className="PrimaryContentCard__raiting--container">
-          <div className="star">
-            <Star style={{ fill: "#FFD703", color: "#FFD703" }} />
-          </div>
-          <div className="numbers">
-            <p className="Eina-semibold paragraph-small">
-              {raiting} ({numberOfVotes})
+            <div className="PrimaryContentCard__raiting">
+                <div className="PrimaryContentCard__raiting--container">
+                    <div className="star">
+                        <Star style={{ fill: "#FFD703", color: "#FFD703" }} />
+                    </div>
+                    <div className="numbers">
+                        <p className="Eina-semibold paragraph-small">
+                            {raiting} ({numberOfVotes})
             </p>
-          </div>
-        </div>
-        <div className="PrimaryContentCard__raiting--name">
-          <p className="heading-semi-bold-Noto  paragraph-small">{author}</p>
-        </div>
-      </div>
-      <div className="PrimaryContentCard__like">
-        <label className={isBestSeller ? "label heading-semi-bold-Noto paragraph-smallest" : null} >
-        {isBestSeller ?  <p>ბესტსელერი</p> : null }
-        
-          
-        </label>
+                    </div>
+                </div>
+                <div className="PrimaryContentCard__raiting--name">
+                    <p className="heading-semi-bold-Noto  paragraph-small">{author}</p>
+                </div>
+            </div>
+            <div className="PrimaryContentCard__like">
+                <label className={isBestSeller ? "label heading-semi-bold-Noto paragraph-smallest" : null} >
+                    {isBestSeller ? <p>ბესტსელერი</p> : null}
 
-        <div
-          className={addToFavorites ? "full-heart-svg" : "stroke-heart-svg"}
-          onClick={() => setAddToFavorites((addToFavorites) => !addToFavorites)}
-        ></div>
-      </div>
-    </div>
-  );
+
+                </label>
+
+                <div
+                    className={addToFavorites ? "full-heart-svg" : "stroke-heart-svg"}
+                    onClick={() => setAddToFavorites((addToFavorites) => !addToFavorites)}
+                ></div>
+            </div>
+        </div>
+    );
 };
 
 export default PrimaryContentCard;

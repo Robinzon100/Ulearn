@@ -1,21 +1,21 @@
-import React, { Fragment, useEffect } from "react";
+import React, {useEffect } from "react";
 import { ShoppingCart, Check } from "react-feather";
 
 //! ============= INTERFACE
-import { PrimaryContentCardHover } from "../../../interfaces/PrimaryContentCardHover.interface";
+import { PrimaryContentCards } from "../../../interfaces/PrimaryContentCard.interface";
 
 interface isLastCard {
     isLastCard: boolean;
 }
 
-const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
+const CardDetail: React.FC<PrimaryContentCards & isLastCard> = ({
     id,
     imageUrl,
     title,
     posted,
     difficulty,
     description,
-    hoverCardDetailLists,
+    descriptionList,
     isLastCard,
 }) => {
     const handleHoverCardsStyle = () => {
@@ -67,8 +67,7 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
                         <div className="card_detail--container__title">
                             <a href="#">
                                 <p className="heading-bold-Noto paragraph-regular">
-                                    რაიმე კურსის სათაური რომელიც არ აღემატება ორ ხაზს მაგრამ
-                                    ტეტალების კარტაში მთლიანი სათაური იქნება
+                                    {title}
                                 </p>
                             </a>
                         </div>
@@ -81,7 +80,7 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
                             დაიდო:
                             <span className="paragraph-smallest Eina-semibold">
                                     
-                                2019.03.15
+                                {posted}
                                 </span>
                             </p>
                             <p
@@ -91,19 +90,24 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
                                 სირთულე:
                                 <span className="" style={{ color: "#FFD703" }}>
                                    
-                                საშუალო
+                                {difficulty}
                                 </span>
                             </p>
                         </div>
                         <div className="card_detail--container__description">
                             <p className="paragraph-light-Noto paragraph-small">
-                                მოკლე აღწერა კურსის შესახებ რომელიც ეტყვის მომხარებელს რა უნდა
-                                იცოდეს წინასწარ, რას ისწავლის და კურსის დამთავრების მერე რას
-                                შეძლებს რომ გააკეთოს ან რა სამსახურში შეძლებს მუშაობას
+                                {description}
                             </p>
                         </div>
                         <div className="card_detail--container__list">
                             <ul>
+                                { 
+                                    descriptionList &&
+                                        descriptionList.map((list) =>(
+                                        <li>{list.descriptionList}</li>
+                                    ))
+                                    
+                                }
                                 <li>
                                     <div className="check">
                                         <Check size={15} />
