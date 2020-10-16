@@ -15,38 +15,40 @@ export async function up(knex: Knex): Promise<void> {
         // TODO: shecvale socials da piradi infos defaults
         // TODO: shecvale categories
 
-        table.timestamp('last_login', { precision: 3 });
+        table.timestamp('last_login', { precision: 2 }).defaultTo(knex.fn.now());
         table.string('restore_token', 255);
         table.string('token_expiration', 255);
         table.string('image_url', 2048);
 
-        table.json('notifications');
+        table.json('notifications').defaultTo(user.notifications);
         table.json('paynment_info');
         table.integer('student_amount').defaultTo(user.student_amount)
         table.integer('review_amount', 255).defaultTo(user.review_amount)
         table.integer('total_minutes_of_courses').defaultTo(user.total_minutes_of_courses)
-        table.json('detailed_rattings').defaultTo(JSON.stringify(user.rating_starts))
-        table.integer('ratting')
+        table.json('detailed_ratings').defaultTo(JSON.stringify(user.rating_starts))
+        table.integer('rating')
         table.boolean('verified').defaultTo(user.verified)
         table.boolean('isInstructor').defaultTo(user.isInstructor)
         table.integer('subscriber_count').defaultTo(user.subscriber_count)
         table.boolean('show_details_public').defaultTo(user.show_details_public)
-        table.json('personal_detales').defaultTo(JSON.stringify(user.socials));
-        table.json('socials')
+        table.json('personal_detales');
+        table.json('socials').defaultTo(JSON.stringify(user.socials))
         table.json('purchased_courses_Receipts')
         table.integer('Ulearn_coins').defaultTo(user.Ulearn_coins)
         table.json('last_searched').defaultTo(user.last_searched)
         table.string("affiliate_link", 255)
         table.json("viewed_courses_ids").defaultTo(user.viewed_courses_ids);
 
-        references(table, tableNames.rating_titles);
+        references(table, tableNames.rating_titles, true, "rating_title");
         references(table, tableNames.main_categories, true, "favorite_main_category");
+        references(table, tableNames.main_categories, true, "instructor_category");
+        references(table, tableNames.user_types, true, 'user_type');
+        table.json("favorite_main_category_ids");
         table.json("favorite_sub_category_ids");
-        references(table, tableNames.main_categories, true, "generated_categories");
         table.json("generated_sub_category_ids");
+        table.json("generated_categories_ids");
         table.json('liked_courses_ids')
 
-        references(table, tableNames.user_types, true, 'user_type');
         addTimestamps(table);
     })
 
@@ -55,9 +57,6 @@ export async function up(knex: Knex): Promise<void> {
         references(table, tableNames.users, true, "user");
         references(table, tableNames.users, true, "instructor");
     })
-
-
-
 }
 
 

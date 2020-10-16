@@ -65,8 +65,8 @@ function up(knex) {
                         table.integer('student_amount').defaultTo(defaults_1.user.student_amount);
                         table.integer('review_amount', 255).defaultTo(defaults_1.user.review_amount);
                         table.integer('total_minutes_of_courses').defaultTo(defaults_1.user.total_minutes_of_courses);
-                        table.json('detailed_rattings').defaultTo(JSON.stringify(defaults_1.user.rating_starts));
-                        table.integer('ratting');
+                        table.json('detailed_ratings').defaultTo(JSON.stringify(defaults_1.user.rating_starts));
+                        table.integer('rating');
                         table.boolean('verified').defaultTo(defaults_1.user.verified);
                         table.boolean('isInstructor').defaultTo(defaults_1.user.isInstructor);
                         table.integer('subscriber_count').defaultTo(defaults_1.user.subscriber_count);

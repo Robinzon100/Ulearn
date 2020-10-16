@@ -1,9 +1,14 @@
 import Express, { Application, Request, Response, NextFunction } from 'express'
 import { baseMiddlewares } from './middleware/server/base';
 import { notFound, errorHandler } from './middleware/server/errorHandlers'
+import { Model } from 'objection';
 import api from "./api"
 
 const app = Express()
+
+
+import connection from "./api/db";
+Model.knex(connection);
 
 
 //! ─── CONFIGS ──────────────────────────────────────────────────────────────────────
@@ -20,7 +25,7 @@ baseMiddlewares(app)
 
 
 //!  ─── API ──────────────────────────────────────────────────────────────────────
-app.use(api)
+app.use('/api',api)
 
 
 app.use(notFound)

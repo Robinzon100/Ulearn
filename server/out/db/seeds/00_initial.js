@@ -44,7 +44,7 @@ var orderedTableNames_1 = __importDefault(require("../../constants/orderedTableN
 var tableNames_1 = __importDefault(require("../../constants/tableNames"));
 function seed(knex) {
     return __awaiter(this, void 0, void 0, function () {
-        var userTypes, ratting_titles, types_of_reports;
+        var userTypes, rating_titles, types_of_reports;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, Promise.all(orderedTableNames_1.default.map(function (name) { return knex(name).del(); }))];
@@ -64,7 +64,7 @@ function seed(knex) {
                             { id: 4, name: "Platinum", badge_image_url: "https://www.inelobooster.com/wp-content/uploads/2017/12/Platinum_Rank_of_League_of_Legends.png" },
                         ]).returning('*')];
                 case 3:
-                    ratting_titles = _a.sent();
+                    rating_titles = _a.sent();
                     return [4 /*yield*/, knex(tableNames_1.default.types_of_reports).insert([
                             { id: 1, name: "კურსის შეუსაბამო შინაარსი" },
                             { id: 2, name: "შეუსაბამო ქცევა" },
