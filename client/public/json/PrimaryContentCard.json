@@ -15,7 +15,7 @@
             "difficulty": "საშუალო",
             "description": "მოკლე აღწერა",
             "hoverCardList": [
-                {
+                {   
                     "list": "afsdsdgdfgdfgdfgdf"
                 },
                 {
@@ -29,7 +29,7 @@
         {
             "id": 2,
             "title": "PHP კურსი",
-            "author": "რობო რობოვიჩ მაღალი",
+            "author": "ბექა არაბიძე",
             "raiting": 3,
             "numberOfVotes": 20,
             "bestseller": false,
@@ -55,7 +55,7 @@
         {
             "id": 3,
             "title": "როგორ ავიწიოთ შარვალი?",
-            "author": "ბექა არაბიძე მაღალ შარვალა",
+            "author": "ბექა არაბიძე",
             "raiting": 9,
             "numberOfVotes": 25,
             "bestseller": false,
@@ -175,7 +175,7 @@
         {
             "id": 8,
             "title": "PHP კურსი",
-            "author": "რობო რობოვიჩ მაღალი",
+            "author": "ბექა არაბიძე",
             "raiting": 3,
             "numberOfVotes": 20,
             "bestseller": true,
@@ -199,7 +199,7 @@
         {
             "id": 9,
             "title": "როგორ ავიწიოთ შარვალი?",
-            "author": "ბექა არაბიძე მაღალ შარვალა",
+            "author": "ბექა არაბიძე",
             "raiting": 9,
             "numberOfVotes": 25,
             "bestseller": true,

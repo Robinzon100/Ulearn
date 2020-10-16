@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Star } from "react-feather";
+import { Star,Heart } from "react-feather";
 
 import CardDetail from './CardDetail';
-// import PrimaryContentCardHoverJson from "../../../public/json/PrimaryContentCardHover.json";
+
 
 //! ==================INTERFACE
 import { PrimaryContentCards } from "../../../interfaces/PrimaryContentCard.interface";
-// import { PrimaryContentCardHover } from "../../../interfaces/PrimaryContentCardHover.interface";
 
 
 const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
@@ -36,6 +35,20 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
     const [isLastCard, setIsLastCard] = useState<boolean>(false);
 
     const [isBestSeller, setIsBestSeller] = useState<boolean>(bestseller)
+
+    const handleAddFavorite = (e) => {
+        // debugger
+        const hearts = document.querySelectorAll('.heart');
+        hearts.forEach(heart => {
+            if(heart.classList.contains("heart-background")) {
+            heart.classList.remove('heart-background');
+
+            }
+        });
+        e.currentTarget.classList.toggle("heart-background");
+
+        setAddToFavorites((addToFavorites) => !addToFavorites);
+    }
 
 
     const cardHoverHandler = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -80,7 +93,7 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
                                     {newPrice}
                                     <span style={{ color: "#00E267", fontWeight: "bold" }}>
                                         &#8382;
-                  </span>
+                                    </span>
                                 </p>
                             </div>
                         )}
@@ -90,42 +103,46 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
                                 {price}
                                 <span style={{ color: "#00E267", fontWeight: "bold" }}>
                                     &#8382;
-                </span>
+                                </span>
                             </p>
                         </div>
                     </div>
                 </div>
-            </a>
+           
 
             <div className="PrimaryContentCard__title">
-                <p className="heading-bold-Noto paragraph-medium ">{title}</p>
+                <p className="heading-bold-Noto paragraph-medium-small">{title}</p>
             </div>
+            </a>
             <div className="PrimaryContentCard__raiting">
                 <div className="PrimaryContentCard__raiting--container">
                     <div className="star">
-                        <Star style={{ fill: "#FFD703", color: "#FFD703" }} />
+                        <Star style={{ fill: "#FFD703", color: "#FFD703" }} size={16} />
                     </div>
                     <div className="numbers">
                         <p className="Eina-semibold paragraph-small">
                             {raiting} ({numberOfVotes})
-            </p>
+                        </p>
                     </div>
                 </div>
                 <div className="PrimaryContentCard__raiting--name">
-                    <p className="heading-semi-bold-Noto  paragraph-small">{author}</p>
+                    <a href="#">
+                        <p className="heading-semi-bold-Noto  paragraph-small">{author}
+                        </p>
+                    </a>
                 </div>
             </div>
             <div className="PrimaryContentCard__like">
-                <label className={isBestSeller ? "label heading-semi-bold-Noto paragraph-smallest" : null} >
+                <label className={isBestSeller ? "label heading-semi-bold-Noto paragraph-smallest-small" : null} >
                     {isBestSeller ? <p>ბესტსელერი</p> : null}
-
-
                 </label>
 
                 <div
-                    className={addToFavorites ? "full-heart-svg" : "stroke-heart-svg"}
-                    onClick={() => setAddToFavorites((addToFavorites) => !addToFavorites)}
-                ></div>
+                    className={addToFavorites ? "full-heart-svg heart heart-background" : "stroke-heart-svg heart"}
+                    onClick={(e) =>  handleAddFavorite(e)}
+                >
+                    
+                 </div>
             </div>
         </div>
     );

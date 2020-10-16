@@ -1,7 +1,5 @@
-//! აქ არის ყველა მეინ-კონტენტის ყველა სტილი კარდა კარტებისა
-$overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 255, 255, 0) 100.55%);
-
-
+//! აქ არის მხოლოდ მთავარი გვერდი მთავარი სტილები მაგ:გრიდები ფლექსები 
+//! და ა.შ და დანარჩენ დიდ კომპონენეტებს ყველს თავისი ფაილი აქვს
 
 //! კარუსელს თავისი ცსს ფაილი აქვს
 .main_content {
@@ -9,23 +7,27 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
     width: 100%;
     margin-top: 3rem;
     // background-color: white;
-    padding: $main-pading;
+    padding: var(--main-pading);
     display: flex;
     flex-direction: column;
 
-
+    &--container {
+        display: grid;
+        grid-template-columns: 18% 79.5%;
+        gap: 0px 40px;
+    }
 
     &--input {
         @include flex;
-        align-items: flex-start !important;
-        // margin-bottom: 2rem;
-        align-self: flex-end;
-        width: 74.5%;
+        align-items: center !important;
 
+
+        // .input_container {
+        //     width: 97% !important;
+        // }
 
         .input_styles {
-            width: 96% !important;
-
+            width: 100% !important;
             letter-spacing: 1px;
             font-weight: normal;
         }
@@ -33,161 +35,73 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
         .sorting {
             display: flex;
             align-items: center;
-            justify-content: flex-end;
-            width: 46%;
+            justify-content: space-between;
+            width: 100%;
+            margin-left: 3rem;
 
-            &__heading {
-                margin-right: 1.3rem;
-            }
+            &__video-date,
+            &__video-raiting,
+            &__video-length {
+                background-color: var(--secondary-light-grey);
+                border-radius: 8px;
+                padding: 10px 40px;
+                position: relative;
+                // margin-left: 2rem;
 
-            &__select {
-                width: 100%;
-
-                .select_field {
-                    width: 100%;
+                .heading {
+                    margin-left: 1.5vw;
                 }
             }
-        }
-    }
 
-
-
-    .courses {
-        position: relative;
-        width: 100%;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 0px 35px;
-
-
-        .overlay_container {
-            position: absolute;
-            width: 100%;
-            // height: 19vw;
-            background: $overlay-container-gradient;
-            bottom: 0;
-            height: 21vw;
-            z-index: 1;
-
-
-            .wrapper {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                @include hundred-w-h;
-                margin-top: -5rem;
-            }
-
-            .see_more_arrow {
-                margin-left: 1rem;
-                margin-top: .5rem;
-                cursor: pointer;
-            }
-
-            p {
-                color: $primary-green;
-                cursor: pointer;
-            }
-        }
-
-
-
-
-
-        &--cards {
-            width: 100%;
-            // height: 100%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 100px 40px;
-            margin-top: 8rem;
-            overflow: hidden;
-
-            .PrimaryContentCard {
-                position: relative;
-                width: 100%;
+            .sorting_styles {
+                border-radius: 8px 0px 0px 8px;
+                position: absolute;
+                left: 0;
+                // padding: 10px 0px;
+                width: 22%;
                 height: 100%;
                 display: flex;
-                flex-direction: column;
-                cursor: pointer;
-                &__title {
-                    margin: 1vw 0vw;
-                }
+                align-items: center;
+                justify-content: center;
+            }
 
-                &__img {
-                    background:url("/pictures/courses/card_picture.png");
-                    background-size: cover;
-                    background-position: center 18%;
-                    width: 100%;
-                    height: 21rem;
-                    border-radius: 18px;
-                    position: relative;
-                    background-repeat: no-repeat;
-
-                    .price-tag {
-                        right: 0;
-                        bottom: 0;
-                        position: absolute;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    }
-
-
-                }
-
-
-
-                &__raiting {
-                    @include flex;
-                    justify-content: space-between;
-
-                    width: 100%;
-                    margin: 0vw 0vw 0.5vw 0vw;
-
-                    &--container {
-                        @include flex;
-
-
-                        .numbers {
-                            margin-left: 1rem;
-                            // font-weight: bold;
-                        }
-
-                    }
-
-                    &--name {
-                        opacity: 45%;
-                        margin-right: 1rem;
-                    }
-                }
-
-                &__like {
-                    @include flex;
-                    justify-content: space-between;
-
-                    width: 100%;
-
-                    .stroke-heart-svg {
-                        width: 6rem;
-                        height: 6rem;
-                        background: no-repeat url("/pictures/courses/add_to_favourites.svg");
-                        background-size: cover;
-                        background-position: center;
-                        cursor: pointer;
-                    }
-
-                    .full-heart-svg {
-                        width: 6rem;
-                        height: 6rem;
-                        background: no-repeat url("/pictures/courses/add_to_favorite_full.svg");
-                        background-size: cover;
-                        background-position: center;
-                        cursor: pointer;
-                    }
+            &__video-date {
+                @include flex;
+                .calendar {
+                    background-color: var(--primary-blue);
                 }
             }
 
+            &__video-raiting {
+                @include flex;
+
+                .star {
+                    background-color: var(--primary-yellow);
+                }
+            }
+
+            &__video-length {
+                @include flex;
+                
+
+                .clock {
+                    background-color: var(--secondary-dark-red);
+                }
+            }
+
+
+
+            // &__heading {
+            //     margin-right: 1.3rem;
+            // }
+
+            // &__select {
+            //     width: 100%;
+
+            //     .select_field {
+            //         width: 100%;
+            //     }
+            // }
         }
     }
 

@@ -11,7 +11,7 @@ $footer_padding:1vw 0vw 2vw 4vw;
 
 
 .footer {
-    background-color: $white;
+    background-color: var(--white);
     margin-top: 10rem;
     width: 100%;
     overflow: hidden;
@@ -26,7 +26,7 @@ $footer_padding:1vw 0vw 2vw 4vw;
 
         .info {
             // background-color: $new-primary-2;
-            color: $white;
+            color: var(--white);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -41,7 +41,7 @@ $footer_padding:1vw 0vw 2vw 4vw;
                 color: rgba($color: white, $alpha: .7);
                 a {
                     text-decoration: none !important;
-                    color: $white;
+                    color: var(--white);
                     color: rgba($color: white, $alpha: .7);
                     cursor: pointer;
                 }
@@ -52,7 +52,7 @@ $footer_padding:1vw 0vw 2vw 4vw;
             }
 
             .export {
-                // border-bottom: 1px solid $white;
+                // border-bottom: 1px solid var(--white);
                 // margin-bottom: 2vw;
                 padding: 0vw 0vw 1.5vw 0vw;
             }

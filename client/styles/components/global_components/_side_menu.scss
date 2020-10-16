@@ -9,7 +9,7 @@
     
 
     &__container {
-        border: 0.5px solid $secondary-dark-grey;
+        border: 0.5px solid var(--secondary-dark-grey);
         border-radius: 8px;
         
         &:not(:first-child) {
@@ -30,7 +30,7 @@
             height: auto;
             padding: 2rem;
             position: relative;
-            // background-color: $white;
+            // background-color: var(--white);
             cursor: pointer;
 
 
@@ -58,7 +58,7 @@
                 padding: .4rem;
                 box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.10);
                 border-radius: 5px;
-                background-color: $white;
+                background-color: var(--white);
 
                 p {
                     opacity: 1;
@@ -72,7 +72,7 @@
     //! რაც იკეცება და იშლება
     .card_container__info {
         background-color: white;
-        border-left: 2px solid $primary-green;
+        border-left: 2px solid var(--primary-green);
         // box-shadow: $card-shadow;
         border-radius: 3px;
 

@@ -158,7 +158,7 @@
             &--heading {
 
                 p {
-                    color: $primary-dark;
+                    color: var(--primary-dark);
                     width: 19rem !important;
                     padding: 0.6rem !important;
                     font-weight: bold;
@@ -255,7 +255,7 @@
 
             a {
                 text-decoration: none;
-                color: $white;
+                color: var(--white);
                 width: 48%;
                 padding: 3rem;
 
@@ -319,7 +319,7 @@
 
                         a {
                             text-decoration: none;
-                            color: $white;
+                            color: var(--white);
 
                         }
                     }

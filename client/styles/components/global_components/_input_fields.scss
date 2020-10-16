@@ -1,26 +1,5 @@
-.input_field {
-    width: 100%;
-    padding: 1.5rem;
-    // padding: 1rem 2rem 2rem 6rem;
-    background: #FFFFFF;
-    border: 0.9px solid $secondary-dark-grey;
-    box-sizing: border-box;
-    box-shadow: 0px 4.4px 12px rgba(17, 23, 53, 0.12);
-    border-radius: 8px;
-    outline: none !important;
-
-    &:focus {
-        border: 0.9px solid $secondary-light-grey;
-        box-sizing: border-box;
-        // box-shadow: 0px 1.9px 0px $secondary-light-grey;
-        border-radius: 8px;
-    }
-
-
-}
-
-
-
+$padding-input:1rem 1rem 1rem 5rem;
+$padding-input-select:1rem 1rem 1rem 1rem;
 .input_container {
     position: relative;
     display: flex;
@@ -28,29 +7,26 @@
     width: 100%;
 
     .input_field-with-search {
-        width: 100%;
-        // width: 40rem;
-        padding: 2rem 2rem 2rem 6rem;
-        background: #FFFFFF;
+        width: 97%;
+        padding: $padding-input;
+        background: var(--primary-grey);
         border: none !important;
         box-sizing: border-box;
-        // box-shadow: 0px 1.9px 0px $secondary-dark-grey;
         border-radius: 8px;
         outline: none !important;
-        // box-shadow: $input;
+        
 
 
         &:focus {
-            border: 0.9px solid $secondary-light-grey;
-            box-sizing: border-box;
-            // box-shadow: $input-onFocus;
-            border-radius: 8px;
+            border: 0.9px solid var(--secondary-light-grey);
+            box-shadow: var(--input-onFocus);
+            background: var(--white);
             opacity: 100%;
-
+            
         }
 
         &::placeholder {
-            opacity: 25% !important;
+            opacity: 100% !important;
 
         }
     }
@@ -58,41 +34,11 @@
 
     .search {
         position: absolute;
-        // left: 1%;
-        // top: 30%;
         opacity: 80%;
         margin-left: 2rem;
     }
 
 }
-
-
-
-.select_field {
-    // width: 25rem;
-    width: 100%;
-    padding: 1.5rem 3rem 1.5rem 1.5rem;
-    border: 0.9px solid $secondary-dark-grey;
-    box-sizing: border-box;
-    // box-shadow: $input;
-    border-radius: 8px;
-    outline: none !important;
-    background: url('/pictures/select_arrow.svg') 90% 50% no-repeat;
-    -webkit-appearance: none !important;
-    -moz-appearance: none !important;
-    appearance: none !important;
-    // clip-path: circle(50% at 50% 50%);
-
-
-    option {
-        border: 0.9px solid #C9C9C9;
-        box-sizing: border-box;
-        border-radius: 8px;
-
-    }
-}
-
-
 
 //! SELECT ELEMENT
 .dropdown {
@@ -101,7 +47,7 @@
     position: relative;
     background-origin: padding-box;
     box-sizing: border-box;
-    // box-shadow: $input;
+    // box-shadow: var(--input);
     border-radius: 8px;
     border: none;
 
@@ -109,12 +55,11 @@
 
 
 .dropdown-select {
-    // background:url("/pictures/select_arrow.svg") 75% 53% no-repeat;
-    padding: 2rem 2rem 2rem 2rem;
-    // padding: 1.3rem 1.3rem 1.3rem 1.3rem;
+    background: var(--primary-grey);
+    padding: $padding-input-select;
     position: relative;
     border-radius: 8px;
-    background-color: white;
+    // background-color: white;
     width: 100%;
     display: flex;
     align-items: center;
@@ -137,7 +82,7 @@
     }
 
     .select {
-        opacity: 25%;
+        opacity: 80%;
     }
     
     
@@ -160,7 +105,7 @@
     right: 0;
     height: 0;
     opacity: 0;
-    padding: 1.5rem;
+    padding: $padding-input-select;
     border: 0.9px solid #C9C9C9;
     border-radius: 8px;
     // transition: all .2s;

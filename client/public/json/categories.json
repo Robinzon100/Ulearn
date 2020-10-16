@@ -1,0 +1,62 @@
+{
+    "Categories":
+    [
+        {
+            "id":1,
+            "title":"ყველა",
+            "numberOfCourses":256
+        },
+        {
+            "id":2,
+            "title":"დეველოპმენტი",
+            "numberOfCourses":21
+        },
+        {
+            "id":3,
+            "title":"კულინარია",
+            "numberOfCourses":2
+        },
+        {
+            "id":4,
+            "title":"IT ტექნოლოგიები",
+            "numberOfCourses":10
+        },
+        {
+            "id":5,
+            "title":"ფოტოგრაფია",
+            "numberOfCourses":100
+        },
+        {
+            "id":6,
+            "title":"ფინანსები და ბუღალტერია",
+            "numberOfCourses":25
+        },
+        {
+            "id":7,
+            "title":"ბიზნესი",
+            "numberOfCourses":26
+        },
+        {
+            "id":8,
+            "title":"მარკეტინგი",
+            "numberOfCourses":256
+        },
+        {
+            "id":9,
+            "title":"მუსიკა",
+            "numberOfCourses":30
+        },
+        {
+            "id":10,
+            "title":"ცეკვა",
+            "numberOfCourses":255
+        },
+        {
+            "id":11,
+            "title":"ჯამრთელობა და ფიტნესი",
+            "numberOfCourses":125
+        }
+
+
+    ]
+}

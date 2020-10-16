@@ -2,13 +2,15 @@ import React, {useEffect } from "react";
 import { ShoppingCart, Check } from "react-feather";
 
 //! ============= INTERFACE
-import { PrimaryContentCards } from "../../../interfaces/PrimaryContentCard.interface";
+
+import { PrimaryContentCardHover } from './../../../interfaces/PrimaryContentCardHover.interface';
+
 
 interface isLastCard {
     isLastCard: boolean;
 }
 
-const CardDetail: React.FC<PrimaryContentCards & isLastCard> = ({
+const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
     id,
     imageUrl,
     title,
@@ -61,7 +63,7 @@ const CardDetail: React.FC<PrimaryContentCards & isLastCard> = ({
         <>
             <div className="card_detail" key={id}>
                 <div className="card_detail--container">
-                    <div className="card_detail--container__img"></div>
+                    <div className="card_detail--container__img" style={{ backgroundImage: `url(${imageUrl})` }}></div>
 
                     <div className="inside_content">
                         <div className="card_detail--container__title">
@@ -103,43 +105,21 @@ const CardDetail: React.FC<PrimaryContentCards & isLastCard> = ({
                             <ul>
                                 { 
                                     descriptionList &&
-                                        descriptionList.map((list) =>(
-                                        <li>{list.descriptionList}</li>
+                                        descriptionList.map((list,i) =>(
+                                        <li key={i}> 
+                                            <div className="check">
+                                                <Check size={15} />
+                                            </div>
+                                            <div className="paragraph">
+                                                <p className="paragraph-light-Noto paragraph-small ">
+                                                    {list.list}
+                                                </p>
+                                            </div>
+                                        </li>
                                     ))
                                     
                                 }
-                                <li>
-                                    <div className="check">
-                                        <Check size={15} />
-                                    </div>
-                                    <div className="paragraph">
-                                        <p className="paragraph-light-Noto paragraph-small ">
-                                            მოკლე-მოკლედ რა არის კურსზე რომელიც 2 ხაზს არ უნდა
-                                            აღემატოს
-                                        </p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="check">
-                                        <Check size={15} />
-                                    </div>
-                                    <div className="paragraph">
-                                        <p className="paragraph-light-Noto paragraph-small ">
-                                            მოკლე-მოკლედ რა არის კურსზე რომელიც 1
-                                        </p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="check">
-                                        <Check size={15} />
-                                    </div>
-                                    <div className="paragraph">
-                                        <p className="paragraph-light-Noto paragraph-small ">
-                                            მოკლე-მოკლედ რა არის კურსზე რომელიც 2 ხაზს არ უნდა
-                                            აღემატოს
-                                        </p>
-                                    </div>
-                                </li>
+                              
                             </ul>
                         </div>
                     </div>

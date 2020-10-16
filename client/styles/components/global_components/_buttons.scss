@@ -11,7 +11,7 @@
     text-decoration: none;
     cursor: pointer;
     border: none;
-    color: $white;
+    color: var(--white);
     outline: none !important;
     // font-family: $paragraph-regular;
 
@@ -19,73 +19,73 @@
 }
 
 .btn-blue {
-    background: $button-blue-gradient;
-    border: 1px solid $primary-blue;
+    background: var(button-blue-gradient);
+    border: 1px solid var(--primary-blue);
     transition: all .4s;
 
     // &:hover {
-    //     background: $white;
-    //     color: $primary-blue;
+    //     background: var(--white);
+    //     color: var(--primary-blue);
 
-    //     // border: 1px solid $primary-blue;
+    //     // border: 1px solid var(--primary-blue);
     // }
 }
 
 .btn-yellow {
-    background: $primary-yellow;
-    border: 1px solid $primary-yellow;
+    background: var(--primary-yellow);
+    border: 1px solid var(--primary-yellow);
     transition: all .5s;
 
     // &:hover {
-    //     background: $white;
-    //     color: $primary-yellow;
-    //     // border: 1px solid $primary-blue;
+    //     background: var(--white);
+    //     color: var(--primary-yellow);
+    //     // border: 1px solid var(--primary-blue);
     // }
 }
 
 .btn-green {
-    background: $button-green-gradient;
-    border: 1px solid $primary-green;
+    background: var(--button-green-gradient);
+    border: 1px solid var(--primary-green);
     transition: all .5s;
 
     // &:hover {
-    //     background: $white;
-    //     color: $primary-green;
-    //     // border: 1px solid $primary-blue;
+    //     background: var(--white);
+    //     color: var(--primary-green);
+    //     // border: 1px solid var(--primary-blue);
     // }
 }
 
 
 .btn-red {
-    background: $primary-red;
-    border: 1px solid $primary-red;
+    background: var(--primary-red);
+    border: 1px solid var(--primary-red);
     transition: all .4s;
 
     // &:hover {
-    //     background: $white;
-    //     color: $primary-blue;
+    //     background: var(--white);
+    //     color: var(--primary-blue);
 
-    //     // border: 1px solid $primary-blue;
+    //     // border: 1px solid var(--primary-blue);
     // }
 }
 
 .btn-white {
-    background: $white;
-    border: 1px solid $primary-blue;
+    background: var(--white);
+    border: 1px solid var(--primary-blue);
     transition: all .4s;
 
     // &:hover {
-    //     background: $white;
-    //     color: $primary-blue;
+    //     background: var(--white);
+    //     color: var(--primary-blue);
 
-    //     // border: 1px solid $primary-blue;
+    //     // border: 1px solid var(--primary-blue);
     // }
 }
 
 
 .btn-black {
-    background: $white;
-    border: 1px solid $primary-dark;
+    background: var(--white);
+    border: 1px solid var(--primary-dark);
     transition: all .4s;
 
 
@@ -99,17 +99,28 @@
 
 
 .btn-for-video-files {
-    background: $button-green-gradiend-forFile;
+    background: var(--button-green-gradiend-forFile);
     border-radius: 8px;
-    box-shadow: $box-shadow-for-video-files;
+    box-shadow: var(--box-shadow-for-video-files);
 
     padding: 2.3rem;
     text-decoration: none;
-    color: $white;
+    color: var(--white);
     position: relative;
 
 
 }
+
+.label {
+    // width: 30rem;
+    background: var(--primary-green);
+    border: 1px solid var(--primary-green);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-radius: 5px;
+    color: var(--white);
+    cursor: pointer;
+}
+
 
 // .icon {
 //     background: no-repeat url("/pictures/courses/folder.svg");
@@ -123,13 +134,3 @@
 
 
 
-
-.label {
-    // width: 30rem;
-    background: $primary-green;
-    border: 1px solid $primary-green;
-    padding: .6rem 1.5rem .6rem 1.5rem;
-    border-radius: 5px;
-    color: $white;
-    cursor: pointer;
-}

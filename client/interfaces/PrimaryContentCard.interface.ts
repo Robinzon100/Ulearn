@@ -1,12 +1,8 @@
-//  import {PrimaryContentCardHover} from "./PrimaryContentCardHover.interface";
+  import {PrimaryContentCardHover} from "./PrimaryContentCardHover.interface";
 
 
-interface hoverCardDetailList {
-    id:number
-    descriptionList:string,
-}
 
-export interface PrimaryContentCards {
+export interface PrimaryContentCards extends  PrimaryContentCardHover{
     id: number;
     title: string;
     author: string;
@@ -15,11 +11,6 @@ export interface PrimaryContentCards {
     bestseller: boolean;
     price: number;
     newPrice: number | boolean;
-    imageUrl:string
-    isLiked:boolean,
-    posted:string,
-    difficulty:string,
-    description:string,
-    descriptionList:hoverCardDetailList[],
+    isLiked:boolean
     
 }

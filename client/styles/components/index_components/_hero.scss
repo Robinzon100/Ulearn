@@ -46,17 +46,16 @@ $hero-paragraph-margin:0vw 0vw 3vw 0vw;
         position: relative;
         position: absolute;
         top: 18%;
-        left: 10%;
+        left: 9%;
         background: rgba(207, 207, 207, 0.26);
-        // box-shadow: inset 0px 0px 10px rgba(255, 255, 255, 0.4);
-        // backdrop-filter: blur(47px);
+        
         border-radius: 21px;
         padding: 2.5rem 2.5rem 4rem 2.5rem;
 
 
 
         &--line {
-            background-color: $white;
+            background-color: var(--white);
             width: 5vw;
             height: 0.1vw;
             margin: 1.3vw 0vw 1vw 0vw;
@@ -70,7 +69,7 @@ $hero-paragraph-margin:0vw 0vw 3vw 0vw;
 
                 h1 {
                     line-height: 150.28%;
-                    color: $white;
+                    color: var(--white);
 
                 }
             }
@@ -81,7 +80,7 @@ $hero-paragraph-margin:0vw 0vw 3vw 0vw;
                 width: 100%;
                 margin: $hero-paragraph-margin;
                 // opacity: 50%;
-                color: $white;
+                color: var(--white);
 
                 p {
                     line-height: 168.28%;
@@ -97,7 +96,7 @@ $hero-paragraph-margin:0vw 0vw 3vw 0vw;
         &__btn {
             a {
 
-                color: $primary-dark;
+                color: var(--primary-dark);
                 line-height: 137.57%;
 
 

@@ -8,7 +8,8 @@ $card-detail-shadow:35px 41px 99px 27px rgba(19, 21, 26, 0.3);
     display: flex;
     justify-content: center;
     position: absolute;
-    width: 28vw;
+    width: 100%;
+    // width: 50vw;
     left: 20.5vw;
     z-index: 100;
     margin-left: .5rem;
@@ -28,7 +29,7 @@ $card-detail-shadow:35px 41px 99px 27px rgba(19, 21, 26, 0.3);
     &--container {
 
         border-radius: 20px;
-        background: $white;
+        background: var(--white);
         box-shadow: $card-detail-shadow;
 
 
@@ -45,7 +46,7 @@ $card-detail-shadow:35px 41px 99px 27px rgba(19, 21, 26, 0.3);
             a {
                 text-decoration: none;
                 cursor: pointer !important;
-                color: $primary-dark;
+                color: var(--primary-dark);
 
                 &:hover {
                    color:  rgba(25, 27, 31, 0.90);
@@ -84,7 +85,7 @@ $card-detail-shadow:35px 41px 99px 27px rgba(19, 21, 26, 0.3);
         }
 
         &__addtobucket {
-            background-color: $primary-red;
+            background-color: var(--primary-red);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -93,7 +94,7 @@ $card-detail-shadow:35px 41px 99px 27px rgba(19, 21, 26, 0.3);
             padding: 4rem 0rem;
 
             .heading {
-                color: $white;
+                color: var(--white);
                 margin-right: 1rem;
                 letter-spacing: 2px;
             }
