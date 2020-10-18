@@ -4,6 +4,7 @@ import { Model } from 'objection'
 
 
 
+
 export default class User extends Model {
     full_name!: string
     email!: string
@@ -42,10 +43,8 @@ export default class User extends Model {
     instructor_category_id!: number
     user_type_id!: number
 
- 
- 
-  
 
+    
     static get tableName() {
         return tableNames.users;
     }
