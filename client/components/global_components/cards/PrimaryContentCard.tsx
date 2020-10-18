@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Star,Heart } from "react-feather";
 
 import CardDetail from './CardDetail';
-
+import {stringToCut} from "components/utils/stringCut";
 
 //! ==================INTERFACE
 import { PrimaryContentCards } from "../../../interfaces/PrimaryContentCard.interface";
@@ -111,7 +111,7 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
            
 
             <div className="PrimaryContentCard__title">
-                <p className="heading-bold-Noto paragraph-medium-small">{title}</p>
+                <p className="heading-bold-Noto paragraph-medium-small">{stringToCut(title,25)}</p>
             </div>
             </a>
             <div className="PrimaryContentCard__raiting">
@@ -127,7 +127,7 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
                 </div>
                 <div className="PrimaryContentCard__raiting--name">
                     <a href="#">
-                        <p className="heading-semi-bold-Noto  paragraph-small">{author}
+                        <p className="heading-semi-bold-Noto  paragraph-small">{stringToCut(author,25)}
                         </p>
                     </a>
                 </div>

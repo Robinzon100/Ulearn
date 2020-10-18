@@ -18,13 +18,19 @@ const main_content: React.FC = () => {
         "მოძებნე სასურველი კურსი"
     );
 
+
+    //! Example of localStorage Change CSS Colors
     // const checkNewCssVars = () => {
     //     console.log("click")
+    //     let colorArray = [];
     //     const calendar = document.getElementById('calendar');
+    //     let color = "var(--secondary-dark-red)";
+    //     calendar.style.backgroundColor =  color;
+    //     colorArray.push(color);
 
-    //     calendar.style.backgroundColor = "var(--secondary-dark-red)";
-
-    //     localStorage.setItem('testObject', JSON.stringify(testObject));
+    //     localStorage.setItem('color', color);
+    //     console.log('retrievedColor: ', color);
+    //     console.log("array:"+colorArray)
     // }
 
     const [CardsJson, setCardsJson] = useState(PrimaryContentCardJson.contentCard)
@@ -81,7 +87,7 @@ const main_content: React.FC = () => {
                                 </div>
                                 <div className="sorting__video-length">
                                     <div className="clock sorting_styles">
-                                        <Clock color="#FF5C4D" size={16}/>
+                                        <Clock color="red" size={16}/>
                                     </div>
                                     <div className="heading">
                                     <p className="paragraph-regular-Noto paragraph-medium-small">ხანგძლივობა</p>
@@ -132,7 +138,7 @@ const main_content: React.FC = () => {
 
 
                 </div>
-
+                                
             </div>
         </Fragment>
     );

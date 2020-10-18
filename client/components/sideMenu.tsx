@@ -12,13 +12,7 @@ const sideMenu: React.FC<videoList> = ({
     const [finished, setFinished] = useState<boolean>(false);
     const ref = useRef();
 
-    //! ფუნქცია რომ შეკრიბოს საბ ლექციების დრო და გამოიტანოს მთლიანი დროს
-    //   const handleSubamountOfMinutes = (subAmountOfMinutes:number,id:number) => {
-    //         const addMinutes = subAmountOfMinutes + subAmountOfMinutes;
-
-
-    //         return addMinutes;
-    //   }
+    
 
     const handleSetRevealContent = () => {
         setRevealContent((revealContent) => !revealContent);

@@ -1,5 +1,6 @@
 import React, {useEffect } from "react";
 import { ShoppingCart, Check } from "react-feather";
+import {stringToCut} from "components/utils/stringCut";
 
 //! ============= INTERFACE
 
@@ -33,20 +34,6 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
         }); 
     };
 
-    
-    
-    // let handleDetectCardPosition = () => {
-    //     const hoverCards = document.querySelectorAll<HTMLElement>(".card_detail");
-
-    //     hoverCards.forEach((card) => {
-            
-    //         let getLeftPostion = Math.floor((window.innerWidth  - card.offsetLeft) / 4.8);
-    //         // let getTopPostion = (window.innerHeight ) - card.offsetTop;
-
-    //         card.style.left = `${getLeftPostion}px`;
-    //         console.log({ x:getLeftPostion })
-    //     });
-    // }
 
 
     useEffect(() => {
@@ -63,13 +50,13 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
         <>
             <div className="card_detail" key={id}>
                 <div className="card_detail--container">
-                    <div className="card_detail--container__img" style={{ backgroundImage: `url(${imageUrl})` }}></div>
+                    {/* <div className="card_detail--container__img" style={{ backgroundImage: `url(${imageUrl})` }}></div> */}
 
                     <div className="inside_content">
                         <div className="card_detail--container__title">
                             <a href="#">
                                 <p className="heading-bold-Noto paragraph-regular">
-                                    {title}
+                                    {stringToCut(title,25)}
                                 </p>
                             </a>
                         </div>
@@ -123,20 +110,22 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
                             </ul>
                         </div>
                     </div>
-
+                    
+                    <a href="#">
                     <div className="card_detail--container__addtobucket">
                         <div className="heading">
-                            <p className="heading-bold-Noto paragraph-biggest">
+                            <p className="heading-bold-Noto paragraph-regular">
                                 კალათაში დამატება
                             </p>
                         </div>
                         <div className="shoppingCart">
                             <ShoppingCart
                                 style={{ color: "#ffffff", fontWeight: "bold" }}
-                                size={30}
+                                size={25}
                             />
                         </div>
                     </div>
+                    </a>
                 </div>
             </div>
         </>

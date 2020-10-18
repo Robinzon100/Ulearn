@@ -5,6 +5,8 @@ $padding-input-select:1rem 1rem 1rem 1rem;
     display: flex;
     align-items: center;
     width: 100%;
+    transition: all 3s;
+    
 
     .input_field-with-search {
         width: 97%;
@@ -14,14 +16,13 @@ $padding-input-select:1rem 1rem 1rem 1rem;
         box-sizing: border-box;
         border-radius: 8px;
         outline: none !important;
-        
-
 
         &:focus {
             border: 0.9px solid var(--secondary-light-grey);
             box-shadow: var(--input-onFocus);
             background: var(--white);
-            opacity: 100%;
+            opacity: 100%;  
+            // animation: inputCursorAnimation ease 3s forwards;
             
         }
 
@@ -29,8 +30,10 @@ $padding-input-select:1rem 1rem 1rem 1rem;
             opacity: 100% !important;
 
         }
+        
+        
     }
-
+    
 
     .search {
         position: absolute;
@@ -40,6 +43,10 @@ $padding-input-select:1rem 1rem 1rem 1rem;
 
 }
 
+@keyframes inputCursorAnimation {
+    from {padding: 1.2rem 0rem 1.2rem 0rem;}
+    to {padding: 1.2rem 0rem 1.2rem 5rem;}
+}
 //! SELECT ELEMENT
 .dropdown {
     // width: 30rem;
@@ -143,3 +150,4 @@ $padding-input-select:1rem 1rem 1rem 1rem;
     height: auto;
     display: block;
 }
+

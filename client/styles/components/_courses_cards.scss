@@ -45,9 +45,9 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
         // height: 100%;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-        gap: 50px 20px;
-        margin-top: $content-container-margin;
-        overflow: hidden;
+        gap: 100px 20px;
+        margin-top: 5rem;
+        // overflow: hidden;
 
         .PrimaryContentCard {
             position: relative;

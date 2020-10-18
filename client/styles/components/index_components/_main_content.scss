@@ -67,8 +67,10 @@
 
             &__video-date {
                 @include flex;
+                
                 .calendar {
                     background-color: var(--primary-blue);
+                    opacity: 60%;
                 }
             }
 
@@ -77,6 +79,8 @@
 
                 .star {
                     background-color: var(--primary-yellow);
+                    opacity: 60%;
+
                 }
             }
 
@@ -86,22 +90,14 @@
 
                 .clock {
                     background-color: var(--secondary-dark-red);
+                    opacity: 60%;
+
                 }
             }
 
 
 
-            // &__heading {
-            //     margin-right: 1.3rem;
-            // }
-
-            // &__select {
-            //     width: 100%;
-
-            //     .select_field {
-            //         width: 100%;
-            //     }
-            // }
+            
         }
     }
 
