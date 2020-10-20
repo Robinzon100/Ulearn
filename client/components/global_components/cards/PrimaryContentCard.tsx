@@ -24,7 +24,7 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
     description,
     descriptionList
 }) => {
-    // const [cardHoverJson, setCardHoverJson] = useState(hoverCards);
+    
 
     const [addToFavorites, setAddToFavorites] = useState<boolean>(isLiked);
 
@@ -34,7 +34,7 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
 
     const [isLastCard, setIsLastCard] = useState<boolean>(false);
 
-    const [isBestSeller, setIsBestSeller] = useState<boolean>(bestseller)
+    const [isBestSeller, setIsBestSeller] = useState<boolean>(bestseller);
 
     const handleAddFavorite = (e) => {
         // debugger
@@ -68,7 +68,6 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
             onMouseLeave={() => setHover(null)}
         >
             {
-                
                 hover &&
                 <CardDetail
                     id={id}

@@ -23,9 +23,11 @@ const main_content: React.FC = () => {
     // const checkNewCssVars = () => {
     //     console.log("click")
     //     let colorArray = [];
-    //     const calendar = document.getElementById('calendar');
+    //     const calendars = document.querySelectorAll('.colorChange');
     //     let color = "var(--secondary-dark-red)";
-    //     calendar.style.backgroundColor =  color;
+    //     calendars.forEach(calendar => {
+    //         calendar.style.backgroundColor = color;
+    //     })
     //     colorArray.push(color);
 
     //     localStorage.setItem('color', color);
@@ -69,7 +71,7 @@ const main_content: React.FC = () => {
                             <InputSearch placeHolder={placeHolder} />
 
                             <div className="sorting">
-                                <div className="sorting__video-date">
+                                <div className="sorting__video-date colorChange">
                                     <div className="calendar sorting_styles" id="calendar">
                                         <Calendar color="blue" size={16}/>
                                     </div>
@@ -77,7 +79,7 @@ const main_content: React.FC = () => {
                                         <p className="paragraph-regular-Noto paragraph-medium-small">თარიღი</p>
                                     </div>
                                 </div>
-                                <div className="sorting__video-raiting">
+                                <div className="sorting__video-raiting colorChange">
                                     <div className="star sorting_styles">
                                         <Star color="yellow" size={16}/>
                                     </div>
@@ -85,7 +87,7 @@ const main_content: React.FC = () => {
                                     <p className="paragraph-regular-Noto paragraph-medium-small">რეიტინგი</p>
                                     </div>
                                 </div>
-                                <div className="sorting__video-length">
+                                <div className="sorting__video-length colorChange">
                                     <div className="clock sorting_styles">
                                         <Clock color="red" size={16}/>
                                     </div>

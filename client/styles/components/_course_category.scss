@@ -27,8 +27,7 @@
 
             &--name {
                 color: var(--white);
-
-                
+                cursor: pointer;
             }
 
             &--number {
@@ -37,13 +36,14 @@
                 color: var(--white);
                 border-radius: 4px;
                 padding: 0 0.5rem;
+                cursor: pointer;
+
             }
         }
 
 
         .category_sub {
             margin-top: 2rem !important;
-
             .category_main--name {
                 color: var(--primary-dark);
 

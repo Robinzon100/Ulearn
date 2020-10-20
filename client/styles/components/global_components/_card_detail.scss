@@ -8,21 +8,21 @@ $card-detail-shadow:20px 30px 90px 10px rgba(19, 21, 26, 0.2);
     display: flex;
     justify-content: center;
     position: absolute;
-    width: 45rem;
+    width: 40rem;
     height:auto;
     z-index: 100;
     margin-left: .5rem;
     border-radius: 1px;
-    top: -40px;
-    padding: 0.2rem 2.5rem;
-    left: 320px;
+    top: -30px;
+    padding: 0.2rem 2rem;
+    left: 23vw;
     // bottom: 0;
 
     .inside_content {
-        padding: 2.5rem;
+        padding: 2rem;
 
         & * div {
-            margin-top:10px;
+            margin-top:5px;
         }
     }
 
@@ -93,5 +93,12 @@ $card-detail-shadow:20px 30px 90px 10px rgba(19, 21, 26, 0.2);
 
 
         }
+    }
+}
+
+
+@media screen and (max-width: 1590px) {
+    .card_detail{
+        left: 35.5vw;
     }
 }

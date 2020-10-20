@@ -13,7 +13,6 @@ interface isLastCard {
 
 const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
     id,
-    imageUrl,
     title,
     posted,
     difficulty,
@@ -25,23 +24,25 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
         const hoverCards = document.querySelectorAll<HTMLElement>(".card_detail");
 
         hoverCards.forEach((card) => {
-            card.style.left = "-27.7vw";
-            if(window.innerWidth < 1200) {
-                card.style.left = "-29vw";
-            }
+            card.style.left = "-400px";
+            // card.style.opacity = "1"
+            // if(window.innerWidth < 1200) {
+            //     card.style.left = "-29vw";
+            // }
             
 
         }); 
     };
 
-
+    
 
     useEffect(() => {
         if (isLastCard) {
             console.log("left");
            handleHoverCardsStyle(); 
         }
-        
+        // handleHoverCardsStyle(); 
+    
     }, [isLastCard]);
 
 
@@ -50,8 +51,6 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
         <>
             <div className="card_detail" key={id}>
                 <div className="card_detail--container">
-                    {/* <div className="card_detail--container__img" style={{ backgroundImage: `url(${imageUrl})` }}></div> */}
-
                     <div className="inside_content">
                         <div className="card_detail--container__title">
                             <a href="#">
