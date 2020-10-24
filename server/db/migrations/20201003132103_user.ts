@@ -9,8 +9,8 @@ export async function up(knex: Knex): Promise<void> {
         table.string("full_name", 256).notNullable();
         table.string('email', 254).notNullable().notNullable();
         table.string('password', 255).notNullable();
-        table.string('recovery_email', 254);
-        table.string('description', 1000)
+        table.string('recovery_email', 254).defaultTo('');
+        table.string('description', 1000).defaultTo('')
 
         // TODO: shecvale socials da piradi infos defaults
         // TODO: shecvale categories
@@ -21,33 +21,33 @@ export async function up(knex: Knex): Promise<void> {
         table.string('image_url', 2048);
 
         table.json('notifications').defaultTo(user.notifications);
-        table.json('paynment_info');
+        table.json('paynment_info').defaultTo(JSON.stringify([{}]));;
         table.integer('student_amount').defaultTo(user.student_amount)
         table.integer('review_amount', 255).defaultTo(user.review_amount)
         table.integer('total_minutes_of_courses').defaultTo(user.total_minutes_of_courses)
         table.json('detailed_ratings').defaultTo(JSON.stringify(user.rating_starts))
-        table.integer('rating')
+        table.integer('rating').defaultTo(0)
         table.boolean('verified').defaultTo(user.verified)
         table.boolean('isInstructor').defaultTo(user.isInstructor)
         table.integer('subscriber_count').defaultTo(user.subscriber_count)
         table.boolean('show_details_public').defaultTo(user.show_details_public)
-        table.json('personal_detales');
+        table.json('personal_detales').defaultTo(JSON.stringify({}));
         table.json('socials').defaultTo(JSON.stringify(user.socials))
-        table.json('purchased_courses_Receipts')
+        table.json('purchased_courses_Receipts').defaultTo(JSON.stringify({}))
         table.integer('Ulearn_coins').defaultTo(user.Ulearn_coins)
         table.json('last_searched').defaultTo(user.last_searched)
-        table.string("affiliate_link", 255)
+        table.string("affiliate_link", 255).defaultTo(JSON.stringify([]))
         table.json("viewed_courses_ids").defaultTo(user.viewed_courses_ids);
 
-        references(table, tableNames.rating_titles, true, "rating_title");
-        references(table, tableNames.main_categories, true, "favorite_main_category");
-        references(table, tableNames.main_categories, true, "instructor_category");
-        references(table, tableNames.user_types, true, 'user_type');
-        table.json("favorite_main_category_ids");
-        table.json("favorite_sub_category_ids");
-        table.json("generated_sub_category_ids");
-        table.json("generated_categories_ids");
-        table.json('liked_courses_ids')
+        references(table, tableNames.rating_titles, true, "rating_title").defaultTo(1);
+        references(table, tableNames.main_categories, true, "favorite_main_category").defaultTo(1);
+        references(table, tableNames.main_categories, true, "instructor_category").defaultTo(1);
+        references(table, tableNames.user_types, true, 'user_type').defaultTo(3);
+        table.json("favorite_main_category_ids").defaultTo(JSON.stringify([]));
+        table.json("favorite_sub_category_ids").defaultTo(JSON.stringify([]));;
+        table.json("generated_sub_category_ids").defaultTo(JSON.stringify([]));;
+        table.json("generated_categories_ids").defaultTo(JSON.stringify([]));;
+        table.json('liked_courses_ids').defaultTo(JSON.stringify([]));
 
         addTimestamps(table);
     })
