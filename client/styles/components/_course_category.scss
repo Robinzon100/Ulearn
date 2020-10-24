@@ -32,12 +32,14 @@
 
             &--number {
                 background-color: var(--primary-dark);
-                padding: 0.5rem;
+                padding: 0.3rem;
                 color: var(--white);
                 border-radius: 4px;
-                padding: 0 0.5rem;
+                // padding: 0 0.5rem;
                 cursor: pointer;
-
+                max-width: 12%;
+                width: 100%;
+                text-align: center;
             }
         }
 

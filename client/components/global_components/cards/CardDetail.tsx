@@ -19,28 +19,39 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
     description,
     descriptionList,
     isLastCard,
+    
 }) => {
-    const handleHoverCardsStyle = () => {
+    const handleHoverCardStyle = () => {
         const hoverCards = document.querySelectorAll<HTMLElement>(".card_detail");
 
         hoverCards.forEach((card) => {
             card.style.left = "-400px";
-            // card.style.opacity = "1"
-            // if(window.innerWidth < 1200) {
-            //     card.style.left = "-29vw";
-            // }
-            
-
-        }); 
+         }); 
     };
+
+
+    
+    // let handleDetectCardPosition = () => {
+    //     const hoverCards = document.querySelectorAll<HTMLElement>(".card_detail");
+
+    //     hoverCards.forEach((card) => {
+            
+    //         let getLeftPostion = Math.floor((window.innerWidth  - card.offsetLeft) / 4.8);
+    //         // let getTopPostion = (window.innerHeight ) - card.offsetTop;
+
+    //         card.style.left = `${getLeftPostion}px`;
+    //         console.log({ x:getLeftPostion })
+    //     });
+    // }
 
     
 
     useEffect(() => {
         if (isLastCard) {
             console.log("left");
-           handleHoverCardsStyle(); 
+           handleHoverCardStyle(); 
         }
+        
         // handleHoverCardsStyle(); 
     
     }, [isLastCard]);
@@ -49,7 +60,7 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
 
     return (
         <>
-            <div className="card_detail" key={id}>
+            <div key={id}>
                 <div className="card_detail--container">
                     <div className="inside_content">
                         <div className="card_detail--container__title">

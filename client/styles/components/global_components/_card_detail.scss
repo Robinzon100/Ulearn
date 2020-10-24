@@ -3,6 +3,13 @@
 $card-detail-shadow:20px 30px 90px 10px rgba(19, 21, 26, 0.2);
 
 
+.card_detail-display {
+    display: none;
+    opacity: 0;
+    transition: all 5s;
+
+}
+
 
 .card_detail {
     display: flex;
@@ -17,6 +24,10 @@ $card-detail-shadow:20px 30px 90px 10px rgba(19, 21, 26, 0.2);
     padding: 0.2rem 2rem;
     left: 23vw;
     // bottom: 0;
+    // display: block;
+    opacity: 1;
+    color: var(--primary-dark) !important;
+    text-align: left !important;
 
     .inside_content {
         padding: 2rem;

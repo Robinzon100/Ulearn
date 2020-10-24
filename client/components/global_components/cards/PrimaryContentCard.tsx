@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Star,Heart } from "react-feather";
+import { Star, Heart } from "react-feather";
 
 import CardDetail from './CardDetail';
-import {stringToCut} from "components/utils/stringCut";
+import { stringToCut } from "components/utils/stringCut";
 
 //! ==================INTERFACE
 import { PrimaryContentCards } from "../../../interfaces/PrimaryContentCard.interface";
@@ -24,13 +24,13 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
     description,
     descriptionList
 }) => {
-    
+
 
     const [addToFavorites, setAddToFavorites] = useState<boolean>(isLiked);
 
     const [checkNewPrice, setCheckNewPrice] = useState<boolean | number>(newPrice);
 
-    const [hover, setHover] = useState<boolean | null>(false);
+    const [isClicked, setIsClicked] = useState<boolean | null>();
 
     const [isLastCard, setIsLastCard] = useState<boolean>(false);
 
@@ -40,8 +40,8 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
         // debugger
         const hearts = document.querySelectorAll('.heart');
         hearts.forEach(heart => {
-            if(heart.classList.contains("heart-background")) {
-            heart.classList.remove('heart-background');
+            if (heart.classList.contains("heart-background")) {
+                heart.classList.remove('heart-background');
 
             }
         });
@@ -52,37 +52,24 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
 
 
     const cardHoverHandler = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-        setHover(true)
-
-        if (((window.innerWidth / 2) - 40.5) < e.currentTarget.offsetLeft) {
+        
+        if (((window.innerWidth / 2) - 40) < e.currentTarget.parentElement.offsetLeft) {
             setIsLastCard(true);
-        }
+        }   
+        
+
+        setIsClicked((isClicked) => !isClicked);
 
     }
-
+    const handleHoverLeave = () => {
+        setIsClicked(null);
+    }
 
     return (
         <div className="PrimaryContentCard"
             key={id}
-            onMouseEnter={(e) => cardHoverHandler(e)}
-            onMouseLeave={() => setHover(null)}
+            onMouseLeave={handleHoverLeave}
         >
-            {
-                hover &&
-                <CardDetail
-                    id={id}
-                    title={title}
-                    imageUrl={imageUrl}
-                    posted={posted}
-                    difficulty={difficulty}
-                    description={description}
-                    descriptionList={descriptionList}
-                    isLastCard={isLastCard}
-                />
-
-
-            }
-
             <a href="#">
                 <div className="PrimaryContentCard__img" style={{ backgroundImage: `url(${imageUrl})` }}>
                     <div className="price-tag">
@@ -107,11 +94,11 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
                         </div>
                     </div>
                 </div>
-           
 
-            <div className="PrimaryContentCard__title">
-                <p className="heading-bold-Noto paragraph-medium-small">{stringToCut(title,25)}</p>
-            </div>
+
+                <div className="PrimaryContentCard__title">
+                    <p className="heading-bold-Noto paragraph-medium-small">{stringToCut(title, 25)}</p>
+                </div>
             </a>
             <div className="PrimaryContentCard__raiting">
                 <div className="PrimaryContentCard__raiting--container">
@@ -126,7 +113,7 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
                 </div>
                 <div className="PrimaryContentCard__raiting--name">
                     <a href="#">
-                        <p className="heading-semi-bold-Noto  paragraph-small">{stringToCut(author,25)}
+                        <p className="heading-semi-bold-Noto  paragraph-small">{stringToCut(author, 25)}
                         </p>
                     </a>
                 </div>
@@ -138,11 +125,35 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
 
                 <div
                     className={addToFavorites ? "full-heart-svg heart heart-background" : "stroke-heart-svg heart"}
-                    onClick={(e) =>  handleAddFavorite(e)}
+                    onClick={handleAddFavorite}
                 >
-                    
-                 </div>
+
+                </div>
             </div>
+
+            
+            <div className="PrimaryContentCard__hover-card heading-semi-bold-Noto paragraph-smallest-small"
+                    onClick={(e) => cardHoverHandler(e)}
+                    
+                >
+                    <div className={isClicked ? "card_detail" : "card_detail-display"}>
+                    {
+                        
+                        <CardDetail
+                            id={id}
+                            title={title}
+                            imageUrl={imageUrl}
+                            posted={posted}
+                            difficulty={difficulty}
+                            description={description}
+                            descriptionList={descriptionList}
+                            isLastCard={isLastCard}
+                            
+                        />
+                    }
+                    </div>
+                დააჭირე
+                </div>
         </div>
     );
 };

@@ -60,6 +60,18 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
             a {
                 text-decoration: none !important;
             }
+            
+            &__hover-card {
+                background: var(--primary-green);
+                border: 1px solid var(--primary-green);
+                padding: 0.5rem 1rem 0.5rem 1rem;
+                border-radius: 5px;
+                width: 100%;
+                max-width: 24.3%;
+                text-align: center;
+                cursor: pointer;
+                color: var(--white);
+            }
 
             &__title {
                 margin: 1vw 0vw;
@@ -126,12 +138,16 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
                         color: var(--primary-dark);
                     }
                 }
+
+                
             }
 
             &__like {
                 @include flex;
                 justify-content: space-between;
                 width: 100%;
+
+                
 
                 .stroke-heart-svg {
                     // width: 3.5rem;
