@@ -15,41 +15,43 @@
 
 # models
 ## user
-* full_name
-* email
-* password
-* recovery_email
-* description
-* last_login
-* restore_token
-* token_expiration
-* image_url
-* notifications
-* paynment_info
-* student_amount
-* review_amount
-* total_minutes_of_courses
-* detailed_ratings
-* rating
-* verified
-* isInstructor
-* subscriber_count
-* show_details_public
-* personal_detales
-* socials
-* purchased_courses_Receipts
-* Ulearn_coins
-* affiliate_link
-* last_searched
-* liked_courses_ids
-* viewed_courses_ids
-* 
-* favorite_main_category_ids
-* favorite_sub_category_ids
-* generated_categories_ids
-* generated_sub_category_ids
-* 
-* rating_title_id
-* favorite_main_category_id
-* instructor_category_id
-* user_type_id
+```javascript
+    const insertTestUser = {
+        full_name: "rowValue1",
+        email: "email",
+        password: "password",
+        recovery_email: "recovery_email",
+        description: "description",
+        last_login: "2018-01-03 07:54",
+        restore_token: "restore_token",
+        token_expiration: '1602611766048',
+        image_url: "image_url",
+        notifications: JSON.stringify([{ name: "asd" }]),
+        paynment_info: JSON.stringify([{ name: "asd" }]),
+        student_amount: 1,
+        review_amount: 2,
+        total_minutes_of_courses: 12,
+        detailed_ratings: user.rating_starts,
+        rating: 2,
+        verified: true,
+        isInstructor: true,
+        subscriber_count: 123,
+        show_details_public: true,
+        personal_detales: user.socials,
+        socials: JSON.stringify({ name: "asd" }),
+        purchased_courses_Receipts: JSON.stringify({ name: "asd" }),
+        Ulearn_coins: 21,
+        affiliate_link: "alsdkfjla.com",
+        last_searched: JSON.stringify([{ name: "asd" }]),
+        liked_courses_ids: JSON.stringify([1, 3]),
+        viewed_courses_ids: JSON.stringify([]),
+        favorite_main_category_ids: JSON.stringify([1, 2]),
+        favorite_sub_category_ids: JSON.stringify([1, 2]),
+        generated_categories_ids: JSON.stringify([1, 2]),
+        generated_sub_category_ids: JSON.stringify([1, 2]),
+        rating_title_id: 1,
+        favorite_main_category_id: 1,
+        instructor_category_id: 2,
+        user_type_id: 1,
+    }
+```
