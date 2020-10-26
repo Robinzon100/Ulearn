@@ -66,7 +66,7 @@ const main_content: React.FC = () => {
                     }
                 </div>
                     
-                    <div className="courses">
+                    <div className="landing_courses">
                         <div className="main_content--input">
                             <InputSearch placeHolder={placeHolder} />
 
@@ -112,7 +112,7 @@ const main_content: React.FC = () => {
                             </div>
                         </div>
 
-                        <div className="courses--cards">
+                        <div className="landing_courses--cards">
                             {/* //! ეს არის მთავარი გვერდზე რაც კარტებია */}
                             
                             {CardsJson.map((card) => (
