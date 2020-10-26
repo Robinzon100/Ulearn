@@ -2,7 +2,7 @@
     //! MAIN-COLORS
     --primary-blue: rgba(51, 142, 255, 1);
     --primary-dark: rgba(25, 27, 31, 1);
-    --primary-dark-blue: rgba(36, 72, 231, 1);
+    --primary-dark-blue: rgb(36, 72, 231);
     --primary-green: rgba(0, 226, 103, 1);
     --primary-grey: rgba(245, 245, 245, 1);
     --primary-red: rgba(255, 92, 77, 1);
@@ -45,7 +45,7 @@
 
 }
 
-
+$transition:all .5s cubic-bezier(0, 1.06, 0.37, 0.38);
 
 
 

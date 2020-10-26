@@ -1,18 +1,19 @@
-
+$box-shadow-category:0px 7px 9px -3px rgba(0, 0, 0, 0.1), 0px 2.5px 0px -1px #C9C9C9;
 
 .category {
     display: flex;
     flex-direction: column;
 
-    .purple-color {
+    .categoryAll {
         background-color: var(--primary-dark-blue);
     }
-
-    .black-font-color {
-        p {
-            color: var(--primary-dark);
-        }
+    .categoryAll  > div:nth-child(2) {
+        background-color: var(--white) !important;
+        box-shadow: 0px 7px 15px -3px rgba(0, 0, 0, 0.3) !important;
     }
+       
+
+    
 
     .category_container {
 
@@ -31,15 +32,20 @@
             }
 
             &--number {
-                background-color: var(--primary-dark);
+                // background-color: var(--primary-dark);
+                box-shadow: $box-shadow-category;
                 padding: 0.3rem;
-                color: var(--white);
+                color: var(--primary-dark);
+
                 border-radius: 4px;
                 // padding: 0 0.5rem;
                 cursor: pointer;
                 max-width: 12%;
                 width: 100%;
                 text-align: center;
+                font-weight: bold;
+
+                
             }
         }
 

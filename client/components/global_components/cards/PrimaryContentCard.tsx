@@ -97,7 +97,8 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
 
 
                 <div className="PrimaryContentCard__title">
-                    <p className="heading-bold-Noto paragraph-medium-small">{stringToCut(title, 25)}</p>
+                    <p className="heading-bold-Noto paragraph-medium-small"
+                    title={title}>{stringToCut(title, 25)}</p>
                 </div>
             </a>
             <div className="PrimaryContentCard__raiting">

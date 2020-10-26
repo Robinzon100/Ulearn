@@ -5,7 +5,6 @@ $padding-input-select:1rem 1rem 1rem 1rem;
     display: flex;
     align-items: center;
     width: 100%;
-    transition: all 3s;
     
 
     .input_field-with-search {
@@ -16,13 +15,15 @@ $padding-input-select:1rem 1rem 1rem 1rem;
         box-sizing: border-box;
         border-radius: 8px;
         outline: none !important;
+        transition: $transition;
 
         &:focus {
             border: 0.9px solid var(--secondary-light-grey);
             box-shadow: var(--input-onFocus);
             background: var(--white);
             opacity: 100%;  
-            // animation: inputCursorAnimation ease 3s forwards;
+            padding: $padding-input;
+            animation: inputCursorAnimation ease .5s forwards;
             
         }
 
@@ -33,20 +34,27 @@ $padding-input-select:1rem 1rem 1rem 1rem;
         
         
     }
+    @keyframes inputCursorAnimation {
+        from {
+            padding: $padding-input;
+        }
+
+        to {
+            padding: 1.2rem 0rem 1.2rem 4.5rem;
+        }
+    }
+
     
 
     .search {
         position: absolute;
         opacity: 80%;
-        margin-left: 2rem;
+        margin-left: 1.5rem;
     }
 
 }
 
-@keyframes inputCursorAnimation {
-    from {padding: 1.2rem 0rem 1.2rem 0rem;}
-    to {padding: 1.2rem 0rem 1.2rem 5rem;}
-}
+
 //! SELECT ELEMENT
 .dropdown {
     // width: 30rem;
