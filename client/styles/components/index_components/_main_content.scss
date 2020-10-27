@@ -19,12 +19,8 @@
 
     &--input {
         @include flex;
-        align-items: center !important;
+        // align-items: center !important;
 
-
-        // .input_container {
-        //     width: 97% !important;
-        // }
 
         .input_styles {
             width: 100% !important;

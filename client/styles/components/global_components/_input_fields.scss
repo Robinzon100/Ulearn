@@ -22,7 +22,7 @@ $padding-input-select:1rem 1rem 1rem 1rem;
             box-shadow: var(--input-onFocus);
             background: var(--white);
             opacity: 100%;  
-            padding: $padding-input;
+            // padding: $padding-input;
             animation: inputCursorAnimation ease .5s forwards;
             
         }
@@ -40,7 +40,7 @@ $padding-input-select:1rem 1rem 1rem 1rem;
         }
 
         to {
-            padding: 1.2rem 0rem 1.2rem 4.5rem;
+            padding: 1.1rem 0rem 1.1rem 4.5rem;
         }
     }
 
