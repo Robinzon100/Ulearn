@@ -25,7 +25,7 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
         const hoverCards = document.querySelectorAll<HTMLElement>(".card_detail");
 
         hoverCards.forEach((card) => {
-            card.style.left = "-400px";
+            card.style.left = "-665px";
          }); 
     };
 

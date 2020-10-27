@@ -2,7 +2,7 @@
     //! MAIN-COLORS
     --primary-blue: rgba(51, 142, 255, 1);
     --primary-dark: rgba(25, 27, 31, 1);
-    --primary-dark-blue: rgb(36, 72, 231);
+    --primary-darkBlue: rgb(36, 72, 231,1);
     --primary-green: rgba(0, 226, 103, 1);
     --primary-grey: rgba(245, 245, 245, 1);
     --primary-red: rgba(255, 92, 77, 1);
@@ -11,18 +11,18 @@
     --secondary-dark-dark-blue: rgba(12, 59, 234, 1);
     --secondary-dark-green: rgba(0, 158, 72, 1);
     --secondary-dark-grey: rgba(201, 201, 201, 1);
-    --secondary-dark-red: rgba(249, 69, 5, 1);
+    --secondary-darkRed: rgba(249, 69, 5, 1);
     --secondary-dark-yellow: rgba(255, 199, 3, 1);
     --secondary-light-blue: rgba(75, 155, 254, 1);
     --secondary-light-dark-blue: rgba(122, 144, 240, 1);
-    --secondary-light-grey: rgba(249, 249, 249, 1);
+    --secondary-lightGrey: rgba(249, 249, 249, 1);
     --secondary-dark-red:rgba(255, 148, 141, 1);
-    --secondary-light-grey: rgb(245, 245, 245);
+    --secondary-light-grey: rgba(245, 245, 245,1);
     --secondary-light-red: rgba(19, 21, 26, 1);
     --secondary-light-yellow: rgba(157, 157, 157, 1);
     --secondary-dark-dark: rgba(99, 100, 105, 1);
     --secondary-darkest-gray: rgba(72, 174, 125, 1);
-    --white:#ffffff;
+    --white:rgba(255, 255, 255,1);
 
 
    //! GRADIENTS

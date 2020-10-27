@@ -36,6 +36,8 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
 
     const [isBestSeller, setIsBestSeller] = useState<boolean>(bestseller);
 
+    const [isVisible, setIsVisible] = useState<boolean>(false);
+
     const handleAddFavorite = (e) => {
         // debugger
         const hearts = document.querySelectorAll('.heart');
@@ -52,17 +54,23 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
 
 
     const cardHoverHandler = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-        
+
         if (((window.innerWidth / 2) - 40) < e.currentTarget.parentElement.offsetLeft) {
             setIsLastCard(true);
-        }   
-        
-
+        }
         setIsClicked((isClicked) => !isClicked);
 
     }
+
+    //! ეს გვეხმარება რომ როცა ჰოვერი მოხდება კარტა და ღილაღი გაქრეს!
     const handleHoverLeave = () => {
         setIsClicked(null);
+        setIsVisible(false);
+    }
+
+    //! ამის დახმარებით ღილაკი გამოჩნდება
+    const handleHoverEnter = () => {
+        setIsVisible(true);
     }
 
     return (
@@ -71,7 +79,10 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
             onMouseLeave={handleHoverLeave}
         >
             <a href="#">
-                <div className="PrimaryContentCard__img" style={{ backgroundImage: `url(${imageUrl})` }}>
+                <div className="PrimaryContentCard__img" 
+                style={{ backgroundImage: `url(${imageUrl})` }}
+                onMouseEnter={handleHoverEnter}
+                >
                     <div className="price-tag">
                         {checkNewPrice && (
                             <div className="removed-price-tag">
@@ -93,34 +104,54 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
                             </p>
                         </div>
                     </div>
+
                 </div>
 
 
                 <div className="PrimaryContentCard__title">
                     <p className="heading-bold-Noto paragraph-medium-small"
-                    title={title}>{stringToCut(title, 25)}</p>
+                        title={title}>{stringToCut(title, 50)}</p>
                 </div>
             </a>
+            <div className={isVisible ? "course_card_hover_logo" : "course_card_hover_logo_none" } 
+            onClick={(e) => cardHoverHandler(e)}>
+                <div className={isClicked ? "card_detail" : "card_detail-display"}>
+                    {
+
+                        <CardDetail
+                            id={id}
+                            title={title}
+                            imageUrl={imageUrl}
+                            posted={posted}
+                            difficulty={difficulty}
+                            description={description}
+                            descriptionList={descriptionList}
+                            isLastCard={isLastCard}
+
+                        />
+                    }
+                </div>
+            </div>
             <div className="PrimaryContentCard__raiting">
                 <div className="PrimaryContentCard__raiting--container">
                     <div className="star">
                         <Star style={{ fill: "#FFD703", color: "#FFD703" }} size={16} />
                     </div>
                     <div className="numbers">
-                        <p className="Eina-semibold paragraph-small">
-                            {raiting} ({numberOfVotes})
+                        <p className="Eina-semibold paragraph-medium-small">
+                            {raiting} <span style={{ opacity: "50%" }} className=" Eina-semibold paragraph-small">({numberOfVotes})</span>
                         </p>
                     </div>
                 </div>
                 <div className="PrimaryContentCard__raiting--name">
                     <a href="#">
-                        <p className="heading-semi-bold-Noto  paragraph-small">{stringToCut(author, 25)}
+                        <p className="paragraph-regular-Noto paragraph-medium-small">{stringToCut(author, 25)}
                         </p>
                     </a>
                 </div>
             </div>
             <div className="PrimaryContentCard__like">
-                <label className={isBestSeller ? "label heading-semi-bold-Noto paragraph-smallest-small" : null} >
+                <label className={isBestSeller ? "label paragraph-regular-Noto  paragraph-smallest" : null} >
                     {isBestSeller ? <p>ბესტსელერი</p> : null}
                 </label>
 
@@ -132,29 +163,8 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
                 </div>
             </div>
 
-            
-            <div className="PrimaryContentCard__hover-card heading-semi-bold-Noto paragraph-smallest-small"
-                    onClick={(e) => cardHoverHandler(e)}
-                    
-                >
-                    <div className={isClicked ? "card_detail" : "card_detail-display"}>
-                    {
-                        
-                        <CardDetail
-                            id={id}
-                            title={title}
-                            imageUrl={imageUrl}
-                            posted={posted}
-                            difficulty={difficulty}
-                            description={description}
-                            descriptionList={descriptionList}
-                            isLastCard={isLastCard}
-                            
-                        />
-                    }
-                    </div>
-                დააჭირე
-                </div>
+
+
         </div>
     );
 };
