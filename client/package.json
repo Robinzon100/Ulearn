@@ -10,9 +10,9 @@
   "dependencies": {
     "axios": "^0.21.0",
     "framer-motion": "^2.9.4",
-    "next": "9.5.5",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
+    "next": "^10.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-feather": "^2.0.8",
     "react-html-parser": "^2.0.2",
     "sass": "^1.27.0"
