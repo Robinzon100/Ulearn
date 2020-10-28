@@ -8,8 +8,7 @@ const Index = () => {
     <BaseLayout>
       <Hero />
       <Content />
-      {/* <CardDetail /> */}
-    </BaseLayout>
+      </BaseLayout>
   );
 };
 

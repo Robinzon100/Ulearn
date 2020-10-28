@@ -54,17 +54,7 @@ const Navigation: React.FC = () => {
 
   return (
     <React.Fragment>
-      {/* <Head>
-                <title>CROP2SHOP</title>
-                <meta charSet='utf-8' />
-                <meta
-                    name='viewport'
-                    content='initial-scale=1.0, width=device-width'
-                    key='viewport'
-                />
-            </Head> */}
-
-      <header className="header">
+        <header className="header">
         <div className="logo_container">
           <div className="logo"></div>
 
@@ -104,44 +94,13 @@ const Navigation: React.FC = () => {
             </a>
           </div>
 
-          <a href="#">
-            <div className="unregistered_user"></div>
+          <a href="#" className="unregistered_user">
+            <div></div>
           </a>
         </div>
-
-        {/* 
-		<div className="mobile-nav">
-
-			<div className="round">
-				<div className="round--item"></div>
-			</div>
-			<div className="menu--nav">
-				<ul className="menu--nav--list ">
-
-					<li className="menu--nav--list--items">
-						<a href="#" className="menu--nav--list--items--links links" alt=""><span style="color:#00FF66">შესვლა</span></a>
-						<img src="pictures/enter-1.svg" alt="enter" />
-					</li>
-					<li className="menu--nav--list--items">
-						<a href="#" className="menu--nav--list--items--links links" alt="">კურსები</a>
-						<img src="pictures/courses.svg" alt="courses" />
-					</li>
-					<li className="menu--nav--list--items">
-						<a href="#" className="menu--nav--list--items--links links" alt="">გახდი ლექტორი</a>
-						<img src="pictures/lectur.svg" alt="courses" />
-					</li>
-					<li className="menu--nav--list--items">
-						<a href="#" className="menu--nav--list--items--links links" alt="">კონტაქტი</a>
-						<img src="pictures/contact.svg" alt="courses" />
-					</li>
-					<li className="menu--nav--list--items">
-						<a href="#" className="menu--nav--list--items--links links" alt="">ჩვენს შესახებ</a>
-						<img src="pictures/about.svg" alt="courses" />
-					</li>
-
-				</ul>
-			</div>
-		</div> */}
+        <div className="mobile_hamburger">
+            
+        </div>
       </header>
     </React.Fragment>
   );

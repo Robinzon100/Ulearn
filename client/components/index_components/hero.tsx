@@ -1,19 +1,21 @@
-import React, { Fragment } from "react";
+import React from "react";
+import Image from 'next/image'
 import { Search, Upload } from "react-feather";
 
 const Hero: React.FC = () => {
   return (
-    <Fragment>
+    <>
       <section className="hero">
+        <div className="hero--mobile-bg"></div>
         <div className="hero--steps">
-          <div className="hero--steps__info">
-            <div className="hero--steps__info--heading">
+          
+            <div className="hero--steps__heading">
               <h1 className="heading-bold-Noto heading-3_5">
                 რაღაცა ტექსტი იქნება აქ რომელიც აღწერს სერვის
               </h1>
             </div>
-            <div className="hero--steps--line"></div>
-            <div className="hero--steps__info--paragraph">
+            <div className="hero--steps__line"></div>
+            <div className="hero--steps__paragraph">
               <p className="paragraph-regular-Noto paragraph-medium-small">
                 რაიმე პატარა ტექსტი რომელიც უფრო დეტალურად აღწერს რას აკეთებს
                 საიტი და ისეთი სიტყვები იქნება რაც SEO-ს დაევასება და googl-იც
@@ -21,15 +23,22 @@ const Hero: React.FC = () => {
               </p>
             </div>
             <div className="hero--steps__btn">
-              <a
-                href="#"
+              <a href="#"
                 className="btn btn-white heading-semi-bold-Noto  paragraph-medium"
               >
                 შემოგვიერთდი
               </a>
             </div>
-          </div>
+          
         </div>
+        <div className="hero--mobile-btn">
+        <a href="#"
+                className="btn btn-white heading-semi-bold-Noto  paragraph-medium"
+            >
+                შემოგვიერთდი
+              </a>
+        </div>
+        
 
         <div className="hero--video">
           <video autoPlay loop muted playsInline>
@@ -47,7 +56,6 @@ const Hero: React.FC = () => {
                   id="offset"
                   x="-10%"
                   y="-20%"
-                  //   position="absolute"
                   height="0"
                   width="0"
                   transform="translate(90,0)"
@@ -64,7 +72,7 @@ const Hero: React.FC = () => {
           </video>
         </div>
       </section>
-    </Fragment>
+    </>
   );
 };
 
