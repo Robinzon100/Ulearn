@@ -5,12 +5,8 @@ import helmet from "helmet"
 const compression = require('compression');
 
 
-// TODO: remove body parse from npm
 
 export const baseMiddlewares = (app: Application) => {
-    // app.use(bodyParser.json());
-    // app.use(bodyParser.urlencoded({ extended: true }));
-
     app.use(express.json()) // for parsing application/json
     app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
