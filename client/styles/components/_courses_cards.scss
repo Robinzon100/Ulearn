@@ -97,7 +97,7 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
             }
 
             &__title {
-                margin: .7vw 0vw 0vw 0vw;
+                margin: 1.5rem 0rem 0rem 0rem;
 
                 p {
                     color: var(--primary-dark);
@@ -132,6 +132,9 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    background-color: var(--white);
+                    border-radius: 18px 0px 0px 0px; 
+
                 }
             }
 
@@ -141,7 +144,7 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
                 @include flex;
                 justify-content: space-between;
                 width: 100%;
-                margin: .5vw 0vw .7vw 0vw;
+                margin: 1rem 0rem 1.5rem 0rem;
 
                 &--container {
                     @include flex;

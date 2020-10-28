@@ -61,3 +61,15 @@ $right_slider_btn-gradient:linear-gradient(271.08deg, #FFFFFF 62.68%, rgba(255, 
         }
     }
 }
+
+@media screen and (max-width: 340px) {
+    .right_slider_btn, .left_slider_btn {
+        display: none !important;
+    }
+
+    .main_content--carousel .carousel_card {
+        
+        margin: 0rem 0 8rem 0rem !important;
+       
+    }
+}
