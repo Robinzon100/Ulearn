@@ -87,12 +87,10 @@ $hero-paragraph-margin:0vw 0vw 3vw 0vw;
 
         }
         &__btn {
-            a {
 
+            a {
                 color: var(--primary-dark);
                 line-height: 137.57%;
-
-
             }
         }
     }
@@ -120,7 +118,7 @@ $hero-paragraph-margin:0vw 0vw 3vw 0vw;
         margin-top: 13rem !important;
 
         &--mobile-btn {
-            display: block !important;
+            display: none !important;
 
             a {
                 width: 100% !important;
@@ -176,6 +174,14 @@ $hero-paragraph-margin:0vw 0vw 3vw 0vw;
             top: -1.2vw;
         }
 
+        &--mobile-btn {
+            display: block !important;
+
+            a {
+                width: 100% !important;
+                color: var(--primary-black);
+            }
+        }
         
        
         &--steps {

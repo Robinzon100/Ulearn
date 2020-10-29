@@ -35,61 +35,6 @@
             width: 100%;
             margin-left: 3rem;
 
-            &__video-date,
-            &__video-raiting,
-            &__video-length {
-                background-color: var(--secondary-light-grey);
-                border-radius: 8px;
-                padding: 10px 40px;
-                position: relative;
-                // margin-left: 2rem;
-
-                .heading {
-                    margin-left: 1.5vw;
-                }
-            }
-
-            .sorting_styles {
-                border-radius: 8px 0px 0px 8px;
-                position: absolute;
-                left: 0;
-                // padding: 10px 0px;
-                width: 22%;
-                height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            &__video-date {
-                @include flex;
-                
-                .calendar {
-                    background-color: var(--primary-blue);
-                    opacity: 60%;
-                }
-            }
-
-            &__video-raiting {
-                @include flex;
-
-                .star {
-                    background-color: var(--primary-yellow);
-                    opacity: 60%;
-
-                }
-            }
-
-            &__video-length {
-                @include flex;
-                
-
-                .clock {
-                    background-color: var(--secondary-dark-red);
-                    opacity: 60%;
-
-                }
-            }
         }
     }
 

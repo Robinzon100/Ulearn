@@ -31,13 +31,14 @@ const Hero: React.FC = () => {
             </div>
           
         </div>
-        <div className="hero--mobile-btn">
+        {/* <div className="hero--mobile-btn">
         <a href="#"
                 className="btn btn-white heading-semi-bold-Noto  paragraph-medium"
             >
                 შემოგვიერთდი
               </a>
-        </div>
+        </div> */}
+        {/* TODO: ერთი ელემენტად გადააკეთე პოზიცია აბსოლუტით  */}
         
 
         <div className="hero--video">

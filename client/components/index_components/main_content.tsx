@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { ChevronDown,Star,Clock,Calendar } from "react-feather";
+import { ChevronDown } from "react-feather";
 
 import InputSearch from "components/global_components/inputs/inputSearch";
 import SelectInput from "components/global_components/inputs/selectInput";
@@ -11,6 +11,7 @@ import Categories from "components/categories"
 
 //! JSON
 import CategoriesJson from "../../public/json/categories.json"
+import SortingDropdown from './../sortingDropdown';
 
 
 const main_content: React.FC = () => {
@@ -69,33 +70,11 @@ const main_content: React.FC = () => {
                     <div className="landing_courses">
                         <div className="main_content--input">
                             <InputSearch placeHolder={placeHolder} />
-
+ 
                             <div className="sorting">
-                                <div className="sorting__video-date colorChange">
-                                    <div className="calendar sorting_styles" id="calendar">
-                                        <Calendar color="blue" size={16}/>
-                                    </div>
-                                    <div className="heading">
-                                        <p className="paragraph-regular-Noto paragraph-medium-small">თარიღი</p>
-                                    </div>
-                                </div>
-                                <div className="sorting__video-raiting colorChange">
-                                    <div className="star sorting_styles">
-                                        <Star color="yellow" size={16}/>
-                                    </div>
-                                    <div className="heading">
-                                    <p className="paragraph-regular-Noto paragraph-medium-small">რეიტინგი</p>
-                                    </div>
-                                </div>
-                                <div className="sorting__video-length colorChange">
-                                    <div className="clock sorting_styles">
-                                        <Clock color="red" size={16}/>
-                                    </div>
-                                    <div className="heading">
-                                    <p className="paragraph-regular-Noto paragraph-medium-small">ხანგძლივობა</p>
-                                    </div>
-                                </div>
-                                
+                               <SortingDropdown type="date"/>
+                               <SortingDropdown type="time"/>
+                               <SortingDropdown type="rating"/>
                             </div>
                         </div>
                         <div className="overlay_container">
