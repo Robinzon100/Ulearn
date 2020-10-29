@@ -3,7 +3,7 @@ import { Request, Response, NextFunction } from "express";
 import User from '../../../models/user/user.model';
 import bcrypt from "bcrypt";
 import jwt, { JsonWebTokenError } from 'jsonwebtoken';
-
+import customError from '../../../utils/createError';
 
 
 
@@ -12,77 +12,71 @@ import jwt, { JsonWebTokenError } from 'jsonwebtoken';
 // ─── REGISTRATION ───────────────────────────────────────────────────────────────
 //
 export const postRegistration = async (req: Request, res: Response, next: NextFunction) => {
-    
-    // initialize the data
-    const {
-        full_name,
-        email,
-        password,
-        recovery_email,
-        favorite_main_category_ids,
-        favorite_sub_category_ids } = req.body;
-
-    //TODO: implement the logic so that no 2 emails 
-    //      shuld exists and if soo send error code  
+    const { email, password } = req.body;
 
 
+    const existingUser = await User.query().where("email", email)
 
-    const salt = await bcrypt.genSaltSync(10);
-    const hashedPassword = await bcrypt.hashSync(password, salt);
+    if (existingUser.length > 0) {
+        customError(res, next, 'user with that email already exists', 403)
+    } else {
+        const salt = await bcrypt.genSaltSync(10);
+        const hashedPassword = await bcrypt.hashSync(password, salt);
 
-    const user = {
-        full_name: full_name,
-        email: email,
-        password: hashedPassword,
-        recovery_email: recovery_email,
-        favorite_main_category_ids: favorite_main_category_ids,
-        favorite_sub_category_ids: favorite_sub_category_ids
-    }
-
-
-    try {
-        const validatedUser = await regsiterUserSchema.validateAsync(user);
-
-
-        // user is validated
-        if (validatedUser) {
-            const {id, email} = await User.query().insert(validatedUser);
-
-            //jwt signing
-            const userToken = await jwt.sign({
-                expiresIn: process.env.JWT_EXPIRATION,
-                userId: id,
-                email: email
-            }, process.env.JWT_SECRET!)
-
-            // sending status and the response
-            res.status(200).json({
-                status: "success",
-                userToken
-            })
+        const user = {
+            ...req.body,
+            password: hashedPassword,
         }
-    } catch (error) {
-        res.status(400)
-        next(error)
+
+
+        try {
+            const validatedUser = await regsiterUserSchema.validateAsync(user);
+
+            if (validatedUser) {
+                const { id, email } = await User.query().insert(validatedUser);
+
+                const userToken = await jwt.sign({
+                    expiresIn: process.env.JWT_EXPIRATION,
+                    userId: id,
+                    email: email
+                }, process.env.JWT_SECRET!)
+
+                res.status(200).json({
+                    status: "success",
+                    userToken
+                })
+            }
+        } catch (error) {
+            res.status(400)
+            next(error)
+        }
     }
 }
 
 
 
 export const postLogin = async (req: Request, res: Response, next: NextFunction) => {
-    const {email, password} = req.body;
+    const { email, password } = req.body;
 
-    //get user by email
-    const user = await User.query().where("email", email)
+    if (!email || !password) {
+        customError(res, next, 'insufficient data', 400)
+    }
 
-    res.status(200).json({
-        user: user
-    })
+    try {
+        const [user] = await User.query().where("email", email)
+        const doesPasswordMatch = user ? await bcrypt.compareSync(password, user.password) : false
+
+        if (doesPasswordMatch && user) {
+            res.status(200).json({
+                user: user
+            })
+        } else {
+            customError(res, next, 'provide email or password are not valid', 401)
+        }
+
+    } catch (error) {
+        next(error)
+    }
 
 
-        // if exsists compare passwords
-
-        // if not send error message and status code of 401
-
-    // bcrypt.compare(password, )
 }
