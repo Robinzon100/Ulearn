@@ -1,11 +1,39 @@
 $padding-input:1rem 1rem 1rem 5rem;
-$padding-input-select:1rem 1rem 1rem 1rem;
+$padding-input-select:1rem 1rem 1rem 6rem;
+
+//! ჩვულებრივი ინფუთისთვის
+.input_field {
+    width: 100%;
+    padding:1rem 1rem 1rem 1rem;
+    background: var(--primary-grey);
+    border: none !important;
+    box-sizing: border-box;
+    border-radius: 8px;
+    outline: none !important;
+
+
+    &:focus {
+        border: 0.9px solid var(--secondary-light-grey);
+        box-shadow: var(--input-onFocus);
+        background: var(--white);
+        opacity: 100%;
+
+
+    }
+
+    &::placeholder {
+        opacity: 100% !important;
+
+    }
+}
+//! ჩვულებრივი ინფუთისთვის
+
 .input_container {
     position: relative;
     display: flex;
     align-items: center;
     width: 100%;
-    
+
 
     .input_field-with-search {
         width: 97%;
@@ -21,19 +49,20 @@ $padding-input-select:1rem 1rem 1rem 1rem;
             border: 0.9px solid var(--secondary-light-grey);
             box-shadow: var(--input-onFocus);
             background: var(--white);
-            opacity: 100%;  
+            opacity: 100%;
             // padding: $padding-input;
             animation: inputCursorAnimation ease .5s forwards;
-            
+
         }
 
         &::placeholder {
             opacity: 100% !important;
 
         }
-        
-        
+
+
     }
+
     @keyframes inputCursorAnimation {
         from {
             padding: $padding-input;
@@ -44,7 +73,7 @@ $padding-input-select:1rem 1rem 1rem 1rem;
         }
     }
 
-    
+
 
     .search {
         position: absolute;
@@ -82,31 +111,32 @@ $padding-input-select:1rem 1rem 1rem 1rem;
     font-size: 1.6rem;
     // cursor: pointer;
     @include flex;
-    transition: all 0.3s;
+    transition: all 1s ease;
 
     .toggleArrow {
         cursor: pointer;
         // position: absolute;
         margin-left: 1.5rem;
-        transform:rotate(0deg);
+        transform: rotate(0deg);
     }
 
     .animatedArrow {
-        transform:rotate(180deg);
+        transform: rotate(180deg);
 
     }
 
     .select {
         opacity: 80%;
     }
-    
-    
+
+
 }
 
 .dropdown-list {
     &::-ms-expand {
-        display: none ;
+        display: none;
     }
+
     /* for Firefox */
     -moz-appearance: none;
     /* for Chrome */
@@ -120,20 +150,21 @@ $padding-input-select:1rem 1rem 1rem 1rem;
     right: 0;
     height: 0;
     opacity: 0;
-    padding: $padding-input-select;
+    padding: 1rem 1rem 1rem 1rem;
     border: 0.9px solid #C9C9C9;
     border-radius: 8px;
     // transition: all .2s;
-    
+
 
     &__item {
         padding: 1rem;
         font-size: 1.2rem;
-        
+
 
         .radio {
             display: none;
         }
+
         label {
             display: block;
             width: 100%;
@@ -151,11 +182,10 @@ $padding-input-select:1rem 1rem 1rem 1rem;
     opacity: 1;
     z-index: 5;
     cursor: pointer;
-    
+
 }
 
 .dropdown_animation__list {
     height: auto;
     display: block;
 }
-

@@ -8,7 +8,7 @@ interface Props {
     rating:number
 }
 
-const InputCommentCards: React.FC<Props> = ({ name,rating }) => {
+const InputCommentCards: React.FC<Props> = ({ name,rating },props) => {
     const [placeHolder, setPlaceHolder] = useState<string>(
         "მოძებნე სასურველი კურსი"
     );
@@ -22,7 +22,7 @@ const InputCommentCards: React.FC<Props> = ({ name,rating }) => {
                         <h1>{name}</h1>
 
                         <div className="about_user--star">
-                            <Stars StarWidth={17} numberOfStars={rating} />
+                            {/* <Stars    StarWidth={17} numberOfStars={rating} /> */}
                         </div>
                     </div>
 

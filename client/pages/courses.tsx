@@ -18,12 +18,7 @@ import QuestionAnswer from "../public/SVG/CoursesSvg/HelpCircle";
 import Estimates from "../public/SVG/CoursesSvg/Estimates";
 
 //! === INTERFACES
-import {
-  AboutCourse,
-  Description_type,
-  QuestionAnswer_type,
-  Resources_type,
-  Estimates_type,
+import { AboutCourse,Description_type,QuestionAnswer_type,Resources_type,Estimates_type,
 } from "../interfaces/coursePage.interface";
 import { changeTabPositionAndColor } from "../function/courses/content";
 
@@ -192,7 +187,7 @@ export const Courses: React.FC<AboutCourse> = () => {
                       <div className="QuestionAnswerReveal">
                         {tabContent.questionAnswers.map(
                           (question, i: number) => (
-                            <div className="question-answer">
+                            <div className="question-answer" >
                               <div className="main-comment">
                                 <div
                                   style={{
@@ -212,7 +207,7 @@ export const Courses: React.FC<AboutCourse> = () => {
                                   <div className="user-comment">
                                     <p>{question.text}</p>
                                   </div>
-                                  <AnswerUserComments id={i} />
+                                  {/* <AnswerUserComments key={i} id={i} /> */}
                                 </div>
                               </div>
                             </div>
@@ -253,12 +248,14 @@ export const Courses: React.FC<AboutCourse> = () => {
                         <div className="estimates">
                           <div className="estimates__container">
                             <InputCommentCards
+                              
                               name={"ბექა არაბიძე"}
                               rating={2}
                             />
                             {tabContent.ratings.map((rating, i) => (
                               <>
                                 <CommentCards
+                                  key={i}
                                   id={i}
                                   name={rating.userName}
                                   registrationDay={rating.datePosted}
@@ -284,6 +281,7 @@ export const Courses: React.FC<AboutCourse> = () => {
             <div className="side-menu noselect ">
               {videoLists.Lists.map((videoList) => (
                 <SideMenu
+                  key={videoList.id}
                   id={videoList.id}
                   title={videoList.title}
                   courseChapterTime={videoList.courseChapterTime}

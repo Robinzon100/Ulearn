@@ -52,7 +52,6 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
            handleHoverCardStyle(); 
         }
         
-        // handleHoverCardsStyle(); 
     
     }, [isLastCard]);
 

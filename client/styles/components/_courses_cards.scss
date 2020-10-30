@@ -3,19 +3,16 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
 .landing_courses{
     position: relative;
     width: 100%;
-    // overflow-x: hidden;
-
-
+    
 
     .overlay_container {
+        display: block;
         position: absolute;
         width: 100%;
-        // height: 19vw;
         background: $overlay-container-gradient;
         bottom: 0;
         height: 21vw;
         z-index: 1;
-
 
         .wrapper {
             display: flex;

@@ -35,6 +35,77 @@
             width: 100%;
             margin-left: 3rem;
 
+            .sorting__video-date,
+            .sorting__video-raiting,
+            .sorting__video-length {
+                width: 10vw;
+                border-radius: 8px;
+                position: relative;
+                cursor:pointer;
+            }
+
+            .search_dropdown {
+                background-color: var(--secondary-light-grey);
+                padding: 0.5vw 2vw 0.5vw 3vw;
+                background: #fff;
+                border-radius: 8px;
+                border: 1px solid #989586;
+                cursor: pointer;
+                display: block;
+                height: 4rem;
+                
+                width: 100%;
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                outline: none !important;
+            }
+           
+            //!კალენდარი,საათის და ვარსკვლავის სტილები ინფუთის შიგნით
+            .sorting_styles {
+                border-radius: 8px 0px 0px 8px;
+                position: absolute;
+                left: 0;
+                // padding: 10px 0px;
+                width: 5rem;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .sorting__video-date {
+                position:relative;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .calendar {
+                background-color: var(--primary-blue);
+                opacity: 60%;
+            }
+
+            .sorting__video-raiting {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .star {
+                background-color: var(--primary-yellow);
+                opacity: 60%;
+
+            }
+
+            .sorting__video-length {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .clock {
+                background-color: var(--secondary-dark-red);
+                opacity: 60%;
+            }
         }
     }
 
