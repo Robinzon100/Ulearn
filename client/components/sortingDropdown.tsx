@@ -14,7 +14,12 @@ const SortingDropdown: React.FC<SortingDropdown> = ({ type }) => {
 
             { type === 'date' &&
                 <div className="sorting__video-date colorChange">
-
+                    {/* //! TODO  აქ გაარკვიე რამენაირად */}
+                    
+                    {/* //! აქ ვერაფრით ვერ გადავეცი უნიკალური გასაღები 
+                        //! არ ვიცი ვერ ვხედავ რაღაცას ალბათ და იმ 
+                        //! გასარების შეცდომაც იმიტომ აგდებს
+                    */}
                     <SelectInput id={1} /> 
                     <div className="calendar sorting_styles">
                         <Calendar color="blue" size={17} />
