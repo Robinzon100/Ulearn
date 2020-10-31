@@ -7,7 +7,7 @@ const sideMenu: React.FC<videoList> = ({
     courseChapterTime,
     subTitles,
     handleDisplayVideoNames
-}) => {
+},props) => {
     const [revealContent, setRevealContent] = useState<boolean>(false);
     const [finished, setFinished] = useState<boolean>(false);
     const ref = useRef();
@@ -39,7 +39,7 @@ const sideMenu: React.FC<videoList> = ({
     return (
         <>
             <div
-                key={id}
+                key={props.key}
                 data-id={id}
                 className={
                     !revealContent

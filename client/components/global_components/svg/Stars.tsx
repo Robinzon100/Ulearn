@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Star } from "react-feather";
 
-interface StarsWith {
+interface StarsWidth {
     StarWidth: number;
     numberOfStars: number | 0 | 1 | 2 | 3 | 4 | 5
 }
 
-const stars: React.FC<StarsWith> = ({ StarWidth, numberOfStars }) => {
+const stars: React.FC<StarsWidth> = ({ StarWidth, numberOfStars }) => {
     const [rating, setRating] = useState<number | null>(numberOfStars)
     const [hover, setHover] = useState<number | null>(null)
     return (

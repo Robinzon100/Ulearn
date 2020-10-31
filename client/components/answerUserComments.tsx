@@ -7,7 +7,7 @@ interface answerUserComments {
 }
 
 
-const answerUserComments: React.FC<answerUserComments> = ({ id }) => {
+const answerUserComments: React.FC<answerUserComments> = ({ id },props) => {
     const [placeHolder, setPlaceHolder] = useState<string>("დაწერე რაც გინდა");
 
     const [answerComment, setAnswerComment] = useState(false);
@@ -19,7 +19,7 @@ const answerUserComments: React.FC<answerUserComments> = ({ id }) => {
 
     return (
         <>
-            <div className="user-answer" onClick={(handleSetAnswerComment)} key={id}>
+            <div className="user-answer" onClick={(handleSetAnswerComment)} key={props.id}>
 
                 {!answerComment ?
                     <div className="user-answer--heading" >

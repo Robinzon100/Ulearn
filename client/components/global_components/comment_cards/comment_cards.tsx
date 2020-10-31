@@ -26,7 +26,7 @@ const comment_cards: React.FC<CommentCards> = ({
     like,
     dislike,
     isLikedByInstructor
-}) => {
+},props) => {
     const [thumbsUp, setThumbsUp] = useState<number>(like)
 
     const [thumbsDown, setThumbsDown] = useState<number>(dislike)
@@ -63,7 +63,7 @@ const comment_cards: React.FC<CommentCards> = ({
 
     return (
         <>
-            <div className="comment" key={id}>
+            <div className="comment" key={props.key}>
                 <div className="comment__pic" style={{ backgroundImage: `url(${imageUrl})` }}></div>
 
                 <div className="comment__text">
@@ -78,7 +78,7 @@ const comment_cards: React.FC<CommentCards> = ({
                     </div>
 
                     <div className="about-user__raiting">
-                        <Stars StarWidth={20} numberOfStars={rating} />
+                        {/* <Stars key={id} StarWidth={20} numberOfStars={rating} /> */}
                     </div>
                     <div className="added-comment">
                         <p>{addedComment}</p>

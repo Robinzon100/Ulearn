@@ -1,8 +1,7 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import { ChevronDown } from "react-feather";
 
 import InputSearch from "components/global_components/inputs/inputSearch";
-import SelectInput from "components/global_components/inputs/selectInput";
 import PrimaryContentCard from "components/global_components/cards/PrimaryContentCard";
 import Carousel from "components/index_components/carousel/carousel";
 import PrimaryContentCardJson from "../../public/json/PrimaryContentCard.json";
@@ -19,29 +18,15 @@ const main_content: React.FC = () => {
         "მოძებნე სასურველი კურსი"
     );
 
-
-    //! Example of localStorage Change CSS Colors
-    // const checkNewCssVars = () => {
-    //     console.log("click")
-    //     let colorArray = [];
-    //     const calendars = document.querySelectorAll('.colorChange');
-    //     let color = "var(--secondary-dark-red)";
-    //     calendars.forEach(calendar => {
-    //         calendar.style.backgroundColor = color;
-    //     })
-    //     colorArray.push(color);
-
-    //     localStorage.setItem('color', color);
-    //     console.log('retrievedColor: ', color);
-    //     console.log("array:"+colorArray)
-    // }
+        
+    const [toggleSeeMore, setToggleSeeMore] = useState(false);
 
     const [CardsJson, setCardsJson] = useState(PrimaryContentCardJson.contentCard)
     
     const [categoriesJson, setCategoriesJson] = useState(CategoriesJson.Categories)
 
     return (
-        <Fragment>
+        <>
             <div className="main_content">
                 {/* //! კარუსელი */}
 
@@ -56,46 +41,52 @@ const main_content: React.FC = () => {
                     <p className="heading-6 heading-bold-Noto">კატეგორიები</p>
                 </div>
                     { 
-                        categoriesJson.map((categories => (
+                        categoriesJson.map(categorie => (
                             <Categories
-                            id={categories.id}
-                            title={categories.title}
-                            numberOfCourses={categories.numberOfCourses}
+                            key={categorie.id}
+                            id={categorie.id}
+                            title={categorie.title}
+                            numberOfCourses={categorie.numberOfCourses}
                             />
-                        )))
+                        ))
                        
                     }
                 </div>
                     
                     <div className="landing_courses">
                         <div className="main_content--input">
-                            <InputSearch placeHolder={placeHolder} />
+                            <InputSearch id={1} placeHolder={placeHolder} />
  
                             <div className="sorting">
                                <SortingDropdown type="date"/>
-                               <SortingDropdown type="time"/>
                                <SortingDropdown type="rating"/>
+                               <SortingDropdown type="time"/>
                             </div>
                         </div>
+                        {CardsJson.length > 2  ? !toggleSeeMore ?
                         <div className="overlay_container">
-                            <div className="wrapper">
-                                <div className="see_more">
+                            <div className="wrapper" onClick={() => setToggleSeeMore(true)}>
+                                <div className="see_more" >
                                     <p className="heading-bold-Noto paragraph-biggest">
                                         იხილეთ მეტი
                                     </p>
                                 </div>
                                 <div className="see_more_arrow">
-                                    {/* <img src="./pictures/courses/see_more_arrow.svg" alt="" /> */}
                                     <ChevronDown size={40} style={{ color: "#00E267" }} />
                                 </div>
                             </div>
                         </div>
+                        :null
+                        :null
+                        }
+                        
 
                         <div className="landing_courses--cards">
                             {/* //! ეს არის მთავარი გვერდზე რაც კარტებია */}
                             
                             {CardsJson.map((card) => (
                                 <PrimaryContentCard
+                                    key={card.id}
                                     id={card.id}
                                     imageUrl={card.imageUrl}
                                     title={card.title}
@@ -121,7 +112,7 @@ const main_content: React.FC = () => {
                 </div>
                                 
             </div>
-        </Fragment>
+        </>
     );
 };
 

@@ -23,7 +23,7 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
     difficulty,
     description,
     descriptionList
-}) => {
+},props) => {
 
 
     const [addToFavorites, setAddToFavorites] = useState<boolean>(isLiked);
@@ -75,7 +75,7 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
 
     return (
         <div className="PrimaryContentCard"
-            key={id}
+            key={props.key}
             onMouseLeave={handleHoverLeave}
         >
             <a href="#">
@@ -135,7 +135,7 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
             <div className="PrimaryContentCard__raiting">
                 <div className="PrimaryContentCard__raiting--container">
                     <div className="star">
-                        <Star style={{ fill: "#FFD703", color: "#FFD703" }} size={16} />
+                        <Star key={id} style={{ fill: "#FFD703", color: "#FFD703" }} size={16} />
                     </div>
                     <div className="numbers">
                         <p className="Eina-semibold paragraph-medium-small">
@@ -162,9 +162,6 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
 
                 </div>
             </div>
-
-
-
         </div>
     );
 };

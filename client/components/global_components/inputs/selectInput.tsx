@@ -2,14 +2,11 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 interface selects {
-    SelectInputId: number,
     id:number,
-    name: string,
-
 }
 
 
-const selectInput:React.FC<selects> = ({SelectInputId,id,name}) => {
+const selectInput:React.FC<selects> = ({id},props) => {
     const [toggle, setToggle] = useState(false);
 
     const handleToggle = () => {
@@ -48,7 +45,8 @@ const selectInput:React.FC<selects> = ({SelectInputId,id,name}) => {
     
     return (
         <>
-            <div className="dropdown input-shadow input-shadow-onFocus" key={SelectInputId}>
+            <div className="dropdown input-shadow input-shadow-onFocus" 
+            key={id}>
                 <div className="dropdown-select">
                     <span className="select paragraph-regular-Noto paragraph-small">
                         {products}
@@ -76,6 +74,7 @@ const selectInput:React.FC<selects> = ({SelectInputId,id,name}) => {
                             key={i}
                             >
                                 <input
+                                    key={product.id}
                                     value={product.name}
                                     id={product.name}
                                     onChange={handleSelect}

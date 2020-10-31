@@ -8,7 +8,7 @@ interface Props {
 const carousel: React.FC<Props> = ({ id, title }) => {
   return (
     <Fragment>
-      <div className="main_content--carousel noselect">
+      <div className="main_content--carousel noselect" key={id}>
         <div className="right_slider_btn">
           <svg
             width="122"
