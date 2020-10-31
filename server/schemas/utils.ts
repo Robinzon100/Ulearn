@@ -6,6 +6,7 @@ export const arrayStringWithIds = (joi: any) => {
     return joi.string().pattern(/^[[0-9,]+[0-9]]*$/, 'id').required()
 }
 
+// TODO: add password complexity checker here somewhere
 export const passwordUnencrypted = (joi: any) => {
     return joi.string().trim().required()
 }

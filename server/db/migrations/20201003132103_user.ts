@@ -12,8 +12,8 @@ export async function up(knex: Knex): Promise<void> {
         table.string('recovery_email', 254).defaultTo('');
         table.string('description', 1000).defaultTo('')
 
-        // TODO: shecvale socials da piradi infos defaults
-        // TODO: shecvale categories
+        // TODO:  piradi infos defaults
+        // TODO:  add sub_sub_category column
 
         table.timestamp('last_login', { precision: 2 }).defaultTo(knex.fn.now());
         table.string('restore_token', 255);
