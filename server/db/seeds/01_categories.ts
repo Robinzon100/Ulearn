@@ -9,7 +9,7 @@ export async function seed(knex: Knex): Promise<void> {
     // await knex(tableNames.sub_categories).del()
     // await knex(tableNames.main_categories).del()
 
-
+    // TODO: add sub_sub_categories table seed
      
     await knex(tableNames.main_categories).insert(mainCategories).returning('*');
     await knex(tableNames.sub_categories).insert(subCategories).returning('*');
