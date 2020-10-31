@@ -1,0 +1,45 @@
+{
+    "carousel":[
+        {
+            "id":1,
+            "imageUrl" :"https://images.unsplash.com/photo-1557246565-8a3d3ab5d7f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjQzMzEwfQ&auto=format&fit=crop&w=1350&q=80",
+            "title":"პროგრამირება"
+        },
+        {
+            "id":2,
+            "imageUrl" :"https://images.unsplash.com/photo-1557246565-8a3d3ab5d7f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjQzMzEwfQ&auto=format&fit=crop&w=1350&q=80",
+            "title":"მშენებლობა"
+        }
+        ,
+        {
+            "id":3,
+            "imageUrl" :"https://images.unsplash.com/photo-1557246565-8a3d3ab5d7f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjQzMzEwfQ&auto=format&fit=crop&w=1350&q=80",
+            "title":"კულინარია"
+        },
+        {
+            "id":4,
+            "imageUrl" :"https://images.unsplash.com/photo-1557246565-8a3d3ab5d7f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjQzMzEwfQ&auto=format&fit=crop&w=1350&q=80",
+            "title":"იოგა"
+        },
+        {
+            "id":5,
+            "imageUrl" :"https://images.unsplash.com/photo-1557246565-8a3d3ab5d7f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjQzMzEwfQ&auto=format&fit=crop&w=1350&q=80",
+            "title":"ციცინათელა"
+        },
+        {
+            "id":6,
+            "imageUrl" :"https://images.unsplash.com/photo-1557246565-8a3d3ab5d7f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjQzMzEwfQ&auto=format&fit=crop&w=1350&q=80",
+            "title":"პარკური"
+        },
+        {
+            "id":7,
+            "imageUrl" :"https://images.unsplash.com/photo-1557246565-8a3d3ab5d7f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjQzMzEwfQ&auto=format&fit=crop&w=1350&q=80",
+            "title":"ცირკი"
+        },
+        {
+            "id":8,
+            "imageUrl" :"https://images.unsplash.com/photo-1557246565-8a3d3ab5d7f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjQzMzEwfQ&auto=format&fit=crop&w=1350&q=80",
+            "title":"ბიზნესი"
+        }
+    ]
+}

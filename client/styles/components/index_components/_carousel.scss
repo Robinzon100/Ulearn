@@ -1,23 +1,21 @@
 $carousel-card-shadow:0px 23px 42px -6px rgba(17, 23, 53, 0.1);
 $right_slider_btn-gradient:linear-gradient(271.08deg, #FFFFFF 62.68%, rgba(255, 255, 255, 0) 99.18%);
 
-.main_content--carousel {
+.carousel {
     position: relative;
+    margin-bottom: 12rem;
 
     .right_slider_btn {
         position: absolute;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         background: $right_slider_btn-gradient;
-        right: -2%;
-        width: 25rem;
-        height: 11rem;
-        top: 5%;
+        right: -3%;
+        top: 6%;
         z-index: 1;
         cursor: pointer;
-
-        svg {
-            margin-left: 10rem;
-            position: relative;
-        }
+        
 
     }
 
@@ -25,8 +23,14 @@ $right_slider_btn-gradient:linear-gradient(271.08deg, #FFFFFF 62.68%, rgba(255, 
     .container {
         display: flex;
         flex-direction: row;
-        overflow: hidden;
         position: relative;
+        overflow-x: scroll;
+        -ms-overflow-style: none;  
+        scrollbar-width: none; 
+        overflow: -moz-scrollbars-none;
+    }
+    .container::-webkit-scrollbar{
+        width: 0 !important 
     }
 
 
@@ -37,7 +41,6 @@ $right_slider_btn-gradient:linear-gradient(271.08deg, #FFFFFF 62.68%, rgba(255, 
         box-shadow: $carousel-card-shadow;
         padding: 1.5rem 0rem 1.5rem 1.5rem;
         border-radius: 18px;
-        margin: 0rem 0 12rem 0rem;
         cursor: pointer;
 
         &:not(:first-child) {
@@ -46,9 +49,10 @@ $right_slider_btn-gradient:linear-gradient(271.08deg, #FFFFFF 62.68%, rgba(255, 
 
 
         &--pic {
-            background: no-repeat url("/pictures/courses/carousel_pic.png");
+            background: url("/pictures/courses/carousel_pic.png");
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
             width: 10rem;
             height: 9rem;
             border-radius: 18px;

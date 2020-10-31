@@ -1,5 +1,8 @@
-// @media screen and (max-width: 1680px) {
-//     .main_content .courses--cards {
-//         grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)) !important;
-//     }
-// }
+@media screen and (max-width: 1700px) {
+    .landing_courses {
+        &--cards {
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+        }
+    }
+        
+}

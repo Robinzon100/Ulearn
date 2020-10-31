@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
+
 interface selects {
-    id:number,
+    id: number,
 }
 
 
-const selectInput:React.FC<selects> = ({id},props) => {
-    const [toggle, setToggle] = useState(false);
+const selectInput: React.FC<selects> = ({ id }, props) => {
+    const [isToggle, setIsToggle] = useState(false);
 
     const handleToggle = () => {
-        setToggle((toggle) => !toggle);
+        setIsToggle((toggle) => !toggle);
     };
 
     const selectProducts = [
@@ -33,45 +34,68 @@ const selectInput:React.FC<selects> = ({id},props) => {
     const [products, setProducts] = useState<any>(selectProducts[0].name)
 
     const handleSelect = (e) => {
-        const openedContainer = document.querySelector(".dropdown-list");
-        const toggleArrow = document.querySelector('.toggleArrow')
-
-        toggleArrow.classList.remove("animatedArrow");
-        openedContainer.classList.remove("dropdown_animation");
         setProducts(e.target.value);
-        setToggle(false);
-        
+        setIsToggle(false);
     }
-    
+    //FRAMER ANIM
+    const arrowAnimation = {
+        open: {
+            rotate: 0,
+            transition: { duration: 0.3 }
+        },
+        closed:
+        {
+            rotate: [0, 180],
+            transition: { duration: 0.2 }
+        },
+    }
+
+    const dropDownAnimation = {
+        open: {
+            'height': '14rem',
+            opacity: 1,
+            'display': 'block',
+            transition: { duration: 0.2 }
+        },
+        closed: {
+            'height': '0rem',
+            opacity: 0,
+            'display': 'none',
+            transition: {
+                duration: 0.2
+            }
+        },
+    }
+
     return (
         <>
-            <div className="dropdown input-shadow input-shadow-onFocus" 
-            key={id}>
+            <div className="dropdown input-shadow input-shadow-onFocus"
+                key={id}>
                 <div className="dropdown-select">
                     <span className="select paragraph-regular-Noto paragraph-small">
                         {products}
                     </span>
-                    <img
-                            src="./pictures/select_arrow.svg"
-                            alt="arrow"
-                            onClick={handleToggle}
-                            
-                            className={toggle ? "toggleArrow animatedArrow" : "toggleArrow"  }
-                        />
-                    
-                </div>
-                <div
-                    className={
-                        toggle ? "dropdown-list dropdown_animation" : "dropdown-list"
-                    }
+                    <motion.img
+                        src="./pictures/select_arrow.svg"
+                        alt="arrow"
+                        onClick={handleToggle}
+                        variants={arrowAnimation}
+                        animate={isToggle ? "closed" : "open"}
+                    />
 
+                </div>
+                <motion.div
+                    className="dropdown-list"
+                    variants={dropDownAnimation}
+                    initial={{ height: "0rem" }}
+                    animate={isToggle ? "open" : "closed"}
                 >
                     {selectProducts.map((product, i) => (
                         <>
 
-                            <div 
-                            className="dropdown-list__item"
-                            key={i}
+                            <div
+                                className="dropdown-list__item"
+                                key={i}
                             >
                                 <input
                                     key={product.id}
@@ -83,7 +107,7 @@ const selectInput:React.FC<selects> = ({id},props) => {
                                     className="radio"
                                 />
                                 <label
-                                className="paragraph-regular-Noto paragraph-smallest"
+                                    className="paragraph-regular-Noto paragraph-smallest"
                                     htmlFor={product.name}
                                 >
                                     {product.name}
@@ -94,7 +118,7 @@ const selectInput:React.FC<selects> = ({id},props) => {
                     ))}
 
 
-                </div>
+                </motion.div>
             </div>
         </>
     );

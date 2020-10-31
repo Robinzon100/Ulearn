@@ -113,17 +113,6 @@ $padding-input-select:1rem 1rem 1rem 6rem;
     @include flex;
     transition: all 1s ease;
 
-    .toggleArrow {
-        cursor: pointer;
-        // position: absolute;
-        margin-left: 1.5rem;
-        transform: rotate(0deg);
-    }
-
-    .animatedArrow {
-        transform: rotate(180deg);
-
-    }
 
     .select {
         opacity: 80%;
@@ -136,7 +125,6 @@ $padding-input-select:1rem 1rem 1rem 6rem;
     &::-ms-expand {
         display: none;
     }
-
     /* for Firefox */
     -moz-appearance: none;
     /* for Chrome */
@@ -148,12 +136,12 @@ $padding-input-select:1rem 1rem 1rem 6rem;
     top: 110%;
     left: 0;
     right: 0;
-    height: 0;
-    opacity: 0;
+    display: block;
     padding: 1rem 1rem 1rem 1rem;
     border: 0.9px solid #C9C9C9;
     border-radius: 8px;
-    // transition: all .2s;
+    z-index: 1;
+    // transition: all .3s;
 
 
     &__item {
@@ -175,17 +163,17 @@ $padding-input-select:1rem 1rem 1rem 6rem;
 }
 
 
-.dropdown_animation {
-    height: auto;
-    // max-width: 300px;
-    display: block;
-    opacity: 1;
-    z-index: 5;
-    cursor: pointer;
+// .dropdown_animation {
+//     height: auto;
+//     // max-width: 300px;
+//     display: block;
+//     opacity: 1;
+//     z-index: 5;
+//     cursor: pointer;
 
-}
+// }
 
-.dropdown_animation__list {
-    height: auto;
-    display: block;
-}
+// .dropdown_animation__list {
+//     height: auto;
+//     display: block;
+// }
