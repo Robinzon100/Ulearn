@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Image from 'next/image';
 import { Star, Heart } from "react-feather";
 
 import CardDetail from './CardDetail';
@@ -22,21 +23,23 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
     posted,
     difficulty,
     description,
-    descriptionList
-},props) => {
+    descriptionList,
+
+}) => {
 
 
     const [addToFavorites, setAddToFavorites] = useState<boolean>(isLiked);
 
     const [checkNewPrice, setCheckNewPrice] = useState<boolean | number>(newPrice);
 
-    const [isClicked, setIsClicked] = useState<boolean | null>();
+    const [isClicked, setIsClicked] = useState<boolean | null>(false);
 
     const [isLastCard, setIsLastCard] = useState<boolean>(false);
 
     const [isBestSeller, setIsBestSeller] = useState<boolean>(bestseller);
 
     const [isVisible, setIsVisible] = useState<boolean>(false);
+
 
     const handleAddFavorite = (e) => {
         // debugger
@@ -68,20 +71,30 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
         setIsVisible(false);
     }
 
-    //! ამის დახმარებით ღილაკი გამოჩნდება
-    const handleHoverEnter = () => {
-        setIsVisible(true);
-    }
+    //TODO ტელეფონზე რამენაირად უნდა ქნა რომ ერთს რომმ დააჭერს მეორე გაქრეს,თუ მეორე 
+    //ჩართულაი
+    // const handleCardClick = (e) => {
+    //     const card_details = document.querySelectorAll(".card_detail-display");
+
+    //     card_details.forEach(detail => {
+    //         if (detail.classList.contains('card_detail-display')) {
+    //             detail.classList.remove('card_detail-display')
+               
+    //         }
+    //     })
+    //     // debugger
+    //     e.currentTarget.classList.toggle('card_detail');
+    // }
 
     return (
         <div className="PrimaryContentCard"
-            key={props.key}
+            key={id}
             onMouseLeave={handleHoverLeave}
         >
             <a href="#">
-                <div className="PrimaryContentCard__img" 
-                style={{ backgroundImage: `url(${imageUrl})` }}
-                onMouseEnter={handleHoverEnter}
+                <div className="PrimaryContentCard__img"
+                    style={{ backgroundImage: `url(${imageUrl})` }}
+
                 >
                     <div className="price-tag">
                         {checkNewPrice && (
@@ -113,9 +126,11 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
                         title={title}>{stringToCut(title, 50)}</p>
                 </div>
             </a>
-            <div className={isVisible ? "course_card_hover_logo" : "course_card_hover_logo_none" } 
-            onClick={(e) => cardHoverHandler(e)}>
-                <div className={isClicked ? "card_detail" : "card_detail-display"}>
+            <div className="course_card_hover_logo course_card_hover_logo_mobile"
+                onClick={(e) => cardHoverHandler(e)}>
+                
+                <div className={isClicked ? "card_detail" : "card_detail-display"}
+                >
                     {
 
                         <CardDetail

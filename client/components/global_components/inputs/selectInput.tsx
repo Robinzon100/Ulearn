@@ -90,15 +90,14 @@ const selectInput: React.FC<selects> = ({ id }, props) => {
                     initial={{ height: "0rem" }}
                     animate={isToggle ? "open" : "closed"}
                 >
-                    {selectProducts.map((product, i) => (
+                    {selectProducts.map(product => (
                         <>
 
                             <div
                                 className="dropdown-list__item"
-                                key={i}
+                                key={product.id}
                             >
                                 <input
-                                    key={product.id}
                                     value={product.name}
                                     id={product.name}
                                     onChange={handleSelect}

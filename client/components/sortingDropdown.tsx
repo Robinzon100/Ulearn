@@ -6,23 +6,19 @@ interface SortingDropdown {
 }
 
 
-const SortingDropdown: React.FC<SortingDropdown> = ({ type }) => {
-    const [inputId, setInputId] = useState(1);
-
-    
-
+const SortingDropdown: React.FC<SortingDropdown> = ({type }) => {
     return (
         <>
 
             { type === 'date' &&
-                <div className="sorting__video-date colorChange">
+                <div className="sorting__video-date colorChange" >
                     {/* //! TODO  აქ გაარკვიე რამენაირად */}
                     
                     {/* //! აქ ვერაფრით ვერ გადავეცი უნიკალური გასაღები 
                         //! არ ვიცი ვერ ვხედავ რაღაცას ალბათ და იმ 
                         //! გასარების შეცდომაც იმიტომ აგდებს
                     */}
-                    <SelectInput id={1} /> 
+                    <SelectInput  id={1} /> 
                     <div className="calendar sorting_styles">
                         <Calendar color="blue" size={17} />
                     </div>
@@ -32,8 +28,8 @@ const SortingDropdown: React.FC<SortingDropdown> = ({ type }) => {
 
 
             {type === 'rating' &&
-                <div className="sorting__video-raiting colorChange">
-                    <SelectInput id={2} /> 
+                <div className="sorting__video-raiting colorChange" >
+                    <SelectInput  id={2} /> 
                     <div className="star sorting_styles">
                         <Star color="yellow" size={17} />
                     </div>
@@ -43,7 +39,7 @@ const SortingDropdown: React.FC<SortingDropdown> = ({ type }) => {
 
 
             {type === 'time' &&
-                <div className="sorting__video-length colorChange">
+                <div className="sorting__video-length colorChange" >
                     <SelectInput id={3} /> 
                     <div className="clock sorting_styles">
                         <Clock color="red" size={17} />

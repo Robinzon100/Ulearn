@@ -1,15 +1,25 @@
-@media screen and (max-width: 340px) {
+@media screen and (max-width: 1700px) {
+    .landing_courses {
+        &--cards {
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+        }
+    }
+
+}
+
+@media screen and (max-width: $ultra-small) {
     .main_content {
 
         &--container {
             grid-template-columns: 1fr !important;
+
             .category {
                 display: none !important;
             }
 
-            
 
-            
+
+
         }
 
         .overlay_container {
@@ -32,12 +42,38 @@
 
             &--cards {
                 margin-top: 4rem !important;
+
+                .course_card_hover_logo {
+                    display: none !important;
+                }
+
+                //! მთავარ გვერდზე კურსების კარტების ჰოვერზე რომ კითხვის ნიშნები 
+                //! ჩნდება
+                .course_card_hover_logo_mobile {
+                    background-color: var(--white) !important;
+                    border-radius: 50%;
+                    display: block !important;
+                    cursor: pointer;
+                    position: absolute;
+                    background: url("/pictures/courses/card_hover_btn.svg");
+                    background-position: center;
+                    background-size: 60% !important;
+                    background-repeat: no-repeat;
+                    right: 2%;
+                    top: 2%;
+                    width: 4rem;
+                    height: 4rem;
+                    
+                }
+
             }
         }
+
         &--input {
             .input_container {
                 width: 1;
             }
+
             .sorting {
                 display: none !important;
             }

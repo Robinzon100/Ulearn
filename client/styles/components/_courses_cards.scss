@@ -54,27 +54,25 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
             flex-direction: column;
             
             
-            .course_card_hover_logo{
-                cursor: pointer;       
-                position: absolute;
-                background: url("/pictures/card_hover_btn.svg");
-                background-position: center;
-                // background-size: cover;
-                right: 0;
-                width: 6.5rem;
-                height: 6.5rem;
-                // transform: scale3d(1.5,1.5,1.5);
-                opacity: 1;
-                background-repeat: no-repeat;
-                transition: all .5s;
+            &:hover {
+                .course_card_hover_logo {
+                    background-color: var(--white);
+                    border-radius: 50%;
+                    display: block;
+                    cursor: pointer;       
+                    position: absolute;
+                    background-image: url("/pictures/courses/card_hover_btn.svg");
+                    background-position: center;
+                    background-size:60%;
+                    background-repeat: no-repeat;
+                    right: 2%;
+                    top: 2%;
+                    width: 4rem;
+                    height: 4rem;
+                    
+                }
             }
-            .course_card_hover_logo_none {
-                position: absolute;
-                // transform: scale3d(0,0,0);
-                opacity: 0;
-                width: 0rem;
-                height: 0rem;
-            }
+           
 
             
             a {

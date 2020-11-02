@@ -85,8 +85,8 @@ const main_content: React.FC = () => {
 
                             <div className="sorting">
                                 <SortingDropdown type="date" />
-                                <SortingDropdown type="rating" />
-                                <SortingDropdown type="time" />
+                                {/* <SortingDropdown type="rating" />
+                                <SortingDropdown type="time" /> */}
                             </div>
                         </div>
                         {CardsJson.length > 2 ? !toggleSeeMore ?

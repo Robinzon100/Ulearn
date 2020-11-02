@@ -24,28 +24,20 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
     const handleHoverCardStyle = () => {
         const hoverCards = document.querySelectorAll<HTMLElement>(".card_detail");
 
-        hoverCards.forEach((card) => {
-            card.style.left = "-665px";
-         }); 
+        if(window.innerWidth > 360) {
+            hoverCards.forEach((card) => {
+                card.style.left = "-665px";
+            }); 
+        }
+
+        if(window.innerWidth < 360) {
+            hoverCards.forEach((card) => {
+                card.style.left = "0 !important";
+            }); 
+        }
+        
     };
-
-
     
-    // let handleDetectCardPosition = () => {
-    //     const hoverCards = document.querySelectorAll<HTMLElement>(".card_detail");
-
-    //     hoverCards.forEach((card) => {
-            
-    //         let getLeftPostion = Math.floor((window.innerWidth  - card.offsetLeft) / 4.8);
-    //         // let getTopPostion = (window.innerHeight ) - card.offsetTop;
-
-    //         card.style.left = `${getLeftPostion}px`;
-    //         console.log({ x:getLeftPostion })
-    //     });
-    // }
-
-    
-
     useEffect(() => {
         if (isLastCard) {
             console.log("left");

@@ -22,7 +22,7 @@ $card-detail-shadow:20px 30px 90px 10px rgba(19, 21, 26, 0.2);
     border-radius: 1px;
     top: -30px;
     padding: 0.2rem 2rem;
-    left: 50px;
+    left: 30px;
     // bottom: 0;
     // display: block;
     opacity: 1;
@@ -61,7 +61,7 @@ $card-detail-shadow:20px 30px 90px 10px rgba(19, 21, 26, 0.2);
 
         &__date {
             @include flex;
-            margin: 0.8vw 0vw !important;
+            margin: 0.8rem 0 !important;
         }
 
         &__list {
@@ -69,7 +69,7 @@ $card-detail-shadow:20px 30px 90px 10px rgba(19, 21, 26, 0.2);
                 padding: 0 !important;
 
                 li {
-                    margin-top: 0.7vw;
+                    margin-top: 1rem;
                     display: flex;
                     position: relative;
                     // align-items: center;
@@ -108,8 +108,12 @@ $card-detail-shadow:20px 30px 90px 10px rgba(19, 21, 26, 0.2);
 }
 
 
-@media screen and (max-width: 1590px) {
-    .card_detail{
-        left: 35.5vw;
+@media screen and (max-width: $ultra-small) {
+    .card_detail {
+        left: -267% !important;
+        top: -400% !important;
+        transform: translate(-50%,50%);
+        width: 33.6rem !important;
+
     }
 }

@@ -44,10 +44,11 @@
     --input:0px 4.4px 12px rgba(17, 23, 53, 0.12);
     --input-onFocus:0px -11px 19px -8px rgba(0, 0, 0, 0.03), 0px 6px 15px -7px rgba(0, 0, 0, 0.1),0px 11px 12px -5px rgba(17, 23, 53, 0.06);
     --box-shadow-for-video-files:0px 5.4px 23px rgba(0, 158, 72, 0.5);
-    
-
 }
 
+
+//! BREAKPOINTS
+$ultra-small: 360px;
 $transition:all 1s cubic-bezier(0, 1.06, 0.37, 0.38);
 
 
