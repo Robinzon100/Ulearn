@@ -6,6 +6,8 @@ import api from "./api"
 
 const app = Express()
 
+// TODO: use compressor middlware https://www.npmjs.com/package/compression
+
 
 import connection from "./api/db";
 Model.knex(connection);

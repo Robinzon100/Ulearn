@@ -1,7 +1,6 @@
-import * as Knex from "knex";
-import orderedTableNames from "../../constants/orderedTableNames";
-import { mainCategories, subCategories } from "../../constants/seeds/defaults/categories";
-import tableNames from "../../constants/tableNames";
+import * as Knex from 'knex';
+import { mainCategories, subCategories } from '../../constants/seeds/defaults/categories';
+import tableNames from '../../constants/tableNames';
 
 export async function seed(knex: Knex): Promise<void> {
 
