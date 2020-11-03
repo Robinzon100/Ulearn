@@ -1,6 +1,6 @@
-$logo_container_width:47%;
-$menu_container-width:55%;
-
+$logo_container_width:40%;
+$menu_container-width:33%;
+$category-menu-width:10%;
 .header {
     position: fixed;
     background-color: white;
@@ -9,6 +9,8 @@ $menu_container-width:55%;
     height: 8vh;
     padding: var(--main-pading);
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     z-index: 999;
     top: 0 !important;
     box-shadow: var(--box-shadow-for-navigation);
@@ -32,8 +34,8 @@ $menu_container-width:55%;
                 repeat: no-repeat;
             }
 
-            width: 12vh;
-            height: 100%;
+            width: 12rem;
+            height:5rem;
             cursor: pointer;
 
         }
@@ -42,10 +44,6 @@ $menu_container-width:55%;
         .input {
             width: 100%;
             margin: 0vw 1vw;
-
-            // input {
-            //     padding: 1.5rem 1.5rem 1.5rem 5rem !important;
-            // }
 
             svg {
                 margin-left: 1.5rem !important;
@@ -56,6 +54,20 @@ $menu_container-width:55%;
     }
 
 
+    &__category-menu {
+        width: $category-menu-width;
+        &--heading {
+            display: flex;
+            align-items: center;
+            p {
+                font-weight: bold;
+            }
+            .chevrondown {
+                margin: 0.5rem 0 0 0.5rem;
+                cursor: pointer;
+            }
+        }
+    }
 
 
     .menu_container {
@@ -63,14 +75,18 @@ $menu_container-width:55%;
         width: $menu_container-width;
 
         .login {
+            background-color: var(--secondary-dark-dark-blue);
+            padding: .9rem 1.3rem .9rem 1.3rem;
+            cursor: pointer;
+            border-radius: 3px;
+
             a {
                 font-size: $paragraph-big;
                 text-decoration: none;
-                cursor: pointer;
 
                 p{
-                color: var(--primary-green);
-
+                    color: var(--white);
+                    
                 }
             }
 
@@ -134,50 +150,3 @@ $menu_container-width:55%;
     }
 }
 
-@media screen and (max-width: 340px) {
-    .header {
-        // background-color: red !important; 
-        height: 5rem !important;
-        flex-direction: row !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-      
-        .input,
-        .login,
-        .cart,
-        .unregistered_user {
-            display: none !important;
-        }
-        
-        .logo_container {
-            display: block !important;
-            width: 7.5rem !important;
-            height: 100% !important;
-            
-            .logo {
-                width: 100% !important;
-                height: 100% !important;
-            }
-        }
-        
-        
-        .menu_container {
-            display: none !important;
-        }
-
-        .mobile_hamburger {
-            display: block !important;
-            background: url("/pictures/mobile_burger.svg");
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            width: 7% !important;
-            height: 35% !important;
-        }
-    }
-    
-
-   .mobile_active_menu {
-
-   }
-}

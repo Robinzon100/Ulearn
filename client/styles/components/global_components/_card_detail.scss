@@ -108,12 +108,12 @@ $card-detail-shadow:20px 30px 90px 10px rgba(19, 21, 26, 0.2);
 }
 
 
-@media screen and (max-width: $ultra-small) {
+@media screen and (max-width: $ultra-small-breakpoint) {
     .card_detail {
-        left: -267% !important;
+        left: -308% !important;
         top: -400% !important;
         transform: translate(-50%,50%);
-        width: 33.6rem !important;
+        width: 37.6rem !important;
 
     }
 }

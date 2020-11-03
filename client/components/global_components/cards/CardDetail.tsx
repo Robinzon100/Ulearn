@@ -51,19 +51,19 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
 
     return (
         <>
-            <div key={id}>
-                <div className="card_detail--container">
+   
+                <div className="card_detail--container" key={id}>
                     <div className="inside_content">
                         <div className="card_detail--container__title">
                             <a href="#">
-                                <p className="heading-bold-Noto paragraph-regular">
+                                <p className="heading-bold paragraph-regular">
                                     {stringToCut(title,25)}
                                 </p>
                             </a>
                         </div>
                         <div className="card_detail--container__date">
                             <p
-                                className="paragraph-light-Noto paragraph-smallest"
+                                className="paragraph-light paragraph-smallest"
                                 style={{ color: "#00E267" }}
                             >
                                 
@@ -74,7 +74,7 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
                                 </span>
                             </p>
                             <p
-                                className="paragraph-light-Noto paragraph-smallest"
+                                className="paragraph-light paragraph-smallest"
                                 style={{ color: "#636469" }}
                             >
                                 სირთულე:
@@ -85,7 +85,7 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
                             </p>
                         </div>
                         <div className="card_detail--container__description">
-                            <p className="paragraph-light-Noto paragraph-small">
+                            <p className="paragraph-light paragraph-small">
                                 {description}
                             </p>
                         </div>
@@ -99,7 +99,7 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
                                                 <Check size={15} />
                                             </div>
                                             <div className="paragraph">
-                                                <p className="paragraph-light-Noto paragraph-small ">
+                                                <p className="paragraph-light paragraph-small ">
                                                     {list.list}
                                                 </p>
                                             </div>
@@ -115,7 +115,7 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
                     <a href="#">
                     <div className="card_detail--container__addtobucket">
                         <div className="heading">
-                            <p className="heading-bold-Noto paragraph-regular">
+                            <p className="heading-bold paragraph-regular">
                                 კალათაში დამატება
                             </p>
                         </div>
@@ -128,7 +128,7 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
                     </div>
                     </a>
                 </div>
-            </div>
+            
         </>
     );
 };

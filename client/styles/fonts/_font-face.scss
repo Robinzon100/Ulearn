@@ -3,12 +3,17 @@
 /// ====================== Noto
 
 @font-face {
+    font-family: "georgian-paragraph-extra-bold";
+    src: url("/fonts/Noto/NotoSansGeorgian-ExtraBold.ttf");
+}
+
+@font-face {
     font-family: "georgian-paragraph-light";
     src: url("/fonts/Noto/NotoSansGeorgian-Light.ttf");
 }
 
 @font-face {
-    font-family: "georgian-paragraph-regular";
+    font-family: "georgian-paragraph-regulars";
     src: url("/fonts/Noto/NotoSansGeorgian-Regular.ttf");
 }
 
@@ -27,6 +32,26 @@
     src: url("/fonts/Noto/NotoSansGeorgian-Medium.otf");
 }
 
+
+
+
+// === === === === SAILEC
+@font-face {
+    font-family: "sailec-bold";
+    src: url("/fonts/Sailec/Sailec_Bold.woff2");
+}
+@font-face {
+    font-family: "sailec-medium";
+    src: url("/fonts/Sailec/Sailec_Medium.woff2");
+}
+@font-face {
+    font-family: "sailec-light";
+    src: url("/fonts/Sailec/Sailec_Light.woff2");
+}
+@font-face {
+    font-family: "sailec-thin";
+    src: url("/fonts/Sailec/Sailec_Thin.woff2");
+}
 
 // === === === === EINA
 @font-face {

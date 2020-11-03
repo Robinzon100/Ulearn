@@ -5,7 +5,7 @@ export default function input({placeHolder}) {
         <Fragment>
              <div className="input_container">
                 <input type="text" 
-                className="input_field input-shadow input-shadow-onFocus input_styles paragraph-regular-Noto paragraph-small"
+                className="input_field input-shadow input-shadow-onFocus input_styles paragraph-regulars paragraph-small"
                 placeholder={placeHolder} />
 
           

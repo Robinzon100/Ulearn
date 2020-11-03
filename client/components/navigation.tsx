@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { ChevronDown } from "react-feather";
 import { ShoppingCart } from "react-feather";
 // import Search from "../components/search";
 
@@ -13,7 +13,7 @@ const NavLink = (props) => {
   const { route, title, children } = props;
   return (
     <Link href={route}>
-      <a className="menu--list--items--links  paragraph-regular-Noto paragraph-medium-small">
+      <a className="menu--list--items--links  paragraph-regulars paragraph-small">
         {title}
         {children}
       </a>
@@ -46,11 +46,6 @@ const Navigation: React.FC = () => {
   //     isOpen((open) => !open);
   // };
 
-  // const [search, setSearch] = useState(false);
-
-  // let searchToggle = () => {
-  //     setSearch((search) => !search);
-  // };
 
   return (
     <React.Fragment>
@@ -63,6 +58,13 @@ const Navigation: React.FC = () => {
           </div>
         </div>
 
+        <div className="header__category-menu">
+            <div className="header__category-menu--heading">
+                <p className="heading-extra-bold paragraph-medium-small">კატეგორიები</p>
+                <span className="chevrondown"><ChevronDown/></span>
+            </div>
+        </div>
+
         <div className="menu_container">
           <div className="menu">
             <ul className="menu--list">
@@ -72,19 +74,12 @@ const Navigation: React.FC = () => {
               <li className="menu--list--items">
                 <NavLink route="/lecturers" title="გახდი ლექტორი" />
               </li>
-
-              <li className="menu--list--items">
-                <NavLink route="/MyCourses" title="ჩემი კურსები" />
-              </li>
-              <li className="menu--list--items">
-                <NavLink route="/about" title="ჩვენს შესახებ" />
-              </li>
             </ul>
           </div>
 
           <div className="login">
             <a href="#">
-              <p className="Eina-semibold">login / sign up</p>
+              <p className="medium paragraph-small">login / sign up</p>
             </a>
           </div>
 

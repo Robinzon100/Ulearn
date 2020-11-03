@@ -10,7 +10,7 @@ const carousel: React.FC<CarouselInterface> = ({ id, imageUrl, title }, props) =
             <div className="carousel_card" key={props.key}>
                 <div className="carousel_card--pic" style={{ backgroundImage: `url(${imageUrl})` }}></div>
                 <div className="carousel_card--heading">
-                    <p className="heading-bold-Noto paragraph-regular">{title}</p>
+                    <p className="heading-bold paragraph-regular">{title}</p>
                 </div>
             </div>
             

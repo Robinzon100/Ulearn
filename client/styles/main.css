@@ -4,7 +4,7 @@
 }
 
 @font-face {
-  font-family: "paragraph-regular";
+  font-family: "paragraph-regulars";
   src: url("/fonts/Eina/Eina03-Regular.otf");
 }
 
@@ -59,41 +59,50 @@
 }
 
 .paragraph-biggest {
-  font-size: calc( 20px + (24 - 20) * ((100vw - 300px) / (1900 - 700))) !important;
+  font-size: calc(
+ 20px + (24 - 20) * ((100vw - 300px) / (1900 - 700))) !important;
   letter-spacing: 1.1px;
   line-height: 135%;
 }
 
 .paragraph-big {
-  font-size: calc( 17px + (22 - 17) * ((100vw - 300px) / (1900 - 700))) !important;
-}
+  font-size: calc(
+ 17px + (22 - 17) * ((100vw - 300px) / (1900 - 700))) !important;
+}paragraph-regulars
 
 .paragraph-regular {
-  font-size: calc( 17px + (20 - 17) * ((100vw - 300px) / (1900 - 700))) !important;
+  font-size: calc(
+ 17px + (20 - 17) * ((100vw - 300px) / (1900 - 700))) !important;
 }
 
 .paragraph-medium {
-  font-size: calc( 14px + (18 - 14) * ((100vw - 300px) / (1900 - 700))) !important;
+  font-size: calc(
+ 14px + (18 - 14) * ((100vw - 300px) / (1900 - 700))) !important;
 }
 
 .paragraph-small {
-  font-size: calc( 13px + (16 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
+  font-size: calc(
+ 13px + (16 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
 }
 
 .heading-1 {
-  font-size: calc( 35px + (68 - 35) * ((100vw - 300px) / (1900 - 700))) !important;
+  font-size: calc(
+ 35px + (68 - 35) * ((100vw - 300px) / (1900 - 700))) !important;
 }
 
 .heading-2 {
-  font-size: calc( 32px + (55 - 32) * ((100vw - 300px) / (1900 - 700))) !important;
+  font-size: calc(
+ 32px + (55 - 32) * ((100vw - 300px) / (1900 - 700))) !important;
 }
 
 .heading-3 {
-  font-size: calc( 26px + (36 - 26) * ((100vw - 300px) / (1900 - 700))) !important;
+  font-size: calc(
+ 26px + (36 - 26) * ((100vw - 300px) / (1900 - 700))) !important;
 }
 
 .heading-4 {
-  font-size: calc( 18px + (26 - 18) * ((100vw - 300px) / (1900 - 700))) !important;
+  font-size: calc(
+ 18px + (26 - 18) * ((100vw - 300px) / (1900 - 700))) !important;
 }
 
 *,
@@ -139,7 +148,7 @@ html {
 }
 
 .main_container {
-  margin-top: 7rem;
+  margin-top: 7rparagraph-regulars
 }
 
 @font-face {
@@ -203,47 +212,56 @@ html {
 }
 
 .paragraph-biggest {
-  font-size: calc( 20px + (24 - 20) * ((100vw - 300px) / (1900 - 700))) !important;
+ paragraph-regulars
+ 20px + (24 - 20) * ((100vw - 300px) / (1900 - 700))) !important;
   letter-spacing: 1.1px;
   line-height: 135%;
 }
 
 .paragraph-big {
-  font-size: calc( 17px + (22 - 17) * ((100vw - 300px) / (1900 - 700))) !important;
+  font-size: calc(
+ 17px + (22 - 17) * ((100vw - 300px) / (1900 - 700))) !important;
 }
 
 .paragraph-regular {
-  font-size: calc( 17px + (20 - 17) * ((100vw - 300px) / (1900 - 700))) !important;
+  font-size: calc(
+ 17px + (20 - 17) * ((100vw - 300px) / (1900 - 700))) !important;
 }
 
 .paragraph-medium {
-  font-size: calc( 14px + (18 - 14) * ((100vw - 300px) / (1900 - 700))) !important;
+  font-size: calc(
+ 14px + (18 - 14) * ((100vw - 300px) / (1900 - 700))) !important;
 }
 
 .paragraph-small {
-  font-size: calc( 13px + (16 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
+  font-size: calc(
+ 13px + (16 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
 }
 
 .heading-1 {
-  font-size: calc( 35px + (68 - 35) * ((100vw - 300px) / (1900 - 700))) !important;
+  font-size: calc(
+ 35px + (68 - 35) * ((100vw - 300px) / (1900 - 700))) !important;
 }
 
 .heading-2 {
-  font-size: calc( 32px + (55 - 32) * ((100vw - 300px) / (1900 - 700))) !important;
+  font-size: calc(
+ 32px + (55 - 32) * ((100vw - 300px) / (1900 - 700))) !important;
 }
 
 .heading-3 {
-  font-size: calc( 26px + (36 - 26) * ((100vw - 300px) / (1900 - 700))) !important;
+  font-size: calc(
+ 26px + (36 - 26) * ((100vw - 300px) / (1900 - 700))) !important;
 }
 
 .heading-4 {
-  font-size: calc( 18px + (26 - 18) * ((100vw - 300px) / (1900 - 700))) !important;
+  font-size: calc(
+ 18px + (26 - 18) * ((100vw - 300px) / (1900 - 700))) !important;
 }
 
 .heading-regular-font {
   font-family: "heading-regular", "georgian-heading-regular";
-}
-
+}paragraph-regulars
+paragraph-regulars
 .heading-medium-font {
   font-family: "heading-medium-smallest", "georgian-heading-medium";
 }
@@ -846,7 +864,8 @@ html {
   display: block;
   text-align: center;
   position: relative;
-  font-size: calc( 16px + (19 - 16) * ((100vw - 300px) / (1900 - 700))) !important;
+  font-size: calc(
+ 16px + (19 - 16) * ((100vw - 300px) / (1900 - 700))) !important;
   background-image: -webkit-gradient(linear, left top, right top, from(#0c38ff), to(#00d9ff));
   background-image: linear-gradient(90deg, #0c38ff 0%, #00d9ff 100%);
   background-size: 180%;
@@ -878,7 +897,8 @@ html {
   position: relative;
   background-image: -webkit-gradient(linear, left top, right top, from(#0c38ff), to(#00d9ff));
   background-image: linear-gradient(90deg, #0c38ff 0%, #00d9ff 100%);
-  font-size: calc( 16px + (19 - 16) * ((100vw - 300px) / (1900 - 700))) !important;
+  font-size: calc(
+ 16px + (19 - 16) * ((100vw - 300px) / (1900 - 700))) !important;
   border: 2px solid transparent;
   -o-border-image: linear-gradient(90deg, #0c38ff 0%, #00d9ff 100%);
      border-image: -webkit-gradient(linear, left top, right top, from(#0c38ff), to(#00d9ff));
@@ -914,7 +934,8 @@ html {
   display: block;
   text-align: center;
   position: relative;
-  font-size: calc( 16px + (19 - 16) * ((100vw - 300px) / (1900 - 700))) !important;
+  font-size: calc(
+ 16px + (19 - 16) * ((100vw - 300px) / (1900 - 700))) !important;
   background-image: -webkit-gradient(linear, left top, right top, from(#0c38ff), to(#00d9ff));
   background-image: linear-gradient(90deg, #0c38ff 0%, #00d9ff 100%);
   background-size: 180%;
@@ -1273,7 +1294,8 @@ html {
   left: 40%;
   top: 70%;
   font-family: "paragraph-bold";
-  font-size: calc( 13px + (16 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
+  font-size: calc(
+ 13px + (16 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
 }
 
 .project_section__text .project_btn .more-projects:hover:after {
@@ -1287,7 +1309,8 @@ html {
 
 .project_section__heading .mystyles {
   color: red;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+ 1px 1px 0 #000;
 }
 
 .project_section__pharagraph p {

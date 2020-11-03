@@ -21,7 +21,7 @@ const RatingsMenu: React.FC = () => {
                     </div>
                     <div className="ratings__with-number--voice">
                         <ArrowUp size={15} />
-                        <p className="paragraph-regular-Noto paragraph-small">ხმა</p>
+                        <p className="paragraph-regulars paragraph-small">ხმა</p>
                     </div>
 
                 </div>
@@ -94,15 +94,15 @@ const RatingsMenu: React.FC = () => {
                 <div className="ratings-about__container">
                     <div className="difficulty">
                         <div className="graph"></div>
-                        <p className="paragraph-small heading-semi-bold-Noto ">სირთულე</p>
+                        <p className="paragraph-small heading-semi-bold ">სირთულე</p>
                     </div>
                     <div className="learning">
                         <h1 className="Eina-semibold heading-5">2000</h1>
-                        <p className="paragraph-small heading-semi-bold-Noto">სწავლობს</p>
+                        <p className="paragraph-small heading-semi-bold">სწავლობს</p>
                     </div>
                     <div className="time-length">
-                        <h1 className="Eina-semibold heading-5">8<span className="heading-semi-bold-Noto heading-5">სთ</span></h1>
-                        <p className="paragraph-small heading-semi-bold-Noto">ხანგძლივობა</p>
+                        <h1 className="Eina-semibold heading-5">8<span className="heading-semi-bold heading-5">სთ</span></h1>
+                        <p className="paragraph-small heading-semi-bold">ხანგძლივობა</p>
                     </div>
                 </div>
 

@@ -46,12 +46,12 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
             <div className="mycourses-hero">
               <div className="mycourses-hero__about-course">
                 <div className="mycourses-hero__about-course--heading">
-                  <p className="heading-bold-Noto heading-3_5">
+                  <p className="heading-bold heading-3_5">
                     როგორ გახდე DJ, DJ პროფესიის შესწავლა პროფესიულ დონეზე.
                   </p>
                 </div>
                 <div className="mycourses-hero__about-course--paragraph">
-                  <p className="paragraph-regular-Noto paragraph-small line-height">
+                  <p className="paragraph-regulars paragraph-small line-height">
                     გავივლით DJ-ის პროფესიის ყველა ნიუანს, რას აკეთებს რეალრად
                     DJ რა ევალება ნებისმიერ დაწესებულებაში და ასევე შევქმნით
                     რამოდენიმე ტრეკს რომლის გაყიდვას და გაპიარებასაც შეძლებთ
@@ -61,7 +61,7 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
                   <div className="buy-course">
                     <a
                       href="#"
-                      className="btn btn-green heading-semi-bold-Noto paragraph-medium-small"
+                      className="btn btn-green heading-semi-bold paragraph-medium-small"
                     >
                       კურსის შეძენა
                     </a>
@@ -69,7 +69,7 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
                   <div className="save-bucket">
                     <a
                       href="#"
-                      className="btn btn-yellow heading-semi-bold-Noto paragraph-medium-small"
+                      className="btn btn-yellow heading-semi-bold paragraph-medium-small"
                     >
                       <p>კალათაში შენახვა</p>
                       <div className="shopping_cart">
@@ -93,7 +93,7 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
 
                 {/* //! ინსტრუქტორის შესახებ */}
 
-                <h1 className="heading-bold-Noto heading-6">
+                <h1 className="heading-bold heading-6">
                   ინსტრუქტორის ონფორმაცია
                 </h1>
 

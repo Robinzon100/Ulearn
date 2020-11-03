@@ -125,7 +125,7 @@ export const Courses: React.FC<AboutCourse> = () => {
         <div className="courses-page">
           <div className="courses-page--about">
             <div className="courses-page--name">
-              <p className="heading-semi-bold-Noto  paragraph-medium">
+              <p className="heading-semi-bold  paragraph-medium">
                 <strong>{CoursesJson.aboutCourses.aboutCourse.title}</strong>
               </p>
               <div className="viewers">
@@ -138,7 +138,7 @@ export const Courses: React.FC<AboutCourse> = () => {
 
             <div className="courses-page--about__heading">
               {!displayName ? null : (
-                <p className="paragraph-regular-Noto paragraph-medium-small">
+                <p className="paragraph-regulars paragraph-medium-small">
                   ვიდეოს დასახელება - {displayName}
                 </p>
               )}
@@ -168,7 +168,7 @@ export const Courses: React.FC<AboutCourse> = () => {
                               {renderIcon(courseTab.iconComponent)}
                             </div>
                             <div className="rendered_title">
-                              <p className="heading-semi-bold-Noto paragraph-medium">
+                              <p className="heading-semi-bold paragraph-medium">
                                 {courseTab.title}
                               </p>
                             </div>

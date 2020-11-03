@@ -20,7 +20,7 @@
 
         font-size: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
         display: inline-block;
-        font-family: $paragraph-regular;
+        font-family: $paragraph-regulars;
         line-height: 180%;
         // width: 90%;
 
@@ -46,7 +46,7 @@
             p {
                 font-size: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
                 display: inline-block;
-                font-family: $paragraph-regular;
+                font-family: $paragraph-regulars;
                 line-height: 180%;
             }
 

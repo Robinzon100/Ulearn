@@ -56,7 +56,7 @@ const sideMenu: React.FC<videoList> = ({
                             <p className=" Eina-semibold paragraph-medium">{title}</p>
                         </div>
                         <div className="card__time">
-                            <p className="paragraph-light-Noto paragraph-smallest">
+                            <p className="paragraph-light paragraph-smallest">
                                 {courseChapterTime}m
                             </p>
                         </div>
@@ -79,7 +79,7 @@ const sideMenu: React.FC<videoList> = ({
                         >
                             {/* <div className="details_not_finished"></div> */}
                             <div className="details_heading" >
-                                <p className="paragraph-regular-Noto paragraph-medium-small ">
+                                <p className="paragraph-regulars paragraph-medium-small ">
                                     {sub.text}
                                     <span className="Eina-semibold paragraph-smallest">({sub.amountOfMinutes}m)</span>
                                 </p>

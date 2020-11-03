@@ -1,0 +1,49 @@
+@media screen and (max-width: $ultra-small-breakpoint) {
+    .header {
+        // background-color: red !important; 
+        height: 5rem !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+      
+        .input,
+        .login,
+        .cart,
+        .unregistered_user,
+        &__category-menu {
+            display: none !important;
+
+        }
+        
+        .logo_container {
+            display: block !important;
+            width: 7.5rem !important;
+            height: 100% !important;
+            
+            .logo {
+                width: 100% !important;
+                height: 100% !important;
+            }
+        }
+        
+        
+        .menu_container {
+            display: none !important;
+        }
+
+        .mobile_hamburger {
+            display: block !important;
+            background: url("/pictures/mobile_burger.svg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 7% !important;
+            height: 35% !important;
+        }
+    }
+    
+
+   .mobile_active_menu {
+
+   }
+}

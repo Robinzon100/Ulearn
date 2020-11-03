@@ -64,7 +64,7 @@ const main_content: React.FC = () => {
 
                     <div className="category">
                         <div className="category_heading">
-                            <p className="heading-6 heading-bold-Noto">კატეგორიები</p>
+                            <p className="heading-6 heading-bold">კატეგორიები</p>
                         </div>
                         {
                             categoriesJson.map(categorie => (
@@ -93,7 +93,7 @@ const main_content: React.FC = () => {
                             <div className="overlay_container">
                                 <div className="wrapper" onClick={() => setToggleSeeMore(true)}>
                                     <div className="see_more" >
-                                        <p className="heading-bold-Noto paragraph-biggest">
+                                        <p className="heading-bold paragraph-biggest">
                                             იხილეთ მეტი
                                     </p>
                                     </div>

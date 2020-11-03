@@ -6,7 +6,7 @@ export default function inputSearch({id,placeHolder }) {
     <div className="input_container" key={id}>
       <input
         type="text"
-        className="input_field-with-search input-shadow input-shadow-onFocus input_styles paragraph-regular-Noto paragraph-small"
+        className="input_field-with-search input-shadow input-shadow-onFocus input_styles paragraph-regulars paragraph-small"
         placeholder={placeHolder}
       />
 
