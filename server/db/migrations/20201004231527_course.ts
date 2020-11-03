@@ -3,6 +3,9 @@ import tableNames from "../../constants/tableNames";
 import { references, addTimestamps } from '../lib/table functions/tableUtils';
 import { course } from "../../constants/defaults";
 
+// TODO: add if user needs something before 
+//       starting the course, like a program or a knolage of something
+
 
 
 export async function up(knex: Knex): Promise<void> {
