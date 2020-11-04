@@ -85,7 +85,7 @@ export default function list({ title, subtitle }) {
                         </div>
                         <div className="course-list--name">
                             <div id="uniqueTitle" className="title">
-                                <p className="paragraph-regular-Noto paragraph-medium">{title}</p>
+                                <p className="paragraph-regulars paragraph-medium">{title}</p>
                                 {/* //! side menu checkbox changing */}
                                 <div ref={ref}  className={checkBox ? "checked-checkbox" : "side-menu-checkbox" } onClick={handleSetCheckBox}></div>
                             </div>
@@ -97,7 +97,7 @@ export default function list({ title, subtitle }) {
 
                                 <ul>
                                     <li>
-                                        <p className="paragraph-regular-Noto paragraph-medium-small">{subtitle}</p>
+                                        <p className="paragraph-regulars paragraph-medium-small">{subtitle}</p>
                                         <div   className="outside-list-check"></div>
                                     </li>
 

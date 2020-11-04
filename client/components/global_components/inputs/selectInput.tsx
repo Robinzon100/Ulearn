@@ -72,7 +72,7 @@ const selectInput: React.FC<selects> = ({ id }, props) => {
             <div className="dropdown input-shadow input-shadow-onFocus"
                 key={id}>
                 <div className="dropdown-select">
-                    <span className="select paragraph-regular-Noto paragraph-small">
+                    <span className="select paragraph-regulars paragraph-small">
                         {products}
                     </span>
                     <motion.img
@@ -90,14 +90,24 @@ const selectInput: React.FC<selects> = ({ id }, props) => {
                     initial={{ height: "0rem" }}
                     animate={isToggle ? "open" : "closed"}
                 >
+
+                    {/* //! TODO  აქ გაარკვიე რამენაირად */}
+                    
+                    {/* //! აქ ვერაფრით ვერ გადავეცი უნიკალური გასაღები 
+                        //! არ ვიცი ვერ ვხედავ რაღაცას ალბათ და იმ 
+                        //! გასარების შეცდომაც იმიტომ აგდებს
+                    */}
                     {selectProducts.map(product => (
                         <>
 
                             <div
                                 className="dropdown-list__item"
                                 key={product.id}
+                                
                             >
                                 <input
+                                // key={product.id}
+                                    
                                     value={product.name}
                                     id={product.name}
                                     onChange={handleSelect}
@@ -106,10 +116,12 @@ const selectInput: React.FC<selects> = ({ id }, props) => {
                                     className="radio"
                                 />
                                 <label
-                                    className="paragraph-regular-Noto paragraph-smallest"
+                                    className="paragraph-regulars paragraph-smallest"
                                     htmlFor={product.name}
+                                    
                                 >
                                     {product.name}
+                                    {product.id}
                                 </label>
                             </div>
 

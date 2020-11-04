@@ -10,13 +10,13 @@ const Hero: React.FC = () => {
         <div className="hero--steps">
           
             <div className="hero--steps__heading">
-              <h1 className="heading-bold-Noto heading-3_5">
+              <h1 className="heading-bold heading-3_5">
                 რაღაცა ტექსტი იქნება აქ რომელიც აღწერს სერვის
               </h1>
             </div>
             <div className="hero--steps__line"></div>
             <div className="hero--steps__paragraph">
-              <p className="paragraph-regular-Noto paragraph-medium-small">
+              <p className="paragraph-regulars paragraph-medium-small">
                 რაიმე პატარა ტექსტი რომელიც უფრო დეტალურად აღწერს რას აკეთებს
                 საიტი და ისეთი სიტყვები იქნება რაც SEO-ს დაევასება და googl-იც
                 მაღლა აგვაგდებს
@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
             </div>
             <div className="hero--steps__btn">
               <a href="#"
-                className="btn btn-white heading-semi-bold-Noto  paragraph-medium"
+                className="btn btn-white heading-semi-bold  paragraph-medium"
               >
                 შემოგვიერთდი
               </a>

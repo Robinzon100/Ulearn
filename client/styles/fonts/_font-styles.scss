@@ -1,7 +1,7 @@
 
 
 /// ========================= HEADING
-
+$heading-extra-bold:"georgian-paragraph-extra-bold";
 $heading-bold: "georgian-heading-bold","Eina-regular";
 
 $button-semi-bold: "georgian-button-semi-bold","Eina-regular";
@@ -11,36 +11,57 @@ $heading-medium: "georgian-heading-medium","Eina-regular";
 /// ========================= PARAGRAPH
 $paragraph-light: "georgian-paragraph-light","Eina-regular";
 
-$paragraph-regular: "georgian-paragraph-regular","Eina-regular";
+$paragraph-regulars: "georgian-paragraph-regulars","Eina-regular";
 
-$paragraph-regular-arial: "georgian-paragraph-regular-arial","Eina-regular";
+$paragraph-regulars-arial: "georgian-paragraph-regulars-arial","Eina-regular";
 
 
-
-.heading-bold-Noto {
+.heading-extra-bold {
+    font-family: $heading-extra-bold;
+}
+.heading-bold {
     font-family: $heading-bold;
 }
 
-.heading-semi-bold-Noto {
+.heading-semi-bold {
     font-family: $button-semi-bold;
 }
 
-.heading-medium-Noto {
+.heading-medium {
     font-family: $heading-medium;
 }
 
-.paragraph-light-Noto {
+.paragraph-light {
     font-family: $paragraph-light;
 }
 
-.paragraph-regular-Noto {
-    font-family: $paragraph-regular;
+.paragraph-regulars {
+    font-family: $paragraph-regulars;
 }
 
-.paragraph-regular-arial-Noto {
-    font-family: $paragraph-regular-arial;
+.paragraph-regulars-arial {
+    font-family: $paragraph-regulars-arial;
 }
 
+
+/// ================ FOR ENGLISH
+/// ================ SAILEC
+$bold: "sailec-bold";
+$medium:"sailec-medium";
+$light:"sailec-light";
+$thin:"sailec-thin";
+.bold {
+    font-family:$bold;
+}
+.medium {
+    font-family:$medium;
+}
+.light {
+    font-family:$light; 
+}
+.thin {
+    font-family:$thin; 
+}
 
 /// ================ FOR NUMBERS
 $Eina-semibold: "Eina-semibold";

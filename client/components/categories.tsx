@@ -11,7 +11,7 @@ const categories: React.FC<Categories> = ({id,title,numberOfCourses}) => {
         <div className="category_container" key={id}>
                     <div className={id == 1 ? "category_main categoryAll" : "category_main category_sub"}>
                         <div className="category_main--name">
-                            <p className="paragraph-regular-Noto paragraph-regular">
+                            <p className="paragraph-regulars paragraph-regular">
                                 {title}
                             </p>
                         </div>

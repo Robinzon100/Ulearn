@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import Image from 'next/image';
 import { Star, Heart } from "react-feather";
 
@@ -27,7 +27,7 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
 
 }) => {
 
-
+    const ref = useRef();
     const [addToFavorites, setAddToFavorites] = useState<boolean>(isLiked);
 
     const [checkNewPrice, setCheckNewPrice] = useState<boolean | number>(newPrice);
@@ -75,6 +75,7 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
     //ჩართულაი
     // const handleCardClick = (e) => {
     //     const card_details = document.querySelectorAll(".card_detail-display");
+       
 
     //     card_details.forEach(detail => {
     //         if (detail.classList.contains('card_detail-display')) {
@@ -82,8 +83,9 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
                
     //         }
     //     })
+    //     setIsClicked(true);
     //     // debugger
-    //     e.currentTarget.classList.toggle('card_detail');
+        
     // }
 
     return (
@@ -122,7 +124,7 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
 
 
                 <div className="PrimaryContentCard__title">
-                    <p className="heading-bold-Noto paragraph-medium-small"
+                    <p className="heading-bold paragraph-medium-small"
                         title={title}>{stringToCut(title, 50)}</p>
                 </div>
             </a>
@@ -130,7 +132,7 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
                 onClick={(e) => cardHoverHandler(e)}>
                 
                 <div className={isClicked ? "card_detail" : "card_detail-display"}
-                >
+                ref={ref}>
                     {
 
                         <CardDetail
@@ -160,13 +162,13 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
                 </div>
                 <div className="PrimaryContentCard__raiting--name">
                     <a href="#">
-                        <p className="paragraph-regular-Noto paragraph-medium-small">{stringToCut(author, 25)}
+                        <p className="paragraph-regulars paragraph-medium-small">{stringToCut(author, 25)}
                         </p>
                     </a>
                 </div>
             </div>
             <div className="PrimaryContentCard__like">
-                <label className={isBestSeller ? "label paragraph-regular-Noto  paragraph-smallest" : null} >
+                <label className={isBestSeller ? "label paragraph-regulars  paragraph-smallest" : null} >
                     {isBestSeller ? <p>ბესტსელერი</p> : null}
                 </label>
 
