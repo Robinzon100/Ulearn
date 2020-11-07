@@ -1,87 +1,53 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
+// ============== FRAMER-ANIMATION
+import {arrowAnimation,dropDownAnimation} from "components/utils/framer/framerAnimation";
 
 interface selects {
     id: number,
+    onChange: any,
+    selectOptions:any,
+    type:string
 }
 
-
-const selectInput: React.FC<selects> = ({ id }, props) => {
+const selectInput: React.FC<selects> = ({ id, onChange,selectOptions,type }) => {
     const [isToggle, setIsToggle] = useState(false);
 
     const handleToggle = () => {
         setIsToggle((toggle) => !toggle);
     };
 
-    const selectProducts = [
-        {
-            id: 1,
-            name: "ვაშლი",
-
-        },
-        {
-            id: 2,
-            name: "მსხალი",
-
-        },
-        {
-            id: 3,
-            name: "ბანანი",
-
-        }
-    ]
-    const [products, setProducts] = useState<any>(selectProducts[0].name)
-
-    const handleSelect = (e) => {
-        setProducts(e.target.value);
+    
+    const [selectLable, setSelectLable] = useState<string>("ხანგძლივობა")
+    
+    const handleSelect = ({currentTarget: {id, value}}) => {
+        onChange(value)
+        setSelectLable(id)
         setIsToggle(false);
     }
-    //FRAMER ANIM
-    const arrowAnimation = {
-        open: {
-            rotate: 0,
-            transition: { duration: 0.3 }
-        },
-        closed:
-        {
-            rotate: [0, 180],
-            transition: { duration: 0.2 }
-        },
-    }
-
-    const dropDownAnimation = {
-        open: {
-            'height': '14rem',
-            opacity: 1,
-            'display': 'block',
-            transition: { duration: 0.2 }
-        },
-        closed: {
-            'height': '0rem',
-            opacity: 0,
-            'display': 'none',
-            transition: {
-                duration: 0.2
-            }
-        },
-    }
-
+    
     return (
         <>
-            <div className="dropdown input-shadow input-shadow-onFocus"
-                key={id}>
+        <div className={type === "sorting_date" ? "sorting__video-date" : 
+        type === "sorting_raiting" ? "sorting__video-raiting" : 
+        type === "sorting_length" ? "sorting__video-length"  : 
+        null }
+        >
+            <div className="dropdown input-shadow input-shadow-onFocus" 
+            key={id} 
+            onClick={handleToggle}>
                 <div className="dropdown-select">
                     <span className="select paragraph-regulars paragraph-small">
-                        {products}
+                        {selectLable}
                     </span>
-                    <motion.img
+                    {/* <motion.img
+                        className="dropdown_arrow"
                         src="./pictures/select_arrow.svg"
                         alt="arrow"
-                        onClick={handleToggle}
                         variants={arrowAnimation}
                         animate={isToggle ? "closed" : "open"}
-                    />
+                    /> */}
 
                 </div>
                 <motion.div
@@ -89,47 +55,27 @@ const selectInput: React.FC<selects> = ({ id }, props) => {
                     variants={dropDownAnimation}
                     initial={{ height: "0rem" }}
                     animate={isToggle ? "open" : "closed"}
-                >
-
-                    {/* //! TODO  აქ გაარკვიე რამენაირად */}
-                    
-                    {/* //! აქ ვერაფრით ვერ გადავეცი უნიკალური გასაღები 
-                        //! არ ვიცი ვერ ვხედავ რაღაცას ალბათ და იმ 
-                        //! გასარების შეცდომაც იმიტომ აგდებს
-                    */}
-                    {selectProducts.map(product => (
-                        <>
-
-                            <div
-                                className="dropdown-list__item"
-                                key={product.id}
-                                
-                            >
+                    >
+                        
+                        {selectOptions.map(option => (
+                        
+                            <div className="dropdown-list__item" key={option.id}>
                                 <input
-                                // key={product.id}
-                                    
-                                    value={product.name}
-                                    id={product.name}
+                                    id={option.name}
+                                    value={option.id}
                                     onChange={handleSelect}
-                                    checked={products === product.name}
+                                    checked={selectLable == option.name}
                                     type="radio"
-                                    className="radio"
-                                />
+                                    className="radio"/>
                                 <label
                                     className="paragraph-regulars paragraph-smallest"
-                                    htmlFor={product.name}
-                                    
-                                >
-                                    {product.name}
-                                    {product.id}
+                                    htmlFor={option.name}>
+                                    {option.name}
                                 </label>
                             </div>
-
-                        </>
                     ))}
-
-
                 </motion.div>
+            </div>
             </div>
         </>
     );

@@ -12,6 +12,8 @@
 
 
 
+
+
 //! რომ არ მოინიშნოს დაჭერისას
 .noselect {
     -webkit-touch-callout: none;
@@ -103,42 +105,13 @@
 .clip-path-hide {
     clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%) !important;
     height: 0;
-    // opacity: 0;
+    
 }
 
 .clip-path-reveal {
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
     height: auto;
-    // opacity: 1;
 }
-
-//! BORDER
-.gray-border {
-    // opacity: 0.5;
-    border-bottom: 1px solid var(--secondary-dark-grey);
-}
-
-.blue-border {
-    border-bottom: 1px solid var(--primary-blue);
-    filter: blur(9px);
-}
-
-.yellow-border {
-    border-bottom: 1px solid var(--primary-yellow);
-    filter: blur(9px);
-}
-
-.yellow-border {
-    border-bottom: 1px solid var(--primary-green);
-    filter: blur(9px);
-}
-
-.yellow-border {
-    border-bottom: 1px solid var(--primary-red);
-    filter: blur(9px);
-}
-
-
 
 //! კურსის გვერდზე რონ სპიტკაა მისი ანთება ჩაქრობა
 .details_not_finished {
@@ -173,11 +146,3 @@
 
 }
 
-
-.dummy_pics {
-    background: no-repeat url("/pictures/courses/profile_picture.png");
-    background-size: cover;
-    background-position: center;
-    width: 10rem;
-    height: 9rem;
-}

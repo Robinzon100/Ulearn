@@ -55,9 +55,7 @@ const main_content: React.FC = () => {
                     </div>
                     <div className="left_slider_btn"></div>
                 </div>
-
-
-
+                
                 {/* //! ინფუთები */}
 
                 <div className="main_content--container">
@@ -84,12 +82,12 @@ const main_content: React.FC = () => {
                             <InputSearch id={1} placeHolder={placeHolder} />
 
                             <div className="sorting">
-                                <SortingDropdown type="date" />
-                                {/* <SortingDropdown type="rating" />
-                                <SortingDropdown type="time" /> */}
+                                {/* <SortingDropdown type="date" /> */}
+                                {/* <SortingDropdown type="raiting" /> */}
+                                <SortingDropdown type="time" />
                             </div>
                         </div>
-                        {CardsJson.length > 2 ? !toggleSeeMore ?
+                        {CardsJson.length > 2 && !toggleSeeMore &&
                             <div className="overlay_container">
                                 <div className="wrapper" onClick={() => setToggleSeeMore(true)}>
                                     <div className="see_more" >
@@ -102,8 +100,7 @@ const main_content: React.FC = () => {
                                     </div>
                                 </div>
                             </div>
-                            : null
-                            : null
+                            
                         }
 
 

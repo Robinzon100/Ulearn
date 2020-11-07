@@ -3,10 +3,8 @@
 
 //! კარუსელს თავისი ცსს ფაილი აქვს
 .main_content {
-    // height: 150vh;
     width: 100%;
     margin-top: 3rem;
-    // background-color: white;
     padding: var(--main-pading);
     display: flex;
     flex-direction: column;
@@ -24,9 +22,7 @@
 
     &--input {
         @include flex;
-        // align-items: center !important;
-
-
+        
         .input_styles {
             width: 100% !important;
             letter-spacing: 1px;
@@ -43,10 +39,10 @@
             .sorting__video-date,
             .sorting__video-raiting,
             .sorting__video-length {
-                width: 10vw;
+                width: 10.5vw;
                 border-radius: 8px;
                 position: relative;
-                cursor:pointer;
+                cursor: pointer;
             }
 
             .search_dropdown {
@@ -58,62 +54,57 @@
                 cursor: pointer;
                 display: block;
                 height: 4rem;
-                
                 width: 100%;
                 appearance: none;
                 -moz-appearance: none;
                 -webkit-appearance: none;
                 outline: none !important;
             }
-           
-            //!კალენდარი,საათის და ვარსკვლავის სტილები ინფუთის შიგნით
-            .sorting_styles {
-                border-radius: 8px 0px 0px 8px;
-                position: absolute;
-                left: 0;
-                // padding: 10px 0px;
-                width: 5rem;
-                height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
+
 
             .sorting__video-date {
-                position:relative;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
+                position: relative;
+                @include placed-center;
+
+                &:after {
+                    @include sortingStylesAfter("/pictures/courses/calendar.svg", 15px, 15px, 17px);
+                }
+
+                &:before {
+                    @include sortingStylesBefore(--primary-blue, 5rem);
+                }
             }
-            
-            .calendar {
-                background-color: var(--primary-blue);
-                opacity: 60%;
-            }
+
 
             .sorting__video-raiting {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-            .star {
-                background-color: var(--primary-yellow);
-                opacity: 60%;
+                position: relative;
+                @include placed-center;
+
+                &:after {
+                    @include sortingStylesAfter("/pictures/courses/star.svg", 15px, 15px, 17px);
+                }
+
+                &:before {
+                    @include sortingStylesBefore(--primary-yellow, 5rem);
+                }
 
             }
+
 
             .sorting__video-length {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
+                position: relative;
+                @include placed-center;
+
+                &:after {
+                    @include sortingStylesAfter("/pictures/courses/clock.svg", 15px, 15px, 17px);
+                }
+
+                &:before {
+                    @include sortingStylesBefore(--primary-red, 5rem);
+                }
             }
-            .clock {
-                background-color: var(--secondary-dark-red);
-                opacity: 60%;
-            }
+
         }
     }
 
 }
-
-

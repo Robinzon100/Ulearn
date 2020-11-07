@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { ChevronDown } from "react-feather";
 import { ShoppingCart } from "react-feather";
-// import Search from "../components/search";
 
+
+//! ─── IMPORTS ────────────────────────────────────────────────────────────────────
 import InputSearch from "components/global_components/inputs/inputSearch";
+import Category from "components/NavigationCategories/Category";
+import MainCategory from "public/json/MainCategory.json";
 
 //! ─── ACTIONS ────────────────────────────────────────────────────────────────────
 import { getNewPagesLinks } from "actions/client/newPage";
@@ -25,6 +28,8 @@ const Navigation: React.FC = () => {
   const [placeHolder, setPlaceHolder] = useState<string>(
     "მოძებნე სასურველი კურსი"
   );
+
+  const [navCategory, setNavCategory] = useState(MainCategory.category);
 
   // const [open, isOpen] = useState(false);
   // const [newPageLinks, setNewPageLinks] = useState([]);
@@ -54,15 +59,18 @@ const Navigation: React.FC = () => {
           <div className="logo"></div>
 
           <div className="input">
-            <InputSearch placeHolder={placeHolder} />
+            <InputSearch id={1} placeHolder={placeHolder} />
           </div>
         </div>
 
         <div className="header__category-menu">
             <div className="header__category-menu--heading">
                 <p className="heading-extra-bold paragraph-medium-small">კატეგორიები</p>
-                <span className="chevrondown"><ChevronDown/></span>
+                <span className="chevrondown">
+                    <ChevronDown/>
+                </span>
             </div>
+            <Category/>
         </div>
 
         <div className="menu_container">
