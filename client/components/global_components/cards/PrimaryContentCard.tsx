@@ -71,22 +71,6 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
         setIsVisible(false);
     }
 
-    //TODO ტელეფონზე რამენაირად უნდა ქნა რომ ერთს რომმ დააჭერს მეორე გაქრეს,თუ მეორე 
-    //ჩართულაი
-    // const handleCardClick = (e) => {
-    //     const card_details = document.querySelectorAll(".card_detail-display");
-       
-
-    //     card_details.forEach(detail => {
-    //         if (detail.classList.contains('card_detail-display')) {
-    //             detail.classList.remove('card_detail-display')
-               
-    //         }
-    //     })
-    //     setIsClicked(true);
-    //     // debugger
-        
-    // }
 
     return (
         <div className="PrimaryContentCard"

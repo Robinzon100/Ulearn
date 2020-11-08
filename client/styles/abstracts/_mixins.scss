@@ -11,7 +11,33 @@
     margin-left: -2rem;
 }
 
-
+//! ესენი არის ინდექსზე რომ ინფუთებია მაგის სტილები,გადაცემულია აქედან ვარად და იქ 
+//! რამხელაც გინდა მისცემ,როგორ წერია ისე უნდა გადასცე სადაც გამოიძახებ
+@mixin sortingStylesAfter($background,$width,$height,$left){
+    content:"";
+    position: absolute;
+    background: url($background);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width:$width;
+    height:$height;
+    left: $left;
+    z-index: 1;
+}
+@mixin sortingStylesBefore($backgroundColor,$width){
+    content:"";
+    position: absolute;
+    border-radius: 8px;
+    left: 0;
+    z-index: 1;
+    width: $width;
+    height: 100%;
+    background-color: var($backgroundColor);
+    opacity: 60%;
+}
+//! ესენი არის ინდექსზე რომ ინფუთებია მაგის სტილები,გადაცემულია აქედან ვარად და იქ 
+//! რამხელაც გინდა მისცემ
 
 
 @mixin transform-center {
@@ -41,7 +67,6 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    // background-image: url("../pictures/decoration red.svg");
 }
 
 
