@@ -68,11 +68,10 @@ const subCategoriesWithoutIds = [
 
 
     //! ბიზნესი
-    { name: "ფინანსები", main_category_id: 6 },
     { name: "მეწარმეობა", main_category_id: 6 },
     { name: "კომუნიკაციები", main_category_id: 6 },
     { name: "გაყიდვები", main_category_id: 6 },
-    { name: "სტრატეგია", main_category_id: 6 },
+    { name: "ბიზნეს სტრატეგია", main_category_id: 6 },
     { name: "ოპერაციები", main_category_id: 6 },
     { name: "პროექტის მენეჯმენტი", main_category_id: 6 },
     { name: "ბისნესის კანონები", main_category_id: 6 },
@@ -258,28 +257,28 @@ const subSubCategoriesWithoutIds = [
 
 
     //! მოდა 12
-    { name: "მოდა", main_category_id: 12 },
-    { name: "კერვა", main_category_id: 12 },
-    { name: "Adobe Illustrator", main_category_id: 12 },
-    { name: "სამკაულების დიზაინი", main_category_id: 12 },
-    { name: "Photoshop", main_category_id: 12 },
-    { name: "მაისურის დიზაინი", main_category_id: 12 },
+    { name: "მოდა", sub_category_id: 12 },
+    { name: "კერვა", sub_category_id: 12 },
+    { name: "Adobe Illustrator", sub_category_id: 12 },
+    { name: "სამკაულების დიზაინი", sub_category_id: 12 },
+    { name: "Photoshop", sub_category_id: 12 },
+    { name: "მაისურის დიზაინი", sub_category_id: 12 },
 
 
     //! არქიტექტურული დიზაინი 13
-    { name: "AudoCAD", main_category_id: 13 },
-    { name: "SketchUp", main_category_id: 13 },
-    { name: "Blender", main_category_id: 13 },
-    { name: "ArchiCAD", main_category_id: 13 },
-    { name: "არქიტექტორული ფუნდამენტები", main_category_id: 13 },
+    { name: "AudoCAD", sub_category_id: 13 },
+    { name: "SketchUp", sub_category_id: 13 },
+    { name: "Blender", sub_category_id: 13 },
+    { name: "ArchiCAD", sub_category_id: 13 },
+    { name: "არქიტექტორული ფუნდამენტები", sub_category_id: 13 },
 
 
     //! ინტერიერის დიზაინი 14
-    { name: "ფერების თეორია", main_category_id: 14 },
-    { name: "SketchUp", main_category_id: 14 },
-    { name: "მექანიკური ინჟინერია", main_category_id: 14 },
-    { name: "Blender", main_category_id: 14 },
-    { name: "მინიმალიზმი", main_category_id: 14 },
+    { name: "ფერების თეორია", sub_category_id: 14 },
+    { name: "SketchUp", sub_category_id: 14 },
+    { name: "მექანიკური ინჟინერია", sub_category_id: 14 },
+    { name: "Blender", sub_category_id: 14 },
+    { name: "მინიმალიზმი", sub_category_id: 14 },
 
 
 
@@ -288,53 +287,53 @@ const subSubCategoriesWithoutIds = [
     //! IT ტექნოლოგია
     // ******************
     //! IT სერთიფიკატები
-    { name: "CompTIA A+", main_category_id: 15 },
-    { name: "CompTIA Security+", main_category_id: 15 },
-    { name: "AWS სერტიფიკატი", main_category_id: 15 },
-    { name: "Amazon AWS", main_category_id: 15 },
-    { name: "Microsoft სერტიფიკატი", main_category_id: 15 },
-    { name: "AWS Certified Solutions Architect - Associate", main_category_id: 15 },
-    { name: "AWS Certified Cloud Practitioner", main_category_id: 15 },
-    { name: "Cisco CCNA", main_category_id: 15 },
-    { name: "AWS Certified Developer - Associate", main_category_id: 15 },
+    { name: "CompTIA A+", sub_category_id: 15 },
+    { name: "CompTIA Security+", sub_category_id: 15 },
+    { name: "AWS სერტიფიკატი", sub_category_id: 15 },
+    { name: "Amazon AWS", sub_category_id: 15 },
+    { name: "Microsoft სერტიფიკატი", sub_category_id: 15 },
+    { name: "AWS Certified Solutions Architect - Associate", sub_category_id: 15 },
+    { name: "AWS Certified Cloud Practitioner", sub_category_id: 15 },
+    { name: "Cisco CCNA", sub_category_id: 15 },
+    { name: "AWS Certified Developer - Associate", sub_category_id: 15 },
     
     
     
 
     //! ქსელი და უსაფრთხოება
-    { name: "ეთიკური ჰაკირება", main_category_id: 16 },
-    { name: "კიბერ უსაფრთხოება", main_category_id: 16 },
-    { name: "CompTIA Security+", main_category_id: 16 },
-    { name: "CompTIA Network+", main_category_id: 16 },
-    { name: "პენ ტესტირება", main_category_id: 16 },
-    { name: "ქსელის უსაფრთხოება", main_category_id: 16 },
-    { name: "IT ქსელების ფუნდამენტები", main_category_id: 16 },
-    { name: "Cisco CCNA", main_category_id: 16 },    
+    { name: "ეთიკური ჰაკირება", sub_category_id: 16 },
+    { name: "კიბერ უსაფრთხოება", sub_category_id: 16 },
+    { name: "CompTIA Security+", sub_category_id: 16 },
+    { name: "CompTIA Network+", sub_category_id: 16 },
+    { name: "პენ ტესტირება", sub_category_id: 16 },
+    { name: "ქსელის უსაფრთხოება", sub_category_id: 16 },
+    { name: "IT ქსელების ფუნდამენტები", sub_category_id: 16 },
+    { name: "Cisco CCNA", sub_category_id: 16 },    
     
     
 
     //! ოპერატიული სისტემები
-    { name: "Linux", main_category_id: 17 },
-    { name: "Linux ადმინისტრაცია", main_category_id: 17 },
-    { name: "Windows სერვერ", main_category_id: 17 },
-    { name: "Shell Scripting", main_category_id: 17 },
-    { name: "PowerShell", main_category_id: 17 },
-    { name: "VMware Vsphere", main_category_id: 17 },
-    { name: "LPIC-1: Linux ადმინისტრატორი", main_category_id: 17 },
-    { name: "ოპერატიული სისტემების შექმნა", main_category_id: 17 },
+    { name: "Linux", sub_category_id: 17 },
+    { name: "Linux ადმინისტრაცია", sub_category_id: 17 },
+    { name: "Windows სერვერ", sub_category_id: 17 },
+    { name: "Shell Scripting", sub_category_id: 17 },
+    { name: "PowerShell", sub_category_id: 17 },
+    { name: "VMware Vsphere", sub_category_id: 17 },
+    { name: "LPIC-1: Linux ადმინისტრატორი", sub_category_id: 17 },
+    { name: "ოპერატიული სისტემების შექმნა", sub_category_id: 17 },
     
     
     
 
     //! აპარატურა (hardware
-    { name: "Docker", main_category_id: 18 },
-    { name: "Python", main_category_id: 18 },
-    { name: "Kubernetes", main_category_id: 18 },
-    { name: "DevOps", main_category_id: 18 },
-    { name: "ალგორითმები", main_category_id: 18 },
-    { name: "AWS Certified Solutions Architect - Professional", main_category_id: 18 },
-    { name: "AWS Certification", main_category_id: 18 },
-    { name: "Java", main_category_id: 18 },    
+    { name: "Docker", sub_category_id: 18 },
+    { name: "Python", sub_category_id: 18 },
+    { name: "Kubernetes", sub_category_id: 18 },
+    { name: "DevOps", sub_category_id: 18 },
+    { name: "ალგორითმები", sub_category_id: 18 },
+    { name: "AWS Certified Solutions Architect - Professional", sub_category_id: 18 },
+    { name: "AWS Certification", sub_category_id: 18 },
+    { name: "Java", sub_category_id: 18 },    
     
     
 
@@ -346,55 +345,55 @@ const subSubCategoriesWithoutIds = [
     // ****************** 
     
     //! ციფრული ფოტოგრაფია
-    { name: "Photoshop", main_category_id: 19 },
-    { name: "კომპოზიცია ფოტოგრაფიაში", main_category_id: 19 },
-    { name: "DSLR", main_category_id: 19 },
-    { name: "კამერები", main_category_id: 19 },
-    { name: "განათება ფოტოგრაფიში", main_category_id: 19 },
-    { name: "საჭმლის ფოტოგრაფია", main_category_id: 19 },
-    { name: "Ფილმის გადაღება", main_category_id: 19 },
+    { name: "Photoshop", sub_category_id: 19 },
+    { name: "კომპოზიცია ფოტოგრაფიაში", sub_category_id: 19 },
+    { name: "DSLR", sub_category_id: 19 },
+    { name: "კამერები", sub_category_id: 19 },
+    { name: "განათება ფოტოგრაფიში", sub_category_id: 19 },
+    { name: "საჭმლის ფოტოგრაფია", sub_category_id: 19 },
+    { name: "Ფილმის გადაღება", sub_category_id: 19 },
     
     
     
     //! ფოტოგრაფიის პროგრამები
-    { name: "Adobe Lightroom", main_category_id: 20 },
-    { name: "Photoshop", main_category_id: 20 },
-    { name: "სურატის მანიპულირება", main_category_id: 20 },
-    { name: "Affinity Photo", main_category_id: 20 },
-    { name: "Photoshop-ით შესწორება", main_category_id: 20 },
-    { name: "დრონით ფოტოგრაფია", main_category_id: 20 },
+    { name: "Adobe Lightroom", sub_category_id: 20 },
+    { name: "Photoshop", sub_category_id: 20 },
+    { name: "სურატის მანიპულირება", sub_category_id: 20 },
+    { name: "Affinity Photo", sub_category_id: 20 },
+    { name: "Photoshop-ით შესწორება", sub_category_id: 20 },
+    { name: "დრონით ფოტოგრაფია", sub_category_id: 20 },
     
     
      
     //! კომერციული ფოტოგრაფია
-    { name: "უძრავი ქონების ფოტოგრაფია", main_category_id: 21 },
-    { name: "მარკეტინგის სტრატეგია", main_category_id: 21 },
-    { name: "არქიტექტორული ფოტოგრაფია", main_category_id: 21 },
-    { name: "ფოტორგრაფიის ბიზნესი", main_category_id: 21 },
-    { name: "საქორწინო ფოტოგრფია", main_category_id: 21 },
-    { name: "პროდუქტის ფოტოგრაფია", main_category_id: 21 },
-    { name: "საჭმლის ფოტოგრაფია", main_category_id: 21 },
+    { name: "უძრავი ქონების ფოტოგრაფია", sub_category_id: 21 },
+    { name: "მარკეტინგის სტრატეგია", sub_category_id: 21 },
+    { name: "არქიტექტორული ფოტოგრაფია", sub_category_id: 21 },
+    { name: "ფოტორგრაფიის ბიზნესი", sub_category_id: 21 },
+    { name: "საქორწინო ფოტოგრფია", sub_category_id: 21 },
+    { name: "პროდუქტის ფოტოგრაფია", sub_category_id: 21 },
+    { name: "საჭმლის ფოტოგრაფია", sub_category_id: 21 },
     
     
     //! პორტრეტები
-    { name: "Photoshop შესწორება", main_category_id: 22 },
-    { name: "პოზირება", main_category_id: 22 },
-    { name: "განათება", main_category_id: 22 },
-    { name: "ფოტოგრაფია", main_category_id: 22 },
-    { name: "ოჯახური პორტრეტის ფოტოგრაფია", main_category_id: 22 },
+    { name: "Photoshop შესწორება", sub_category_id: 22 },
+    { name: "პოზირება", sub_category_id: 22 },
+    { name: "განათება", sub_category_id: 22 },
+    { name: "ფოტოგრაფია", sub_category_id: 22 },
+    { name: "ოჯახური პორტრეტის ფოტოგრაფია", sub_category_id: 22 },
     
 
     
     //! ვიდეო დიზაინი
-    { name: "ვიდეო ედიტირება", main_category_id: 23 },
-    { name: "Adobe Premiere", main_category_id: 23 },
-    { name: "ვიდეო პროდუქცია", main_category_id: 23 },
-    { name: "კინოს გაკეთება", main_category_id: 23 },
-    { name: "ვიდეოგრაფია", main_category_id: 23 },
-    { name: "DaVinci Resolve", main_category_id: 23 },
-    { name: "Final Cut Pro", main_category_id: 23 },
-    { name: "სინემატოგრაფია", main_category_id: 23 },
-    { name: "ფერების შესწორება", main_category_id: 23 },
+    { name: "ვიდეო ედიტირება", sub_category_id: 23 },
+    { name: "Adobe Premiere", sub_category_id: 23 },
+    { name: "ვიდეო პროდუქცია", sub_category_id: 23 },
+    { name: "კინოს გაკეთება", sub_category_id: 23 },
+    { name: "ვიდეოგრაფია", sub_category_id: 23 },
+    { name: "DaVinci Resolve", sub_category_id: 23 },
+    { name: "Final Cut Pro", sub_category_id: 23 },
+    { name: "სინემატოგრაფია", sub_category_id: 23 },
+    { name: "ფერების შესწორება", sub_category_id: 23 },
     
     
 
@@ -404,167 +403,225 @@ const subSubCategoriesWithoutIds = [
 
     
     //! აღრიცხვები
-    { name: "აღრიცხვები", main_category_id: 24 },
-    { name: "ფინანსების ფუნდამენტები", main_category_id: 24 },
-    { name: "ფინანსური აღიცხვები", main_category_id: 24 },
-    { name: "Xero", main_category_id: 24 },
-    { name: "IFRS", main_category_id: 24 },
+    { name: "აღრიცხვები", sub_category_id: 24 },
+    { name: "ფინანსების ფუნდამენტები", sub_category_id: 24 },
+    { name: "ფინანსური აღიცხვები", sub_category_id: 24 },
+    { name: "Xero", sub_category_id: 24 },
+    { name: "IFRS", sub_category_id: 24 },
      
     
     //! შესაბამისობა
-    { name: "ანტი ფულის გათეტრება", main_category_id: 25},
-    { name: "რისკის მენეჯმენტი", main_category_id: 25},
-    { name: "Sarbanes-Oxley (SOX)", main_category_id: 25},
-    { name: "Certified Internal Auditor (CIA)", main_category_id: 25},
-    { name: "CAMS Certification", main_category_id: 25},
-    { name: "IFRS", main_category_id: 25},
-    { name: "ფინანსური რისკის მენეჯმენტი (FRM)", main_category_id: 25},
-    { name: "სერტიფიცირებული თაღლითობის შემმოწმებელი (CFE)", main_category_id: 25},
+    { name: "ანტი ფულის გათეტრება", sub_category_id: 25},
+    { name: "რისკის მენეჯმენტი", sub_category_id: 25},
+    { name: "Sarbanes-Oxley (SOX)", sub_category_id: 25},
+    { name: "Certified Internal Auditor (CIA)", sub_category_id: 25},
+    { name: "CAMS Certification", sub_category_id: 25},
+    { name: "IFRS", sub_category_id: 25},
+    { name: "ფინანსური რისკის მენეჯმენტი (FRM)", sub_category_id: 25},
+    { name: "სერტიფიცირებული თაღლითობის შემმოწმებელი (CFE)", sub_category_id: 25},
     
 
     
     //! კრიპტოვალუტა და ბლოკჩეინი
-    { name: "კრიპტოვალუტა", main_category_id: 26 },
-    { name: "Bitcoin", main_category_id: 26 },
-    { name: "ბლოკჩეინი", main_category_id: 26 },
-    { name: "პირადი ფინანსები", main_category_id: 26 },
-    { name: "დღის ვაჭრობა", main_category_id: 26 },
-    { name: "ალგორითმული ვაჭრობა", main_category_id: 26 },
-    { name: "Bitcoin ვაჭრობა", main_category_id: 26 },
-    { name: "Ethereum", main_category_id: 26 },
-    { name: "ტექნიკური ანალიზი", main_category_id: 26 },
+    { name: "კრიპტოვალუტა", sub_category_id: 26 },
+    { name: "Bitcoin", sub_category_id: 26 },
+    { name: "ბლოკჩეინი", sub_category_id: 26 },
+    { name: "პირადი ფინანსები", sub_category_id: 26 },
+    { name: "დღის ვაჭრობა", sub_category_id: 26 },
+    { name: "ალგორითმული ვაჭრობა", sub_category_id: 26 },
+    { name: "Bitcoin ვაჭრობა", sub_category_id: 26 },
+    { name: "Ethereum", sub_category_id: 26 },
+    { name: "ტექნიკური ანალიზი", sub_category_id: 26 },
 
     
     
     //! ეკონომიკა
-    { name: "მიკროეკონომიკა", main_category_id: 27 },
-    { name: "მაკროეკონომიკა", main_category_id: 27 },
-    { name: "ეკონომეტრიკა", main_category_id: 27 },
-    { name: "მეწარმეობის საფუძვლები", main_category_id: 27 },
-    { name: "პოლიტიკური მეცნიერება", main_category_id: 27 },
-    { name: "ფინანსების ფუნდამენტები", main_category_id: 27 },
-    { name: "Რეგრესიული ანალიზი", main_category_id: 27 },
+    { name: "მიკროეკონომიკა", sub_category_id: 27 },
+    { name: "მაკროეკონომიკა", sub_category_id: 27 },
+    { name: "ეკონომეტრიკა", sub_category_id: 27 },
+    { name: "მეწარმეობის საფუძვლები", sub_category_id: 27 },
+    { name: "პოლიტიკური მეცნიერება", sub_category_id: 27 },
+    { name: "ფინანსების ფუნდამენტები", sub_category_id: 27 },
+    { name: "Რეგრესიული ანალიზი", sub_category_id: 27 },
     
 
     
     //! ფინანსები
-    { name: "პირადი ფინანსები", main_category_id: 28 },
-    { name: "Investment Banking", main_category_id: 28 },
-    { name: "CFA", main_category_id: 28 },
-    { name: "ფინანსების ფუნდამენტები", main_category_id: 28 },
-    { name: "ფინანსური მენეჯმენტი", main_category_id: 28 },
-    { name: "ფინანსური ანალიზი", main_category_id: 28 },
-    { name: "Კორპორატიული ფინანსები", main_category_id: 28 },
-    { name: "Excel", main_category_id: 28 },
-    { name: "კომპანიის შეფასება", main_category_id: 28 },
+    { name: "პირადი ფინანსები", sub_category_id: 28 },
+    { name: "Investment Banking", sub_category_id: 28 },
+    { name: "CFA", sub_category_id: 28 },
+    { name: "ფინანსების ფუნდამენტები", sub_category_id: 28 },
+    { name: "ფინანსური მენეჯმენტი", sub_category_id: 28 },
+    { name: "ფინანსური ანალიზი", sub_category_id: 28 },
+    { name: "Კორპორატიული ფინანსები", sub_category_id: 28 },
+    { name: "Excel", sub_category_id: 28 },
+    { name: "კომპანიის შეფასება", sub_category_id: 28 },
 
     
     //! ფინანსური სერტიფიკატები და საგამოცდო მომზადება
-    { name: "CFA", main_category_id: 29 },
-    { name: "ფინანსური მარკეტი", main_category_id: 29 },
-    { name: "რაოდენობრივი ფინანსები", main_category_id: 29 },
-    { name: "მენეჯმენტის სერტიფიცირებული ბუღალტერი (CMA)", main_category_id: 29 },
-    { name: "ACCA", main_category_id: 29 },
-    { name: "ფინანსური მენეჯმენტი", main_category_id: 29 },
-    { name: "ANBIMA სერტიფიკატი", main_category_id: 29 },
-    { name: "Კორპორატიული ფინანსები", main_category_id: 29 },
+    { name: "CFA", sub_category_id: 29 },
+    { name: "ფინანსური მარკეტი", sub_category_id: 29 },
+    { name: "რაოდენობრივი ფინანსები", sub_category_id: 29 },
+    { name: "მენეჯმენტის სერტიფიცირებული ბუღალტერი (CMA)", sub_category_id: 29 },
+    { name: "ACCA", sub_category_id: 29 },
+    { name: "ფინანსური მენეჯმენტი", sub_category_id: 29 },
+    { name: "ANBIMA სერტიფიკატი", sub_category_id: 29 },
+    { name: "Კორპორატიული ფინანსები", sub_category_id: 29 },
 
     
     //! ფინანსური მოდელირება და ანალიზი
-    { name: "ფინანსური ანალიზი", main_category_id: 30 },
-    { name: "ფინანსური მოდელირება", main_category_id: 30 },
-    { name: "ფინანსების ფუნდამენტები", main_category_id: 30 },
-    { name: "Excel", main_category_id: 30 },
-    { name: "Აღრიცხვა", main_category_id: 30 },
-    { name: "ინვესტიცია", main_category_id: 30 },
-    { name: "Python", main_category_id: 30 },
-    { name: "საინვესტიციო ბანკი", main_category_id: 30 },
-    { name: "ფინანსური მენეჯმენტი", main_category_id: 30 },
+    { name: "ფინანსური ანალიზი", sub_category_id: 30 },
+    { name: "ფინანსური მოდელირება", sub_category_id: 30 },
+    { name: "ფინანსების ფუნდამენტები", sub_category_id: 30 },
+    { name: "Excel", sub_category_id: 30 },
+    { name: "Აღრიცხვა", sub_category_id: 30 },
+    { name: "ინვესტიცია", sub_category_id: 30 },
+    { name: "Python", sub_category_id: 30 },
+    { name: "საინვესტიციო ბანკი", sub_category_id: 30 },
+    { name: "ფინანსური მენეჯმენტი", sub_category_id: 30 },
 
     
     //! ინვესტიცია და ვაჭრობა
-    { name: "საფონდო ვაჭრობა", main_category_id: 31 },
-    { name: "Forex", main_category_id: 31 },
-    { name: "ტექნიკური ანალიზი", main_category_id: 31 },
-    { name: "ინვენსტიცია", main_category_id: 31 },
-    { name: "სავაჭრო პარამეტრები", main_category_id: 31 },
-    { name: "დღის ვაჭრობა", main_category_id: 31 },
-    { name: "ალგორითმული ვაჭრობა", main_category_id: 31 },
-    { name: "ფინანსური ანალიზი", main_category_id: 31 },
-    { name: "ფინანსური ვაჭრობა", main_category_id: 31 },
+    { name: "საფონდო ვაჭრობა", sub_category_id: 31 },
+    { name: "Forex", sub_category_id: 31 },
+    { name: "ტექნიკური ანალიზი", sub_category_id: 31 },
+    { name: "ინვენსტიცია", sub_category_id: 31 },
+    { name: "სავაჭრო პარამეტრები", sub_category_id: 31 },
+    { name: "დღის ვაჭრობა", sub_category_id: 31 },
+    { name: "ალგორითმული ვაჭრობა", sub_category_id: 31 },
+    { name: "ფინანსური ანალიზი", sub_category_id: 31 },
+    { name: "ფინანსური ვაჭრობა", sub_category_id: 31 },
 
     
     //! ფულის მენეჯმენტის პროგრამები
-    { name: "QuickBooks Online", main_category_id: 32 },
-    { name: "Excel", main_category_id: 32 },
-    { name: "QuickBooks", main_category_id: 32 },
-    { name: "SAP FICO", main_category_id: 32 },
-    { name: "QuickBooks Pro", main_category_id: 32 },
-    { name: "Xero", main_category_id: 32 },
-    { name: "Excel ანალიტიკები", main_category_id: 32 },
+    { name: "QuickBooks Online", sub_category_id: 32 },
+    { name: "Excel", sub_category_id: 32 },
+    { name: "QuickBooks", sub_category_id: 32 },
+    { name: "SAP FICO", sub_category_id: 32 },
+    { name: "QuickBooks Pro", sub_category_id: 32 },
+    { name: "Xero", sub_category_id: 32 },
+    { name: "Excel ანალიტიკები", sub_category_id: 32 },
 
     
     //! გადასახადები
-    { name: "გადასახადის მომზადება", main_category_id: 33 },
-    { name: "საქონლისა და მომსახურების გადასახადი", main_category_id: 33 },
-    { name: "Აღრიცხვა", main_category_id: 33 },
-    { name: "Დამატებითი ღირებულების გადასახადი (VAT)", main_category_id: 33 },
-    { name: "QuickBooks Online", main_category_id: 33 },
-    { name: "პირადი ფინანსები", main_category_id: 33 },
-    { name: "სახლის ბიზნესი", main_category_id: 33 },
-    { name: "ფინანსური დაგეგმვა", main_category_id: 33 },
-    { name: "ფინანსური აღრიცხვა", main_category_id: 33 },
+    { name: "გადასახადის მომზადება", sub_category_id: 33 },
+    { name: "საქონლისა და მომსახურების გადასახადი", sub_category_id: 33 },
+    { name: "Აღრიცხვა", sub_category_id: 33 },
+    { name: "Დამატებითი ღირებულების გადასახადი (VAT)", sub_category_id: 33 },
+    { name: "QuickBooks Online", sub_category_id: 33 },
+    { name: "პირადი ფინანსები", sub_category_id: 33 },
+    { name: "საშინაო ბიზნესი", sub_category_id: 33 },
+    { name: "ფინანსური დაგეგმვა", sub_category_id: 33 },
+    { name: "ფინანსური აღრიცხვა", sub_category_id: 33 },
 
 
 
-    
+
 
     // ****************** 
     //! ბიზნესი
     // ****************** 
-
-
-    //! ფინანსები
-    { name: "ფინანსები", main_category_id: 6 },
+ 
 
     //! მეწარმეობა
-    { name: "მეწარმეობა", main_category_id: 6 },
+    { name: "ბიზნესის ფუნდამენტები", sub_category_id: 34 },
+    { name: "მეწარმეობის ფუნდამენტები", sub_category_id: 34 },
+    { name: "ბიზნეს სტრატეგია", sub_category_id: 34 },
+    { name: "სტარტაპი", sub_category_id: 34 },
+    { name: "ბიზნეს გეგმა", sub_category_id: 34 },
+    { name: "Freelancing", sub_category_id: 34 },
+    { name: "Blogging", sub_category_id: 34 },
+    { name: "ონლაინ ბიზნესი", sub_category_id: 34 },
+    { name: "საშინაო ბიზნესი", sub_category_id: 34 },
+    
+    
 
     //! კომუნიკაციები
-    { name: "კომუნიკაციები", main_category_id: 6 },
+    { name: "წერა", sub_category_id: 35 },
+    { name: "კომუნიკაციის უნარები", sub_category_id: 35 },
+    { name: "პრეზენტაციის უნარები", sub_category_id: 35 },
+    { name: "Საჯარო გამოსვლები", sub_category_id: 35 },
+    { name: "მხატვრული ლიტერატურა", sub_category_id: 35 },
+    { name: "ბიზნეს წერა", sub_category_id: 35 },
+    { name: "ტექნიკური წერა", sub_category_id: 35 },
+    { name: "Email ეტიკეტი", sub_category_id: 35 },
 
     //! გაყიდვები
-    { name: "გაყიდვები", main_category_id: 6 },
+    { name: "პროდუქტის მენეჯმენტი", sub_category_id: 36 },
+    { name: "ლიდერობა", sub_category_id: 36 },
+    { name: "მენეჯმენტის უნარი", sub_category_id: 36 },
+    { name: "ISO 9001", sub_category_id: 36 },
+    { name: "ბიზნეს პროცესის მენეჯმენტი", sub_category_id: 36 },
+    { name: "რისკის მენეჯმენტი", sub_category_id: 36 },
+    { name: "Agile", sub_category_id: 36 },
+    { name: "ხარისხის მენეჯმენტი", sub_category_id: 36 },
+    { name: "მენეჯმენტის მწვრთნელები", sub_category_id: 36 },
+    
 
-    //! სტრატეგია
-    { name: "სტრატეგია", main_category_id: 6 },
+    //! ბიზნეს სტრატეგია
+    { name: "ციფრული მარკეტინგი", sub_category_id: 37 },
+    { name: "მენეჯმენტ კონსულტაცია", sub_category_id: 37 },
+    { name: "Google Ads (Adwords)", sub_category_id: 37 },
+    { name: "ბიზნეს მოდელი", sub_category_id: 37 },
+    { name: "TOGAF 9 ფუნდამენტები", sub_category_id: 37 },
+    { name: "სტრატეგიული დაგეგმვა", sub_category_id: 37 },
+    { name: "ინოვაცია", sub_category_id: 37 },
+    { name: "ბიზნეს გეგმა", sub_category_id: 37 },
 
     //! ოპერაციები
-    { name: "ოპერაციები", main_category_id: 6 },
+    { name: "Six Sigma", sub_category_id: 38 },
+    { name: "Six Sigma Green Belt", sub_category_id: 38 },
+    { name: "Six Sigma Yellow Belt", sub_category_id: 38 },
+    { name: "Six Sigma Black Belt", sub_category_id: 38 },
+    { name: "Lean Six Sigma Green Belt", sub_category_id: 38 },
+    { name: "Მიწოდების ჯაჭვი", sub_category_id: 38 },
+    { name: "ხარისხის მენეჯმენტი", sub_category_id: 38 },
 
     //! პროექტის მენეჯმენტი
-    { name: "პროექტის მენეჯმენტი", main_category_id: 6 },
+    { name: "PMP", sub_category_id: 39 },
+    { name: "PMBOK", sub_category_id: 39 },
+    { name: "Agile", sub_category_id: 39 },
+    { name: "Scrum", sub_category_id: 39 },
+    { name: "CAPM", sub_category_id: 39 },
+    { name: "PMI-ACP", sub_category_id: 39 },
+    { name: "Microsoft Project", sub_category_id: 39 },
+    { name: "Risk Management", sub_category_id: 39 },
 
     //! ბისნესის კანონები
-    { name: "ბისნესის კანონები", main_category_id: 6 },
+    { name: "პატენტი", sub_category_id: 40 },
+    { name: "GDPR", sub_category_id: 40 },
+    { name: "Სახელშეკრულებო სამართალი", sub_category_id: 40 },
+    { name: "Law", sub_category_id: 40 },
+    { name: "LGPD Lei Geral de Proteção de Dados", sub_category_id: 40 },
+    { name: "ჯანდაცვის IT", sub_category_id: 40 },
+    { name: "სამედიცინო მოწყობილობის განვითარება", sub_category_id: 40 },
+    { name: "მონაცემთა დაცვა", sub_category_id: 40 },
 
     //! მონაცემები და ანალიტიკა
-    { name: "მონაცემები და ანალიტიკა", main_category_id: 6 },
+    { name: "SQL", sub_category_id: 41 },
+    { name: "Microsoft Power BI", sub_category_id: 41 },
+    { name: "Tableau", sub_category_id: 41 },
+    { name: "ბიზნეს ანალიზი", sub_category_id: 41 },
+    { name: "ბიზნეს დაზვერვა", sub_category_id: 41 },
+    { name: "Მონაცემთა ანალიზი", sub_category_id: 41 },
+    { name: "MySQL", sub_category_id: 41 },
+    { name: "მონაცემთა მოდელირება", sub_category_id: 41 },
+    { name: "Big Data", sub_category_id: 41 },
 
     //! საშინაო ბიზნესი
-    { name: "საშინაო ბიზნესი", main_category_id: 6 },
+    { name: "საშინაო ბიზნესი", sub_category_id: 42 },
 
     //! ადამიანური რესურსები
-    { name: "ადამიანური რესურსები", main_category_id: 6 },
+    { name: "ადამიანური რესურსები", sub_category_id: 43 },
 
     //! ინდუსტრია
-    { name: "ინდუსტრია", main_category_id: 6 },
+    { name: "ინდუსტრია", sub_category_id: 44 },
 
     //! მედია
-    { name: "მედია", main_category_id: 6 },
+    { name: "მედია", sub_category_id: 6 },
 
     //! უძრავი ქონება
-    { name: "უძრავი ქონება", main_category_id: 6 },
+    { name: "უძრავი ქონება", sub_category_id: 6 },
 
 
     //! მარკეტინგი
