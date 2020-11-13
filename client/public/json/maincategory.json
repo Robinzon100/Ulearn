@@ -40,33 +40,38 @@
                     ]
                 },
                 {
-                    "id":1,
+                    "id":2,
                     "main_category_id":1,
                     "name": "დატა-მეცნიერება"
                 },
                 {
-                    "id":2,
+                    "id":3,
                     "main_category_id":1,
                     "name": "მობილური აპები"
                 },
                 {
-                    "id":3,
+                    "id":4,
+                    "main_category_id":1,
                     "name": "პროგრამირების ენები"
                 },
                 {
-                    "id":4,
+                    "id":5,
+                    "main_category_id":1,
                     "name": "თამაშის დეველოპმენტი"
                 },
                 {
-                    "id":5,
+                    "id":6,
+                    "main_category_id":1,
                     "name": "დატაბაზები"
                 },
                 {
-                    "id":6,
+                    "id":7,
+                    "main_category_id":1,
                     "name": "wordpress დეველოპმენტი"
                 },
                 {
-                    "id":7,
+                    "id":8,
+                    "main_category_id":1,
                     "name": "ონლაინ მაღაზია"
                 }
             ]
@@ -74,7 +79,7 @@
         {
             "id":2,
             "name": "დიზაინი",
-            "SubCategories": [
+            "sub_categories": [
                 {
                     "id":1,
                     "main_category_id":2,

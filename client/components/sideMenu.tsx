@@ -1,5 +1,10 @@
 import React, { Fragment, useState, useRef, useEffect } from "react";
 import { videoList } from "../interfaces/coursePage.interface";
+import { motion } from "framer-motion";
+
+
+import {sideMenuAnimation} from "components/utils/framer/framerAnimation";
+
 
 const sideMenu: React.FC<videoList> = ({
     id,
@@ -62,12 +67,11 @@ const sideMenu: React.FC<videoList> = ({
                         </div>
                     </div>
                 </div>
-                <div
-                    className={
-                        !revealContent
-                            ? "card_container__info clip-path-hide"
-                            : "clip-path-reveal card_container__info"
-                    }
+                <motion.div
+                    className="card_container__info" 
+                    variants={sideMenuAnimation}
+                    initial={{ height: "0rem" }}
+                    animate={revealContent ? "open" : "closed"}
                     ref={ref}
                 >
                     {subTitles.map((sub, index) => (
@@ -86,7 +90,7 @@ const sideMenu: React.FC<videoList> = ({
                             </div>
                         </div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </>
     );
