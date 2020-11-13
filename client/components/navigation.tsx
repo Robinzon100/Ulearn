@@ -29,7 +29,11 @@ const Navigation: React.FC = () => {
     "მოძებნე სასურველი კურსი"
   );
 
+<<<<<<< HEAD
   // const [navCategory, setNavCategory] = useState(MainCategory.category);
+=======
+  const [categoriesJson, setCategoriesJson] = useState(MainCategory.main_categories);
+>>>>>>> 66d5490edaaade556b2b9d94e229df8d6004dbcf
 
   // const [open, isOpen] = useState(false);
   // const [newPageLinks, setNewPageLinks] = useState([]);
@@ -70,7 +74,10 @@ const Navigation: React.FC = () => {
                     <ChevronDown/>
                 </span>
             </div>
-            <Category/>
+            <div className="header__category-menu--list-container">
+                {/* <Category categories={categoriesJson}/> */}
+            </div>
+            
         </div>
 
         <div className="menu_container">

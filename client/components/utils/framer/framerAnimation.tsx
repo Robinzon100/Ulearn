@@ -23,9 +23,43 @@ export const dropDownAnimation = {
     closed: {
         'height': '0rem',
         opacity: 0,
-        'display': 'none',
+        // 'display': 'none',
         transition: {
             duration: 0.2
+        }
+    },
+}
+// INDEX SEE MORE ANIMATION
+export const seeMoreAnimation = {
+    open: {
+        'height': '21vw',
+        opacity: 1,
+        'display': 'block',
+        transition: { duration: 0.1 }
+    },
+    closed: {
+        'height': '0vw',
+        opacity: 0,
+        // 'visibility': 'hidden',
+        transition: {
+            duration: 0.2
+        }
+    },
+}
+
+export const sideMenuAnimation = {
+    open: {
+        'height': '12rem',
+        opacity: 1,
+        'display': 'block',
+        transition: { duration: 0.3 }
+    },
+    closed: {
+        'height': '0rem',
+        opacity: 0,
+        // 'visibility': 'hidden',
+        transition: {
+            duration: 0.3
         }
     },
 }

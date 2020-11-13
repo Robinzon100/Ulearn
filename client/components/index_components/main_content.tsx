@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Image from 'next/image';
+import { motion } from "framer-motion";
 import { ChevronDown } from "react-feather";
 
 import InputSearch from "components/global_components/inputs/inputSearch";
@@ -8,6 +9,9 @@ import Carousel from "components/index_components/carousel/carousel";
 import PrimaryContentCardJson from "../../public/json/PrimaryContentCard.json";
 import Categories from "components/categories"
 import SortingDropdown from './../sortingDropdown';
+import {seeMoreAnimation} from "components/utils/framer/framerAnimation";
+
+
 
 //! JSON
 import CategoriesJson from "../../public/json/categories.json"
@@ -17,8 +21,7 @@ const main_content: React.FC = () => {
     const [placeHolder, setPlaceHolder] = useState<string>(
         "მოძებნე სასურველი კურსი"
     );
-
-
+    
     const [toggleSeeMore, setToggleSeeMore] = useState(false);
 
     const [CardsJson, setCardsJson] = useState(PrimaryContentCardJson.contentCard);
@@ -87,8 +90,12 @@ const main_content: React.FC = () => {
                                 <SortingDropdown type="time" />
                             </div>
                         </div>
-                        {CardsJson.length > 2 && !toggleSeeMore &&
-                            <div className="overlay_container">
+                        {CardsJson.length > 2 &&  
+                            <motion.div className="overlay_container"
+                            variants={seeMoreAnimation}
+                            initial={{ height: "0rem" }}
+                            animate={!toggleSeeMore ? "open" : "closed"}
+                            >
                                 <div className="wrapper" onClick={() => setToggleSeeMore(true)}>
                                     <div className="see_more" >
                                         <p className="heading-bold paragraph-biggest">
@@ -99,7 +106,7 @@ const main_content: React.FC = () => {
                                         <ChevronDown size={40} style={{ color: "#00E267" }} />
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
                             
                         }
 

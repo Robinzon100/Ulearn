@@ -41,14 +41,7 @@ const selectInput: React.FC<selects> = ({ id, onChange,selectOptions,type }) => 
                     <span className="select paragraph-regulars paragraph-small">
                         {selectLable}
                     </span>
-                    {/* <motion.img
-                        className="dropdown_arrow"
-                        src="./pictures/select_arrow.svg"
-                        alt="arrow"
-                        variants={arrowAnimation}
-                        animate={isToggle ? "closed" : "open"}
-                    /> */}
-
+                    
                 </div>
                 <motion.div
                     className="dropdown-list"
