@@ -1,0 +1,138 @@
+{
+    "main_categories": [
+        {
+            "id":1,
+            "name": "დეველოპმენტი",
+            "sub_categories": [
+                {
+                    "id":1,
+                    "main_category_id":1,
+                    "name": "ვებ-დეველოპმენტი",
+                    "sub_sub_categories":[
+                        {
+                            "id":1,
+                            "name":"Javascript"
+                        },
+                        {
+                            "id":2,
+                            "name":"Python"
+                        },
+                        {
+                            "id":3,
+                            "name":"Java"
+                        },
+                        {
+                            "id":4,
+                            "name":"Spring"
+                        },
+                        {
+                            "id":5,
+                            "name":"C#"
+                        },
+                        {
+                            "id":6,
+                            "name":"C++"
+                        },
+                        {
+                            "id":7,
+                            "name":"C"
+                        }
+                    ]
+                },
+                {
+                    "id":2,
+                    "main_category_id":1,
+                    "name": "დატა-მეცნიერება"
+                },
+                {
+                    "id":3,
+                    "main_category_id":1,
+                    "name": "მობილური აპები"
+                },
+                {
+                    "id":4,
+                    "main_category_id":1,
+                    "name": "პროგრამირების ენები"
+                },
+                {
+                    "id":5,
+                    "main_category_id":1,
+                    "name": "თამაშის დეველოპმენტი"
+                },
+                {
+                    "id":6,
+                    "main_category_id":1,
+                    "name": "დატაბაზები"
+                },
+                {
+                    "id":7,
+                    "main_category_id":1,
+                    "name": "wordpress დეველოპმენტი"
+                },
+                {
+                    "id":8,
+                    "main_category_id":1,
+                    "name": "ონლაინ მაღაზია"
+                }
+            ]
+        },
+        {
+            "id":2,
+            "name": "დიზაინი",
+            "sub_categories": [
+                {
+                    "id":1,
+                    "main_category_id":2,
+                    "name": "Photoshop"
+                },
+                {
+                    "id":2,
+                    "main_category_id":2,
+                    "name": "Illustrator"
+                },
+                {
+                    "id":3,
+                    "main_category_id":2,
+                    "name": "DreamViewer"
+                },
+                {
+                    "id":4,
+                    "main_category_id":2,
+                    "name": "After affects"
+                }
+            ]
+        },
+        {
+            "id":3,
+            "name": "IT ტექნოლოგიები"
+        },
+        {
+            "id":4,
+            "name": "ფოტოგრაფია"
+        },
+        {
+            "id":5,
+            "name": "ფინანსები და ბუღალტერია"
+        },
+        {
+            "id":6,
+            "name": "ბიზნესი"
+        },
+        {
+            "id":8,
+            "name": "მერკეტინგი"
+        },
+        {
+            "id":9,
+            "name": "მუსიკა"
+        },
+        {
+            "id":10,
+            "name": "ცეკვა"
+        },
+        {
+            "id":11,
+            "name": "ჯანმრთელობა და ფიტნესი"
+        }
+    ]
+}

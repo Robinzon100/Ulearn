@@ -7,7 +7,7 @@ import { ShoppingCart } from "react-feather";
 //! ─── IMPORTS ────────────────────────────────────────────────────────────────────
 import InputSearch from "components/global_components/inputs/inputSearch";
 import Category from "components/NavigationCategories/Category";
-// import MainCategory from "public/json/MainCategory.json";
+import MainCategory from "public/json/MainCategory.json";
 
 //! ─── ACTIONS ────────────────────────────────────────────────────────────────────
 import { getNewPagesLinks } from "actions/client/newPage";
@@ -29,11 +29,7 @@ const Navigation: React.FC = () => {
     "მოძებნე სასურველი კურსი"
   );
 
-<<<<<<< HEAD
-  // const [navCategory, setNavCategory] = useState(MainCategory.category);
-=======
   const [categoriesJson, setCategoriesJson] = useState(MainCategory.main_categories);
->>>>>>> 66d5490edaaade556b2b9d94e229df8d6004dbcf
 
   // const [open, isOpen] = useState(false);
   // const [newPageLinks, setNewPageLinks] = useState([]);
