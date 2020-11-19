@@ -75,14 +75,11 @@ $category-menu-width:9%;
 
     .list__main-category {
         position: absolute;
-        // left: 44%;
         z-index: 3;
     }
 
     .list__sub-category {
         position: absolute;
-        // left: 56.2%;
-        // top: 125%;
         z-index: 2;
     }
 
@@ -93,11 +90,7 @@ $category-menu-width:9%;
         z-index: 1;
     }
     .list {
-        // left: 45%;
-        // top: 125%;
-        // position: absolute;
         
-
         &__main-category,
         &__sub-category,
         &__sub-sub-category {
@@ -167,12 +160,7 @@ $category-menu-width:9%;
 
 
     }
-
-
-
-
-
-
+    
     .menu_container {
         @include flex;
         width: $menu_container-width;

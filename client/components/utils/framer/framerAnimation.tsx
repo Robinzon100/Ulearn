@@ -90,7 +90,7 @@ export const MainCategoryChildren = {
 
 export const MainCategoryLeftMoveAnimation = {
     left: {
-        left: "30%",
+        left: "25%",
         borderTopRightRadius: "0px",
         borderBottomRightRadius: "0px",
         transition: {
@@ -100,7 +100,9 @@ export const MainCategoryLeftMoveAnimation = {
 };
 export const SubCategoryLeftMoveAnimation = {
     left: {
-        left: "48%",
+        left: "43%",
+        display:"block",
+        opacity: 1,
         borderTopRightRadius: "0px",
         borderBottomRightRadius: "0px",
         transition: {
@@ -109,9 +111,11 @@ export const SubCategoryLeftMoveAnimation = {
     },
 };
 
-export const SubSunCategoryLeftMoveAnimation = {
+export const SubSubCategoryLeftMoveAnimation = {
     left: {
-        left: "66%",
+        left: "61%",
+        display:"block",
+        opacity: 1,
         borderTopRightRadius: "0px",
         borderBottomRightRadius: "0px",
         transition: {

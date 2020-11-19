@@ -1,39 +1,25 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { ChevronDown } from "react-feather";
-import { ShoppingCart } from "react-feather";
+import { ShoppingCart,ChevronDown } from "react-feather";
 import { motion } from "framer-motion";
 
 //! ─── IMPORTS ────────────────────────────────────────────────────────────────────
+import { NextLink } from './utils/NextLink';
 import InputSearch from "components/global_components/inputs/inputSearch";
 import Category from "components/NavigationCategories/main_category";
 import SubCategory from "components/NavigationCategories/sub_category";
 import SubSubCategory from "components/NavigationCategories/sub_sub_category";
 import MainCategories from "public/json/MainCategories.json";
 import {
+
   MainCategoryToggleAnimation,
   MainCategoryChildren,
   MainCategoryLeftMoveAnimation,
   SubCategoryLeftMoveAnimation,
-  SubSunCategoryLeftMoveAnimation
+  SubSubCategoryLeftMoveAnimation
 } from "components/utils/framer/framerAnimation";
 
 
-
-//! ─── ACTIONS ────────────────────────────────────────────────────────────────────
-import { getNewPagesLinks } from "actions/client/newPage";
-
-const NavLink = (props) => {
-  const { route, title, children } = props;
-  return (
-    <Link href={route}>
-      <a className="menu--list--items--links  paragraph-regulars paragraph-small">
-        {title}
-        {children}
-      </a>
-    </Link>
-  );
-};
 
 const Navigation: React.FC = () => {
   const [placeHolder, setPlaceHolder] = useState<string>(
@@ -65,7 +51,7 @@ const Navigation: React.FC = () => {
   );
 
   //* ეს იძლევა საშუალებას დაჭერის შემდეგ გამოჩნდეს Sub_categoria
-  const handleMainCategoryClick = (id: number, e) => {
+  const handleFetchMainCategory = (id: number, e) => {
     e.preventDefault();
 
     const filteredSubCategory = subCategories.filter(
@@ -75,7 +61,7 @@ const Navigation: React.FC = () => {
   };
 
   //* ეს იძლევა საშუალებას დაჭერის შემდეგ გამოჩნდეს Sub_Sub_categoria
-  const handleSubCategoryClick = (id: number, e) => {
+  const handleFetchSubCategoryClick = (id: number, e) => {
     e.preventDefault();
     const filteredSubSubCategory = subSubCategories.filter(
       (sub_id) => sub_id.sub_category_id === id 
@@ -127,7 +113,7 @@ const Navigation: React.FC = () => {
               >
                 {mainCategories.map((data) => (
                   <Category
-                    handleMainCategoryClick={handleMainCategoryClick}
+                    handleFetchMainCategory={handleFetchMainCategory}
                     setIsMainCategoryChosen={setIsMainCategoryChosen}
                     key={data.id}
                     id={data.id}
@@ -136,16 +122,16 @@ const Navigation: React.FC = () => {
                 ))}
               </motion.ul>
               {/* //* ============== SUB-CATEGORY */}
-              {isMainCategoryChosen && (
+              
                 <motion.ul className="list__sub-category"
                 variants={SubCategoryLeftMoveAnimation}
-                initial={{ left: "45%",top:"125%" }}
+                initial={{ left: "40%",top:"125%",display:"none",opacity:0 }}
                 animate={isMainCategoryChosen && "left"}
                 >
                   {rendersSubNames &&
                     rendersSubNames.map((data) => (
                       <SubCategory
-                        handleSubCategoryClick={handleSubCategoryClick}
+                        handleFetchSubCategoryClick={handleFetchSubCategoryClick}
                         setIsSubCategoryChosen={setIsSubCategoryChosen}
                         key={data.id}
                         id={data.id}
@@ -153,12 +139,12 @@ const Navigation: React.FC = () => {
                       />
                     ))}
                 </motion.ul>
-              )}
+              
               {/* //* ============== SUB_SUB-CATEGORY */}
-              {isSubCategoryChosen &&  (
+              
                 <motion.ul className="list__sub-sub-category"
-                variants={SubSunCategoryLeftMoveAnimation}
-                initial={{ left: "60%",top:"125%" }}
+                variants={SubSubCategoryLeftMoveAnimation}
+                initial={{ left: "58%",top:"125%",display:"none",opacity:0 }}
                 animate={isSubCategoryChosen && "left"}
                 >
                   {rendersSubSubNames &&
@@ -170,17 +156,17 @@ const Navigation: React.FC = () => {
                       />
                     ))}
                 </motion.ul>
-              )}
+              
             </div>
 
         <div className="menu_container">
           <div className="menu">
             <ul className="menu--list">
               <li className="menu--list--items">
-                <NavLink route="/courses" title="კურსები" />
+                <NextLink route="/courses" title="კურსები" />
               </li>
               <li className="menu--list--items">
-                <NavLink route="/lecturers" title="გახდი ლექტორი" />
+                <NextLink route="/lecturers" title="გახდი ლექტორი" />
               </li>
             </ul>
           </div>

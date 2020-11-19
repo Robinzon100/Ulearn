@@ -3,7 +3,7 @@ import { ChevronRight } from "react-feather";
 import { motion } from "framer-motion";
 
 
-const Category = ({ handleMainCategoryClick,setIsMainCategoryChosen,id,name },props) => {
+const Category = ({ handleFetchMainCategory,setIsMainCategoryChosen,id,name },props) => {
     
 
   return (
@@ -12,7 +12,7 @@ const Category = ({ handleMainCategoryClick,setIsMainCategoryChosen,id,name },pr
           key={props.key}
           className="list__main-category--item"
           onClick={(e) => {
-            handleMainCategoryClick(id, e);
+            handleFetchMainCategory(id, e);
             setIsMainCategoryChosen(true)
           }}
           //   variants={MainCategoryChildren}
