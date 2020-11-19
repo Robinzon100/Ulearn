@@ -18,7 +18,7 @@
     --secondary-lightGrey: rgba(249, 249, 249, 1);
     --secondary-light-green: rgba(79, 217, 110,1);
     --secondary-dark-red:rgba(255, 148, 141, 1);
-    --secondary-light-grey: rgba(245, 245, 245,1);
+    // --secondary-lightHgrey: rgba(245, 245, 245,1);
     --secondary-light-red: rgba(19, 21, 26, 1);
     --secondary-light-grey: rgba(157, 157, 157, 1);
     --secondary-dark-dark: rgba(99, 100, 105, 1);
@@ -44,7 +44,7 @@
     --input:0px 4.4px 12px rgba(17, 23, 53, 0.12);
     --input-onFocus:0px -11px 19px -8px rgba(0, 0, 0, 0.03), 0px 6px 15px -7px rgba(0, 0, 0, 0.1),0px 11px 12px -5px rgba(17, 23, 53, 0.06);
     --box-shadow-for-video-files:0px 5.4px 23px rgba(0, 158, 72, 0.5);
-    --shadow-smallest: 0px 4px 8px rgba(0,0,0,0.12);
+    --shadowSmallest: 0px 4px 8px rgba(0,0,0,0.12);
     --shadow-small: 0 5px 10px rgba(0,0,0,0.12);
     --shadow-medium: 0 8px 30px rgba(0,0,0,0.12);
     --shadow-large: 0 30px 60px rgba(0,0,0,0.12);
@@ -59,7 +59,7 @@ $ultra-small-breakpoint: 400px;
 $small-breakpoint:768px;
 $medium-breakpoint:1366px;
 
-$transition:all 1s cubic-bezier(0, 1.06, 0.37, 0.38);
+$transition:all .1s cubic-bezier(0, 1.06, 0.37, 0.38);
 
 
 

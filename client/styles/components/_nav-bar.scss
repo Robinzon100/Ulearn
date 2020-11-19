@@ -1,6 +1,7 @@
 $logo_container_width:40%;
 $menu_container-width:33%;
-$category-menu-width:10%;
+$category-menu-width:9%;
+
 .header {
     position: fixed;
     background-color: white;
@@ -13,11 +14,12 @@ $category-menu-width:10%;
     z-index: 999;
     top: 0 !important;
     box-shadow: var(--box-shadow-for-navigation);
-    
+
 
     .mobile_hamburger {
         display: none;
     }
+
     .logo_container {
         display: flex;
         align-items: center;
@@ -52,7 +54,6 @@ $category-menu-width:10%;
 
     }
 
-
     &__category-menu {
         width: $category-menu-width;
         position: relative;
@@ -61,37 +62,69 @@ $category-menu-width:10%;
         &--heading {
             display: flex;
             align-items: center;
-            // p {
-            //     font-weight: bold;
-            // }
+
             .chevrondown {
                 margin: 0.5rem 0 0 0.5rem;
-                
+
             }
         }
 
-        &--list-container {
-            position: absolute;
+
+        
+    }
+
+    .list__main-category {
+        position: absolute;
+        // left: 44%;
+        z-index: 3;
+    }
+
+    .list__sub-category {
+        position: absolute;
+        // left: 56.2%;
+        // top: 125%;
+        z-index: 2;
+    }
+
+    .list__sub-sub-category {
+        position: absolute;
+        left: 70%;
+        top: 125%;
+        z-index: 1;
+    }
+    .list {
+        // left: 45%;
+        // top: 125%;
+        // position: absolute;
+        
+
+        &__main-category,
+        &__sub-category,
+        &__sub-sub-category {
             width: 35rem;
-            left: -44%;
-            top: 222%;
+            // height: 0;
+            // display: none;
+            height: 65rem;
+            max-height: 70rem;
             box-shadow: 0px 23px 94px rgba(0, 0, 0, 0.13);
+            list-style-type: none;
+            background-color: var(--white);
+            padding: 1.8rem;
+            border-radius: 10px;
+            // top: 0%;
 
+            &--item {
+                width: 100%;
+                @include flex;
+                cursor: pointer;
 
-            .list {
-                list-style-type: none;
-                background-color: var(--white);
-                padding: 2rem;
-                border-radius: 10px;
+                &:not(:first-child) {
+                    margin-top: 2rem;
+                }
 
-                
-                &--items {
-                    width: 100%;
+                .item-container {
                     @include flex;
-
-                    &:not(:first-child) {
-                        margin-top: 2rem;
-                    }
+                    width: 100%;
 
                     &__cube-text {
                         display: flex;
@@ -99,33 +132,45 @@ $category-menu-width:10%;
 
                         .cube {
                             background-color: var(--secondary-light-grey);
+                            background: no-repeat url("/pictures/cube.svg");
+                            background-size: cover;
+                            background-position: center;
                             width: 2rem;
                             height: 2rem;
+
                         }
-                        
+
                         .text {
                             margin-left: 1rem;
+
                             a {
                                 text-decoration: none;
                                 color: var(--primary-dark);
                             }
-                            
+
                         }
                     }
 
 
                     &__chevron {
                         display: flex;
-                        align-items: center;
+                        // align-items: center;
                         justify-content: center;
-                        
+
                     }
-                    
                 }
+
+
+
             }
-            
         }
+
+
     }
+
+
+
+
 
 
     .menu_container {
@@ -142,9 +187,9 @@ $category-menu-width:10%;
                 font-size: $paragraph-big;
                 text-decoration: none;
 
-                p{
+                p {
                     color: var(--white);
-                    
+
                 }
             }
 
@@ -207,4 +252,3 @@ $category-menu-width:10%;
         }
     }
 }
-

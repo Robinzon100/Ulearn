@@ -43,7 +43,7 @@ $padding-input-select:1rem 2rem 1rem 6rem;
         box-sizing: border-box;
         border-radius: 8px;
         outline: none !important;
-        transition: $transition;
+        transition: $transition !important;
 
         &:focus {
             border: 0.9px solid var(--secondary-light-grey);

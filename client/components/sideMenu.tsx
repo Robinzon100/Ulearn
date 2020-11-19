@@ -13,9 +13,10 @@ const sideMenu: React.FC<videoList> = ({
     subTitles,
     handleDisplayVideoNames
 },props) => {
+
     const [revealContent, setRevealContent] = useState<boolean>(false);
     const [finished, setFinished] = useState<boolean>(false);
-    const ref = useRef();
+    // const ref = useRef();
 
     
 
@@ -72,7 +73,7 @@ const sideMenu: React.FC<videoList> = ({
                     variants={sideMenuAnimation}
                     initial={{ height: "0rem" }}
                     animate={revealContent ? "open" : "closed"}
-                    ref={ref}
+                    // ref={ref}
                 >
                     {subTitles.map((sub, index) => (
                         <div

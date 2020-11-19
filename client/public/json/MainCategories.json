@@ -1,0 +1,2565 @@
+{
+    "categories": {
+      "main_categories": [
+        {
+          "id": 1,
+          "name": "დეველოპმენტი"
+        },
+        {
+          "id": 2,
+          "name": "დიზაინი"
+        },
+        {
+          "id": 3,
+          "name": "IT ტექნოლოგია"
+        },
+        {
+          "id": 4,
+          "name": "ფოტოგრაფია"
+        },
+        {
+          "id": 5,
+          "name": "ფინანსები და ბუღალტერია"
+        },
+        {
+          "id": 6,
+          "name": "ბიზნესი"
+        },
+        {
+          "id": 7,
+          "name": "მარკეტინგი"
+        },
+        {
+          "id": 8,
+          "name": "მუსიკა"
+        },
+        {
+          "id": 9,
+          "name": "ცევკვა"
+        },
+        {
+          "id": 10,
+          "name": "ჯამრთელობა და ფიტნესი"
+        }
+      ],
+      "sub_categories": [
+        {
+          "id": 1,
+          "name": "ვებ-დეველომენტი",
+          "main_category_id": 1
+        },
+        {
+          "id": 2,
+          "name": "დატა მეცნიერება",
+          "main_category_id": 1
+        },
+        {
+          "id": 3,
+          "name": "მობილურ აპები",
+          "main_category_id": 1
+        },
+        {
+          "id": 4,
+          "name": "პროგრამირების ენები",
+          "main_category_id": 1
+        },
+        {
+          "id": 5,
+          "name": "თამაშების დეველპმენტი",
+          "main_category_id": 1
+        },
+        {
+          "id": 6,
+          "name": "დატაბაზები",
+          "main_category_id": 1
+        },
+        {
+          "id": 7,
+          "name": "ვებ-დიზაინი",
+          "main_category_id": 2
+        },
+        {
+          "id": 8,
+          "name": "გრაფიკული დიზაინი",
+          "main_category_id": 2
+        },
+        {
+          "id": 9,
+          "name": "დიზაინის პროგრამები",
+          "main_category_id": 2
+        },
+        {
+          "id": 10,
+          "name": "UX დიზაინი",
+          "main_category_id": 2
+        },
+        {
+          "id": 11,
+          "name": "3D და ანიმაციები",
+          "main_category_id": 2
+        },
+        {
+          "id": 12,
+          "name": "მოდის დიზაინი",
+          "main_category_id": 2
+        },
+        {
+          "id": 13,
+          "name": "არქიტექტურული დიზაინი",
+          "main_category_id": 2
+        },
+        {
+          "id": 14,
+          "name": "ინტერიერის დიზაინი",
+          "main_category_id": 2
+        },
+        {
+          "id": 15,
+          "name": "IT სერთიფიკატები",
+          "main_category_id": 3
+        },
+        {
+          "id": 16,
+          "name": "ქსელი და უსაფრთხოება",
+          "main_category_id": 3
+        },
+        {
+          "id": 17,
+          "name": "ოპერატიული სისტემები",
+          "main_category_id": 3
+        },
+        {
+          "id": 18,
+          "name": "აპარატურა (hardware)",
+          "main_category_id": 3
+        },
+        {
+          "id": 19,
+          "name": "ციფრული ფოტოგრაფია",
+          "main_category_id": 4
+        },
+        {
+          "id": 20,
+          "name": "ფოტოგრაფიის პროგრამები",
+          "main_category_id": 4
+        },
+        {
+          "id": 21,
+          "name": "კომერციული ფოტოგრაფია",
+          "main_category_id": 4
+        },
+        {
+          "id": 22,
+          "name": "პორტრეტები",
+          "main_category_id": 4
+        },
+        {
+          "id": 23,
+          "name": "ვიდეო დიზაინი",
+          "main_category_id": 4
+        },
+        {
+          "id": 24,
+          "name": "აღრიცხვები",
+          "main_category_id": 5
+        },
+        {
+          "id": 25,
+          "name": "შესაბამისობა",
+          "main_category_id": 5
+        },
+        {
+          "id": 26,
+          "name": "კრიპტოვალუტა და ბლოკჩეინი",
+          "main_category_id": 5
+        },
+        {
+          "id": 27,
+          "name": "ეკონომიკა",
+          "main_category_id": 5
+        },
+        {
+          "id": 28,
+          "name": "ფინანსები",
+          "main_category_id": 5
+        },
+        {
+          "id": 29,
+          "name": "ფინანსური სერტიფიკატები და საგამოცდო მომზადება",
+          "main_category_id": 5
+        },
+        {
+          "id": 30,
+          "name": "ფინანსური მოდელირება და ანალიზი",
+          "main_category_id": 5
+        },
+        {
+          "id": 31,
+          "name": "ინვესტიცია და ვაჭრობა",
+          "main_category_id": 5
+        },
+        {
+          "id": 32,
+          "name": "ფულის მენეჯმენტის პროგრამები",
+          "main_category_id": 5
+        },
+        {
+          "id": 33,
+          "name": "გადასახადები",
+          "main_category_id": 5
+        },
+        {
+          "id": 34,
+          "name": "მეწარმეობა",
+          "main_category_id": 6
+        },
+        {
+          "id": 35,
+          "name": "კომუნიკაციები",
+          "main_category_id": 6
+        },
+        {
+          "id": 36,
+          "name": "გაყიდვები",
+          "main_category_id": 6
+        },
+        {
+          "id": 37,
+          "name": "ბიზნეს სტრატეგია",
+          "main_category_id": 6
+        },
+        {
+          "id": 38,
+          "name": "ოპერაციები",
+          "main_category_id": 6
+        },
+        {
+          "id": 39,
+          "name": "პროექტის მენეჯმენტი",
+          "main_category_id": 6
+        },
+        {
+          "id": 40,
+          "name": "ბისნესის კანონები",
+          "main_category_id": 6
+        },
+        {
+          "id": 41,
+          "name": "მონაცემები და ანალიტიკა",
+          "main_category_id": 6
+        },
+        {
+          "id": 42,
+          "name": "ადამიანური რესურსები",
+          "main_category_id": 6
+        },
+        {
+          "id": 43,
+          "name": "ინდუსტრია",
+          "main_category_id": 6
+        },
+        {
+          "id": 44,
+          "name": "მედია",
+          "main_category_id": 6
+        },
+        {
+          "id": 45,
+          "name": "უძრავი ქონება",
+          "main_category_id": 6
+        },
+        {
+          "id": 46,
+          "name": "ციფრული მარკეტინგი",
+          "main_category_id": 7
+        },
+        {
+          "id": 47,
+          "name": "საძიებო სისტემის ოპტიმიზაცია (SEO)",
+          "main_category_id": 7
+        },
+        {
+          "id": 48,
+          "name": "სოციალური მედიას მარკეტინგი",
+          "main_category_id": 7
+        },
+        {
+          "id": 49,
+          "name": "ბრენდირება",
+          "main_category_id": 7
+        },
+        {
+          "id": 50,
+          "name": "მარკეტინგის ფუნდამენტები",
+          "main_category_id": 7
+        },
+        {
+          "id": 51,
+          "name": "ანალიტიკა და ავტომატიზაცია",
+          "main_category_id": 7
+        },
+        {
+          "id": 52,
+          "name": "საზოგადოებასთან ურთიერთობები",
+          "main_category_id": 7
+        },
+        {
+          "id": 53,
+          "name": "რეკლამები",
+          "main_category_id": 7
+        },
+        {
+          "id": 54,
+          "name": "ვიდეო და მობაილ მარკეტინგი",
+          "main_category_id": 7
+        },
+        {
+          "id": 55,
+          "name": "შვილობილი მარკეტინგი (affiliate marketing)",
+          "main_category_id": 7
+        },
+        {
+          "id": 56,
+          "name": "პროდუქტის მარკეტინგი",
+          "main_category_id": 7
+        },
+        {
+          "id": 57,
+          "name": "მუსიკის ფუნდამენტები",
+          "main_category_id": 8
+        },
+        {
+          "id": 58,
+          "name": "ინსტრუმენტები",
+          "main_category_id": 8
+        },
+        {
+          "id": 59,
+          "name": "მუსიკის პროგრამები",
+          "main_category_id": 8
+        },
+        {
+          "id": 60,
+          "name": "DJ ფუნდამენტები",
+          "main_category_id": 8
+        },
+        {
+          "id": 61,
+          "name": "ვოკალები",
+          "main_category_id": 8
+        },
+        {
+          "id": 62,
+          "name": "მუსიკის ტექნიკები",
+          "main_category_id": 8
+        },
+        {
+          "id": 63,
+          "name": "ქართული",
+          "main_category_id": 9
+        },
+        {
+          "id": 64,
+          "name": "უცხოური",
+          "main_category_id": 9
+        },
+        {
+          "id": 65,
+          "name": "ფიტნესი",
+          "main_category_id": 10
+        },
+        {
+          "id": 66,
+          "name": "ზოგადი ჯამრთელობა",
+          "main_category_id": 10
+        },
+        {
+          "id": 67,
+          "name": "სპორტი",
+          "main_category_id": 10
+        },
+        {
+          "id": 68,
+          "name": "სწორი კვება",
+          "main_category_id": 10
+        },
+        {
+          "id": 69,
+          "name": "იოგა",
+          "main_category_id": 10
+        },
+        {
+          "id": 70,
+          "name": "ფსიქიკური ჯანმრთელობის",
+          "main_category_id": 10
+        },
+        {
+          "id": 71,
+          "name": "თავდაცვა",
+          "main_category_id": 10
+        },
+        {
+          "id": 72,
+          "name": "უსაფრთხოება და პირველადი დახმარება",
+          "main_category_id": 10
+        },
+        {
+          "id": 73,
+          "name": "მედიტაცია",
+          "main_category_id": 10
+        }
+      ],
+      "sub_sub_categories": [
+        {
+          "id": 1,
+          "name": "Javascript",
+          "sub_category_id": 1
+        },
+        {
+          "id": 2,
+          "name": "Html და CSS",
+          "sub_category_id": 1
+        },
+        {
+          "id": 3,
+          "name": "React",
+          "sub_category_id": 1
+        },
+        {
+          "id": 4,
+          "name": "Angular",
+          "sub_category_id": 1
+        },
+        {
+          "id": 5,
+          "name": "Vue",
+          "sub_category_id": 1
+        },
+        {
+          "id": 6,
+          "name": "Node js",
+          "sub_category_id": 1
+        },
+        {
+          "id": 7,
+          "name": "Python",
+          "sub_category_id": 1
+        },
+        {
+          "id": 8,
+          "name": "wordpress დეველოპმენტი",
+          "sub_category_id": 1
+        },
+        {
+          "id": 9,
+          "name": "ონლაინ მაღაზია",
+          "sub_category_id": 1
+        },
+        {
+          "id": 10,
+          "name": "R programming",
+          "sub_category_id": 2
+        },
+        {
+          "id": 11,
+          "name": "Python",
+          "sub_category_id": 2
+        },
+        {
+          "id": 12,
+          "name": "Data Analysis",
+          "sub_category_id": 2
+        },
+        {
+          "id": 13,
+          "name": "Machine Learning",
+          "sub_category_id": 2
+        },
+        {
+          "id": 14,
+          "name": "Deep Learning",
+          "sub_category_id": 2
+        },
+        {
+          "id": 15,
+          "name": "Artificial Intelligence",
+          "sub_category_id": 2
+        },
+        {
+          "id": 16,
+          "name": "TensorFlow",
+          "sub_category_id": 2
+        },
+        {
+          "id": 17,
+          "name": "Neural Network",
+          "sub_category_id": 2
+        },
+        {
+          "id": 18,
+          "name": "Flutter",
+          "sub_category_id": 3
+        },
+        {
+          "id": 19,
+          "name": "Android development",
+          "sub_category_id": 3
+        },
+        {
+          "id": 20,
+          "name": "IOS development",
+          "sub_category_id": 3
+        },
+        {
+          "id": 21,
+          "name": "Kotlin",
+          "sub_category_id": 3
+        },
+        {
+          "id": 22,
+          "name": "Swift",
+          "sub_category_id": 3
+        },
+        {
+          "id": 23,
+          "name": "React Native",
+          "sub_category_id": 3
+        },
+        {
+          "id": 24,
+          "name": "Dart Programming Language",
+          "sub_category_id": 3
+        },
+        {
+          "id": 25,
+          "name": "Javascript",
+          "sub_category_id": 4
+        },
+        {
+          "id": 26,
+          "name": "Python",
+          "sub_category_id": 4
+        },
+        {
+          "id": 27,
+          "name": "Java",
+          "sub_category_id": 4
+        },
+        {
+          "id": 28,
+          "name": "Spring Framework",
+          "sub_category_id": 4
+        },
+        {
+          "id": 29,
+          "name": "GO",
+          "sub_category_id": 4
+        },
+        {
+          "id": 30,
+          "name": "C#",
+          "sub_category_id": 4
+        },
+        {
+          "id": 31,
+          "name": "C++",
+          "sub_category_id": 4
+        },
+        {
+          "id": 32,
+          "name": "C",
+          "sub_category_id": 4
+        },
+        {
+          "id": 33,
+          "name": "Unity",
+          "sub_category_id": 5
+        },
+        {
+          "id": 34,
+          "name": "Unreal Engine",
+          "sub_category_id": 5
+        },
+        {
+          "id": 35,
+          "name": "3D თამაშები",
+          "sub_category_id": 5
+        },
+        {
+          "id": 36,
+          "name": "2D თამაშები",
+          "sub_category_id": 5
+        },
+        {
+          "id": 37,
+          "name": "javascript თამაშების დეველოპმენტი",
+          "sub_category_id": 5
+        },
+        {
+          "id": 38,
+          "name": "C# თამაშების დეველოპმენტი",
+          "sub_category_id": 5
+        },
+        {
+          "id": 39,
+          "name": "C++ თამაშების დეველოპმენტი",
+          "sub_category_id": 5
+        },
+        {
+          "id": 40,
+          "name": "Blender",
+          "sub_category_id": 5
+        },
+        {
+          "id": 41,
+          "name": "SQL",
+          "sub_category_id": 6
+        },
+        {
+          "id": 42,
+          "name": "MySQL",
+          "sub_category_id": 6
+        },
+        {
+          "id": 43,
+          "name": "Oracle SQL",
+          "sub_category_id": 6
+        },
+        {
+          "id": 44,
+          "name": "PostgresSQL",
+          "sub_category_id": 6
+        },
+        {
+          "id": 45,
+          "name": "MongoDB",
+          "sub_category_id": 6
+        },
+        {
+          "id": 46,
+          "name": "Database Management",
+          "sub_category_id": 6
+        },
+        {
+          "id": 47,
+          "name": "UI/UX დიზაინი",
+          "sub_category_id": 7
+        },
+        {
+          "id": 48,
+          "name": "Figma",
+          "sub_category_id": 7
+        },
+        {
+          "id": 49,
+          "name": "Adobe XD",
+          "sub_category_id": 7
+        },
+        {
+          "id": 50,
+          "name": "HTML და CSS",
+          "sub_category_id": 7
+        },
+        {
+          "id": 51,
+          "name": "მობილური აპის დიზაინი",
+          "sub_category_id": 7
+        },
+        {
+          "id": 52,
+          "name": "Photoshop",
+          "sub_category_id": 8
+        },
+        {
+          "id": 53,
+          "name": "Adobe Illustrator",
+          "sub_category_id": 8
+        },
+        {
+          "id": 54,
+          "name": "ბრენდის დიზაინი",
+          "sub_category_id": 8
+        },
+        {
+          "id": 55,
+          "name": "ფერების თეორია",
+          "sub_category_id": 8
+        },
+        {
+          "id": 56,
+          "name": "ლოგო დიზაინი",
+          "sub_category_id": 8
+        },
+        {
+          "id": 57,
+          "name": "InDesign",
+          "sub_category_id": 8
+        },
+        {
+          "id": 58,
+          "name": "Corel Draw",
+          "sub_category_id": 8
+        },
+        {
+          "id": 59,
+          "name": "ხატვა",
+          "sub_category_id": 8
+        },
+        {
+          "id": 60,
+          "name": "პოსტერის დიზაინი",
+          "sub_category_id": 8
+        },
+        {
+          "id": 61,
+          "name": "Canva",
+          "sub_category_id": 8
+        },
+        {
+          "id": 62,
+          "name": "პერსონაჟების ხატვა",
+          "sub_category_id": 8
+        },
+        {
+          "id": 63,
+          "name": "პროდუქტის დიზაინი",
+          "sub_category_id": 10
+        },
+        {
+          "id": 64,
+          "name": "Photoshop",
+          "sub_category_id": 9
+        },
+        {
+          "id": 65,
+          "name": "Adobe Illustrator",
+          "sub_category_id": 9
+        },
+        {
+          "id": 66,
+          "name": "After Effects",
+          "sub_category_id": 9
+        },
+        {
+          "id": 67,
+          "name": "Adobe Premiere",
+          "sub_category_id": 9
+        },
+        {
+          "id": 68,
+          "name": "Figma",
+          "sub_category_id": 9
+        },
+        {
+          "id": 69,
+          "name": "Adobe XD",
+          "sub_category_id": 9
+        },
+        {
+          "id": 70,
+          "name": "InDesign",
+          "sub_category_id": 9
+        },
+        {
+          "id": 71,
+          "name": "Corel Draw",
+          "sub_category_id": 9
+        },
+        {
+          "id": 72,
+          "name": "AutoCAD",
+          "sub_category_id": 9
+        },
+        {
+          "id": 73,
+          "name": "User Interface (UI)",
+          "sub_category_id": 10
+        },
+        {
+          "id": 74,
+          "name": "Adobe XD",
+          "sub_category_id": 10
+        },
+        {
+          "id": 75,
+          "name": "Figma",
+          "sub_category_id": 10
+        },
+        {
+          "id": 76,
+          "name": "ვებ-დიზაინი",
+          "sub_category_id": 10
+        },
+        {
+          "id": 77,
+          "name": "მობილური აპის დიზაინი",
+          "sub_category_id": 10
+        },
+        {
+          "id": 78,
+          "name": "მოხმარების ტესტირება",
+          "sub_category_id": 10
+        },
+        {
+          "id": 79,
+          "name": "Cinema 4d",
+          "sub_category_id": 11
+        },
+        {
+          "id": 80,
+          "name": "Blender",
+          "sub_category_id": 11
+        },
+        {
+          "id": 81,
+          "name": "3DS Max",
+          "sub_category_id": 11
+        },
+        {
+          "id": 82,
+          "name": "Maya",
+          "sub_category_id": 11
+        },
+        {
+          "id": 83,
+          "name": "ArchiCAD",
+          "sub_category_id": 11
+        },
+        {
+          "id": 84,
+          "name": "Zbrush",
+          "sub_category_id": 11
+        },
+        {
+          "id": 85,
+          "name": "3D მოდელირება",
+          "sub_category_id": 11
+        },
+        {
+          "id": 86,
+          "name": "3D ანიმაცია",
+          "sub_category_id": 11
+        },
+        {
+          "id": 87,
+          "name": "3D ტექსტურირება",
+          "sub_category_id": 11
+        },
+        {
+          "id": 88,
+          "name": "After Effects",
+          "sub_category_id": 11
+        },
+        {
+          "id": 89,
+          "name": "2D ანიმაცია",
+          "sub_category_id": 11
+        },
+        {
+          "id": 90,
+          "name": "2D ანიმაცია",
+          "sub_category_id": 11
+        },
+        {
+          "id": 91,
+          "name": "მოდა",
+          "sub_category_id": 12
+        },
+        {
+          "id": 92,
+          "name": "კერვა",
+          "sub_category_id": 12
+        },
+        {
+          "id": 93,
+          "name": "Adobe Illustrator",
+          "sub_category_id": 12
+        },
+        {
+          "id": 94,
+          "name": "სამკაულების დიზაინი",
+          "sub_category_id": 12
+        },
+        {
+          "id": 95,
+          "name": "Photoshop",
+          "sub_category_id": 12
+        },
+        {
+          "id": 96,
+          "name": "მაისურის დიზაინი",
+          "sub_category_id": 12
+        },
+        {
+          "id": 97,
+          "name": "AudoCAD",
+          "sub_category_id": 13
+        },
+        {
+          "id": 98,
+          "name": "SketchUp",
+          "sub_category_id": 13
+        },
+        {
+          "id": 99,
+          "name": "Blender",
+          "sub_category_id": 13
+        },
+        {
+          "id": 100,
+          "name": "ArchiCAD",
+          "sub_category_id": 13
+        },
+        {
+          "id": 101,
+          "name": "არქიტექტორული ფუნდამენტები",
+          "sub_category_id": 13
+        },
+        {
+          "id": 102,
+          "name": "ფერების თეორია",
+          "sub_category_id": 14
+        },
+        {
+          "id": 103,
+          "name": "SketchUp",
+          "sub_category_id": 14
+        },
+        {
+          "id": 104,
+          "name": "მექანიკური ინჟინერია",
+          "sub_category_id": 14
+        },
+        {
+          "id": 105,
+          "name": "Blender",
+          "sub_category_id": 14
+        },
+        {
+          "id": 106,
+          "name": "მინიმალიზმი",
+          "sub_category_id": 14
+        },
+        {
+          "id": 107,
+          "name": "CompTIA A+",
+          "sub_category_id": 15
+        },
+        {
+          "id": 108,
+          "name": "CompTIA Security+",
+          "sub_category_id": 15
+        },
+        {
+          "id": 109,
+          "name": "AWS სერტიფიკატი",
+          "sub_category_id": 15
+        },
+        {
+          "id": 110,
+          "name": "Amazon AWS",
+          "sub_category_id": 15
+        },
+        {
+          "id": 111,
+          "name": "Microsoft სერტიფიკატი",
+          "sub_category_id": 15
+        },
+        {
+          "id": 112,
+          "name": "AWS Certified Solutions Architect - Associate",
+          "sub_category_id": 15
+        },
+        {
+          "id": 113,
+          "name": "AWS Certified Cloud Practitioner",
+          "sub_category_id": 15
+        },
+        {
+          "id": 114,
+          "name": "Cisco CCNA",
+          "sub_category_id": 15
+        },
+        {
+          "id": 115,
+          "name": "AWS Certified Developer - Associate",
+          "sub_category_id": 15
+        },
+        {
+          "id": 116,
+          "name": "ეთიკური ჰაკირება",
+          "sub_category_id": 16
+        },
+        {
+          "id": 117,
+          "name": "კიბერ უსაფრთხოება",
+          "sub_category_id": 16
+        },
+        {
+          "id": 118,
+          "name": "CompTIA Security+",
+          "sub_category_id": 16
+        },
+        {
+          "id": 119,
+          "name": "CompTIA Network+",
+          "sub_category_id": 16
+        },
+        {
+          "id": 120,
+          "name": "პენ ტესტირება",
+          "sub_category_id": 16
+        },
+        {
+          "id": 121,
+          "name": "ქსელის უსაფრთხოება",
+          "sub_category_id": 16
+        },
+        {
+          "id": 122,
+          "name": "IT ქსელების ფუნდამენტები",
+          "sub_category_id": 16
+        },
+        {
+          "id": 123,
+          "name": "Cisco CCNA",
+          "sub_category_id": 16
+        },
+        {
+          "id": 124,
+          "name": "Linux",
+          "sub_category_id": 17
+        },
+        {
+          "id": 125,
+          "name": "Linux ადმინისტრაცია",
+          "sub_category_id": 17
+        },
+        {
+          "id": 126,
+          "name": "Windows სერვერ",
+          "sub_category_id": 17
+        },
+        {
+          "id": 127,
+          "name": "Shell Scripting",
+          "sub_category_id": 17
+        },
+        {
+          "id": 128,
+          "name": "PowerShell",
+          "sub_category_id": 17
+        },
+        {
+          "id": 129,
+          "name": "VMware Vsphere",
+          "sub_category_id": 17
+        },
+        {
+          "id": 130,
+          "name": "LPIC-1: Linux ადმინისტრატორი",
+          "sub_category_id": 17
+        },
+        {
+          "id": 131,
+          "name": "ოპერატიული სისტემების შექმნა",
+          "sub_category_id": 17
+        },
+        {
+          "id": 132,
+          "name": "Docker",
+          "sub_category_id": 18
+        },
+        {
+          "id": 133,
+          "name": "Python",
+          "sub_category_id": 18
+        },
+        {
+          "id": 134,
+          "name": "Kubernetes",
+          "sub_category_id": 18
+        },
+        {
+          "id": 135,
+          "name": "DevOps",
+          "sub_category_id": 18
+        },
+        {
+          "id": 136,
+          "name": "ალგორითმები",
+          "sub_category_id": 18
+        },
+        {
+          "id": 137,
+          "name": "AWS Certified Solutions Architect - Professional",
+          "sub_category_id": 18
+        },
+        {
+          "id": 138,
+          "name": "AWS Certification",
+          "sub_category_id": 18
+        },
+        {
+          "id": 139,
+          "name": "Java",
+          "sub_category_id": 18
+        },
+        {
+          "id": 140,
+          "name": "Photoshop",
+          "sub_category_id": 19
+        },
+        {
+          "id": 141,
+          "name": "კომპოზიცია ფოტოგრაფიაში",
+          "sub_category_id": 19
+        },
+        {
+          "id": 142,
+          "name": "DSLR",
+          "sub_category_id": 19
+        },
+        {
+          "id": 143,
+          "name": "კამერები",
+          "sub_category_id": 19
+        },
+        {
+          "id": 144,
+          "name": "განათება ფოტოგრაფიში",
+          "sub_category_id": 19
+        },
+        {
+          "id": 145,
+          "name": "საჭმლის ფოტოგრაფია",
+          "sub_category_id": 19
+        },
+        {
+          "id": 146,
+          "name": "Ფილმის გადაღება",
+          "sub_category_id": 19
+        },
+        {
+          "id": 147,
+          "name": "Adobe Lightroom",
+          "sub_category_id": 20
+        },
+        {
+          "id": 148,
+          "name": "Photoshop",
+          "sub_category_id": 20
+        },
+        {
+          "id": 149,
+          "name": "სურატის მანიპულირება",
+          "sub_category_id": 20
+        },
+        {
+          "id": 150,
+          "name": "Affinity Photo",
+          "sub_category_id": 20
+        },
+        {
+          "id": 151,
+          "name": "Photoshop-ით შესწორება",
+          "sub_category_id": 20
+        },
+        {
+          "id": 152,
+          "name": "დრონით ფოტოგრაფია",
+          "sub_category_id": 20
+        },
+        {
+          "id": 153,
+          "name": "უძრავი ქონების ფოტოგრაფია",
+          "sub_category_id": 21
+        },
+        {
+          "id": 154,
+          "name": "მარკეტინგის სტრატეგია",
+          "sub_category_id": 21
+        },
+        {
+          "id": 155,
+          "name": "არქიტექტორული ფოტოგრაფია",
+          "sub_category_id": 21
+        },
+        {
+          "id": 156,
+          "name": "ფოტორგრაფიის ბიზნესი",
+          "sub_category_id": 21
+        },
+        {
+          "id": 157,
+          "name": "საქორწინო ფოტოგრფია",
+          "sub_category_id": 21
+        },
+        {
+          "id": 158,
+          "name": "პროდუქტის ფოტოგრაფია",
+          "sub_category_id": 21
+        },
+        {
+          "id": 159,
+          "name": "საჭმლის ფოტოგრაფია",
+          "sub_category_id": 21
+        },
+        {
+          "id": 160,
+          "name": "Photoshop შესწორება",
+          "sub_category_id": 22
+        },
+        {
+          "id": 161,
+          "name": "პოზირება",
+          "sub_category_id": 22
+        },
+        {
+          "id": 162,
+          "name": "განათება",
+          "sub_category_id": 22
+        },
+        {
+          "id": 163,
+          "name": "ფოტოგრაფია",
+          "sub_category_id": 22
+        },
+        {
+          "id": 164,
+          "name": "ოჯახური პორტრეტის ფოტოგრაფია",
+          "sub_category_id": 22
+        },
+        {
+          "id": 165,
+          "name": "ვიდეო ედიტირება",
+          "sub_category_id": 23
+        },
+        {
+          "id": 166,
+          "name": "Adobe Premiere",
+          "sub_category_id": 23
+        },
+        {
+          "id": 167,
+          "name": "ვიდეო პროდუქცია",
+          "sub_category_id": 23
+        },
+        {
+          "id": 168,
+          "name": "კინოს გაკეთება",
+          "sub_category_id": 23
+        },
+        {
+          "id": 169,
+          "name": "ვიდეოგრაფია",
+          "sub_category_id": 23
+        },
+        {
+          "id": 170,
+          "name": "DaVinci Resolve",
+          "sub_category_id": 23
+        },
+        {
+          "id": 171,
+          "name": "Final Cut Pro",
+          "sub_category_id": 23
+        },
+        {
+          "id": 172,
+          "name": "სინემატოგრაფია",
+          "sub_category_id": 23
+        },
+        {
+          "id": 173,
+          "name": "ფერების შესწორება",
+          "sub_category_id": 23
+        },
+        {
+          "id": 174,
+          "name": "აღრიცხვები",
+          "sub_category_id": 24
+        },
+        {
+          "id": 175,
+          "name": "ფინანსების ფუნდამენტები",
+          "sub_category_id": 24
+        },
+        {
+          "id": 176,
+          "name": "ფინანსური აღიცხვები",
+          "sub_category_id": 24
+        },
+        {
+          "id": 177,
+          "name": "Xero",
+          "sub_category_id": 24
+        },
+        {
+          "id": 178,
+          "name": "IFRS",
+          "sub_category_id": 24
+        },
+        {
+          "id": 179,
+          "name": "ანტი ფულის გათეტრება",
+          "sub_category_id": 25
+        },
+        {
+          "id": 180,
+          "name": "რისკის მენეჯმენტი",
+          "sub_category_id": 25
+        },
+        {
+          "id": 181,
+          "name": "Sarbanes-Oxley (SOX)",
+          "sub_category_id": 25
+        },
+        {
+          "id": 182,
+          "name": "Certified Internal Auditor (CIA)",
+          "sub_category_id": 25
+        },
+        {
+          "id": 183,
+          "name": "CAMS Certification",
+          "sub_category_id": 25
+        },
+        {
+          "id": 184,
+          "name": "IFRS",
+          "sub_category_id": 25
+        },
+        {
+          "id": 185,
+          "name": "ფინანსური რისკის მენეჯმენტი (FRM)",
+          "sub_category_id": 25
+        },
+        {
+          "id": 186,
+          "name": "სერტიფიცირებული თაღლითობის შემმოწმებელი (CFE)",
+          "sub_category_id": 25
+        },
+        {
+          "id": 187,
+          "name": "კრიპტოვალუტა",
+          "sub_category_id": 26
+        },
+        {
+          "id": 188,
+          "name": "Bitcoin",
+          "sub_category_id": 26
+        },
+        {
+          "id": 189,
+          "name": "ბლოკჩეინი",
+          "sub_category_id": 26
+        },
+        {
+          "id": 190,
+          "name": "პირადი ფინანსები",
+          "sub_category_id": 26
+        },
+        {
+          "id": 191,
+          "name": "დღის ვაჭრობა",
+          "sub_category_id": 26
+        },
+        {
+          "id": 192,
+          "name": "ალგორითმული ვაჭრობა",
+          "sub_category_id": 26
+        },
+        {
+          "id": 193,
+          "name": "Bitcoin ვაჭრობა",
+          "sub_category_id": 26
+        },
+        {
+          "id": 194,
+          "name": "Ethereum",
+          "sub_category_id": 26
+        },
+        {
+          "id": 195,
+          "name": "ტექნიკური ანალიზი",
+          "sub_category_id": 26
+        },
+        {
+          "id": 196,
+          "name": "მიკროეკონომიკა",
+          "sub_category_id": 27
+        },
+        {
+          "id": 197,
+          "name": "მაკროეკონომიკა",
+          "sub_category_id": 27
+        },
+        {
+          "id": 198,
+          "name": "ეკონომეტრიკა",
+          "sub_category_id": 27
+        },
+        {
+          "id": 199,
+          "name": "მეწარმეობის საფუძვლები",
+          "sub_category_id": 27
+        },
+        {
+          "id": 200,
+          "name": "პოლიტიკური მეცნიერება",
+          "sub_category_id": 27
+        },
+        {
+          "id": 201,
+          "name": "ფინანსების ფუნდამენტები",
+          "sub_category_id": 27
+        },
+        {
+          "id": 202,
+          "name": "Რეგრესიული ანალიზი",
+          "sub_category_id": 27
+        },
+        {
+          "id": 203,
+          "name": "პირადი ფინანსები",
+          "sub_category_id": 28
+        },
+        {
+          "id": 204,
+          "name": "Investment Banking",
+          "sub_category_id": 28
+        },
+        {
+          "id": 205,
+          "name": "CFA",
+          "sub_category_id": 28
+        },
+        {
+          "id": 206,
+          "name": "ფინანსების ფუნდამენტები",
+          "sub_category_id": 28
+        },
+        {
+          "id": 207,
+          "name": "ფინანსური მენეჯმენტი",
+          "sub_category_id": 28
+        },
+        {
+          "id": 208,
+          "name": "ფინანსური ანალიზი",
+          "sub_category_id": 28
+        },
+        {
+          "id": 209,
+          "name": "Კორპორატიული ფინანსები",
+          "sub_category_id": 28
+        },
+        {
+          "id": 210,
+          "name": "Excel",
+          "sub_category_id": 28
+        },
+        {
+          "id": 211,
+          "name": "კომპანიის შეფასება",
+          "sub_category_id": 28
+        },
+        {
+          "id": 212,
+          "name": "CFA",
+          "sub_category_id": 29
+        },
+        {
+          "id": 213,
+          "name": "ფინანსური მარკეტი",
+          "sub_category_id": 29
+        },
+        {
+          "id": 214,
+          "name": "რაოდენობრივი ფინანსები",
+          "sub_category_id": 29
+        },
+        {
+          "id": 215,
+          "name": "მენეჯმენტის სერტიფიცირებული ბუღალტერი (CMA)",
+          "sub_category_id": 29
+        },
+        {
+          "id": 216,
+          "name": "ACCA",
+          "sub_category_id": 29
+        },
+        {
+          "id": 217,
+          "name": "ფინანსური მენეჯმენტი",
+          "sub_category_id": 29
+        },
+        {
+          "id": 218,
+          "name": "ANBIMA სერტიფიკატი",
+          "sub_category_id": 29
+        },
+        {
+          "id": 219,
+          "name": "Კორპორატიული ფინანსები",
+          "sub_category_id": 29
+        },
+        {
+          "id": 220,
+          "name": "ფინანსური ანალიზი",
+          "sub_category_id": 30
+        },
+        {
+          "id": 221,
+          "name": "ფინანსური მოდელირება",
+          "sub_category_id": 30
+        },
+        {
+          "id": 222,
+          "name": "ფინანსების ფუნდამენტები",
+          "sub_category_id": 30
+        },
+        {
+          "id": 223,
+          "name": "Excel",
+          "sub_category_id": 30
+        },
+        {
+          "id": 224,
+          "name": "Აღრიცხვა",
+          "sub_category_id": 30
+        },
+        {
+          "id": 225,
+          "name": "ინვესტიცია",
+          "sub_category_id": 30
+        },
+        {
+          "id": 226,
+          "name": "Python",
+          "sub_category_id": 30
+        },
+        {
+          "id": 227,
+          "name": "საინვესტიციო ბანკი",
+          "sub_category_id": 30
+        },
+        {
+          "id": 228,
+          "name": "ფინანსური მენეჯმენტი",
+          "sub_category_id": 30
+        },
+        {
+          "id": 229,
+          "name": "საფონდო ვაჭრობა",
+          "sub_category_id": 31
+        },
+        {
+          "id": 230,
+          "name": "Forex",
+          "sub_category_id": 31
+        },
+        {
+          "id": 231,
+          "name": "ტექნიკური ანალიზი",
+          "sub_category_id": 31
+        },
+        {
+          "id": 232,
+          "name": "ინვენსტიცია",
+          "sub_category_id": 31
+        },
+        {
+          "id": 233,
+          "name": "სავაჭრო პარამეტრები",
+          "sub_category_id": 31
+        },
+        {
+          "id": 234,
+          "name": "დღის ვაჭრობა",
+          "sub_category_id": 31
+        },
+        {
+          "id": 235,
+          "name": "ალგორითმული ვაჭრობა",
+          "sub_category_id": 31
+        },
+        {
+          "id": 236,
+          "name": "ფინანსური ანალიზი",
+          "sub_category_id": 31
+        },
+        {
+          "id": 237,
+          "name": "ფინანსური ვაჭრობა",
+          "sub_category_id": 31
+        },
+        {
+          "id": 238,
+          "name": "QuickBooks Online",
+          "sub_category_id": 32
+        },
+        {
+          "id": 239,
+          "name": "Excel",
+          "sub_category_id": 32
+        },
+        {
+          "id": 240,
+          "name": "QuickBooks",
+          "sub_category_id": 32
+        },
+        {
+          "id": 241,
+          "name": "SAP FICO",
+          "sub_category_id": 32
+        },
+        {
+          "id": 242,
+          "name": "QuickBooks Pro",
+          "sub_category_id": 32
+        },
+        {
+          "id": 243,
+          "name": "Xero",
+          "sub_category_id": 32
+        },
+        {
+          "id": 244,
+          "name": "Excel ანალიტიკები",
+          "sub_category_id": 32
+        },
+        {
+          "id": 245,
+          "name": "გადასახადის მომზადება",
+          "sub_category_id": 33
+        },
+        {
+          "id": 246,
+          "name": "საქონლისა და მომსახურების გადასახადი",
+          "sub_category_id": 33
+        },
+        {
+          "id": 247,
+          "name": "Აღრიცხვა",
+          "sub_category_id": 33
+        },
+        {
+          "id": 248,
+          "name": "Დამატებითი ღირებულების გადასახადი (VAT)",
+          "sub_category_id": 33
+        },
+        {
+          "id": 249,
+          "name": "QuickBooks Online",
+          "sub_category_id": 33
+        },
+        {
+          "id": 250,
+          "name": "პირადი ფინანსები",
+          "sub_category_id": 33
+        },
+        {
+          "id": 251,
+          "name": "საშინაო ბიზნესი",
+          "sub_category_id": 33
+        },
+        {
+          "id": 252,
+          "name": "ფინანსური დაგეგმვა",
+          "sub_category_id": 33
+        },
+        {
+          "id": 253,
+          "name": "ფინანსური აღრიცხვა",
+          "sub_category_id": 33
+        },
+        {
+          "id": 254,
+          "name": "ბიზნესის ფუნდამენტები",
+          "sub_category_id": 34
+        },
+        {
+          "id": 255,
+          "name": "მეწარმეობის ფუნდამენტები",
+          "sub_category_id": 34
+        },
+        {
+          "id": 256,
+          "name": "ბიზნეს სტრატეგია",
+          "sub_category_id": 34
+        },
+        {
+          "id": 257,
+          "name": "სტარტაპი",
+          "sub_category_id": 34
+        },
+        {
+          "id": 258,
+          "name": "ბიზნეს გეგმა",
+          "sub_category_id": 34
+        },
+        {
+          "id": 259,
+          "name": "Freelancing",
+          "sub_category_id": 34
+        },
+        {
+          "id": 260,
+          "name": "Blogging",
+          "sub_category_id": 34
+        },
+        {
+          "id": 261,
+          "name": "ონლაინ ბიზნესი",
+          "sub_category_id": 34
+        },
+        {
+          "id": 262,
+          "name": "საშინაო ბიზნესი",
+          "sub_category_id": 34
+        },
+        {
+          "id": 263,
+          "name": "წერა",
+          "sub_category_id": 35
+        },
+        {
+          "id": 264,
+          "name": "კომუნიკაციის უნარები",
+          "sub_category_id": 35
+        },
+        {
+          "id": 265,
+          "name": "პრეზენტაციის უნარები",
+          "sub_category_id": 35
+        },
+        {
+          "id": 266,
+          "name": "Საჯარო გამოსვლები",
+          "sub_category_id": 35
+        },
+        {
+          "id": 267,
+          "name": "მხატვრული ლიტერატურა",
+          "sub_category_id": 35
+        },
+        {
+          "id": 268,
+          "name": "ბიზნეს წერა",
+          "sub_category_id": 35
+        },
+        {
+          "id": 269,
+          "name": "ტექნიკური წერა",
+          "sub_category_id": 35
+        },
+        {
+          "id": 270,
+          "name": "Email ეტიკეტი",
+          "sub_category_id": 35
+        },
+        {
+          "id": 271,
+          "name": "პროდუქტის მენეჯმენტი",
+          "sub_category_id": 36
+        },
+        {
+          "id": 272,
+          "name": "ლიდერობა",
+          "sub_category_id": 36
+        },
+        {
+          "id": 273,
+          "name": "მენეჯმენტის უნარი",
+          "sub_category_id": 36
+        },
+        {
+          "id": 274,
+          "name": "ISO 9001",
+          "sub_category_id": 36
+        },
+        {
+          "id": 275,
+          "name": "ბიზნეს პროცესის მენეჯმენტი",
+          "sub_category_id": 36
+        },
+        {
+          "id": 276,
+          "name": "რისკის მენეჯმენტი",
+          "sub_category_id": 36
+        },
+        {
+          "id": 277,
+          "name": "Agile",
+          "sub_category_id": 36
+        },
+        {
+          "id": 278,
+          "name": "ხარისხის მენეჯმენტი",
+          "sub_category_id": 36
+        },
+        {
+          "id": 279,
+          "name": "მენეჯმენტის მწვრთნელები",
+          "sub_category_id": 36
+        },
+        {
+          "id": 280,
+          "name": "ციფრული მარკეტინგი",
+          "sub_category_id": 37
+        },
+        {
+          "id": 281,
+          "name": "მენეჯმენტ კონსულტაცია",
+          "sub_category_id": 37
+        },
+        {
+          "id": 282,
+          "name": "Google Ads (Adwords)",
+          "sub_category_id": 37
+        },
+        {
+          "id": 283,
+          "name": "ბიზნეს მოდელი",
+          "sub_category_id": 37
+        },
+        {
+          "id": 284,
+          "name": "TOGAF 9 ფუნდამენტები",
+          "sub_category_id": 37
+        },
+        {
+          "id": 285,
+          "name": "სტრატეგიული დაგეგმვა",
+          "sub_category_id": 37
+        },
+        {
+          "id": 286,
+          "name": "ინოვაცია",
+          "sub_category_id": 37
+        },
+        {
+          "id": 287,
+          "name": "ბიზნეს გეგმა",
+          "sub_category_id": 37
+        },
+        {
+          "id": 288,
+          "name": "Six Sigma",
+          "sub_category_id": 38
+        },
+        {
+          "id": 289,
+          "name": "Six Sigma Green Belt",
+          "sub_category_id": 38
+        },
+        {
+          "id": 290,
+          "name": "Six Sigma Yellow Belt",
+          "sub_category_id": 38
+        },
+        {
+          "id": 291,
+          "name": "Six Sigma Black Belt",
+          "sub_category_id": 38
+        },
+        {
+          "id": 292,
+          "name": "Lean Six Sigma Green Belt",
+          "sub_category_id": 38
+        },
+        {
+          "id": 293,
+          "name": "Მიწოდების ჯაჭვი",
+          "sub_category_id": 38
+        },
+        {
+          "id": 294,
+          "name": "ხარისხის მენეჯმენტი",
+          "sub_category_id": 38
+        },
+        {
+          "id": 295,
+          "name": "PMP",
+          "sub_category_id": 39
+        },
+        {
+          "id": 296,
+          "name": "PMBOK",
+          "sub_category_id": 39
+        },
+        {
+          "id": 297,
+          "name": "Agile",
+          "sub_category_id": 39
+        },
+        {
+          "id": 298,
+          "name": "Scrum",
+          "sub_category_id": 39
+        },
+        {
+          "id": 299,
+          "name": "CAPM",
+          "sub_category_id": 39
+        },
+        {
+          "id": 300,
+          "name": "PMI-ACP",
+          "sub_category_id": 39
+        },
+        {
+          "id": 301,
+          "name": "Microsoft Project",
+          "sub_category_id": 39
+        },
+        {
+          "id": 302,
+          "name": "Risk Management",
+          "sub_category_id": 39
+        },
+        {
+          "id": 303,
+          "name": "პატენტი",
+          "sub_category_id": 40
+        },
+        {
+          "id": 304,
+          "name": "GDPR",
+          "sub_category_id": 40
+        },
+        {
+          "id": 305,
+          "name": "Სახელშეკრულებო სამართალი",
+          "sub_category_id": 40
+        },
+        {
+          "id": 306,
+          "name": "Law",
+          "sub_category_id": 40
+        },
+        {
+          "id": 307,
+          "name": "LGPD Lei Geral de Proteção de Dados",
+          "sub_category_id": 40
+        },
+        {
+          "id": 308,
+          "name": "ჯანდაცვის IT",
+          "sub_category_id": 40
+        },
+        {
+          "id": 309,
+          "name": "სამედიცინო მოწყობილობის განვითარება",
+          "sub_category_id": 40
+        },
+        {
+          "id": 310,
+          "name": "მონაცემთა დაცვა",
+          "sub_category_id": 40
+        },
+        {
+          "id": 311,
+          "name": "SQL",
+          "sub_category_id": 41
+        },
+        {
+          "id": 312,
+          "name": "Microsoft Power BI",
+          "sub_category_id": 41
+        },
+        {
+          "id": 313,
+          "name": "Tableau",
+          "sub_category_id": 41
+        },
+        {
+          "id": 314,
+          "name": "ბიზნეს ანალიზი",
+          "sub_category_id": 41
+        },
+        {
+          "id": 315,
+          "name": "ბიზნეს დაზვერვა",
+          "sub_category_id": 41
+        },
+        {
+          "id": 316,
+          "name": "Მონაცემთა ანალიზი",
+          "sub_category_id": 41
+        },
+        {
+          "id": 317,
+          "name": "MySQL",
+          "sub_category_id": 41
+        },
+        {
+          "id": 318,
+          "name": "მონაცემთა მოდელირება",
+          "sub_category_id": 41
+        },
+        {
+          "id": 319,
+          "name": "Big Data",
+          "sub_category_id": 41
+        },
+        {
+          "id": 320,
+          "name": "რეკრუტირება",
+          "sub_category_id": 42
+        },
+        {
+          "id": 321,
+          "name": "ინსტრუქციის დიზაინი",
+          "sub_category_id": 42
+        },
+        {
+          "id": 322,
+          "name": "ემოციური ინტელექტი",
+          "sub_category_id": 42
+        },
+        {
+          "id": 323,
+          "name": "მრავალფეროვნება და ინკლუზია",
+          "sub_category_id": 42
+        },
+        {
+          "id": 324,
+          "name": "კონფლიქტების მართვა",
+          "sub_category_id": 42
+        },
+        {
+          "id": 325,
+          "name": "ადამიანური რესურსების ანალიტიკა",
+          "sub_category_id": 42
+        },
+        {
+          "id": 326,
+          "name": "ტალანტის მენეჯმენტი",
+          "sub_category_id": 42
+        },
+        {
+          "id": 327,
+          "name": "დაქირავება",
+          "sub_category_id": 42
+        },
+        {
+          "id": 328,
+          "name": "მილსადენი",
+          "sub_category_id": 43
+        },
+        {
+          "id": 329,
+          "name": "ელექტრო ინჟინერია",
+          "sub_category_id": 43
+        },
+        {
+          "id": 330,
+          "name": "ნავთობისა და გაზის მრეწველობა",
+          "sub_category_id": 43
+        },
+        {
+          "id": 331,
+          "name": "სატვირთო ბროკერი",
+          "sub_category_id": 43
+        },
+        {
+          "id": 332,
+          "name": "აფთიაქი",
+          "sub_category_id": 43
+        },
+        {
+          "id": 333,
+          "name": "მზის ენერგია",
+          "sub_category_id": 43
+        },
+        {
+          "id": 334,
+          "name": "ცხოვრებისეული მწვრთნელების ტრენინგი",
+          "sub_category_id": 43
+        },
+        {
+          "id": 335,
+          "name": "ქიმიური ინჟინერია",
+          "sub_category_id": 43
+        },
+        {
+          "id": 336,
+          "name": "აუდიობუქის შექმნა",
+          "sub_category_id": 44
+        },
+        {
+          "id": 337,
+          "name": "სცენარის ავტორი",
+          "sub_category_id": 44
+        },
+        {
+          "id": 338,
+          "name": "ამაზონ ქინდლი",
+          "sub_category_id": 44
+        },
+        {
+          "id": 339,
+          "name": "წერა",
+          "sub_category_id": 44
+        },
+        {
+          "id": 340,
+          "name": "ჟურნალისტიკა",
+          "sub_category_id": 44
+        },
+        {
+          "id": 341,
+          "name": "პოდკასტინგი",
+          "sub_category_id": 44
+        },
+        {
+          "id": 342,
+          "name": "კონტეტის შექმნა",
+          "sub_category_id": 44
+        },
+        {
+          "id": 343,
+          "name": "After Effects",
+          "sub_category_id": 44
+        },
+        {
+          "id": 344,
+          "name": "ღია მაუწყებელი",
+          "sub_category_id": 44
+        },
+        {
+          "id": 345,
+          "name": "ინვესტირება უძრავ ქონებაში",
+          "sub_category_id": 45
+        },
+        {
+          "id": 346,
+          "name": "იპოთეკური სესხი",
+          "sub_category_id": 45
+        },
+        {
+          "id": 347,
+          "name": "მშენებლობა",
+          "sub_category_id": 45
+        },
+        {
+          "id": 348,
+          "name": "Airbnb ჰოსტინგი",
+          "sub_category_id": 45
+        },
+        {
+          "id": 349,
+          "name": "ფინანსური მოდელირება",
+          "sub_category_id": 45
+        },
+        {
+          "id": 350,
+          "name": "უძრავი ქონების მართვა",
+          "sub_category_id": 45
+        },
+        {
+          "id": 351,
+          "name": "უძრავი ქონების ფლიპინგი",
+          "sub_category_id": 45
+        },
+        {
+          "id": 352,
+          "name": "უძრავი ქონების მარკეტინგი",
+          "sub_category_id": 45
+        },
+        {
+          "id": 353,
+          "name": "მარკეტინგული გეგმა",
+          "sub_category_id": 46
+        },
+        {
+          "id": 354,
+          "name": "ამაზონ კინდლი",
+          "sub_category_id": 46
+        },
+        {
+          "id": 355,
+          "name": "თვითგამოცემა",
+          "sub_category_id": 46
+        },
+        {
+          "id": 356,
+          "name": "პროდუქტის მენეჯმენტი",
+          "sub_category_id": 46
+        },
+        {
+          "id": 357,
+          "name": "Voice-Over",
+          "sub_category_id": 46
+        },
+        {
+          "id": 358,
+          "name": "პრეზენტაციის უნარები",
+          "sub_category_id": 46
+        },
+        {
+          "id": 359,
+          "name": "მარკეტინგული მენეჯმენტი",
+          "sub_category_id": 46
+        },
+        {
+          "id": 360,
+          "name": "კოპირება",
+          "sub_category_id": 46
+        },
+        {
+          "id": 361,
+          "name": "Facebook მარკეტინგი",
+          "sub_category_id": 46
+        },
+        {
+          "id": 362,
+          "name": "SEO",
+          "sub_category_id": 47
+        },
+        {
+          "id": 363,
+          "name": "WordPress",
+          "sub_category_id": 47
+        },
+        {
+          "id": 364,
+          "name": "საკვანძო სიტყვების სერჩი",
+          "sub_category_id": 47
+        },
+        {
+          "id": 365,
+          "name": "ლოკალური SEO",
+          "sub_category_id": 47
+        },
+        {
+          "id": 366,
+          "name": "ბმულის შენობა",
+          "sub_category_id": 47
+        },
+        {
+          "id": 367,
+          "name": "SEO აუდიტი",
+          "sub_category_id": 47
+        },
+        {
+          "id": 368,
+          "name": "Google ჩემი ბიზნესი",
+          "sub_category_id": 47
+        },
+        {
+          "id": 369,
+          "name": "Google Add (სიტყვები)",
+          "sub_category_id": 47
+        },
+        {
+          "id": 370,
+          "name": "YouTube მარკეტინგი",
+          "sub_category_id": 47
+        },
+        {
+          "id": 371,
+          "name": "ინსტაგრამ მარკეტინგი",
+          "sub_category_id": 48
+        },
+        {
+          "id": 372,
+          "name": "Facebook Ads",
+          "sub_category_id": 48
+        },
+        {
+          "id": 373,
+          "name": "Facebook მარკეტინგი",
+          "sub_category_id": 48
+        },
+        {
+          "id": 374,
+          "name": "PPC რეკლამა",
+          "sub_category_id": 48
+        },
+        {
+          "id": 375,
+          "name": "სოციალური მედიის მენეჯმენტი",
+          "sub_category_id": 48
+        },
+        {
+          "id": 376,
+          "name": "TikTok მარკეტინგი",
+          "sub_category_id": 48
+        },
+        {
+          "id": 377,
+          "name": "Instagram ფოტოგრაფია",
+          "sub_category_id": 48
+        },
+        {
+          "id": 378,
+          "name": "LinkedIn",
+          "sub_category_id": 48
+        },
+        {
+          "id": 379,
+          "name": "ბიზნესის ბრენდირება",
+          "sub_category_id": 49
+        },
+        {
+          "id": 380,
+          "name": "YouTube აუდიტორიის ზრდა",
+          "sub_category_id": 49
+        },
+        {
+          "id": 381,
+          "name": "YouTube მარკეტინგი",
+          "sub_category_id": 49
+        },
+        {
+          "id": 382,
+          "name": "პერსონალური ბრენდირება",
+          "sub_category_id": 49
+        },
+        {
+          "id": 383,
+          "name": "ბრენდის მენეჯმენტი",
+          "sub_category_id": 49
+        },
+        {
+          "id": 384,
+          "name": "მარკეტინგის სტრატეგია",
+          "sub_category_id": 49
+        },
+        {
+          "id": 385,
+          "name": "გრაფიკული დიზაინი",
+          "sub_category_id": 49
+        },
+        {
+          "id": 386,
+          "name": "Canva",
+          "sub_category_id": 49
+        },
+        {
+          "id": 387,
+          "name": "მწვრთნელები",
+          "sub_category_id": 49
+        },
+        {
+          "id": 388,
+          "name": "Copywriting",
+          "sub_category_id": 50
+        },
+        {
+          "id": 389,
+          "name": "Მარკეტინგული სტრატეგია",
+          "sub_category_id": 50
+        },
+        {
+          "id": 390,
+          "name": "Მარკეტინგული ანალიტიკები",
+          "sub_category_id": 50
+        },
+        {
+          "id": 391,
+          "name": "Მარკეტინგული გეგმა",
+          "sub_category_id": 50
+        },
+        {
+          "id": 392,
+          "name": "Მარკეტინგული მენეჯმენტი",
+          "sub_category_id": 50
+        },
+        {
+          "id": 393,
+          "name": "გაყიდვების უნარები",
+          "sub_category_id": 50
+        },
+        {
+          "id": 394,
+          "name": "ნეირომარკეტინგი",
+          "sub_category_id": 50
+        },
+        {
+          "id": 395,
+          "name": "ღონისძიების დაგეგმვა",
+          "sub_category_id": 50
+        },
+        {
+          "id": 396,
+          "name": "კარიერული მწვრთნელები",
+          "sub_category_id": 50
+        },
+        {
+          "id": 397,
+          "name": "Google ანალიტიკა",
+          "sub_category_id": 51
+        },
+        {
+          "id": 398,
+          "name": "Google ანალიტიკა ინდივიდუალური კვალიფიკაცია(IQ)",
+          "sub_category_id": 51
+        },
+        {
+          "id": 399,
+          "name": "მონაცემთა ანალაზინი",
+          "sub_category_id": 51
+        },
+        {
+          "id": 400,
+          "name": "მარკეტინგული ანალიტიკა",
+          "sub_category_id": 51
+        },
+        {
+          "id": 401,
+          "name": "SQL",
+          "sub_category_id": 51
+        },
+        {
+          "id": 402,
+          "name": "Google Tag მენეჯერი",
+          "sub_category_id": 51
+        },
+        {
+          "id": 403,
+          "name": "Მარკეტინგული სტრატეგია",
+          "sub_category_id": 51
+        },
+        {
+          "id": 404,
+          "name": "Მარკეტინგული აუმატიზაცია",
+          "sub_category_id": 51
+        },
+        {
+          "id": 405,
+          "name": "ActiveCampaign",
+          "sub_category_id": 51
+        },
+        {
+          "id": 406,
+          "name": "მედია ტრენინგები",
+          "sub_category_id": 52
+        },
+        {
+          "id": 407,
+          "name": "ბიზნეს კომუნიკაცია",
+          "sub_category_id": 52
+        },
+        {
+          "id": 408,
+          "name": "Საჯარო გამოსვლები",
+          "sub_category_id": 52
+        },
+        {
+          "id": 409,
+          "name": "სტარტაპი",
+          "sub_category_id": 52
+        },
+        {
+          "id": 410,
+          "name": "ივენთების დაგეგმვა",
+          "sub_category_id": 52
+        },
+        {
+          "id": 411,
+          "name": "პოდკასტინგი",
+          "sub_category_id": 52
+        },
+        {
+          "id": 412,
+          "name": "Copywriting",
+          "sub_category_id": 52
+        },
+        {
+          "id": 413,
+          "name": "LinkedIn",
+          "sub_category_id": 52
+        },
+        {
+          "id": 414,
+          "name": "Google Ads (Adwords)",
+          "sub_category_id": 53
+        },
+        {
+          "id": 415,
+          "name": "Facebook რეკლამები",
+          "sub_category_id": 53
+        },
+        {
+          "id": 416,
+          "name": "Mailchimp",
+          "sub_category_id": 53
+        },
+        {
+          "id": 417,
+          "name": "Email მარკეტინგი",
+          "sub_category_id": 53
+        },
+        {
+          "id": 418,
+          "name": "PPC რეკლამა",
+          "sub_category_id": 53
+        },
+        {
+          "id": 419,
+          "name": "LinkedIn",
+          "sub_category_id": 53
+        },
+        {
+          "id": 420,
+          "name": "Google Ads (AdWords) სერტიფიკატი",
+          "sub_category_id": 53
+        },
+        {
+          "id": 421,
+          "name": "Facebook მარკეტინგი",
+          "sub_category_id": 53
+        },
+        {
+          "id": 422,
+          "name": "Copywriting",
+          "sub_category_id": 53
+        },
+        {
+          "id": 423,
+          "name": "YouTube მარკეტინგი",
+          "sub_category_id": 7
+        },
+        {
+          "id": 424,
+          "name": "YouTube აუდიტორიის ზრდა",
+          "sub_category_id": 7
+        },
+        {
+          "id": 425,
+          "name": "ვიდეოს შექმნა",
+          "sub_category_id": 7
+        },
+        {
+          "id": 426,
+          "name": "PowerPoint",
+          "sub_category_id": 7
+        },
+        {
+          "id": 427,
+          "name": "ვიდეო მარკეტინგი",
+          "sub_category_id": 7
+        },
+        {
+          "id": 428,
+          "name": "ვიდეოს მონტაჟი",
+          "sub_category_id": 7
+        },
+        {
+          "id": 429,
+          "name": "პირდაპირი ტრანსლაცია",
+          "sub_category_id": 7
+        },
+        {
+          "id": 430,
+          "name": "აპლიკაციის მარკეტინგი",
+          "sub_category_id": 7
+        }
+      ]
+    }
+  }
