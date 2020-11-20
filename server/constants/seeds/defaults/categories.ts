@@ -76,7 +76,6 @@ const subCategoriesWithoutIds = [
     { name: "პროექტის მენეჯმენტი", main_category_id: 6 },
     { name: "ბისნესის კანონები", main_category_id: 6 },
     { name: "მონაცემები და ანალიტიკა", main_category_id: 6 },
-    { name: "საშინაო ბიზნესი", main_category_id: 6 },
     { name: "ადამიანური რესურსები", main_category_id: 6 },
     { name: "ინდუსტრია", main_category_id: 6 },
     { name: "მედია", main_category_id: 6 },
@@ -102,8 +101,7 @@ const subCategoriesWithoutIds = [
     { name: "ინსტრუმენტები", main_category_id: 8 },
     { name: "მუსიკის პროგრამები", main_category_id: 8 },
     { name: "DJ ფუნდამენტები", main_category_id: 8 },
-    { name: "ვოკალები", main_category_id: 8 },
-    { name: "მუსიკის ტექნიკები", main_category_id: 8 },
+    { name: "ვოკალები", main_category_id: 8 }, 
 
 
     //! ცეკვა
@@ -136,8 +134,8 @@ const subSubCategoriesWithoutIds = [
     { name: "Vue", sub_category_id: 1 },
     { name: "Node js", sub_category_id: 1 },
     { name: "Python", sub_category_id: 1 },
-    { name: "wordpress დეველოპმენტი", main_category_id: 1 },
-    { name: "ონლაინ მაღაზია", main_category_id: 1 },
+    { name: "wordpress დეველოპმენტი", sub_category_id: 1 },
+    { name: "ონლაინ მაღაზია", sub_category_id: 1 },
 
     //! დატა მეცნიერება 2
     { name: "R programming", sub_category_id: 2 },
@@ -608,60 +606,350 @@ const subSubCategoriesWithoutIds = [
     { name: "მონაცემთა მოდელირება", sub_category_id: 41 },
     { name: "Big Data", sub_category_id: 41 },
 
-    //! საშინაო ბიზნესი
-    { name: "საშინაო ბიზნესი", sub_category_id: 42 },
-
     //! ადამიანური რესურსები
-    { name: "ადამიანური რესურსები", sub_category_id: 43 },
+    { name: "რეკრუტირება", sub_category_id: 42 },
+    { name: "ინსტრუქციის დიზაინი", sub_category_id: 42 },
+    { name: "ემოციური ინტელექტი", sub_category_id: 42 },
+    { name: "მრავალფეროვნება და ინკლუზია", sub_category_id: 42 },
+    { name: "კონფლიქტების მართვა", sub_category_id: 42 },
+    { name: "ადამიანური რესურსების ანალიტიკა", sub_category_id: 42 },
+    { name: "ტალანტის მენეჯმენტი", sub_category_id: 42 },
+    { name: "დაქირავება", sub_category_id: 42 },
+    
 
     //! ინდუსტრია
-    { name: "ინდუსტრია", sub_category_id: 44 },
+    { name: "მილსადენი", sub_category_id: 43 },
+    { name: "ელექტრო ინჟინერია", sub_category_id: 43 },
+    { name: "ნავთობისა და გაზის მრეწველობა", sub_category_id: 43 },
+    { name: "სატვირთო ბროკერი", sub_category_id: 43 },
+    { name: "აფთიაქი", sub_category_id: 43 },
+    { name: "მზის ენერგია", sub_category_id: 43 },
+    { name: "ცხოვრებისეული მწვრთნელების ტრენინგი", sub_category_id: 43 },
+    { name: "ქიმიური ინჟინერია", sub_category_id: 43 },
 
     //! მედია
-    { name: "მედია", sub_category_id: 6 },
+    { name: "აუდიობუქის შექმნა", sub_category_id: 44 },
+    { name: "სცენარის ავტორი", sub_category_id: 44 },
+    { name: "ამაზონ ქინდლი", sub_category_id: 44 },
+    { name: "წერა", sub_category_id: 44 },
+    { name: "ჟურნალისტიკა", sub_category_id: 44 },
+    { name: "პოდკასტინგი", sub_category_id: 44 },
+    { name: "კონტეტის შექმნა", sub_category_id: 44 },
+    { name: "After Effects", sub_category_id: 44 },
+    { name: "ღია მაუწყებელი", sub_category_id: 44 },
+    
 
     //! უძრავი ქონება
-    { name: "უძრავი ქონება", sub_category_id: 6 },
+    { name: "ინვესტირება უძრავ ქონებაში", sub_category_id: 45 },
+    { name: "იპოთეკური სესხი", sub_category_id: 45 },
+    { name: "მშენებლობა", sub_category_id: 45 },
+    { name: "Airbnb ჰოსტინგი", sub_category_id: 45 },
+    { name: "ფინანსური მოდელირება", sub_category_id: 45 },
+    { name: "უძრავი ქონების მართვა", sub_category_id: 45 },
+    { name: "უძრავი ქონების ფლიპინგი", sub_category_id: 45 },
+    { name: "უძრავი ქონების მარკეტინგი", sub_category_id: 45 },
+    
 
-
+    // *****************
     //! მარკეტინგი
-    { name: "ციფრული მარკეტინგი", main_category_id: 7 },
-    { name: "საძიებო სისტემის ოპტიმიზაცია (SEO)", main_category_id: 7 },
-    { name: "სოციალური მედიას მარკეტინგი", main_category_id: 7 },
-    { name: "ბრენდირება", main_category_id: 7 },
-    { name: "მარკეტინგის ფუნდამენტები", main_category_id: 7 },
-    { name: "ანალიტიკა და ავტომატიზაცია", main_category_id: 7 },
-    { name: "საზოგადოებასთან ურთიერთობები", main_category_id: 7 },
-    { name: "რეკლამები", main_category_id: 7 },
-    { name: "ვიდეო და მობაილ მარკეტინგი", main_category_id: 7 },
-    { name: "შვილობილი მარკეტინგი (affiliate marketing)", main_category_id: 7 },
-    { name: "პროდუქტის მარკეტინგი", main_category_id: 7 },
+    // *****************
 
 
-    //! მუსიკა
-    { name: "მუსიკის ფუნდამენტები", main_category_id: 8 },
-    { name: "ინსტრუმენტები", main_category_id: 8 },
-    { name: "მუსიკის პროგრამები", main_category_id: 8 },
-    { name: "DJ ფუნდამენტები", main_category_id: 8 },
-    { name: "ვოკალები", main_category_id: 8 },
-    { name: "მუსიკის ტექნიკები", main_category_id: 8 },
+    //! ციფრული მარკეტინგი
+    { name: "მარკეტინგული გეგმა", sub_category_id: 46 },
+    { name: "ამაზონ კინდლი", sub_category_id: 46 },
+    { name: "თვითგამოცემა", sub_category_id: 46 },
+    { name: "პროდუქტის მენეჯმენტი", sub_category_id: 46 },
+    { name: "Voice-Over", sub_category_id: 46 },
+    { name: "პრეზენტაციის უნარები", sub_category_id: 46 },
+    { name: "მარკეტინგული მენეჯმენტი", sub_category_id: 46 },
+    { name: "კოპირება", sub_category_id: 46 },
+    { name: "Facebook მარკეტინგი", sub_category_id: 46 },
+    
+    
+
+    //! საძიებო სისტემის ოპტიმიზაცია (SEO
+    { name: "SEO", sub_category_id: 47 },
+    { name: "WordPress", sub_category_id: 47 },
+    { name: "საკვანძო სიტყვების სერჩი", sub_category_id: 47 },
+    { name: "ლოკალური SEO", sub_category_id: 47 },
+    { name: "ბმულის შენობა", sub_category_id: 47 },
+    { name: "SEO აუდიტი", sub_category_id: 47 },
+    { name: "Google ჩემი ბიზნესი", sub_category_id: 47 },
+    { name: "Google Add (სიტყვები)", sub_category_id: 47 },
+    { name: "YouTube მარკეტინგი", sub_category_id: 47 },
+    
+
+    //! სოციალური მედიას მარკეტინგი
+    { name: "ინსტაგრამ მარკეტინგი", sub_category_id: 48 },
+    { name: "Facebook Ads", sub_category_id: 48 },
+    { name: "Facebook მარკეტინგი", sub_category_id: 48 },
+    { name: "PPC რეკლამა", sub_category_id: 48 },
+    { name: "სოციალური მედიის მენეჯმენტი", sub_category_id: 48 },
+    { name: "TikTok მარკეტინგი", sub_category_id: 48 },
+    { name: "Instagram ფოტოგრაფია", sub_category_id: 48 },
+    { name: "LinkedIn", sub_category_id: 48 },
+    
+
+    //! ბრენდირება
+    { name: "ბიზნესის ბრენდირება", sub_category_id: 49 },
+    { name: "YouTube აუდიტორიის ზრდა", sub_category_id: 49 },
+    { name: "YouTube მარკეტინგი", sub_category_id: 49 },
+    { name: "პერსონალური ბრენდირება", sub_category_id: 49 },
+    { name: "ბრენდის მენეჯმენტი", sub_category_id: 49 },
+    { name: "მარკეტინგის სტრატეგია", sub_category_id: 49 },
+    { name: "გრაფიკული დიზაინი", sub_category_id: 49 },
+    { name: "Canva", sub_category_id: 49 },
+    { name: "მწვრთნელები", sub_category_id: 49 },
+    
+
+    //! მარკეტინგის ფუნდამენტები
+    { name: "Copywriting", sub_category_id: 50 },
+    { name: "Მარკეტინგული სტრატეგია", sub_category_id: 50 },
+    { name: "Მარკეტინგული ანალიტიკები", sub_category_id: 50 },
+    { name: "Მარკეტინგული გეგმა", sub_category_id: 50 },
+    { name: "Მარკეტინგული მენეჯმენტი", sub_category_id: 50 },
+    { name: "გაყიდვების უნარები", sub_category_id: 50 },
+    { name: "ნეირომარკეტინგი", sub_category_id: 50 },
+    { name: "ღონისძიების დაგეგმვა", sub_category_id: 50 },
+    { name: "კარიერული მწვრთნელები", sub_category_id: 50 },
 
 
-    //! ცეკვა
-    { name: "ქართული", main_category_id: 9 },
-    { name: "უცხოური", main_category_id: 9 },
+    //! ანალიტიკა და ავტომატიზაცია
+    { name: "Google ანალიტიკა", sub_category_id: 51 },
+    { name: "Google ანალიტიკა ინდივიდუალური კვალიფიკაცია(IQ)", sub_category_id: 51 },
+    { name: "მონაცემთა ანალაზინი", sub_category_id: 51 },
+    { name: "მარკეტინგული ანალიტიკა", sub_category_id: 51 },
+    { name: "SQL", sub_category_id: 51 },
+    { name: "Google Tag მენეჯერი", sub_category_id: 51 },
+    { name: "Მარკეტინგული სტრატეგია", sub_category_id: 51 },
+    { name: "Მარკეტინგული აუმატიზაცია", sub_category_id: 51 },
+    { name: "ActiveCampaign", sub_category_id: 51 },
+    
+    
+
+    //! საზოგადოებასთან ურთიერთობები
+    { name: "მედია ტრენინგები", sub_category_id: 52 },
+    { name: "ბიზნეს კომუნიკაცია", sub_category_id: 52 },
+    { name: "Საჯარო გამოსვლები", sub_category_id: 52 },
+    { name: "სტარტაპი", sub_category_id: 52 },
+    { name: "ივენთების დაგეგმვა", sub_category_id: 52 },
+    { name: "პოდკასტინგი", sub_category_id: 52 },
+    { name: "Copywriting", sub_category_id: 52 },
+    { name: "LinkedIn", sub_category_id: 52 },
+    
+
+    //! რეკლამები
+    { name: "Google Ads (Adwords)", sub_category_id: 53 },
+    { name: "Facebook რეკლამები", sub_category_id: 53 },
+    { name: "Mailchimp", sub_category_id: 53 },
+    { name: "Email მარკეტინგი", sub_category_id: 53 },
+    { name: "PPC რეკლამა", sub_category_id: 53 },
+    { name: "LinkedIn", sub_category_id: 53 },
+    { name: "Google Ads (AdWords) სერტიფიკატი", sub_category_id: 53 },
+    { name: "Facebook მარკეტინგი", sub_category_id: 53 },
+    { name: "Copywriting", sub_category_id: 53 },
 
 
+    //! ვიდეო და მობაილ მარკეტინგი
+    { name: "YouTube მარკეტინგი", sub_category_id: 54 },
+    { name: "YouTube აუდიტორიის ზრდა", sub_category_id: 54 },
+    { name: "ვიდეოს შექმნა", sub_category_id: 54 },
+    { name: "PowerPoint", sub_category_id: 54 },
+    { name: "ვიდეო მარკეტინგი", sub_category_id: 54 },
+    { name: "ვიდეოს მონტაჟი", sub_category_id: 54 },
+    { name: "პირდაპირი ტრანსლაცია", sub_category_id: 54 },
+    { name: "აპლიკაციის მარკეტინგი", sub_category_id: 54 },
+
+
+    //! შვილობილი მარკეტინგი (affiliate marketing
+    { name: "ClickBank", sub_category_id: 54 },
+    { name: "ამაზონის შვილობილი მარკეტინგი", sub_category_id: 54 },
+    { name: "SEO", sub_category_id: 54 },
+    { name: "CPA მარკეტინგი", sub_category_id: 54 },
+    { name: "Teespring", sub_category_id: 54 },
+    { name: "მარკეტინგული სტრატეგია", sub_category_id: 54 },
+    { name: "საშინაო ბიზნესი", sub_category_id: 54 },
+    { name: "ქსელური მარკეტინგი", sub_category_id: 54 },
+
+
+    //! პროდუქტის მარკეტინგი
+    { name: "მარკეტინგული გეგმა", sub_category_id: 55 },
+    { name: "პროდუქტის მენეჯმენტი", sub_category_id: 55 },
+    { name: "Amazon Kindle", sub_category_id: 55 },
+    { name: "თვითგამოცემა", sub_category_id: 55 },
+    { name: "Voice-Over", sub_category_id: 55 },
+    { name: "მარკეტინგული მენეჯმენტი", sub_category_id: 55 },
+    { name: "მარკეტინგული სტრატეგია", sub_category_id: 55 },
+    { name: "კოპირაიტერობა", sub_category_id: 55 },
+    
+    
+
+
+
+
+    // *****************
+    //! მუსიკის
+    // *****************
+
+    
+    //! მუსიკის ფუნდამენტებია
+    { name: "მუსიკის თეორია", sub_category_id: 56 },
+    { name: "მუსიკის კომპოზიცია", sub_category_id: 56 },
+    { name: "ელექტრონული მუსიკა", sub_category_id: 56 },
+    { name: "სიმღერების წერა", sub_category_id: 56 },
+    { name: "მუსიკის კითხვა", sub_category_id: 56 },
+    { name: "პიანინო", sub_category_id: 56 },
+    { name: "Blues გიტარა", sub_category_id: 56 },
+    { name: "ABRSM", sub_category_id: 56 },
+    
+    
+
+    //! ინსტრუმენტები
+    { name: "პიანინო", sub_category_id: 57 },
+    { name: "გიტარა", sub_category_id: 57 },
+    { name: "კლავიშის ინსტუმენტი", sub_category_id: 57 },
+    { name: "უკულელე", sub_category_id: 57 },
+    { name: "ჰარმონიკა", sub_category_id: 57 },
+    { name: "დრამი", sub_category_id: 57 },
+    { name: "ვიოლინო", sub_category_id: 57 },
+    { name: "კლასიკური გიტარა", sub_category_id: 57 },
+    { name: "Fingerstyle გიტარა", sub_category_id: 57 },
+
+    //! მუსიკის პროგრამები
+    { name: "Logic Pro X", sub_category_id: 58 },
+    { name: "მუსიკის მიქსინგი", sub_category_id: 58 },
+    { name: "Ableton Live", sub_category_id: 58 },
+    { name: "მუსიკალური კომპოზიცია", sub_category_id: 58 },
+    { name: "FL Studio", sub_category_id: 58 },
+    { name: "აუდიო წარმოება", sub_category_id: 58 },
+    { name: "თამაშის მუსიკა", sub_category_id: 58 },
+    { name: "ხმის დიზაინი", sub_category_id: 58 },
+
+    //! DJ ფუნდამენტები
+    { name: "DJ ProDecks", sub_category_id: 59 },
+    { name: "Virtual DJ", sub_category_id: 59 },
+    { name: "Mixxx", sub_category_id: 59 },
+    { name: "Beatmatching", sub_category_id: 59 },
+    { name: "Phrasing", sub_category_id: 59 },
+    { name: "DJ მოწყობილობა", sub_category_id: 59 },
+
+
+    //! ვოკალები
+    { name: "სიმღერა", sub_category_id: 60 },
+    { name: "ხმის ტრენინგ", sub_category_id: 60 },
+    { name: "ხმის მოვალეობის შემსრულებელი (Voice Acting)", sub_category_id: 60 },
+    { name: "რეპერობა", sub_category_id: 60 },
+    { name: "Raga მუსიკა", sub_category_id: 60 },
+    { name: "მუსიკალური წარმოება", sub_category_id: 60 },
+    { name: "იოგა", sub_category_id: 60 },
+    { name: "ხმის მეტი (voice over)", sub_category_id: 60 },
+    { name: "კარნატიკული მუსიკა", sub_category_id: 60 },
+      
+
+
+
+
+
+
+    // *****************
     //! ჯამრთელობა და ფიტნესი
-    { name: "ფიტნესი", main_category_id: 10 },
-    { name: "ზოგადი ჯამრთელობა", main_category_id: 10 },
-    { name: "სპორტი", main_category_id: 10 },
-    { name: "სწორი კვება", main_category_id: 10 },
-    { name: "იოგა", main_category_id: 10 },
-    { name: "ფსიქიკური ჯანმრთელობის", main_category_id: 10 },
-    { name: "თავდაცვა", main_category_id: 10 },
-    { name: "უსაფრთხოება და პირველადი დახმარება", main_category_id: 10 },
-    { name: "მედიტაცია", main_category_id: 10 },
+    // *****************
+   
+    //! ფიტნესი
+    { name: "წონის დაკლება", sub_category_id: 61 },
+    { name: "პილატესი", sub_category_id: 61 },
+    { name: "მასწავლებელთა ტრენინგი", sub_category_id: 61 },
+    { name: "სახლის ვარჯიში", sub_category_id: 61 },
+    { name: "კუნთების აშენება", sub_category_id: 61 },
+    { name: "კეტელბელი", sub_category_id: 61 },
+    { name: "ტესტოსტერონი", sub_category_id: 61 },
+    { name: "გაჭიმვების ვარჯიში", sub_category_id: 61 }, 
+     
+
+    //! ზოგადი ჯამრთელობა
+    { name: "მასაჟი", sub_category_id: 61 },
+    { name: "არომათერაპია", sub_category_id: 61 },
+    { name: "ჰერბალიზმი", sub_category_id: 61 },
+    { name: "ჰოლისტიკური მედიცინა", sub_category_id: 61 },
+    { name: "აკუპრესურა", sub_category_id: 61 },
+    { name: "ჯანმრთელობა", sub_category_id: 61 },
+    { name: "ეთერზეთი", sub_category_id: 61 },
+    { name: "რეფლექსოლოგია", sub_category_id: 61 },
+    { name: "ტაი ჩი", sub_category_id: 61 },
+
+    
+    //! სპორტი
+    { name: "სპორტული ფსიქოლოგია", sub_category_id: 62 },
+    { name: "ფეხბურთი", sub_category_id: 62 },
+    { name: "ჩოგბურთი", sub_category_id: 62 },
+    { name: "სპორტული მწვრთნელები", sub_category_id: 62 },
+    { name: "Საბრძოლო ხელოვნება", sub_category_id: 62 },
+    { name: "გოლფი", sub_category_id: 62 },
+    { name: "ხაზოვანი ციგურაობა", sub_category_id: 62 },
+    { name: "ცურვა", sub_category_id: 62 },
+    { name: "სკეიტბორდინგი", sub_category_id: 62 },
+
+  
+
+    //! სწორი კვება
+    { name: "დიეტა", sub_category_id: 63 },
+    { name: "სპორტული კვება", sub_category_id: 63 },
+    { name: "ვეგანური სამზარეულო", sub_category_id: 63 },
+    { name: "წონის დაკლება", sub_category_id: 63 },
+    { name: "კეტოგენური დიეტა", sub_category_id: 63 },
+    { name: "ჯანმრთელობის მწვრთნელები", sub_category_id: 63 },
+    { name: "დაბერების საწინააღმდეგო", sub_category_id: 63 },
+
+    
+    //! იოგა
+    { name: "იოგა ბავშვებისათვის", sub_category_id: 64 },
+    { name: "მასწავლებელთა ტრენინგი", sub_category_id: 64 },
+    { name: "სახის იოგა", sub_category_id: 64 },
+    { name: "სკამის იოგა", sub_category_id: 64 },
+    { name: "მედიტაცია", sub_category_id: 64 },
+    
+    //! ფსიქიკური ჯანმრთელობის
+    { name: "CBT", sub_category_id: 65 },
+    { name: "არტთერაპია", sub_category_id: 65 },
+    { name: "PTSD", sub_category_id: 65 },
+    { name: "კონსულტაცია", sub_category_id: 65 },
+    { name: "ბავშვობის ტრავმის განკურნება", sub_category_id: 65 },
+    { name: "REBT", sub_category_id: 65 },
+    { name: "დიალექტიკური ქცევის თერაპია (DBT)", sub_category_id: 65 },
+    { name: "შფოთვა მართვა", sub_category_id: 65 },
+    
+    //! თავდაცვა
+    { name: "კრავ მაგას", sub_category_id: 66 },
+    { name: "კრივი", sub_category_id: 66 },
+    { name: "თავდაცვა", sub_category_id: 66 },
+    { name: "Საბრძოლო ხელოვნება", sub_category_id: 66 },
+    { name: "მუაი ტაი", sub_category_id: 66 },
+    { name: "ტაი ჩი", sub_category_id: 66 },
+    { name: "Ხელჩართული ბრძოლა", sub_category_id: 66 },
+    { name: "კარატე", sub_category_id: 66 },
+    
+    
+    //! უსაფრთხოება და პირველადი დახმარება
+    { name: "პირველადი დახმარება", sub_category_id: 67 },
+    { name: "ჰერბალიზმი", sub_category_id: 67 },
+    { name: "გადარჩენის უნარები", sub_category_id: 67 },
+    { name: "სამუშაო ადგილი ჯანმრთელობა და უსაფრთხოება", sub_category_id: 67 },
+    { name: "პირადი საგანგებო მზადყოფნა", sub_category_id: 67 },
+    { name: "სურსათის უვნებლობა", sub_category_id: 67 },
+    { name: "სახანძრო უსაფრთხოება", sub_category_id: 67 },
+    { name: "ფსიქიკური ჯანმრთელობის", sub_category_id: 67 },
+    
+    
+    
+    //! მედიტაცია
+    { name: "გონებამახვილობა", sub_category_id: 68 },
+    { name: "ხმოვანი თერაპია", sub_category_id: 68 },
+    { name: "სტრესის მართვა", sub_category_id: 68 },
+    { name: "ტაი ჩი", sub_category_id: 68 },
+    { name: "Qi Gong", sub_category_id: 68 },
+    { name: "იოგა", sub_category_id: 68 },
+    
 
 ]
 
@@ -671,8 +959,8 @@ let subCategories = subCategoriesWithoutIds.map(({ name, main_category_id }, i) 
 })
 
 
-let subSubCategories = subSubCategoriesWithoutIds.map(({ name, main_category_id }, i) => {
-    return { id: i+1, name: name, main_category_id: main_category_id }
+let subSubCategories = subSubCategoriesWithoutIds.map(({ name, sub_category_id }, i) => {
+    return { id: i+1, name: name, sub_category_id: sub_category_id }
 })
 
 export {
