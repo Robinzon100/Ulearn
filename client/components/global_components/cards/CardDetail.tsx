@@ -1,6 +1,6 @@
 import React, {useEffect } from "react";
 import { ShoppingCart, Check } from "react-feather";
-import {stringToCut} from "components/utils/stringCut";
+import {stringToCut} from "components/utils/stringToCut";
 
 //! ============= INTERFACE
 

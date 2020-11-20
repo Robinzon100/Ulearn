@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Star, Heart } from "react-feather";
 
 import CardDetail from './CardDetail';
-import { stringToCut } from "components/utils/stringCut";
+import { stringToCut } from "components/utils/stringToCut";
 
 //! ==================INTERFACE
 import { PrimaryContentCards } from "../../../interfaces/PrimaryContentCard.interface";

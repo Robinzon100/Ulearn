@@ -1,6 +1,5 @@
-export const stringToCut = (rawString, stringLenghToCut) => {
-
-   
+export const stringToCut = (rawString:string, stringLenghToCut:number) => {
+    
     if (rawString) {
         if (rawString.length <= stringLenghToCut) {
             return rawString;
