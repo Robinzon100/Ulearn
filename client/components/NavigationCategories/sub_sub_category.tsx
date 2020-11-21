@@ -1,11 +1,11 @@
 import React from 'react'
-import { ChevronRight } from "react-feather";
 
 
 const sub__sub_category = ({id,name},props) =>  {
     return (
         <>
             {/* // SUB_SUB_CATEGORY */}
+            
             <li
                   className="list__sub-category--item"
                   key={props.id}
@@ -26,7 +26,7 @@ const sub__sub_category = ({id,name},props) =>  {
                     
                   </div>
                 </li>
-             
+            
           
         
         </>

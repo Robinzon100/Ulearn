@@ -90,36 +90,36 @@ export const MainCategoryChildren = {
 
 export const MainCategoryLeftMoveAnimation = {
     left: {
-        left: "25%",
+        left: "0rem",
         borderTopRightRadius: "0px",
         borderBottomRightRadius: "0px",
         transition: {
-            duration: 0.2
+            duration: 0.25
         }
     },
 };
 export const SubCategoryLeftMoveAnimation = {
     left: {
-        left: "43%",
+        left: "32rem",
         display:"block",
         opacity: 1,
         borderTopRightRadius: "0px",
         borderBottomRightRadius: "0px",
         transition: {
-            duration: 0.2
+            duration: 0.25
         }
     },
 };
 
 export const SubSubCategoryLeftMoveAnimation = {
     left: {
-        left: "61%",
+        right: "3rem",
         display:"block",
         opacity: 1,
         borderTopRightRadius: "0px",
         borderBottomRightRadius: "0px",
         transition: {
-            duration: 0.2
+            duration: 0.25
         }
     },
 };

@@ -2,7 +2,7 @@ import React from 'react'
 import { ChevronRight } from "react-feather";
 
 
-const sub_category = ({handleFetchSubCategoryClick,setIsSubCategoryChosen,id,name},props) =>  {
+const sub_category = ({handleFetchSubCategoryClick,setIsSubCategoryChosen,setIsMouseleftCategory,id,name},props) =>  {
     return (
         <>
             {/* // SUB_CATEGORY */}
@@ -10,9 +10,10 @@ const sub_category = ({handleFetchSubCategoryClick,setIsSubCategoryChosen,id,nam
             <li
                 key={props.key}
                   className="list__sub-sub-category--item"
-                  onClick={(e) => {
-                    handleFetchSubCategoryClick(id, e);
+                  onMouseEnter={() => {
+                    handleFetchSubCategoryClick(id);
                     setIsSubCategoryChosen(true)
+                    setIsMouseleftCategory(true)
                   }}
                   
                 >
