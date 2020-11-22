@@ -14,17 +14,6 @@ export class MainCategories extends Model {
     static get tableName() {
         return tableNames.main_categories;
     }
-
-
-    // static get jsonSchema() {
-    //     return {
-    //         type: 'array',
-    //         contains: {
-    //             id: { type: 'integer' },
-    //             name: { type: 'string', minLength: 1, maxLength: 255 },
-    //         }
-    //     };
-    // }
 }
 
 
@@ -43,17 +32,6 @@ export class SubCategories extends Model {
     static get tableName() {
         return tableNames.sub_categories;
     }
-
-
-    // static get jsonSchema() {
-    //     return {
-    //         type: 'array',
-    //         contains: {
-    //             id: { type: 'integer' },
-    //             name: { type: 'string', minLength: 1, maxLength: 255 },
-    //         }
-    //     };
-    // }
 }
 
 
@@ -69,15 +47,4 @@ export class SubSubCategories extends Model {
     static get tableName() {
         return tableNames.sub_sub_categories;
     }
-
-
-    // static get jsonSchema() {
-    //     return {
-    //         type: 'array',
-    //         contains: {
-    //             id: { type: 'integer' },
-    //             name: { type: 'string', minLength: 1, maxLength: 255 },
-    //         }
-    //     };
-    // }
 }

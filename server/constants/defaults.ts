@@ -33,7 +33,7 @@ let user = {
 }
 
 
-let comment ={
+let comment = {
     likes: 0,
     dislikes: 0,
     liked_by_instructor: false,

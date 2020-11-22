@@ -1,8 +1,16 @@
 import morgan from "morgan";
-import bodyParser from 'body-parser'
 import express, { Application, Request, Response, NextFunction } from 'express'
 import helmet from "helmet"
+import cors from 'cors'
 const compression = require('compression');
+
+
+
+
+let corsOptions = {
+    origin: `${process.env.FRONT_END_URL}`
+}
+
 
 
 
@@ -14,13 +22,14 @@ export const baseMiddlewares = (app: Application) => {
     app.use(morgan('dev'))
     app.use(compression());
     app.use(helmet())
+    app.use(cors(corsOptions))
 
     app.use((req: Request, res: Response, next: NextFunction) => {
-        res.setHeader('Access-Control-Allow-Origin', `*`);
-        res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-        res.setHeader('Access-Control-Allow-Headers', '*');
-        res.setHeader('Access-Control-Allow-Credentials', 'true');
+        // res.setHeader('Access-Control-Allow-Origin', `*`);
+        // res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+        // res.setHeader('Access-Control-Allow-Headers', '*');
+        // res.setHeader('Access-Control-Allow-Credentials', 'true');
         next();
     });
 }
