@@ -8,17 +8,13 @@ import { motion } from "framer-motion";
 import Maincategory from "components/NavigationCategories/main_category";
 import SubCategory from "components/NavigationCategories/sub_category";
 import SubSubCategory from "components/NavigationCategories/sub_sub_category";
-// import MainCategories from "public/json/MainCategories.json";
 import {
-  MainCategoryToggleAnimation,
-  MainCategoryChildren,
   MainCategoryLeftMoveAnimation,
   SubCategoryLeftMoveAnimation,
-  SubSubCategoryLeftMoveAnimation,
-} from "components/utils/framer/framerAnimation";
-import {handleFetchMainCategory,handleFetchSubCategory,
-} from "components/utils/Category/CategoryFunctions";
-import { getAllCategories } from "actions/client/categories";
+  SubSubCategoryLeftMoveAnimation,} from "components/utils/framer/framerAnimation";
+import {handleFetchMainCategory,handleFetchSubCategory,} from "components/utils/Category/CategoryFunctions";
+import { getAllCategories } from '../../actions/client/categories';
+ 
 
 
 
@@ -44,14 +40,11 @@ const Category: React.FC = () => {
     setCategories(main_categories);
     setSubCategories(sub_categories);
     setSubSubCategories(sub_sub_categories);
-    
-    console.log("dsdfgg")
   }
  
   useEffect(() => {
-   
     fetchAllCategories()
-  })
+  }, [])
 
   return (
     <>
@@ -59,7 +52,7 @@ const Category: React.FC = () => {
       <motion.ul
         className="list__main-category"
         onMouseEnter={() => setIsMouseleftSubSubCategory(false)}
-        onClick={() => fetchAllCategories()}
+        // onClick={() => fetchAllCategories()}
         variants={MainCategoryLeftMoveAnimation}
         initial={{ left: "34rem" }}
         animate={isMainCategoryChosen && "left"}
