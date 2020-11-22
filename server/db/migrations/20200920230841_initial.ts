@@ -31,8 +31,7 @@ export async function up(knex: Knex): Promise<void> {
 
     //! Category and sub-category
     await knex.schema.createTable(tableNames.main_categories, (table) => {
-        table.increments('id').notNullable();
-        table.string('name', 255).unique();
+        addSimpleIdAndName(table)
     });
 
     await knex.schema.createTable(tableNames.sub_categories, (table) => {

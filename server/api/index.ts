@@ -1,10 +1,15 @@
 import express from "express";
-import authRoutes from "./client/auth/auth.router";
-const router = express.Router()
+import { defaultRouterOptions } from "../constants/router.options";
+const router = express.Router(defaultRouterOptions)
 
-// TODO: add some safety to the routes https://expressjs.com/es/api.html
+
+// ─── ROUTES ─────────────────────────────────────────────────────────────────────
+import authRoutes from "./client/auth/auth.routes";
+import categoriesRoutes from "./client/categories/categories.routes";
+
 
 router.use("/auth", authRoutes)
+router.use("/categories", categoriesRoutes)
 
 
 export default router
