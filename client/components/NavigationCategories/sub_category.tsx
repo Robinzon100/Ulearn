@@ -2,7 +2,7 @@ import React from 'react'
 import { ChevronRight } from "react-feather";
 
 
-const sub_category = ({handleFetchSubCategoryClick,setIsSubCategoryChosen,setIsMouseleftCategory,id,name},props) =>  {
+const sub_category = ({handleFetchSubCategoryClick,setIsSubCategoryChosen,setIsMouseleftSubSubCategory,id,name},props) =>  {
     return (
         <>
             {/* // SUB_CATEGORY */}
@@ -13,7 +13,7 @@ const sub_category = ({handleFetchSubCategoryClick,setIsSubCategoryChosen,setIsM
                   onMouseEnter={() => {
                     handleFetchSubCategoryClick(id);
                     setIsSubCategoryChosen(true)
-                    setIsMouseleftCategory(true)
+                    setIsMouseleftSubSubCategory(true)
                   }}
                   
                 >
