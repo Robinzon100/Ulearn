@@ -8,7 +8,7 @@ const compression = require('compression');
 
 
 let corsOptions = {
-    origin: process.env.FRONT_END_URL
+    origin: 'http://localhost:3000'
 }
 
 

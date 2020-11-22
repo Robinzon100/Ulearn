@@ -181,7 +181,7 @@ const subSubCategoriesWithoutIds = [
     { name: "Blender", sub_category_id: 5 },
     
     
-    //! თამაშების დეველპმენტი 6
+    //! დატაბაზები
     { name: "SQL", sub_category_id: 6 },
     { name: "MySQL", sub_category_id: 6 },
     { name: "Oracle SQL", sub_category_id: 6 },
@@ -763,25 +763,25 @@ const subSubCategoriesWithoutIds = [
 
 
     //! შვილობილი მარკეტინგი (affiliate marketing
-    { name: "ClickBank", sub_category_id: 54 },
-    { name: "ამაზონის შვილობილი მარკეტინგი", sub_category_id: 54 },
-    { name: "SEO", sub_category_id: 54 },
-    { name: "CPA მარკეტინგი", sub_category_id: 54 },
-    { name: "Teespring", sub_category_id: 54 },
-    { name: "მარკეტინგული სტრატეგია", sub_category_id: 54 },
-    { name: "საშინაო ბიზნესი", sub_category_id: 54 },
-    { name: "ქსელური მარკეტინგი", sub_category_id: 54 },
+    { name: "ClickBank", sub_category_id: 55 },
+    { name: "ამაზონის შვილობილი მარკეტინგი", sub_category_id: 55 },
+    { name: "SEO", sub_category_id: 55 },
+    { name: "CPA მარკეტინგი", sub_category_id: 55 },
+    { name: "Teespring", sub_category_id: 55 },
+    { name: "მარკეტინგული სტრატეგია", sub_category_id: 55 },
+    { name: "საშინაო ბიზნესი", sub_category_id: 55 },
+    { name: "ქსელური მარკეტინგი", sub_category_id: 55 },
 
 
     //! პროდუქტის მარკეტინგი
-    { name: "მარკეტინგული გეგმა", sub_category_id: 55 },
-    { name: "პროდუქტის მენეჯმენტი", sub_category_id: 55 },
-    { name: "Amazon Kindle", sub_category_id: 55 },
-    { name: "თვითგამოცემა", sub_category_id: 55 },
-    { name: "Voice-Over", sub_category_id: 55 },
-    { name: "მარკეტინგული მენეჯმენტი", sub_category_id: 55 },
-    { name: "მარკეტინგული სტრატეგია", sub_category_id: 55 },
-    { name: "კოპირაიტერობა", sub_category_id: 55 },
+    { name: "მარკეტინგული გეგმა", sub_category_id: 56 },
+    { name: "პროდუქტის მენეჯმენტი", sub_category_id: 56 },
+    { name: "Amazon Kindle", sub_category_id: 56 },
+    { name: "თვითგამოცემა", sub_category_id: 56 },
+    { name: "Voice-Over", sub_category_id: 56 },
+    { name: "მარკეტინგული მენეჯმენტი", sub_category_id: 56 },
+    { name: "მარკეტინგული სტრატეგია", sub_category_id: 56 },
+    { name: "კოპირაიტერობა", sub_category_id: 56 },
     
     
 
@@ -794,59 +794,78 @@ const subSubCategoriesWithoutIds = [
 
     
     //! მუსიკის ფუნდამენტებია
-    { name: "მუსიკის თეორია", sub_category_id: 56 },
-    { name: "მუსიკის კომპოზიცია", sub_category_id: 56 },
-    { name: "ელექტრონული მუსიკა", sub_category_id: 56 },
-    { name: "სიმღერების წერა", sub_category_id: 56 },
-    { name: "მუსიკის კითხვა", sub_category_id: 56 },
-    { name: "პიანინო", sub_category_id: 56 },
-    { name: "Blues გიტარა", sub_category_id: 56 },
-    { name: "ABRSM", sub_category_id: 56 },
+    { name: "მუსიკის თეორია", sub_category_id: 57 },
+    { name: "მუსიკის კომპოზიცია", sub_category_id: 57 },
+    { name: "ელექტრონული მუსიკა", sub_category_id: 57 },
+    { name: "სიმღერების წერა", sub_category_id: 57 },
+    { name: "მუსიკის კითხვა", sub_category_id: 57 },
+    { name: "პიანინო", sub_category_id: 57 },
+    { name: "Blues გიტარა", sub_category_id: 57 },
+    { name: "ABRSM", sub_category_id: 57 },
     
     
 
     //! ინსტრუმენტები
-    { name: "პიანინო", sub_category_id: 57 },
-    { name: "გიტარა", sub_category_id: 57 },
-    { name: "კლავიშის ინსტუმენტი", sub_category_id: 57 },
-    { name: "უკულელე", sub_category_id: 57 },
-    { name: "ჰარმონიკა", sub_category_id: 57 },
-    { name: "დრამი", sub_category_id: 57 },
-    { name: "ვიოლინო", sub_category_id: 57 },
-    { name: "კლასიკური გიტარა", sub_category_id: 57 },
-    { name: "Fingerstyle გიტარა", sub_category_id: 57 },
+    { name: "პიანინო", sub_category_id: 58 },
+    { name: "გიტარა", sub_category_id: 58 },
+    { name: "კლავიშის ინსტუმენტი", sub_category_id: 58 },
+    { name: "უკულელე", sub_category_id: 58 },
+    { name: "ჰარმონიკა", sub_category_id: 58 },
+    { name: "დრამი", sub_category_id: 58 },
+    { name: "ვიოლინო", sub_category_id: 58 },
+    { name: "კლასიკური გიტარა", sub_category_id: 58 },
+    { name: "Fingerstyle გიტარა", sub_category_id: 58 },
 
     //! მუსიკის პროგრამები
-    { name: "Logic Pro X", sub_category_id: 58 },
-    { name: "მუსიკის მიქსინგი", sub_category_id: 58 },
-    { name: "Ableton Live", sub_category_id: 58 },
-    { name: "მუსიკალური კომპოზიცია", sub_category_id: 58 },
-    { name: "FL Studio", sub_category_id: 58 },
-    { name: "აუდიო წარმოება", sub_category_id: 58 },
-    { name: "თამაშის მუსიკა", sub_category_id: 58 },
-    { name: "ხმის დიზაინი", sub_category_id: 58 },
+    { name: "Logic Pro X", sub_category_id: 59 },
+    { name: "მუსიკის მიქსინგი", sub_category_id: 59 },
+    { name: "Ableton Live", sub_category_id: 59 },
+    { name: "მუსიკალური კომპოზიცია", sub_category_id: 59 },
+    { name: "FL Studio", sub_category_id: 59 },
+    { name: "აუდიო წარმოება", sub_category_id: 59 },
+    { name: "თამაშის მუსიკა", sub_category_id: 59 },
+    { name: "ხმის დიზაინი", sub_category_id: 59 },
 
     //! DJ ფუნდამენტები
-    { name: "DJ ProDecks", sub_category_id: 59 },
-    { name: "Virtual DJ", sub_category_id: 59 },
-    { name: "Mixxx", sub_category_id: 59 },
-    { name: "Beatmatching", sub_category_id: 59 },
-    { name: "Phrasing", sub_category_id: 59 },
-    { name: "DJ მოწყობილობა", sub_category_id: 59 },
+    { name: "DJ ProDecks", sub_category_id: 60 },
+    { name: "Virtual DJ", sub_category_id: 60 },
+    { name: "Mixxx", sub_category_id: 60 },
+    { name: "Beatmatching", sub_category_id: 60 },
+    { name: "Phrasing", sub_category_id: 60 },
+    { name: "DJ მოწყობილობა", sub_category_id: 60 },
 
 
     //! ვოკალები
-    { name: "სიმღერა", sub_category_id: 60 },
-    { name: "ხმის ტრენინგ", sub_category_id: 60 },
-    { name: "ხმის მოვალეობის შემსრულებელი (Voice Acting)", sub_category_id: 60 },
-    { name: "რეპერობა", sub_category_id: 60 },
-    { name: "Raga მუსიკა", sub_category_id: 60 },
-    { name: "მუსიკალური წარმოება", sub_category_id: 60 },
-    { name: "იოგა", sub_category_id: 60 },
-    { name: "ხმის მეტი (voice over)", sub_category_id: 60 },
-    { name: "კარნატიკული მუსიკა", sub_category_id: 60 },
+    { name: "სიმღერა", sub_category_id: 61 },
+    { name: "ხმის ტრენინგ", sub_category_id: 61 },
+    { name: "ხმის მოვალეობის შემსრულებელი (Voice Acting)", sub_category_id: 61 },
+    { name: "რეპერობა", sub_category_id: 61 },
+    { name: "Raga მუსიკა", sub_category_id: 61 },
+    { name: "მუსიკალური წარმოება", sub_category_id: 61 },
+    { name: "იოგა", sub_category_id: 61 },
+    { name: "ხმის მეტი (voice over)", sub_category_id: 61 },
+    { name: "კარნატიკული მუსიკა", sub_category_id: 61 },
       
 
+    
+    // *****************
+    //! ცეკვა
+    // *****************
+
+    //! ქართული
+    { name: "ქართული", sub_category_id: 62 },
+    { name: "ოსური", sub_category_id: 62 },
+    { name: "აჭარული", sub_category_id: 62 },
+    { name: "აფხაზური", sub_category_id: 62 },
+    { name: "ლაზური", sub_category_id: 62 },
+    { name: "კინტაური", sub_category_id: 62 },
+    { name: "ხორუმი", sub_category_id: 62 },
+    { name: "მთიულური", sub_category_id: 62 },
+
+    //! უცხოური
+    { name: "break dance", sub_category_id: 63 },
+    { name: "hip hop", sub_category_id: 63 },
+    { name: "ელექტრო", sub_category_id: 63 },
 
 
 
@@ -857,98 +876,98 @@ const subSubCategoriesWithoutIds = [
     // *****************
    
     //! ფიტნესი
-    { name: "წონის დაკლება", sub_category_id: 61 },
-    { name: "პილატესი", sub_category_id: 61 },
-    { name: "მასწავლებელთა ტრენინგი", sub_category_id: 61 },
-    { name: "სახლის ვარჯიში", sub_category_id: 61 },
-    { name: "კუნთების აშენება", sub_category_id: 61 },
-    { name: "კეტელბელი", sub_category_id: 61 },
-    { name: "ტესტოსტერონი", sub_category_id: 61 },
-    { name: "გაჭიმვების ვარჯიში", sub_category_id: 61 }, 
+    { name: "წონის დაკლება", sub_category_id: 64 },
+    { name: "პილატესი", sub_category_id: 64 },
+    { name: "მასწავლებელთა ტრენინგი", sub_category_id: 64 },
+    { name: "სახლის ვარჯიში", sub_category_id: 64 },
+    { name: "კუნთების აშენება", sub_category_id: 64 },
+    { name: "კეტელბელი", sub_category_id: 64 },
+    { name: "ტესტოსტერონი", sub_category_id: 64 },
+    { name: "გაჭიმვების ვარჯიში", sub_category_id: 64 }, 
      
 
     //! ზოგადი ჯამრთელობა
-    { name: "მასაჟი", sub_category_id: 61 },
-    { name: "არომათერაპია", sub_category_id: 61 },
-    { name: "ჰერბალიზმი", sub_category_id: 61 },
-    { name: "ჰოლისტიკური მედიცინა", sub_category_id: 61 },
-    { name: "აკუპრესურა", sub_category_id: 61 },
-    { name: "ჯანმრთელობა", sub_category_id: 61 },
-    { name: "ეთერზეთი", sub_category_id: 61 },
-    { name: "რეფლექსოლოგია", sub_category_id: 61 },
-    { name: "ტაი ჩი", sub_category_id: 61 },
+    { name: "მასაჟი", sub_category_id: 65 },
+    { name: "არომათერაპია", sub_category_id: 65 },
+    { name: "ჰერბალიზმი", sub_category_id: 65 },
+    { name: "ჰოლისტიკური მედიცინა", sub_category_id: 65 },
+    { name: "აკუპრესურა", sub_category_id: 65 },
+    { name: "ჯანმრთელობა", sub_category_id: 65 },
+    { name: "ეთერზეთი", sub_category_id: 65 },
+    { name: "რეფლექსოლოგია", sub_category_id: 65 },
+    { name: "ტაი ჩი", sub_category_id: 65 },
 
     
     //! სპორტი
-    { name: "სპორტული ფსიქოლოგია", sub_category_id: 62 },
-    { name: "ფეხბურთი", sub_category_id: 62 },
-    { name: "ჩოგბურთი", sub_category_id: 62 },
-    { name: "სპორტული მწვრთნელები", sub_category_id: 62 },
-    { name: "Საბრძოლო ხელოვნება", sub_category_id: 62 },
-    { name: "გოლფი", sub_category_id: 62 },
-    { name: "ხაზოვანი ციგურაობა", sub_category_id: 62 },
-    { name: "ცურვა", sub_category_id: 62 },
-    { name: "სკეიტბორდინგი", sub_category_id: 62 },
+    { name: "სპორტული ფსიქოლოგია", sub_category_id: 66 },
+    { name: "ფეხბურთი", sub_category_id: 66 },
+    { name: "ჩოგბურთი", sub_category_id: 66 },
+    { name: "სპორტული მწვრთნელები", sub_category_id: 66 },
+    { name: "Საბრძოლო ხელოვნება", sub_category_id: 66 },
+    { name: "გოლფი", sub_category_id: 66 },
+    { name: "ხაზოვანი ციგურაობა", sub_category_id: 66 },
+    { name: "ცურვა", sub_category_id: 66 },
+    { name: "სკეიტბორდინგი", sub_category_id: 66 },
 
   
 
     //! სწორი კვება
-    { name: "დიეტა", sub_category_id: 63 },
-    { name: "სპორტული კვება", sub_category_id: 63 },
-    { name: "ვეგანური სამზარეულო", sub_category_id: 63 },
-    { name: "წონის დაკლება", sub_category_id: 63 },
-    { name: "კეტოგენური დიეტა", sub_category_id: 63 },
-    { name: "ჯანმრთელობის მწვრთნელები", sub_category_id: 63 },
-    { name: "დაბერების საწინააღმდეგო", sub_category_id: 63 },
+    { name: "დიეტა", sub_category_id: 67 },
+    { name: "სპორტული კვება", sub_category_id: 67 },
+    { name: "ვეგანური სამზარეულო", sub_category_id: 67 },
+    { name: "წონის დაკლება", sub_category_id: 67 },
+    { name: "კეტოგენური დიეტა", sub_category_id: 67 },
+    { name: "ჯანმრთელობის მწვრთნელები", sub_category_id: 67 },
+    { name: "დაბერების საწინააღმდეგო", sub_category_id: 67 },
 
     
     //! იოგა
-    { name: "იოგა ბავშვებისათვის", sub_category_id: 64 },
-    { name: "მასწავლებელთა ტრენინგი", sub_category_id: 64 },
-    { name: "სახის იოგა", sub_category_id: 64 },
-    { name: "სკამის იოგა", sub_category_id: 64 },
-    { name: "მედიტაცია", sub_category_id: 64 },
+    { name: "იოგა ბავშვებისათვის", sub_category_id: 68 },
+    { name: "მასწავლებელთა ტრენინგი", sub_category_id: 68 },
+    { name: "სახის იოგა", sub_category_id: 68 },
+    { name: "სკამის იოგა", sub_category_id: 68 },
+    { name: "მედიტაცია", sub_category_id: 68 },
     
     //! ფსიქიკური ჯანმრთელობის
-    { name: "CBT", sub_category_id: 65 },
-    { name: "არტთერაპია", sub_category_id: 65 },
-    { name: "PTSD", sub_category_id: 65 },
-    { name: "კონსულტაცია", sub_category_id: 65 },
-    { name: "ბავშვობის ტრავმის განკურნება", sub_category_id: 65 },
-    { name: "REBT", sub_category_id: 65 },
-    { name: "დიალექტიკური ქცევის თერაპია (DBT)", sub_category_id: 65 },
-    { name: "შფოთვა მართვა", sub_category_id: 65 },
+    { name: "CBT", sub_category_id: 69 },
+    { name: "არტთერაპია", sub_category_id: 69 },
+    { name: "PTSD", sub_category_id: 69 },
+    { name: "კონსულტაცია", sub_category_id: 69 },
+    { name: "ბავშვობის ტრავმის განკურნება", sub_category_id: 69 },
+    { name: "REBT", sub_category_id: 69 },
+    { name: "დიალექტიკური ქცევის თერაპია (DBT)", sub_category_id: 69 },
+    { name: "შფოთვა მართვა", sub_category_id: 69 },
     
     //! თავდაცვა
-    { name: "კრავ მაგას", sub_category_id: 66 },
-    { name: "კრივი", sub_category_id: 66 },
-    { name: "თავდაცვა", sub_category_id: 66 },
-    { name: "Საბრძოლო ხელოვნება", sub_category_id: 66 },
-    { name: "მუაი ტაი", sub_category_id: 66 },
-    { name: "ტაი ჩი", sub_category_id: 66 },
-    { name: "Ხელჩართული ბრძოლა", sub_category_id: 66 },
-    { name: "კარატე", sub_category_id: 66 },
+    { name: "კრავ მაგას", sub_category_id: 70 },
+    { name: "კრივი", sub_category_id: 70 },
+    { name: "თავდაცვა", sub_category_id: 70 },
+    { name: "Საბრძოლო ხელოვნება", sub_category_id: 70 },
+    { name: "მუაი ტაი", sub_category_id: 70 },
+    { name: "ტაი ჩი", sub_category_id: 70 },
+    { name: "Ხელჩართული ბრძოლა", sub_category_id: 70 },
+    { name: "კარატე", sub_category_id: 70 },
     
     
     //! უსაფრთხოება და პირველადი დახმარება
-    { name: "პირველადი დახმარება", sub_category_id: 67 },
-    { name: "ჰერბალიზმი", sub_category_id: 67 },
-    { name: "გადარჩენის უნარები", sub_category_id: 67 },
-    { name: "სამუშაო ადგილი ჯანმრთელობა და უსაფრთხოება", sub_category_id: 67 },
-    { name: "პირადი საგანგებო მზადყოფნა", sub_category_id: 67 },
-    { name: "სურსათის უვნებლობა", sub_category_id: 67 },
-    { name: "სახანძრო უსაფრთხოება", sub_category_id: 67 },
-    { name: "ფსიქიკური ჯანმრთელობის", sub_category_id: 67 },
+    { name: "პირველადი დახმარება", sub_category_id: 71 },
+    { name: "ჰერბალიზმი", sub_category_id: 71 },
+    { name: "გადარჩენის უნარები", sub_category_id: 71 },
+    { name: "სამუშაო ადგილი ჯანმრთელობა და უსაფრთხოება", sub_category_id: 71 },
+    { name: "პირადი საგანგებო მზადყოფნა", sub_category_id: 71 },
+    { name: "სურსათის უვნებლობა", sub_category_id: 71 },
+    { name: "სახანძრო უსაფრთხოება", sub_category_id: 71 },
+    { name: "ფსიქიკური ჯანმრთელობის", sub_category_id: 71 },
     
     
     
     //! მედიტაცია
-    { name: "გონებამახვილობა", sub_category_id: 68 },
-    { name: "ხმოვანი თერაპია", sub_category_id: 68 },
-    { name: "სტრესის მართვა", sub_category_id: 68 },
-    { name: "ტაი ჩი", sub_category_id: 68 },
-    { name: "Qi Gong", sub_category_id: 68 },
-    { name: "იოგა", sub_category_id: 68 },
+    { name: "გონებამახვილობა", sub_category_id: 72 },
+    { name: "ხმოვანი თერაპია", sub_category_id: 72 },
+    { name: "სტრესის მართვა", sub_category_id: 72 },
+    { name: "ტაი ჩი", sub_category_id: 72 },
+    { name: "Qi Gong", sub_category_id: 72 },
+    { name: "იოგა", sub_category_id: 72 },
     
 
 ]
