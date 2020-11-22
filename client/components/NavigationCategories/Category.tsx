@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { motion } from "framer-motion";
+ 
+
 
 //! ─── IMPORTS ────────────────────────────────────────────────────────────────────
+
 import Maincategory from "components/NavigationCategories/main_category";
 import SubCategory from "components/NavigationCategories/sub_category";
 import SubSubCategory from "components/NavigationCategories/sub_sub_category";
-import MainCategories from "public/json/MainCategories.json";
+// import MainCategories from "public/json/MainCategories.json";
 import {
   MainCategoryToggleAnimation,
   MainCategoryChildren,
@@ -13,31 +16,42 @@ import {
   SubCategoryLeftMoveAnimation,
   SubSubCategoryLeftMoveAnimation,
 } from "components/utils/framer/framerAnimation";
-import {
-  handleFetchMainCategory,
-  handleFetchSubCategoryClick,
+import {handleFetchMainCategory,handleFetchSubCategory,
 } from "components/utils/Category/CategoryFunctions";
+import { getAllCategories } from "actions/client/categories";
+
+
+
+
 
 const Category: React.FC = () => {
-  //* აქ იქნება ყველა ისეთეი სტეიტი,რომელიც პასუხისმგებელია გახსნა/დახურვაზე
-  //* და მსგავს პატარა რაღაცეებზე
+  
   const [isMouseleftSubSubCategory, setIsMouseleftSubSubCategory] = useState(false);
 
-  //* ესენი გვეხმარებიან დავარენდეროთ ის წამოღებული  კატეგორიის სახელები.
-  //* ერთ Sub მეორე Sub_sub ისთვის
   const [rendersSubNames, setRendersSubNames] = useState([]);
   const [rendersSubSubNames, setRendersSubSubNames] = useState([]);
 
   const [isMainCategoryChosen, setIsMainCategoryChosen] = useState(false);
   const [isSubCategoryChosen, setIsSubCategoryChosen] = useState(false);
 
-  //   const [isMouseLeftCategory, setIsMouseLeftCategory] = useState(true);
+  const [mainCategories, setCategories] = useState([]);
+  const [subCategories, setSubCategories] = useState([]);
+  const [subSubCategories, setSubSubCategories] = useState([]);
 
-  //* ესენი JSON ობიექტებისთვის რომ შემომეკლო დასახელება,ამიტომ სტეიტშია
-  const [mainCategories, setCategories] = useState(MainCategories.categories.main_categories);
-  const [subCategories, setSubCategories] = useState(MainCategories.categories.sub_categories);
-  const [subSubCategories, setSubSubCategories] = useState(MainCategories.categories.sub_sub_categories
-  );
+  
+  const fetchAllCategories = async () =>{
+    const {categories:{ main_categories, sub_categories, sub_sub_categories}} = await getAllCategories();
+    setCategories(main_categories);
+    setSubCategories(sub_categories);
+    setSubSubCategories(sub_sub_categories);
+    
+    console.log("dsdfgg")
+  }
+ 
+  useEffect(() => {
+   
+    fetchAllCategories()
+  })
 
   return (
     <>
@@ -45,7 +59,7 @@ const Category: React.FC = () => {
       <motion.ul
         className="list__main-category"
         onMouseEnter={() => setIsMouseleftSubSubCategory(false)}
-        
+        onClick={() => fetchAllCategories()}
         variants={MainCategoryLeftMoveAnimation}
         initial={{ left: "34rem" }}
         animate={isMainCategoryChosen && "left"}
@@ -67,17 +81,19 @@ const Category: React.FC = () => {
         ))}
       </motion.ul>
     
+
+    {rendersSubNames.length > 0 && 
       <motion.ul
         className="list__sub-category"
         variants={SubCategoryLeftMoveAnimation}
         initial={{ left: "25rem", display: "none", opacity: 0 }}
-        animate={isMainCategoryChosen && "left"}
+        animate={isMainCategoryChosen && rendersSubNames.length > 0 && "left"}
       >
-        {rendersSubNames &&
+        {rendersSubNames && 
           rendersSubNames.map((data) => (
             <SubCategory
               handleFetchSubCategoryClick={() =>
-                handleFetchSubCategoryClick(
+                handleFetchSubCategory(
                   data.id,
                   subSubCategories,
                   setRendersSubSubNames
@@ -91,13 +107,14 @@ const Category: React.FC = () => {
             />
           ))}
       </motion.ul>
+    }
 
-      {isMouseleftSubSubCategory && (
+      {isMouseleftSubSubCategory && rendersSubSubNames.length > 0 && (
         <motion.ul
           className="list__sub-sub-category"
           variants={SubSubCategoryLeftMoveAnimation}
           initial={{ right: "7rem", display: "none", opacity: 0 }}
-          animate={isSubCategoryChosen && "left"}
+          animate={isSubCategoryChosen && rendersSubSubNames.length > 0 &&  "left"}
         >
           {rendersSubSubNames &&
             rendersSubSubNames.map((data) => (

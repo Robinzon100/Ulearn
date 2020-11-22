@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { ShoppingCart, ChevronDown } from "react-feather";
-
-//! ─── IMPORTS ────────────────────────────────────────────────────────────────────
 import { NextLink } from "./utils/NextLink";
+//! ─── IMPORTS ────────────────────────────────────────────────────────────────────
+
 import Category from "./NavigationCategories/Category";
 import InputSearch from "components/global_components/inputs/inputSearch";
+
+
+
+
 
 const Navigation: React.FC = () => {
   const [placeHolder, setPlaceHolder] = useState<string>(
     "მოძებნე სასურველი კურსი"
   );
+
+  
 
   const [isToggled, setIsToggled] = useState(false);
   
@@ -83,13 +89,6 @@ const Navigation: React.FC = () => {
   );
 };
 
-// Navigation.getInitialProps = async () => {
-//     let { links } = await getNewPagesLinks()
-//     // setNewPageLinks(links)
-//     return {
-//         links: links
-//     }
 
-// }
 
 export default Navigation;

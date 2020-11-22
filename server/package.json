@@ -34,7 +34,7 @@
     "ts-node-dev": "^1.0.0"
   },
   "scripts": {
-    "start": "nodemon --watch '*.ts' --exec 'ts-node' server.ts",
+    "start": "nodemon --watch '*.ts' --exec ts-node server.ts",
     "db-migrate": "knex migrate:latest",
     "db-rollback": "knex migrate:rollback"
   },
