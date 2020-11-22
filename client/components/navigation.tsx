@@ -12,11 +12,9 @@ const Navigation: React.FC = () => {
   );
 
   const [isToggled, setIsToggled] = useState(false);
-  const [isMouseLeftCategory, setIsMouseLeftCategory] = useState(false);
+  
+  const [isMouseleftCategory, setIsMouseLeftCategory] = useState(true);
 
-//   const handleIsToggled = () => {
-//     setIsToggled((isToggled) => !isToggled);
-//   };
 
   return (
     <>
@@ -42,11 +40,13 @@ const Navigation: React.FC = () => {
 
         
           <div className="list"
-        //   onMouseLeave={() => setIsMouseLeftCategory((isMouseLeftCategory) => !isMouseLeftCategory)}
+        //   onMouseLeave={() => setIsMouseLeftCategory((isMouseleftCategory) => !isMouseleftCategory)}
           >
             {/* //* ============== MAIN-CATEGORY */}
-            {isToggled && (
-            <Category />
+            
+            {isToggled &&  (
+                
+                <Category />
             )}
           </div>
         

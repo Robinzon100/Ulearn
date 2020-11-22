@@ -76,28 +76,37 @@ $category-menu-width:9%;
     .list__main-category {
         position: absolute;
         z-index: 3;
+        
     }
 
     .list__sub-category {
         position: absolute;
         z-index: 2;
+        
     }
 
     .list__sub-sub-category {
         position: absolute;
-        left: 70%;
-        top: 125%;
+        
         z-index: 1;
+        
     }
     .list {
-        
+        position: absolute;
+        width: 100rem;
+        max-width: 110rem;
+        top: 130%;
+        left: 26%;
+        display: flex;
+        // height: ;
+
         &__main-category,
         &__sub-category,
         &__sub-sub-category {
-            width: 35rem;
+            width: 33%;
             // height: 0;
             // display: none;
-            height: 65rem;
+            height: 67rem;
             max-height: 70rem;
             box-shadow: 0px 23px 94px rgba(0, 0, 0, 0.13);
             list-style-type: none;

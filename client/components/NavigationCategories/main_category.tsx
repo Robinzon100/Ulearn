@@ -1,18 +1,17 @@
 import React from "react";
 import { ChevronRight } from "react-feather";
-import { motion } from "framer-motion";
 
+// import {handleFetchMainCategory} from "components/utils/Category/CategoryFunctions";
 
 const Category = ({ handleFetchMainCategory,setIsMainCategoryChosen,id,name },props) => {
     
-
-  return (
+    return (
     <>
     <li
           key={props.key}
           className="list__main-category--item"
-          onClick={(e) => {
-            handleFetchMainCategory(id, e);
+          onMouseEnter={() => {
+            handleFetchMainCategory(id);
             setIsMainCategoryChosen(true)
           }}
           //   variants={MainCategoryChildren}
