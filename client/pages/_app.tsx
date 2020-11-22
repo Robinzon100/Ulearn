@@ -1,8 +1,6 @@
 import '../styles/main.scss'
-// import "antd/dist/antd.css";
-// import 'react-quill/dist/quill.bubble.css';
-// import 'react-quill/dist/quill.snow.css';
-// import 'react-quill/dist/quill.core.css'; 
+// import fs from 'fs';
+
 
 
 function MyApp({ Component, pageProps }) {
@@ -14,10 +12,13 @@ function MyApp({ Component, pageProps }) {
 // perform automatic static optimization, causing every page in your app to
 // be server-side rendered.
 //
+
 // MyApp.getInitialProps = async (appContext) => {
 //   // calls page's `getInitialProps` and fills `appProps.pageProps`
-//   const appProps = await App.getInitialProps(appContext);
-//
-//   return { ...appProps }
+// //   console.log(fs)
+// //   const appProps = await App.getInitialProps(appContext);
+
+//   return { name: "kutu" }
 // }
+
 export default MyApp
