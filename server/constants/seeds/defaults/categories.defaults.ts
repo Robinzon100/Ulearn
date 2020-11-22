@@ -214,7 +214,7 @@ const subSubCategoriesWithoutIds = [
     { name: "პოსტერის დიზაინი", sub_category_id: 8 },
     { name: "Canva", sub_category_id: 8 },
     { name: "პერსონაჟების ხატვა", sub_category_id: 8 },
-    { name: "პროდუქტის დიზაინი", sub_category_id: 10 },
+    { name: "პროდუქტის დიზაინი", sub_category_id: 8 },
 
 
 
