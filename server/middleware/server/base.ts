@@ -8,7 +8,10 @@ const compression = require('compression');
 
 
 let corsOptions = {
-    origin: 'http://localhost:3000'
+    origin: process.env.FRONT_END_URL,
+    optionsSuccessStatus: 200,
+    methods: ['GET', 'PUT', 'POST', 'PATCH', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }
 
 
@@ -25,10 +28,7 @@ export const baseMiddlewares = (app: Application) => {
     app.use(cors(corsOptions))
 
     app.use((req: Request, res: Response, next: NextFunction) => {
-        // res.setHeader('Access-Control-Allow-Origin', `*`);
         // res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-        // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-        // res.setHeader('Access-Control-Allow-Headers', '*');
         // res.setHeader('Access-Control-Allow-Credentials', 'true');
         next();
     });

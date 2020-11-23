@@ -51,7 +51,6 @@ const Navigation: React.FC = () => {
             {/* //* ============== MAIN-CATEGORY */}
             
             {isToggled &&  (
-                
                 <Category />
             )}
           </div>
