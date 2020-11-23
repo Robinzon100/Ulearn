@@ -1,7 +1,7 @@
   //* ეს იძლევა საშუალებას დაჭერის შემდეგ გამოჩნდეს Sub_categoria
 
 
-export const handleFetchMainCategory = (id: number,subCategories,setRendersSubNames) => {
+export const handleHoverMainCategory = (id: number,subCategories,setRendersSubNames) => {
     // e.preventDefault();
 
     const filteredSubCategory = subCategories.filter(
@@ -16,7 +16,7 @@ export const handleFetchMainCategory = (id: number,subCategories,setRendersSubNa
 
 
 //* ეს იძლევა საშუალებას დაჭერის შემდეგ გამოჩნდეს Sub_Sub_categoria
-export const handleFetchSubCategory = (id: number,subSubCategories,setRendersSubSubNames) => {
+export const handleHoverSubCategory = (id: number,subSubCategories,setRendersSubSubNames) => {
     // e.preventDefault();
     // debugger
     const filteredSubSubCategory = subSubCategories.filter(

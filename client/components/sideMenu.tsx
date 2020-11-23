@@ -5,8 +5,12 @@ import { motion } from "framer-motion";
 
 import {sideMenuAnimation} from "components/utils/framer/framerAnimation";
 
+interface Props {
+    handleDisplayVideoNames:any
+}
 
-const sideMenu: React.FC<videoList> = ({
+
+const sideMenu: React.FC<videoList & Props> = ({
     id,
     title,
     courseChapterTime,
@@ -16,10 +20,8 @@ const sideMenu: React.FC<videoList> = ({
 
     const [revealContent, setRevealContent] = useState<boolean>(false);
     const [finished, setFinished] = useState<boolean>(false);
-    // const ref = useRef();
-
     
-
+    
     const handleSetRevealContent = () => {
         setRevealContent((revealContent) => !revealContent);
     };

@@ -15,6 +15,7 @@ $paragraph-regulars: "georgian-paragraph-regulars","Eina-regular";
 
 $paragraph-regulars-arial: "georgian-paragraph-regulars-arial","Eina-regular";
 
+$paragraph-regulars-bold:"georgian-paragraph-regulars","Eina-semibold";
 
 .heading-extra-bold {
     font-family: $heading-extra-bold;
@@ -42,6 +43,11 @@ $paragraph-regulars-arial: "georgian-paragraph-regulars-arial","Eina-regular";
 .paragraph-regulars-arial {
     font-family: $paragraph-regulars-arial;
 }
+.paragraph-regulars-bold{
+    font-family: $paragraph-regulars-bold;
+}
+
+
 
 
 /// ================ FOR ENGLISH
@@ -69,7 +75,7 @@ $Eina-semibold: "Eina-semibold";
 $Eina-regular: "Eina-regular";
 
 .Eina-semibold {
-    font-family: $Eina-semibold !important;
+    font-family: $Eina-semibold ;
 }
 .Eina-regular {
     font-family: $Eina-regular;

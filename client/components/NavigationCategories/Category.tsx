@@ -4,20 +4,13 @@ import { motion } from "framer-motion";
 
 
 //! ─── IMPORTS ────────────────────────────────────────────────────────────────────
-
 import Maincategory from "components/NavigationCategories/main_category";
 import SubCategory from "components/NavigationCategories/sub_category";
 import SubSubCategory from "components/NavigationCategories/sub_sub_category";
-import {
-  MainCategoryLeftMoveAnimation,
-  SubCategoryLeftMoveAnimation,
-  SubSubCategoryLeftMoveAnimation,} from "components/utils/framer/framerAnimation";
-import {handleFetchMainCategory,handleFetchSubCategory,} from "components/utils/Category/CategoryFunctions";
+import {MainCategoryLeftMoveAnimation,SubCategoryLeftMoveAnimation,SubSubCategoryLeftMoveAnimation} from "components/utils/framer/framerAnimation";
+import {handleHoverMainCategory,handleHoverSubCategory} from "components/utils/Category/CategoryFunctions";
 import { getAllCategories } from '../../actions/client/categories';
  
-
-
-
 
 
 const Category: React.FC = () => {
@@ -52,7 +45,6 @@ const Category: React.FC = () => {
       <motion.ul
         className="list__main-category"
         onMouseEnter={() => setIsMouseleftSubSubCategory(false)}
-        // onClick={() => fetchAllCategories()}
         variants={MainCategoryLeftMoveAnimation}
         initial={{ left: "34rem" }}
         animate={isMainCategoryChosen && "left"}
@@ -60,7 +52,7 @@ const Category: React.FC = () => {
         {mainCategories.map((data) => (
           <Maincategory
             handleFetchMainCategory={() =>
-              handleFetchMainCategory(
+                handleHoverMainCategory(
                 data.id,
                 subCategories,
                 setRendersSubNames
@@ -86,7 +78,7 @@ const Category: React.FC = () => {
           rendersSubNames.map((data) => (
             <SubCategory
               handleFetchSubCategoryClick={() =>
-                handleFetchSubCategory(
+                handleHoverSubCategory(
                   data.id,
                   subSubCategories,
                   setRendersSubSubNames
@@ -94,6 +86,7 @@ const Category: React.FC = () => {
               }
               setIsSubCategoryChosen={setIsSubCategoryChosen}
               setIsMouseleftSubSubCategory={setIsMouseleftSubSubCategory}
+              rendersSubSubNames={rendersSubSubNames}
               key={data.id}
               id={data.id}
               name={data.name}
