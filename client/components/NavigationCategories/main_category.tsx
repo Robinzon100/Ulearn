@@ -22,7 +22,7 @@ const Category = ({ handleFetchMainCategory,setIsMainCategoryChosen,id,name },pr
               <div className="text">
                 <a
                 //   href="#"
-                  className="list--items__links paragraph-regulars paragraph-small"
+                  className="list--items__links paragraph-regulars-bold paragraph-small"
                 >
                   {name}
                 </a>

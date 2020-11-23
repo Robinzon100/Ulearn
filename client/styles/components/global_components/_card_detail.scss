@@ -9,8 +9,6 @@ $card-detail-shadow:20px 30px 90px 10px rgba(19, 21, 26, 0.2);
     transition: all 5s;
 
 }
-
-
 .card_detail {
     display: flex;
     justify-content: center;
@@ -21,10 +19,9 @@ $card-detail-shadow:20px 30px 90px 10px rgba(19, 21, 26, 0.2);
     margin-left: .5rem;
     border-radius: 1px;
     top: -30px;
+    left: 30px;
     padding: 0.2rem 2rem;
-    // left: 30px;
-    // bottom: 0;
-    // display: block;
+    
     opacity: 1;
     color: var(--primary-dark) !important;
     text-align: left !important;
@@ -56,9 +53,6 @@ $card-detail-shadow:20px 30px 90px 10px rgba(19, 21, 26, 0.2);
             }
 
         }
-
-
-
         &__date {
             @include flex;
             margin: 0.8rem 0 !important;

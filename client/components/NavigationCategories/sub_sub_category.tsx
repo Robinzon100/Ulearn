@@ -16,7 +16,7 @@ const sub__sub_category = ({id,name},props) =>  {
                       <div className="text">
                         <a
                           href="#"
-                          className="list--items__links paragraph-regulars paragraph-small"
+                          className="list--items__links  paragraph-regulars-bold paragraph-small"
                         >
                           {name}
                         </a>

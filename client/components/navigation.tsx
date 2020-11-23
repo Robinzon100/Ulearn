@@ -14,12 +14,10 @@ const Navigation: React.FC = () => {
   const [placeHolder, setPlaceHolder] = useState<string>(
     "მოძებნე სასურველი კურსი"
   );
-
   
-
   const [isToggled, setIsToggled] = useState(false);
   
-  const [isMouseleftCategory, setIsMouseLeftCategory] = useState(true);
+  const [isMouseleftCategory, setIsMouseLeftCategory] = useState(false);
 
 
   return (
@@ -33,7 +31,9 @@ const Navigation: React.FC = () => {
           </div>
         </div>
 
-        <div className="header__category-menu" onClick={() => setIsToggled((isToggled) => !isToggled)}>
+        <div className="header__category-menu" 
+        onClick={() => {setIsToggled(true);setIsMouseLeftCategory(true)}}
+        >
           <div className="header__category-menu--heading">
             <p className="heading-extra-bold paragraph-medium-small">
               კატეგორიები
@@ -46,11 +46,12 @@ const Navigation: React.FC = () => {
 
         
           <div className="list"
-        //   onMouseLeave={() => setIsMouseLeftCategory((isMouseleftCategory) => !isMouseleftCategory)}
+        onMouseLeave={() => {setIsToggled(false);setIsMouseLeftCategory(false)}}
           >
             {/* //* ============== MAIN-CATEGORY */}
             
-            {isToggled &&  (
+            {isToggled && isMouseleftCategory && (
+                
                 <Category />
             )}
           </div>

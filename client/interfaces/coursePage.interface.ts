@@ -1,5 +1,5 @@
 //! === TYPES
-import { stars } from "../type/course.type";
+import { rating } from "../type/course.type";
 
 
 
@@ -27,11 +27,6 @@ export interface videoList {
     subTitles: subTitle[];
     // subTaskTime: number;
 }
-
-
-
-
-
 
 
 //====================================================
@@ -81,7 +76,7 @@ export interface videoList {
   interface Rating{
     userName: string,
     datePosted: string,  
-    amountOfStars: stars,
+    amountOfStars: number,
     comment: string,
     dislike: number,
     like: number,

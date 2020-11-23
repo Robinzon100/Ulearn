@@ -2,7 +2,7 @@ import React from 'react'
 import { ChevronRight } from "react-feather";
 
 
-const sub_category = ({handleFetchSubCategoryClick,setIsSubCategoryChosen,setIsMouseleftSubSubCategory,id,name},props) =>  {
+const sub_category = ({handleFetchSubCategoryClick,setIsSubCategoryChosen,setIsMouseleftSubSubCategory,rendersSubSubNames,id,name},props) =>  {
     return (
         <>
             {/* // SUB_CATEGORY */}
@@ -23,13 +23,16 @@ const sub_category = ({handleFetchSubCategoryClick,setIsSubCategoryChosen,setIsM
                       <div className="text">
                         <a
                           href="#"
-                          className="list--items__links paragraph-regulars paragraph-small"
+                          className="list--items__links  paragraph-regulars-bold paragraph-small"
                         >
                           {name}
                         </a>
                       </div>
                     </div>
 
+                    {/* {rendersSubSubNames.length > 0 &&
+                    
+                    } */}
                     <div className="item-container__chevron">
                       <ChevronRight size={25} />
                     </div>
