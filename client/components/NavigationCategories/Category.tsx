@@ -27,18 +27,20 @@ const Category: React.FC = () => {
   const [subCategories, setSubCategories] = useState([]);
   const [subSubCategories, setSubSubCategories] = useState([]);
 
+  const [dataFeatched, setDataFeatched] = useState(false)
+
 
   const fetchAllCategories = async () => {
     const { categories: { main_categories, sub_categories, sub_sub_categories } } = await getAllCategories();
     setCategories(main_categories);
     setSubCategories(sub_categories);
     setSubSubCategories(sub_sub_categories);
+    setDataFeatched(true)
   }
 
   useEffect(() => {
-    if (mainCategories.length <= 0 &&
-      subCategories.length <= 0 &&
-      subSubCategories.length <= 0) {
+    if (!dataFeatched) {
+      debugger
       fetchAllCategories()
     }
   }, [])
