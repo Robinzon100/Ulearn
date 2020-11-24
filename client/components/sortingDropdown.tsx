@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Calendar,Clock } from "react-feather";
+import { Calendar, Clock, Star } from "react-feather";
 import SelectInput from "components/global_components/inputs/selectInput";
 
 interface SortingDropdown {
@@ -38,7 +38,12 @@ const SortingDropdown: React.FC<SortingDropdown> = ({ type }) => {
           selectOptions={selectOptions}
           onChange={handleSelectChange}
         >
-          {/* <div className="input_"></div> */}
+          <div
+            className="input_icon"
+            style={{ backgroundColor: "var(--primary-blue)" }}
+          >
+            <Calendar size={15} style={{ color: "blue", opacity: "1" }} />
+          </div>
         </SelectInput>
       )}
 
@@ -48,7 +53,15 @@ const SortingDropdown: React.FC<SortingDropdown> = ({ type }) => {
           type="sorting_raiting"
           selectOptions={selectOptions}
           onChange={handleSelectChange}
-        />
+        >
+          <div
+            className="input_icon"
+            style={{ backgroundColor: "var(--primary-yellow)" }}
+          >
+            <Star size={15} 
+            style={{ color: "yellow", opacity: "1" }} />
+          </div>
+        </SelectInput>
       )}
 
       {type === "time" && (
@@ -58,8 +71,12 @@ const SortingDropdown: React.FC<SortingDropdown> = ({ type }) => {
           selectOptions={selectOptions}
           onChange={handleSelectChange}
         >
-          <div className="input_icon">
-            <Clock />
+          <div
+            className="input_icon"
+            style={{ backgroundColor: "var(--primary-red)" }}
+          >
+            <Clock size={15} 
+            style={{ color: "red", opacity: "1" }} />
           </div>
         </SelectInput>
       )}

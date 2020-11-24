@@ -2,22 +2,29 @@ $box-shadow-category:0px 7px 9px -3px rgba(0, 0, 0, 0.1),
 0px 2.5px 0px -1px #C9C9C9;
 
 
-.category::-webkit-scrollbar{
-    width: 0 !important 
+.category::-webkit-scrollbar {
+    width: 0 !important
 }
+
 .category {
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
     height: 69rem;
-    -ms-overflow-style: none;  
-    scrollbar-width: none; 
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     overflow: -moz-scrollbars-none;
-    
-    
+
+
 
     .categoryAll {
         background-color: var(--primary-darkBlue);
+
+        a {
+
+            color: var(--white) !important;
+
+        }
 
         .category_main--number {
             background-color: var(--white) !important;
@@ -25,7 +32,7 @@ $box-shadow-category:0px 7px 9px -3px rgba(0, 0, 0, 0.1),
         }
     }
 
-    
+
     .category_container {
 
         .category_main {
@@ -33,13 +40,22 @@ $box-shadow-category:0px 7px 9px -3px rgba(0, 0, 0, 0.1),
             border-radius: 8px;
             padding: 14px;
 
+
             &:first-child {
                 margin-top: 5.4rem;
+
             }
 
             &--name {
                 color: var(--white);
                 cursor: pointer;
+
+
+
+                a {
+                    text-decoration: none;
+                    color: var(--primary-dark);
+                }
             }
 
             &--number {
@@ -52,11 +68,6 @@ $box-shadow-category:0px 7px 9px -3px rgba(0, 0, 0, 0.1),
                 width: 100%;
                 text-align: center;
                 background-color: var(--primary-grey);
-
-                // p {
-                //     font-weight: bold;
-
-                // }
 
             }
         }

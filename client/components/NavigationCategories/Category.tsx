@@ -40,11 +40,7 @@ const Category: React.FC = () => {
   }
 
   useEffect(() => {
-    // if (!dataFeatched) {
-    // //   debugger
-      
-    // }
-    fetchAllCategories()
+      fetchAllCategories()
   }, [])
 
   return (
@@ -74,10 +70,7 @@ const Category: React.FC = () => {
           />
         ))}
       </motion.ul>
-
-
-
-
+      
       {rendersSubNames.length > 0 &&
         <motion.ul
           className="list__sub-category"
@@ -107,11 +100,7 @@ const Category: React.FC = () => {
             ))}
         </motion.ul>
       }
-
-
-
-
-
+      
       {isMouseleftSubSubCategory && rendersSubSubNames.length > 0 && (
         <motion.ul
           className="list__sub-sub-category"

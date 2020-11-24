@@ -1,7 +1,8 @@
 import React from "react";
 import { ChevronRight } from "react-feather";
+import { NextLink } from 'components/utils/NextLink';
 
-// import {handleFetchMainCategory} from "components/utils/Category/CategoryFunctions";
+
 
 const Category = ({ handleFetchMainCategory,setIsMainCategoryChosen,id,name },props) => {
     
@@ -20,12 +21,12 @@ const Category = ({ handleFetchMainCategory,setIsMainCategoryChosen,id,name },pr
             <div className="item-container__cube-text">
               <div className="cube"></div>
               <div className="text">
-                <a
-                //   href="#"
+                <NextLink
+                    route="#"
                   className="list--items__links paragraph-regulars-bold paragraph-small"
                 >
                   {name}
-                </a>
+                </NextLink>
               </div>
             </div>
 

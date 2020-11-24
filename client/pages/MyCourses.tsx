@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import ReactHtmlParser from "react-html-parser";
 import { ShoppingCart } from "react-feather";
-
-
+import { NextLink } from "components/utils/NextLink";
 
 import BaseLayout from "components/base-layout";
 import SideMenu from "components/sideMenu";
@@ -12,8 +11,6 @@ import MyCoursesJson from "../public/json/MyCourses.json";
 
 //! === INTERFACES
 import { MyCoursePageContent } from "../interfaces/MyCoursesPage.interface";
-
-
 
 
 
@@ -59,23 +56,24 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
                 </div>
                 <div className="mycourses-hero__about-course--btns">
                   <div className="buy-course">
-                    <a
-                      href="#"
+                      
+                    <NextLink
+                      route="#"
                       className="btn btn-green heading-semi-bold paragraph-medium-small"
                     >
                       კურსის შეძენა
-                    </a>
+                    </NextLink>
                   </div>
                   <div className="save-bucket">
-                    <a
-                      href="#"
+                    <NextLink
+                      route="#"
                       className="btn btn-yellow heading-semi-bold paragraph-medium-small"
                     >
                       <p>კალათაში შენახვა</p>
                       <div className="shopping_cart">
                         <ShoppingCart />
                       </div>
-                    </a>
+                    </NextLink>
                   </div>
                 </div>
               </div>
@@ -110,16 +108,16 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
                             <strong>{instructorInfo.userName}</strong>
                           </p>
 
-                          <a href="#">
+                          <NextLink route="#">
                             <strong>({instructorInfo.numberOfCourses}) კურსი</strong>
-                          </a>
+                          </NextLink>
 
                           <div className="students">
-                            <a href="#">
+                            <NextLink route="#">
                               <strong>({instructorInfo.numberOfStudents}) სტუდენტი</strong>
-                            </a>
-                            <div className="stars">
-                            <Stars StarWidth={18} numberOfStars={instructorInfo.amountOfStars}/>
+                            </NextLink>
+                            <div className="stars" >
+                            <Stars  StarWidth={18} numberOfStars={instructorInfo.amountOfStars}/>
                             {/* <p>({instructorInfo.amountOfVotes})</p> */}
                             
                             </div>
@@ -140,11 +138,11 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
                 <br />
                 <br />
                 <div className="instructor_btn">
-                  <a href="#" className="btn btn-red">
+                  <NextLink route="#" className="btn btn-red">
                     <p>
                       <strong>ინსტრუქტორის გამოწერა</strong>
                     </p>
-                  </a>
+                  </NextLink>
                 </div>
               </div>
 
@@ -154,7 +152,7 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
                   title={"Angular"}
                   courseChapterTime={45}
                   subTitles={subTitles}
-                  handleDisplayVideoNames
+                //   handleClick={handleDisplayVideoNameClick}
                 />
               </div>
             </div>

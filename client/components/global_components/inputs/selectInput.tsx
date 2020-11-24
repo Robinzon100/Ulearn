@@ -29,10 +29,7 @@ const selectInput: React.FC<selects> = ({ id, onChange,selectOptions,type,childr
     
     return (
         <>
-        <div className={type === "sorting_date" ? "sorting__video-date" : 
-        type === "sorting_raiting" ? "sorting__video-raiting" : 
-        type === "sorting_length" ? "sorting__video-length"  : 
-        null }
+        <div className="sorting__video"
         >
             {children}
             <div className="dropdown input-shadow input-shadow-onFocus" 

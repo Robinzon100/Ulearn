@@ -1,4 +1,5 @@
 import React from 'react'
+import { NextLink } from 'components/utils/NextLink';
 
 
 const sub__sub_category = ({id,name},props) =>  {
@@ -14,12 +15,12 @@ const sub__sub_category = ({id,name},props) =>  {
                     <div className="item-container__cube-text">
                      
                       <div className="text">
-                        <a
-                          href="#"
+                        <NextLink
+                          route="#"
                           className="list--items__links  paragraph-regulars-bold paragraph-small"
                         >
                           {name}
-                        </a>
+                        </NextLink>
                       </div>
                     </div>
 

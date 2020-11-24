@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { ShoppingCart, ChevronDown } from "react-feather";
-import { NextLink } from "./utils/NextLink";
+import {NextLink}  from "components/utils/NextLink";
+
+
 //! ─── IMPORTS ────────────────────────────────────────────────────────────────────
 
 import Category from "./NavigationCategories/Category";
 import InputSearch from "components/global_components/inputs/inputSearch";
-import Link from 'next/link';
+
+
 
 
 
@@ -25,16 +28,16 @@ const Navigation: React.FC = () => {
     <>
       <header className="header">
         <div className="logo_container">
-          <Link  href='/'>
+          <NextLink  route='/'>
             <div className="logo"></div>
-          </Link>
+          </NextLink>
           <div className="input">
             <InputSearch id={1} placeHolder={placeHolder} />
           </div>
         </div>
 
         <div className="header__category-menu"
-          onClick={() => { setIsToggled(true); setIsMouseLeftCategory(true) }}>
+          onClick={() => { setIsToggled((isToggled) => !isToggled); setIsMouseLeftCategory(true) }}>
           <div className="header__category-menu--heading">
             <p className="heading-extra-bold paragraph-medium-small">
               კატეგორიები
@@ -58,28 +61,34 @@ const Navigation: React.FC = () => {
         <div className="menu_container">
           <div className="menu">
             <ul className="menu--list">
-              <li className="menu--list--items">
-                <NextLink route="/courses" title="კურსები" />
+              <li className="menu--list__items">
+                <NextLink route="/courses" className="menu--list__items--links">
+                    <p className="paragraph-regulars paragraph-small">კურსები</p>
+                </NextLink>
               </li>
-              <li className="menu--list--items">
-                <NextLink route="/lecturers" title="გახდი ლექტორი" />
+              <li className="menu--list__items">
+                <NextLink route="/lecturers" className="menu--list__items--links">
+                    <p className="paragraph-regulars paragraph-small">გახდი ლექტორი</p>
+                </NextLink>
               </li>
             </ul>
           </div>
 
           <div className="login">
-            <a href="#">
+            <NextLink route="/singup">
               <p className="medium paragraph-small">login / sign up</p>
-            </a>
+            </NextLink>
           </div>
 
           <div className="cart">
-            <a href="#">
+            <NextLink route="/shoppingCart">
               <ShoppingCart />
-            </a>
+            </NextLink>
           </div>
 
-          <a href="#" className="unregistered_user"></a>
+          <NextLink route="/shoppingCart" className="unregistered_user">
+
+          </NextLink>
         </div>
         <div className="mobile_hamburger"></div>
       </header>
