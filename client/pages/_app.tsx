@@ -1,4 +1,5 @@
 import '../styles/main.scss'
+import 'video.js/dist/video-js.css'
 // import fs from 'fs';
 
 

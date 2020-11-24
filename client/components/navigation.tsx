@@ -17,7 +17,6 @@ const Navigation: React.FC = () => {
   );
 
   const [isToggled, setIsToggled] = useState(false);
-
   const [isMouseleftCategory, setIsMouseLeftCategory] = useState(false);
 
 

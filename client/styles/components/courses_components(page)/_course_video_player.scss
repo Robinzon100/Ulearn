@@ -1,0 +1,123 @@
+.course_video_player_container {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 30px 50px -15px rgba(0, 0, 0, 0.25),
+    0 20px 20px -5px rgba(0, 0, 0, 0.04);
+  border-radius: 10px;
+  overflow: hidden;
+
+  .course_video_player {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 1vw;
+
+    &:hover .vjs-big-play-button {
+      background: rgba(227, 227, 227, 0.39);
+      box-shadow: inset 0px 0px 6px rgba(255, 255, 255, 0.66);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 30px 40px -15px rgba(0, 0, 0, 0.3),
+        0 20px 20px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .vjs-paused {
+      .vjs-big-play-button {
+        display: none;
+      }
+    }
+
+    .vjs-big-play-button {
+      height: 12vw;
+      border-radius: 100px;
+      width: 12vw;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      cursor: pointer;
+      background: rgba(227, 227, 227, 0.39);
+      box-shadow: inset 0px 0px 6px rgba(255, 255, 255, 0.66);
+      backdrop-filter: blur(10px);
+      transition: all 0.2s ease !important;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 30px 40px -15px rgba(0, 0, 0, 0.5),
+        0 20px 20px -5px rgba(0, 0, 0, 0.04);
+
+      &:hover {
+        box-shadow: 0 20px 20px -15px rgba(0, 0, 0, 0.3),
+          0 20px 20px -5px rgba(0, 0, 0, 0.04);
+      }
+
+      .vjs-icon-placeholder {
+        position: relative;
+
+        &:before {
+          content: "";
+          display: block;
+          position: absolute;
+          transform: translate(-40%, -47%);
+          top: 50%;
+          left: 50%;
+          width: 4.9vw;
+          height: 6vw;
+          background: {
+            image: url("/SVG/player_elements/play.svg");
+            size: cover;
+            position: center;
+          }
+        }
+      }
+    }
+
+    .vjs-control-bar {
+      height: 6em;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgb(0 0 0 / 58%) 100.83%
+      );
+      font-size: 1.2rem;
+
+      display: grid;
+      grid-template-areas:
+        "progress progress progress"
+        "controlls . settings";
+
+      .vjs-play-control {
+        grid-area: controlls;
+        position: absolute;
+        left: 2%;
+      }
+      .vjs-volume-panel {
+        grid-area: controlls;
+        position: absolute;
+        left: 27%;
+      }
+
+      .vjs-playback-rate {
+        grid-area: controlls;
+        position: absolute;
+        left: 15%;
+      }
+
+      .vjs-progress-control {
+        grid-area: progress;
+        width: 98%;
+        justify-self: center;
+      }
+      .vjs-time-control {
+        grid-area: settings;
+      }
+      .vjs-fullscreen-control {
+        grid-area: settings;
+        grid-area: settings;
+        position: absolute;
+        right: 2%;
+      }
+      .vjs-control {
+        // grid-area: timeline;
+      }
+    }
+  }
+}

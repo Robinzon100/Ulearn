@@ -18,9 +18,9 @@ import QuestionAnswer from "../public/SVG/CoursesSvg/HelpCircle";
 import Estimates from "../public/SVG/CoursesSvg/Estimates";
 
 //! === INTERFACES
-import { AboutCourse,Description_type,QuestionAnswer_type,Resources_type,Estimates_type,
-} from "../interfaces/coursePage.interface";
+import { AboutCourse, Description_type, QuestionAnswer_type, Resources_type, Estimates_type, } from "../interfaces/coursePage.interface";
 import { changeTabPositionAndColor } from "../function/courses/content";
+import CourseVideoPlayer from '../components/CourseVideoPlayer';
 
 export const Courses: React.FC<AboutCourse> = () => {
   const [placeHolder, setPlaceHolder] = useState<string>("დაწერე რაც გინდა");
@@ -55,10 +55,10 @@ export const Courses: React.FC<AboutCourse> = () => {
   ];
 
   useEffect(() => {
-    changeTabPositionAndColor(".renderedContent_list",".renderedContent_list--item");
+    changeTabPositionAndColor(".renderedContent_list", ".renderedContent_list--item");
   }, []);
 
-  
+
 
   //! ფურნქცია რომ აჩვენოს კონკრეტული ვიდეოს სახელი
   const handleDisplayVideoNames = (e) => {
@@ -71,7 +71,7 @@ export const Courses: React.FC<AboutCourse> = () => {
   };
 
   //! ტაბებზე დაჭერისას კონტენტის შეცვლის ფუნქცია
-  const fetchTabConent = (courseId: number,route: string):| Description_type| QuestionAnswer_type| Resources_type| Estimates_type => {
+  const fetchTabConent = (courseId: number, route: string): | Description_type | QuestionAnswer_type | Resources_type | Estimates_type => {
     switch (route) {
       case "/description":
         return CoursesJson.description;
@@ -107,13 +107,7 @@ export const Courses: React.FC<AboutCourse> = () => {
     }
   };
 
-  useEffect(() => {
-    let player = new Playerjs({
-      id: "player",
-      file:
-        "https://s4114-21.imovies.cc/video/imovie_hash_code/3/2017050923065223_high_eng.mp4?md5=W1C5ex9RqZWL-Rejf4JUqw&expires=1599656434&data=YTozOntzOjc6InVzZXJfaXAiO3M6MTU6IjE3Ni4yMjEuMTMyLjIxMCI7czoxMDoidXNlcl9hZ2VudCI7czoxMTQ6Ik1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS84NS4wLjQxODMuODMgU2FmYXJpLzUzNy4zNiI7czo3OiJyZWZlcmVyIjtzOjIzOiJodHRwczovL3d3dy5pbW92aWVzLmNjLyI7fQ==",
-    });
-  }, []);
+
 
   return (
     <>
@@ -146,38 +140,47 @@ export const Courses: React.FC<AboutCourse> = () => {
           </div>
           <div className="courses-container">
             <div className="section-courses">
-              {/* //! VIDEOPLAYER */}
-              <div id="player" className="section-courses--video-player"></div>
-              {/* //! VIDEOPLAYER */}
 
+              <div id="player" className="section-courses--video-player">
+                <CourseVideoPlayer />
+              </div>
+
+              
+              
+              
+              
               <div className="section-courses--tablist">
                 <div className="section-courses--tablist__container gray-border">
                   <ul className="renderedContent_list">
                     {courseTabs
                       ? courseTabs.map((courseTab, i) => (
-                          <li
-                            style={{ cursor: "pointer" }}
-                            className="renderedContent_list--item noselect"
-                            onClick={(e) => {
-                              setTabContent(fetchTabConent(1, courseTab.route));
-                              setTabIndex(i);
-                            }}
-                            key={i}
-                          >
-                            <div className="rendered_icon">
-                              {renderIcon(courseTab.iconComponent)}
-                            </div>
-                            <div className="rendered_title">
-                              <p className="heading-semi-bold paragraph-medium">
-                                {courseTab.title}
-                              </p>
-                            </div>
-                          </li>
-                        ))
+                        <li
+                          style={{ cursor: "pointer" }}
+                          className="renderedContent_list--item noselect"
+                          onClick={(e) => {
+                            console.log(e.currentTarget)
+                            // setTabContent(fetchTabConent(1, courseTab.route));
+                            // setTabIndex(i);
+                          }}
+                          key={i}>
+                          <div className="rendered_icon">
+                            {renderIcon(courseTab.iconComponent)}
+                          </div>
+                          <div className="rendered_title">
+                            <p className="heading-semi-bold paragraph-medium">
+                              {courseTab.title}
+                            </p>
+                          </div>
+                        </li>
+                      ))
                       : null}
                     <span className="underline"></span>
                   </ul>
                 </div>
+
+
+
+
 
                 <div className="courses_content">
                   <div className="СontentReveal">
@@ -185,33 +188,32 @@ export const Courses: React.FC<AboutCourse> = () => {
                       ReactHtmlParser(tabContent.html)
                     ) : tabIndex == 1 ? (
                       <div className="QuestionAnswerReveal">
-                        {tabContent.questionAnswers.map(
-                          (question, i: number) => (
-                            <div className="question-answer" >
-                              <div className="main-comment">
-                                <div
-                                  style={{
-                                    backgroundImage: `url(${question.imageUrl})`,
-                                  }}
-                                  className="main-comment__pic"
-                                ></div>
-                                <div className="main-comment__text">
-                                  <div className="about-user">
-                                    <div className="about-user__name">
-                                      <h1>{question.userName}</h1>
-                                    </div>
-                                    <div className="about-user__time">
-                                      <p>{question.datePosted}</p>
-                                    </div>
+                        {tabContent.questionAnswers.map((question, i: number) => (
+                          <div className="question-answer" >
+                            <div className="main-comment">
+                              <div
+                                style={{
+                                  backgroundImage: `url(${question.imageUrl})`,
+                                }}
+                                className="main-comment__pic"
+                              ></div>
+                              <div className="main-comment__text">
+                                <div className="about-user">
+                                  <div className="about-user__name">
+                                    <h1>{question.userName}</h1>
                                   </div>
-                                  <div className="user-comment">
-                                    <p>{question.text}</p>
+                                  <div className="about-user__time">
+                                    <p>{question.datePosted}</p>
                                   </div>
-                                  {/* <AnswerUserComments key={i} id={i} /> */}
                                 </div>
+                                <div className="user-comment">
+                                  <p>{question.text}</p>
+                                </div>
+                                {/* <AnswerUserComments key={i} id={i} /> */}
                               </div>
                             </div>
-                          )
+                          </div>
+                        )
                         )}
                       </div>
                     ) : tabIndex == 2 ? (
@@ -248,7 +250,7 @@ export const Courses: React.FC<AboutCourse> = () => {
                         <div className="estimates">
                           <div className="estimates__container">
                             <InputCommentCards
-                              
+
                               name={"ბექა არაბიძე"}
                               rating={2}
                             />
@@ -264,10 +266,7 @@ export const Courses: React.FC<AboutCourse> = () => {
                                   rating={rating.amountOfStars}
                                   like={rating.like}
                                   dislike={rating.dislike}
-                                  isLikedByInstructor={
-                                    rating.isLikedByInstructor
-                                  }
-                                />
+                                  isLikedByInstructor={rating.isLikedByInstructor}/>
                               </>
                             ))}
                           </div>
@@ -278,6 +277,9 @@ export const Courses: React.FC<AboutCourse> = () => {
                 </div>
               </div>
             </div>
+
+
+
             <div className="side-menu noselect ">
               {videoLists.Lists.map((videoList) => (
                 <SideMenu
@@ -286,8 +288,7 @@ export const Courses: React.FC<AboutCourse> = () => {
                   title={videoList.title}
                   courseChapterTime={videoList.courseChapterTime}
                   subTitles={videoList.subTitles}
-                  handleDisplayVideoNames={handleDisplayVideoNames}
-                />
+                  handleDisplayVideoNames={handleDisplayVideoNames} />
               ))}
 
               <br />
@@ -295,6 +296,7 @@ export const Courses: React.FC<AboutCourse> = () => {
             </div>
           </div>
         </div>
+
       </BaseLayout>
     </>
   );

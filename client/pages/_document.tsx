@@ -5,15 +5,13 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-        <script src="js/player.js" async defer></script>
-
         </Head>
-        {/* <script 
-            dangerouslySetInnerHTML={{
-                __html: `
-                    window
+        {/* <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            var playerjs = new Playerjs()
                 `
-            }}
+          }}
         /> */}
         <body>
           <Main />
