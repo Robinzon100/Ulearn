@@ -158,9 +158,8 @@ export const Courses: React.FC<AboutCourse> = () => {
                           style={{ cursor: "pointer" }}
                           className="renderedContent_list--item noselect"
                           onClick={(e) => {
-                            console.log(e.currentTarget)
-                            // setTabContent(fetchTabConent(1, courseTab.route));
-                            // setTabIndex(i);
+                            setTabContent(fetchTabConent(1, courseTab.route));
+                            setTabIndex(i);
                           }}
                           key={i}>
                           <div className="rendered_icon">
@@ -279,7 +278,7 @@ export const Courses: React.FC<AboutCourse> = () => {
             </div>
 
 
-
+            
             <div className="side-menu noselect ">
               {videoLists.Lists.map((videoList) => (
                 <SideMenu
