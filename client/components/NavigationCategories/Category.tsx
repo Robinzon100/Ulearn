@@ -35,6 +35,7 @@ const Category: React.FC = () => {
     setCategories(main_categories);
     setSubCategories(sub_categories);
     setSubSubCategories(sub_sub_categories);
+    // debugger
     setDataFeatched(true)
   }
 

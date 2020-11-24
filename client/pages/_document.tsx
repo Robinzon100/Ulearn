@@ -5,7 +5,7 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-        {/* <script src="js/player.js" async defer></script> */}
+        <script src="js/player.js" async defer></script>
 
         </Head>
         {/* <script 

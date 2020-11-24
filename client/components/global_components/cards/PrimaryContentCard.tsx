@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from 'next/image';
 import { Star, Heart } from "react-feather";
 
@@ -75,13 +75,10 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
     return (
         <div className="PrimaryContentCard"
             key={id}
-            onMouseLeave={handleHoverLeave}
-        >
+            onMouseLeave={handleHoverLeave}>
             <a href="#">
                 <div className="PrimaryContentCard__img"
-                    style={{ backgroundImage: `url(${imageUrl})` }}
-
-                >
+                    style={{ backgroundImage: `url(${imageUrl})` }}>
                     <div className="price-tag">
                         {checkNewPrice && (
                             <div className="removed-price-tag">
@@ -114,9 +111,9 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
             </a>
             <div className="course_card_hover_logo course_card_hover_logo_mobile"
                 onClick={(e) => cardHoverHandler(e)}>
-                
+
                 <div className={isClicked ? "card_detail" : "card_detail-display"}
-                ref={ref}>
+                    ref={ref}>
                     {
 
                         <CardDetail
@@ -158,8 +155,7 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
 
                 <div
                     className={addToFavorites ? "full-heart-svg heart heart-background" : "stroke-heart-svg heart"}
-                    onClick={handleAddFavorite}
-                >
+                    onClick={handleAddFavorite}>
 
                 </div>
             </div>

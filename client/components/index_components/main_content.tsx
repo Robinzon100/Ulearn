@@ -9,7 +9,7 @@ import Carousel from "components/index_components/carousel/carousel";
 import PrimaryContentCardJson from "../../public/json/PrimaryContentCard.json";
 import Categories from "components/categories"
 import SortingDropdown from './../sortingDropdown';
-import {seeMoreAnimation} from "components/utils/framer/framerAnimation";
+import { seeMoreAnimation } from "components/utils/framer/framerAnimation";
 
 
 
@@ -21,7 +21,7 @@ const main_content: React.FC = () => {
     const [placeHolder, setPlaceHolder] = useState<string>(
         "მოძებნე სასურველი კურსი"
     );
-    
+
     const [toggleSeeMore, setToggleSeeMore] = useState(false);
 
     const [CardsJson, setCardsJson] = useState(PrimaryContentCardJson.contentCard);
@@ -36,16 +36,16 @@ const main_content: React.FC = () => {
                 {/* //! კარუსელი */}
                 <div className="carousel noselect">
                     <div className="right_slider_btn">
-                        <Image 
-                        src="/pictures/slider/rigth_slide_button.svg" 
-                        alt="slider_btn"
-                        width={250}
-                        height={100}
-                        quality={50}
+                        <Image
+                            src="/pictures/slider/rigth_slide_button.svg"
+                            alt="slider_btn"
+                            width={250}
+                            height={100}
+                            quality={50}
                         />
                     </div>
                     <div className="container" >
-                    {
+                        {
                             carouselJson.map(data => (
                                 <Carousel
                                     key={data.id}
@@ -58,7 +58,7 @@ const main_content: React.FC = () => {
                     </div>
                     <div className="left_slider_btn"></div>
                 </div>
-                
+
                 {/* //! ინფუთები */}
 
                 <div className="main_content--container">
@@ -90,11 +90,11 @@ const main_content: React.FC = () => {
                                 <SortingDropdown type="time" />
                             </div>
                         </div>
-                        {CardsJson.length > 2 &&  
+                        {CardsJson.length > 2 &&
                             <motion.div className="overlay_container"
-                            variants={seeMoreAnimation}
-                            initial={{ height: "0rem" }}
-                            animate={!toggleSeeMore ? "open" : "closed"}
+                                variants={seeMoreAnimation}
+                                initial={{ height: "0rem" }}
+                                animate={!toggleSeeMore ? "open" : "closed"}
                             >
                                 <div className="wrapper" onClick={() => setToggleSeeMore(true)}>
                                     <div className="see_more" >
@@ -107,7 +107,7 @@ const main_content: React.FC = () => {
                                     </div>
                                 </div>
                             </motion.div>
-                            
+
                         }
 
 

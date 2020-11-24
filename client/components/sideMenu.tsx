@@ -5,22 +5,17 @@ import { motion } from "framer-motion";
 
 import {sideMenuAnimation} from "components/utils/framer/framerAnimation";
 
-interface Props {
-    handleDisplayVideoNames:any
-}
+ 
+ 
 
-
-const sideMenu: React.FC<videoList & Props> = ({
+const sideMenu: React.FC<videoList> = ({
     id,
     title,
     courseChapterTime,
     subTitles,
-    handleDisplayVideoNames
+    handleDisplayVideoNames,
 },props) => {
-
     const [revealContent, setRevealContent] = useState<boolean>(false);
-    const [finished, setFinished] = useState<boolean>(false);
-    
     
     const handleSetRevealContent = () => {
         setRevealContent((revealContent) => !revealContent);
@@ -28,8 +23,6 @@ const sideMenu: React.FC<videoList & Props> = ({
 
     //! ეს ცვლის სტილს დაამთავრა თუ არა ესა თუ ის დავალება
     const handleSetFinished = (e) => {
-        // debugger;
-
         const menuElements = document.querySelectorAll(".details_not_finished");
 
         menuElements.forEach((element) => {
@@ -53,8 +46,7 @@ const sideMenu: React.FC<videoList & Props> = ({
                     !revealContent
                         ? "side-menu__container"
                         : "side-menu__container  without-border"
-                }
-            >
+                }>
                 <div onClick={handleSetRevealContent} className="card_container">
                     <div className="card">
                         <div className="card__number">
@@ -74,17 +66,14 @@ const sideMenu: React.FC<videoList & Props> = ({
                     className="card_container__info" 
                     variants={sideMenuAnimation}
                     initial={{ height: "0rem" }}
-                    animate={revealContent ? "open" : "closed"}
-                    // ref={ref}
-                >
+                    animate={revealContent ? "open" : "closed"}>
+
                     {subTitles.map((sub, index) => (
                         <div
                             key={sub.id}
                             className="card_container__info--details details_not_finished"
                             onClick={(e) => {handleSetFinished(e);handleDisplayVideoNames(e)}}
-                            data-title={sub.text}
-                        >
-                            {/* <div className="details_not_finished"></div> */}
+                            data-title={sub.text}>
                             <div className="details_heading" >
                                 <p className="paragraph-regulars paragraph-medium-small ">
                                     {sub.text}

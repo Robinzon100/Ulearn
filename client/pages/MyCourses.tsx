@@ -34,9 +34,9 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
       amountOfMinutes: 12,
     },
   ];
+  
 
-  const [MyCourseContent, setMyCourseContent] = useState<object>(MyCoursesJson.description
-  );
+  const [MyCourseContent, setMyCourseContent] = useState<any>(MyCoursesJson.description);
 
   return (
     <>
@@ -89,7 +89,7 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
               <div className="СontentReveal__mycourse-details">
                 {/* //! შენ ისწავლი*/}
 
-                {ReactHtmlParser(MyCourseContent.html)}
+                {ReactHtmlParser(MyCourseContent.rawHtml)}
 
                 {/* //! ინსტრუქტორის შესახებ */}
 
@@ -154,7 +154,7 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
                   title={"Angular"}
                   courseChapterTime={45}
                   subTitles={subTitles}
-                  subTaskTime={5}
+                  handleDisplayVideoNames
                 />
               </div>
             </div>
