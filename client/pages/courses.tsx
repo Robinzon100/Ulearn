@@ -28,7 +28,7 @@ export const Courses: React.FC<AboutCourse> = () => {
 
   //! ამას ვიდეოს სახელი გამოაქვს
   const [displayName, setDisplayName] = useState<string | null>("");
-  const [tabContent, setTabContent] = useState<object>(CoursesJson.description);
+  const [tabContent, setTabContent] = useState<any>(CoursesJson.description);
   const [tabIndex, setTabIndex] = useState<number>(0);
 
   const courseTabs = [
@@ -107,13 +107,13 @@ export const Courses: React.FC<AboutCourse> = () => {
     }
   };
 
-//   useEffect(() => {
-//     let player = new Playerjs({
-//       id: "player",
-//       file:
-//         "https://s4114-21.imovies.cc/video/imovie_hash_code/3/2017050923065223_high_eng.mp4?md5=W1C5ex9RqZWL-Rejf4JUqw&expires=1599656434&data=YTozOntzOjc6InVzZXJfaXAiO3M6MTU6IjE3Ni4yMjEuMTMyLjIxMCI7czoxMDoidXNlcl9hZ2VudCI7czoxMTQ6Ik1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS84NS4wLjQxODMuODMgU2FmYXJpLzUzNy4zNiI7czo3OiJyZWZlcmVyIjtzOjIzOiJodHRwczovL3d3dy5pbW92aWVzLmNjLyI7fQ==",
-//     });
-//   }, []);
+  useEffect(() => {
+    let player = new Playerjs({
+      id: "player",
+      file:
+        "https://s4114-21.imovies.cc/video/imovie_hash_code/3/2017050923065223_high_eng.mp4?md5=W1C5ex9RqZWL-Rejf4JUqw&expires=1599656434&data=YTozOntzOjc6InVzZXJfaXAiO3M6MTU6IjE3Ni4yMjEuMTMyLjIxMCI7czoxMDoidXNlcl9hZ2VudCI7czoxMTQ6Ik1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS84NS4wLjQxODMuODMgU2FmYXJpLzUzNy4zNiI7czo3OiJyZWZlcmVyIjtzOjIzOiJodHRwczovL3d3dy5pbW92aWVzLmNjLyI7fQ==",
+    });
+  }, []);
 
   return (
     <>

@@ -66,9 +66,9 @@
                 position: relative;
                 @include placed-center;
 
-                // &:after {
-                //     @include sortingStylesAfter("/pictures/courses/calendar.svg", 15px, 15px, 17px);
-                // }
+                &:after {
+                    @include sortingStylesAfter("/pictures/courses/calendar.svg", 15px, 15px, 17px);
+                }
 
                 &:before {
                     @include sortingStylesBefore(--primary-blue, 5rem);
@@ -95,9 +95,9 @@
                 position: relative;
                 @include placed-center;
 
-                &:after {
-                    @include sortingStylesAfter("/pictures/courses/clock.svg", 15px, 15px, 17px);
-                }
+                // &:after {
+                //     @include sortingStylesAfter("/pictures/courses/clock.svg", 15px, 15px, 17px);
+                // }
 
                 &:before {
                     @include sortingStylesBefore(--primary-red, 5rem);

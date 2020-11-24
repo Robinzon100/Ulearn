@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Calendar } from "react-feather";
+import { Calendar,Clock } from "react-feather";
 import SelectInput from "components/global_components/inputs/selectInput";
 
 interface SortingDropdown {
@@ -7,7 +7,9 @@ interface SortingDropdown {
 }
 
 const SortingDropdown: React.FC<SortingDropdown> = ({ type }) => {
-  const handleSelectChange = (value) => {console.log(value);};
+  const handleSelectChange = (value) => {
+    console.log(value);
+  };
 
   const selectOptions = [
     {
@@ -36,11 +38,7 @@ const SortingDropdown: React.FC<SortingDropdown> = ({ type }) => {
           selectOptions={selectOptions}
           onChange={handleSelectChange}
         >
-            <div className="input_icon">
-                <Calendar/>
-            </div>
-            <div className="input_"></div>
-            
+          {/* <div className="input_"></div> */}
         </SelectInput>
       )}
 
@@ -59,7 +57,11 @@ const SortingDropdown: React.FC<SortingDropdown> = ({ type }) => {
           type="sorting_length"
           selectOptions={selectOptions}
           onChange={handleSelectChange}
-        />
+        >
+          <div className="input_icon">
+            <Clock />
+          </div>
+        </SelectInput>
       )}
     </>
   );
