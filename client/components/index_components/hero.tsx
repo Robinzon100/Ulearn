@@ -23,9 +23,7 @@ const Hero: React.FC = () => {
               </p>
             </div>
             <div className="hero--steps__btn">
-              <a href="#"
-                className="btn btn-white heading-semi-bold  paragraph-medium"
-              >
+              <a href="#"className="btn btn-white heading-semi-bold  paragraph-medium">
                 შემოგვიერთდი
               </a>
             </div>

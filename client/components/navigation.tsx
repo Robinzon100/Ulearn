@@ -5,6 +5,7 @@ import { NextLink } from "./utils/NextLink";
 
 import Category from "./NavigationCategories/Category";
 import InputSearch from "components/global_components/inputs/inputSearch";
+import Link from 'next/link';
 
 
 
@@ -24,8 +25,9 @@ const Navigation: React.FC = () => {
     <>
       <header className="header">
         <div className="logo_container">
-          <div className="logo"></div>
-
+          <Link  href='/'>
+            <div className="logo"></div>
+          </Link>
           <div className="input">
             <InputSearch id={1} placeHolder={placeHolder} />
           </div>

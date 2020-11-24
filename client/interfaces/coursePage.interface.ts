@@ -25,7 +25,7 @@ export interface videoList {
     title: string;
     courseChapterTime: number;
     subTitles: subTitle[];
-    // subTaskTime: number;
+    handleDisplayVideoNames:any
 }
 
 
