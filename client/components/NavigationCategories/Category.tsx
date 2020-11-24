@@ -39,10 +39,11 @@ const Category: React.FC = () => {
   }
 
   useEffect(() => {
-    if (!dataFeatched) {
-      debugger
-      fetchAllCategories()
-    }
+    // if (!dataFeatched) {
+    // //   debugger
+      
+    // }
+    fetchAllCategories()
   }, [])
 
   return (

@@ -39,7 +39,7 @@
             .sorting__video-date,
             .sorting__video-raiting,
             .sorting__video-length {
-                width: 10.5vw;
+                // width: 10.5vw;
                 border-radius: 8px;
                 position: relative;
                 cursor: pointer;
@@ -66,9 +66,9 @@
                 position: relative;
                 @include placed-center;
 
-                &:after {
-                    @include sortingStylesAfter("/pictures/courses/calendar.svg", 15px, 15px, 17px);
-                }
+                // &:after {
+                //     @include sortingStylesAfter("/pictures/courses/calendar.svg", 15px, 15px, 17px);
+                // }
 
                 &:before {
                     @include sortingStylesBefore(--primary-blue, 5rem);

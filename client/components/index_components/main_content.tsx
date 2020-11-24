@@ -85,8 +85,8 @@ const main_content: React.FC = () => {
                             <InputSearch id={1} placeHolder={placeHolder} />
 
                             <div className="sorting">
-                                {/* <SortingDropdown type="date" /> */}
-                                {/* <SortingDropdown type="raiting" /> */}
+                                 <SortingDropdown type="date" /> 
+                                 <SortingDropdown type="raiting" /> 
                                 <SortingDropdown type="time" />
                             </div>
                         </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-
+import { Calendar } from "react-feather";
 // ============== FRAMER-ANIMATION
 import {arrowAnimation,dropDownAnimation} from "components/utils/framer/framerAnimation";
 
@@ -11,7 +11,7 @@ interface selects {
     type:string
 }
 
-const selectInput: React.FC<selects> = ({ id, onChange,selectOptions,type }) => {
+const selectInput: React.FC<selects> = ({ id, onChange,selectOptions,type,children }) => {
     const [isToggle, setIsToggle] = useState(false);
 
     const handleToggle = () => {
@@ -34,6 +34,7 @@ const selectInput: React.FC<selects> = ({ id, onChange,selectOptions,type }) => 
         type === "sorting_length" ? "sorting__video-length"  : 
         null }
         >
+            {children}
             <div className="dropdown input-shadow input-shadow-onFocus" 
             key={id} 
             onClick={handleToggle}>
