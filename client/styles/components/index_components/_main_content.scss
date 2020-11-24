@@ -1,110 +1,82 @@
-//! აქ არის მხოლოდ მთავარი გვერდი მთავარი სტილები მაგ:გრიდები ფლექსები 
+//! აქ არის მხოლოდ მთავარი გვერდი მთავარი სტილები მაგ:გრიდები ფლექსები
 //! და ა.შ და დანარჩენ დიდ კომპონენეტებს ყველს თავისი ფაილი აქვს
 
 //! კარუსელს თავისი ცსს ფაილი აქვს
 .main_content {
-    width: 100%;
-    margin-top: 3rem;
-    padding: var(--main-pading);
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  margin-top: 3rem;
+  padding: var(--main-pading);
+  display: flex;
+  flex-direction: column;
 
-    &--container {
-        display: grid;
-        grid-template-columns: 18% 79%;
-        gap: 0px 50px;
-        //! აქ ეს overflow უნდა რადგან როცა ჰოვერის კარდს აჭერ
-        //! იგი მარჯვნიდან შემოსვლის 1 წამში  კონტენტი გარეთ გაყავს
-        //! სკროლბარი ჩნდება ქვემოთ. და მით უმეთეს ტელეფონზე ეს 
-        //! საჭიროა
-        overflow: hidden;
+  &--container {
+    display: grid;
+    grid-template-columns: 18% 79%;
+    gap: 0px 50px;
+    //! აქ ეს overflow უნდა რადგან როცა ჰოვერის კარდს აჭერ
+    //! იგი მარჯვნიდან შემოსვლის 1 წამში  კონტენტი გარეთ გაყავს
+    //! სკროლბარი ჩნდება ქვემოთ. და მით უმეთეს ტელეფონზე ეს
+    //! საჭიროა
+    overflow: hidden;
+  }
+
+  &--input {
+    @include flex;
+
+    .input_styles {
+      width: 100% !important;
+      letter-spacing: 1px;
+      font-weight: normal;
     }
 
-    &--input {
-        @include flex;
-        
-        .input_styles {
-            width: 100% !important;
-            letter-spacing: 1px;
-            font-weight: normal;
+    .sorting {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-left: 3rem;
+
+      &__video{
+        // width: 10.5vw;
+        border-radius: 8px;
+        position: relative;
+        cursor: pointer;
+        position: relative;
+        @include placed-center;
+
+        .input_icon {
+          width: 5rem;
+          left: 0;
+          position: absolute;
+          z-index: 1;
+          height: 100%;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 60%;
+          
         }
-
-        .sorting {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            margin-left: 3rem;
-
-            .sorting__video-date,
-            .sorting__video-raiting,
-            .sorting__video-length {
-                // width: 10.5vw;
-                border-radius: 8px;
-                position: relative;
-                cursor: pointer;
-            }
-
-            .search_dropdown {
-                background-color: var(--secondary-light-grey);
-                padding: 0.5vw 2vw 0.5vw 3vw;
-                background: #fff;
-                border-radius: 8px;
-                border: 1px solid #989586;
-                cursor: pointer;
-                display: block;
-                height: 4rem;
-                width: 100%;
-                appearance: none;
-                -moz-appearance: none;
-                -webkit-appearance: none;
-                outline: none !important;
-            }
+      }
 
 
-            .sorting__video-date {
-                position: relative;
-                @include placed-center;
+      .search_dropdown {
+        background-color: var(--secondary-light-grey);
+        padding: 0.5vw 2vw 0.5vw 3vw;
+        background: #fff;
+        border-radius: 8px;
+        border: 1px solid #989586;
+        cursor: pointer;
+        display: block;
+        height: 4rem;
+        width: 100%;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        outline: none !important;
+      }
 
-                &:after {
-                    @include sortingStylesAfter("/pictures/courses/calendar.svg", 15px, 15px, 17px);
-                }
-
-                &:before {
-                    @include sortingStylesBefore(--primary-blue, 5rem);
-                }
-            }
-
-
-            .sorting__video-raiting {
-                position: relative;
-                @include placed-center;
-
-                &:after {
-                    @include sortingStylesAfter("/pictures/courses/star.svg", 15px, 15px, 17px);
-                }
-
-                &:before {
-                    @include sortingStylesBefore(--primary-yellow, 5rem);
-                }
-
-            }
-
-
-            .sorting__video-length {
-                position: relative;
-                @include placed-center;
-
-                // &:after {
-                //     @include sortingStylesAfter("/pictures/courses/clock.svg", 15px, 15px, 17px);
-                // }
-
-                &:before {
-                    @include sortingStylesBefore(--primary-red, 5rem);
-                }
-            }
-
-        }
+      
     }
-
+  }
 }

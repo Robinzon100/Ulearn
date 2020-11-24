@@ -1,5 +1,6 @@
 import React from 'react'
 import { ChevronRight } from "react-feather";
+import { NextLink } from 'components/utils/NextLink';
 
 
 const sub_category = ({handleFetchSubCategoryClick,setIsSubCategoryChosen,setIsMouseleftSubSubCategory,rendersSubSubNames,id,name},props) =>  {
@@ -21,12 +22,12 @@ const sub_category = ({handleFetchSubCategoryClick,setIsSubCategoryChosen,setIsM
                     <div className="item-container__cube-text">
                       
                       <div className="text">
-                        <a
-                          href="#"
+                        <NextLink
+                          route="#"
                           className="list--items__links  paragraph-regulars-bold paragraph-small"
                         >
                           {name}
-                        </a>
+                        </NextLink>
                       </div>
                     </div>
 

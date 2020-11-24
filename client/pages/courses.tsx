@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
+import { NextLink } from "components/utils/NextLink";
 import ReactHtmlParser from "react-html-parser";
 import { Eye, Folder } from "react-feather";
 
@@ -61,7 +62,7 @@ export const Courses: React.FC<AboutCourse> = () => {
 
 
   //! ფურნქცია რომ აჩვენოს კონკრეტული ვიდეოს სახელი
-  const handleDisplayVideoNames = (e) => {
+  const handleDisplayVideoNameClick = (e) => {
     const currentVideo = e.currentTarget.attributes["data-title"];
     if (currentVideo) {
       const subVideoNames = e.currentTarget.attributes["data-title"].nodeValue;
@@ -131,11 +132,11 @@ export const Courses: React.FC<AboutCourse> = () => {
             </div>
 
             <div className="courses-page--about__heading">
-              {!displayName ? null : (
+              {/* {!displayName ? null : (
                 <p className="paragraph-regulars paragraph-medium-small">
                   ვიდეოს დასახელება - {displayName}
                 </p>
-              )}
+              )} */}
             </div>
           </div>
           <div className="courses-container">
@@ -223,8 +224,8 @@ export const Courses: React.FC<AboutCourse> = () => {
                         <br />
                         <div className="resources">
                           <div className="resources_files">
-                            <a
-                              href={tabContent.resource.filePath}
+                            <NextLink
+                              route={tabContent.resource.filePath}
                               className="btn btn-for-video-files"
                             >
                               <div className="files">
@@ -240,7 +241,7 @@ export const Courses: React.FC<AboutCourse> = () => {
                                   />
                                 </div>
                               </div>
-                            </a>
+                            </NextLink>
                           </div>
                         </div>
                       </>
@@ -287,7 +288,12 @@ export const Courses: React.FC<AboutCourse> = () => {
                   title={videoList.title}
                   courseChapterTime={videoList.courseChapterTime}
                   subTitles={videoList.subTitles}
+<<<<<<< HEAD
                   handleDisplayVideoNames={handleDisplayVideoNames} />
+=======
+                //   handleClick={handleDisplayVideoNameClick}
+                />
+>>>>>>> c8fc701b3b4d518c47961a187425fd1b9a31ad6e
               ))}
 
               <br />

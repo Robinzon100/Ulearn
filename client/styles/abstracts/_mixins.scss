@@ -25,16 +25,9 @@
     left: $left;
     z-index: 1;
 }
-@mixin sortingStylesBefore($backgroundColor,$width){
-    content:"";
-    position: absolute;
-    border-radius: 8px;
-    left: 0;
-    z-index: 1;
-    width: $width;
-    height: 100%;
+@mixin sortingStylesForInputs($backgroundColor){
     background-color: var($backgroundColor);
-    opacity: 60%;
+    
 }
 //! ესენი არის ინდექსზე რომ ინფუთებია მაგის სტილები,გადაცემულია აქედან ვარად და იქ 
 //! რამხელაც გინდა მისცემ

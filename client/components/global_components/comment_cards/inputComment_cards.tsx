@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import Input from "components/global_components/inputs/input";
+import { NextLink } from "components/utils/NextLink";
 
 import Stars from "components/global_components/svg/Stars"
 
@@ -31,9 +32,9 @@ const InputCommentCards: React.FC<Props> = ({ name,rating },props) => {
                     </div>
 
                     <div className="add_btn btn btn-green">
-                        <a href="#">
+                        <NextLink route="#">
                             <p>დაკომენტარება</p>
-                        </a>
+                        </NextLink>
                     </div>
                 </div>
             </div>
