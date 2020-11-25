@@ -1,3 +1,5 @@
+import { Underline } from "react-feather";
+
 export const changeTabPositionAndColor = (containerClass: string, childrenClass: string) => {
     const colors = ["#338EFF", "#FF5C4D", "#00E267", "#FFD703"];
     
@@ -21,9 +23,17 @@ export const changeTabPositionAndColor = (containerClass: string, childrenClass:
       let color = colors.shift();
       colors.push(color);
 
+
+
       navItem.addEventListener("click", (e) => {
+        
         navUnderLine.style.left = `${navLeftPos}px`;
         navUnderLine.style.width = `${navItemWidth}px`;
+        // if(navUnderLine.classList.contains("underline")) {
+        //     navUnderLine.classList.remove("underline");
+        // }
+
+        // e.currentTarget.classList.toggle("underline_none");
 
         navUnderLine.style.backgroundColor = color;
         // navUnderLine.style.transition = " width 100s";

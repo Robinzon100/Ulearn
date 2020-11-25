@@ -68,12 +68,13 @@ $card-shadow:0px 19px 72px -2px rgba(25, 27, 29, 0.14);
                     align-items: center;
                     justify-content: space-between;
                     width: 100%;
+                    // position: relative;
 
                     li {
                         @include flex;
                         padding: 0rem 2rem 0rem 2rem;
                     }
-                }
+            }
 
                 .rendered_title {
                     margin-left: 1rem;
@@ -88,15 +89,17 @@ $card-shadow:0px 19px 72px -2px rgba(25, 27, 29, 0.14);
                     .underline {
                         transition: all 0.2s;
                         position: absolute;
-
-                        // background-color: var(--primary-blue);
                         width: 20%;
                         height: 3%;
                         filter: blur(1px);
                         bottom: -2px;
                         left: 0;
                         box-shadow: var(--input);
+                        display: block;
 
+                    }
+                    .underline_none {
+                        display: none;
                     }
 
                 }

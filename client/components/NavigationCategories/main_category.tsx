@@ -1,6 +1,6 @@
 import React from "react";
 import { ChevronRight } from "react-feather";
-import { NextLink } from 'components/utils/NextLink';
+import NextLink  from 'components/utils/NextLink';
 
 
 
@@ -22,7 +22,7 @@ const Category = ({ handleFetchMainCategory,setIsMainCategoryChosen,id,name },pr
               <div className="cube"></div>
               <div className="text">
                 <NextLink
-                    route="#"
+                    route=""
                   className="list--items__links paragraph-regulars-bold paragraph-small"
                 >
                   {name}
