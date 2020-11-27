@@ -10,12 +10,7 @@ import PrimaryContentCardJson from "../../public/json/PrimaryContentCard.json";
 import Categories from "components/categories";
 import SortingDropdown from "./../sortingDropdown";
 import { seeMoreAnimation } from "components/utils/framer/framerAnimation";
-import {
-  mouseDown,
-  mouseMove,
-  mouseLeave,
-  mouseUp,
-} from "components/index_components/carousel/carouselLogic";
+import { mouseDown,mouseMove,mouseLeave,mouseUp,sideScroll,checkIfScrollFinished} from "components/index_components/carousel/carouselLogic";
 
 //! JSON
 import CategoriesJson from "../../public/json/categories.json";
@@ -37,29 +32,16 @@ const main_content: React.FC = () => {
   const [carouselJson, setCarouselJson] = useState(CarouselJson.carousel);
 
 
-
-  function sideScroll(element, direction, speed, distance, step) {
-    let scrollAmount = 0;
-    var slideTimer = setInterval(function () {
-      if (direction == "left") {
-        element.scrollLeft -= step;
-      } else {
-        element.scrollLeft += step;
-      }
-      scrollAmount += step;
-      if (scrollAmount >= distance) {
-        window.clearInterval(slideTimer);
-      }
-    }, speed);
-  }
-
   const scrollRight = () => {
-    const carousel = document.querySelector(".carousel_container");
-    sideScroll(carousel, "right", 50, 200, 100);
+    const carousel = document.querySelector<HTMLElement>(".carousel_container");
+    sideScroll(carousel, "right", 25, 800, 50); //* ELEMENT,DIRECTION,SPEED,DISTANCE,STEP
+    
+    //  checkIfScrollFinished(setIsFinishedScrolling,isFinishedScrolling);
   };
   const scrollLeft = () => {
-    const carousel = document.querySelector(".carousel_container");
-    sideScroll(carousel, "left", 50, 200, 100);
+    const carousel = document.querySelector<HTMLElement>(".carousel_container");
+    sideScroll(carousel, "left", 25, 800, 50); //* ELEMENT,DIRECTION,SPEED,DISTANCE,STEP
+    // checkIfScrollFinished(setIsFinishedScrolling,isFinishedScrolling);
   };
 
   return (
@@ -68,7 +50,7 @@ const main_content: React.FC = () => {
         {/* //! კარუსელი */}
         <div className="carousel noselect">
           {!isFinishedScrolling && (
-            <div className="right_slider_btn" onClick={scrollRight}>
+            <div className="right_slider_btn" onClick={() => scrollRight()}>
               <Image
                 src="/pictures/slider/rigth_slide_button.svg"
                 alt="slider_btn"
@@ -83,7 +65,7 @@ const main_content: React.FC = () => {
             onMouseDown={(e) => mouseDown(e, setIsDown, setStartX, setScrolLeft)}
             onMouseLeave={() => mouseLeave(setIsDown)}
             onMouseUp={() => mouseUp(setIsDown)}
-            onMouseMove={(e) =>mouseMove(e, isDown, startX, scrolLeft, setIsFinishedScrolling)}
+            onMouseMove={(e) =>mouseMove(e, isDown, startX, scrolLeft, setIsFinishedScrolling,isFinishedScrolling)}
           >
             {carouselJson.map((data) => (
               <Carousel
@@ -95,7 +77,7 @@ const main_content: React.FC = () => {
             ))}
           </div>
           {isFinishedScrolling && (
-            <div className="left_slider_btn" onClick={scrollLeft}>
+            <div className="left_slider_btn" onClick={() => scrollLeft()}>
               <Image
                 src="/pictures/slider/left_slide_button.svg"
                 alt="slider_btn"
