@@ -288,12 +288,8 @@ export const Courses: React.FC<AboutCourse> = () => {
                   title={videoList.title}
                   courseChapterTime={videoList.courseChapterTime}
                   subTitles={videoList.subTitles}
-<<<<<<< HEAD
-                  handleDisplayVideoNames={handleDisplayVideoNames} />
-=======
                 //   handleClick={handleDisplayVideoNameClick}
                 />
->>>>>>> c8fc701b3b4d518c47961a187425fd1b9a31ad6e
               ))}
 
               <br />
