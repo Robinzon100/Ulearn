@@ -5,14 +5,11 @@ import { notFound, errorHandler } from './middleware/server/errorHandlers'
 import { Model } from 'objection';
 import connection from "./api/db";
 
-
 const app = Express()
 Model.knex(connection);
 
 
-// ─── CONFIGS ──────────────────────────────────────────────────────────────────────
-require('dotenv').config()
-
+ 
 // ─── BASE MIDDLEWARES ────────────────────────────────────────────────────────────
 baseMiddlewares(app)
 
