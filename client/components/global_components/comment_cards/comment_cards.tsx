@@ -62,7 +62,7 @@ const comment_cards: React.FC<CommentCards> = ({
 
 
     return (
-        <>
+        
             <div className="comment" key={props.key}>
                 <div className="comment__pic" style={{ backgroundImage: `url(${imageUrl})` }}></div>
 
@@ -123,7 +123,7 @@ const comment_cards: React.FC<CommentCards> = ({
                     </div>
                 </div>
             </div>
-        </>
+       
     );
 };
 export default comment_cards;

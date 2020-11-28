@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Categories } from './../interfaces/categories.inteface';
-import { NextLink } from "components/utils/NextLink";
+import NextLink  from "components/utils/NextLink";
 
 
 
@@ -12,9 +12,9 @@ const categories: React.FC<Categories> = ({id,title,numberOfCourses}) => {
         <div className="category_container" key={id}>
                     <div className={id == 1 ? "category_main categoryAll" : "category_main category_sub"}>
                         <div className="category_main--name">
-                            <NextLink route="#" className="paragraph-regulars paragraph-regular">
+                            <a href="#" className="paragraph-regulars paragraph-regular">
                                 {title}
-                            </NextLink>
+                            </a>
                         </div>
                         <div className="category_main--number">
                             <p className="Eina-semibold paragraph-smallest">{numberOfCourses}</p>

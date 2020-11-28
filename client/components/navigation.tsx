@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { ShoppingCart, ChevronDown } from "react-feather";
-import {NextLink}  from "components/utils/NextLink";
+import NextLink   from "components/utils/NextLink";
 
 
 //! ─── IMPORTS ────────────────────────────────────────────────────────────────────
 
 import Category from "./NavigationCategories/Category";
 import InputSearch from "components/global_components/inputs/inputSearch";
-
-
-
-
 
 
 
@@ -27,7 +23,7 @@ const Navigation: React.FC = () => {
     <>
       <header className="header">
         <div className="logo_container">
-          <NextLink  route='/'>
+          <NextLink  route="/">
             <div className="logo"></div>
           </NextLink>
           <div className="input">
@@ -57,7 +53,8 @@ const Navigation: React.FC = () => {
         </div>
 
 
-        <div className="menu_container">
+        <div className="navigation_menu">
+            <div className="navigation_menu--container">
           <div className="menu">
             <ul className="menu--list">
               <li className="menu--list__items">
@@ -74,20 +71,19 @@ const Navigation: React.FC = () => {
           </div>
 
           <div className="login">
-            <NextLink route="/singup">
+            <NextLink route="/login">
               <p className="medium paragraph-small">login / sign up</p>
             </NextLink>
           </div>
 
           <div className="cart">
-            <NextLink route="/shoppingCart">
+            <NextLink route="/shopping_cart">
               <ShoppingCart />
             </NextLink>
           </div>
 
-          <NextLink route="/shoppingCart" className="unregistered_user">
-
-          </NextLink>
+          <NextLink route="/unregistered_user" className="unregistered_user"></NextLink>
+          </div>
         </div>
         <div className="mobile_hamburger"></div>
       </header>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactHtmlParser from "react-html-parser";
 import { ShoppingCart } from "react-feather";
-import { NextLink } from "components/utils/NextLink";
+import NextLink  from "components/utils/NextLink";
 
 import BaseLayout from "components/base-layout";
 import SideMenu from "components/sideMenu";
@@ -58,7 +58,7 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
                   <div className="buy-course">
                       
                     <NextLink
-                      route="#"
+                      route=""
                       className="btn btn-green heading-semi-bold paragraph-medium-small"
                     >
                       კურსის შეძენა
@@ -66,7 +66,7 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
                   </div>
                   <div className="save-bucket">
                     <NextLink
-                      route="#"
+                      route=""
                       className="btn btn-yellow heading-semi-bold paragraph-medium-small"
                     >
                       <p>კალათაში შენახვა</p>
@@ -108,12 +108,12 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
                             <strong>{instructorInfo.userName}</strong>
                           </p>
 
-                          <NextLink route="#">
+                          <NextLink route="">
                             <strong>({instructorInfo.numberOfCourses}) კურსი</strong>
                           </NextLink>
 
                           <div className="students">
-                            <NextLink route="#">
+                            <NextLink route="">
                               <strong>({instructorInfo.numberOfStudents}) სტუდენტი</strong>
                             </NextLink>
                             <div className="stars" >
@@ -138,7 +138,7 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
                 <br />
                 <br />
                 <div className="instructor_btn">
-                  <NextLink route="#" className="btn btn-red">
+                  <NextLink route="" className="btn btn-red">
                     <p>
                       <strong>ინსტრუქტორის გამოწერა</strong>
                     </p>

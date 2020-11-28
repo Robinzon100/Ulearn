@@ -1,6 +1,7 @@
 import React from "react";
-import Image from 'next/image'
-import { Search, Upload } from "react-feather";
+import NextLink  from 'components/utils/NextLink';
+
+
 
 const Hero: React.FC = () => {
   return (
@@ -23,9 +24,10 @@ const Hero: React.FC = () => {
               </p>
             </div>
             <div className="hero--steps__btn">
-              <a href="#"className="btn btn-white heading-semi-bold  paragraph-medium">
+              <NextLink route="/join"
+              className="btn btn-white heading-semi-bold  paragraph-medium">
                 შემოგვიერთდი
-              </a>
+              </NextLink>
             </div>
           
         </div>

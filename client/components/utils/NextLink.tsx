@@ -9,7 +9,7 @@ interface Props {
 }
 
 
-export const NextLink:React.FC<Props> = ({ route, children,className }) => {
+const NextLink:React.FC<Props> = ({ route, children,className }) => {
   // const { route, title, children } = props;
   return (
     <Link href={route}>
@@ -21,3 +21,4 @@ export const NextLink:React.FC<Props> = ({ route, children,className }) => {
 };
 
 
+export default NextLink;
