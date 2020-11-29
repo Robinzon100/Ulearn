@@ -9,11 +9,11 @@ $box-shadow-category:0px 7px 9px -3px rgba(0, 0, 0, 0.1),
 .category {
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
-    height: 69rem;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    overflow: -moz-scrollbars-none;
+    // overflow-y: scroll;
+    height: auto;
+    // -ms-overflow-style: none;
+    // scrollbar-width: none;
+    // overflow: -moz-scrollbars-none;
 
 
 

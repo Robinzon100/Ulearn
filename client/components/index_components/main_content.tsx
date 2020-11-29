@@ -10,7 +10,8 @@ import PrimaryContentCardJson from "../../public/json/PrimaryContentCard.json";
 import Categories from "components/categories";
 import SortingDropdown from "./../sortingDropdown";
 import { seeMoreAnimation } from "components/utils/framer/framerAnimation";
-import { mouseDown,mouseMove,mouseLeave,mouseUp,sideScroll,checkIfScrollFinished} from "components/index_components/carousel/carouselLogic";
+import { mouseDown,mouseMove,mouseLeave,mouseUp,sideScroll} from "components/index_components/carousel/carouselLogic";
+import {checkIfScrollFinished} from "components/hooks/checkIfFinishedScrolling";
 
 //! JSON
 import CategoriesJson from "../../public/json/categories.json";
@@ -25,6 +26,7 @@ const main_content: React.FC = () => {
   const [isFinishedScrolling, setIsFinishedScrolling] = useState<boolean>(false);
   const [startX, setStartX] = useState<number>(0);
   const [scrolLeft, setScrolLeft] = useState<number>(0);
+  
 
   //* JSON
   const [CardsJson, setCardsJson] = useState(PrimaryContentCardJson.contentCard);
@@ -34,22 +36,23 @@ const main_content: React.FC = () => {
 
   const scrollRight = () => {
     const carousel = document.querySelector<HTMLElement>(".carousel_container");
-    sideScroll(carousel, "right", 25, 800, 50); //* ELEMENT,DIRECTION,SPEED,DISTANCE,STEP
+    sideScroll(carousel, "right", 25, 800, 50,setIsFinishedScrolling); //* ELEMENT,DIRECTION,SPEED,DISTANCE,STEP
+
     
-    //  checkIfScrollFinished(setIsFinishedScrolling,isFinishedScrolling);
+    checkIfScrollFinished(setIsFinishedScrolling,isFinishedScrolling);
+
   };
   const scrollLeft = () => {
     const carousel = document.querySelector<HTMLElement>(".carousel_container");
-    sideScroll(carousel, "left", 25, 800, 50); //* ELEMENT,DIRECTION,SPEED,DISTANCE,STEP
-    // checkIfScrollFinished(setIsFinishedScrolling,isFinishedScrolling);
-  };
+    sideScroll(carousel, "left", 25, 800, 50,setIsFinishedScrolling); //* ELEMENT,DIRECTION,SPEED,DISTANCE,STEP
+    };
 
   return (
     <>
       <div className="main_content">
         {/* //! კარუსელი */}
         <div className="carousel noselect">
-          {!isFinishedScrolling && (
+          {/* // TODO  გააჯმეინე image tags aqedan */}
             <div className="right_slider_btn" onClick={() => scrollRight()}>
               <Image
                 src="/pictures/slider/rigth_slide_button.svg"
@@ -59,7 +62,7 @@ const main_content: React.FC = () => {
                 quality={50}
               />
             </div>
-          )}
+          
           <div
             className="carousel_container"
             onMouseDown={(e) => mouseDown(e, setIsDown, setStartX, setScrolLeft)}
@@ -79,7 +82,7 @@ const main_content: React.FC = () => {
           {isFinishedScrolling && (
             <div className="left_slider_btn" onClick={() => scrollLeft()}>
               <Image
-                src="/pictures/slider/left_slide_button.svg"
+                src="/pictures/slider/rigth_slide_button.svg"
                 alt="slider_btn"
                 width={250}
                 height={100}

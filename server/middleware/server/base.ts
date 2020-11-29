@@ -9,7 +9,7 @@ const compression = require('compression');
 
 
 let corsOptions = {
-    origin: [`${process.env.FRONT_END_URL}`,`${process.env.BACK_END_URL}`],
+    origin: process.env.FRONT_END_URL,
     optionsSuccessStatus: 200,
     methods: ['GET', 'PUT', 'POST', 'PATCH', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']

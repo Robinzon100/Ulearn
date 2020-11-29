@@ -21,6 +21,7 @@ $right_slider_btn-gradient:linear-gradient(271.08deg, #FFFFFF 62.68%, rgba(255, 
         top: 6%;
         z-index: 1;
         cursor: pointer;
+        transform: rotateY(-180deg);
     }
 
 
@@ -29,13 +30,13 @@ $right_slider_btn-gradient:linear-gradient(271.08deg, #FFFFFF 62.68%, rgba(255, 
         flex-direction: row;
         position: relative;
         overflow-x: scroll;
-        // -ms-overflow-style: none;  
-        // scrollbar-width: none; 
-        // overflow: -moz-scrollbars-none;
+        -ms-overflow-style: none;  
+        scrollbar-width: none; 
+        overflow: -moz-scrollbars-none;
     }
-    // .carousel_container::-webkit-scrollbar{
-    //     width: 0 !important 
-    // }
+    .carousel_container::-webkit-scrollbar{
+        width: 0 !important 
+    }
 
 
 
