@@ -31,7 +31,7 @@ export const baseMiddlewares = (app: Application) => {
     app.use((req: Request, res: Response, next: NextFunction) => {
         // res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         // res.setHeader('Access-Control-Allow-Origin', `${process.env.FRONT_END_URL}`);
-        console.log(process.env.FRONT_END_URL)
+        // console.log(process.env.FRONT_END_URL)
         next();
     });
 }
