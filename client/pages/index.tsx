@@ -5,12 +5,12 @@ import Content from "components/index_components/main_content";
 import CardDetail from "components/global_components/cards/PrimaryContentCard";
 
 const Index = () => {
-    const [contentId, setContentId] = useState(1);
+  const [contentId, setContentId] = useState(1);
   return (
-    <BaseLayout>
+    <>
       <Hero />
-      <Content/>
-      </BaseLayout>
+      <Content />
+    </>
   );
 };
 

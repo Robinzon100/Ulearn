@@ -57,15 +57,13 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
           <div className="card_detail--container__date">
             <p
               className="paragraph-light paragraph-smallest"
-              style={{ color: "#00E267" }}
-            >
+              style={{ color: "#00E267" }}>
               დაიდო:
               <span className="paragraph-smallest Eina-semibold">{posted}</span>
             </p>
             <p
               className="paragraph-light paragraph-smallest"
-              style={{ color: "#636469" }}
-            >
+              style={{ color: "#636469" }}>
               სირთულე:
               <span className="" style={{ color: "#FFD703" }}>
                 {difficulty}

@@ -37,7 +37,7 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
 
   return (
     <>
-      <BaseLayout>
+      <>
         <section className="mycourses">
           <div className="mycourses__container">
             <div className="mycourses-hero">
@@ -158,7 +158,7 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
             </div>
           </div>
         </section>
-      </BaseLayout>
+      </>
     </>
   );
 };

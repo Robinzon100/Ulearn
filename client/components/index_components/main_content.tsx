@@ -29,9 +29,9 @@ const main_content: React.FC = () => {
   
 
   //* JSON
-  const [CardsJson, setCardsJson] = useState(PrimaryContentCardJson.contentCard);
-  const [categoriesJson, setCategoriesJson] = useState(CategoriesJson.Categories);
-  const [carouselJson, setCarouselJson] = useState(CarouselJson.carousel);
+  const CardsJson = PrimaryContentCardJson.contentCard;
+  const categoriesJson = CategoriesJson.Categories;
+  const carouselJson = CarouselJson.carousel;
 
 
   const scrollRight = () => {

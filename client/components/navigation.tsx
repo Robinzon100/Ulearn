@@ -11,9 +11,7 @@ import InputSearch from "components/global_components/inputs/inputSearch";
 
 
 const Navigation: React.FC = () => {
-  const [placeHolder, setPlaceHolder] = useState<string>(
-    "მოძებნე სასურველი კურსი"
-  );
+  const [placeHolder, setPlaceHolder] = useState<string>("მოძებნე სასურველი კურსი");
 
   const [isToggled, setIsToggled] = useState(false);
   const [isMouseleftCategory, setIsMouseLeftCategory] = useState(false);

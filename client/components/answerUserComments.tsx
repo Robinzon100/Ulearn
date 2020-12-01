@@ -34,7 +34,9 @@ const answerUserComments: React.FC<answerUserComments> = ({ id },props) => {
             <div >
                 {answerComment ?
                     <div className="user-answer--input">
-                        <Input placeHolder={placeHolder} />
+                        <Input 
+                        placeHolder={placeHolder} 
+                        type='text'/>
                         <div className="user-answer--input__btn" onClick={(handleSetAnswerComment)}>
                             <p className="btn btn-blue heading-bold paragraph-medium-small">
                                 პასუხი
