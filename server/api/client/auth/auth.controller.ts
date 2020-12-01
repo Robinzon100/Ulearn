@@ -5,6 +5,7 @@ import User from '../../../models/user/user.model';
 import bcrypt from "bcrypt";
 import jwt from 'jsonwebtoken';
 import customError from '../../../utils/createError';
+import { regsiterUserSchemaWithEncryptedPassword } from '../../../schemas/auth/schema.registration';
 
 
 
@@ -18,7 +19,7 @@ export const postRegistration = async (req: Request, res: Response, next: NextFu
     // get existing user
     const existingUser = await User.query().where("email", email)
     if (existingUser.length > 0) {
-        customError(res, next, 'user with that email already exists', 403)
+        customError(res, next, 'wrong email or password', 403)
     } else {
         // hash password
         const salt = await bcrypt.genSaltSync(10);
@@ -32,18 +33,20 @@ export const postRegistration = async (req: Request, res: Response, next: NextFu
 
         try {
             // validate the created use objects
-            const validatedUser = await regsiterUserSchema.validateAsync(user);
+            const validatedUser = await regsiterUserSchemaWithEncryptedPassword.validateAsync(user);
             if (validatedUser) {
                 const { id } = await User.query().insert(validatedUser);
 
                 await createJwtAuthorizationHeader(res, { userId: id })
 
                 res.status(200).json({
-                    status: "user successfully registered",
+                    message: "user successfully registered",
                 })
             }
         } catch (error) {
-            res.status(400)
+            res.status(400).json({
+                error
+            })
             next(error)
         }
     }

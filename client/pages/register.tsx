@@ -4,21 +4,32 @@ import { postRegistration } from 'actions/client/registration.actions';
 
 const Register: React.FC = () => {
     const [registrationInfo, setregistrationInfo] = useState({
-        "full_name": "",
-        "email": "",
-        "password": "",
-        "recovery_email": "",
-        "favorite_main_category_ids": [1, 2, 3],
-        "favorite_sub_category_ids": [1, 2, 3]
+        full_name: "",
+        email: "",
+        password: "",
+        recovery_email: "",
+        favorite_main_category_ids:  JSON.stringify([1,2,3]),
+        favorite_sub_category_ids:  JSON.stringify([1,2,3])
     })
+    let { full_name, email, password, recovery_email } = registrationInfo
+
+
+
+
 
     const handleInputChange = (e, field: string) => {
         setregistrationInfo({ ...registrationInfo, [field]: e.target.value })
     }
 
-    let { full_name, email, password, recovery_email } = registrationInfo
+    const handleSend = async () =>{
+        let response = await postRegistration(registrationInfo)
+        console.log(response);
+    }
 
 
+
+
+   
     return (
         <>
             <Input
@@ -30,21 +41,21 @@ const Register: React.FC = () => {
             <Input
                 placeHolder='enter your email'
                 value={email}
-                type='text'
+                type='email'
                 onChange={(e) => handleInputChange(e, 'email')} />
             <Input
                 placeHolder='enter your password'
                 value={password}
-                type='text'
+                type='password'
                 onChange={(e) => handleInputChange(e, 'password')} />
             <Input
                 placeHolder='enter your recovery email'
                 value={recovery_email}
-                type='text'
+                type='email'
                 onChange={(e) => handleInputChange(e, 'recovery_email')} />
 
 
-            <button onClick={() => postRegistration(registrationInfo)} >register</button>
+            <button onClick={() => handleSend()} >register</button>
         </>
     )
 }
