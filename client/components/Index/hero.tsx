@@ -1,40 +1,43 @@
-import React from "react";
-import Link from "next/link";
-import NextLink  from 'components/utils/NextLink';
+import { FC } from "react";
+import NextLink from 'components/utils/NextLink';
+import { useRootStore } from '../../mobx/RootStateContext';
 
 
-import LinkButton from "components/global_components/button/LinkButton";
+import Button from "components/global_components/button/Button";
 
 
-const Hero: React.FC = () => {
+const Hero: FC = () => {
+  const {userStore} = useRootStore()
+
+
   return (
     <>
       <section className="hero">
         <div className="hero--mobile-bg"></div>
         <div className="hero--steps">
-          
-            <div className="hero--steps__heading">
-              <h1 className="heading-bold heading-3_5">
+
+          <div className="hero--steps__heading">
+            <h1 className="heading-bold heading-3_5">
                 რაღაცა ტექსტი იქნება აქ რომელიც აღწერს სერვის
               </h1>
-            </div>
-            <div className="hero--steps__line"></div>
-            <div className="hero--steps__paragraph">
-              <p className="paragraph-regulars paragraph-medium-small">
-                რაიმე პატარა ტექსტი რომელიც უფრო დეტალურად აღწერს რას აკეთებს
-                საიტი და ისეთი სიტყვები იქნება რაც SEO-ს დაევასება და googl-იც
-                მაღლა აგვაგდებს
+          </div>
+          <div className="hero--steps__line"></div>
+          <div className="hero--steps__paragraph">
+            <p className="paragraph-regulars paragraph-medium-small">
+              რაიმე პატარა ტექსტი რომელიც უფრო დეტალურად აღწერს რას აკეთებს
+              საიტი და ისეთი სიტყვები იქნება რაც SEO-ს დაევასება და googl-იც
+              მაღლა აგვაგდებს
               </p>
             </div>
             <div className="hero--steps__btn">
               {/* <NextLink route="/join"
               className="btn btn-white heading-semi-bold  paragraph-medium">
-                შემოგვიერთდი
+              შემოგვიერთდი
               </NextLink>
               <Link>
 
               </Link> */}
-              <LinkButton 
+              <Button 
               title={"შემოგვიერთდი"} 
               href={"/join"}
               className={"btn btn-white heading-semi-bold  paragraph-medium "}

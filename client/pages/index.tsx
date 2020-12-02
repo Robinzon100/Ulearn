@@ -1,17 +1,16 @@
 import React, { useState } from "react";
-import BaseLayout from "components/base-layout";
 import Hero from "components/Index/hero";
 import Content from "components/Index/main_content";
-import CardDetail from "components/global_components/cards/PrimaryContentCard";
+import { useObserver } from "mobx-react-lite";
 
 const Index = () => {
   const [contentId, setContentId] = useState(1);
-  return (
+  return useObserver(() =>(
     <>
       <Hero />
       <Content />
     </>
-  );
+  ));
 };
 
 export default Index;
