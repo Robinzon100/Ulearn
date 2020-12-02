@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 
 
 //! ─── IMPORTS ────────────────────────────────────────────────────────────────────
-import Maincategory from "components/NavigationCategories/main_category";
-import SubCategory from "components/NavigationCategories/sub_category";
-import SubSubCategory from "components/NavigationCategories/sub_sub_category";
+import Maincategory from "components/Navigation/main_category";
+import SubCategory from "components/Navigation/sub_category";
+import SubSubCategory from "components/Navigation/sub_sub_category";
 import { MainCategoryLeftMoveAnimation, SubCategoryLeftMoveAnimation, SubSubCategoryLeftMoveAnimation } from "components/utils/framer/framerAnimation";
 import { handleHoverMainCategory, handleHoverSubCategory } from "components/utils/Category/CategoryFunctions";
 import { getAllCategories } from '../../actions/client/categories';

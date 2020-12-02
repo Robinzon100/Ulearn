@@ -7,7 +7,7 @@ import BaseLayout from "components/base-layout";
 import SideMenu from "components/sideMenu";
 import CourseVideoPlayer from '../components/CourseVideoPlayer';
 import CoursesJson from "../public/json/Courses.json";
-import CourseTablist from "components/course_tablist";
+import CourseTablist from "components/Course/course_tablist";
 
 
 //! === INTERFACES

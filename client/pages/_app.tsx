@@ -1,14 +1,14 @@
 import '../styles/main.scss'
 import 'video.js/dist/video-js.css'
 
-import Navigation from '../components/navigation';
+import Navigation from "components/Navigation/navigation";
 
 
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }){
     return (
         <>
-            <Navigation />
+            <Navigation /> 
             <Component {...pageProps} />
         </>
     )

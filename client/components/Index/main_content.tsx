@@ -5,12 +5,12 @@ import { ChevronDown } from "react-feather";
 
 import InputSearch from "components/global_components/inputs/inputSearch";
 import PrimaryContentCard from "components/global_components/cards/PrimaryContentCard";
-import Carousel from "components/index_components/carousel/carousel";
+import Carousel from "components/Index/carousel/carousel";
 import PrimaryContentCardJson from "../../public/json/PrimaryContentCard.json";
-import Categories from "components/categories";
-import SortingDropdown from "./../sortingDropdown";
+import Categories from "components/Index/categories";
+import SortingDropdown from "../sortingDropdown";
 import { seeMoreAnimation } from "components/utils/framer/framerAnimation";
-import { mouseDown,mouseMove,mouseLeave,mouseUp,sideScroll} from "../index_components/carousel/carouselLogic";
+import { mouseDown,mouseMove,mouseLeave,mouseUp,sideScroll} from "./carousel/carouselLogic";
 
 import {checkIfScrollFinished} from "../hooks/checkIfFinishedScrolling";
 

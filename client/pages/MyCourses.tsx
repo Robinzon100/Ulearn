@@ -5,7 +5,7 @@ import NextLink  from "components/utils/NextLink";
 
 import BaseLayout from "components/base-layout";
 import SideMenu from "components/sideMenu";
-import RatingsMenu from "components/RatingsMenu";
+import RatingsMenu from "components/MyCourse/RatingsMenu";
 import Stars from "components/global_components/svg/Stars";
 import MyCoursesJson from "../public/json/MyCourses.json";
 

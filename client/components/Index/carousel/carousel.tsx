@@ -1,5 +1,5 @@
 import React from "react";
-import { CarouselInterface } from "./../../../interfaces/carousel.interface";
+import { CarouselInterface } from "../../../interfaces/carousel.interface";
 import NextLink  from "components/utils/NextLink";
 
 const carousel: React.FC<CarouselInterface> = ({ id, imageUrl, title },props) => {

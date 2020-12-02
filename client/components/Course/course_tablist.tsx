@@ -4,21 +4,21 @@ import NextLink  from "components/utils/NextLink";
 import { Folder } from "react-feather";
 
 
-import CoursesJson from "../public/json/Courses.json";
+import CoursesJson from "../../public/json/Courses.json";
 
 
-import { AboutCourse, Description_type, QuestionAnswer_type, Resources_type, Estimates_type, } from "../interfaces/coursePage.interface";
-import { changeTabPositionAndColor } from "../function/courses/content";
+import { AboutCourse, Description_type, QuestionAnswer_type, Resources_type, Estimates_type, } from "../../interfaces/coursePage.interface";
+import { changeTabPositionAndColor } from "../../function/courses/content";
 
 import CommentCards from "components/global_components/comment_cards/comment_cards";
 import InputCommentCards from "components/global_components/comment_cards/inputComment_cards";
 import AnswerUserComments from "components/answerUserComments";
 
 //! === IMPORTED ICONS FROM Courses.json
-import Description from "../public/SVG/CoursesSvg/Clipboard";
-import Resources from "../public/SVG/CoursesSvg/Folder";
-import QuestionAnswer from "../public/SVG/CoursesSvg/HelpCircle";
-import Estimates from "../public/SVG/CoursesSvg/Estimates";
+import Description from "../../public/SVG/CoursesSvg/Clipboard";
+import Resources from "../../public/SVG/CoursesSvg/Folder";
+import QuestionAnswer from "../../public/SVG/CoursesSvg/HelpCircle";
+import Estimates from "../../public/SVG/CoursesSvg/Estimates";
 
 
 

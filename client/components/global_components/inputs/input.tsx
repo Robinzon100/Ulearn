@@ -1,4 +1,4 @@
-import React, { CSSProperties, Fragment } from "react";
+import React, {CSSProperties} from "react";
 
 interface textInput {
   placeHolder: string,

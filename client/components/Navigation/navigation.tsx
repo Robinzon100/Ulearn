@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import { ShoppingCart, ChevronDown } from "react-feather";
 import NextLink   from "components/utils/NextLink";
 
 
 //! ─── IMPORTS ────────────────────────────────────────────────────────────────────
 
-import Category from "./NavigationCategories/Category";
+import Category from "components/Navigation/Category";
 import InputSearch from "components/global_components/inputs/inputSearch";
 
 

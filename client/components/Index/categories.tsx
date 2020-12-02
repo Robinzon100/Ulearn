@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Categories } from './../interfaces/categories.inteface';
+import { Categories } from '../../interfaces/categories.inteface';
 import NextLink  from "components/utils/NextLink";
 
 

@@ -1,6 +1,9 @@
 import React from "react";
+import Link from "next/link";
 import NextLink  from 'components/utils/NextLink';
 
+
+import LinkButton from "components/global_components/button/LinkButton";
 
 
 const Hero: React.FC = () => {
@@ -24,10 +27,18 @@ const Hero: React.FC = () => {
               </p>
             </div>
             <div className="hero--steps__btn">
-              <NextLink route="/join"
+              {/* <NextLink route="/join"
               className="btn btn-white heading-semi-bold  paragraph-medium">
                 შემოგვიერთდი
               </NextLink>
+              <Link>
+
+              </Link> */}
+              <LinkButton 
+              title={"შემოგვიერთდი"} 
+              href={"/join"}
+              className={"btn btn-white heading-semi-bold  paragraph-medium "}
+              />
             </div>
           
         </div>
