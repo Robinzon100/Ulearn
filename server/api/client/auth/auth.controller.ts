@@ -1,25 +1,27 @@
+import { createJwtAuthorizationHeader } from './../../../utils/auth/auth.util';
 import { regsiterUserSchema } from './../../../schemas/auth/schema.registration';
 import { Request, Response, NextFunction } from "express";
 import User from '../../../models/user/user.model';
 import bcrypt from "bcrypt";
-import jwt, { JsonWebTokenError } from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 import customError from '../../../utils/createError';
+import { regsiterUserSchemaWithEncryptedPassword } from '../../../schemas/auth/schema.registration';
 
 
 
 
 //
-// ─── REGISTRATION ───────────────────────────────────────────────────────────────
+//! ─── REGISTRATION ───────────────────────────────────────────────────────────────
 //
 export const postRegistration = async (req: Request, res: Response, next: NextFunction) => {
     const { email, password } = req.body;
 
-
+    // get existing user
     const existingUser = await User.query().where("email", email)
-
     if (existingUser.length > 0) {
-        customError(res, next, 'user with that email already exists', 403)
+        customError(res, next, 'wrong email or password', 403)
     } else {
+        // hash password
         const salt = await bcrypt.genSaltSync(10);
         const hashedPassword = await bcrypt.hashSync(password, salt);
 
@@ -30,24 +32,21 @@ export const postRegistration = async (req: Request, res: Response, next: NextFu
 
 
         try {
-            const validatedUser = await regsiterUserSchema.validateAsync(user);
-
+            // validate the created use objects
+            const validatedUser = await regsiterUserSchemaWithEncryptedPassword.validateAsync(user);
             if (validatedUser) {
-                const { id, email } = await User.query().insert(validatedUser);
+                const { id } = await User.query().insert(validatedUser);
 
-                const userToken = await jwt.sign({
-                    expiresIn: process.env.JWT_EXPIRATION,
-                    userId: id,
-                    email: email
-                }, process.env.JWT_SECRET!)
+                await createJwtAuthorizationHeader(res, { userId: id })
 
                 res.status(200).json({
-                    status: "success",
-                    userToken
+                    message: "user successfully registered",
                 })
             }
         } catch (error) {
-            res.status(400)
+            res.status(400).json({
+                error
+            })
             next(error)
         }
     }
@@ -55,20 +54,25 @@ export const postRegistration = async (req: Request, res: Response, next: NextFu
 
 
 
+
+
+
+
+//
+//! ─── LOGIN ───────────────────────────────────────────────────────────────
+//
 export const postLogin = async (req: Request, res: Response, next: NextFunction) => {
     const { email, password } = req.body;
-
-    if (!email || !password) {
-        customError(res, next, 'insufficient data', 400)
-    }
 
     try {
         const [user] = await User.query().where("email", email)
         const doesPasswordMatch = user ? await bcrypt.compareSync(password, user.password) : false
 
         if (doesPasswordMatch && user) {
+            await createJwtAuthorizationHeader(res, { userId: user.id })
+
             res.status(200).json({
-                user: user
+                user: 'successfully loged in'
             })
         } else {
             customError(res, next, 'provide email or password are not valid', 401)
@@ -80,3 +84,40 @@ export const postLogin = async (req: Request, res: Response, next: NextFunction)
 
 
 }
+
+
+
+// export const postLogin = async (req: Request, res: Response, next: NextFunction) => {
+//     const { email, password } = req.body;
+
+//     let reqeustToken = req.headers.authorization?.split(' ')[1]
+
+//     await jwt.verify(`${reqeustToken}`, `${process.env.JWT_SECRET}`, async (err, userToken) => {
+//         // check if the token is valid
+//         if (err) {
+//             customError(res, next, 'token not valid. unauthorized_client', 401)
+//         } else {
+
+
+//             // if token is valid search the email and decode the password
+//             let { userId } = userToken as userToken
+//             try {
+//                 const [user] = await User.query().where("email", email)
+//                 const doesPasswordMatch = user ? await bcrypt.compareSync(password, user.password) : false
+
+//                 if (doesPasswordMatch && user) {
+//                     res.status(200).json({
+//                         user: user
+//                     })
+//                 } else {
+//                     customError(res, next, 'provide email or password are not valid', 401)
+//                 }
+//             } catch (error) {
+//                 next(error)
+//             }
+
+//         }
+//     })
+
+
+// }

@@ -25,7 +25,7 @@ export const Courses: React.FC<AboutCourse> = () => {
         <script src="js/player.js" async defer></script>
       </Head>
 
-      <BaseLayout>
+      <>
         <div className="courses-page">
           <div className="courses-page--about">
             <div className="courses-page--name">
@@ -76,7 +76,7 @@ export const Courses: React.FC<AboutCourse> = () => {
           </div>
         </div>
 
-      </BaseLayout>
+      </>
     </>
   );
 };

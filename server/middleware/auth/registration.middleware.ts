@@ -14,4 +14,5 @@ const validateRegistrationObject = async (req: Request, res: Response, next: Nex
 
 
 
+
 export default validateRegistrationObject

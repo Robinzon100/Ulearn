@@ -5,7 +5,6 @@ import Navigation from "./navigation";
 const BaseLayout = (props) => {
     return (
         <>
-            <Navigation />
             <main>{props.children}</main>
             {/* <Footer /> */}
         </>
