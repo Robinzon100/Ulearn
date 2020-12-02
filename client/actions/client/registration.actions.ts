@@ -33,7 +33,5 @@ export const postRegistration = async (data) => {
                     message: err.message 
                 }
             }
-
-
         });
 }

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { ShoppingCart, ChevronDown } from "react-feather";
-import NextLink   from "components/utils/NextLink";
+import NextLink from "components/utils/NextLink";
 
 
 //! ─── IMPORTS ────────────────────────────────────────────────────────────────────
@@ -10,7 +10,7 @@ import InputSearch from "components/global_components/inputs/inputSearch";
 
 
 
-const Navigation: React.FC = () => {
+const Navigation: FC = () => {
   const [placeHolder, setPlaceHolder] = useState<string>("მოძებნე სასურველი კურსი");
 
   const [isToggled, setIsToggled] = useState(false);
@@ -21,7 +21,7 @@ const Navigation: React.FC = () => {
     <>
       <header className="header">
         <div className="logo_container">
-          <NextLink  route="/">
+          <NextLink route="/">
             <div className="logo"></div>
           </NextLink>
           <div className="input">
@@ -52,35 +52,35 @@ const Navigation: React.FC = () => {
 
 
         <div className="navigation_menu">
-            <div className="navigation_menu--container">
-          <div className="menu">
-            <ul className="menu--list">
-              <li className="menu--list__items">
-                <NextLink route="/courses" className="menu--list__items--links">
+          <div className="navigation_menu--container">
+            <div className="menu">
+              <ul className="menu--list">
+                <li className="menu--list__items">
+                  <NextLink route="/courses" className="menu--list__items--links">
                     <p className="paragraph-regulars paragraph-small">კურსები</p>
-                </NextLink>
-              </li>
-              <li className="menu--list__items">
-                <NextLink route="/lecturers" className="menu--list__items--links">
+                  </NextLink>
+                </li>
+                <li className="menu--list__items">
+                  <NextLink route="/lecturers" className="menu--list__items--links">
                     <p className="paragraph-regulars paragraph-small">გახდი ლექტორი</p>
-                </NextLink>
-              </li>
-            </ul>
-          </div>
+                  </NextLink>
+                </li>
+              </ul>
+            </div>
 
-          <div className="login">
-            <NextLink route="/login">
-              <p className="medium paragraph-small">login / sign up</p>
-            </NextLink>
-          </div>
+            <div className="login">
+              <NextLink route="/login">
+                <p className="medium paragraph-small">login / sign up</p>
+              </NextLink>
+            </div>
 
-          <div className="cart">
-            <NextLink route="/shopping_cart">
-              <ShoppingCart />
-            </NextLink>
-          </div>
+            <div className="cart">
+              <NextLink route="/shopping_cart">
+                <ShoppingCart />
+              </NextLink>
+            </div>
 
-          <NextLink route="/unregistered_user" className="unregistered_user"></NextLink>
+            <NextLink route="/unregistered_user" className="unregistered_user"></NextLink>
           </div>
         </div>
         <div className="mobile_hamburger"></div>
