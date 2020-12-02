@@ -17,11 +17,12 @@ export const dropDownAnimation = {
         opacity: 1,
         display: "block",
         transition: { duration: 0.2 },
+
     },
     closed: {
         height: "0rem",
         opacity: 0,
-        // 'display': 'none',
+        'display': 'none',
         transition: {
             duration: 0.2,
         },

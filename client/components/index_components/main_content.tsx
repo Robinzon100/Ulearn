@@ -10,8 +10,9 @@ import PrimaryContentCardJson from "../../public/json/PrimaryContentCard.json";
 import Categories from "components/categories";
 import SortingDropdown from "./../sortingDropdown";
 import { seeMoreAnimation } from "components/utils/framer/framerAnimation";
-import { mouseDown,mouseMove,mouseLeave,mouseUp,sideScroll} from "components/index_components/carousel/carouselLogic";
-import {checkIfScrollFinished} from "components/hooks/checkIfFinishedScrolling";
+import { mouseDown,mouseMove,mouseLeave,mouseUp,sideScroll} from "../index_components/carousel/carouselLogic";
+
+import {checkIfScrollFinished} from "../hooks/checkIfFinishedScrolling";
 
 //! JSON
 import CategoriesJson from "../../public/json/categories.json";
