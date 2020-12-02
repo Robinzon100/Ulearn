@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useRef} from 'react'
 import ReactHtmlParser from "react-html-parser";
 import NextLink  from "components/utils/NextLink";
 import { Folder } from "react-feather";
@@ -28,29 +28,41 @@ const course_tablist = () => {
     const [tabContent, setTabContent] = useState<any>(CoursesJson.description);
     const [videoLists, setVideoLists] = useState(CoursesJson.videoLists);
 
+    // useEffect(() => {
+    //     changeTabPositionAndColor(".renderedContent_list",".renderedContent_list--item");
+    // }, [])
+
   //! ამას ვიდეოს სახელი გამოაქვს
   const [displayName, setDisplayName] = useState<string | null>("");
     
   const courseTabs = [
     {
+      id:1,
       title: "აღწერა",
       iconComponent: "Description",
       route: "/description",
+      color:"#338EFF"
     },
     {
+        id:2,
       title: "კითხვა-პასუხი",
       iconComponent: "QuestionAnswer",
       route: "/questionAnswer",
+      color:"#FF5C4D"
     },
     {
+        id:3,
       title: "რესურსები",
       iconComponent: "Resources",
       route: "/resources",
+      color:"#00E267"
     },
     {
+        id:4,
       title: "შეფასებები",
       iconComponent: "Estimates",
       route: "/estimates",
+      color:"#FFD703"
     },
   ];
 
@@ -64,9 +76,6 @@ const course_tablist = () => {
   };
 
 
-  useEffect(() => {
-    changeTabPositionAndColor(".renderedContent_list", ".renderedContent_list--item");
-  }, []);
 
     //! ტაბებზე დაჭერისას კონტენტის შეცვლის ფუნქცია
   const fetchTabConent = (courseId: number, route: string): | Description_type | QuestionAnswer_type | Resources_type | Estimates_type => {
@@ -106,22 +115,23 @@ const course_tablist = () => {
   };
 
 
-
     return (
         <>
             <div className="section-courses--tablist">
                 <div className="section-courses--tablist__container gray-border">
                   <ul className="renderedContent_list">
-                    {courseTabs
-                      ? courseTabs.map((courseTab, i) => (
+                    {
+                      courseTabs.map((courseTab, i) => (
                         <li
-                          style={{ cursor: "pointer" }}
+                          
+                          style={{ cursor: "pointer",borderBottom:`1px solid ${courseTab.color}` }}
                           className="renderedContent_list--item noselect"
                           onClick={(e) => {
                             setTabContent(fetchTabConent(1, courseTab.route));
                             setTabIndex(i);
+                            
                           }}
-                          key={i}>
+                          key={courseTab.id}>
                           <div className="rendered_icon">
                             {renderIcon(courseTab.iconComponent)}
                           </div>
@@ -129,14 +139,12 @@ const course_tablist = () => {
                             <p className="heading-semi-bold paragraph-medium">
                               {courseTab.title}
                             </p>
-{/*                           
-                            <span className="underline"></span> */}
-
-                          </div>
+                        </div>
+                          {/* <span className="underline"></span>  */}
                         </li>
                       ))
-                      : null}
-                          <span className="underline"></span>
+                    }
+                          {/* <span className="underline"></span> */}
 
                   </ul>
                 </div>

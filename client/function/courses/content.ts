@@ -1,4 +1,4 @@
-import { Underline } from "react-feather";
+
 
 export const changeTabPositionAndColor = (containerClass: string, childrenClass: string) => {
     const colors = ["#338EFF", "#FF5C4D", "#00E267", "#FFD703"];
@@ -9,35 +9,35 @@ export const changeTabPositionAndColor = (containerClass: string, childrenClass:
     const navArr = navComponent.querySelectorAll<HTMLElement>(
         childrenClass
     );
-    const navUnderLine = navComponent.querySelector<HTMLElement>(".underline");
+    // const navUnderLine = navComponent.querySelector<HTMLElement>(".underline");
 
-    navUnderLine.style.backgroundColor = colors[0];
+    navArr[0].style.borderBottom = `1px solid ${colors[0]}`;
+    navArr[0].classList.toggle("underline_blue")
 
-    navUnderLine.style.left = `${navArr[0].offsetLeft}px`;
-    navUnderLine.style.width = `${navArr[0].offsetWidth}px`;
+    // navArr[0].style.left = `${navArr[0].offsetLeft}px`;
+    // navArr[0].style.width = `${navArr[0].offsetWidth}px`;
 
-    navArr.forEach((navItem) => {
-      let navLeftPos = navItem.offsetLeft;
-      let navItemWidth = navItem.offsetWidth;
-      //! ეს ანაცვლებს ფერებს რომ დაემთხვეს იმ დივს რომელიც საჭიროა
+    navArr.forEach((navItem,e) => {
+        //! ეს ანაცვლებს ფერებს რომ დაემთხვეს იმ დივს რომელიც საჭიროა
       let color = colors.shift();
       colors.push(color);
 
 
 
       navItem.addEventListener("click", (e) => {
+        // debugger
+        let target = e.currentTarget as Element;
+        if(navItem.classList.contains("active")) {
+            navItem.classList.remove("active")
+
+        }else {
+            navItem.classList.add("underline_blue")
+        }
         
-        navUnderLine.style.left = `${navLeftPos}px`;
-        navUnderLine.style.width = `${navItemWidth}px`;
-        // if(navUnderLine.classList.contains("underline")) {
-        //     navUnderLine.classList.remove("underline");
-        // }
-
-        // e.currentTarget.classList.toggle("underline_none");
-
-        navUnderLine.style.backgroundColor = color;
-        // navUnderLine.style.transition = " width 100s";
-        // console.log(e.currentTarget);
+        target.classList.toggle("active");
       });
+      
+
     });
+    // e.currentTarget.classList.toggle("active");
 }

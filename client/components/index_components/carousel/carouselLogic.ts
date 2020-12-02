@@ -1,4 +1,4 @@
-import {checkIfScrollFinished} from "components/hooks/checkIfFinishedScrolling";
+import {checkIfScrollFinished} from "../../hooks/checkIfFinishedScrolling";
 
 
 //! =============== SCROLLING
@@ -7,6 +7,7 @@ const sideScroll = (element:HTMLElement,direction: string,speed: number,distance
   let scrollAmount = 0;
   let scrollRight = 0;
   let scrollLeft = 0;
+
     
   var slideTimer = setInterval(() => {
     

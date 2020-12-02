@@ -67,12 +67,13 @@ $card-shadow:0px 19px 72px -2px rgba(25, 27, 29, 0.14);
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
-                    width: 100%;
+                    // width: 100%;
                     // position: relative;
 
-                    li {
+                    &--item {
                         @include flex;
                         padding: 0rem 2rem 0rem 2rem;
+                        position: relative;
                     }
             }
 
@@ -87,7 +88,6 @@ $card-shadow:0px 19px 72px -2px rgba(25, 27, 29, 0.14);
 
 
                     .underline {
-                        transition: all 0.2s;
                         position: absolute;
                         width: 20%;
                         height: 3%;
@@ -100,6 +100,13 @@ $card-shadow:0px 19px 72px -2px rgba(25, 27, 29, 0.14);
                     }
                     .underline_none {
                         display: none;
+                    }
+                    .underline_blue {
+                        border-bottom: 1px solid #FF5C4D;
+                    }
+                    .active {
+                        display: flex;
+                        // background-color: red;
                     }
 
                 }

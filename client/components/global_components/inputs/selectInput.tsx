@@ -52,7 +52,7 @@ const selectInput: React.FC<selects> = ({
           <motion.div
             className="dropdown-list"
             variants={dropDownAnimation}
-            initial={{ height: "0rem" }}
+            initial={{ height: "0rem",display:"none" }}
             animate={isToggle ? "open" : "closed"}
           >
             {selectOptions.map((option) => (
