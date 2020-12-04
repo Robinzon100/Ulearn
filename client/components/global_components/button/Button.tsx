@@ -1,36 +1,47 @@
-import React, { CSSProperties, ReactNode } from "react";
-import Link from "next/link";
+import { FC, memo } from "react";
 
-interface LinkButtonProps {
-  title: string;
-  href: string;
-  className: string;
-  linkStyle?: CSSProperties;
-  onClick?: any;
-  loading?: boolean;
-  icon?: ReactNode;
-  iconRight?: ReactNode;
-}
+import { ButtonInterface } from "components/global_components/button/Button-interface";
 
-const LinkButton: React.FC<LinkButtonProps> = ({
-  title,
-  href,
-  className,
-  linkStyle,
-  onClick,
-  loading,
-  icon,
-  iconRight,
-}) => {
+const Button: FC<ButtonInterface> = (
+  {
+    title,
+    className,
+    linkStyle,
+    Clickhandler,
+    loading,
+    icon,
+    iconStyle,
+    iconRight,
+    route,
+  },
+  ref
+) => {
+  // const { bg, border, color } = useMemo(() => getButtonColors())
+
   return (
     <>
-    <Link href={href}>
-        <a onClick={onClick} className={className} style={linkStyle}>
-          {!loading ? title : "...."}
-        </a>
-      </Link>
+      <a
+        onClick={Clickhandler}
+        className={`btn ${className}`}
+        style={linkStyle}
+        href={route ? route : null}
+      >
+        {icon && (
+          <span className="icon" style={iconStyle}>
+            {icon}
+          </span>
+        )}
+
+        <p style={{ color: "black" }}>{title}</p>
+
+        {iconRight && (
+          <span className="iconRight" style={iconStyle}>
+            {iconRight}
+          </span>
+        )}
+      </a>
     </>
   );
 };
 
-export default LinkButton;
+export default memo(Button);

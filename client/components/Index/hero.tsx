@@ -1,25 +1,23 @@
 import { FC } from "react";
-import NextLink from 'components/utils/NextLink';
-import { useRootStore } from '../../mobx/RootStateContext';
-
+import NextLink from "components/utils/NextLink";
+import { ChevronDown } from "react-feather";
+import { useRootStore } from "../../mobx/RootStateContext";
+import Link from "next/link";
 
 import Button from "components/global_components/button/Button";
 
-
 const Hero: FC = () => {
-  const {userStore} = useRootStore()
-
+  const { userStore } = useRootStore();
 
   return (
     <>
       <section className="hero">
         <div className="hero--mobile-bg"></div>
         <div className="hero--steps">
-
           <div className="hero--steps__heading">
             <h1 className="heading-bold heading-3_5">
-                რაღაცა ტექსტი იქნება აქ რომელიც აღწერს სერვის
-              </h1>
+              რაღაცა ტექსტი იქნება აქ რომელიც აღწერს სერვის
+            </h1>
           </div>
           <div className="hero--steps__line"></div>
           <div className="hero--steps__paragraph">
@@ -27,23 +25,19 @@ const Hero: FC = () => {
               რაიმე პატარა ტექსტი რომელიც უფრო დეტალურად აღწერს რას აკეთებს
               საიტი და ისეთი სიტყვები იქნება რაც SEO-ს დაევასება და googl-იც
               მაღლა აგვაგდებს
-              </p>
-            </div>
-            <div className="hero--steps__btn">
-              {/* <NextLink route="/join"
-              className="btn btn-white heading-semi-bold  paragraph-medium">
-              შემოგვიერთდი
-              </NextLink>
-              <Link>
-
-              </Link> */}
-              <Button 
-              title={"შემოგვიერთდი"} 
-              href={"/join"}
-              className={"btn btn-white heading-semi-bold  paragraph-medium "}
+            </p>
+          </div>
+          <div className="hero--steps__btn">
+           
+              <Button
+                title={"შემოგვიერთდი"}
+                className={"btn-white heading-semi-bold  paragraph-medium"}
+                route={"/join"}
+                iconRight={<ChevronDown/>}
+                iconStyle={{color:"black"}}
               />
-            </div>
-          
+            
+          </div>
         </div>
         <div className="hero--video">
           <video autoPlay loop muted playsInline>
