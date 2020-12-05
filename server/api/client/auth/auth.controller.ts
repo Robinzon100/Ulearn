@@ -1,18 +1,14 @@
 import { createJwtAuthorizationHeader } from './../../../utils/auth/auth.util';
-import { regsiterUserSchema } from './../../../schemas/auth/schema.registration';
 import { Request, Response, NextFunction } from "express";
 import User from '../../../models/user/user.model';
 import bcrypt from "bcrypt";
-import jwt from 'jsonwebtoken';
 import customError from '../../../utils/createError';
 import { regsiterUserSchemaWithEncryptedPassword } from '../../../schemas/auth/schema.registration';
 
 
 
 
-//
 //! ─── REGISTRATION ───────────────────────────────────────────────────────────────
-//
 export const postRegistration = async (req: Request, res: Response, next: NextFunction) => {
     const { email, password } = req.body;
 
@@ -58,9 +54,7 @@ export const postRegistration = async (req: Request, res: Response, next: NextFu
 
 
 
-//
 //! ─── LOGIN ───────────────────────────────────────────────────────────────
-//
 export const postLogin = async (req: Request, res: Response, next: NextFunction) => {
     const { email, password } = req.body;
 
@@ -97,7 +91,10 @@ export const postLogin = async (req: Request, res: Response, next: NextFunction)
 //         if (err) {
 //             customError(res, next, 'token not valid. unauthorized_client', 401)
 //         } else {
-
+                
+                // interface userToken{
+                //     userId: number
+                // }
 
 //             // if token is valid search the email and decode the password
 //             let { userId } = userToken as userToken

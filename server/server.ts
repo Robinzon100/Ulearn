@@ -1,4 +1,4 @@
-import Express, { Application, Request, Response, NextFunction } from 'express'
+import Express from 'express'
 import { baseMiddlewares } from './middleware/server/base';
 import { PORT } from './constants/server.consts'
 import { notFound, errorHandler } from './middleware/server/errorHandlers'
@@ -16,9 +16,6 @@ baseMiddlewares(app)
 //  ─── API ──────────────────────────────────────────────────────────────────────
 import api from "./api"
 app.use('/api', api)
-
-
-
 
 
 

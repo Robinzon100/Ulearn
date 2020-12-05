@@ -7,7 +7,7 @@ import Button from "components/global_components/button/Button";
 
 
 const Hero: FC = () => {
-  const {userStore} = useRootStore()
+  const { userStore } = useRootStore()
 
 
   return (
@@ -18,8 +18,8 @@ const Hero: FC = () => {
 
           <div className="hero--steps__heading">
             <h1 className="heading-bold heading-3_5">
-                რაღაცა ტექსტი იქნება აქ რომელიც აღწერს სერვის
-              </h1>
+              რაღაცა ტექსტი იქნება აქ რომელიც აღწერს სერვის
+            </h1>
           </div>
           <div className="hero--steps__line"></div>
           <div className="hero--steps__paragraph">
@@ -27,23 +27,23 @@ const Hero: FC = () => {
               რაიმე პატარა ტექსტი რომელიც უფრო დეტალურად აღწერს რას აკეთებს
               საიტი და ისეთი სიტყვები იქნება რაც SEO-ს დაევასება და googl-იც
               მაღლა აგვაგდებს
-              </p>
-            </div>
-            <div className="hero--steps__btn">
-              {/* <NextLink route="/join"
+            </p>
+          </div>
+          <div className="hero--steps__btn">
+            {/* <NextLink route="/join"
               className="btn btn-white heading-semi-bold  paragraph-medium">
               შემოგვიერთდი
               </NextLink>
               <Link>
 
               </Link> */}
-              <Button 
-              title={"შემოგვიერთდი"} 
+            <Button
+              title={"შემოგვიერთდი"}
               href={"/join"}
               className={"btn btn-white heading-semi-bold  paragraph-medium "}
-              />
-            </div>
-          
+            />
+          </div>
+
         </div>
         <div className="hero--video">
           <video autoPlay loop muted playsInline>
@@ -54,8 +54,7 @@ const Hero: FC = () => {
             <svg
               id="HeroVideo"
               version="1.1"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+              xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <filter
                   id="offset"

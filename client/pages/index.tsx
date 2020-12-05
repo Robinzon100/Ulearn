@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import Hero from "components/Index/hero";
 import Content from "components/Index/main_content";
-import { useObserver } from "mobx-react-lite";
+import { Observer } from "mobx-react-lite";
 
-const Index = () => {
-  const [contentId, setContentId] = useState(1);
-  return useObserver(() =>(
-    <>
-      <Hero />
-      <Content />
-    </>
-  ));
+const Index = (): JSX.Element => {
+  return (
+    <Observer>
+      {() => (
+        <>
+          <Hero />
+          <Content />
+        </>
+      )}
+    </Observer>
+  );
 };
 
 export default Index;

@@ -1,19 +1,22 @@
 import '../styles/main.scss'
 import 'video.js/dist/video-js.css'
-
+import { SWRConfig } from 'swr'
 
 import Navigation from "components/Navigation/navigation";
 import { RootStateProvider } from '../mobx/RootStateContext';
+import { swrOptions } from '../constants/swrOptions';
 
 
 
-function MyApp({ Component, pageProps }){
+function MyApp({ Component, pageProps }) {
     return (
         <>
-            <RootStateProvider>
-                <Navigation />
-                <Component {...pageProps} />
-            </RootStateProvider>
+            <SWRConfig value={swrOptions}>
+                <RootStateProvider>
+                    <Navigation />
+                    <Component {...pageProps} />
+                </RootStateProvider>
+            </SWRConfig>
         </>
     )
 }

@@ -1,12 +1,17 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { ShoppingCart, ChevronDown } from "react-feather";
 import NextLink from "components/utils/NextLink";
+import useSWR from 'swr';
 
 
-//! ─── IMPORTS ────────────────────────────────────────────────────────────────────
+//! ─── OWN IMPORTS ────────────────────────────────────────────────────────────────────
 
 import Category from "components/Navigation/Category";
 import InputSearch from "components/global_components/inputs/inputSearch";
+import { getAllCategories } from '../../../server/api/client/categories/categories.controller';
+import Axios from 'axios';
+import { fetcher } from '../../actions/swr/fetchers';
+
 
 
 
@@ -15,6 +20,10 @@ const Navigation: FC = () => {
 
   const [isToggled, setIsToggled] = useState(false);
   const [isMouseleftCategory, setIsMouseLeftCategory] = useState(false);
+
+  const {data} = useSWR(`${process.env.BACK_END_URL}/api/categories/all`, fetcher)
+
+
 
 
   return (
@@ -46,7 +55,7 @@ const Navigation: FC = () => {
         <div className="list"
           onMouseLeave={() => { setIsToggled(false); setIsMouseLeftCategory(false) }}>
           {isToggled && isMouseleftCategory && (
-            <Category />
+            <Category categories={data.categories}/>
           )}
         </div>
 

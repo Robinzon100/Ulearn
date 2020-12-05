@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { FC, useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import useSWR from "swr";
 
 
 
@@ -9,11 +10,14 @@ import SubCategory from "components/Navigation/sub_category";
 import SubSubCategory from "components/Navigation/sub_sub_category";
 import { MainCategoryLeftMoveAnimation, SubCategoryLeftMoveAnimation, SubSubCategoryLeftMoveAnimation } from "components/utils/framer/framerAnimation";
 import { handleHoverMainCategory, handleHoverSubCategory } from "components/utils/Category/CategoryFunctions";
-import { getAllCategories } from '../../actions/client/categories';
 
 
+interface categories {
+  categories: any
+}
 
-const Category: React.FC = () => {
+
+const Category: FC<categories> = ({ categories: { main_categories, sub_categories, sub_sub_categories } }) => {
 
   const [isMouseleftSubSubCategory, setIsMouseleftSubSubCategory] = useState(false);
 
@@ -23,29 +27,11 @@ const Category: React.FC = () => {
   const [isMainCategoryChosen, setIsMainCategoryChosen] = useState(false);
   const [isSubCategoryChosen, setIsSubCategoryChosen] = useState(false);
 
-  const [mainCategories, setCategories] = useState([]);
-  const [subCategories, setSubCategories] = useState([]);
-  const [subSubCategories, setSubSubCategories] = useState([]);
 
-  const [dataFeatched, setDataFeatched] = useState(false)
-
-
-  const fetchAllCategories = async () => {
-    const { categories: { main_categories, sub_categories, sub_sub_categories } } = await getAllCategories();
-    setCategories(main_categories);
-    setSubCategories(sub_categories);
-    setSubSubCategories(sub_sub_categories);
-    // debugger
-    setDataFeatched(true)
-  }
-
-  useEffect(() => {
-      fetchAllCategories()
-  }, [])
+ 
 
   return (
     <>
-
       <motion.ul
         className="list__main-category"
         onMouseEnter={() => setIsMouseleftSubSubCategory(false)}
@@ -54,12 +40,12 @@ const Category: React.FC = () => {
         animate={isMainCategoryChosen && "left"}>
 
 
-        {mainCategories.map((data) => (
+        {main_categories?.map((data) => (
           <Maincategory
             handleFetchMainCategory={() =>
               handleHoverMainCategory(
                 data.id,
-                subCategories,
+                sub_categories,
                 setRendersSubNames
               )
             }
@@ -70,7 +56,7 @@ const Category: React.FC = () => {
           />
         ))}
       </motion.ul>
-      
+
       {rendersSubNames.length > 0 &&
         <motion.ul
           className="list__sub-category"
@@ -81,12 +67,12 @@ const Category: React.FC = () => {
 
 
           {rendersSubNames &&
-            rendersSubNames.map((data) => (
+            rendersSubNames?.map((data) => (
               <SubCategory
                 handleFetchSubCategoryClick={() =>
                   handleHoverSubCategory(
                     data.id,
-                    subSubCategories,
+                    sub_sub_categories,
                     setRendersSubSubNames
                   )
                 }
@@ -100,7 +86,7 @@ const Category: React.FC = () => {
             ))}
         </motion.ul>
       }
-      
+
       {isMouseleftSubSubCategory && rendersSubSubNames.length > 0 && (
         <motion.ul
           className="list__sub-sub-category"
@@ -109,11 +95,12 @@ const Category: React.FC = () => {
           animate={isSubCategoryChosen && rendersSubSubNames.length > 0 && "left"}
         >
           {rendersSubSubNames &&
-            rendersSubSubNames.map((data) => (
+            rendersSubSubNames?.map((data) => (
               <SubSubCategory key={data.id} id={data.id} name={data.name} />
             ))}
         </motion.ul>
       )}
+
     </>
   );
 };
