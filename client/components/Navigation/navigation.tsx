@@ -1,28 +1,15 @@
-<<<<<<< HEAD
 import { FC, useState } from "react";
-import { ShoppingCart, ChevronDown } from "react-feather";
-import NextLink from "components/utils/NextLink";
 import useSWR from 'swr';
-=======
-import { FC,useState } from "react";
 import { ShoppingCart, ChevronDown } from "react-feather";
 import NextLink from "components/utils/NextLink";
 import { Search } from "react-feather";
->>>>>>> 66d7c83bb1da580829549564694db763785725ed
 
 
 //! ─── OWN IMPORTS ────────────────────────────────────────────────────────────────────
 
 import Category from "components/Navigation/Category";
-<<<<<<< HEAD
-import InputSearch from "components/global_components/inputs/inputSearch";
-import { getAllCategories } from '../../../server/api/client/categories/categories.controller';
-import Axios from 'axios';
 import { fetcher } from '../../actions/swr/fetchers';
-
-=======
 import Input from "components/global_components/inputs/input";
->>>>>>> 66d7c83bb1da580829549564694db763785725ed
 
 
 

@@ -7,12 +7,7 @@ import Button from "components/global_components/button/Button";
 
 
 const Hero: FC = () => {
-<<<<<<< HEAD
-  const { userStore } = useRootStore()
-
-=======
   const { userStore } = useRootStore();
->>>>>>> 66d7c83bb1da580829549564694db763785725ed
 
   return (
     <>
@@ -33,7 +28,6 @@ const Hero: FC = () => {
             </p>
           </div>
           <div className="hero--steps__btn">
-<<<<<<< HEAD
             {/* <NextLink route="/join"
               className="btn btn-white heading-semi-bold  paragraph-medium">
               შემოგვიერთდი
@@ -43,25 +37,11 @@ const Hero: FC = () => {
               </Link> */}
             <Button
               title={"შემოგვიერთდი"}
-              href={"/join"}
+              route={"/join"}
               className={"btn btn-white heading-semi-bold  paragraph-medium "}
             />
           </div>
 
-=======
-           
-              <Button
-                title={"შემოგვიერთდი"}
-                className={"heading-semi-bold  paragraph-medium"}
-                route={"/join"}
-                // icon={<ChevronDown/>}
-                iconStyle={{color:"black"}}
-                // loading={true}
-                backgroudColor={"btn-white"}
-              />
-            
-          </div>
->>>>>>> 66d7c83bb1da580829549564694db763785725ed
         </div>
         <div className="hero--video">
           <video autoPlay loop muted playsInline>
