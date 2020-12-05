@@ -2,6 +2,7 @@ import { FC, memo } from "react";
 import { useRouter } from "next/router";
 import { ButtonInterface } from "components/global_components/button/Button-interface";
 import Loading from "components/global_components/loading/loading";
+import {useEffect} from 'react';
 
 const Button: FC<ButtonInterface> = ({
   title,
@@ -15,19 +16,24 @@ const Button: FC<ButtonInterface> = ({
   iconStyle,
   iconRight,
   route,
+  disabled
 }) => {
-  const router = useRouter();
-  const handleRoute = (e) => {
-    e.preventDefault();
-    if (route) {
-      router.push(route);
+
+
+  useEffect(() => {
+    if (route && clickHandler) {
+      console.warn('button can only have route or clikHandler')
     }
-  };
+  }, [])
+  
+  
+  
+  const router = useRouter();
 
   return (
     <>
       <button
-        onClick={handleRoute}
+        onClick={() => route ? router.push(route) : clickHandler}
         className={`btn ${className} ${backgroudColor}`}
         style={linkStyle}
 

@@ -18,4 +18,5 @@ export interface ButtonInterface {
   iconStyle?: CSSProperties;
   iconRight?: ReactNode;
   route?: string;
+  disabled?: boolean
 }

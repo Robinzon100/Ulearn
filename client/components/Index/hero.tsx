@@ -31,10 +31,9 @@ const Hero: FC = () => {
               <Button
                 title={"შემოგვიერთდი"}
                 className={"heading-semi-bold  paragraph-medium"}
-                route={"/join"}
-                // icon={<ChevronDown/>}
+                route={"/register"}
+                clickHandler={() => console.log('asdasd')}
                 iconStyle={{color:"black"}}
-                // loading={true}
                 backgroudColor={"btn-white"}
               />
             
