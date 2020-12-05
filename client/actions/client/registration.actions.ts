@@ -1,11 +1,8 @@
+import { axiosInstance } from './../index';
 
 const axios = require('axios').default;
 
 
-export const axiosInstance = axios.create({
-    baseURL: `${process.env.BACK_END_URL}/api`,
-    timeout: 5000
-});
 
 
 export const postRegistration = async (data) => {

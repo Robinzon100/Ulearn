@@ -17,7 +17,7 @@ const Navigation: FC = () => {
   const [isToggled, setIsToggled] = useState(false);
   const [isMouseleftCategory, setIsMouseLeftCategory] = useState(false);
 
-  const {data} = useSWR(`${process.env.BACK_END_URL}/api/categories/all`, fetcher)
+  const { data } = useSWR(`${process.env.BACK_END_URL}/api/categories/all`, fetcher)
 
 
 
@@ -30,10 +30,10 @@ const Navigation: FC = () => {
             <div className="logo"></div>
           </NextLink>
           <div className="input">
-            <Input 
-            type={"text"} 
-            placeHolder={"მოძებნე სასურველი კურსი"} 
-            icon={<Search size={22}/>}
+            <Input
+              type={"text"}
+              placeHolder={"მოძებნე სასურველი კურსი"}
+              icon={<Search size={22} />}
             />
           </div>
         </div>
@@ -55,7 +55,7 @@ const Navigation: FC = () => {
         <div className="list"
           onMouseLeave={() => { setIsToggled(false); setIsMouseLeftCategory(false) }}>
           {isToggled && isMouseleftCategory && (
-            <Category categories={data.categories}/>
+            <Category categories={data.categories} />
           )}
         </div>
 

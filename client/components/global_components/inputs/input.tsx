@@ -35,7 +35,7 @@ const Input: React.FC<InputInterface> = ({
         {icon && (
           <span style={{ opacity: "80%" }} className="icon_base-style icon">
             {icon}
-           
+
           </span>
         )}
         <input
@@ -47,28 +47,28 @@ const Input: React.FC<InputInterface> = ({
           className={`input_field  paragraph-regulars paragraph-small ${className}`}
           placeholder={placeHolder}
         />
-         
-         <style jsx>{`
-              .icon_base-style {
-                position: absolute;
-                justify-content: center;
-                display: flex;
-                align-items: center;
-                z-index: 1;
-                top: 50%;
-              }
 
-              .icon {
-                left: 0;
-                transform: translate(50%, -50%);
-              }
+        <style jsx>{`
+          .icon_base-style {
+            position: absolute;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            z-index: 1;
+            top: 50%;
+          }
 
-              .input_container {
-              position: relative;
-              display: flex;
-              align-items: center;
-              width: 100%;
-            }
+          .icon {
+            left: 0;
+            transform: translate(50%, -50%);
+          }
+
+          .input_container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+          }
 
             .input_field {
               width: 100%;
@@ -95,7 +95,7 @@ const Input: React.FC<InputInterface> = ({
               opacity: 100%;
             }
             `}
-            </style>
+        </style>
       </div>
     </>
   );
