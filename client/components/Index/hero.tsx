@@ -27,20 +27,18 @@ const Hero: FC = () => {
             </p>
           </div>
           <div className="hero--steps__btn">
-            {/* <NextLink route="/join"
-              className="btn btn-white heading-semi-bold  paragraph-medium">
-              შემოგვიერთდი
-              </NextLink>
-              <Link>
-
-              </Link> */}
-            <Button
-              title={"შემოგვიერთდი"}
-              route={"/join"}
-              className={"btn btn-white heading-semi-bold  paragraph-medium "}
-            />
+           
+              <Button
+                title={"შემოგვიერთდი"}
+                className={"heading-semi-bold  paragraph-medium"}
+                route={"/join"}
+                // icon={<ChevronDown/>}
+                iconStyle={{color:"black"}}
+                // loading={true}
+                backgroudColor={"btn-white"}
+              />
+            
           </div>
-
         </div>
         <div className="hero--video">
           <video autoPlay loop muted playsInline>
