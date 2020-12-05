@@ -1,10 +1,9 @@
 import { FC, useState, memo} from "react";
 import { motion } from "framer-motion";
-import useSWR from "swr";
 
 
 
-//! ─── IMPORTS ────────────────────────────────────────────────────────────────────
+//! ─── OWN IMPORTS ────────────────────────────────────────────────────────────────────
 import Maincategory from "components/Navigation/main_category";
 import SubCategory from "components/Navigation/sub_category";
 import SubSubCategory from "components/Navigation/sub_sub_category";
