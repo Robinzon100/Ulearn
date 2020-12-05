@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect,memo } from "react";
 import { motion } from "framer-motion";
 
 
@@ -71,17 +71,14 @@ const Category: React.FC = () => {
         ))}
       </motion.ul>
       
-      {rendersSubNames.length > 0 &&
+      
         <motion.ul
           className="list__sub-category"
           variants={SubCategoryLeftMoveAnimation}
           initial={{ left: "25rem", display: "none", opacity: 0 }}
           animate={isMainCategoryChosen && rendersSubNames.length > 0 && "left"}>
-
-
-
-          {rendersSubNames &&
-            rendersSubNames.map((data) => (
+            {rendersSubNames &&
+            rendersSubNames?.map((data) => (
               <SubCategory
                 handleFetchSubCategoryClick={() =>
                   handleHoverSubCategory(
@@ -99,9 +96,9 @@ const Category: React.FC = () => {
               />
             ))}
         </motion.ul>
-      }
       
-      {isMouseleftSubSubCategory && rendersSubSubNames.length > 0 && (
+      
+      {isMouseleftSubSubCategory &&  (
         <motion.ul
           className="list__sub-sub-category"
           variants={SubSubCategoryLeftMoveAnimation}
@@ -109,7 +106,7 @@ const Category: React.FC = () => {
           animate={isSubCategoryChosen && rendersSubSubNames.length > 0 && "left"}
         >
           {rendersSubSubNames &&
-            rendersSubSubNames.map((data) => (
+            rendersSubSubNames?.map((data) => (
               <SubSubCategory key={data.id} id={data.id} name={data.name} />
             ))}
         </motion.ul>
@@ -118,4 +115,4 @@ const Category: React.FC = () => {
   );
 };
 
-export default Category;
+export default memo(Category);

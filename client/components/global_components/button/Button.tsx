@@ -1,45 +1,93 @@
 import { FC, memo } from "react";
-
+import { useRouter } from "next/router";
 import { ButtonInterface } from "components/global_components/button/Button-interface";
+import Loading from "components/global_components/loading/loading";
 
-const Button: FC<ButtonInterface> = (
-  {
-    title,
-    className,
-    linkStyle,
-    Clickhandler,
-    loading,
-    icon,
-    iconStyle,
-    iconRight,
-    route,
-  },
-  ref
-) => {
-  // const { bg, border, color } = useMemo(() => getButtonColors())
+const Button: FC<ButtonInterface> = ({
+  title,
+  className,
+  backgroudColor,
+  btnSizes,
+  linkStyle,
+  clickHandler,
+  loading,
+  icon,
+  iconStyle,
+  iconRight,
+  route,
+}) => {
+  const router = useRouter();
+  const handleRoute = (e) => {
+    e.preventDefault();
+    if (route) {
+      router.push(route);
+    }
+  };
 
   return (
     <>
-      <a
-        onClick={Clickhandler}
-        className={`btn ${className}`}
+      <button
+        onClick={handleRoute}
+        className={`btn ${className} ${backgroudColor}`}
         style={linkStyle}
-        href={route ? route : null}
+
       >
         {icon && (
-          <span className="icon" style={iconStyle}>
+          <span className="icon_base-style icon" style={iconStyle}>
             {icon}
           </span>
         )}
 
-        <p style={{ color: "black" }}>{title}</p>
+        <p className="title">{title}</p>
+        {/* <Loading/> */}
 
         {iconRight && (
-          <span className="iconRight" style={iconStyle}>
+          <span className="icon_base-style iconRight" style={iconStyle}>
             {iconRight}
           </span>
         )}
-      </a>
+
+        <style jsx>{`
+          .btn {
+            text-decoration: none;
+            border-radius: 8px;
+            width: 30rem;
+            padding: 1.5rem;
+            display: block;
+            text-align: center;
+            position: relative;
+            border-image: none;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            color: var(--white);
+            outline: none !important;
+          }
+          .title {
+            color: var(--primary-dark);
+          }
+
+          .icon_base-style {
+            position: absolute;
+            justify-content: center;
+            display: flex;
+            position: absolute;
+            align-items: center;
+            z-index: 1;
+            top: 50%;
+          }
+
+          .icon {
+            left: 0;
+            transform: translate(50%, -50%);
+          }
+
+          .iconRight {
+            right: 0;
+            transform: translate(-50%, -50%);
+          }
+        `}</style>
+      </button>
     </>
   );
 };

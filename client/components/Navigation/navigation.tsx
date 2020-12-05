@@ -1,18 +1,17 @@
-import { FC, useEffect, useState } from "react";
+import { FC,useState } from "react";
 import { ShoppingCart, ChevronDown } from "react-feather";
 import NextLink from "components/utils/NextLink";
+import { Search } from "react-feather";
 
 
 //! ─── IMPORTS ────────────────────────────────────────────────────────────────────
 
 import Category from "components/Navigation/Category";
-import InputSearch from "components/global_components/inputs/inputSearch";
+import Input from "components/global_components/inputs/input";
 
 
 
 const Navigation: FC = () => {
-  const [placeHolder, setPlaceHolder] = useState<string>("მოძებნე სასურველი კურსი");
-
   const [isToggled, setIsToggled] = useState(false);
   const [isMouseleftCategory, setIsMouseLeftCategory] = useState(false);
 
@@ -25,7 +24,11 @@ const Navigation: FC = () => {
             <div className="logo"></div>
           </NextLink>
           <div className="input">
-            <InputSearch id={1} placeHolder={placeHolder} />
+            <Input 
+            type={"text"} 
+            placeHolder={"მოძებნე სასურველი კურსი"} 
+            icon={<Search size={22}/>}
+            />
           </div>
         </div>
 

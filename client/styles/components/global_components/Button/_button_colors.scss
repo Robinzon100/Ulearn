@@ -1,0 +1,54 @@
+.btn-blue {
+    background: var(--primary-blue);
+    border: 1px solid var(--primary-blue);
+    transition: all .4s;
+
+}
+
+.btn-yellow {
+    background: var(--primary-yellow);
+    border: 1px solid var(--primary-yellow);
+    transition: all .5s;
+
+
+}
+
+.btn-green {
+    background: var(--button-green-gradient);
+    border: 1px solid var(--primary-green);
+    transition: all .5s;
+
+}
+
+
+.btn-red {
+    background: var(--primary-red);
+    border: 1px solid var(--primary-red);
+    transition: all .4s;
+
+}
+
+.btn-white {
+    background: var(--white);
+    border: 1px solid var(--primary-blue);
+    transition: all .4s;
+
+
+}
+
+
+.btn-black {
+    background: var(--white);
+    border: 1px solid var(--primary-dark);
+    transition: all .4s;
+}
+
+.label {
+    // width: 30rem;
+    background: var(--primary-green);
+    border: 1px solid var(--primary-green);
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    border-radius: 5px;
+    color: var(--white);
+    cursor: pointer;
+}

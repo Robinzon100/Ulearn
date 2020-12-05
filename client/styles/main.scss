@@ -27,22 +27,29 @@
 @import "components/nav-bar";
 @import "components/footer";
 @import "components/file_uploads";
-@import "components/course_category";
-@import "components/courses_cards";
-@import "components/courses_components(page)/courses_content";
-@import "components/courses_components(page)/course_video_player";
+@import "components/Courses/courses_content";
+@import "components/Courses/course_video_player";
 
 
 // === === === === GLOBAL-COMPONENTS === === === ===
-@import "components/global_components/buttons";
-@import "components/global_components/input_fields";
-@import "components/global_components/card_detail";
-@import "components/global_components/comment_cards";
-@import "components/global_components/input_cards";
-@import "components/global_components/side_menu";
+@import "components/global_components/Button/buttons";
+@import "components/global_components/Button/button_colors";
+@import "components/global_components/Button/button_loading";
+@import "components/global_components/Input/input_fields";
+@import "components/global_components/Input/input_cards";
+@import "components/global_components/Input/input_file";
+@import "components/global_components/Cards/card_detail";
+@import "components/global_components/Cards/comment_cards";
+@import "components/global_components/Side-menu/side_menu";
 @import "components/global_components/stars";
 // === === === === HERO-COMPONENTS === === === ===
-@import "components/index_components/hero";
-@import "components/index_components/main_content";
-@import "components/index_components/carousel";
+@import "components/Index/hero";
+@import "components/Index/main_content";
+@import "components/Index/carousel";
+@import "components/Index/index_category";
+@import "components/Index/index_cards";
+
+
+
+
 @import "functions/navigation";

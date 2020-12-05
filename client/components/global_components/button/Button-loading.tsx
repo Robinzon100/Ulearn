@@ -1,5 +1,5 @@
-import React from 'react'
-// import Loading from '../loading'
+import {memo} from 'react'
+import Loading from "components/global_components/button/Button-loading";
 
 interface Props {
   color: string
@@ -9,7 +9,7 @@ const ButtonLoading: React.FC<Props> = ({ color }) => {
   return (
     <div className="btn-loading">
       {/* <Loading color={color} /> */}
-      <style jsx>{`
+      {/* <style jsx>{`
         .btn-loading {
           position: absolute;
           top: 0;
@@ -17,11 +17,11 @@ const ButtonLoading: React.FC<Props> = ({ color }) => {
           right: 0;
           bottom: 0;
           z-index: 2;
-          background-color: var(--geist-ui-button-bg);
+          
         }
-      `}</style>
+      `}</style> */}
     </div>
   )
 }
 
-export default React.memo(ButtonLoading)
+export default ButtonLoading

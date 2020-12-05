@@ -1,9 +1,15 @@
-import React from 'react'
+import { memo } from "react";
 
-export default function loading() {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+const Loading = () => {
+  return (
+    <>
+      <div className="dot-wrapper">
+        <div className="dot"></div>
+        <div className="dot"></div>
+        <div className="dot"></div>
+      </div>
+    </>
+  );
+};
+
+export default memo(Loading);

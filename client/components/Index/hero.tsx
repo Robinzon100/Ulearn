@@ -1,10 +1,10 @@
-import { FC } from "react";
-import NextLink from "components/utils/NextLink";
+import { FC} from "react";
 import { ChevronDown } from "react-feather";
 import { useRootStore } from "../../mobx/RootStateContext";
-import Link from "next/link";
+
 
 import Button from "components/global_components/button/Button";
+
 
 const Hero: FC = () => {
   const { userStore } = useRootStore();
@@ -31,10 +31,12 @@ const Hero: FC = () => {
            
               <Button
                 title={"შემოგვიერთდი"}
-                className={"btn-white heading-semi-bold  paragraph-medium"}
+                className={"heading-semi-bold  paragraph-medium"}
                 route={"/join"}
-                iconRight={<ChevronDown/>}
+                // icon={<ChevronDown/>}
                 iconStyle={{color:"black"}}
+                // loading={true}
+                backgroudColor={"btn-white"}
               />
             
           </div>
