@@ -1,4 +1,4 @@
-import React from "react";
+import {FC} from "react";
 import Link from "next/link";
 
 
@@ -9,11 +9,11 @@ interface Props {
 }
 
 
-const NextLink:React.FC<Props> = ({ route, children,className }) => {
+const NextLink:FC<Props> = ({ route,children,className }) => {
   // const { route, title, children } = props;
   return (
     <Link href={route}>
-      <a className={className}>
+      <a style={{textDecoration:"none"}} className={className}>
         {children}
       </a>
     </Link>

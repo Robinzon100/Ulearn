@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ChevronDown } from "react-feather";
+import { ChevronDown,Search } from "react-feather";
 
-import InputSearch from "components/global_components/inputs/inputSearch";
+
+import Input from "components/global_components/inputs/input";
 import PrimaryContentCard from "components/global_components/cards/PrimaryContentCard";
 import Carousel from "components/Index/carousel/carousel";
 import PrimaryContentCardJson from "../../public/json/PrimaryContentCard.json";
@@ -19,7 +20,7 @@ import CategoriesJson from "../../public/json/categories.json";
 import CarouselJson from "../../public/json/carousel.json";
 
 const main_content: React.FC = () => {
-  const [placeHolder, setPlaceHolder] = useState<string>("მოძებნე სასურველი კურსი");
+ 
   const [toggleSeeMore, setToggleSeeMore] = useState(false);
 
   //* CAROUSEL STATES
@@ -38,7 +39,6 @@ const main_content: React.FC = () => {
   const scrollRight = () => {
     const carousel = document.querySelector<HTMLElement>(".carousel_container");
     sideScroll(carousel, "right", 25, 800, 50,setIsFinishedScrolling); //* ELEMENT,DIRECTION,SPEED,DISTANCE,STEP
-
     
     checkIfScrollFinished(setIsFinishedScrolling,isFinishedScrolling);
 
@@ -112,11 +112,15 @@ const main_content: React.FC = () => {
 
           <div className="landing_courses">
             <div className="main_content--input">
-              <InputSearch id={1} placeHolder={placeHolder} />
+            <Input 
+            type={"text"} 
+            placeHolder={"მოძებნე სასურველი კურსი"} 
+            icon={<Search size={22}/>}
+            />
 
               <div className="sorting">
-                <SortingDropdown type="date" />
-                <SortingDropdown type="raiting" />
+                {/* <SortingDropdown type="date" />
+                <SortingDropdown type="raiting" /> */}
                 <SortingDropdown type="time" />
               </div>
             </div>

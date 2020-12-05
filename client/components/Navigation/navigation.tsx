@@ -1,23 +1,32 @@
+<<<<<<< HEAD
 import { FC, useState } from "react";
 import { ShoppingCart, ChevronDown } from "react-feather";
 import NextLink from "components/utils/NextLink";
 import useSWR from 'swr';
+=======
+import { FC,useState } from "react";
+import { ShoppingCart, ChevronDown } from "react-feather";
+import NextLink from "components/utils/NextLink";
+import { Search } from "react-feather";
+>>>>>>> 66d7c83bb1da580829549564694db763785725ed
 
 
 //! ─── OWN IMPORTS ────────────────────────────────────────────────────────────────────
 
 import Category from "components/Navigation/Category";
+<<<<<<< HEAD
 import InputSearch from "components/global_components/inputs/inputSearch";
 import { getAllCategories } from '../../../server/api/client/categories/categories.controller';
 import Axios from 'axios';
 import { fetcher } from '../../actions/swr/fetchers';
 
+=======
+import Input from "components/global_components/inputs/input";
+>>>>>>> 66d7c83bb1da580829549564694db763785725ed
 
 
 
 const Navigation: FC = () => {
-  const [placeHolder, setPlaceHolder] = useState<string>("მოძებნე სასურველი კურსი");
-
   const [isToggled, setIsToggled] = useState(false);
   const [isMouseleftCategory, setIsMouseLeftCategory] = useState(false);
 
@@ -34,7 +43,11 @@ const Navigation: FC = () => {
             <div className="logo"></div>
           </NextLink>
           <div className="input">
-            <InputSearch id={1} placeHolder={placeHolder} />
+            <Input 
+            type={"text"} 
+            placeHolder={"მოძებნე სასურველი კურსი"} 
+            icon={<Search size={22}/>}
+            />
           </div>
         </div>
 
