@@ -1,152 +1,50 @@
-import React, { useState } from "react";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { ChevronDown,Search } from "react-feather";
+import React from "react";
 
+//! ===========================OUR IMPORTS
 
-import Input from "components/global_components/inputs/input";
 import PrimaryContentCard from "components/global_components/cards/PrimaryContentCard";
 import Carousel from "components/Index/carousel/carousel";
 import PrimaryContentCardJson from "../../public/json/PrimaryContentCard.json";
-import Categories from "components/Index/categories";
-import SortingDropdown from "../sortingDropdown";
-import { seeMoreAnimation } from "components/utils/framer/framerAnimation";
-import { mouseDown,mouseMove,mouseLeave,mouseUp,sideScroll} from "./carousel/carouselLogic";
+import CategoriesComponent from "components/Index/categoriesComponent";
+import Overlay from "components/Index/Overlay/Overlay";
 
-import {checkIfScrollFinished} from "../hooks/checkIfFinishedScrolling";
-
-//! JSON
+//! ===================== JSON
 import CategoriesJson from "../../public/json/categories.json";
 import CarouselJson from "../../public/json/carousel.json";
+import InputSelectComponent from "components/Index/InputSelect.Component"
+;
+interface categories {
+  categories: any;
+}
 
 const main_content: React.FC = () => {
- 
-  const [toggleSeeMore, setToggleSeeMore] = useState(false);
-
-  //* CAROUSEL STATES
-  const [isDown, setIsDown] = useState<boolean>(false);
-  const [isFinishedScrolling, setIsFinishedScrolling] = useState<boolean>(false);
-  const [startX, setStartX] = useState<number>(0);
-  const [scrolLeft, setScrolLeft] = useState<number>(0);
-  
-
-  //* JSON
+    
+    //* JSON
   const CardsJson = PrimaryContentCardJson.contentCard;
   const categoriesJson = CategoriesJson.Categories;
   const carouselJson = CarouselJson.carousel;
-
-
-  const scrollRight = () => {
-    const carousel = document.querySelector<HTMLElement>(".carousel_container");
-    sideScroll(carousel, "right", 25, 800, 50,setIsFinishedScrolling); //* ELEMENT,DIRECTION,SPEED,DISTANCE,STEP
-    
-    checkIfScrollFinished(setIsFinishedScrolling,isFinishedScrolling);
-
-  };
-  const scrollLeft = () => {
-    const carousel = document.querySelector<HTMLElement>(".carousel_container");
-    sideScroll(carousel, "left", 25, 800, 50,setIsFinishedScrolling); //* ELEMENT,DIRECTION,SPEED,DISTANCE,STEP
-    };
 
   return (
     <>
       <div className="main_content">
         {/* //! კარუსელი */}
-        <div className="carousel noselect">
-          {/* // TODO  გააჯმეინე image tags aqedan */}
-            <div className="right_slider_btn" onClick={() => scrollRight()}>
-              <Image
-                src="/pictures/slider/rigth_slide_button.svg"
-                alt="slider_btn"
-                width={250}
-                height={100}
-                quality={50}
-              />
-            </div>
-          
-          <div
-            className="carousel_container"
-            onMouseDown={(e) => mouseDown(e, setIsDown, setStartX, setScrolLeft)}
-            onMouseLeave={() => mouseLeave(setIsDown)}
-            onMouseUp={() => mouseUp(setIsDown)}
-            onMouseMove={(e) =>mouseMove(e, isDown, startX, scrolLeft, setIsFinishedScrolling,isFinishedScrolling)}
-          >
-            {carouselJson.map((data) => (
-              <Carousel
-                key={data.id}
-                id={data.id}
-                title={data.title}
-                imageUrl={data.imageUrl}
-              />
-            ))}
-          </div>
-          {isFinishedScrolling && (
-            <div className="left_slider_btn" onClick={() => scrollLeft()}>
-              <Image
-                src="/pictures/slider/rigth_slide_button.svg"
-                alt="slider_btn"
-                width={250}
-                height={100}
-                quality={50}
-              />
-            </div>
-          )}
-        </div>
+        <Carousel carouselJson={carouselJson} />
 
         {/* //! ინფუთები */}
-
-        <div className="main_content--container">
+         <div className="main_content--container">
           <div className="category">
             <div className="category_heading">
               <p className="heading-6 heading-bold">კატეგორიები</p>
             </div>
-            {categoriesJson.map((categorie) => (
-              <Categories
-                key={categorie.id}
-                id={categorie.id}
-                title={categorie.title}
-                numberOfCourses={categorie.numberOfCourses}
-              />
-            ))}
-          </div>
+            <CategoriesComponent CategoriesJson={CategoriesJson.Categories}/>
+            </div>
 
           <div className="landing_courses">
-            <div className="main_content--input">
-            <Input 
-            type={"text"} 
-            placeHolder={"მოძებნე სასურველი კურსი"} 
-            icon={<Search size={22}/>}
-            />
-
-              <div className="sorting">
-                {/* <SortingDropdown type="date" />
-                <SortingDropdown type="raiting" /> */}
-                <SortingDropdown type="time" />
-              </div>
-            </div>
-            {CardsJson.length > 2 && (
-              <motion.div
-                className="overlay_container"
-                variants={seeMoreAnimation}
-                initial={{ height: "0rem" }}
-                animate={!toggleSeeMore ? "open" : "closed"}
-              >
-                <div className="wrapper" onClick={() => setToggleSeeMore(true)}>
-                  <div className="see_more">
-                    <p className="heading-bold paragraph-biggest">
-                      იხილეთ მეტი
-                    </p>
-                  </div>
-                  <div className="see_more_arrow">
-                    <ChevronDown size={40} style={{ color: "#00E267" }} />
-                  </div>
-                </div>
-              </motion.div>
-            )}
+            <InputSelectComponent />
+            <Overlay CardsJson={categoriesJson}/>
 
             <div className="landing_courses--cards">
               {/* //! ეს არის მთავარი გვერდზე რაც კარტებია */}
-
               {CardsJson.map((card) => (
                 <PrimaryContentCard
                   key={card.id}

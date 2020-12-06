@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 
 
 
-//! ─── OWN IMPORTS ────────────────────────────────────────────────────────────────────
+//! ─── OUR IMPORTS ────────────────────────────────────────────────────────────────────
 import Maincategory from "components/Navigation/main_category";
 import SubCategory from "components/Navigation/sub_category";
 import SubSubCategory from "components/Navigation/sub_sub_category";
-import { MainCategoryLeftMoveAnimation, SubCategoryLeftMoveAnimation, SubSubCategoryLeftMoveAnimation } from "components/utils/framer/framerAnimation";
+import { MainCategoryLeftMoveAnimation, SubCategoryLeftMoveAnimation, SubSubCategoryLeftMoveAnimation } from "constants/framer/framerAnimation";
 import { handleHoverMainCategory, handleHoverSubCategory } from "components/utils/Category/CategoryFunctions";
 
 

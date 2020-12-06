@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Input from 'components/global_components/inputs/input';
+import Input from 'components/global_components/Inputs/input';
 import { postRegistration } from 'actions/client/registration.actions';
 
 const Register: React.FC = () => {

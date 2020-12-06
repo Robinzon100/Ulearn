@@ -2,7 +2,7 @@ import '../styles/main.scss'
 import 'video.js/dist/video-js.css'
 import { SWRConfig } from 'swr'
 
-import Navigation from "components/Navigation/navigation";
+import Navigation from "components/Navigation/Navigation"
 import { RootStateProvider } from '../mobx/RootStateContext';
 import { swrOptions } from '../constants/swrOptions';
 

@@ -35,6 +35,7 @@ const Hero: FC = () => {
                 clickHandler={() => console.log('asdasd')}
                 iconStyle={{color:"black"}}
                 backgroudColor={"btn-white"}
+                disabled={false}
               />
             
           </div>

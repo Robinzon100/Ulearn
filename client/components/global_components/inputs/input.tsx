@@ -1,19 +1,7 @@
-import { CSSProperties, ReactNode } from "react";
+import React  from "react";
+import {InputInterface} from "components/global_components/Inputs/Input.interface";
 
-interface InputInterface {
-  placeHolder: string;
-  type: "text" | "email" | "password" | "number";
-  disabled?: boolean;
-  style?: CSSProperties;
-  containerStyle?: any;
-  value?: string;
-  onChange?: any;
-  title?: string;
-  className?: string;
-  id?: string;
-  name?: string;
-  icon?: ReactNode;
-}
+
 const Input: React.FC<InputInterface> = ({
   placeHolder,
   type,
@@ -30,12 +18,11 @@ const Input: React.FC<InputInterface> = ({
 }) => {
   return (
     <>
-      <div className="input_container" title={title}>
+      <div className="input_container">
         {/* <label htmlFor=""></label> */}
         {icon && (
           <span style={{ opacity: "80%" }} className="icon_base-style icon">
             {icon}
-
           </span>
         )}
         <input
@@ -44,31 +31,45 @@ const Input: React.FC<InputInterface> = ({
           type={type}
           onChange={onChange}
           value={value}
-          className={`input_field  paragraph-regulars paragraph-small ${className}`}
+          className={`input_field ${className}`}
           placeholder={placeHolder}
         />
 
-        <style jsx>{`
-          .icon_base-style {
-            position: absolute;
-            justify-content: center;
-            display: flex;
-            align-items: center;
-            z-index: 1;
-            top: 50%;
-          }
 
-          .icon {
-            left: 0;
-            transform: translate(50%, -50%);
-          }
 
-          .input_container {
-            position: relative;
-            display: flex;
-            align-items: center;
-            width: 100%;
-          }
+
+
+
+
+
+
+
+
+
+        
+
+        <style jsx>
+          {`
+            .icon_base-style {
+              position: absolute;
+              justify-content: center;
+              display: flex;
+              align-items: center;
+              z-index: 1;
+              top: 50%;
+            }
+
+            .icon {
+              left: 0;
+              transform: translate(50%, -50%);
+            }
+
+            .input_container {
+              position: relative;
+              display: flex;
+              align-items: center;
+              width: 100%;
+            }
 
             .input_field {
               width: 100%;
@@ -78,7 +79,7 @@ const Input: React.FC<InputInterface> = ({
               box-sizing: border-box;
               border-radius: 8px;
               outline: none !important;
-              transition: $transition !important;
+              transition: all 0.1s cubic-bezier(0, 1.06, 0.37, 0.38);
             }
 
             .input_field:focus {
@@ -94,7 +95,7 @@ const Input: React.FC<InputInterface> = ({
               background: var(--white);
               opacity: 100%;
             }
-            `}
+          `}
         </style>
       </div>
     </>

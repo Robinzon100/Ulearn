@@ -1,38 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Calendar, Clock, Star } from "react-feather";
-import SelectInput from "components/global_components/inputs/selectInput";
 
+import Select from "components/global_components/Inputs/Select";
+import SelectJson from "../public/json/Select.json";
 interface SortingDropdown {
-  type: string;
+    type: string;
 }
 
 const SortingDropdown: React.FC<SortingDropdown> = ({ type }) => {
-  const handleSelectChange = (value) => {
-    console.log(value);
-  };
+    const handleSelectChange = (value) => {
+        console.log(value);
+    };
 
-  const selectOptions = [
-    {
-      id: 1,
-      name: "0-2 Hours",
-      number_of_courses: "100",
-    },
-    {
-      id: 2,
-      name: "3-6 Hours",
-      number_of_courses: "12",
-    },
-    {
-      id: 3,
-      name: "7-16 Hours",
-      number_of_courses: "20",
-    },
-  ];
 
-  return (
-    <>
-      {type === "date" && (
-        <SelectInput
+
+    return (
+        <>
+            {/* {type === "date" && (
+        <Input
           id={1}
           type="sorting_date"
           selectOptions={selectOptions}
@@ -44,44 +29,36 @@ const SortingDropdown: React.FC<SortingDropdown> = ({ type }) => {
           >
             <Calendar size={15} style={{ color: "blue", opacity: "1" }} />
           </div>
-        </SelectInput>
-      )}
+        </Input>
+      )} */}
 
-      {type === "raiting" && (
-        <SelectInput
-          id={2}
-          type="sorting_raiting"
-          selectOptions={selectOptions}
-          onChange={handleSelectChange}
-        >
-          <div
-            className="input_icon"
-            style={{ backgroundColor: "var(--primary-yellow)" }}
-          >
-            <Star size={15} 
-            style={{ color: "yellow", opacity: "1" }} />
-          </div>
-        </SelectInput>
-      )}
+            {type === "rating" && (
+                <Select
+                    placeHolder={"რეიტინგი"}
+                    id={2}
+                    type="radio"
+                    options={SelectJson.SelectRatingsOptions}
+                    onChange={handleSelectChange}
+                    icon={<Star size={15}/>}
+                    iconStyle={{ color: "yellow", opacity: "70%",backgroundColor:"var(--primary-yellow)" }}
+                />
 
-      {type === "time" && (
-        <SelectInput
-          id={3}
-          type="sorting_length"
-          selectOptions={selectOptions}
-          onChange={handleSelectChange}
-        >
-          <div
-            className="input_icon"
-            style={{ backgroundColor: "var(--primary-red)" }}
-          >
-            <Clock size={15} 
-            style={{ color: "red", opacity: "1" }} />
-          </div>
-        </SelectInput>
-      )}
-    </>
-  );
+            )}
+
+            {type === "time" && (
+                <Select
+                    placeHolder={"ხანგძლივობა"}
+                    id={3}
+                    type="radio"
+                    options={SelectJson.SelectTimeOptions}
+                    onChange={handleSelectChange}
+                    icon={<Clock size={15} />}
+                    iconStyle={{ color: "red", opacity: "70%",backgroundColor:"var(--primary-red)" }}
+
+                />
+            )}
+        </>
+    );
 };
 
 export default SortingDropdown;

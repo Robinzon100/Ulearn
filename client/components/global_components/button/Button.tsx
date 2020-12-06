@@ -1,8 +1,9 @@
-import { FC, memo } from "react";
+import { FC, memo, useEffect } from "react";
 import { useRouter } from "next/router";
-import { ButtonInterface } from "components/global_components/button/Button-interface";
+
+//! ===========================OUR IMPORTS
+import { ButtonInterface } from "components/global_components/button/Button.interface";
 import Loading from "components/global_components/loading/loading";
-import {useEffect} from 'react';
 
 const Button: FC<ButtonInterface> = ({
   title,
@@ -16,27 +17,22 @@ const Button: FC<ButtonInterface> = ({
   iconStyle,
   iconRight,
   route,
-  disabled
+  disabled,
 }) => {
-
-
   useEffect(() => {
     if (route && clickHandler) {
-      console.warn('button can only have route or clikHandler')
+      console.warn("button can only have route or clikHandler");
     }
-  }, [])
-  
-  
-  
+  }, []);
   const router = useRouter();
 
   return (
     <>
       <button
-        onClick={() => route ? router.push(route) : clickHandler}
+        onClick={() => route ? (!disabled ? router.push(route) : clickHandler) : null
+        }
         className={`btn ${className} ${backgroudColor}`}
-        style={linkStyle}
-
+        style={disabled ? { cursor: "text" } : linkStyle}
       >
         {icon && (
           <span className="icon_base-style icon" style={iconStyle}>
@@ -44,7 +40,9 @@ const Button: FC<ButtonInterface> = ({
           </span>
         )}
 
-        <p className="title">{title}</p>
+        <p className="title" style={disabled ? { pointerEvents: "none" } : {}}>
+          {title}
+        </p>
         {/* <Loading/> */}
 
         {iconRight && (
@@ -52,6 +50,15 @@ const Button: FC<ButtonInterface> = ({
             {iconRight}
           </span>
         )}
+
+
+
+
+
+
+
+
+
 
         <style jsx>{`
           .btn {

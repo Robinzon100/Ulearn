@@ -9,4 +9,7 @@ module.exports = {
     BACK_END_URL: "http://localhost:5000",
     FRONT_END_URL: "http://localhost:3000"
   },
+  images: {
+    domains: ['images.unsplash.com'],
+  }
 }

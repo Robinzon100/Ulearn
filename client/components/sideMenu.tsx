@@ -1,8 +1,8 @@
-import React, { Fragment, useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import { videoList } from "../interfaces/coursePage.interface";
 import { motion } from "framer-motion";
 
-import { sideMenuAnimation } from "components/utils/framer/framerAnimation";
+import { sideMenuAnimation } from "constants/framer/framerAnimation";
 
 const sideMenu: React.FC<videoList> = (
   {
@@ -11,6 +11,7 @@ const sideMenu: React.FC<videoList> = (
     courseChapterTime,
     subTitles,
     // handleClick,
+    
   },
   props
 ) => {

@@ -9,7 +9,7 @@ import { Search } from "react-feather";
 
 import Category from "components/Navigation/Category";
 import { fetcher } from '../../actions/swr/fetchers';
-import Input from "components/global_components/inputs/input";
+import Input from "components/global_components/Inputs/Input";
 
 
 
@@ -24,16 +24,17 @@ const Navigation: FC = () => {
 
   return (
     <>
-      <header className="header">
+      <header className="header" >
         <div className="logo_container">
           <NextLink route="/">
             <div className="logo"></div>
           </NextLink>
           <div className="input">
-            <Input
-              type={"text"}
-              placeHolder={"მოძებნე სასურველი კურსი"}
-              icon={<Search size={22} />}
+          <Input 
+            type={"text"} 
+            placeHolder={"მოძებნე სასურველი კურსი"} 
+            icon={<Search size={22}/>}
+            className={"paragraph-regulars paragraph-small"}
             />
           </div>
         </div>
@@ -65,7 +66,7 @@ const Navigation: FC = () => {
             <div className="menu">
               <ul className="menu--list">
                 <li className="menu--list__items">
-                  <NextLink route="/courses" className="menu--list__items--links">
+                  <NextLink route="/Courses" className="menu--list__items--links">
                     <p className="paragraph-regulars paragraph-small">კურსები</p>
                   </NextLink>
                 </li>

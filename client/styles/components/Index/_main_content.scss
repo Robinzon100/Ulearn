@@ -29,54 +29,6 @@
       font-weight: normal;
     }
 
-    .sorting {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      margin-left: 3rem;
-
-      &__video{
-        // width: 10.5vw;
-        border-radius: 8px;
-        position: relative;
-        cursor: pointer;
-        position: relative;
-        @include placed-center;
-
-        .input_icon {
-          width: 5rem;
-          left: 0;
-          position: absolute;
-          z-index: 1;
-          height: 100%;
-          border-radius: 8px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          opacity: 60%;
-          
-        }
-      }
-
-
-      .search_dropdown {
-        background-color: var(--secondary-light-grey);
-        padding: 0.5vw 2vw 0.5vw 3vw;
-        background: #fff;
-        border-radius: 8px;
-        border: 1px solid #989586;
-        cursor: pointer;
-        display: block;
-        height: 4rem;
-        width: 100%;
-        appearance: none;
-        -moz-appearance: none;
-        -webkit-appearance: none;
-        outline: none !important;
-      }
-
-      
-    }
+    
   }
 }

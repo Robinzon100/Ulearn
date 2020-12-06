@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Input from "components/global_components/inputs/input";
+import Input from "components/global_components/Inputs/Input";
 
 
 interface answerUserComments {

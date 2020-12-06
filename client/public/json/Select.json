@@ -1,0 +1,46 @@
+
+
+{
+    "SelectTimeOptions":[
+        {
+            "id": 1,
+            "value": "0-2 Hours"
+            
+        },
+        {
+            "id": 2,
+            "value": "3-6 Hours"
+                    },
+        {
+            "id": 3,
+            "value": "7-16 Hours"
+        }
+    ],
+
+    "SelectRatingsOptions":[
+        {
+            "id": 1,
+            "value": "4.5 & up",
+            "star":4.5
+        },
+        {
+            "id": 2,
+            "value": "3.5 & up",
+            "star":3.5
+        },
+        {
+            "id": 3,
+            "value": "2.5 & up",
+            "star":2.5
+            
+        },
+        {
+            "id": 4,
+            "value": "1.5 & up",
+            "star":1.5
+        }
+    ]
+
+}
+
+

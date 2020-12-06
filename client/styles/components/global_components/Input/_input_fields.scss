@@ -1,76 +1,6 @@
 $padding-input:1rem 1rem 1rem 4rem;
 $padding-input-select:1rem 2rem 1rem 6rem;
 
-//! ჩვულებრივი ინფუთისთვის
-// .input_field {
-//     width: 100%;
-//     padding:1rem 1rem 1rem 4rem;
-//     background: var(--primary-grey);
-//     border: none !important;
-//     box-sizing: border-box;
-//     border-radius: 8px;
-//     outline: none !important;
-
-
-//     &:focus {
-//         border: 0.9px solid var(--secondary-light-grey);
-//         box-shadow: var(--input-onFocus);
-//         background: var(--white);
-//         opacity: 100%;
-
-
-//     }
-
-//     &::placeholder {
-//         opacity: 100% !important;
-
-//     }
-// }
-//! ჩვულებრივი ინფუთისთვის
-
-// .input_container {
-//     position: relative;
-//     display: flex;
-//     align-items: center;
-//     width: 100%;
-
-
-//     .input_field-with-search {
-//         width: 100%;
-//         padding: $padding-input;
-//         background: var(--primary-grey);
-//         border: none !important;
-//         box-sizing: border-box;
-//         border-radius: 8px;
-//         outline: none !important;
-//         transition: $transition !important;
-
-//         &:focus {
-//             border: 0.9px solid var(--secondary-light-grey);
-//             box-shadow: var(--input-onFocus);
-//             background: var(--white);
-//             opacity: 100%;
-            
-//             padding: 1rem 1rem 1rem 5rem;
-//         }
-
-//         &::placeholder {
-//             opacity: 100% !important;
-
-//         }
-
-
-//     }
-    
-//     .search {
-//         position: absolute;
-//         opacity: 80%;
-//         margin-left: 1.5rem;
-//     }
-
-// }
-
-
 //! SELECT ELEMENT
 .dropdown {
     // width: 30rem;
@@ -145,4 +75,55 @@ $padding-input-select:1rem 2rem 1rem 6rem;
         }
     }
 
+}
+
+
+.Select {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: 3rem;
+
+    &__input{
+      width: 10vw;
+      border-radius: 8px;
+      position: relative;
+      cursor: pointer;
+      position: relative;
+      @include placed-center;
+
+      .input_icon {
+        width: 5rem;
+        left: 0;
+        position: absolute;
+        z-index: 1;
+        height: 100%;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 60%;
+        
+      }
+    }
+
+
+    // .search_dropdown {
+    //   background-color: var(--secondary-light-grey);
+    //   padding: 0.5vw 2vw 0.5vw 3vw;
+    //   background: #fff;
+    //   border-radius: 8px;
+    //   border: 1px solid #989586;
+    //   cursor: pointer;
+    //   display: block;
+    //   height: 4rem;
+    //   width: 100%;
+    //   appearance: none;
+    //   -moz-appearance: none;
+    //   -webkit-appearance: none;
+    //   outline: none !important;
+    // }
+
+    
 }
