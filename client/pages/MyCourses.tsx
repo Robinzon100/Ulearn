@@ -59,7 +59,7 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
                       
                     <NextLink
                       route=""
-                      className="btn btn-green heading-semi-bold paragraph-medium-small"
+                      className="btn Green heading-semi-bold paragraph-medium-small"
                     >
                       კურსის შეძენა
                     </NextLink>
@@ -67,7 +67,7 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
                   <div className="save-bucket">
                     <NextLink
                       route=""
-                      className="btn btn-yellow heading-semi-bold paragraph-medium-small"
+                      className="btn Yellow heading-semi-bold paragraph-medium-small"
                     >
                       <p>კალათაში შენახვა</p>
                       <div className="shopping_cart">
@@ -138,7 +138,7 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
                 <br />
                 <br />
                 <div className="instructor_btn">
-                  <NextLink route="" className="btn btn-red">
+                  <NextLink route="" className="btn Red">
                     <p>
                       <strong>ინსტრუქტორის გამოწერა</strong>
                     </p>

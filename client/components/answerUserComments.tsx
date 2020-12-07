@@ -23,7 +23,7 @@ const answerUserComments: React.FC<answerUserComments> = ({ id },props) => {
 
                 {!answerComment ?
                     <div className="user-answer--heading" >
-                        <p className="btn btn-black heading-bold paragraph-medium-small">
+                        <p className="btn blackheading-bold paragraph-medium-small">
                             პასუხის გაცემა
                     </p>
                     </div>
@@ -38,7 +38,7 @@ const answerUserComments: React.FC<answerUserComments> = ({ id },props) => {
                         placeHolder={placeHolder} 
                         type='text'/>
                         <div className="user-answer--input__btn" onClick={(handleSetAnswerComment)}>
-                            <p className="btn btn-blue heading-bold paragraph-medium-small">
+                            <p className="btn primary heading-bold paragraph-medium-small">
                                 პასუხი
                             </p>
                         </div>

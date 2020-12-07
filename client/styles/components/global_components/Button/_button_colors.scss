@@ -1,54 +1,56 @@
-.btn-blue {
-    background: var(--primary-blue);
-    border: 1px solid var(--primary-blue);
-    transition: all .4s;
+:root {
+    
+   //! ========= Button-GRADIENTS
+   --primary-button-gradient: linear-gradient(180deg, #338EFF 0%, #2448E7 394.37%);
+   --blue-button-gradient: linear-gradient(180deg, #338EFF 0%, #2448E7 0.04%, #0C3BEA 394.37%);
+   --yellow-button--gradient: linear-gradient(180deg, #FFD703 0%, #FFC703 394.37%);
+   --green-button-gradient: linear-gradient(180deg, #16C93E 0%, #10B435 394.37%);
+   --red-button-gradient: linear-gradient(180deg, #FF5C4D 0%, #F94505 394.37%);
+   --black-button-gradient: linear-gradient(180deg, #191B1F 0%, #13151A 394.37%);
+   --white-button-gradient: linear-gradient(180deg, #FFFFFF 0%, #F5F5F5 394.37%);
 
+
+    //! ========= Button-Shadow-Default
+    --primary-box-shadow-default: 0px 3px 5px rgba(75, 155, 254, 0.22);
+    --blue-button-gradient-default:0px 3px 5px rgba(75, 155, 254, 0.22);
+    --yellow-button--gradient-default:0px 3px 5px rgba(255, 199, 3, 0.33);
+    --green-button-gradient-default:0px 3px 5px rgba(16, 180, 53, 0.33);
+    --red-button-gradient-default:0px 3px 5px rgba(249, 69, 5, 0.35);
+    --black-button-gradient-default:0px 3px 5px rgba(19, 21, 26, 0.31);
+    --white-button-gradient-default:0px 6px 14px rgba(19, 21, 26, 0.05);
+
+
+    //! ========= Button-Shadow-Active
+    --primary-box-shadow-active:0px 16px 37px rgba(12, 70, 135, 0.37);
+    --blue-button-gradient-active:0px 16px 38px rgba(12, 59, 234, 0.33);
+    --yellow-button--gradient-active:0px 16px 30px rgba(255, 199, 3, 0.37);
+    --green-button-gradient-active:0px 16px 30px rgba(16, 180, 53, 0.42);
+    --red-button-gradient-active:0px 16px 32px rgba(249, 69, 5, 0.35);
+    --black-button-gradient-active:0px 16px 32px rgba(19, 21, 26, 0.37);
+    --white-button-gradient-active:0px 24px 44px rgba(19, 21, 26, 0.09);
+
+    //! ========= Button-Shadow-Pressed
+    --primary-box-shadow-pressed: inset 0px 0px 6px rgba(12, 59, 234, 0.82);
+    --blue-button-gradient-pressed:inset 0px 0px 6px rgba(3, 24, 103, 0.82);
+    --yellow-button--gradient-pressed:inset 0px 0px 6px rgba(222, 174, 4, 0.82);
+    --green-button-gradient-pressed:inset 0px 0px 6px rgba(10, 116, 33,0.82);
+    --red-button-gradient-pressed:inset 0px 0px 6px rgba(249, 69, 5, 0.82);
+    --black-button-gradient-pressed: inset 0px 0px 6px rgba(255, 255, 255,0.82);
+    --white-button-gradient-pressed:inset 0px 0px 6px rgba(255, 255, 255,0.82);
+
+    //! ========= Button-Shadow-Disabled
+    --primary-box-shadow-disabled:0px 3px 5px rgba(75, 155, 254, 0.22);
+    --blue-button-gradient-disabled:0px 3px 5px rgba(75, 155, 254, 0.22);
+    --yellow-button--gradient-disabled:0px 3px 5px rgba(255, 199, 3, 0.23);
+    --green-button-gradient-disabled:0px 3px 5px rgba(16, 180, 53, 0.26);
+    --red-button-gradient-disabled:0px 3px 5px rgba(249, 69, 5, 0.3);
+    --black-button-gradient-disabled: 0px 3px 5px rgba(19, 21, 26, 0.28);
+    --white-button-gradient-disabled:0px 6px 14px rgba(19, 21, 26, 0.05);
+
+
+
+
+    --icon-drop-shadow:drop-shadow(0px 2.2px 2.5px rgba(0, 0, 0, 0.14));
+   
 }
 
-.btn-yellow {
-    background: var(--primary-yellow);
-    border: 1px solid var(--primary-yellow);
-    transition: all .5s;
-
-
-}
-
-.btn-green {
-    background: var(--button-green-gradient);
-    border: 1px solid var(--primary-green);
-    transition: all .5s;
-
-}
-
-
-.btn-red {
-    background: var(--primary-red);
-    border: 1px solid var(--primary-red);
-    transition: all .4s;
-
-}
-
-.btn-white {
-    background: var(--white);
-    border: 1px solid var(--primary-blue);
-    transition: all .4s;
-
-
-}
-
-
-.btn-black {
-    background: var(--white);
-    border: 1px solid var(--primary-dark);
-    transition: all .4s;
-}
-
-.label {
-    // width: 30rem;
-    background: var(--primary-green);
-    border: 1px solid var(--primary-green);
-    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
-    border-radius: 5px;
-    color: var(--white);
-    cursor: pointer;
-}

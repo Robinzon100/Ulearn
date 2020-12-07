@@ -1,22 +1,17 @@
 import { CSSProperties, ReactNode } from "react";
 
 export interface ButtonInterface {
-  title: string;
-  className: string;
-  backgroudColor?:
-    | "btn-blue"
-    | "btn-yellow"
-    | "btn-green"
-    | "btn-red"
-    | "btn-white"
-    | "btn-black";
-  btnSizes?:'small' | 'medium' | 'large';
+  title?: string;
+  className?: string;
+  color?: "primary" | "blue" | "yellow" | "green" | "red" | "white" | "black";
+  size?: "auto" | "mini" | "small" | "medium" | "large";
+  ghost?:boolean
   linkStyle?: CSSProperties;
-  clickHandler?: any;
+  onClick?: any;
   loading?: boolean;
   icon?: ReactNode;
   iconStyle?: CSSProperties;
   iconRight?: ReactNode;
   route?: string;
-  disabled?: boolean
+  disabled?: boolean;
 }

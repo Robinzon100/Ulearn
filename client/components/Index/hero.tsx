@@ -3,6 +3,7 @@ import { useRootStore } from "../../mobx/RootStateContext";
 
 
 import Button from "components/global_components/button/Button";
+import { ChevronDown } from 'react-feather';
 
 
 const Hero: FC = () => {
@@ -30,12 +31,15 @@ const Hero: FC = () => {
            
               <Button
                 title={"შემოგვიერთდი"}
-                className={"heading-semi-bold  paragraph-medium"}
+                // className={"heading-semi-bold  paragraph-medium"}
                 route={"/register"}
-                clickHandler={() => console.log('asdasd')}
+                onClick={() => console.log('asdasd')}
                 iconStyle={{color:"black"}}
-                backgroudColor={"btn-white"}
+                color="white"
+                size="large"
                 disabled={false}
+                icon={<ChevronDown size={30}/>}
+                ghost={true}
               />
             
           </div>

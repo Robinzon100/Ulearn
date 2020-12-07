@@ -34,7 +34,7 @@ const InputCommentCards: React.FC<Props> = ({ id, name, rating }, props) => {
                         placeHolder={placeHolder} />
                 </div>
 
-                <div className="add_btn btn btn-green">
+                <div className="add_btn btn Green">
                     <NextLink route="">
                         <p>დაკომენტარება</p>
                     </NextLink>
