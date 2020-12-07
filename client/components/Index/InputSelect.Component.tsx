@@ -3,7 +3,7 @@ import { Search } from "react-feather";
 
 
 
-import Input from "components/global_components/Inputs/Input";
+import Input from "components/global_components/inputs/Input";
 import SortingDropdown from "../sortingDropdown";
 
 

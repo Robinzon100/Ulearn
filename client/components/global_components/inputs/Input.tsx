@@ -1,5 +1,5 @@
 import React  from "react";
-import {InputInterface} from "components/global_components/Inputs/Input.interface";
+import {InputInterface} from "components/global_components/inputs/Input.interface";
 
 
 const Input: React.FC<InputInterface> = ({

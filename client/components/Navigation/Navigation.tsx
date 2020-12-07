@@ -9,7 +9,7 @@ import { Search } from "react-feather";
 
 import Category from "components/Navigation/Category";
 import { fetcher } from '../../actions/swr/fetchers';
-import Input from "components/global_components/Inputs/Input";
+import Input from "components/global_components/inputs/Input";
 
 
 

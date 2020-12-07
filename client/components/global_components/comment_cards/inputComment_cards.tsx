@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import Input from "components/global_components/Inputs/Input";
+import Input from "components/global_components/inputs/Input";
 import NextLink from "components/utils/NextLink";
 
 import Stars from "components/global_components/svg/Stars"

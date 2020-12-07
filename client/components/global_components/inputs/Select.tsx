@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 // ============== FRAMER-ANIMATION
 import {dropDownAnimation} from "constants/framer/framerAnimation";
-import { InputInterface } from "components/global_components/Inputs/Input.interface";
+import { InputInterface } from "components/global_components/inputs/Input.interface";
 import Stars from "components/global_components/svg/Stars";
 
 
