@@ -50,7 +50,7 @@ const selectInput: React.FC<InputInterface> = ({
         )}
         <div className="dropdown" key={id} onClick={() => setIsToggle((toggle) => !toggle)}>
           <div className="dropdown-select">
-            <span className="select paragraph-regulars paragraph-small">
+            <span className="select regular paragraph-small">
               {selectLable}
             </span>
           </div>
@@ -71,7 +71,7 @@ const selectInput: React.FC<InputInterface> = ({
                   className="radio"
                 />
                 <label
-                  className="paragraph-regulars paragraph-smallest"
+                  className="regular paragraph-smallest"
                   htmlFor={option.value}
                 >
                   {option.value}

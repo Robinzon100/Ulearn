@@ -63,7 +63,7 @@ const carousel: React.FC<CarouselInterface> = ({ carouselJson }) => {
                 style={{ backgroundImage: `url(${data.imageUrl})` }}
               ></div>
               <div className="carousel_card--heading">
-                <p className="heading-bold paragraph-regular">{data.title}</p>
+                <p className="bold paragraph-regular">{data.title}</p>
               </div>
             </NextLink>
           ))}

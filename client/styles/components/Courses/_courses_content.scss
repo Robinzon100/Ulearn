@@ -8,7 +8,7 @@
 
         font-size: calc(18px + (23 - 18) * ((100vw - 300px) / (1900 - 700))) !important;
         display: inline-block;
-        font-family: $button-semi-bold;
+        font-family: $semi-bold;
         line-height: 180%;
 
     }
@@ -20,13 +20,13 @@
 
         font-size: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
         display: inline-block;
-        font-family: $paragraph-regulars;
+        font-family: $regular;
         line-height: 180%;
         // width: 90%;
 
         span {
             font-size: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
-            font-family: $button-semi-bold !important;
+            font-family: $semi-bold !important;
 
         }
     }
@@ -46,7 +46,7 @@
             p {
                 font-size: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
                 display: inline-block;
-                font-family: $paragraph-regulars;
+                font-family: $regular;
                 line-height: 180%;
             }
 
@@ -138,9 +138,11 @@
 
 
 .courses_content {
-    margin-top: 5rem;
-
-
+    margin: 5rem auto;
+    width: 100%;
+    max-width: 69%;
+    height: 100vh;
+    max-height: 50vh;
 
     .question-answer {
         display: flex;

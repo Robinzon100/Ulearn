@@ -15,13 +15,13 @@ const Hero: FC = () => {
         <div className="hero--mobile-bg"></div>
         <div className="hero--steps">
           <div className="hero--steps__heading">
-            <h1 className="heading-bold heading-3_5">
+            <h1 className="bold heading-3_5">
               რაღაცა ტექსტი იქნება აქ რომელიც აღწერს სერვის
             </h1>
           </div>
           <div className="hero--steps__line"></div>
           <div className="hero--steps__paragraph">
-            <p className="paragraph-regulars paragraph-medium-small">
+            <p className="regular paragraph-medium-mini">
               რაიმე პატარა ტექსტი რომელიც უფრო დეტალურად აღწერს რას აკეთებს
               საიტი და ისეთი სიტყვები იქნება რაც SEO-ს დაევასება და googl-იც
               მაღლა აგვაგდებს
@@ -31,15 +31,15 @@ const Hero: FC = () => {
            
               <Button
                 title={"შემოგვიერთდი"}
-                // className={"heading-semi-bold  paragraph-medium"}
+                className=""
                 route={"/register"}
                 onClick={() => console.log('asdasd')}
                 iconStyle={{color:"black"}}
                 color="white"
                 size="large"
                 disabled={false}
-                icon={<ChevronDown size={30}/>}
-                ghost={true}
+                // icon={<ChevronDown size={30}/>}
+                //ghost={true}
               />
             
           </div>
@@ -47,7 +47,7 @@ const Hero: FC = () => {
         <div className="hero--video">
           <video autoPlay loop muted playsInline>
             <source src="/Videos/new_hero_video.mp4" type="video/mp4" />
-            {/* <source src="/Videos/hero_section_animation.ogg" type="video/ogg" /> */}
+            
 
             {/* //! firefox ში არ მუშაობს.ქრომში მუშაობს */}
             <svg

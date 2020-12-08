@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
+import { useState} from "react";
 import Head from "next/head";
-import { Eye, Folder } from "react-feather";
+import { Eye} from "react-feather";
 
 //! ==== OTHER IMPORTS
-import BaseLayout from "components/base-layout";
+
 import SideMenu from "components/sideMenu";
 import CourseVideoPlayer from '../components/CourseVideoPlayer';
 import CoursesJson from "../public/json/Courses.json";
-import CourseTablist from "components/Course/course_tablist";
+import CourseTablist from "components/course/course_tablist";
 
 
 //! === INTERFACES
@@ -29,12 +29,12 @@ export const Courses: React.FC<AboutCourse> = () => {
         <div className="courses-page">
           <div className="courses-page--about">
             <div className="courses-page--name">
-              <p className="heading-semi-bold  paragraph-medium">
+              <p className="semi-bold  paragraph-medium">
                 <strong>{CoursesJson.aboutCourses.aboutCourse.title}</strong>
               </p>
               <div className="viewers">
                 <Eye size={17} />
-                <p className="paragraph-medium-small Eina-semibold">
+                <p className="paragraph-medium-mini semi-bold">
                   {CoursesJson.aboutCourses.aboutCourse.peopleWatched}
                 </p>
               </div>
@@ -42,7 +42,7 @@ export const Courses: React.FC<AboutCourse> = () => {
 
             <div className="courses-page--about__heading">
               {/* {!displayName ? null : (
-                <p className="paragraph-regulars paragraph-medium-small">
+                <p className="regular paragraph-medium-mini">
                   ვიდეოს დასახელება - {displayName}
                 </p>
               )} */}

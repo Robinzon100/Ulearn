@@ -1,10 +1,10 @@
 @font-face {
-  font-family: "paragraph-light";
+  font-family: "light";
   src: url("/fonts/Eina/Eina-01-Light.otf");
 }
 
 @font-face {
-  font-family: "paragraph-regulars";
+  font-family: "regular";
   src: url("/fonts/Eina/Eina03-Regular.otf");
 }
 
@@ -24,7 +24,7 @@
 }
 
 @font-face {
-  font-family: "heading-medium-smallest";
+  font-family: "medium-smallest";
   src: url("/fonts/Seilec/Sailec-Medium.otf");
 }
 
@@ -39,7 +39,7 @@
 }
 
 @font-face {
-  font-family: "georgian-heading-bold";
+  font-family: "bold";
   src: url("/fonts/Noto/NotoSansGeorgian-Bold.ttf");
 }
 
@@ -49,7 +49,7 @@
 }
 
 @font-face {
-  font-family: "georgian-heading-medium";
+  font-family: "font-medium";
   src: url("/fonts/Noto/NotoSansGeorgian-Medium.ttf");
 }
 
@@ -68,7 +68,7 @@
 .paragraph-big {
   font-size: calc(
  17px + (22 - 17) * ((100vw - 300px) / (1900 - 700))) !important;
-}paragraph-regulars
+}regular
 
 .paragraph-regular {
   font-size: calc(
@@ -148,11 +148,11 @@ html {
 }
 
 .main_container {
-  margin-top: 7rparagraph-regulars
+  margin-top: 7rregular
 }
 
 @font-face {
-  font-family: "paragraph-light";
+  font-family: "light";
   src: url("/fonts/Eina/Eina-01-Light.otf");
 }
 
@@ -177,7 +177,7 @@ html {
 }
 
 @font-face {
-  font-family: "heading-medium-smallest";
+  font-family: "medium-smallest";
   src: url("/fonts/Seilec/Sailec-Medium.otf");
 }
 
@@ -192,7 +192,7 @@ html {
 }
 
 @font-face {
-  font-family: "georgian-heading-bold";
+  font-family: "bold";
   src: url("/fonts/Noto/NotoSansGeorgian-Bold.ttf");
 }
 
@@ -202,7 +202,7 @@ html {
 }
 
 @font-face {
-  font-family: "georgian-heading-medium";
+  font-family: "font-medium";
   src: url("/fonts/Noto/NotoSansGeorgian-Medium.ttf");
 }
 
@@ -212,10 +212,8 @@ html {
 }
 
 .paragraph-biggest {
- paragraph-regulars
- 20px + (24 - 20) * ((100vw - 300px) / (1900 - 700))) !important;
-  letter-spacing: 1.1px;
-  line-height: 135%;
+    font-size: calc(18px + (24 - 18) * ((100vw - 300px) / (1900 - 700))) !important;
+    
 }
 
 .paragraph-big {
@@ -260,22 +258,22 @@ html {
 
 .heading-regular-font {
   font-family: "heading-regular", "georgian-heading-regular";
-}paragraph-regulars
-paragraph-regulars
-.heading-medium-font {
-  font-family: "heading-medium-smallest", "georgian-heading-medium";
+}regular
+regular
+.medium-font {
+  font-family: "medium-smallest", "font-medium";
 }
 
-.heading-bold-font {
-  font-family: "heading-big-bold", "georgian-heading-bold";
+.bold-font {
+  font-family: "heading-big-bold", "bold";
 }
 
 .heading-black-font {
   font-family: "heading-big-black", "georgian-heading-black";
 }
 
-.paragraph-light-font {
-  font-family: "paragraph-light", "georgian-heading-light";
+.light-font {
+  font-family: "light", "georgian-heading-light";
 }
 
 .paragraph-regular-font {
@@ -283,7 +281,7 @@ paragraph-regulars
 }
 
 .paragraph-bold-font {
-  font-family: "paragraph-bold", "georgian-heading-bold";
+  font-family: "paragraph-bold", "bold";
 }
 
 .hero {

@@ -49,20 +49,20 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
         <div className="inside_content">
           <div className="card_detail--container__title">
             <NextLink route="/someCourseName">
-              <p className="heading-bold paragraph-regular">
+              <p className="bold paragraph-regular">
                 {stringToCut(title, 25)}
               </p>
             </NextLink>
           </div>
           <div className="card_detail--container__date">
             <p
-              className="paragraph-light paragraph-smallest"
+              className="light paragraph-smallest"
               style={{ color: "#00E267" }}>
               დაიდო:
-              <span className="paragraph-smallest Eina-semibold">{posted}</span>
+              <span className="paragraph-smallest semi-bold">{posted}</span>
             </p>
             <p
-              className="paragraph-light paragraph-smallest"
+              className="light paragraph-smallest"
               style={{ color: "#636469" }}>
               სირთულე:
               <span className="" style={{ color: "#FFD703" }}>
@@ -71,7 +71,7 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
             </p>
           </div>
           <div className="card_detail--container__description">
-            <p className="paragraph-light paragraph-small">{description}</p>
+            <p className="light paragraph-small">{description}</p>
           </div>
           <div className="card_detail--container__list">
             <ul>
@@ -82,7 +82,7 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
                       <Check size={15} />
                     </div>
                     <div className="paragraph">
-                      <p className="paragraph-light paragraph-small ">
+                      <p className="light paragraph-small ">
                         {list.list}
                       </p>
                     </div>
@@ -95,7 +95,7 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
         <a href="#">
           <div className="card_detail--container__addtobucket">
             <div className="heading">
-              <p className="heading-bold paragraph-regular">
+              <p className="bold paragraph-regular">
                 კალათაში დამატება
               </p>
             </div>

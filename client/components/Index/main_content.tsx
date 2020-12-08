@@ -6,7 +6,7 @@ import PrimaryContentCard from "components/global_components/cards/PrimaryConten
 import Carousel from "components/Index/carousel/carousel";
 import PrimaryContentCardJson from "../../public/json/PrimaryContentCard.json";
 import CategoriesComponent from "components/Index/categoriesComponent";
-import Overlay from "components/Index/Overlay/Overlay";
+import Overlay from "components/Index/overlay/Overlay";
 
 //! ===================== JSON
 import CategoriesJson from "../../public/json/categories.json";
@@ -34,7 +34,7 @@ const main_content: React.FC = () => {
          <div className="main_content--container">
           <div className="category">
             <div className="category_heading">
-              <p className="heading-6 heading-bold">კატეგორიები</p>
+              <p className="heading-6 bold">კატეგორიები</p>
             </div>
             <CategoriesComponent CategoriesJson={CategoriesJson.Categories}/>
             </div>

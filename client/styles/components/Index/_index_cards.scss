@@ -164,6 +164,16 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
                 @include flex;
                 justify-content: space-between;
                 width: 100%;
+
+                .label {
+                    padding: 5px 21px 5px 21px;
+                    background-color: var(--primary-green);
+                    border-radius: 5px;
+
+                    p{
+                        color: var(--white);
+                    }
+                }
                 
                 .stroke-heart-svg {
                     // width: 3.5rem;

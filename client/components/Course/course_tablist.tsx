@@ -4,21 +4,19 @@ import NextLink  from "components/utils/NextLink";
 import { Folder } from "react-feather";
 
 
+//! ===========OUR IMPORTS
 import CoursesJson from "../../public/json/Courses.json";
-
-
-import { AboutCourse, Description_type, QuestionAnswer_type, Resources_type, Estimates_type, } from "../../interfaces/coursePage.interface";
+import {Description_type, QuestionAnswer_type, Resources_type, Estimates_type, } from "../../interfaces/coursePage.interface";
+import CommentCards from "components/global_components/comment_cards/comment_cards";
 import { changeTabPositionAndColor } from "../../function/courses/Underline";
 
-import CommentCards from "components/global_components/comment_cards/comment_cards";
-import InputCommentCards from "components/global_components/comment_cards/inputComment_cards";
-import AnswerUserComments from "components/answerUserComments";
 
 //! === IMPORTED ICONS FROM Courses.json
 import Description from "../../public/SVG/CoursesSvg/Clipboard";
 import Resources from "../../public/SVG/CoursesSvg/Folder";
 import QuestionAnswer from "../../public/SVG/CoursesSvg/HelpCircle";
 import Estimates from "../../public/SVG/CoursesSvg/Estimates";
+import InputCommentCards from 'components/global_components/comment_cards/inputComment_cards';
 
 
 
@@ -26,11 +24,7 @@ import Estimates from "../../public/SVG/CoursesSvg/Estimates";
 const course_tablist = () => {
     const [tabIndex, setTabIndex] = useState<number>(0);
     const [tabContent, setTabContent] = useState<any>(CoursesJson.description);
-    const [videoLists, setVideoLists] = useState(CoursesJson.videoLists);
-
-    // useEffect(() => {
-    //     changeTabPositionAndColor(".renderedContent_list",".renderedContent_list--item");
-    // }, [])
+   
 
   //! ამას ვიდეოს სახელი გამოაქვს
   const [displayName, setDisplayName] = useState<string | null>("");
@@ -113,18 +107,24 @@ const course_tablist = () => {
       return <Estimates />;
     }
   };
+   
+
+  useEffect(() => {
+    changeTabPositionAndColor(".renderedContent_list",".renderedContent_list--item");
+}, [])
 
 
     return (
         <>
             <div className="section-courses--tablist">
                 <div className="section-courses--tablist__container gray-border">
-                  <ul className="renderedContent_list">
+                    <nav className="renderedContent_list">
+                  <ul>
                     {
                       courseTabs.map((courseTab, i) => (
                         <li
                           
-                          style={{ cursor: "pointer",borderBottom:`1px solid ${courseTab.color}` }}
+                          style={{ cursor: "pointer" }}
                           className="renderedContent_list--item noselect"
                           onClick={(e) => {
                             setTabContent(fetchTabConent(1, courseTab.route));
@@ -136,17 +136,17 @@ const course_tablist = () => {
                             {renderIcon(courseTab.iconComponent)}
                           </div>
                           <div className="rendered_title">
-                            <p className="heading-semi-bold paragraph-medium">
+                            <p className="semi-bold paragraph-medium">
                               {courseTab.title}
                             </p>
                         </div>
-                          {/* <span className="underline"></span>  */}
+                          
                         </li>
                       ))
                     }
-                          {/* <span className="underline"></span> */}
-
-                  </ul>
+                    </ul>
+                  <span className="underline"></span>
+                  </nav>
                 </div>
 
 
@@ -193,7 +193,7 @@ const course_tablist = () => {
 
                         <br />
                         <br />
-                        <div className="resources">
+                        {/* <div className="resources">
                           <div className="resources_files">
                             <NextLink
                               route={tabContent.resource.filePath}
@@ -214,7 +214,7 @@ const course_tablist = () => {
                               </div>
                             </NextLink>
                           </div>
-                        </div>
+                        </div> */}
                       </>
                     ) : tabIndex == 3 ? (
                       <>

@@ -13,7 +13,7 @@ const RatingsMenu: React.FC = () => {
                 
                 <div className="ratings__with-number">
                     <div className="ratings__with-number--heading">
-                        <p className="Eina-semibold heading-1">4.4</p>
+                        <p className="semi-bold heading-1">4.4</p>
                     </div>
                     <div className="ratings__with-number--stars">
                         <Stars StarWidth={20} numberOfStars={4} />
@@ -21,7 +21,7 @@ const RatingsMenu: React.FC = () => {
                     </div>
                     <div className="ratings__with-number--voice">
                         <ArrowUp size={15} />
-                        <p className="paragraph-regulars paragraph-small">ხმა</p>
+                        <p className="regular paragraph-small">ხმა</p>
                     </div>
 
                 </div>
@@ -41,7 +41,7 @@ const RatingsMenu: React.FC = () => {
                             
                         </div>
                         <div className="percentage_number">
-                            <p className="Eina-semibold paragraph-medium-small">65%</p>
+                            <p className="semi-bold paragraph-medium-mini">65%</p>
                         </div>
                     </div>
 
@@ -52,7 +52,7 @@ const RatingsMenu: React.FC = () => {
                             
                         </div>
                         <div className="percentage_number">
-                            <p className="Eina-semibold paragraph-medium-small">5%</p>
+                            <p className="semi-bold paragraph-medium-mini">5%</p>
                         </div>
                     </div>
                     <div className="percentage_container">
@@ -62,7 +62,7 @@ const RatingsMenu: React.FC = () => {
                             
                         </div>
                         <div className="percentage_number">
-                            <p className="Eina-semibold paragraph-medium-small">10%</p>
+                            <p className="semi-bold paragraph-medium-mini">10%</p>
                         </div>
                     </div>
                     <div className="percentage_container">
@@ -72,7 +72,7 @@ const RatingsMenu: React.FC = () => {
                             
                         </div>
                         <div className="percentage_number">
-                            <p className="Eina-semibold paragraph-medium-small">20%</p>
+                            <p className="semi-bold paragraph-medium-mini">20%</p>
                         </div>
                     </div>
                     <div className="percentage_container">
@@ -82,7 +82,7 @@ const RatingsMenu: React.FC = () => {
                             
                         </div>
                         <div className="percentage_number">
-                            <p className="Eina-semibold paragraph-medium-small">1%</p>
+                            <p className="semi-bold paragraph-medium-mini">1%</p>
                         </div>
                     </div>
 
@@ -94,15 +94,15 @@ const RatingsMenu: React.FC = () => {
                 <div className="ratings-about__container">
                     <div className="difficulty">
                         <div className="graph"></div>
-                        <p className="paragraph-small heading-semi-bold ">სირთულე</p>
+                        <p className="paragraph-small semi-bold ">სირთულე</p>
                     </div>
                     <div className="learning">
-                        <h1 className="Eina-semibold heading-5">2000</h1>
-                        <p className="paragraph-small heading-semi-bold">სწავლობს</p>
+                        <h1 className="semi-bold heading-5">2000</h1>
+                        <p className="paragraph-small semi-bold">სწავლობს</p>
                     </div>
                     <div className="time-length">
-                        <h1 className="Eina-semibold heading-5">8<span className="heading-semi-bold heading-5">სთ</span></h1>
-                        <p className="paragraph-small heading-semi-bold">ხანგძლივობა</p>
+                        <h1 className="semi-bold heading-5">8<span className="semi-bold heading-5">სთ</span></h1>
+                        <p className="paragraph-small semi-bold">ხანგძლივობა</p>
                     </div>
                 </div>
 

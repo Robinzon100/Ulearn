@@ -1,43 +1,39 @@
-
+import { Underline } from "react-feather";
 
 export const changeTabPositionAndColor = (containerClass: string, childrenClass: string) => {
     const colors = ["#338EFF", "#FF5C4D", "#00E267", "#FFD703"];
     
-    const navComponent = document.querySelector<HTMLElement>(
+    let navComponent = document.querySelector<HTMLElement>(
         containerClass
     );
-    const navArr = navComponent.querySelectorAll<HTMLElement>(
+    let navArr = navComponent.querySelectorAll<HTMLElement>(
         childrenClass
     );
-    // const navUnderLine = navComponent.querySelector<HTMLElement>(".underline");
+    let navUnderLine = navComponent.querySelector<HTMLElement>(".underline");
 
-    navArr[0].style.borderBottom = `1px solid ${colors[0]}`;
-    navArr[0].classList.toggle("underline_blue")
+    navUnderLine.style.backgroundColor = colors[0];
 
-    // navArr[0].style.left = `${navArr[0].offsetLeft}px`;
-    // navArr[0].style.width = `${navArr[0].offsetWidth}px`;
+    navUnderLine.style.left = `${navArr[0].offsetLeft}px`;
+    navUnderLine.style.width = `${navArr[0].offsetWidth}px`;
+    navUnderLine.style.top = `${navArr[0].offsetTop + navArr[0].offsetHeight}px`;
 
-    navArr.forEach((navItem,e) => {
-        //! ეს ანაცვლებს ფერებს რომ დაემთხვეს იმ დივს რომელიც საჭიროა
+    navArr.forEach((navItem) => {
+        let navLeftPos = navItem.offsetLeft;
+		let navTopPos = navItem.offsetTop;
+		let navItemHeight = navItem.offsetHeight;
+		let navItemWidth = navItem.offsetWidth;
+      //! ეს ანაცვლებს ფერებს რომ დაემთხვეს იმ დივს რომელიც საჭიროა
       let color = colors.shift();
       colors.push(color);
 
 
 
       navItem.addEventListener("click", (e) => {
-        // debugger
-        let target = e.currentTarget as Element;
-        if(navItem.classList.contains("active")) {
-            navItem.classList.remove("active")
-
-        }else {
-            navItem.classList.add("underline_blue")
-        }
+        navUnderLine.style.left = `${navLeftPos}px`;
+		navUnderLine.style.top = `${navTopPos + navItemHeight}px`;
+		navUnderLine.style.width = `${navItemWidth}px`;
+        navUnderLine.style.backgroundColor = color;
         
-        target.classList.toggle("active");
       });
-      
-
     });
-    // e.currentTarget.classList.toggle("active");
 }

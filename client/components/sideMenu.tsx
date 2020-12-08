@@ -11,8 +11,7 @@ const sideMenu: React.FC<videoList> = (
     courseChapterTime,
     subTitles,
     // handleClick,
-    
-  },
+    },
   props
 ) => {
   const [revealContent, setRevealContent] = useState<boolean>(false);
@@ -47,13 +46,13 @@ const sideMenu: React.FC<videoList> = (
         <div onClick={handleSetRevealContent} className="card_container">
           <div className="card">
             <div className="card__number">
-              <p className="paragraph-regulars paragraph-medium">{id}</p>
+              <p className="regular paragraph-medium">{id}</p>
             </div>
             <div className="card__text">
-              <p className=" paragraph-regulars paragraph-medium">{title}</p>
+              <p className=" regular paragraph-medium">{title}</p>
             </div>
             <div className="card__time">
-              <p className="paragraph-light paragraph-smallest">
+              <p className="light paragraph-smallest">
                 {courseChapterTime}m
               </p>
             </div>
@@ -76,9 +75,9 @@ const sideMenu: React.FC<videoList> = (
               data-title={sub.text}
             >
               <div className="details_heading">
-                <p className="paragraph-regulars paragraph-medium-small ">
+                <p className="regular paragraph-medium-mini ">
                   {sub.text}
-                  <span className="Eina-semibold paragraph-smallest">
+                  <span className="semi-bold paragraph-smallest">
                     ({sub.amountOfMinutes}m)
                   </span>
                 </p>

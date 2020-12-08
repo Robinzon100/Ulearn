@@ -7,8 +7,8 @@ import { Search } from "react-feather";
 
 //! ─── OWN IMPORTS ────────────────────────────────────────────────────────────────────
 
-import Category from "components/Navigation/Category";
-import { fetcher } from '../../actions/swr/fetchers';
+import Category from "components/global_components/Navigation/Category";
+import { fetcher } from '../../../actions/swr/fetchers';
 import Input from "components/global_components/inputs/Input";
 
 
@@ -34,7 +34,7 @@ const Navigation: FC = () => {
             type={"text"} 
             placeHolder={"მოძებნე სასურველი კურსი"} 
             icon={<Search size={22}/>}
-            className={"paragraph-regulars paragraph-small"}
+            className={"regular paragraph-small"}
             />
           </div>
         </div>
@@ -42,7 +42,7 @@ const Navigation: FC = () => {
         <div className="header__category-menu"
           onClick={() => { setIsToggled((isToggled) => !isToggled); setIsMouseLeftCategory(true) }}>
           <div className="header__category-menu--heading">
-            <p className="heading-extra-bold paragraph-medium-small">
+            <p className="extra-bold paragraph-medium-mini">
               კატეგორიები
             </p>
             <span className="chevrondown">
@@ -66,13 +66,13 @@ const Navigation: FC = () => {
             <div className="menu">
               <ul className="menu--list">
                 <li className="menu--list__items">
-                  <NextLink route="/Courses" className="menu--list__items--links">
-                    <p className="paragraph-regulars paragraph-small">კურსები</p>
+                  <NextLink route="/courses" className="menu--list__items--links">
+                    <p className="regular paragraph-small">კურსები</p>
                   </NextLink>
                 </li>
                 <li className="menu--list__items">
                   <NextLink route="/lecturers" className="menu--list__items--links">
-                    <p className="paragraph-regulars paragraph-small">გახდი ლექტორი</p>
+                    <p className="regular paragraph-small">გახდი ლექტორი</p>
                   </NextLink>
                 </li>
               </ul>

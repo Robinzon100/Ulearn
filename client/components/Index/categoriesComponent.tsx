@@ -15,12 +15,12 @@ const categoriesComponent: React.FC<Categories> = ({CategoriesJson}) => {
             <div className="category_container" key={data.id}>
                 <div className={data.id  == 1 ? "category_main categoryAll" : "category_main category_sub"}>
                     <div className="category_main--name">
-                        <NextLink route="/#" className={"paragraph-regulars paragraph-regular"}>
+                        <NextLink route="/#" className={"regular paragraph-regular"}>
                             {data.title}
                         </NextLink>
                     </div>
                     <div className="category_main--number">
-                        <p className="Eina-semibold paragraph-smallest">{data.numberOfCourses}</p>
+                        <p className="semi-bold paragraph-smallest">{data.numberOfCourses}</p>
                     </div>
 
                 </div>

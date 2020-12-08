@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 
 
 //! ─── OUR IMPORTS ────────────────────────────────────────────────────────────────────
-import Maincategory from "components/Navigation/main_category";
-import SubCategory from "components/Navigation/sub_category";
-import SubSubCategory from "components/Navigation/sub_sub_category";
+import Maincategory from "components/global_components/Navigation/main_category";
+import SubCategory from "components/global_components/Navigation/sub_category";
+import SubSubCategory from "components/global_components/Navigation/sub_sub_category";
 import { MainCategoryLeftMoveAnimation, SubCategoryLeftMoveAnimation, SubSubCategoryLeftMoveAnimation } from "constants/framer/framerAnimation";
-import { handleHoverMainCategory, handleHoverSubCategory } from "components/utils/Category/CategoryFunctions";
+import { handleHoverMainCategory, handleHoverSubCategory } from "components/utils/Category/CategoryLogic";
 
 
 interface categories {
@@ -25,10 +25,7 @@ const Category: FC<categories> = ({ categories: { main_categories, sub_categorie
 
   const [isMainCategoryChosen, setIsMainCategoryChosen] = useState(false);
   const [isSubCategoryChosen, setIsSubCategoryChosen] = useState(false);
-
-
- 
-
+  
   return (
     <>
       <motion.ul

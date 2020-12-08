@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef,memo } from "react";
 import Image from "next/image";
 import { Star } from "react-feather";
 
-//! ==================INTERFACE
+//! ==================OUR IMPORTS
 import { PrimaryContentCards } from "../../../interfaces/PrimaryContentCard.interface";
 import CardDetail from "./CardDetail";
 import { stringToCut } from "components/utils/stringToCut";
@@ -86,7 +86,7 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
           <div className="price-tag">
             {checkNewPrice && (
               <div className="removed-price-tag">
-                <p className="Eina-semibold paragraph-big">
+                <p className="semi-bold paragraph-big">
                   {newPrice}
                   <span style={{ color: "#00E267", fontWeight: "bold" }}>
                     &#8382;
@@ -96,7 +96,7 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
             )}
 
             <div className="normal-price">
-              <p className="Eina-semibold paragraph-big">
+              <p className="semi-bold paragraph-big">
                 {price}
                 <span style={{ color: "#00E267", fontWeight: "bold" }}>
                   &#8382;
@@ -107,7 +107,7 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
         </div>
 
         <div className="PrimaryContentCard__title">
-          <p className="heading-bold paragraph-medium-small" title={title}>
+          <p className="bold paragraph-medium-mini" title={title}>
             {stringToCut(title, 50)}
           </p>
         </div>
@@ -144,11 +144,11 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
             />
           </div>
           <div className="numbers">
-            <p className="Eina-semibold paragraph-medium-small">
+            <p className="semi-bold paragraph-medium-mini">
               {raiting}{" "}
               <span
                 style={{ opacity: "50%" }}
-                className=" Eina-semibold paragraph-small"
+                className=" semi-bold paragraph-small"
               >
                 ({numberOfVotes})
               </span>
@@ -157,7 +157,7 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
         </div>
         <div className="PrimaryContentCard__raiting--name">
           <NextLink route="/#">
-            <p className="paragraph-regulars paragraph-medium-small">
+            <p className="regular paragraph-medium-mini">
               {stringToCut(author, 25)}
             </p>
           </NextLink>
@@ -166,7 +166,7 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
       <div className="PrimaryContentCard__like">
         <label
           className={
-            isBestSeller ? "label paragraph-regulars  paragraph-smallest" : null
+            isBestSeller ? "label regular  paragraph-smallest" : null
           }
         >
           {isBestSeller ? <p>ბესტსელერი</p> : null}
@@ -185,4 +185,4 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
   );
 };
 
-export default PrimaryContentCard;
+export default memo(PrimaryContentCard);

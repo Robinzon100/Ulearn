@@ -17,7 +17,7 @@ const sub__sub_category = ({id,name},props) =>  {
                       <div className="text">
                         <NextLink
                           route=""
-                          className="list--items__links  paragraph-regulars-bold paragraph-small"
+                          className="list--items__links  regular-bold paragraph-small"
                         >
                           {name}
                         </NextLink>

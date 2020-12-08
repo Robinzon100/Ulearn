@@ -1,82 +1,33 @@
-
-
 /// ========================= HEADING
-$heading-extra-bold:"georgian-paragraph-extra-bold";
-$heading-bold: "georgian-heading-bold","Eina-regular";
+$extra-bold:"georgian-extra-bold","Eina-semibold","sailec-bold";
+$bold: "georgian-bold","Eina-semibold","sailec-bold";
+$semi-bold: "georgian-semi-bold","Eina-semibold","sailec-bold";
+$medium: "georgian-medium","Eina-semibold","sailec-medium";
+$light: "georgian-light","Eina-regular","sailec-medium";
+$regular: "georgian-regular","Eina-regular","sailec-medium";
+$regular-arial: "georgian-regular-arial","Eina-semibold","sailec-medium";
+$regular-bold:"georgian-regular","Eina-semibold","sailec-bold";
 
-$button-semi-bold: "georgian-button-semi-bold","Eina-regular";
 
-$heading-medium: "georgian-heading-medium","Eina-regular";
-
-/// ========================= PARAGRAPH
-$paragraph-light: "georgian-paragraph-light","Eina-regular";
-
-$paragraph-regulars: "georgian-paragraph-regulars","Eina-regular";
-
-$paragraph-regulars-arial: "georgian-paragraph-regulars-arial","Eina-regular";
-
-$paragraph-regulars-bold:"georgian-paragraph-regulars","Eina-semibold";
-
-.heading-extra-bold {
-    font-family: $heading-extra-bold;
+.extra-bold {
+    font-family: $extra-bold;
 }
-.heading-bold {
-    font-family: $heading-bold;
-}
-
-.heading-semi-bold {
-    font-family: $button-semi-bold;
-}
-
-.heading-medium {
-    font-family: $heading-medium;
-}
-
-.paragraph-light {
-    font-family: $paragraph-light;
-}
-
-.paragraph-regulars {
-    font-family: $paragraph-regulars;
-}
-
-.paragraph-regulars-arial {
-    font-family: $paragraph-regulars-arial;
-}
-.paragraph-regulars-bold{
-    font-family: $paragraph-regulars-bold;
-}
-
-
-
-
-/// ================ FOR ENGLISH
-/// ================ SAILEC
-$bold: "sailec-bold";
-$medium:"sailec-medium";
-$light:"sailec-light";
-$thin:"sailec-thin";
 .bold {
-    font-family:$bold;
+    font-family: $bold;
 }
+
+.semi-bold {
+    font-family: $semi-bold;
+}
+
 .medium {
-    font-family:$medium;
+    font-family: $medium;
 }
+
 .light {
-    font-family:$light; 
-}
-.thin {
-    font-family:$thin; 
+    font-family: $light;
 }
 
-/// ================ FOR NUMBERS
-$Eina-semibold: "Eina-semibold";
-
-$Eina-regular: "Eina-regular";
-
-.Eina-semibold {
-    font-family: $Eina-semibold ;
-}
-.Eina-regular {
-    font-family: $Eina-regular;
+.regular {
+    font-family: $regular;
 }

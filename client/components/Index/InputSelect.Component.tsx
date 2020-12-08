@@ -15,7 +15,7 @@ const InputSelectComponent = () => {
             type={"text"} 
             placeHolder={"მოძებნე სასურველი კურსი"} 
             icon={<Search size={22}/>}
-            className={"paragraph-regulars paragraph-small"}
+            className={"regular paragraph-small"}
             />
 
               <div className="Select">

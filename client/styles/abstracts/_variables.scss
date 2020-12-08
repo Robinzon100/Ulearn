@@ -2,53 +2,57 @@
     //! MAIN-COLORS
     --primary-blue: rgb(51, 142, 255);
     --primary-dark: rgba(25, 27, 31, 1);
-    --primary-darkBlue: rgb(36, 72, 231,1);
-    --primary-green: rgba(22, 201, 62,1);
+    --primary-darkBlue: rgb(36, 72, 231, 1);
+    --primary-green: rgba(22, 201, 62, 1);
     --primary-grey: rgba(245, 245, 245, 1);
     --primary-red: rgba(255, 92, 77, 1);
     --primary-yellow: rgba(255, 215, 3, 1);
     --primary-dark-blue: rgba(11, 107, 215, 1);
-    --secondary-dark-dark-blue:rgba(0, 114, 255,1);
-    --secondary-dark-green:  rgba(16, 180, 53,1);
+    --secondary-dark-dark-blue: rgba(0, 114, 255, 1);
+    --secondary-dark-green: rgba(16, 180, 53, 1);
     --secondary-dark-grey: rgba(201, 201, 201, 1);
     --secondary-darkRed: rgba(249, 69, 5, 1);
     --secondary-dark-yellow: rgba(255, 199, 3, 1);
     --secondary-light-blue: rgba(75, 155, 254, 1);
     --secondary-light-dark-blue: rgba(122, 144, 240, 1);
     --secondary-lightGrey: rgba(249, 249, 249, 1);
-    --secondary-light-green: rgba(79, 217, 110,1);
-    --secondary-dark-red:rgba(255, 148, 141, 1);
+    --secondary-light-green: rgba(79, 217, 110, 1);
+    --secondary-dark-red: rgba(255, 148, 141, 1);
     // --secondary-lightHgrey: rgba(245, 245, 245,1);
     --secondary-light-red: rgba(19, 21, 26, 1);
     --secondary-light-grey: rgba(157, 157, 157, 1);
     --secondary-dark-dark: rgba(99, 100, 105, 1);
-    --secondary-darkest-gray: rgba(72, 174, 125,1);
-    --white:white;
-
-
-    
-
-
-    //! MAX WIDTH
-    --max-width-in-rem:170rem;
-    --main-pading:0vw 3.8vw 0vw 3.8vw;
+    --secondary-darkest-gray: rgba(72, 174, 125, 1);
+    --white: white;
 
     //! BOX Shadow
     --box-shadow-for-primary: 0px 30px 35px -20px rgba(51, 142, 255, 0.4);
     --box-shadow-for-navigation: 0px 3px 94px -20px rgba(0, 0, 0, 0.13);
-    --input:0px 4.4px 12px rgba(17, 23, 53, 0.12);
-    --input-onFocus:0px -11px 19px -8px rgba(0, 0, 0, 0.03), 0px 6px 15px -7px rgba(0, 0, 0, 0.1),0px 11px 12px -5px rgba(17, 23, 53, 0.06);
-    --box-shadow-for-video-files:0px 5.4px 23px rgba(0, 158, 72, 0.5);
-    --shadowSmallest: 0px 4px 8px rgba(0,0,0,0.12);
-    --shadow-small: 0 5px 10px rgba(0,0,0,0.12);
-    --shadow-medium: 0 8px 30px rgba(0,0,0,0.12);
-    --shadow-large: 0 30px 60px rgba(0,0,0,0.12);
-    --shadow-hover: 0 30px 60px rgba(0,0,0,0.12);
-    --shadow-sticky: 0 12px 10px -10px rgba(0,0,0,0.12);    
-    --shadow-smallest: 0px 4px 8px rgba(0,0,0,0.12);
+    --input: 0px 4.4px 12px rgba(17, 23, 53, 0.12);
+    --input-onFocus: 0px -11px 19px -8px rgba(0, 0, 0, 0.03), 0px 6px 15px -7px rgba(0, 0, 0, 0.1), 0px 11px 12px -5px rgba(17, 23, 53, 0.06);
+    --box-shadow-for-video-files: 0px 5.4px 23px rgba(0, 158, 72, 0.5);
+    --shadowSmallest: 0px 4px 8px rgba(0, 0, 0, 0.12);
+    --shadow-small: 0 5px 10px rgba(0, 0, 0, 0.12);
+    --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+    --shadow-large: 0 30px 60px rgba(0, 0, 0, 0.12);
+    --shadow-hover: 0 30px 60px rgba(0, 0, 0, 0.12);
+    --shadow-sticky: 0 12px 10px -10px rgba(0, 0, 0, 0.12);
+    --shadow-smallest: 0px 4px 8px rgba(0, 0, 0, 0.12);
 
+    ///! =============Fonts-Families
+    --extra-bold: "georgian-extra-bold", "Eina-semibold", "sailec-bold";
+    --bold: "georgian-bold", "Eina-semibold", "sailec-bold";
+    --semi-bold: "georgian-semi-bold", "Eina-semibold", "sailec-bold";
+    --medium: "georgian-medium", "Eina-semibold", "sailec-medium";
+    --light: "georgian-light", "Eina-semibold", "sailec-medium";
+    --regular: "georgian-regular", "Eina-semibold", "sailec-medium";
+    --regular-arial: "georgian-regular-arial", "Eina-semibold", "sailec-medium";
+    --regular-bold: "georgian-regular", "Eina-semibold", "sailec-bold";
     
-    
+    //! MAX WIDTH
+    --max-width-in-rem: 170rem;
+    --main-pading: 0vw 3.8vw 0vw 3.8vw;
+
 
 }
 
@@ -59,23 +63,3 @@ $small-breakpoint:768px;
 $medium-breakpoint:1366px;
 
 $transition:all .1s cubic-bezier(0, 1.06, 0.37, 0.38);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

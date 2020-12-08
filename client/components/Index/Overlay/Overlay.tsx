@@ -20,7 +20,7 @@ const Overlay = ({CardsJson}) => {
               >
                 <div className="wrapper" onClick={() => setToggleSeeMore(true)}>
                   <div className="see_more">
-                    <p className="heading-bold paragraph-biggest">
+                    <p className="bold paragraph-biggest">
                       იხილეთ მეტი
                     </p>
                   </div>

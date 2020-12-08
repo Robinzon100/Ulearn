@@ -5,7 +5,7 @@ import NextLink  from "components/utils/NextLink";
 
 import BaseLayout from "components/base-layout";
 import SideMenu from "components/sideMenu";
-import RatingsMenu from "components/MyCourse/RatingsMenu";
+import RatingsMenu from "components/myCourse/RatingsMenu";
 import Stars from "components/global_components/svg/Stars";
 import MyCoursesJson from "../public/json/MyCourses.json";
 
@@ -43,12 +43,12 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
             <div className="mycourses-hero">
               <div className="mycourses-hero__about-course">
                 <div className="mycourses-hero__about-course--heading">
-                  <p className="heading-bold heading-3_5">
+                  <p className="bold heading-3_5">
                     როგორ გახდე DJ, DJ პროფესიის შესწავლა პროფესიულ დონეზე.
                   </p>
                 </div>
                 <div className="mycourses-hero__about-course--paragraph">
-                  <p className="paragraph-regulars paragraph-small line-height">
+                  <p className="regular paragraph-small line-height">
                     გავივლით DJ-ის პროფესიის ყველა ნიუანს, რას აკეთებს რეალრად
                     DJ რა ევალება ნებისმიერ დაწესებულებაში და ასევე შევქმნით
                     რამოდენიმე ტრეკს რომლის გაყიდვას და გაპიარებასაც შეძლებთ
@@ -59,7 +59,7 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
                       
                     <NextLink
                       route=""
-                      className="btn Green heading-semi-bold paragraph-medium-small"
+                      className="btn Green semi-bold paragraph-medium-mini"
                     >
                       კურსის შეძენა
                     </NextLink>
@@ -67,7 +67,7 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
                   <div className="save-bucket">
                     <NextLink
                       route=""
-                      className="btn Yellow heading-semi-bold paragraph-medium-small"
+                      className="btn Yellow semi-bold paragraph-medium-mini"
                     >
                       <p>კალათაში შენახვა</p>
                       <div className="shopping_cart">
@@ -91,7 +91,7 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
 
                 {/* //! ინსტრუქტორის შესახებ */}
 
-                <h1 className="heading-bold heading-6">
+                <h1 className="bold heading-6">
                   ინსტრუქტორის ონფორმაცია
                 </h1>
 

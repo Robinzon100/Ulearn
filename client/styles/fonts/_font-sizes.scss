@@ -1,7 +1,6 @@
 .paragraph-biggest {
     font-size: calc(18px + (24 - 18) * ((100vw - 300px) / (1900 - 700))) !important;
-    // letter-spacing: 1.1px;
-    // line-height: 135%;
+    
 }
 
 .paragraph-big {
@@ -18,7 +17,7 @@
 }
 
 
-.paragraph-medium-small {
+.paragraph-medium-mini {
     font-size: calc(14px + (17 - 14) * ((100vw - 300px) / (1900 - 700))) !important;
 }
 
@@ -30,7 +29,7 @@
 .paragraph-smallest {
     font-size: calc(12px + (14 - 12) * ((100vw - 300px) / (1900 - 700))) !important;
 }
-.paragraph-smallest-small {
+.paragraph-smallest-mini {
     font-size: calc(10px + (12 - 10) * ((100vw - 300px) / (1900 - 700))) !important;
 }
 
@@ -74,9 +73,8 @@
 // ====================== IN VARIABLES
 $paragraph-biggest: calc(16px + (22 - 16) * ((100vw - 300px) / (1900 - 700))) !important;
 $paragraph-big: calc(12px + (18 - 12) * ((100vw - 300px) / (1900 - 700))) !important;
+$paragraph-medium: calc(12px + (16- 12) * ((100vw - 300px) / (1900 - 700))) !important;
 
-$paragraph: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
+$paragraph-small: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
 
-$paragraph-medium: calc(12px + (17 - 12) * ((100vw - 300px) / (1900 - 700))) !important;
-$paragraph-small: calc(13px + (15 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
-$paragraph-heading-medium: calc(15px + (28 - 15) * ((100vw - 300px) / (1900 - 700))) !important;
+$paragraph-mini: calc(13px + (15 - 13) * ((100vw - 300px) / (1900 - 700))) !important;

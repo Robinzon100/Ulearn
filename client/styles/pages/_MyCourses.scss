@@ -218,14 +218,14 @@ $ratings-padding:1.3rem 1.5rem 1.3rem 1.5rem;
 
             font-size: calc(15px + (26 - 15) * ((100vw - 300px) / (1900 - 700))) !important;
             display: inline-block;
-            font-family: $heading-bold;
+            font-family: $bold;
             line-height: 180%;
 
         }
 
         a {
             font-size: calc(11px + (14 - 11) * ((100vw - 300px) / (1900 - 700))) !important;
-            font-family: $button-semi-bold;
+            font-family: $semi-bold;
             text-decoration: none !important;
             color: #338EFF;
 
