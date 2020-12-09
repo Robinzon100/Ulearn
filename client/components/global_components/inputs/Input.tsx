@@ -1,8 +1,10 @@
-import React  from "react";
+import {useMemo}  from "react";
 import {InputInterface} from "components/global_components/inputs/Input.interface";
-
+import {getInputSize,getColors} from "./style";
 
 const Input: React.FC<InputInterface> = ({
+  status,
+  size,
   placeHolder,
   type,
   disabled,
@@ -15,13 +17,18 @@ const Input: React.FC<InputInterface> = ({
   id,
   name,
   icon,
+  iconRight,
+  width
 }) => {
+    const {fontSize,padding,focusedPadding } = useMemo(() => getInputSize(size), [size])
+    const {...props } = useMemo(() => getColors(status), [status])
   return (
     <>
-      <div className="input_container">
+    {/* //TODO გარრკვიე ფოკუსის დროს რომ შეიცვალოს აიკონის ოფასითი */}
+      <div className="input_container" style={disabled ? {cursor: "not-allowed",pointerEvents: "none" } : style } >
         {/* <label htmlFor=""></label> */}
         {icon && (
-          <span style={{ opacity: "80%" }} className="icon_base-style icon">
+          <span  style={{opacity:"70%"}} className="icon_base-style icon">
             {icon}
           </span>
         )}
@@ -35,7 +42,14 @@ const Input: React.FC<InputInterface> = ({
           placeholder={placeHolder}
         />
 
-
+{iconRight && (
+          <span
+            className="icon_base-style iconRight"
+            style={{opacity:"70%"} }
+          >
+            {iconRight}
+          </span>
+        )}
 
 
 
@@ -50,51 +64,72 @@ const Input: React.FC<InputInterface> = ({
 
         <style jsx>
           {`
-            .icon_base-style {
-              position: absolute;
-              justify-content: center;
-              display: flex;
-              align-items: center;
-              z-index: 1;
-              top: 50%;
-            }
-
-            .icon {
-              left: 0;
-              transform: translate(50%, -50%);
-            }
-
-            .input_container {
+          .input_container {
               position: relative;
               display: flex;
               align-items: center;
-              width: 100%;
+              width: ${width};
             }
 
             .input_field {
-              width: 100%;
-              padding: 1rem 1rem 1rem 4rem;
-              background: var(--primary-grey);
-              border: none !important;
+              font-size:${fontSize};
+              width: ${width};
+              padding: ${padding};
+              background: ${props.defaultBg};
+              border: ${props.borderColor};
               box-sizing: border-box;
               border-radius: 8px;
               outline: none !important;
               transition: all 0.1s cubic-bezier(0, 1.06, 0.37, 0.38);
             }
 
+            .input_field:disabled {
+                color: ${props.disabled};
+                opacity:50%;
+              }
+
             .input_field:focus {
-              border: 0.9px solid var(--secondary-light-grey);
-              box-shadow: var(--input-onFocus);
-              background: var(--white);
+              
+              box-shadow: ${props.focusedShadow};
+              background: ${props.focusedBg};
               opacity: 100%;
-              padding: 1rem 1rem 1rem 4.5rem;
+              padding: ${focusedPadding};
             }
-            .input_field:placeholder {
-              border: 0.9px solid var(--secondary-light-grey);
-              box-shadow: var(--input-onFocus);
-              background: var(--white);
+            .input_field::placeholder {
+              background: ${props.defaultBg};
               opacity: 100%;
+           
+              color:${props.textColor}
             }
+
+            .icon_base-style {
+                position: absolute;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                z-index: 1;
+                top: 50%;
+                
+              }
+              
+              .input_field:focus + .icon {
+                opacity:10%;
+              }
+  
+              .icon:disabled {
+                color: ${props.disabled};
+                opacity:50% ;
+                
+              }
+              .icon {
+                color:${props.textColor};
+                left: 0;
+                transform: translate(50%, -50%);
+              }
+              .iconRight {
+                right: 15px;
+                transform: translate(-50%, -50%);
+              }
           `}
         </style>
       </div>

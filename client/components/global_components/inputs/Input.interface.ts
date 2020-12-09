@@ -3,6 +3,7 @@ import { CSSProperties, ReactNode } from "react";
 
 
 export interface InputInterface {
+    status: "default" |"primary" | "blue" | "yellow" | "green" | "red" |  "black";
     placeHolder?: string;
     type: "text" | "email" | "password" | "number" | "radio";
     disabled?: boolean;
@@ -15,8 +16,30 @@ export interface InputInterface {
     id?: number;
     name?: string;
     icon?: ReactNode;
+    iconRight?:ReactNode;
     options?:any
-    iconStyle?:CSSProperties
+    iconStyle?:CSSProperties,
+    size: "mini" | "small" | "medium" | "large";
+    width?:string,
+    
 }
+
+
+export type InputSizeGroup = {
+    fontSize?:string,
+    padding?:string,
+    focusedPadding?:string
+}
+
+export type InputStateGroup = {
+    defaultBg?:string,
+    textColor?:string,
+    borderColor:string 
+    hoverBg?:string,
+    focusedShadow?:string,
+    focusedBg?:string
+    disabled?:string
+}
+
 
 

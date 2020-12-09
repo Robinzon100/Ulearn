@@ -110,7 +110,7 @@ const course_tablist = () => {
    
 
   useEffect(() => {
-    changeTabPositionAndColor(".renderedContent_list",".renderedContent_list--item");
+    changeTabPositionAndColor("Tabs");
 }, [])
 
 
@@ -118,14 +118,14 @@ const course_tablist = () => {
         <>
             <div className="section-courses--tablist">
                 <div className="section-courses--tablist__container gray-border">
-                    <nav className="renderedContent_list">
-                  <ul>
+                  <nav>
+                  <ul className="Tabs">
                     {
                       courseTabs.map((courseTab, i) => (
                         <li
                           
                           style={{ cursor: "pointer" }}
-                          className="renderedContent_list--item noselect"
+                          className="renderedContent_list--item noselect Tabs__tab  Tab"
                           onClick={(e) => {
                             setTabContent(fetchTabConent(1, courseTab.route));
                             setTabIndex(i);
@@ -144,9 +144,10 @@ const course_tablist = () => {
                         </li>
                       ))
                     }
+                    <li className="Tabs__presentation-slider active" role="presentation"></li>
                     </ul>
-                  <span className="underline"></span>
-                  </nav>
+                    
+                    </nav>
                 </div>
 
 

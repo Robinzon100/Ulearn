@@ -17,7 +17,7 @@ export type ButtonInterface = {
   width?:string
 }
 
-export interface ButtonSizeGroup  {
+export type ButtonSizeGroup = {
     height: string
     width: string
     padding: string

@@ -1,13 +1,25 @@
 import { FC, memo, useEffect, useMemo } from "react";
 import { useRouter } from "next/router";
-import { NormalSizes } from "./prop-type";
 
 //! ===========================OUR IMPORTS
 import { ButtonInterface } from "components/global_components/button/Button.interface";
-import { getButtonSize, getButtonColors, getButtonGhostColors } from "./style";
+import { getButtonSize, getButtonColors } from "./style";
 import Loading from "components/global_components/loading/loading";
 
-const Button: FC<ButtonInterface> = ({title,className,color,size,ghost,linkStyle,onClick,loading,icon,iconStyle,iconRight,route,disabled,
+const Button: FC<ButtonInterface> = ({
+  title,
+  className,
+  color,
+  size,
+  ghost,
+  linkStyle,
+  onClick,
+  loading,
+  icon,
+  iconStyle,
+  iconRight,
+  route,
+  disabled,
 }) => {
   useEffect(() => {
     if (route && onClick) {
@@ -18,7 +30,7 @@ const Button: FC<ButtonInterface> = ({title,className,color,size,ghost,linkStyle
   const router = useRouter();
   const {height,minWidth,padding,width,fontSize,fontFamily} = useMemo(() => getButtonSize(size), [size]);
   const { ...props } = useMemo(() => getButtonColors(color, ghost), [color]);
-  
+
   return (
     <>
       <button
@@ -26,12 +38,25 @@ const Button: FC<ButtonInterface> = ({title,className,color,size,ghost,linkStyle
           route ? (!disabled ? router.push(route) : onClick) : null
         }
         className={`btn ${className}`}
-        style={disabled ? {cursor: "not-allowed",boxShadow: `${props.btnShadowDisabled}`,opacity:"0.5",} : linkStyle}>
-            
+        style={
+          disabled
+            ? {
+                cursor: "not-allowed",
+                boxShadow: `${props.btnShadowDisabled}`,
+                opacity: "0.5",
+              }
+            : linkStyle
+        }
+      >
         {icon && (
-        <span className="icon_base-style icon" style={{filter:"drop-shadow(0px 2.2px 2.5px rgba(0, 0, 0, 0.14))"}}>
+          <span
+            className="icon_base-style icon"
+            style={{
+              filter: "drop-shadow(0px 2.2px 2.5px rgba(0, 0, 0, 0.14))",
+            }}
+          >
             {icon}
-           </span>
+          </span>
         )}
 
         <p className="title" style={disabled ? { pointerEvents: "none" } : {}}>
@@ -41,7 +66,11 @@ const Button: FC<ButtonInterface> = ({title,className,color,size,ghost,linkStyle
 
         {iconRight && (
           <span
-            className="icon_base-style iconRight" style={{filter:"drop-shadow(0px 2.2px 2.5px rgba(0, 0, 0, 0.14))"}}>
+            className="icon_base-style iconRight"
+            style={{
+              filter: "drop-shadow(0px 2.2px 2.5px rgba(0, 0, 0, 0.14))",
+            }}
+          >
             {iconRight}
           </span>
         )}
@@ -67,10 +96,9 @@ const Button: FC<ButtonInterface> = ({title,className,color,size,ghost,linkStyle
               color 200ms ease 0ms;
           }
 
-          .btn:enabled:hover{
+          .btn:enabled:hover {
             box-shadow: ${props.btnShadowHover};
             background: ${props.bgHover};
-            
           }
 
           .btn:enabled:hover .title {
@@ -84,7 +112,6 @@ const Button: FC<ButtonInterface> = ({title,className,color,size,ghost,linkStyle
             box-shadow: ${props.btnShadowActive};
             border: ${props.btnBorderActive};
             background: ${props.bg};
-            
           }
 
           .btn:enabled:active .title {
@@ -93,7 +120,6 @@ const Button: FC<ButtonInterface> = ({title,className,color,size,ghost,linkStyle
           .btn:enabled:active .icon_base-style {
             color: ${props.btnIconActive};
           }
-
 
           .title {
             color: ${props.textColor};

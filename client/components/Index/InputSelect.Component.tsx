@@ -11,11 +11,14 @@ const InputSelectComponent = () => {
     return (
         <>
         <div className="main_content--input">
-            <Input 
+        <Input 
+            status="default"
+            size="large"
             type={"text"} 
             placeHolder={"მოძებნე სასურველი კურსი"} 
             icon={<Search size={22}/>}
             className={"regular paragraph-small"}
+            width="100%"
             />
 
               <div className="Select">

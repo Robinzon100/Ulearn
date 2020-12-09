@@ -1,39 +1,39 @@
-import { Underline } from "react-feather";
-
-export const changeTabPositionAndColor = (containerClass: string, childrenClass: string) => {
+export const changeTabPositionAndColor = (Tab) => {
+    let main = document.querySelector<HTMLElement>(".Tabs");
+    let tabs = main.querySelectorAll<HTMLElement>(".Tab");
+    let slider = main.querySelector<HTMLElement>(".Tabs__presentation-slider");
     const colors = ["#338EFF", "#FF5C4D", "#00E267", "#FFD703"];
-    
-    let navComponent = document.querySelector<HTMLElement>(
-        containerClass
-    );
-    let navArr = navComponent.querySelectorAll<HTMLElement>(
-        childrenClass
-    );
-    let navUnderLine = navComponent.querySelector<HTMLElement>(".underline");
-
-    navUnderLine.style.backgroundColor = colors[0];
-
-    navUnderLine.style.left = `${navArr[0].offsetLeft}px`;
-    navUnderLine.style.width = `${navArr[0].offsetWidth}px`;
-    navUnderLine.style.top = `${navArr[0].offsetTop + navArr[0].offsetHeight}px`;
-
-    navArr.forEach((navItem) => {
-        let navLeftPos = navItem.offsetLeft;
-		let navTopPos = navItem.offsetTop;
-		let navItemHeight = navItem.offsetHeight;
-		let navItemWidth = navItem.offsetWidth;
-      //! ეს ანაცვლებს ფერებს რომ დაემთხვეს იმ დივს რომელიც საჭიროა
+    // debugger
+    slider.style.left = `${tabs[0].offsetLeft}px`;
+    // slider.style.top = `${tabs[0].offsetTop + tabs[0].offsetHeight}px`;
+    slider.style.width = `${tabs[0].offsetWidth}px`;
+    slider.style.backgroundColor = colors[0];
+  
+  
+    tabs.forEach(tab =>{
+      let navLeftPos = tab.offsetLeft;
+      let navTopPos = tab.offsetTop;
+      let navItemHeight = tab.offsetHeight;
+      let navItemWidth = tab.offsetWidth;
+  
       let color = colors.shift();
       colors.push(color);
-
-
-
-      navItem.addEventListener("click", (e) => {
-        navUnderLine.style.left = `${navLeftPos}px`;
-		navUnderLine.style.top = `${navTopPos + navItemHeight}px`;
-		navUnderLine.style.width = `${navItemWidth}px`;
-        navUnderLine.style.backgroundColor = color;
+  
+      tab.addEventListener("click", (e) => {
+          const target = e.currentTarget as Element;
+          Array.prototype.forEach.call(tabs, function (tab) {
+              tab.classList.remove("active");
+          });
+            
         
+          slider.style.left = `${navLeftPos}px`;
+            //  slider.style.top = `${navTopPos + navItemHeight}px`;
+            slider.style.width = `${navItemWidth}px`;
+            
+            slider.style.backgroundColor = color;
+        
+          target.classList.add("active");
       });
-    });
-}
+    })
+  
+  };
