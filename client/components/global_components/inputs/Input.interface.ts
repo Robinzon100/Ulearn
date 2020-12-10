@@ -2,26 +2,24 @@ import { CSSProperties, ReactNode } from "react";
 
 
 
-export interface InputInterface {
+export type InputInterface = {
     status: "default" |"primary" | "blue" | "yellow" | "green" | "red" |  "black";
-    placeHolder?: string;
     type: "text" | "email" | "password" | "number" | "radio";
+    size: "mini" | "small" | "medium" | "large";
+    placeHolder: string;
     disabled?: boolean;
     style?: CSSProperties;
     containerStyle?: any;
     value?: string;
-    onChange?: any;
+    onChange?: () => void;
     title?: string;
     className?: string;
     id?: number;
     name?: string;
     icon?: ReactNode;
     iconRight?:ReactNode;
-    options?:any
     iconStyle?:CSSProperties,
-    size: "mini" | "small" | "medium" | "large";
     width?:string,
-    
 }
 
 
@@ -39,6 +37,7 @@ export type InputStateGroup = {
     focusedShadow?:string,
     focusedBg?:string
     disabled?:string
+    focusedIcon?:string
 }
 
 

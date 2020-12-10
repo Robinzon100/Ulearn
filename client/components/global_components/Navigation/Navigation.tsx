@@ -31,12 +31,12 @@ const Navigation: FC = () => {
           </NextLink>
           <div className="input">
           <Input 
-            status="default"
+            status="primary"
             size="large"
-            type={"text"} 
-            placeHolder={"მოძებნე სასურველი კურსი"} 
-            icon={<Search size={22}/>}
-            className={"regular paragraph-small"}
+            type="text"
+            placeHolder="მოძებნე სასურველი კურსი"
+            icon={<Search size={20}/>}
+            className="regular paragraph-small"
             width="100%"
             // disabled={true}
             />

@@ -1,58 +1,56 @@
-import {useMemo}  from "react";
-import {InputInterface} from "components/global_components/inputs/Input.interface";
-import {getInputSize,getColors} from "./style";
+import { useMemo } from "react";
+import { InputInterface } from "components/global_components/inputs/Input.interface";
+import { getInputSize, getColors } from "./style";
 
 const Input: React.FC<InputInterface> = ({
-  status,
-  size,
-  placeHolder,
-  type,
-  disabled,
-  style,
-  containerStyle,
-  value,
-  onChange,
-  title,
-  className,
-  id,
-  name,
-  icon,
-  iconRight,
-  width
+    status,
+    size,
+    placeHolder,
+    type,
+    disabled,
+    style,
+    containerStyle,
+    value,
+    onChange,
+    title,
+    className,
+    id,
+    name,
+    icon,
+    iconRight,
+    width
 }) => {
-    const {fontSize,padding,focusedPadding } = useMemo(() => getInputSize(size), [size])
-    const {...props } = useMemo(() => getColors(status), [status])
-  return (
-    <>
-    {/* //TODO გარრკვიე ფოკუსის დროს რომ შეიცვალოს აიკონის ოფასითი */}
-      <div className="input_container" style={disabled ? {cursor: "not-allowed",pointerEvents: "none" } : style } >
-        {/* <label htmlFor=""></label> */}
-        {icon && (
-          <span  style={{opacity:"70%"}} className="icon_base-style icon">
-            {icon}
-          </span>
-        )}
-        <input
-          disabled={disabled}
-          style={style}
-          type={type}
-          onChange={onChange}
-          value={value}
-          className={`input_field ${className}`}
-          placeholder={placeHolder}
-        />
+    const { fontSize, padding, focusedPadding } = useMemo(() => getInputSize(size), [size])
+    const { ...props } = useMemo(() => getColors(status), [status])
+    return (
+        <>
+            
+            <div className="input_container" style={disabled ? { cursor: "not-allowed", pointerEvents: "none" } : style} >
+                {/* <label htmlFor=""></label> */}
+                {icon && (
+                    <span style={disabled ? { opacity: "30%" }:{ opacity: "70%" } } className="icon_base-style icon">
+                        {icon}
+                    </span>
+                )}
+                <input
+                    disabled={disabled}
+                    style={iconRight ? {padding:"1rem 1rem 1rem 1rem"} : style}
+                    type={type}
+                    onChange={onChange}
+                    value={value}
+                    className={`input_field ${className}`}
+                    placeholder={placeHolder}
+                    
+                />
 
-{iconRight && (
-          <span
-            className="icon_base-style iconRight"
-            style={{opacity:"70%"} }
-          >
-            {iconRight}
-          </span>
-        )}
-
-
-
+                {iconRight && (
+                    <span
+                        className="icon_base-style iconRight"
+                        style={disabled ? { opacity: "30%" }:{ opacity: "70%" } } 
+                    >
+                        {iconRight}
+                    </span>
+                )}
 
 
 
@@ -60,11 +58,14 @@ const Input: React.FC<InputInterface> = ({
 
 
 
-        
 
-        <style jsx>
-          {`
-          .input_container {
+
+
+
+
+            <style jsx>
+                {`
+            .input_container {
               position: relative;
               display: flex;
               align-items: center;
@@ -74,7 +75,7 @@ const Input: React.FC<InputInterface> = ({
             .input_field {
               font-size:${fontSize};
               width: ${width};
-              padding: ${padding};
+              padding: ${padding}; 
               background: ${props.defaultBg};
               border: ${props.borderColor};
               box-sizing: border-box;
@@ -83,22 +84,15 @@ const Input: React.FC<InputInterface> = ({
               transition: all 0.1s cubic-bezier(0, 1.06, 0.37, 0.38);
             }
 
-            .input_field:disabled {
-                color: ${props.disabled};
-                opacity:50%;
-              }
 
             .input_field:focus {
-              
               box-shadow: ${props.focusedShadow};
               background: ${props.focusedBg};
-              opacity: 100%;
               padding: ${focusedPadding};
             }
             .input_field::placeholder {
               background: ${props.defaultBg};
-              opacity: 100%;
-           
+              opacity: 70%;
               color:${props.textColor}
             }
 
@@ -111,16 +105,6 @@ const Input: React.FC<InputInterface> = ({
                 top: 50%;
                 
               }
-              
-              .input_field:focus + .icon {
-                opacity:10%;
-              }
-  
-              .icon:disabled {
-                color: ${props.disabled};
-                opacity:50% ;
-                
-              }
               .icon {
                 color:${props.textColor};
                 left: 0;
@@ -130,11 +114,13 @@ const Input: React.FC<InputInterface> = ({
                 right: 15px;
                 transform: translate(-50%, -50%);
               }
+           
+              
           `}
-        </style>
-      </div>
-    </>
-  );
+                </style>
+            </div>
+        </>
+    );
 };
 
 export default Input;

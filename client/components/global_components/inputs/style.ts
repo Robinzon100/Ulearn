@@ -47,6 +47,7 @@ export const getColors = (status:string): InputStateGroup => {
             focusedShadow:'var(--text-input-shadow)',
             focusedBg:'var(--white)',
             disabled:'var(--primary-grey)',
+            focusedIcon:"opacity:100%"
         },
         primary: {
             defaultBg:'var(--secondary-lightGrey)',
@@ -56,6 +57,7 @@ export const getColors = (status:string): InputStateGroup => {
             focusedShadow:'var(--text-input-shadow)',
             disabled:'var(--primary-grey)',
             focusedBg:'var(--white)',
+            focusedIcon:"opacity:100%"
          },
         blue: {
             defaultBg:'var(--secondary-lightGrey)',
@@ -65,6 +67,7 @@ export const getColors = (status:string): InputStateGroup => {
             focusedShadow:'var(--text-input-shadow)',
             disabled:'var(--primary-grey)',
             focusedBg:'var(--white)',
+            focusedIcon:"opacity:100%"
         },
         yellow: {
             defaultBg:'var(--secondary-lightGrey)',
@@ -74,6 +77,7 @@ export const getColors = (status:string): InputStateGroup => {
             focusedShadow:'var(--text-input-shadow)',
             disabled:'var(--primary-grey)',
             focusedBg:'var(--white)',
+            focusedIcon:"opacity:100%"
         },
         green: {
             defaultBg:'var(--secondary-lightGrey)',
@@ -83,6 +87,7 @@ export const getColors = (status:string): InputStateGroup => {
             focusedShadow:'var(--text-input-shadow)',
             disabled:'var(--primary-grey)',
             focusedBg:'var(--white)',
+            focusedIcon:"opacity:100%"
         },
         red: {
             defaultBg:'var(--secondary-lightGrey)',
@@ -92,6 +97,7 @@ export const getColors = (status:string): InputStateGroup => {
             focusedShadow:'var(--text-input-shadow)',
             disabled:'var(--primary-grey)',
             focusedBg:'var(--white)',
+            focusedIcon:"opacity:100%"
         },
         black: {
             defaultBg:'var(--secondary-lightGrey)',
@@ -101,6 +107,7 @@ export const getColors = (status:string): InputStateGroup => {
             focusedShadow:'var(--text-input-shadow)',
             disabled:'var(--primary-grey)',
             focusedBg:'var(--white)',
+            focusedIcon:"opacity:100%"
         }
     }
 
