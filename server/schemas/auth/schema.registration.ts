@@ -4,7 +4,7 @@ import { email, arrayStringWithIds, passwordUnencrypted, passwordEncrypted } fro
 
 
 export const regsiterUserSchema = Joi.object({
-    full_name: Joi.string().min(6).max(225).required().trim(),
+    full_name: Joi.string().min(2).max(225).required().trim(),
     email: email(Joi),
     password: passwordUnencrypted(),
     recovery_email: email(Joi),

@@ -2,11 +2,11 @@ import { CSSProperties, ReactNode } from "react";
 
 
 
-export type InputInterface = {
-    status: "default" |"primary" | "blue" | "yellow" | "green" | "red" |  "black";
+export interface InputInterface {
+    color?: "default" |"primary" | "blue" | "yellow" | "green" | "red" |  "black";
     type: "text" | "email" | "password" | "number" | "radio";
     size: "mini" | "small" | "medium" | "large";
-    placeHolder: string;
+    placeHolder?: string;
     disabled?: boolean;
     style?: CSSProperties;
     containerStyle?: any;

@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode } from "react";
+import { CSSProperties, MouseEventHandler, ReactNode } from "react";
 
 export type ButtonInterface = {
   title?: string;
@@ -7,7 +7,7 @@ export type ButtonInterface = {
   size: "auto" | "mini" | "small" | "medium" | "large";
   ghost?:boolean
   linkStyle?: CSSProperties;
-  onClick?: (args:string | number) => void;
+  onClick?:  MouseEventHandler<HTMLButtonElement>;
   loading?: boolean;
   icon?: ReactNode;
   iconStyle?: CSSProperties;
