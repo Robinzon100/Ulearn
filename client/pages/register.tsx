@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Input from 'components/global_components/inputs/Input';
-import { postRegistration } from 'actions/client/registration.actions';
+import { postRegistration } from 'actions/client/registration.action';
+import Button from 'components/global_components/button/Button';
+import { LogIn } from 'react-feather';
 
 const Register: React.FC = () => {
     const [registrationInfo, setregistrationInfo] = useState({
@@ -24,6 +26,7 @@ const Register: React.FC = () => {
     const handleSend = async () => {
         let response = await postRegistration(registrationInfo)
         console.log(response);
+        console.log('asdasd')
     }
 
 
@@ -32,41 +35,51 @@ const Register: React.FC = () => {
 
     return (
         <>
+
             <Input
                 style={{ marginTop: '10rem' }}
                 size={'large'}
-                color={'blue'}
                 placeHolder='enter your full name'
                 value={full_name}
                 type='text'
+                className={"regular paragraph-small"}
+                width='50rem'
                 onChange={(e) => handleInputChange(e, 'full_name')} />
             <Input
                 style={{ marginTop: '1rem' }}
                 size={'large'}
-                color={'blue'}
                 placeHolder='enter your email'
                 value={email}
                 type='email'
+                className={"regular paragraph-small"}
+                width='50rem'
                 onChange={(e) => handleInputChange(e, 'email')} />
             <Input
                 style={{ marginTop: '1rem' }}
                 size={'large'}
-                color={'blue'}
                 placeHolder='enter your password'
                 value={password}
                 type='password'
+                className={"regular paragraph-small"}
+                width='50rem'
                 onChange={(e) => handleInputChange(e, 'password')} />
             <Input
                 style={{ marginTop: '1rem' }}
                 size={'large'}
-                color={'blue'}
                 placeHolder='enter your recovery email'
                 value={recovery_email}
                 type='email'
+                className={"regular paragraph-small"}
+                width='50rem'
                 onChange={(e) => handleInputChange(e, 'recovery_email')} />
 
-
-            <button onClick={() => handleSend()} >register</button>
+            <Button
+                color='primary'
+                size='medium'
+                title='დარეგისტრირება'
+                onClick={() => handleSend()}
+                iconRight={<LogIn />}
+            />
         </>
     )
 }

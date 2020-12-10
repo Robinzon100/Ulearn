@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { createJwtAuthorizationHeader } from './../../../utils/auth/auth.util';
+import { createJwtAuthorizationHeader, getHashedPassword } from './../../../utils/auth/auth.util';
 import { Request, Response, NextFunction } from "express";
 import User from '../../../models/user/user.model';
 import bcrypt from "bcrypt";
@@ -19,9 +19,7 @@ export const postRegistration = async (req: Request, res: Response, next: NextFu
     if (existingUser.length > 0) {
         customError(res, next, 'wrong email or password', 403)
     } else {
-        // hash password
-        const salt = await bcrypt.genSaltSync(10);
-        const hashedPassword = await bcrypt.hashSync(password, salt);
+        const hashedPassword = await getHashedPassword(password)
 
         const user = {
             ...req.body,

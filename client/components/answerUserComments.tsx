@@ -35,8 +35,14 @@ const answerUserComments: React.FC<answerUserComments> = ({ id }, props) => {
                 {answerComment ?
                     <div className="user-answer--input">
                         <Input
-                            placeHolder={placeHolder}
-                            type='text' />
+                            color="default"
+                            size="large"
+                            type={"text"}
+                            placeHolder={"მოძებნე სასურველი კურსი"}
+                            className={"regular paragraph-small"}
+                            width="100%"
+                        // disabled={true}
+                        />
                         <div className="user-answer--input__btn" onClick={(handleSetAnswerComment)}>
                             <p className="btn primary bold paragraph-medium-mini">
                                 პასუხი

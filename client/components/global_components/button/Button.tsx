@@ -21,40 +21,52 @@ const Button: FC<ButtonInterface> = ({
   route,
   disabled,
 }) => {
+  let clickHandler
   useEffect(() => {
     if (route && onClick) {
       console.warn("button can only have route or clikHandler");
     }
+
+    if (route) {
+      clickHandler = router.push(route)
+    }
+
+    if (disabled || loading) {
+      null
+    }
+
+    if (!route && !disabled && !loading) {
+      clickHandler = onclick
+    }
   }, []);
 
   const router = useRouter();
-  const {height,minWidth,padding,width,fontSize,fontFamily} = useMemo(() => getButtonSize(size), [size]);
+  const { height, minWidth, padding, width, fontSize, fontFamily } = useMemo(() => getButtonSize(size), [size]);
   const { ...props } = useMemo(() => getButtonColors(color, ghost), [color]);
+
+
+
 
   return (
     <>
       <button
-        onClick={() =>
-          route ? (!disabled ? router.push(route) : onClick) : null
-        }
+        onClick={onClick}
         className={`btn ${className}`}
         style={
           disabled
             ? {
-                cursor: "not-allowed",
-                boxShadow: `${props.btnShadowDisabled}`,
-                opacity: "0.5",
-              }
+              cursor: "not-allowed",
+              boxShadow: `${props.btnShadowDisabled}`,
+              opacity: "0.5",
+            }
             : linkStyle
-        }
-      >
+        }>
         {icon && (
           <span
             className="icon_base-style icon"
             style={{
               filter: "drop-shadow(0px 2.2px 2.5px rgba(0, 0, 0, 0.14))",
-            }}
-          >
+            }}>
             {icon}
           </span>
         )}
@@ -67,10 +79,7 @@ const Button: FC<ButtonInterface> = ({
         {iconRight && (
           <span
             className="icon_base-style iconRight"
-            style={{
-              filter: "drop-shadow(0px 2.2px 2.5px rgba(0, 0, 0, 0.14))",
-            }}
-          >
+            style={{ filter: "drop-shadow(0px 2.2px 2.5px rgba(0, 0, 0, 0.14))", }}>
             {iconRight}
           </span>
         )}
@@ -92,8 +101,8 @@ const Button: FC<ButtonInterface> = ({
             border: ${props.border};
             outline: none !important;
             transition: background-color 200ms ease 0ms,
-              box-shadow 200ms ease 0ms, border 200ms ease 0ms,
-              color 200ms ease 0ms;
+                        box-shadow 200ms ease 0ms, border 200ms ease 0ms,
+                        color 200ms ease 0ms;
           }
 
           .btn:enabled:hover {

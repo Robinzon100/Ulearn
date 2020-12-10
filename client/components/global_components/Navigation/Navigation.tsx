@@ -31,7 +31,7 @@ const Navigation: FC = () => {
           </NextLink>
           <div className="input">
           <Input 
-            status="default"
+            color="default"
             size="large"
             type={"text"} 
             placeHolder={"მოძებნე სასურველი კურსი"} 

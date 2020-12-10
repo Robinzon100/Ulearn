@@ -34,7 +34,7 @@ export const getInputSize = (size: string): InputSizeGroup => {
 }
 
 
-export const getColors = (status: string): InputStateGroup => {
+export const getColors = (color: string): InputStateGroup => {
 
     const colors = {
         default: {
@@ -103,8 +103,8 @@ export const getColors = (status: string): InputStateGroup => {
     }
 
 
-    if (!status) return colors.default
-    return colors[status]
+    if (!color) return colors.default
+    return colors[color]
 }
 
 

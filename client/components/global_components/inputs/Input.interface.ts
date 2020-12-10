@@ -3,7 +3,7 @@ import { CSSProperties, ReactNode } from "react";
 
 
 export interface InputInterface {
-    color: "default" |"primary" | "blue" | "yellow" | "green" | "red" |  "black";
+    color?: "default" |"primary" | "blue" | "yellow" | "green" | "red" |  "black";
     type: "text" | "email" | "password" | "number" | "radio";
     size: "mini" | "small" | "medium" | "large";
     placeHolder?: string;

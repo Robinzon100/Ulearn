@@ -26,7 +26,7 @@ const Input: React.FC<InputInterface> = ({
   const { fontSize, padding, focusedPadding } = useMemo(() => getInputSize(size), [size])
   const { ...props } = useMemo(() => getColors(color), [color])
 
-
+  
 
   
   return (

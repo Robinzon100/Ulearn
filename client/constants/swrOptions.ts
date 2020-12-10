@@ -1,4 +1,4 @@
 export const swrOptions = {
-    revalidateOnFocus: true,
+    revalidateOnFocus: false,
     debugInterval: 6000
 }
