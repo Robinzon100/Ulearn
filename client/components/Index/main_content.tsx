@@ -11,8 +11,8 @@ import Overlay from "components/Index/overlay/Overlay";
 //! ===================== JSON
 import CategoriesJson from "../../public/json/categories.json";
 import CarouselJson from "../../public/json/carousel.json";
-import InputSelectComponent from "components/Index/InputSelect.Component"
-;
+import InputSelectComponent from "components/Index/InputSelect.Component";
+
 interface categories {
   categories: any;
 }

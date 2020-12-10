@@ -1,9 +1,11 @@
+import jwt from 'jsonwebtoken';
 import { createJwtAuthorizationHeader } from './../../../utils/auth/auth.util';
 import { Request, Response, NextFunction } from "express";
 import User from '../../../models/user/user.model';
 import bcrypt from "bcrypt";
 import customError from '../../../utils/createError';
 import { regsiterUserSchemaWithEncryptedPassword } from '../../../schemas/auth/schema.registration';
+import { createRefreshToken } from '../../../utils/auth/auth.util';
 
 
 
@@ -34,6 +36,7 @@ export const postRegistration = async (req: Request, res: Response, next: NextFu
                 const { id } = await User.query().insert(validatedUser);
 
                 await createJwtAuthorizationHeader(res, { userId: id })
+                await createRefreshToken(res, { userId: id })
 
                 res.status(200).json({
                     message: "user successfully registered",
@@ -64,21 +67,30 @@ export const postLogin = async (req: Request, res: Response, next: NextFunction)
 
         if (doesPasswordMatch && user) {
             await createJwtAuthorizationHeader(res, { userId: user.id })
-
             res.status(200).json({
                 user: 'successfully loged in'
             })
         } else {
             customError(res, next, 'provide email or password are not valid', 401)
         }
-
     } catch (error) {
         next(error)
     }
-
-
 }
 
+
+
+
+
+export const postRefreshToken = async (req: Request, res: Response, next: NextFunction) => {
+    const { refres_token } = req.body
+
+    const token = jwt.verify(refres_token, process.env.JWT_REFRESH_TOKEN_SECRET!)
+
+    if (token) {
+
+    }
+}
 
 
 // export const postLogin = async (req: Request, res: Response, next: NextFunction) => {
@@ -91,7 +103,7 @@ export const postLogin = async (req: Request, res: Response, next: NextFunction)
 //         if (err) {
 //             customError(res, next, 'token not valid. unauthorized_client', 401)
 //         } else {
-                
+
                 // interface userToken{
                 //     userId: number
                 // }

@@ -3,9 +3,10 @@ import { CSSProperties, ReactNode } from "react";
 
 
 export interface InputInterface {
-    status: "default" |"primary" | "blue" | "yellow" | "green" | "red" |  "black";
-    placeHolder?: string;
+    color: "default" |"primary" | "blue" | "yellow" | "green" | "red" |  "black";
     type: "text" | "email" | "password" | "number" | "radio";
+    size: "mini" | "small" | "medium" | "large";
+    placeHolder?: string;
     disabled?: boolean;
     style?: CSSProperties;
     containerStyle?: any;
@@ -19,7 +20,6 @@ export interface InputInterface {
     iconRight?:ReactNode;
     options?:any
     iconStyle?:CSSProperties,
-    size: "mini" | "small" | "medium" | "large";
     width?:string,
     
 }

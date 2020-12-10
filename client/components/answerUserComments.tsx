@@ -7,11 +7,11 @@ interface answerUserComments {
 }
 
 
-const answerUserComments: React.FC<answerUserComments> = ({ id },props) => {
+const answerUserComments: React.FC<answerUserComments> = ({ id }, props) => {
     const [placeHolder, setPlaceHolder] = useState<string>("დაწერე რაც გინდა");
 
     const [answerComment, setAnswerComment] = useState(false);
-   
+
 
     const handleSetAnswerComment = () => {
         setAnswerComment((answerComment) => !answerComment)
@@ -34,9 +34,9 @@ const answerUserComments: React.FC<answerUserComments> = ({ id },props) => {
             <div >
                 {answerComment ?
                     <div className="user-answer--input">
-                        <Input 
-                        placeHolder={placeHolder} 
-                        type='text'/>
+                        <Input
+                            placeHolder={placeHolder}
+                            type='text' />
                         <div className="user-answer--input__btn" onClick={(handleSetAnswerComment)}>
                             <p className="btn primary bold paragraph-medium-mini">
                                 პასუხი

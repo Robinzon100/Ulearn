@@ -8,8 +8,8 @@ const Register: React.FC = () => {
         email: "",
         password: "",
         recovery_email: "",
-        favorite_main_category_ids:  JSON.stringify([1,2,3]),
-        favorite_sub_category_ids:  JSON.stringify([1,2,3])
+        favorite_main_category_ids: JSON.stringify([1, 2, 3]),
+        favorite_sub_category_ids: JSON.stringify([1, 2, 3])
     })
     let { full_name, email, password, recovery_email } = registrationInfo
 
@@ -21,7 +21,7 @@ const Register: React.FC = () => {
         setregistrationInfo({ ...registrationInfo, [field]: e.target.value })
     }
 
-    const handleSend = async () =>{
+    const handleSend = async () => {
         let response = await postRegistration(registrationInfo)
         console.log(response);
     }
@@ -29,26 +29,37 @@ const Register: React.FC = () => {
 
 
 
-   
+
     return (
         <>
             <Input
                 style={{ marginTop: '10rem' }}
+                size={'large'}
+                color={'blue'}
                 placeHolder='enter your full name'
                 value={full_name}
                 type='text'
                 onChange={(e) => handleInputChange(e, 'full_name')} />
             <Input
+                style={{ marginTop: '1rem' }}
+                size={'large'}
+                color={'blue'}
                 placeHolder='enter your email'
                 value={email}
                 type='email'
                 onChange={(e) => handleInputChange(e, 'email')} />
             <Input
+                style={{ marginTop: '1rem' }}
+                size={'large'}
+                color={'blue'}
                 placeHolder='enter your password'
                 value={password}
                 type='password'
                 onChange={(e) => handleInputChange(e, 'password')} />
             <Input
+                style={{ marginTop: '1rem' }}
+                size={'large'}
+                color={'blue'}
                 placeHolder='enter your recovery email'
                 value={recovery_email}
                 type='email'
