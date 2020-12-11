@@ -11,6 +11,7 @@ const Hero: FC = () => {
 
   return (
     <>
+    {/* //TODO რომ დააჭერ ბორდერი გაზრდით ზემოთ მიდის კონტენტი */}
       <section className="hero">
         <div className="hero--mobile-bg"></div>
         <div className="hero--steps">
@@ -38,8 +39,9 @@ const Hero: FC = () => {
                 color="white"
                 size="large"
                 disabled={false}
+                // loading={true}
                 // icon={<ChevronDown size={30}/>}
-                //ghost={true}
+                // ghost={true}
               />
             
           </div>

@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 //! ===========================OUR IMPORTS
 import { ButtonInterface } from "components/global_components/button/Button.interface";
 import { getButtonSize, getButtonColors } from "./style";
-import Loading from "components/global_components/loading/loading";
+import Loading from "./Button-loading";
 
 const Button: FC<ButtonInterface> = ({
   title,
@@ -21,31 +21,35 @@ const Button: FC<ButtonInterface> = ({
   route,
   disabled,
 }) => {
-  let clickHandler
+  let clickHandler;
   useEffect(() => {
     if (route && onClick) {
       console.warn("button can only have route or clikHandler");
     }
 
     if (route) {
-      clickHandler = router.push(route)
+      clickHandler = () => router.push(route);
     }
 
     if (disabled || loading) {
-      null
+      null;
     }
 
     if (!route && !disabled && !loading) {
-      clickHandler = onclick
+      clickHandler = onclick;
     }
   }, []);
 
   const router = useRouter();
-  const { height, minWidth, padding, width, fontSize, fontFamily } = useMemo(() => getButtonSize(size), [size]);
-  const { ...props } = useMemo(() => getButtonColors(color, ghost), [color]);
-
-
-
+  const {
+    height,
+    minWidth,
+    padding,
+    width,
+    fontSize,
+    fontFamily,
+  } = useMemo(() => getButtonSize(size), [size]);
+  const { ...colors } = useMemo(() => getButtonColors(color, ghost), [color]);
 
   return (
     <>
@@ -53,44 +57,52 @@ const Button: FC<ButtonInterface> = ({
         onClick={onClick}
         className={`btn ${className}`}
         style={
-          disabled
+          disabled || loading 
             ? {
-              cursor: "not-allowed",
-              boxShadow: `${props.btnShadowDisabled}`,
-              opacity: "0.5",
-            }
+                cursor: "not-allowed",
+                boxShadow: `${colors.btnShadowDisabled}`,
+                opacity: "0.5",
+              }
             : linkStyle
-        }>
-        {icon && (
+        }
+      >
+        {icon && !loading && (
           <span
             className="icon_base-style icon"
             style={{
               filter: "drop-shadow(0px 2.2px 2.5px rgba(0, 0, 0, 0.14))",
-            }}>
+            }}
+          >
             {icon}
           </span>
         )}
 
-        <p className="title" style={disabled ? { pointerEvents: "none" } : {}}>
-          {title}
+        <p className="title" style={disabled || loading ?  { pointerEvents: "none" } : {}}>
+          {!loading ? title : null}
         </p>
-        {/* <Loading/> */}
+        {loading && (
+          <Loading bgColor={colors.loadingColorBg} padding={padding} />
+        )}
 
-        {iconRight && (
+        {iconRight && !loading && (
           <span
             className="icon_base-style iconRight"
-            style={{ filter: "drop-shadow(0px 2.2px 2.5px rgba(0, 0, 0, 0.14))", }}>
+            style={{
+              filter: "drop-shadow(0px 2.2px 2.5px rgba(0, 0, 0, 0.14))",
+            }}
+          >
             {iconRight}
           </span>
         )}
 
         <style jsx>{`
           .btn {
+            position: relative;
             text-decoration: none;
             display: block;
-            border-radius: ${props.borderRadius};
-            background: ${props.bg};
-            box-shadow: ${props.boxShadowDefault};
+            border-radius: 8px;
+            background: ${colors.bg};
+            box-shadow: ${colors.boxShadowDefault};
             width: ${width};
             height: ${height};
             padding: ${padding};
@@ -98,40 +110,40 @@ const Button: FC<ButtonInterface> = ({
             border-image: none;
             text-decoration: none;
             cursor: pointer;
-            border: ${props.border};
+            border: ${colors.border};
             outline: none !important;
             transition: background-color 200ms ease 0ms,
-                        box-shadow 200ms ease 0ms, border 200ms ease 0ms,
-                        color 200ms ease 0ms;
+              box-shadow 200ms ease 0ms, border 200ms ease 0ms,
+              color 200ms ease 0ms;
           }
 
           .btn:enabled:hover {
-            box-shadow: ${props.btnShadowHover};
-            background: ${props.bgHover};
+            box-shadow: ${colors.btnShadowHover};
+            background: ${colors.bgHover};
           }
 
           .btn:enabled:hover .title {
-            color: ${props.textColorHover};
+            color: ${colors.textColorHover};
           }
           .btn:enabled:hover .icon_base-style {
-            color: ${props.btnIconHover};
+            color: ${colors.btnIconHover};
           }
 
           .btn:enabled:active {
-            box-shadow: ${props.btnShadowActive};
-            border: ${props.btnBorderActive};
-            background: ${props.bg};
+            box-shadow: ${colors.btnShadowActive};
+            border: ${colors.btnBorderActive};
+            background: ${colors.bg};
           }
 
           .btn:enabled:active .title {
-            color: ${props.btnTextActive};
+            color: ${colors.btnTextActive};
           }
           .btn:enabled:active .icon_base-style {
-            color: ${props.btnIconActive};
+            color: ${colors.btnIconActive};
           }
 
           .title {
-            color: ${props.textColor};
+            color: ${colors.textColor};
             font-size: ${fontSize};
             font-family: ${fontFamily};
             text-align: center;
@@ -145,7 +157,7 @@ const Button: FC<ButtonInterface> = ({
             align-items: center;
             z-index: 1;
             top: 50%;
-            color: ${props.iconColor};
+            color: ${colors.iconColor};
           }
 
           .icon {

@@ -4,7 +4,6 @@ import { ShoppingCart, ChevronDown } from "react-feather";
 import NextLink from "components/utils/NextLink";
 import { Search } from "react-feather";
 
-
 //! ─── OWN IMPORTS ────────────────────────────────────────────────────────────────────
 
 import Category from "components/global_components/Navigation/Category";
@@ -31,16 +30,17 @@ const Navigation: FC = () => {
           </NextLink>
           <div className="input">
           <Input 
-            color="primary"
-            size="large"
+            color="white"
+            size="medium"
+            className=""
             type="text"
             placeHolder="მოძებნე სასურველი კურსი"
             icon={<Search size={20}/>}
-            className="regular paragraph-small"
             width="100%"
             // disabled={true}
             />
           </div>
+          
         </div>
 
         <div className="header__category-menu"

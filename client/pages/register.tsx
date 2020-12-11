@@ -73,13 +73,13 @@ const Register: React.FC = () => {
                 width='50rem'
                 onChange={(e) => handleInputChange(e, 'recovery_email')} />
 
-            <Button
+            {/* <Button
                 color='primary'
                 size='medium'
                 title='დარეგისტრირება'
                 onClick={() => handleSend()}
                 iconRight={<LogIn />}
-            />
+            /> */}
         </>
     )
 }

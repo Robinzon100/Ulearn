@@ -1,111 +1,96 @@
-$hero-paragraph-margin:0vw 0vw 3vw 0vw;
-
+$hero-paragraph-margin: 0vw 0vw 3vw 0vw;
 
 .hero {
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  position: relative;
+  border-radius: 21px;
+  height: 71vh;
+  width: 100%;
+  padding: 0vw 3.8vw 0vw 3.8vw;
+  margin-top: 14rem;
+  // filter: url(#offset);
+  // filter: none !important;
+
+  &--mobile-bg {
+    display: none;
+  }
+
+  &--video {
     overflow: hidden;
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: center;
-    position: relative;
-    border-radius: 21px;
-    height: 71vh;
     width: 100%;
-    padding: 0vw 3.8vw 0vw 3.8vw;
-    margin-top: 14rem;
-    // filter: url(#offset);
-    // filter: none !important;
+    border-radius: 21px;
+    height: 100%;
+    z-index: -1;
 
-    &--mobile-bg {
-        display: none ;
+    video {
+      height: 100%;
+      margin-left: -10rem;
+      // filter: url(#offset);
+    }
+  }
+
+  &--steps {
+    width: 35.7%;
+    height: auto;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    top: 18%;
+    left: 9%;
+    background: rgba(207, 207, 207, 0.26);
+    border-radius: 21px;
+    padding: 2.5rem 2.5rem 4rem 2.5rem;
+
+    &__line {
+      background-color: var(--white);
+      width: 5vw;
+      height: 0.1vw;
+      margin: 1.3vw 0vw 1vw 0vw;
     }
 
-    &--video {
-        overflow: hidden;
-        width: 100%;
-        border-radius: 21px;
-        height: 100%;
-        z-index: -1;
-
-
-        video {
-            height: 100%;
-            margin-left: -10rem;
-            // filter: url(#offset);
-
-
-        }
-
-
+    &__heading {
+      h1 {
+        line-height: 150.28%;
+        color: var(--white);
+      }
     }
 
+    &__paragraph {
+      // color: $opacity-grey;
+      // max-width: 85%;
+      width: 100%;
+      margin: $hero-paragraph-margin;
+      // opacity: 50%;
+      color: var(--white);
 
-    &--steps {
-        width: 35.7%;
-        height: auto;
-        display: flex;
-        align-content: center;
-        justify-content: center;
-        flex-direction: column;
-        position: absolute;
-        top: 18%;
-        left: 9%;
-        background: rgba(207, 207, 207, 0.26);
-        border-radius: 21px;
-        padding: 2.5rem 2.5rem 4rem 2.5rem;
-
-        &__line {
-            background-color: var(--white);
-            width: 5vw;
-            height: 0.1vw;
-            margin: 1.3vw 0vw 1vw 0vw;
-        }
-
-        &__heading {
-
-
-            h1 {
-                line-height: 150.28%;
-                color: var(--white);
-
-            }
-        }
-
-        &__paragraph {
-            // color: $opacity-grey;
-            // max-width: 85%;
-            width: 100%;
-            margin: $hero-paragraph-margin;
-            // opacity: 50%;
-            color: var(--white);
-
-            p {
-                line-height: 168.28%;
-                max-width: 87%;
-            }
-
-
-        }
-
-        &__btn {
-            left: 0 !important;
-            bottom: -33% !important;
-            a {
-                color: var(--primary-dark);
-                line-height: 137.57%;
-            }
-        }
+      p {
+        line-height: 168.28%;
+        max-width: 87%;
+      }
     }
 
+    &__btn {
+      left: 0 !important;
+      bottom: -33% !important;
+
+      a {
+        color: var(--primary-dark);
+        line-height: 137.57%;
+      }
+    }
+  }
 }
-
 
 //! ეს არის ჰიროუზე რომ მარცხნივ კოლოფია მისი ფილტრი
 @supports ((-webkit-backdrop-filter: blur(47px)) or (filter: blur(47px))) {
-    .hero--steps {
-        background: rgba(207, 207, 207, 0.26);
-        box-shadow: inset 0px 0px 10px rgba(255, 255, 255, 0.4);
-        backdrop-filter: blur(47px);
-
-    }
+  .hero--steps {
+    background: rgba(207, 207, 207, 0.26);
+    box-shadow: inset 0px 0px 10px rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(47px);
+  }
 }
-

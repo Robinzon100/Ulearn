@@ -3,7 +3,7 @@ import { CSSProperties, ReactNode } from "react";
 
 
 export interface InputInterface {
-    color?: "default" |"primary" | "blue" | "yellow" | "green" | "red" |  "black";
+    color?: "white" |"primary" | "blue" | "yellow" | "green" | "red" |  "black";
     type: "text" | "email" | "password" | "number" | "radio";
     size: "mini" | "small" | "medium" | "large";
     placeHolder?: string;
@@ -11,7 +11,7 @@ export interface InputInterface {
     style?: CSSProperties;
     containerStyle?: any;
     value?: string;
-    onChange?: () => void;
+    onChange?: any;
     title?: string;
     className?: string;
     id?: number;
@@ -27,6 +27,8 @@ export type InputSizeGroup = {
     fontSize?:string,
     padding?:string,
     focusedPadding?:string
+    fontFamily?:string
+    paddingWithOutIcons?:string
 }
 
 export type InputStateGroup = {
@@ -38,6 +40,7 @@ export type InputStateGroup = {
     focusedBg?:string
     disabled?:string
     focusedIcon?:string
+    
 }
 
 
