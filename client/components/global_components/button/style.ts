@@ -65,7 +65,7 @@ export const getButtonStrokeColors = (
       bg: "var(--white)",
       bgHover: "var(--red-button-gradient)",
       border: "2px solid var(--primary-red)",
-      btnShadow:"var(--btn-shadow-size) var(--btn-green-shadow)",
+      btnShadow:"var(--btn-shadow-size) var(--btn-red-shadow)",
       btnShadowActive: "0 0 0 0.4rem  var(--primary-red)",
       loadingColorBg: "var(--primary-dark)",
       textColor: "var(--primary-red)",
