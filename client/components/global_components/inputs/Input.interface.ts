@@ -20,6 +20,7 @@ export interface InputInterface {
     iconRight?:ReactNode;
     iconStyle?:CSSProperties,
     width?:string,
+    options?:any
 }
 
 

@@ -11,7 +11,7 @@ const Button: FC<ButtonInterface> = ({
   className,
   color,
   size,
-  ghost,
+  stroke,
   linkStyle,
   onClick,
   loading,
@@ -23,6 +23,7 @@ const Button: FC<ButtonInterface> = ({
 }) => {
   let clickHandler;
   useEffect(() => {
+    
     if (route && onClick) {
       console.warn("button can only have route or clikHandler");
     }
@@ -41,68 +42,58 @@ const Button: FC<ButtonInterface> = ({
   }, []);
 
   const router = useRouter();
-  const {
-    height,
-    minWidth,
-    padding,
-    width,
-    fontSize,
-    fontFamily,
-  } = useMemo(() => getButtonSize(size), [size]);
-  const { ...colors } = useMemo(() => getButtonColors(color, ghost), [color]);
+  const {height,iconPosition,padding,width,fontSize,fontFamily} = useMemo(() => getButtonSize(size), [size]);
+  
+  const { ...colors } = useMemo(() => getButtonColors(color, stroke), [color]);
 
   return (
     <>
       <button
+        data-filled={stroke}
         onClick={onClick}
         className={`btn ${className}`}
-        style={
-          disabled || loading 
-            ? {
+        style={disabled || loading ? {
                 cursor: "not-allowed",
                 boxShadow: `${colors.btnShadowDisabled}`,
-                opacity: "0.5",
-              }
-            : linkStyle
-        }
-      >
-        {icon && !loading && (
-          <span
-            className="icon_base-style icon"
-            style={{
-              filter: "drop-shadow(0px 2.2px 2.5px rgba(0, 0, 0, 0.14))",
-            }}
-          >
+                opacity: "0.7",
+            }: linkStyle}>
+
+
+        {size !== "mini" && icon && !loading && (
+          <span className="icon_base-style icon">
             {icon}
           </span>
         )}
 
-        <p className="title" style={disabled || loading ?  { pointerEvents: "none" } : {}}>
+        <p className="title" style={disabled || loading ? { pointerEvents: "none"} : {}}>
           {!loading ? title : null}
         </p>
+
+
         {loading && (
           <Loading bgColor={colors.loadingColorBg} padding={padding} />
         )}
 
-        {iconRight && !loading && (
-          <span
-            className="icon_base-style iconRight"
-            style={{
-              filter: "drop-shadow(0px 2.2px 2.5px rgba(0, 0, 0, 0.14))",
-            }}
-          >
+
+        {size !== "mini" && iconRight && !loading && (
+          <span className="icon_base-style iconRight">
             {iconRight}
           </span>
         )}
 
+
+
+
+
+
         <style jsx>{`
           .btn {
-            position: relative;
+            
             text-decoration: none;
             display: block;
             border-radius: 8px;
             background: ${colors.bg};
-            box-shadow: ${colors.boxShadowDefault};
+            box-shadow: ${colors.btnShadow};
             width: ${width};
             height: ${height};
             padding: ${padding};
@@ -118,10 +109,13 @@ const Button: FC<ButtonInterface> = ({
           }
 
           .btn:enabled:hover {
-            box-shadow: ${colors.btnShadowHover};
+            box-shadow: ${colors.btnShadow};
             background: ${colors.bgHover};
           }
-
+          .btn:disabled:hover {
+            box-shadow: ${colors.btnShadow};
+            background: ${colors.bgHover};
+          }
           .btn:enabled:hover .title {
             color: ${colors.textColorHover};
           }
@@ -129,9 +123,15 @@ const Button: FC<ButtonInterface> = ({
             color: ${colors.btnIconHover};
           }
 
+
           .btn:enabled:active {
             box-shadow: ${colors.btnShadowActive};
-            border: ${colors.btnBorderActive};
+            background: ${colors.bg};
+            
+          }
+
+          .btn[data-filled="true"]:enabled:active {
+            box-shadow: ${colors.btnShadowActive};
             background: ${colors.bg};
           }
 
@@ -141,6 +141,8 @@ const Button: FC<ButtonInterface> = ({
           .btn:enabled:active .icon_base-style {
             color: ${colors.btnIconActive};
           }
+
+
 
           .title {
             color: ${colors.textColor};
@@ -158,15 +160,17 @@ const Button: FC<ButtonInterface> = ({
             z-index: 1;
             top: 50%;
             color: ${colors.iconColor};
+            filter: ${colors.iconBoxShadow};
+            -webkit-filter: ${colors.iconBoxShadow};
           }
 
           .icon {
-            left: 15px;
+            left: ${iconPosition};
             transform: translate(50%, -50%);
           }
 
           .iconRight {
-            right: 15px;
+            left: ${iconPosition};
             transform: translate(-50%, -50%);
           }
         `}</style>

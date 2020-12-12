@@ -48,7 +48,7 @@ const ButtonLoading: React.FC<ButtonLoadingInterface> = ({
           width: 4px;
           height: 26px;
           background: ${bgColor};
-          opacity: 0.9;
+          /* opacity: 1; */
           border-radius: 33px;
           transform: scale(1);
           display: inline-block;

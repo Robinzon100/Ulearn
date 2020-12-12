@@ -12,7 +12,7 @@ const InputSelectComponent = () => {
         <>
         <div className="main_content--input">
         <Input 
-            status="default"
+            color="white"
             size="large"
             type={"text"} 
             placeHolder={"მოძებნე სასურველი კურსი"} 

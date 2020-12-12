@@ -36,12 +36,12 @@ const Hero: FC = () => {
                 route={"/register"}
                 onClick={() => console.log('asdasd')}
                 iconStyle={{color:"black"}}
-                color="white"
+                color="red"
                 size="large"
                 disabled={false}
-                // loading={true}
-                // icon={<ChevronDown size={30}/>}
-                // ghost={true}
+                loading={false}
+                icon={<ChevronDown/>}
+                stroke={true}
               />
             
           </div>
