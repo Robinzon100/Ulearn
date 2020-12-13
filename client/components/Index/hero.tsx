@@ -11,7 +11,7 @@ const Hero: FC = () => {
 
   return (
     <>
-    {/* //TODO რომ დააჭერ ბორდერი გაზრდით ზემოთ მიდის კონტენტი */}
+    
       <section className="hero">
         <div className="hero--mobile-bg"></div>
         <div className="hero--steps">
@@ -36,7 +36,7 @@ const Hero: FC = () => {
                 route={"/register"}
                 onClick={() => console.log('asdasd')}
                 iconStyle={{color:"black"}}
-                color="red"
+                color="white"
                 size="large"
                 disabled={false}
                 loading={false}

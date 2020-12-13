@@ -55,7 +55,7 @@ export const getColors = (color: string): InputStateGroup => {
             disabled: 'var(--primary-grey)',
         },
         primary: {
-            defaultBg: 'var(--secondary-lightGrey)',
+            defaultBg: 'var(--white)',
             textColor: 'var(--primary-dark)',
             borderColor: '0.9px solid var(--primary-blue)',
             hoverBg: 'var(--primary-grey)',
@@ -64,7 +64,7 @@ export const getColors = (color: string): InputStateGroup => {
             focusedBg: 'var(--white)',
         },
         blue: {
-            defaultBg: 'var(--secondary-lightGrey)',
+            defaultBg: 'var(--white)',
             textColor: 'var(--primary-dark)',
             borderColor: '0.9px solid var(--primary-blue)',
             hoverBg: 'var(--primary-grey)',
@@ -73,7 +73,7 @@ export const getColors = (color: string): InputStateGroup => {
             focusedBg: 'var(--white)',
         },
         yellow: {
-            defaultBg: 'var(--secondary-lightGrey)',
+            defaultBg: 'var(--white)',
             textColor: 'var(--primary-dark)',
             borderColor: '0.9px solid var(--primary-yellow)',
             hoverBg: 'var(--primary-grey)',
@@ -82,7 +82,7 @@ export const getColors = (color: string): InputStateGroup => {
             focusedBg: 'var(--white)',
         },
         green: {
-            defaultBg: 'var(--secondary-lightGrey)',
+            defaultBg: 'var(--white)',
             textColor: 'var(--primary-dark)',
             borderColor: '0.9px solid var(--primary-green)',
             hoverBg: 'var(--primary-grey)',
@@ -91,7 +91,7 @@ export const getColors = (color: string): InputStateGroup => {
             focusedBg: 'var(--white)',
         },
         red: {
-            defaultBg: 'var(--secondary-lightGrey)',
+            defaultBg: 'var(--white)',
             textColor: 'var(--primary-red)',
             borderColor: '0.9px solid var(--primary-red)',
             hoverBg: 'var(--primary-grey)',
@@ -100,7 +100,7 @@ export const getColors = (color: string): InputStateGroup => {
             focusedBg: 'var(--white)',
         },
         black: {
-            defaultBg: 'var(--secondary-lightGrey)',
+            defaultBg: 'var(--white)',
             textColor: 'var(--primary-dark)',
             borderColor: ' 0.9px solidvar(--primary-dark)',
             hoverBg: 'var(--primary-grey)',
