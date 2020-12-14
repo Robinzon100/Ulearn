@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useState } from "react";
 
 //! ===========================OUR IMPORTS
 
@@ -9,39 +9,50 @@ import CategoriesComponent from "components/Index/categoriesComponent";
 import Overlay from "components/Index/overlay/Overlay";
 
 //! ===================== JSON
-import CategoriesJson from "../../public/json/categories.json";
-import CarouselJson from "../../public/json/carousel.json";
+// import CategoriesJson from "../../public/json/categories.json";
 import InputSelectComponent from "components/Index/InputSelect.Component";
+import { getAllCategories } from "actions/client/categories.action";
 
 interface categories {
   categories: any;
 }
 
 const main_content: React.FC = () => {
-    
-    //* JSON
+  //* JSON
   const CardsJson = PrimaryContentCardJson.contentCard;
-  const categoriesJson = CategoriesJson.Categories;
-  const carouselJson = CarouselJson.carousel;
+  
+
+  const [data, setData] = useState([]);
+
+  const fetchCarouselCategories = async () => {
+    const {categories: { main_categories }} = await getAllCategories();
+
+    setData(main_categories);
+    // console.log(main_categories);
+  };
+
+  useEffect(() => {
+    fetchCarouselCategories();
+  }, []);
 
   return (
     <>
       <div className="main_content">
         {/* //! კარუსელი */}
-        <Carousel carouselJson={carouselJson} />
+        <Carousel carouselJson={data} />
 
         {/* //! ინფუთები */}
-         <div className="main_content--container">
+        <div className="main_content--container">
           <div className="category">
             <div className="category_heading">
               <p className="heading-6 bold">კატეგორიები</p>
             </div>
-            <CategoriesComponent CategoriesJson={CategoriesJson.Categories}/>
-            </div>
+            <CategoriesComponent CategoriesJson={data} />
+          </div>
 
           <div className="landing_courses">
             <InputSelectComponent />
-            <Overlay CardsJson={categoriesJson}/>
+            <Overlay CardsJson={CardsJson} />
 
             <div className="landing_courses--cards">
               {/* //! ეს არის მთავარი გვერდზე რაც კარტებია */}
