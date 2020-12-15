@@ -78,7 +78,7 @@ const Register: React.FC = () => {
                 size='medium'
                 title='დარეგისტრირება'
                 onClick={() => handleSend()}
-                iconRight={<LogIn />}
+                iconRight={<LogIn strokeWidth={'1.5px'}/>}
             />
         </>
     )

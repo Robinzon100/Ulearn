@@ -19,6 +19,7 @@ export const postRegistration = async (req: Request, res: Response, next: NextFu
     if (existingUser.length > 0) {
         customError(res, next, 'wrong email or password', 403)
     } else {
+        // hash password
         const hashedPassword = await getHashedPassword(password)
 
         const user = {
@@ -36,7 +37,7 @@ export const postRegistration = async (req: Request, res: Response, next: NextFu
                 await createJwtAuthorizationHeader(res, { userId: id })
                 await createRefreshToken(res, { userId: id })
 
-                res.status(200).json({
+                return res.status(200).json({
                     message: "user successfully registered",
                 })
             }

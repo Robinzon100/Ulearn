@@ -14,7 +14,7 @@ export const regsiterUserSchema = Joi.object({
 
 
 export const regsiterUserSchemaWithEncryptedPassword = Joi.object({
-    full_name: Joi.string().min(6).max(225).required().trim(),
+    full_name: Joi.string().min(2).max(225).required().trim(),
     email: email(Joi),
     password: passwordEncrypted(Joi),
     recovery_email: email(Joi),

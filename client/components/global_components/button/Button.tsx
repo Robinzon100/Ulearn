@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { ButtonInterface } from "components/global_components/button/Button.interface";
 import { getButtonSize, getButtonColors } from "./style";
 import Loading from "components/global_components/loading/loading";
+import { blockClicks } from './button.utils';
 
 const Button: FC<ButtonInterface> = ({
   title,
@@ -21,26 +22,17 @@ const Button: FC<ButtonInterface> = ({
   route,
   disabled,
 }) => {
-  let clickHandler
+
+  const router = useRouter();
+
   useEffect(() => {
     if (route && onClick) {
       console.warn("button can only have route or clikHandler");
     }
-
-    if (route) {
-      clickHandler = router.push(route)
-    }
-
-    if (disabled || loading) {
-      null
-    }
-
-    if (!route && !disabled && !loading) {
-      clickHandler = onclick
-    }
   }, []);
 
-  const router = useRouter();
+
+
   const { height, minWidth, padding, width, fontSize, fontFamily } = useMemo(() => getButtonSize(size), [size]);
   const { ...props } = useMemo(() => getButtonColors(color, ghost), [color]);
 
@@ -50,7 +42,7 @@ const Button: FC<ButtonInterface> = ({
   return (
     <>
       <button
-        onClick={onClick}
+        onClick={blockClicks(route, disabled, loading, onClick, router)}
         className={`btn ${className}`}
         style={
           disabled
@@ -64,9 +56,7 @@ const Button: FC<ButtonInterface> = ({
         {icon && (
           <span
             className="icon_base-style icon"
-            style={{
-              filter: "drop-shadow(0px 2.2px 2.5px rgba(0, 0, 0, 0.14))",
-            }}>
+            style={{ filter: "drop-shadow(0px 2.2px 2.5px rgba(0, 0, 0, 0.14))" }}>
             {icon}
           </span>
         )}
