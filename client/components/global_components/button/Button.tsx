@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 //! ===========================OUR IMPORTS
 import { ButtonInterface } from "components/global_components/button/Button.interface";
-import { getButtonSize, getButtonColors } from "./style";
+import { getButtonSize, getButtonColors } from "./buttons.style";
 import Loading from "components/global_components/button/Button-loading";
 import { blockClicks } from './button.utils';
 
