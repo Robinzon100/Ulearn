@@ -34,6 +34,7 @@ const SortingDropdown: React.FC<SortingDropdown> = ({ type }) => {
 
             {type === "rating" && (
                 <Select
+                    size="small"                 
                     placeHolder={"რეიტინგი"}
                     id={2}
                     type="radio"
@@ -47,6 +48,7 @@ const SortingDropdown: React.FC<SortingDropdown> = ({ type }) => {
 
             {type === "time" && (
                 <Select
+                    size="small"  
                     placeHolder={"ხანგძლივობა"}
                     id={3}
                     type="radio"

@@ -35,11 +35,11 @@ const answerUserComments: React.FC<answerUserComments> = ({ id }, props) => {
                 {answerComment ?
                     <div className="user-answer--input">
                         <Input
-                            color="default"
+                            color="white"
                             size="large"
                             type={"text"}
                             placeHolder={"მოძებნე სასურველი კურსი"}
-                            className={"regular paragraph-small"}
+                            className=""
                             width="100%"
                         // disabled={true}
                         />

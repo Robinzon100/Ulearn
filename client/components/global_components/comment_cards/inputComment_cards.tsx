@@ -30,8 +30,12 @@ const InputCommentCards: React.FC<Props> = ({ id, name, rating }, props) => {
 
                 <div className="comment_field">
                     <Input
-                        type='text'
-                        placeHolder={placeHolder} />
+                        color="white"
+                        size="large"
+                        type="text"
+                        placeHolder={"მოძებნე სასურველი კურსი"}
+                        className=""
+                        width="100%" />
                 </div>
 
                 <div className="add_btn btn Green">

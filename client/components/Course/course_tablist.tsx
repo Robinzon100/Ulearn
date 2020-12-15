@@ -110,7 +110,7 @@ const course_tablist = () => {
    
 
   useEffect(() => {
-    changeTabPositionAndColor("Tabs");
+    changeTabPositionAndColor();
 }, [])
 
 
@@ -125,7 +125,7 @@ const course_tablist = () => {
                         <li
                           
                           style={{ cursor: "pointer" }}
-                          className="renderedContent_list--item noselect Tabs__tab  Tab"
+                          className="Tabs--item noselect  Tab"
                           onClick={(e) => {
                             setTabContent(fetchTabConent(1, courseTab.route));
                             setTabIndex(i);
@@ -144,7 +144,7 @@ const course_tablist = () => {
                         </li>
                       ))
                     }
-                    <li className="Tabs__presentation-slider active" role="presentation"></li>
+                    
                     </ul>
                     
                     </nav>

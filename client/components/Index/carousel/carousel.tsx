@@ -25,7 +25,7 @@ const carousel: React.FC<CarouselInterface> = ({ carouselJson }) => {
   return (
     <>
       <div className="carousel noselect">
-        {/* // TODO  გააჯმეინე image tags aqedan */}
+        {/* // TODO  გრადიენტებია მგონი არასწორად */}
         {!isFinishedScrolling && (
         <div  className="right-carousel-gradient" onClick={() => scrollRight()}>
           
