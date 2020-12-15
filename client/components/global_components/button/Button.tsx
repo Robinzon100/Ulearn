@@ -4,12 +4,8 @@ import { useRouter } from "next/router";
 //! ===========================OUR IMPORTS
 import { ButtonInterface } from "components/global_components/button/Button.interface";
 import { getButtonSize, getButtonColors } from "./style";
-<<<<<<< HEAD
-import Loading from "components/global_components/loading/loading";
+import Loading from "components/global_components/button/Button-loading";
 import { blockClicks } from './button.utils';
-=======
-import Loading from "./Button-loading";
->>>>>>> 26c52a75f95b2af6f8ad221aa67ed888f324f611
 
 const Button: FC<ButtonInterface> = ({
   title,
@@ -26,13 +22,9 @@ const Button: FC<ButtonInterface> = ({
   route,
   disabled,
 }) => {
-<<<<<<< HEAD
 
   const router = useRouter();
 
-=======
-  let clickHandler;
->>>>>>> 26c52a75f95b2af6f8ad221aa67ed888f324f611
   useEffect(() => {
     
     if (route && onClick) {
@@ -40,45 +32,24 @@ const Button: FC<ButtonInterface> = ({
     }
   }, []);
 
-<<<<<<< HEAD
 
 
-  const { height, minWidth, padding, width, fontSize, fontFamily } = useMemo(() => getButtonSize(size), [size]);
-  const { ...props } = useMemo(() => getButtonColors(color, ghost), [color]);
-
-
-
-=======
-    if (route) {
-      clickHandler = () => router.push(route);
-    }
-
-    if (disabled || loading) {
-      null;
-    }
-
-    if (!route && !disabled && !loading) {
-      clickHandler = onclick;
-    }
-  }, []);
-
-  const router = useRouter();
-  const {height,iconPosition,padding,width,fontSize,fontFamily} = useMemo(() => getButtonSize(size), [size]);
-  
+  const { height, minWidth, padding, width, fontSize, fontFamily,iconPosition } = useMemo(() => getButtonSize(size), [size]);
   const { ...colors } = useMemo(() => getButtonColors(color, stroke), [color]);
->>>>>>> 26c52a75f95b2af6f8ad221aa67ed888f324f611
+
+
+
 
   return (
     <>
       <button
-<<<<<<< HEAD
         onClick={blockClicks(route, disabled, loading, onClick, router)}
         className={`btn ${className}`}
         style={
           disabled
             ? {
               cursor: "not-allowed",
-              boxShadow: `${props.btnShadowDisabled}`,
+              boxShadow: `${colors.btnShadowDisabled}`,
               opacity: "0.5",
             }
             : linkStyle
@@ -87,20 +58,6 @@ const Button: FC<ButtonInterface> = ({
           <span
             className="icon_base-style icon"
             style={{ filter: "drop-shadow(0px 2.2px 2.5px rgba(0, 0, 0, 0.14))" }}>
-=======
-        data-filled={stroke}
-        onClick={onClick}
-        className={`btn ${className}`}
-        style={disabled || loading ? {
-                cursor: "not-allowed",
-                boxShadow: `${colors.btnShadowDisabled}`,
-                opacity: "0.7",
-            }: linkStyle}>
-
-
-        {size !== "mini" && icon && !loading && (
-          <span className="icon_base-style icon">
->>>>>>> 26c52a75f95b2af6f8ad221aa67ed888f324f611
             {icon}
           </span>
         )}
@@ -210,7 +167,7 @@ const Button: FC<ButtonInterface> = ({
           }
 
           .iconRight {
-            left: ${iconPosition};
+            right: ${iconPosition};
             transform: translate(-50%, -50%);
           }
         `}</style>

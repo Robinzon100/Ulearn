@@ -40,7 +40,7 @@ const Hero: FC = () => {
                 size="large"
                 disabled={false}
                 loading={false}
-                icon={<ChevronDown/>}
+                iconRight={<ChevronDown/>}
                 stroke={false}
               />
             
