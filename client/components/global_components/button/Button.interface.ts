@@ -6,7 +6,7 @@ export type ButtonInterface = {
   color: "primary" | "blue" | "yellow" | "green" | "red" | "white" | "black";
   size: "mini" | "small" | "medium" | "large";
   stroke?:boolean
-  linkStyle?: CSSProperties;
+  style?: CSSProperties;
   onClick?:MouseEventHandler<HTMLButtonElement>;
   loading?: boolean;
   icon?: ReactNode;

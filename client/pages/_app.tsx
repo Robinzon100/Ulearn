@@ -14,7 +14,9 @@ function MyApp({ Component, pageProps }) {
             <SWRConfig value={swrOptions}>
                 <RootStateProvider>
                     <Navigation />
-                    <Component {...pageProps} />
+                    <main className='main'>
+                        <Component {...pageProps} />
+                    </main>
                 </RootStateProvider>
             </SWRConfig>
         </>

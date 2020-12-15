@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Input from 'components/global_components/inputs/Input';
 import { postRegistration } from 'actions/client/registration.action';
 import Button from 'components/global_components/button/Button';
-import { LogIn } from 'react-feather';
+import { LogIn, ArrowUp, Search } from 'react-feather';
 
 const Register: React.FC = () => {
     const [registrationInfo, setregistrationInfo] = useState({
@@ -35,6 +35,15 @@ const Register: React.FC = () => {
 
     return (
         <>
+            <Input
+                color="white"
+                size="medium"
+                type="text"
+                placeHolder="მოძებნე სასურველი კურსი"
+                icon={<Search size={20} />}
+                
+            // disabled={true}
+            />
 
             <Input
                 style={{ marginTop: '10rem' }}
@@ -43,7 +52,7 @@ const Register: React.FC = () => {
                 value={full_name}
                 type='text'
                 className={"regular paragraph-small"}
-                width='50rem'
+                icon={<Search size={20} />}
                 onChange={(e) => handleInputChange(e, 'full_name')} />
             <Input
                 style={{ marginTop: '1rem' }}
@@ -78,9 +87,10 @@ const Register: React.FC = () => {
                 size='large'
                 title='დარეგისტრირდი'
                 onClick={() => handleSend()}
+                style={{ marginTop: '2rem' }}
                 stroke={true}
-                iconRight={<LogIn  color='var(--primary-dark-blue)' strokeWidth="1.8" size={24} />}
-                // buttonWidth='100%'
+                iconRight={<LogIn color='var(--primary-dark-blue)' strokeWidth="1.8" size={24} />}
+            // buttonWidth='100%'
             />
         </>
     )

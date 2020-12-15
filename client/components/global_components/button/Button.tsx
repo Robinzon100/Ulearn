@@ -13,7 +13,7 @@ const Button: FC<ButtonInterface> = ({
   color,
   size,
   stroke,
-  linkStyle,
+  style,
   onClick,
   loading,
   icon,
@@ -54,7 +54,7 @@ const Button: FC<ButtonInterface> = ({
               opacity: "0.5",
               pointerEvents: 'none'
             }
-            : linkStyle
+            : style
         }>
         {size !== "mini" && icon && !loading &&(
           <span

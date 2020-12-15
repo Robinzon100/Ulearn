@@ -46,7 +46,7 @@ export const getColors = (color: string): InputStateGroup => {
 
     const colors = {
         white: {
-            defaultBg: 'var(--secondary-lightGrey)',
+            defaultBg: 'var(--primary-grey)',
             textColor: 'var(--primary-dark)',
             borderColor: 'none',
             hoverBg: 'var(--primary-grey)',

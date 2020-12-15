@@ -62,6 +62,7 @@ const Input: React.FC<InputInterface> = ({
               display: flex;
               align-items: center;
               width: ${width};
+              
             }
 
             .input_field {

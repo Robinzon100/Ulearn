@@ -29,18 +29,17 @@ const Navigation: FC = () => {
             <div className="logo"></div>
           </NextLink>
           <div className="input">
-          <Input 
-            color="white"
-            size="medium"
-            className=""
-            type="text"
-            placeHolder="მოძებნე სასურველი კურსი"
-            icon={<Search size={20}/>}
-            width="100%"
+            <Input
+              color="white"
+              size="medium"
+              type="text"
+              placeHolder="მოძებნე სასურველი კურსი"
+              icon={<Search size={20} />}
+              width="100%"
             // disabled={true}
             />
           </div>
-          
+
         </div>
 
         <div className="header__category-menu"
