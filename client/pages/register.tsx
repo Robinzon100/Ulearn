@@ -73,18 +73,15 @@ const Register: React.FC = () => {
                 width='50rem'
                 onChange={(e) => handleInputChange(e, 'recovery_email')} />
 
-            {/* <Button
-                color='primary'
-                size='medium'
-                title='დარეგისტრირება'
+            <Button
+                color='blue'
+                size='large'
+                title='დარეგისტრირდი'
                 onClick={() => handleSend()}
-<<<<<<< HEAD
-                iconRight={<LogIn strokeWidth={'1.5px'}/>}
+                stroke={true}
+                iconRight={<LogIn  color='var(--primary-dark-blue)' strokeWidth="1.8" size={24} />}
+                // buttonWidth='100%'
             />
-=======
-                iconRight={<LogIn />}
-            /> */}
->>>>>>> 26c52a75f95b2af6f8ad221aa67ed888f324f611
         </>
     )
 }

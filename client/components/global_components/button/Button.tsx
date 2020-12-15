@@ -21,12 +21,13 @@ const Button: FC<ButtonInterface> = ({
   iconRight,
   route,
   disabled,
+  buttonWidth
 }) => {
 
   const router = useRouter();
 
   useEffect(() => {
-    
+
     if (route && onClick) {
       console.warn("button can only have route or clikHandler");
     }
@@ -34,7 +35,7 @@ const Button: FC<ButtonInterface> = ({
 
 
 
-  const { height, minWidth, padding, width, fontSize, fontFamily,iconPosition } = useMemo(() => getButtonSize(size), [size]);
+  const { height, minWidth, padding, width, fontSize, fontFamily, iconPosition } = useMemo(() => getButtonSize(size), [size]);
   const { ...colors } = useMemo(() => getButtonColors(color, stroke), [color]);
 
 
@@ -51,10 +52,11 @@ const Button: FC<ButtonInterface> = ({
               cursor: "not-allowed",
               boxShadow: `${colors.btnShadowDisabled}`,
               opacity: "0.5",
+              pointerEvents: 'none'
             }
             : linkStyle
         }>
-        {icon && (
+        {size !== "mini" && icon && !loading &&(
           <span
             className="icon_base-style icon"
             style={{ filter: "drop-shadow(0px 2.2px 2.5px rgba(0, 0, 0, 0.14))" }}>
@@ -62,13 +64,13 @@ const Button: FC<ButtonInterface> = ({
           </span>
         )}
 
-        <p className="title" style={disabled || loading ? { pointerEvents: "none"} : {}}>
+        <p className="title" style={disabled || loading ? { pointerEvents: "none" } : {}}>
           {!loading ? title : null}
         </p>
 
 
         {loading && (
-          <Loading bgColor={colors.loadingColorBg} padding={padding} />
+          <Loading bgColor={color == 'white' || stroke ? colors.textColor : 'white'} padding={padding} />
         )}
 
 
@@ -85,46 +87,50 @@ const Button: FC<ButtonInterface> = ({
 
         <style jsx>{`
           .btn {
-            
+            user-select: none;
             text-decoration: none;
             display: block;
             border-radius: 8px;
-            background: ${colors.bg};
-            box-shadow: ${colors.btnShadow};
-            width: ${width};
+            background: ${stroke ? 'white' : colors.bg};
+            box-shadow: ${colors.defaultShadow};
+            width: ${buttonWidth ? buttonWidth : width};
             height: ${height};
             padding: ${padding};
             position: relative;
             border-image: none;
             text-decoration: none;
             cursor: pointer;
-            border: ${colors.border};
+            border: ${stroke ? colors.border : 'none'};
             outline: none !important;
-            transition: background-color 200ms ease 0ms,
-              box-shadow 200ms ease 0ms, border 200ms ease 0ms,
-              color 200ms ease 0ms;
+            transition: all .2s ease;
           }
 
-          .btn:enabled:hover {
-            box-shadow: ${colors.btnShadow};
-            background: ${colors.bgHover};
+          .btn:hover {
+            box-shadow: ${colors.defaultShadow};
+            background: ${stroke ? colors.textColor :colors.bgHover};
           }
-          .btn:disabled:hover {
-            box-shadow: ${colors.btnShadow};
-            background: ${colors.bgHover};
-          }
-          .btn:enabled:hover .title {
+        
+          .btn:hover .title {
             color: ${colors.textColorHover};
           }
-          .btn:enabled:hover .icon_base-style {
+          .btn:active .title {
+            color: ${colors.textColor};
+
+          }
+          .btn:hover .icon_base-style {
             color: ${colors.btnIconHover};
           }
+          /* .btn:hover .icon_base-style svg * {
+            fill: white !important;
+          }
+          .btn:hover > * {
+            stroke: white;
+          } */
 
 
-          .btn:enabled:active {
+          .btn:active {
             box-shadow: ${colors.btnShadowActive};
             background: ${colors.bg};
-            
           }
 
           .btn[data-filled="true"]:enabled:active {
@@ -132,20 +138,22 @@ const Button: FC<ButtonInterface> = ({
             background: ${colors.bg};
           }
 
-          .btn:enabled:active .title {
+          .btn .title {
             color: ${colors.btnTextActive};
           }
-          .btn:enabled:active .icon_base-style {
+          .btn .icon_base-style {
             color: ${colors.btnIconActive};
           }
 
 
 
           .title {
-            color: ${colors.textColor};
+            color: ${color === 'black' || stroke == true ? colors.textColor : 'white'};
             font-size: ${fontSize};
             font-family: ${fontFamily};
             text-align: center;
+            font-weight: 400;
+            letter-spacing: 0.5px;
           }
 
           .icon_base-style {
@@ -165,6 +173,9 @@ const Button: FC<ButtonInterface> = ({
             left: ${iconPosition};
             transform: translate(50%, -50%);
           }
+
+         
+          
 
           .iconRight {
             right: ${iconPosition};

@@ -14,7 +14,7 @@ export type ButtonInterface = {
   iconRight?: ReactNode;
   route?: string;
   disabled?: boolean;
-  width?:string
+  buttonWidth?:string
 }
 
 
@@ -38,7 +38,7 @@ export interface ButtonStyleInterface  {
     iconBoxShadow?:string,
     iconColor?:string,
     loadingColorBg?:string
-    btnShadow?:string
+    defaultShadow?:string
     
 }
 

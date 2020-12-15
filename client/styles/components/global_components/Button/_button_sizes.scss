@@ -7,17 +7,17 @@
     --mini:125px;
     
     //! ========= Button-Padding
-    --large-button-padding:18px 80px;
-    --medium-button-padding:16px 70px;
-    --small-button-padding:15px 45px;
-    --mini-button-padding:12px 22px;
+    --large-button-padding:18px 84px;
+    --medium-button-padding:16px 74px;
+    --small-button-padding:15px 46px;
+    --mini-button-padding:12px 24px;
 
     //! ========= Button-Padding
-    --large-button-fontSize:calc(14px + (18 - 14) * ((100vw - 300px) / (1900 - 700))) !important;
-    --medium-button-fontSize:calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
-    --smal-button-fontSize:calc(13px + (15 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
+    --large-button-fontSize:calc(18px + (20 - 18) * ((100vw - 300px) / (1900 - 700))) !important;
+    --medium-button-fontSize:calc(17px + (18 - 17) * ((100vw - 300px) / (1900 - 700))) !important;
+    --smal-button-fontSize:calc(15px + (16 - 15) * ((100vw - 300px) / (1900 - 700))) !important;
     --mini-button-fontSize:calc(13px + (14 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
-    --button-fontFamily:"georgian-medium","Eina-regular,sailec-medium";
+    --button-fontFamily:"georgian-medium","sailec-medium";
 
 
 }
