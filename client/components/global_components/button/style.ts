@@ -1,271 +1,225 @@
+import {ButtonStyleInterface,HoverState,ActiveState,ButtonSizeGroup} from "./Button.interface";
 
-import { NormalSizes, Colors } from "components/global_components/button/prop-type";
-import { ButtonStyleInterface, HoverState, ActiveState, ButtonSizeGroup } from "./Button.interface";
+export const getButtonStrokeColors = (
+  color: string
+): HoverState & ActiveState => {
+    //! არ იღებს გრადიენტებს ამიტომ არის base stilebidan ფერები
+  const buttonStrokeColors = {
+    primary: {
+      bg: "var(--white)",
+      bgHover: "var(--primary-button-gradient)",
+      border: "2px solid var(--primary-blue)",
+      btnShadow:"var(--btn-shadow-size) var(--btn-primary-shadow)",
+      btnShadowActive: "0 0 0 0.4rem  var(--primary-blue)",
+      loadingColorBg: "var(--primary-dark)",  
+      textColor: "var(--primary-blue)",
+      iconColor: "var(--primary-blue)",
+      textColorHover: "var(--white)",
+      btnIconHover: "var(--white)",
+      btnTextActive: "var(--primary-blue)",
+      btnIconActive: "var(--primary-blue)",
+    },
+    blue: {
+      bg: "var(--white)",
+      bgHover: "var(--blue-button-gradient)",
+      border: "2px solid var(--primary-darkBlue)",
+      btnShadow:"var(--btn-shadow-size) var(--btn-blue-shadow)",
+      btnShadowActive: "0 0 0 0.4rem  var(--primary-darkBlue)",
+      loadingColorBg: "var(--primary-dark)",
+      textColor: "var(--primary-darkBlue)",
+      iconColor: "var(--primary-darkBlue)",
+      textColorHover: "var(--white)",
+      btnIconHover: "var(--white)",
+      btnTextActive: "var(--primary-darkBlue)",
+      btnIconActive: "var(--primary-darkBlue)",
+    },
+    yellow: {
+      bg: "var(--white)",
+      bgHover: "var(--yellow-button--gradient)",
+      border: "2px solid var(--primary-yellow)",
+      btnShadow:"var(--btn-shadow-size) var(--btn-yellow-shadow)",
+      btnShadowActive: "0 0 0 0.4rem  var(--primary-yellow)",
+      loadingColorBg: "var(--primary-dark)",
+      textColor: "var(--primary-yellow)",
+      iconColor: "var(--primary-yellow)",
+      textColorHover: "var(--white)",
+      btnIconHover: "var(--white)",
+      btnTextActive: "var(--primary-yellow)",
+      btnIconActive: "var(--primary-yellow)",
+    },
+    green: {
+      bg: "var(--white)",
+      bgHover: "var(--green-button-gradient)",
+      border: "2px solid var(--primary-green)",
+      btnShadow:"var(--btn-shadow-size) var(--btn-green-shadow)",
+      btnShadowActive: "0 0 0 0.4rem  var(--primary-green)",
+      loadingColorBg: "var(--primary-dark)",
+      textColor: "var(--primary-green)",
+      iconColor: "var(--primary-green)",
+      textColorHover: "var(--white)",
+      btnIconHover: "var(--white)",
+      btnTextActive: "var(--primary-green)",
+      btnIconActive: "var(--primary-green)",
+    },
+    red: {
+      bg: "var(--white)",
+      bgHover: "var(--red-button-gradient)",
+      border: "2px solid var(--primary-red)",
+      btnShadow:"var(--btn-shadow-size) var(--btn-red-shadow)",
+      btnShadowActive: "0 0 0 0.4rem  var(--primary-red)",
+      loadingColorBg: "var(--primary-dark)",
+      textColor: "var(--primary-red)",
+      iconColor: "var(--primary-red)",
+      textColorHover: "var(--white)",
+      btnIconHover: "var(--white)",
+      btnTextActive: "var(--primary-red)",
+      btnIconActive: "var(--primary-red)",
+    },
+    black: {
+      bg: "var(--white)",
+      bgHover: "var(--black-button-gradient)",
+      border: "2px solid var(--primary-dark)",
+      btnShadow:"var(--btn-shadow-size) var(--btn-black-shadow)",
+      btnShadowActive: "0 0 0 0.4rem  var(--primary-dark)",
+      loadingColorBg: "var(--primary-dark)",
+      textColorHover: "var(--white)",
+      btnIconHover: "var(--white)",
+      btnTextActive: "var(--primary-dark)",
+      btnIconActive: "var(--primary-dark)",
+    },
+    white: {
+      bg: "var(--white-button-gradient)",
+      bgHover: "var(--white-button-gradient)",
+      border: "none",
+      btnShadow:"var(--btn-shadow-size) var(--btn-white-shadow)",
+      btnShadowActive: "none",
+      loadingColorBg: "var(--primary-dark)",
+    },
+  };
 
+  if(!color) return buttonStrokeColors.white
 
-export const getButtonGhostColors = (color: string): HoverState & ActiveState  => {
+  return buttonStrokeColors[color] || null;
+};
 
-    const buttonGhostColors: { [key in Colors]: HoverState & ActiveState  } = {
-        primary: {
-            bg: 'var(--white)',
-            boxShadowDefault: 'var(--primary-box-shadow-default)',
-            border: '2px solid var(--primary-blue)',
-            borderRadius: '8px',
-            textColor:'var(--primary-blue)',
-            iconColor:'var(--primary-blue)',
-            
-            bgHover: 'var(--primary-blue)',
-            textColorHover: 'var(--white)',
-            btnShadowHover: 'var(--primary-box-shadow-active)',
-            btnIconHover:'var(--white)',
+export const getButtonColors = (color: string,stroke: boolean): ButtonStyleInterface & HoverState & ActiveState => {
+  const buttonStyleInterface = {
+    primary: {
+      bg: "var(--primary-button-gradient)",
+      bgHover: "var(--primary-button-gradient)",
+      textColor: "var(--white)",
+      loadingColorBg: "var(--white)",
+      btnShadow:"var(--btn-shadow-size) var(--btn-primary-shadow)",
+      iconBoxShadow: "var(--icon-drop-shadow)",
+      iconColor: "var(--white)",
+      border: "none",
+    },
+    blue: {
+      bg: "var(--blue-button-gradient)",
+      bgHover: "var(--blue-button-gradient)",
+      textColor: "var(--white)",
+      loadingColorBg: "var(--white)",
+      btnShadow:"var(--btn-shadow-size) var(--btn-blue-shadow)",
+      iconBoxShadow: "var(--icon-drop-shadow)",
+      iconColor: "white",
+      border: "none",
+    },
+    yellow: {
+      bg: "var(--yellow-button--gradient)",
+      bgHover: "var(--yellow-button--gradient)",
+      textColor: "var(--white)",
+      loadingColorBg: "var(--white)",
+      btnShadow:"var(--btn-shadow-size) var(--btn-yellow-shadow)",
+      iconBoxShadow: "var(--icon-drop-shadow)",
+      iconColor: "var(--white)",
+      border: "none",
+    },
+    green: {
+      bg: "var(--green-button-gradient)",
+      bgHover: "var(--green-button-gradient)",
+      textColor: "var(--white)",
+      loadingColorBg: "var(--white)",
+      btnShadow:"var(--btn-shadow-size) var(--btn-green-shadow)",
+      iconBoxShadow: "var(--icon-drop-shadow)",
+      iconColor: "var(--white)",
+      border: "none",
+    },
+    red: {
+      bg: "var(--red-button-gradient)",
+      bgHover: "var(--red-button-gradient)",
+      textColor: "var(--white)",
+      loadingColorBg: "var(--white)",
+      btnShadow:"var(--btn-shadow-size) var(--btn-red-shadow)",
+      iconBoxShadow: "var(--icon-drop-shadow)",
+      iconColor: "var(--white)",
+      border: "none",
+    },
+    black: {
+      bg: "var(--black-button-gradient)",
+      bgHover: "var(--black-button-gradient)",
+      textColor: "var(--white)",
+      loadingColorBg: "var(--white)",
+      btnShadow:"var(--btn-shadow-size) var(--btn-black-shadow)",
+      iconBoxShadow: "var(--icon-drop-shadow)",
+      iconColor: "var(--white)",
+      border: "none",
+    },
+    white: {
+      bg: "var(--white-button-gradient)",
+      bgHover: "var(--white-button-gradient)",
+      textColor: "var(--primary-dark)",
+      loadingColorBg: "var(--primary-dark)",
+      btnShadow:"var(--btn-shadow-size) var(--btn-white-shadow)",
+      iconBoxShadow: "var(--icon-drop-shadow)",
+      iconColor: "var(--primary-black)",
+      border: "none",
+    },
+  };
+  
+  if (stroke) return getButtonStrokeColors(color);
 
-            btnBorderActive: '4px solid var(--primary-blue)',
-            btnTextActive: 'var(--primary-blue)',
-            btnIconActive: 'var(--primary-blue)'
+  if(!color) return buttonStyleInterface.white
+  return buttonStyleInterface[color] || null;
+};
 
-        },
-        blue: {
-            bg: 'var(--white)',
-            boxShadowDefault: 'var(--blue-button-gradient-default)',
-            border: '2px solid var(--primary-darkBlue)',
-            borderRadius: '8px',
-            textColor:'var(--primary-darkBlue)',
-            iconColor:'var(--primary-darkBlue)',
-            
-            bgHover: 'var(--primary-darkBlue)',
-            textColorHover: 'var(--white)',
-            btnShadowHover: 'var(--blue-button-gradient-active)',
-            btnIconHover:'var(--white)',
-
-            btnBorderActive: '4px solid var(--primary-darkBlue)',
-            btnTextActive: 'var(--primary-darkBlue)',
-            btnIconActive: 'var(--primary-darkBlue)'
-
-        },
-        yellow: {
-            bg: 'var(--white)',
-            boxShadowDefault: 'var(--yellow-button--gradient-default)',
-            border: '2px solid var(--primary-yellow)',
-            borderRadius: '8px',
-            textColor:'var(--primary-yellow)',
-            iconColor:'var(--primary-yellow)',
-            
-            bgHover: 'var(--primary-yellow)',
-            textColorHover: 'var(--white)',
-            btnShadowHover: 'var(--yellow-button--gradient-active)',
-            btnIconHover:'var(--white)',
-
-            btnBorderActive: '4px solid var(--primary-yellow)',
-            btnTextActive: 'var(--primary-yellow)',
-            btnIconActive: 'var(--primary-yellow)'
-
-        },
-        green: {
-            bg: 'var(--white)',
-            boxShadowDefault: 'var(--green-button-gradient-default)',
-            border: '2px solid var(--primary-green)',
-            borderRadius: '8px',
-            textColor:'var(--primary-green)',
-            iconColor:'var(--primary-green)',
-            
-            bgHover: 'var(--primary-green)',
-            textColorHover: 'var(--white)',
-            btnShadowHover: 'var(--green-button-gradient-active)',
-            btnIconHover:'var(--white)',
-
-            btnBorderActive: '4px solid var(--primary-green)',
-            btnTextActive: 'var(--primary-green)',
-            btnIconActive: 'var(--primary-green)'
-
-        },
-        red: {
-            bg: 'var(--white)',
-            boxShadowDefault: 'var(--red-button-gradient-default)',
-            border: '2px solid var(--primary-red)',
-            borderRadius: '8px',
-            textColor:'var(--primary-red)',
-            iconColor:'var(--primary-red)',
-            
-            bgHover: 'var(--primary-red)',
-            textColorHover: 'var(--white)',
-            btnShadowHover: 'var(--red-button-gradient-active)',
-            btnIconHover:'var(--white)',
-
-            btnBorderActive: '4px solid var(--primary-red)',
-            btnTextActive: 'var(--primary-red)',
-            btnIconActive: 'var(--primary-red)'
-
-        },
-        black: {
-            bg: 'var(--white)',
-            boxShadowDefault: 'var(--primary-box-shadow-default)',
-            border: '2px solid var(--primary-dark)',
-            borderRadius: '8px',
-
-            bgHover: 'var(--primary-dark)',
-            textColorHover: 'var(--white)',
-            btnShadowHover: 'var(--black-button-gradient-active)',
-            btnIconHover:'var(--white)',
-
-            btnBorderActive: '4px solid var(--primary-dark)',
-            btnTextActive: 'var(--primary-dark)',
-            btnIconActive: 'var(--primary-dark)'
-        },
-        white: {
-            bg: 'var(--white)',
-            border: '2px solid var(--white)',
-            borderRadius: '8px',
-            boxShadowDefault: 'var(--white-button-gradient-default)',
-            btnShadowHover: 'var(--white-button-gradient-active)'
-
-        }
-
-    }
-
-    return buttonGhostColors[color] || null;
-}
-
-
-
-
-export const getButtonColors = (color: string, ghost: boolean): ButtonStyleInterface & HoverState & ActiveState  => {
+export const getButtonSize = (size: string): ButtonSizeGroup => {
     
-    const buttonStyleInterface: { [key in Colors]: ButtonStyleInterface & HoverState & ActiveState  } = {
-        primary: {
-            bg: 'var(--primary-button-gradient)',
-            textColor: 'var(--white)',
-            borderRadius: '8px',
-            boxShadowDefault: 'var(--primary-box-shadow-default)',
-            btnShadowHover: 'var(--primary-box-shadow-active)',
-            btnShadowActive: 'var(--primary-box-shadow-pressed)',
-            btnShadowDisabled: 'var(--primary-box-shadow-disabled)',
-            iconBoxShadow: 'var(--icon-drop-shadow)',
-            iconColor: 'var(--white)',
-            border: '1px solid var(--white)'
-        },
-        blue: {
-            bg: 'var(--blue-button-gradient)',
-            textColor: 'var(--white)',
-            borderRadius: '8px',
-            boxShadowDefault: 'var(--blue-button-gradient-default)',
-            btnShadowHover: 'var(--blue-button-gradient-active)',
-            btnShadowActive: 'var(--blue-button-gradient-pressed',
-            btnShadowDisabled: 'var(--blue-button-gradient-disabled)',
-            iconBoxShadow: 'var(--icon-drop-shadow)',
-            iconColor: "white",
-            border: '1px solid var(--blue-button-gradient)'
+  const layouts = {
+    mini: {
+      height: "auto",
+      width: "auto",
+      padding: "var(--mini-button-padding)",
+      fontSize: "var(--mini-button-fontSize)",
+      fontFamily: "var(--button-fontFamily)",
+    },
+    small: {
+      height: "auto",
+      width: "auto",
+      padding: "var(--small-button-padding)",
+      fontSize: "var(--smal-button-fontSize)",
+      fontFamily: "var(--button-fontFamily)",
+      iconPosition:"0%"
+    },
+    medium: {
+      height: "auto",
+      width: "auto",
+      padding: "var(--medium-button-padding)",
+      fontSize: "var(--medium-button-fontSize)",
+      fontFamily: "var(--button-fontFamily)",
+      iconPosition:"5%"
+    },
+    large: {
+      height: "auto",
+      width: "auto",
+      padding: "var(--large-button-padding)",
+      fontSize: "var(--large-button-fontSize)",
+      fontFamily: "var(--button-fontFamily)",
+      iconPosition:"6%"
+    },
+  };
 
-        },
-        yellow: {
-            bg: 'var(--yellow-button--gradient)',
-            textColor: 'var(--white)',
-            borderRadius: '8px',
-            boxShadowDefault: 'var(--yellow-button--gradient-default)',
-            btnShadowHover: 'var(--primary-box-shadow-active)',
-            btnShadowActive: 'var(--primary-box-shadow-pressed)',
-            btnShadowDisabled: 'var(--primary-box-shadow-disabled)',
-            iconBoxShadow: 'var(--icon-drop-shadow)',
-            iconColor: 'var(--white)',
-            border: '1px solid var(--yellow-button--gradient)'
-
-        },
-        green: {
-            bg: 'var(--green-button-gradient)',
-            textColor: 'var(--white)',
-            borderRadius: '8px',
-            boxShadowDefault: 'var(--green-button-gradient)',
-            btnShadowHover: 'var(--yellow-button--gradient-active)',
-            btnShadowActive: 'var(--yellow-button--gradient-pressed)',
-            btnShadowDisabled: 'var(--yellow-button--gradient-disabled)',
-            iconBoxShadow: 'var(--icon-drop-shadow)',
-            iconColor: 'var(--white)',
-            border: '1px solid var(--green-button-gradient)'
-        },
-        red: {
-            bg: 'var(--red-button-gradient)',
-            textColor: 'var(--white)',
-            borderRadius: '8px',
-            boxShadowDefault: 'var(--red-button-gradient-default)',
-            btnShadowHover: 'var(--red-button-gradient-active)',
-            btnShadowActive: 'var(--red-button-gradient-pressed)',
-            btnShadowDisabled: 'var(--red-button-gradient-disabled)',
-            iconBoxShadow: 'var(--icon-drop-shadow)',
-            iconColor: 'var(--white)',
-            border: '1px solid var(--red-button-gradient)'
-        },
-        black: {
-            bg: 'var(--black-button-gradient)',
-            textColor: 'var(--white)',
-            borderRadius: '8px',
-            boxShadowDefault: 'var(--black-button-gradient-default)',
-            btnShadowHover: 'var(--black-button-gradient-active)',
-            btnShadowActive: 'var(--black-button-gradient-pressed)',
-            btnShadowDisabled: 'var(--black-button-gradient-disabled)',
-            iconBoxShadow: 'var(--icon-drop-shadow)',
-            iconColor: 'var(--white)',
-            border: '1px solid var(--black-button-gradient)'
-        },
-        white: {
-            bg: 'var(--white-button-gradient)',
-            textColor: 'var(--primary-dark)',
-            borderRadius: '8px',
-            boxShadowDefault: 'var(--white-button-gradient-default)',
-            btnShadowHover: 'var(--white-button-gradient-active)',
-            btnShadowActive: 'var(--white-button-gradient-pressed)',
-            btnShadowDisabled: 'var(--white-button-gradient-disabled)',
-            iconBoxShadow: 'var(--icon-drop-shadow)',
-            iconColor: 'var(--primary-black)',
-            border: 'var(--white-button-gradient)'
-        }
-    }
-
-    if (ghost) return getButtonGhostColors(color);
-
-    return buttonStyleInterface[color] || null;
-}
+  if(!size) return layouts.medium
 
 
-export const getButtonSize = (size: NormalSizes = 'medium'): ButtonSizeGroup => {
-
-    const layouts: { [key in NormalSizes]: ButtonSizeGroup } = {
-        auto: {
-            height: 'auto',
-            width: '100%',
-            padding: 'var(--mini-button-padding)',
-            fontSize: 'var(--mini-button-fontSize)',
-            fontFamily: 'var(--button-fontFamily)'
-        },
-        mini: {
-            height: 'auto',
-            width: 'auto',
-            padding: 'var(--mini-button-padding)',
-            fontSize: 'var(--mini-button-fontSize)',
-            fontFamily: 'var(--button-fontFamily)'
-        },
-        small: {
-            height: 'auto',
-            width: 'auto',
-            padding: 'var(--small-button-padding)',
-            fontSize: 'var(--smal-button-fontSize)',
-            fontFamily: 'var(--button-fontFamily)'
-        },
-        medium: {
-            height: 'auto',
-            width: 'auto',
-            padding: 'var(--medium-button-padding)',
-            fontSize: 'var(--medium-button-fontSize)',
-            fontFamily: 'var(--button-fontFamily)'
-        },
-        large: {
-            height: 'auto',
-            width: 'auto',
-            padding: 'var(--large-button-padding)',
-            fontSize: 'var(--large-button-fontSize)',
-            fontFamily: 'var(--button-fontFamily)'
-        },
-    }
-
-
-    return layouts[size]
-
-}
+  return layouts[size];
+};

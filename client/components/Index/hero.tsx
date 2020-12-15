@@ -11,6 +11,7 @@ const Hero: FC = () => {
 
   return (
     <>
+    
       <section className="hero">
         <div className="hero--mobile-bg"></div>
         <div className="hero--steps">
@@ -38,8 +39,9 @@ const Hero: FC = () => {
                 color="white"
                 size="large"
                 disabled={false}
-                // icon={<ChevronDown size={30}/>}
-                //ghost={true}
+                loading={false}
+                icon={<ChevronDown/>}
+                stroke={false}
               />
             
           </div>

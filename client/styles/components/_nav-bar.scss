@@ -88,10 +88,10 @@ $category-menu-width: 9%;
         width: 100rem;
         max-width: 110rem;
         top: 100%;
-        left: 23%;
         display: flex;
         padding: 2rem;
-        
+        transform: translateX(-50%);
+        left: 50%;
 
         &__main-category,
         &__sub-category,

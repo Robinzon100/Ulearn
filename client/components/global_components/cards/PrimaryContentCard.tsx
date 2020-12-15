@@ -79,9 +79,11 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
        {/* <Image
         src={imageUrl}
         alt="slider_btn"
-        width={250}
-        height={100}
-        quality={50}
+        width={100}
+        height={128}
+        quality={100}
+        layout="responsive"
+        
         /> */}
           <div className="price-tag">
             {checkNewPrice && (
