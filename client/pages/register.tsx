@@ -78,8 +78,13 @@ const Register: React.FC = () => {
                 size='medium'
                 title='დარეგისტრირება'
                 onClick={() => handleSend()}
+<<<<<<< HEAD
+                iconRight={<LogIn strokeWidth={'1.5px'}/>}
+            />
+=======
                 iconRight={<LogIn />}
             /> */}
+>>>>>>> 26c52a75f95b2af6f8ad221aa67ed888f324f611
         </>
     )
 }

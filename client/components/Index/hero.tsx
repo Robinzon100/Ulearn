@@ -31,10 +31,10 @@ const Hero: FC = () => {
           <div className="hero--steps__btn">
            
               <Button
-                title={"შემოგვიერთდი"}
+                title="შემოგვიერთდი"
                 className=""
-                route={"/register"}
-                onClick={() => console.log('asdasd')}
+                route="/register"
+                onClick={() => console.log('asdasda')}
                 iconStyle={{color:"black"}}
                 color="white"
                 size="large"
