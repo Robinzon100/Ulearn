@@ -18,12 +18,12 @@ export async function up(knex: Knex): Promise<void> {
         table.string("thumbnail_imageUrl", 254).notNullable();
         table.string("intro_videoUrl", 254).notNullable();
         table.float("duration");
-        table.json('what_will_you_learn').notNullable();
+        table.jsonb('what_will_you_learn').notNullable();
         table.integer("student_amount").defaultTo(course.student_amount);
-        table.json('detaled_rating').notNullable().defaultTo(JSON.stringify(course.detaled_rating))
+        table.jsonb('detaled_rating').notNullable().defaultTo(JSON.stringify(course.detaled_rating))
         table.float('overall_rating');
-        table.json('course_content').notNullable();
-        table.json('units_sold').notNullable();
+        table.jsonb('course_content').notNullable();
+        table.jsonb('units_sold').notNullable();
 
         table.float('price');
         table.float('ulearn_coin_price');

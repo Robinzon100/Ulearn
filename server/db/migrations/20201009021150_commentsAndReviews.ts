@@ -11,7 +11,7 @@ export async function up(knex: Knex): Promise<void> {
         table.string("text", 1000);
         table.integer("likes").defaultTo(comment.likes);
         table.integer("dislikes").defaultTo(comment.dislikes);
-        table.json("replies");
+        table.jsonb("replies");
     });
 
 

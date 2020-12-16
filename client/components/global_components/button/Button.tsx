@@ -36,8 +36,8 @@ const Button: FC<ButtonInterface> = ({
 
 
   const { height,padding, width, fontSize, fontFamily, iconPosition } = useMemo(() => getButtonSize(size), [size]);
-  const { ...colors } = useMemo(() => getButtonColors(color), [color]);
-  const { ...strokeColors } = useMemo(() => getButtonStrokeColors(stroke), [stroke]);
+  const { ...fillColors } = useMemo(() => getButtonColors(color, stroke), [color]);
+  const { ...strokeColors } = useMemo(() => getButtonStrokeColors(color, stroke), [stroke]);
 
 
 
@@ -50,7 +50,7 @@ const Button: FC<ButtonInterface> = ({
           disabled || loading
             ? {
               cursor: "not-allowed",
-              boxShadow: `${colors.btnShadowDisabled}`,
+              boxShadow: `${fillColors.btnShadowDisabled}`,
               opacity: "0.6",
               pointerEvents: 'none'
             }
@@ -70,7 +70,7 @@ const Button: FC<ButtonInterface> = ({
 
 
         {loading && (
-          <Loading bgColor={color == 'white' || stroke ? colors.textColor : 'white'} padding={padding} />
+          <Loading bgColor={color == 'white' || stroke ? fillColors.textColor : 'white'} padding={padding} />
         )}
 
 
@@ -91,8 +91,8 @@ const Button: FC<ButtonInterface> = ({
             text-decoration: none;
             display: block;
             border-radius: 8px;
-            background: ${stroke ? "white" : colors.bg};
-            box-shadow: ${colors.defaultShadow};
+            background: ${stroke ? "white" : fillColors.bg};
+            box-shadow: ${stroke ? strokeColors.defaultShadow : fillColors.defaultShadow};
             width: ${buttonWidth ? buttonWidth : width};
             height: ${height};
             padding: ${padding};
@@ -106,13 +106,13 @@ const Button: FC<ButtonInterface> = ({
           }
 
           .btn:hover {
-            box-shadow: ${colors.hoverShadow};
-            background: ${stroke ? strokeColors.bgHover :  colors.bg};
+            box-shadow:  ${stroke ? strokeColors.hoverShadow : fillColors.hoverShadow};
+            background: ${stroke && strokeColors.bgHover};
           }
 
           .btn:active {
-            box-shadow: ${stroke ? strokeColors.activeShadow :  colors.activeShadow};
-            background: ${colors.bg ?  colors.bg : "white"};
+            box-shadow: ${stroke ? strokeColors.activeShadow :  '0 0 10px -5px inset'};
+            background: ${fillColors.bg ?  fillColors.bg : "white"};
           }
           
           .btn:hover .title {
@@ -141,8 +141,8 @@ const Button: FC<ButtonInterface> = ({
             z-index: 1;
             top: 50%;
             color: ${ stroke || color === "white" ?  strokeColors.textColor : "white"};
-            filter: ${colors.iconBoxShadow};
-            -webkit-filter: ${colors.iconBoxShadow};
+            filter: ${fillColors.iconBoxShadow};
+            -webkit-filter: ${fillColors.iconBoxShadow};
           }
 
           
