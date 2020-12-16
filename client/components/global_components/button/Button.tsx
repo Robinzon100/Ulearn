@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 //! ===========================OUR IMPORTS
 import { ButtonInterface } from "components/global_components/button/Button.interface";
-import { getButtonSize, getButtonColors } from "./buttons.style";
+import { getButtonSize, getButtonColors,getButtonStrokeColors } from "./buttons.style";
 import Loading from "components/global_components/button/Button-loading";
 import { blockClicks } from './button.utils';
 
@@ -35,9 +35,9 @@ const Button: FC<ButtonInterface> = ({
 
 
 
-  const { height, minWidth, padding, width, fontSize, fontFamily, iconPosition } = useMemo(() => getButtonSize(size), [size]);
-  const { ...colors } = useMemo(() => getButtonColors(color, stroke), [color]);
-
+  const { height,padding, width, fontSize, fontFamily, iconPosition } = useMemo(() => getButtonSize(size), [size]);
+  const { ...colors } = useMemo(() => getButtonColors(color), [color]);
+  const { ...strokeColors } = useMemo(() => getButtonStrokeColors(stroke), [stroke]);
 
 
 
@@ -47,11 +47,11 @@ const Button: FC<ButtonInterface> = ({
         onClick={blockClicks(route, disabled, loading, onClick, router)}
         className={`btn ${className}`}
         style={
-          disabled
+          disabled || loading
             ? {
               cursor: "not-allowed",
               boxShadow: `${colors.btnShadowDisabled}`,
-              opacity: "0.5",
+              opacity: "0.6",
               pointerEvents: 'none'
             }
             : style
@@ -91,7 +91,7 @@ const Button: FC<ButtonInterface> = ({
             text-decoration: none;
             display: block;
             border-radius: 8px;
-            background: ${stroke ? 'white' : colors.bg};
+            background: ${stroke ? "white" : colors.bg};
             box-shadow: ${colors.defaultShadow};
             width: ${buttonWidth ? buttonWidth : width};
             height: ${height};
@@ -100,61 +100,37 @@ const Button: FC<ButtonInterface> = ({
             border-image: none;
             text-decoration: none;
             cursor: pointer;
-            border: ${stroke ? colors.border : 'none'};
+            border: ${stroke ? strokeColors.border : 'none'};
             outline: none !important;
             transition: all .2s ease;
           }
 
           .btn:hover {
-            box-shadow: ${colors.defaultShadow};
-            background: ${stroke ? colors.textColor :colors.bgHover};
+            box-shadow: ${colors.hoverShadow};
+            background: ${stroke ? strokeColors.bgHover :  colors.bg};
           }
-        
-          .btn:hover .title {
-            color: ${colors.textColorHover};
-          }
-          .btn:active .title {
-            color: ${colors.textColor};
-
-          }
-          .btn:hover .icon_base-style {
-            color: ${colors.btnIconHover};
-          }
-          /* .btn:hover .icon_base-style svg * {
-            fill: white !important;
-          }
-          .btn:hover > * {
-            stroke: white;
-          } */
-
 
           .btn:active {
-            box-shadow: ${colors.btnShadowActive};
-            background: ${colors.bg};
+            box-shadow: ${stroke ? strokeColors.activeShadow :  colors.activeShadow};
+            background: ${colors.bg ?  colors.bg : "white"};
           }
-
-          .btn[data-filled="true"]:enabled:active {
-            box-shadow: ${colors.btnShadowActive};
-            background: ${colors.bg};
-          }
-
-          .btn .title {
-            color: ${colors.btnTextActive};
-          }
-          .btn .icon_base-style {
-            color: ${colors.btnIconActive};
-          }
-
-
+          
+          .btn:hover .title {
+            color: ${stroke || color && color != "white" ?   "white" : strokeColors.textColor };
+           }
+           .btn:active .title {
+            color: ${stroke || color === "white" ? strokeColors.textColor:  "white"};
+          } 
 
           .title {
-            color: ${color === 'black' || stroke == true ? colors.textColor : 'white'};
+            color: ${stroke || color === "white" ?  strokeColors.textColor : "white" };
             font-size: ${fontSize};
             font-family: ${fontFamily};
             text-align: center;
             font-weight: 400;
             letter-spacing: 0.5px;
           }
+
 
           .icon_base-style {
             position: absolute;
@@ -164,20 +140,26 @@ const Button: FC<ButtonInterface> = ({
             align-items: center;
             z-index: 1;
             top: 50%;
-            color: ${colors.iconColor};
+            color: ${ stroke || color === "white" ?  strokeColors.textColor : "white"};
             filter: ${colors.iconBoxShadow};
             -webkit-filter: ${colors.iconBoxShadow};
           }
+
+          
+          .btn:hover .icon_base-style {
+            color: ${stroke || color && color != "white" ?   "white" : strokeColors.textColor };
+          }
+
+          .btn:active .icon_base-style {
+            color: ${stroke || color === "white" ? strokeColors.textColor:  "white"};
+          } 
 
           .icon {
             left: ${iconPosition};
             transform: translate(50%, -50%);
           }
 
-         
-          
-
-          .iconRight {
+        .iconRight {
             right: ${iconPosition};
             transform: translate(-50%, -50%);
           }

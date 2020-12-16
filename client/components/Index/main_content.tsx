@@ -32,7 +32,7 @@ const main_content: React.FC = () => {
   };
 
   useEffect(() => {
-    fetchCarouselCategories();
+    // fetchCarouselCategories();
   }, []);
 
   return (

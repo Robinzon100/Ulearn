@@ -82,14 +82,17 @@ const Register: React.FC = () => {
                 width='50rem'
                 onChange={(e) => handleInputChange(e, 'recovery_email')} />
 
+            //* აიქონისთვის ფერის გადაცემა არ გინდა. გავაკეთე ისე რომ როგორც შეიცვლი ისე შეიცვლება
+            //* ფერიც.იგივე ლოგიკა გამოდის რაც ჰოვერზე და აქტივ ტექსტზე,ამიტომ ძალიან მარტივად გამოვიდე
+            //* მგონი არაფერი გამომრჩენია და კარგად ყველაფერი. თუ არადა დაწერე
             <Button
-                color='blue'
+                // color='blue'
                 size='large'
                 title='დარეგისტრირდი'
                 onClick={() => handleSend()}
                 style={{ marginTop: '2rem' }}
-                stroke={true}
-                iconRight={<LogIn color='var(--primary-dark-blue)' strokeWidth="1.8" size={24} />}
+                stroke="blue"
+                iconRight={<LogIn strokeWidth="1.8" size={24} />}
             // buttonWidth='100%'
             />
         </>

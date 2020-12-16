@@ -29,7 +29,7 @@ const Input: React.FC<InputInterface> = ({
       <div
         className="input_container"
         style={
-          disabled ? { cursor: "not-allowed", pointerEvents: "none" } : style
+          disabled ? { cursor: "not-allowed", pointerEvents: "none" } : containerStyle
         }>
         {/* <label htmlFor=""></label> */}
         {icon && <span className="icon_base-style icon">{icon}</span>}

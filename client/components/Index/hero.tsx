@@ -40,11 +40,11 @@ const Hero: FC = () => {
                 size="large"
                 disabled={false}
                 loading={false}
-                iconRight={<ChevronDown/>}
-                stroke={false}
-              />
+                // stroke="red"
+                icon={<ChevronDown/>}
+                />
             
-          </div>
+            </div>
         </div>
         <div className="hero--video">
           <video autoPlay loop muted playsInline>

@@ -3,7 +3,7 @@
     
 
    //! ========= Button-GRADIENTS
-   --primary-button-gradient: linear-gradient(180deg, #338EFF 0%, #2448E7 394.37%);
+   --primary-button-gradient:  linear-gradient(180deg, #338EFF 0%, #2448E7 394.37%);
    --blue-button-gradient: linear-gradient(180deg, #338EFF 0%, #2448E7 0.04%, #0C3BEA 394.37%);
    --yellow-button--gradient: linear-gradient(180deg, #FFD703 0%, #FFC703 394.37%);
    --green-button-gradient: linear-gradient(180deg, #16C93E 0%, #10B435 394.37%);
@@ -13,17 +13,20 @@
 
 
    //! ======= BUTTON-SHADOW
-   --btn-shadow-size:0px 20px 36px;
+   --btn-shadow:0px 3px 5px;
+   --btn-hover-shadow:0px 16px 38px;
+   --btn-active-shadow: inset 0px 0px 10px;
+   --btn-active-stroke:0 0 0 0.4rem;
 
-   --btn-primary-shadow:rgba(75, 155, 254, 0.36);
-   --btn-blue-shadow: rgba(75, 155, 254, 0.36);
-   --btn-yellow-shadow: rgba(255, 199, 3, 0.36);
-   --btn-green-shadow:rgba(16, 180, 53, 0.36);
-   --btn-red-shadow:rgba(249, 69, 5, 0.36);
-   --btn-black-shadow: rgba(19, 21, 26, 0.36);
-   --btn-white-shadow:rgba(19, 21, 26, 0.36);
+   --btn-primary-shadow:12, 70, 135;
+   --btn-blue-shadow: 12, 59, 234;
+   --btn-yellow-shadow: 255, 199,3;
+   --btn-green-shadow:16, 180, 53;
+   --btn-red-shadow:249, 69, 5;
+   --btn-black-shadow: 19, 21, 26;
+   --btn-white-shadow:20, 21, 26;
 
-
+   --btn-black-active:255, 255, 255;
 
     --icon-drop-shadow:drop-shadow(0px 2.2px 2.5px rgba(0, 0, 0, 0.14));
    
