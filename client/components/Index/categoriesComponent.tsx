@@ -19,7 +19,7 @@ const categoriesComponent: React.FC<Categories> = ({ CategoriesJson }) => {
             </div>
           </li>
 
-          {CategoriesJson.map((data) => (
+          {CategoriesJson?.map((data) => (
             
               <li className="category_main--name category_main" key={data.id}>
                 <NextLink route="/#" className={"regular paragraph-regular"}>

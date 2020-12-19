@@ -26,13 +26,12 @@ const main_content: React.FC = () => {
 
   const fetchCarouselCategories = async () => {
     const {categories: { main_categories }} = await getAllCategories();
-
     setData(main_categories);
-    // console.log(main_categories);
   };
 
   useEffect(() => {
-    // fetchCarouselCategories();
+      //*თუ კომენტარი აღარ იქნება,მაშინ წამოვა კარუსელისა და გვერდითა კატეგორიები
+    fetchCarouselCategories();
   }, []);
 
   return (

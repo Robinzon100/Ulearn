@@ -51,7 +51,7 @@ const carousel: React.FC<CarouselInterface> = ({ carouselJson }) => {
             )
           }
         >
-          {carouselJson.map((data) => (
+          {carouselJson?.map((data) => (
             <NextLink route="/#" className="carousel_card" key={data.id}>
               {/* <div
                 className="carousel_card--pic"

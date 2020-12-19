@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 //! ===========================OUR IMPORTS
 import { ButtonInterface } from "components/global_components/button/Button.interface";
 import { getButtonSize, getButtonColors,getButtonStrokeColors } from "./buttons.style";
-import Loading from "components/global_components/button/Button-loading";
+import Loading from "components/loading/Loading";
 import { blockClicks } from './button.utils';
 
 const Button: FC<ButtonInterface> = ({
@@ -36,8 +36,8 @@ const Button: FC<ButtonInterface> = ({
 
 
   const { height,padding, width, fontSize, fontFamily, iconPosition } = useMemo(() => getButtonSize(size), [size]);
-  const { ...fillColors } = useMemo(() => getButtonColors(color, stroke), [color]);
-  const { ...strokeColors } = useMemo(() => getButtonStrokeColors(color, stroke), [stroke]);
+  const { ...fillColors } = useMemo(() => getButtonColors(color,stroke), [color,stroke]);
+  const { ...strokeColors } = useMemo(() => getButtonStrokeColors(stroke), [stroke]);
 
 
 
@@ -116,14 +116,14 @@ const Button: FC<ButtonInterface> = ({
           }
           
           .btn:hover .title {
-            color: ${stroke || color && color != "white" ?   "white" : strokeColors.textColor };
+            color: ${!stroke && !color || stroke || color && color != "white" ?   "white" : strokeColors.textColor };
            }
            .btn:active .title {
-            color: ${stroke || color === "white" ? strokeColors.textColor:  "white"};
+            color: ${stroke || color === "white" ? strokeColors.textColor :  "white"};
           } 
 
           .title {
-            color: ${stroke || color === "white" ?  strokeColors.textColor : "white" };
+            color: ${stroke || color === "white" ?   strokeColors.textColor : "white" };
             font-size: ${fontSize};
             font-family: ${fontFamily};
             text-align: center;
@@ -147,7 +147,7 @@ const Button: FC<ButtonInterface> = ({
 
           
           .btn:hover .icon_base-style {
-            color: ${stroke || color && color != "white" ?   "white" : strokeColors.textColor };
+            color: ${!stroke && !color || stroke || color && color != "white" ?   "white" : strokeColors.textColor};
           }
 
           .btn:active .icon_base-style {

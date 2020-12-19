@@ -1,7 +1,7 @@
 export const changeTabPositionAndColor = () => {
   let main = document.querySelector<HTMLElement>(".Tabs");
   let tabs = main.querySelectorAll<HTMLElement>(".Tab");
-  const colors = ["rgba(51, 142, 255,1)", "rgba(255, 92, 77,1)", "rgba(0, 226, 103,1)", "rgba(0, 226, 103,1)"];
+  const colors = ["#338eff", "#ff5c4d", "#16c93e", "#ffd703"];
   
   
   tabs[0].style.borderBottom = `3px solid ${colors[0]}`;

@@ -28,7 +28,6 @@ export type InputSizeGroup = {
     fontSize?:string,
     padding?:string,
     focusedPadding?:string
-    fontFamily?:string
     paddingWithOutIcons?:string
 }
 
@@ -36,12 +35,7 @@ export type InputStateGroup = {
     defaultBg?:string,
     textColor?:string,
     borderColor:string 
-    hoverBg?:string,
-    focusedShadow?:string,
-    focusedBg?:string
-    disabled?:string
-    focusedIcon?:string
-    
+    IconColor?:string
 }
 
 
