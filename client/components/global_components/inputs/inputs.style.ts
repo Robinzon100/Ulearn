@@ -19,14 +19,14 @@ const sizes = {
     medium: {
         padding: '12px 14px 12px 35px',
         fontSize: '17px',
-        focusedPadding: '14px 16px 14px 40px',
-        paddingWithOutIcons:'14px 16px 14px 16px'
+        focusedPadding: '12px 16px 12px 40px',
+        paddingWithOutIcons:'12px 16px 12px 16px'
     },
     large: {
         padding: '14px 16px 14px 35px',
         fontSize: '19px',
-        focusedPadding: '16px 18px 16px 40px',
-        paddingWithOutIcons:'16px 18px 16px 18px'
+        focusedPadding: '14px 18px 14px 40px',
+        paddingWithOutIcons:'14px 18px 16px 18px'
     },
 }
 export const getInputSize = (size: string): InputSizeGroup => {

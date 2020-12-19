@@ -65,12 +65,16 @@ const Input: React.FC<InputInterface> = ({
               
             }
 
+            .input_container:hover .input_field{
+              background: var(--secondary-light-grey);
+            }
+
             .input_field {
               font-family: var(--regular);
               font-size: ${fontSize};
               width: ${width};
               padding: ${padding};
-              background: ${color === "white" ?  fillColors.defaultBg : "white"};
+              background: ${color === "white" ?  fillColors.defaultBg : "var(--primary-grey)"};
               border: ${fillColors.borderColor};
               box-sizing: border-box;
               border-radius: 8px;

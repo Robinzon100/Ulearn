@@ -29,11 +29,11 @@ const Register: React.FC = () => {
 
     const handleSend = async () => {
         let response = await postRegistration(registrationInfo)
-        setCookie('refreshToken', response.refreshToken, { sameSite: true })
         if (response) {
+            setCookie('refreshToken', response.refreshToken, { sameSite: true })
+            localStorage.setItem('accessToken', response.accessToken)
             userStore.isLogedIn = true
         }
-        localStorage.setItem('accessToken', response.accessToken)
     }
 
 
@@ -74,13 +74,13 @@ const Register: React.FC = () => {
                 iconRight={<Eye size={20} strokeWidth='1.5px' />}
                 onChange={(e) => handleInputChange(e, 'password')} />
             <Input
-                style={{ marginTop: '1rem' }}
-                size={'large'}
+                containerStyle={{ marginTop: '1rem' }}
+                size={'mini'}
                 placeHolder='enter your recovery email'
                 value={recovery_email}
                 type='email'
                 className={"regular paragraph-small"}
-                iconRight={<Mail size={20} strokeWidth='1.5px' />}
+                icon={<Mail size={16} strokeWidth='1.5px' />}
                 width='50rem'
                 onChange={(e) => handleInputChange(e, 'recovery_email')} />
 
