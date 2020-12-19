@@ -8,7 +8,8 @@ export const postRegistration = async (data) => {
         .then(res => {
             return {
                 ...res.data,
-                
+                accessToken: res.headers.accesstoken,
+                refreshToken: res.headers.refreshtoken,
                 statusCode: res.status
             }
         })

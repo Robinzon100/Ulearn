@@ -7,7 +7,6 @@ import { ChevronDown } from 'react-feather';
 
 
 const Hero: FC = () => {
-  const { userStore } = useRootStore();
 
   return (
     <>
