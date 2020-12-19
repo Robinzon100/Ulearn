@@ -21,8 +21,8 @@ const Input: React.FC<InputInterface> = ({
   iconStyle,
   width,
 }) => {
-  const {fontSize,padding,focusedPadding,paddingWithOutIcons,fontFamily} = useMemo(() => getInputSize(size), [size]);
-  const { ...colors } = useMemo(() => getColors(color), [color]);
+  const {fontSize,padding,focusedPadding,paddingWithOutIcons} = useMemo(() => getInputSize(size), [size]);
+  const { ...fillColors } = useMemo(() => getColors(color), [color]);
 
   return (
     <>
@@ -43,7 +43,7 @@ const Input: React.FC<InputInterface> = ({
           style={!icon ? { padding: `${paddingWithOutIcons}` } : style}
         />
 
-        {iconRight && (
+        { iconRight && (
           <span
             className="icon_base-style iconRight"
             style={{ opacity: "70%" }}>
@@ -66,12 +66,12 @@ const Input: React.FC<InputInterface> = ({
             }
 
             .input_field {
-              font-family: ${fontFamily};
+              font-family: var(--regular);
               font-size: ${fontSize};
               width: ${width};
               padding: ${padding};
-              background: ${colors.defaultBg};
-              border: ${colors.borderColor};
+              background: ${color === "white" ?  fillColors.defaultBg : "white"};
+              border: ${fillColors.borderColor};
               box-sizing: border-box;
               border-radius: 8px;
               outline: none !important;
@@ -79,20 +79,25 @@ const Input: React.FC<InputInterface> = ({
             }
 
             .input_field:disabled {
-              color: ${colors.disabled};
+              color: var(--primary-grey);
               opacity: 50%;
             }
 
             .input_field:focus {
-              box-shadow: ${colors.focusedShadow};
-              background: ${colors.focusedBg};
+              box-shadow: var(--text-input-shadow);
+              background: white;
               opacity: 100%;
               padding: ${focusedPadding};
             }
+            .input_field:focus::placeholder {
+                opacity: 100%;
+                font-weigth:600;
+            }
+          
 
             .input_field::placeholder {
-              opacity: 100%;
-              color: ${colors.textColor};
+              opacity: 70%;
+              color: ${color === "red" ?  fillColors.textColor : "var(--secondary-light-black)"};
             }
 
             .icon_base-style {
@@ -104,13 +109,16 @@ const Input: React.FC<InputInterface> = ({
               top: 50%;
               opacity: 70%;
             }
-
+            // .input_field:focus .icon_base-style {
+            //    opacity: 100%;
+            //    color:red;
+            // }
             .icon:disabled {
-              color: ${colors.disabled};
+              color: var(--primary-grey);
               opacity: 50%;
             }
             .icon {
-              color: ${colors.textColor};
+              color:${color === "red" ? "red" : "var(--secondary-light-dark)"} ;
               left: 0;
               transform: translate(50%, -50%);
             }

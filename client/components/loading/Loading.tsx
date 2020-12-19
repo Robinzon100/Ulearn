@@ -1,7 +1,7 @@
 import { memo } from "react";
-import { ButtonLoadingInterface } from "./Button.interface";
+import { ButtonLoadingInterface } from "../global_components/button/Button.interface";
 
-const ButtonLoading: React.FC<ButtonLoadingInterface> = ({
+const Loading: React.FC<ButtonLoadingInterface> = ({
   bgColor,
   padding,
 }) => {
@@ -91,4 +91,4 @@ const ButtonLoading: React.FC<ButtonLoadingInterface> = ({
   );
 };
 
-export default memo(ButtonLoading);
+export default memo(Loading);
