@@ -9,7 +9,7 @@ import CategoriesComponent from "components/Index/categoriesComponent";
 import Overlay from "components/Index/overlay/Overlay";
 
 //! ===================== JSON
-// import CategoriesJson from "../../public/json/categories.json";
+import CategoriesImgs from "../../public/json/categories.json";
 import InputSelectComponent from "components/Index/InputSelect.Component";
 import { getAllCategories } from "actions/client/categories.action";
 
@@ -19,10 +19,10 @@ interface categories {
 
 const main_content: React.FC = () => {
   //* JSON
+  const carouselImgs = CategoriesImgs.Categories;
   const CardsJson = PrimaryContentCardJson.contentCard;
-  
-
   const [data, setData] = useState([]);
+
 
   const fetchCarouselCategories = async () => {
     const {categories: { main_categories }} = await getAllCategories();
@@ -38,7 +38,7 @@ const main_content: React.FC = () => {
     <>
       <div className="main_content">
         {/* //! კარუსელი */}
-        <Carousel carouselJson={data} />
+        <Carousel carouselJson={data} CarouselImgs={carouselImgs} />
 
         {/* //! ინფუთები */}
         <div className="main_content--container">
@@ -55,7 +55,7 @@ const main_content: React.FC = () => {
 
             <div className="landing_courses--cards">
               {/* //! ეს არის მთავარი გვერდზე რაც კარტებია */}
-              {CardsJson.map((card) => (
+              {CardsJson?.map((card) => (
                 <PrimaryContentCard
                   key={card.id}
                   id={card.id}

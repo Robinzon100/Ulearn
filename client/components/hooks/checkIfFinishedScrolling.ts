@@ -4,7 +4,7 @@
 const checkIfScrollFinished = (setIsFinishedScrolling, isFinishedScrolling) => {
     const carousel = document.querySelector<HTMLElement>(".carousel_container");
     // debugger
-    if (carousel.offsetWidth + carousel.scrollLeft >= carousel.scrollWidth || carousel.scrollLeft > 0) {
+    if (carousel.offsetWidth + carousel.scrollLeft >= carousel.scrollWidth) {
       setIsFinishedScrolling(true);
       if (isFinishedScrolling) return;
     } else {

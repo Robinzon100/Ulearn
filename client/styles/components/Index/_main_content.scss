@@ -13,11 +13,8 @@
     display: grid;
     grid-template-columns: 18% 79%;
     gap: 0px 50px;
-    //! აქ ეს overflow უნდა რადგან როცა ჰოვერის კარდს აჭერ
-    //! იგი მარჯვნიდან შემოსვლის 1 წამში  კონტენტი გარეთ გაყავს
-    //! სკროლბარი ჩნდება ქვემოთ. და მით უმეთეს ტელეფონზე ეს
-    //! საჭიროა
-    overflow: hidden;
+    margin-top: 14rem
+    // overflow: hidden;
   }
 
   &--input {

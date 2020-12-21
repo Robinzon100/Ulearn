@@ -12,19 +12,14 @@ const sideScroll = (element:HTMLElement,direction: string,speed: number,distance
         element.scrollLeft -= step;
         if (element.scrollLeft === 0) {
         setIsFinishedScrolling(false);
-        }
+    }
     
     } else {
         element.scrollLeft += step;
-        // if (element.scrollLeft > 0) {
-        //     setIsFinishedScrolling(true);
-        // }
-  
-       if (element.offsetWidth + element.scrollLeft >= element.scrollWidth) {
+        if (element.offsetWidth + element.scrollLeft >= element.scrollWidth) {
         setIsFinishedScrolling(true);
-       }
-    // checkIfScrollFinished(setIsFinishedScrolling, isFinishedScrolling);
-       
+    }
+
     }
     scrollAmount += step;
     if (scrollAmount >= distance) {
@@ -48,6 +43,7 @@ const mouseDown = (e, setIsDown, setStartX, setScrolLeft) => {
   setScrolLeft(scroll);
 
   if(scroll === 0) return
+//   if(scroll >= mouseX) return;
   console.log({ mouseX, scroll });
 };
 //* ========== mouseMove
@@ -65,8 +61,8 @@ const mouseMove = (e,isDown: boolean,startX: number,scrolLeft: number,setIsFinis
 
 
   if (scrolLeft === 0) return;
-
-  if (walk > scrolLeft) return;
+  if (scrolLeft > walk) return;
+  console.log({scrolLeft,walk});
 
   if (isFinishedScrolling) return;
 };

@@ -21,10 +21,9 @@ $card-detail-shadow:20px 30px 90px 10px rgba(19, 21, 26, 0.2);
     top: -30px;
     left: 30px;
     padding: 0.2rem 2rem;
-    
     opacity: 1;
-    color: var(--primary-dark) !important;
-    text-align: left !important;
+    color: var(--primary-dark);
+    text-align: left;
 
     .inside_content {
         padding: 2rem;

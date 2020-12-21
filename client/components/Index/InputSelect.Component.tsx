@@ -14,10 +14,10 @@ const InputSelectComponent = () => {
         <Input 
             color="white"
             size="large"
-            type={"text"} 
-            placeHolder={"მოძებნე სასურველი კურსი"} 
+            type="text"
+            placeHolder="მოძებნე სასურველი კურსი"
             icon={<Search size={22}/>}
-            className={"regular paragraph-small"}
+            className=""
             width="100%"
             />
 

@@ -1,3 +1,4 @@
 export interface CarouselInterface {
-    carouselJson: any
+    carouselJson: any,
+    CarouselImgs:any
 }

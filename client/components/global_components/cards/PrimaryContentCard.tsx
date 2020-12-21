@@ -50,13 +50,17 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
     setAddToFavorites((addToFavorites) => !addToFavorites);
   };
 
-  const cardHoverHandler = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
+  const cardHoverHandler = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const hoverCards = document.querySelectorAll<HTMLElement>(".card_detail");
+
     if (window.innerWidth / 2 - 40 < e.currentTarget.parentElement.offsetLeft) {
-      setIsLastCard(true);
+        setIsLastCard(true);
     }
+    // hoverCards.forEach(card => {
+    //     card.classList.
+    // })
     setIsClicked((isClicked) => !isClicked);
+
   };
 
   //! ეს გვეხმარება რომ როცა ჰოვერი მოხდება კარტა და ღილაღი გაქრეს!
@@ -119,9 +123,7 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
         onClick={(e) => cardHoverHandler(e)}
       >
         <div
-          className={isClicked ? "card_detail" : "card_detail-display"}
-          ref={ref}
-        >
+          className={isClicked ? "card_detail" : "card_detail-display"}>
           {
             <CardDetail
               id={id}

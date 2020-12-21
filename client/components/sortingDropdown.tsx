@@ -49,7 +49,7 @@ const SortingDropdown: React.FC<SortingDropdown> = ({ type }) => {
             {type === "time" && (
                 <Select
                     size="small"  
-                    placeHolder={"ხანგძლივობა"}
+                    placeHolder="ხანგძლივობა"
                     id={3}
                     type="radio"
                     options={SelectJson.SelectTimeOptions}

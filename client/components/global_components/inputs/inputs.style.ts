@@ -19,13 +19,13 @@ const sizes = {
     medium: {
         padding: '12px 14px 12px 35px',
         fontSize: '17px',
-        focusedPadding: '14px 16px 14px 40px',
+        focusedPadding: '12px 14px 12px 40px',
         paddingWithOutIcons:'14px 16px 14px 16px'
     },
     large: {
         padding: '14px 16px 14px 35px',
         fontSize: '19px',
-        focusedPadding: '16px 18px 16px 40px',
+        focusedPadding: '14px 16px 14px 40px',
         paddingWithOutIcons:'16px 18px 16px 18px'
     },
 }
@@ -57,7 +57,7 @@ const colors = {
         borderColor: '0.9px solid var(--primary-red)'
     },
     black: {
-        borderColor: ' 0.9px solidvar(--primary-dark)'
+        borderColor: '0.9px solid var(--primary-dark)'
     }
 }
 

@@ -4,7 +4,6 @@ import { ShoppingCart, Check } from "react-feather";
 import { stringToCut } from "components/utils/stringToCut";
 
 //! ============= INTERFACE
-
 import { PrimaryContentCardHover } from "./../../../interfaces/PrimaryContentCardHover.interface";
 
 interface isLastCard {
@@ -22,18 +21,24 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
 }) => {
   const handleHoverCardStyle = () => {
     const hoverCards = document.querySelectorAll<HTMLElement>(".card_detail");
-
-    if (window.innerWidth > 360) {
-      hoverCards.forEach((card) => {
-        card.style.left = "-665px";
-      });
+    // debugger
+    if(isLastCard) {
+        hoverCards.forEach(card => {
+            card.style.left = "-680px "
+        })
     }
 
-    if (window.innerWidth < 360) {
-      hoverCards.forEach((card) => {
-        card.style.left = "0 !important";
-      });
-    }
+    // if (window.innerWidth > 360) {
+    //   hoverCards.forEach((card) => {
+    //     card.style.left = "-665px";
+    //   });
+    // }
+
+    // if (window.innerWidth < 360) {
+    //   hoverCards.forEach((card) => {
+    //     card.style.left = "0 !important";
+    //   });
+    // }
   };
 
   useEffect(() => {

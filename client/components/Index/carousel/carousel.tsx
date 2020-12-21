@@ -7,7 +7,7 @@ import {mouseDown,mouseMove,mouseLeave,mouseUp,sideScroll} from "components/Inde
 import { checkIfScrollFinished } from "components/hooks/checkIfFinishedScrolling";
 import { CarouselInterface } from "./../../../interfaces/carousel.interface";
 
-const carousel: React.FC<CarouselInterface> = ({ carouselJson }) => {
+const carousel: React.FC<CarouselInterface> = ({ carouselJson,CarouselImgs }) => {
   const [isDown, setIsDown] = useState<boolean>(false);
   const [isFinishedScrolling, setIsFinishedScrolling] = useState<boolean>(false);
   const [startX, setStartX] = useState<number>(0);
@@ -27,14 +27,11 @@ const carousel: React.FC<CarouselInterface> = ({ carouselJson }) => {
       <div className="carousel noselect">
         {/* // TODO  გრადიენტებია მგონი არასწორად */}
         {!isFinishedScrolling && (
-        <div  className="right-carousel-gradient" onClick={() => scrollRight()}>
+        <div  className="right-carousel-gradient arrow_btns_gradient" onClick={() => scrollRight()}>
           
-          <div className="right_slider_btn"></div>
+          <div className="arrow_btns right_slider_btn"></div>
         </div>
         )}
-        
-        
-            
         <div
           className="carousel_container"
           onMouseDown={(e) => mouseDown(e, setIsDown, setStartX, setScrolLeft)}
@@ -53,10 +50,10 @@ const carousel: React.FC<CarouselInterface> = ({ carouselJson }) => {
         >
           {carouselJson?.map((data) => (
             <NextLink route="/#" className="carousel_card" key={data.id}>
-              {/* <div
+               {/* <div
                 className="carousel_card--pic"
-                style={{ backgroundImage: `url(${data.imageUrl})` }}
-              ></div> */}
+                style={{ backgroundImage: `url('/pictures/slider/${data.name.trim(" ")}.jpg')` }}
+              ></div>  */}
               <div className="carousel_card--heading">
                 <p className="bold paragraph-medium">{data.name}</p>
               </div>
@@ -64,9 +61,9 @@ const carousel: React.FC<CarouselInterface> = ({ carouselJson }) => {
           ))}
         </div>
         {isFinishedScrolling && (
-          <div className="left-carousel-gradient" onClick={() => scrollLeft()}>
+          <div className="left-carousel-gradient arrow_btns_gradient" onClick={() => scrollLeft()}>
             
-          <div  className="left_slider_btn"></div>
+          <div  className="arrow_btns left_slider_btn"></div>
 
           </div>
         )}
