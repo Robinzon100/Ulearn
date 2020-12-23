@@ -34,7 +34,7 @@ const Hero: FC = () => {
                 className=""
                 route="/register"
                 onClick={() => console.log('asdasda')}
-                iconStyle={{color:"black"}}
+                
                 color="white"
                 size="large"
                 disabled={false}

@@ -20,6 +20,7 @@ const selectInput: React.FC<InputInterface> = ({
   id,
   name,
   icon,
+  iconRight,
   options,
   iconStyle,
 }) => {
@@ -34,19 +35,18 @@ const selectInput: React.FC<InputInterface> = ({
     setIsToggle(false);
     setMouseLeave(false);
   };
-
-   
-
+  
   return (
     <>
-      <div className="Select__input">
-        {/* //TODO როცა იმავე მნიშვნელობას აჭერ მაინც აკეთებს ანიმაციას. გააკეთე */}
-        {icon && (
+      <div className="Select__input"
+      style={
+        disabled ? { cursor: "not-allowed", pointerEvents: "none" } : containerStyle
+      }>
+       {icon && (
           <div className="input_icon" style={iconStyle}>
             {icon}
           </div>
         )}
-
         <div className="dropdown" 
         key={id} 
         onClick={() => handleToggle(setIsToggle,setMouseLeave)} 
@@ -80,14 +80,22 @@ const selectInput: React.FC<InputInterface> = ({
                   >
                     {option.value}
 
-                    {/* //TODO რეიტინგზე გააკეთე */}
-                    {/* <Stars StarWidth={16} numberOfStars={option.star}/> */}
+                    {placeHolder === "რეიტინგი" && 
+                        <Stars StarWidth={16} numberOfStars={option.reiting}/> 
+                    }
+                   
                   </label>
                 </div>
               ))}
             </motion.div>
           )}
         </div>
+
+        {iconRight && (
+          <div className="input_icon" style={iconStyle}>
+            {iconRight}
+          </div>
+        )}
       </div>
     </>
   );

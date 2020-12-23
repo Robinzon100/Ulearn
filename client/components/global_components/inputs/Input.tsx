@@ -38,7 +38,7 @@ const Input: React.FC<InputInterface> = ({
           type={type}
           onChange={onChange}
           value={value}
-          className={`input_field ${className}`}
+          className={`input_field ${className && className}`}
           placeholder={placeHolder}
           style={!icon ? { padding: `${paddingWithOutIcons}` } : style}
         />

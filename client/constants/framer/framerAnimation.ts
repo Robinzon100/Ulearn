@@ -16,8 +16,9 @@ export const dropDownAnimation = {
         height: "auto",
         opacity: 1,
         display: "block",
-        transition: { duration: 0.2 },
-
+        transition: { 
+            duration: 0.3 
+        },
     },
     closed: {
         height: "0rem",

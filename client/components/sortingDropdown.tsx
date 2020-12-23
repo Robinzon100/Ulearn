@@ -35,7 +35,7 @@ const SortingDropdown: React.FC<SortingDropdown> = ({ type }) => {
             {type === "rating" && (
                 <Select
                     size="small"                 
-                    placeHolder={"რეიტინგი"}
+                    placeHolder="რეიტინგი"
                     id={2}
                     type="radio"
                     options={SelectJson.SelectRatingsOptions}

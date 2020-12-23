@@ -8,7 +8,7 @@ import SideMenu from "components/sideMenu";
 import RatingsMenu from "components/myCourse/RatingsMenu";
 import Stars from "components/global_components/svg/Stars";
 import MyCoursesJson from "../public/json/MyCourses.json";
-
+import Button from "components/global_components/button/Button";
 //! === INTERFACES
 import { MyCoursePageContent } from "../interfaces/MyCoursesPage.interface";
 
@@ -56,24 +56,31 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
                 </div>
                 <div className="mycourses-hero__about-course--btns">
                   <div className="buy-course">
-                      
-                    <NextLink
-                      route=""
-                      className="btn Green semi-bold paragraph-medium-mini"
-                    >
-                      კურსის შეძენა
-                    </NextLink>
+
+                <Button
+                title="კურსის შეძენა"
+                className=""
+                route="/buy_course"
+                onClick={() => console.log('asdasda')}
+                color="green"
+                size="medium"
+                disabled={false}
+                loading={false}
+                />
                   </div>
-                  <div className="save-bucket">
-                    <NextLink
-                      route=""
-                      className="btn Yellow semi-bold paragraph-medium-mini"
-                    >
-                      <p>კალათაში შენახვა</p>
-                      <div className="shopping_cart">
-                        <ShoppingCart />
-                      </div>
-                    </NextLink>
+
+                <div className="save-bucket">
+                <Button
+                title="კურსის შეძენა"
+                className=""
+                route="/save-bucket"
+                onClick={() => console.log('asdasda')}
+                color="yellow"
+                size="medium"
+                disabled={false}
+                loading={false}
+                icon={ <ShoppingCart />}
+                />
                   </div>
                 </div>
               </div>
@@ -108,12 +115,12 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
                             <strong>{instructorInfo.userName}</strong>
                           </p>
 
-                          <NextLink route="">
+                          <NextLink route="/courses">
                             <strong>({instructorInfo.numberOfCourses}) კურსი</strong>
                           </NextLink>
 
                           <div className="students">
-                            <NextLink route="">
+                            <NextLink route="/students">
                               <strong>({instructorInfo.numberOfStudents}) სტუდენტი</strong>
                             </NextLink>
                             <div className="stars" >
@@ -138,7 +145,7 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
                 <br />
                 <br />
                 <div className="instructor_btn">
-                  <NextLink route="" className="btn Red">
+                  <NextLink route="/subs" className="btn Red">
                     <p>
                       <strong>ინსტრუქტორის გამოწერა</strong>
                     </p>

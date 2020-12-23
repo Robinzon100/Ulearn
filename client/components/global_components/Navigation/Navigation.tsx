@@ -74,7 +74,7 @@ const Navigation: FC = () => {
                   </NextLink>
                 </li>
                 <li className="menu--list__items">
-                  <NextLink route="/lecturers" className="menu--list__items--links">
+                  <NextLink route="/myCourses" className="menu--list__items--links">
                     <p className="regular paragraph-small">გახდი ლექტორი</p>
                   </NextLink>
                 </li>
