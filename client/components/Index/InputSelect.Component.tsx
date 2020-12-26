@@ -21,7 +21,7 @@ const InputSelectComponent = () => {
             width="100%"
             />
 
-              <div className="Select">
+              <div className="main_content--selects">
                 {/* <SortingDropdown type="date" /> */}
                 <SortingDropdown type="rating" /> 
                 <SortingDropdown type="time" />

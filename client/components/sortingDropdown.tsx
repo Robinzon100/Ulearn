@@ -1,7 +1,7 @@
 import React from "react";
 import { Calendar, Clock, Star } from "react-feather";
 
-import Select from "components/global_components/inputs/Select";
+import Select from "components/global_components/select/select";
 import SelectJson from "../public/json/Select.json";
 interface SortingDropdown {
     type: string;

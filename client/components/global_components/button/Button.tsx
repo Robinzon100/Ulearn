@@ -8,6 +8,7 @@ import Loading from "components/loading/Loading";
 import { blockClicks } from './button.utils';
 
 const Button: FC<ButtonInterface> = ({
+  type,
   title,
   className,
   color,
@@ -45,7 +46,8 @@ const Button: FC<ButtonInterface> = ({
     <>
       <button
         onClick={blockClicks(route, disabled, loading, onClick, router)}
-        className={`btn ${className}`}
+        type={type}
+        className={`btn ${className ? className : ""}`}
         style={
           disabled || loading
             ? {

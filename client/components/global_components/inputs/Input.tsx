@@ -34,6 +34,7 @@ const Input: React.FC<InputInterface> = ({
         {/* <label htmlFor=""></label> */}
         {icon && <span className="icon_base-style icon">{icon}</span>}
         <input
+          name={name}
           disabled={disabled}
           type={type}
           onChange={onChange}

@@ -1,10 +1,9 @@
 import { CSSProperties, ReactNode } from "react";
 
 
-
-export interface InputInterface {
+export interface SelectInterface {
     color?: "white" |"primary" | "blue" | "yellow" | "green" | "red" |  "black";
-    type: "text" | "email" | "password" | "number";
+    type: "radio";
     size: "mini" | "small" | "medium" | "large";
     placeHolder?: string;
     disabled?: boolean;
@@ -15,27 +14,11 @@ export interface InputInterface {
     title?: string;
     className?: string;
     id?: number;
-    name?: string;
     icon?: ReactNode;
     iconRight?:ReactNode;
     iconStyle?:CSSProperties,
     width?:string,
+    options?:any,
+    dropDownClassName?:string,
+    dropDownStyle?:string,
 }
-
-
-export type InputSizeGroup = {
-    fontSize?:string,
-    padding?:string,
-    focusedPadding?:string
-    paddingWithOutIcons?:string
-}
-
-export type InputStateGroup = {
-    defaultBg?:string,
-    textColor?:string,
-    borderColor:string 
-    IconColor?:string
-}
-
-
-

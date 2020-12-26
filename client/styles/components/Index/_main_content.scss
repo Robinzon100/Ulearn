@@ -3,29 +3,34 @@
 
 //! კარუსელს თავისი ცსს ფაილი აქვს
 .main_content {
-  width: 100%;
-  margin-top: 3rem;
-  padding: var(--main-pading);
-  display: flex;
-  flex-direction: column;
+    width: 100%;
+    margin-top: 3rem;
+    padding: var(--main-pading);
+    display: flex;
+    flex-direction: column;
 
-  &--container {
-    display: grid;
-    grid-template-columns: 18% 79%;
-    gap: 0px 50px;
-    margin-top: 14rem
-    // overflow: hidden;
-  }
-
-  &--input {
-    @include flex;
-
-    .input_styles {
-      width: 100% !important;
-      letter-spacing: 1px;
-      font-weight: normal;
+    &--container {
+        display: grid;
+        grid-template-columns: 18% 79%;
+        gap: 0px 50px;
+        margin-top: 14rem // overflow: hidden;
     }
 
-    
-  }
+    &--input {
+        @include flex;
+
+        .input_styles {
+            width: 100% !important;
+            letter-spacing: 1px;
+            font-weight: normal;
+        }
+    }
+
+    &--selects {
+        display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: 3rem;
+    }
 }

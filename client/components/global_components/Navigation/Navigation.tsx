@@ -82,7 +82,7 @@ const Navigation: FC = () => {
             </div>
 
             <div className="login">
-              <NextLink route="/login">
+              <NextLink route="/multiStepForm">
                 <p className="medium paragraph-small">login / sign up</p>
               </NextLink>
             </div>

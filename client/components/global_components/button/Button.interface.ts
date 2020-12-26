@@ -14,7 +14,8 @@ export type ButtonInterface = {
   iconRight?: ReactNode;
   route?: string;
   disabled?: boolean;
-  buttonWidth?:string
+  buttonWidth?:string;
+  type?:"submit";
 }
 
 
@@ -43,7 +44,6 @@ export interface ButtonStyleInterface  {
     loadingColorBg?:string
     bgHover?:string,
     btnShadowDisabled?:string,
-    
 }
 
 export interface ButtonLoadingInterface {
