@@ -50,10 +50,10 @@ const carousel: React.FC<CarouselInterface> = ({ carouselJson,CarouselImgs }) =>
         >
           {carouselJson?.map((data) => (
             <NextLink route="/#" className="carousel_card" key={data.id}>
-               {/* <div
+               <div
                 className="carousel_card--pic"
                 style={{ backgroundImage: `url('/pictures/slider/${data.name.trim(" ")}.jpg')` }}
-              ></div>  */}
+              ></div> 
               <div className="carousel_card--heading">
                 <p className="bold paragraph-medium">{data.name}</p>
               </div>

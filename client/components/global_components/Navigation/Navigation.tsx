@@ -56,12 +56,12 @@ const Navigation: FC = () => {
 
 
         {/* //* ============== MAIN-CATEGORY */}
+        {isToggled && isMouseleftCategory && (
         <div className="list"
           onMouseLeave={() => { setIsToggled(false); setIsMouseLeftCategory(false) }}>
-          {isToggled && isMouseleftCategory && (
-            <Category categories={data.categories} />
-          )}
+              <Category categories={data.categories} />
         </div>
+          )}
 
 
         <div className="navigation_menu">

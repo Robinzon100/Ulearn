@@ -48,7 +48,7 @@ const selectInput: React.FC<SelectInterface> = ({
 
   return (
     <>
-      <div className="select"
+      <div className={`select ${className && className}`}
         style={disabled ? { cursor: "not-allowed", pointerEvents: "none" } : containerStyle}>
         {icon && (
           <div className="select_icon" style={iconStyle}>
@@ -79,10 +79,7 @@ const selectInput: React.FC<SelectInterface> = ({
                     type={type}
                     className="radio"
                   />
-                  <label
-                    className="regular paragraph-smallest"
-                    htmlFor={option.value}
-                  >
+                  <label className="regular paragraph-smallest" htmlFor={option.value}>
                     {option.value}
 
                     {/* {placeHolder === "რეიტინგი" && (

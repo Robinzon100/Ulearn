@@ -1,24 +1,14 @@
-import { CSSProperties, MouseEventHandler, ReactNode } from "react";
+import {MouseEventHandler} from "react";
 
-export type ButtonInterface = {
-  title?: string;
-  className?: string;
-  color?:"primary" | "blue" | "yellow" | "green" | "red" | "white" | "black";
-  size: "mini" | "small" | "medium" | "large";
+import {GlobalInterface} from "../../../interfaces/global.interface";
+
+export interface ButtonInterface extends GlobalInterface {
   stroke?:"primary" | "blue" | "yellow" | "green" | "red" | "black";
-  style?: CSSProperties;
   onClick?:MouseEventHandler<HTMLButtonElement>;
-  loading?: boolean;
-  icon?: ReactNode;
-  iconStyle?: CSSProperties;
-  iconRight?: ReactNode;
   route?: string;
-  disabled?: boolean;
   buttonWidth?:string;
   type?:"submit";
 }
-
-
 
 export type ButtonSizeGroup = {
     height: string

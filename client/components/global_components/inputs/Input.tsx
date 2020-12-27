@@ -28,10 +28,8 @@ const Input: React.FC<InputInterface> = ({
     <>
       <div
         className="input_container"
-        style={
-          disabled ? { cursor: "not-allowed", pointerEvents: "none" } : containerStyle
-        }>
-        {/* <label htmlFor=""></label> */}
+        style={disabled ? { cursor: "not-allowed", pointerEvents: "none" } : containerStyle}>
+        
         {icon && <span className="icon_base-style icon">{icon}</span>}
         <input
           name={name}
@@ -45,9 +43,7 @@ const Input: React.FC<InputInterface> = ({
         />
 
         { iconRight && (
-          <span
-            className="icon_base-style iconRight"
-            style={{ opacity: "70%" }}>
+          <span className="icon_base-style iconRight" style={{ opacity: "70%" }}>
             {iconRight}
           </span>
         )}
@@ -66,14 +62,10 @@ const Input: React.FC<InputInterface> = ({
               
             }
 
-            .input_container:hover .input_field{
-              background: var(--secondary-light-grey);
-            }
-
             .input_field {
               font-family: var(--regular);
               font-size: ${fontSize};
-              width: ${width};
+              width: 100%;
               padding: ${padding};
               background: ${color === "white" ?  fillColors.defaultBg : "var(--primary-grey)"};
               border: ${fillColors.borderColor};
@@ -87,6 +79,11 @@ const Input: React.FC<InputInterface> = ({
               color: var(--primary-grey);
               opacity: 50%;
             }
+            
+            .input_field:hover {
+                background: #f1f1f1;
+            }
+  
 
             .input_field:focus {
               box-shadow: var(--text-input-shadow);
@@ -114,10 +111,7 @@ const Input: React.FC<InputInterface> = ({
               top: 50%;
               opacity: 70%;
             }
-            // .input_field:focus .icon_base-style {
-            //    opacity: 100%;
-            //    color:red;
-            // }
+            
             .icon:disabled {
               color: var(--primary-grey);
               opacity: 50%;
