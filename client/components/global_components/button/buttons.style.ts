@@ -123,7 +123,7 @@ export const getButtonSize = (size: string): ButtonSizeGroup => {
       height: "auto",
       width: "auto",
       padding: "var(--small-button-padding)",
-      fontSize: "var(--smal-button-fontSize)",
+      fontSize: "var(--small-button-fontSize)",
       fontFamily: "var(--button-fontFamily)",
       iconPosition: "2%",
     },

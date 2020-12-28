@@ -9,12 +9,14 @@ const name = ({ value, handleInputChange,handleNextStep}) => {
   return (
     <>
       <Input
+        width="50rem"
         placeHolder="შეიყვანეთ სახელი"
         size="medium"
         color="white"
         type="text"
         value={value}
         onChange={(e) => handleInputChange(e, "name")}
+
       />
       <Button
         title="წინ"

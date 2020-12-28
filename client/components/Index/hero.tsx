@@ -3,8 +3,8 @@ import { useRootStore } from "../../mobx/RootStateContext";
 
 
 import Button from "components/global_components/button/Button";
-import { ChevronDown } from 'react-feather';
-
+import { ChevronDown,Check } from 'react-feather';
+import CheckBox from "components/global_components/checkbox/checkbox";
 
 const Hero: FC = () => {
 
@@ -42,7 +42,15 @@ const Hero: FC = () => {
                 // stroke="black"
                 icon={<ChevronDown/>}
                 />
-            
+                <CheckBox
+                    size="medium"
+                    color="white"
+                    disabled={false}
+                    loading={false}
+                    title="შემოგვიერთდი"
+                    width="31rem"
+                    checked={false}
+                />
             </div>
         </div>
         <div className="hero--video">

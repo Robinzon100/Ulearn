@@ -55,39 +55,50 @@ const Input: React.FC<InputInterface> = ({
         <style jsx>
           {`
             .input_container {
+              width: ${width && width};
               position: relative;
               display: flex;
               align-items: center;
-              width: ${width};
-              
+              border-radius: 8px;
+              border: ${fillColors.borderColor};
+              background: ${color === "white" ?  fillColors.defaultBg : "var(--white)"};
+              transition: all 0.1s cubic-bezier(0, 1.06, 0.37, 0.38);
+              outline: none !important;
             }
 
             .input_field {
               font-family: var(--regular);
               font-size: ${fontSize};
-              width: 100%;
               padding: ${padding};
-              background: ${color === "white" ?  fillColors.defaultBg : "var(--primary-grey)"};
-              border: ${fillColors.borderColor};
+              background: ${color === "white" ?  fillColors.defaultBg : "var(--white)"};
               box-sizing: border-box;
-              border-radius: 8px;
+              border-radius: 8px; 
               outline: none !important;
               transition: all 0.1s cubic-bezier(0, 1.06, 0.37, 0.38);
+              border:none;
+              width:100%;
             }
 
             .input_field:disabled {
               color: var(--primary-grey);
               opacity: 50%;
             }
-            
-            .input_field:hover {
-                background: #f1f1f1;
+            .input_container:focus-within  {
+                background-color:transparent;
+                box-shadow: var(--text-input-shadow);
+                
             }
-  
+            
+            .input_container:hover {
+                background: var(--primary-grey);
+            }
+           
+            .input_container:hover .input_field {
+                background: var(--primary-grey);
+            }
 
             .input_field:focus {
-              box-shadow: var(--text-input-shadow);
-              background: white;
+              background-color:white;
               opacity: 100%;
               padding: ${focusedPadding};
             }
@@ -103,28 +114,23 @@ const Input: React.FC<InputInterface> = ({
             }
 
             .icon_base-style {
-              position: absolute;
               justify-content: center;
               display: flex;
               align-items: center;
               z-index: 1;
-              top: 50%;
               opacity: 70%;
+              padding:0px 15px;
             }
             
             .icon:disabled {
               color: var(--primary-grey);
               opacity: 50%;
             }
-            .icon {
+            .icon,.iconRight {
               color:${color === "red" ? "red" : "var(--secondary-light-dark)"} ;
-              left: 0;
-              transform: translate(50%, -50%);
+
             }
-            .iconRight {
-              right: 15px;
-              transform: translate(-50%, -50%);
-            }
+
           `}
         </style>
       </div>

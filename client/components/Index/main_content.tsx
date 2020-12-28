@@ -31,7 +31,7 @@ const main_content: React.FC = () => {
 
   useEffect(() => {
       //*თუ კომენტარი აღარ იქნება,მაშინ წამოვა კარუსელისა და გვერდითა კატეგორიები
-    fetchCarouselCategories();
+    // fetchCarouselCategories();
   }, []);
 
   return (

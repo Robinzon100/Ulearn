@@ -8,9 +8,10 @@ export interface ButtonInterface extends GlobalInterface {
   route?: string;
   buttonWidth?:string;
   type?:"submit";
+  width?:string,
 }
 
-export type ButtonSizeGroup = {
+export interface ButtonSizeGroup  {
     height: string
     width: string
     padding: string

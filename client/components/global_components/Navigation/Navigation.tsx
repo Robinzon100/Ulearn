@@ -36,7 +36,7 @@ const Navigation: FC = () => {
               placeHolder="მოძებნე სასურველი კურსი"
               icon={<Search size={20} />}
               width="100%"
-            disabled={false}
+              disabled={false}
             />
           </div>
 

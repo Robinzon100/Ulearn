@@ -9,8 +9,14 @@ export interface GlobalInterface {
     disabled?:boolean,
     loading?:boolean,
     id?:number,
-    width?:string,
     icon?:ReactNode,
     iconRight?:ReactNode,
     iconStyle?:CSSProperties
-}   
+}
+
+
+export interface LoadingInterface {
+    bgColor?:string
+    width?:string
+    padding?:string
+}

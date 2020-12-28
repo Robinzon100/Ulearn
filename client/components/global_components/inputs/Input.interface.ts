@@ -3,6 +3,7 @@ import {GlobalInterface} from "../../../interfaces/global.interface";
 
 
 export interface InputInterface extends GlobalInterface {
+    width:string,
     type: "text" | "email" | "password" | "number";
     placeHolder?: string;
     containerStyle?: any;
