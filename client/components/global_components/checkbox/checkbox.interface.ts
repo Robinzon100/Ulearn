@@ -4,14 +4,17 @@ import {GlobalInterface} from "../../../interfaces/global.interface";
 export interface CheckBoxInterface extends GlobalInterface {
     onClick?:MouseEventHandler<HTMLButtonElement>;
     checkBoxWidth?:string;
-    width:string,
+    width?:string,
     onChange?:any;
-    checked:boolean
+    checked?:boolean
+    value?:string
+    size?:"small" | "medium" | "large",
 }
 
 export interface CheckBoxSizeGroupInterface {
     padding: string
     fontSize?:string
+    iconPosition?:string
 }
 
 export interface CheckBoxStyleInterface  {
@@ -21,10 +24,7 @@ export interface CheckBoxStyleInterface  {
     activeShadow?:string
     textColor?:string
     border?:string
-    checkBoxBorder?:string,
     iconColor?:string,
-    loadingColorBg?:string
-    bgHover?:string,
-    checkBoxShadowDisabled?:string,
+
 }
 

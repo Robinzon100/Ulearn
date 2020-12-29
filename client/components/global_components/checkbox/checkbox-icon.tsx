@@ -3,9 +3,10 @@ import { useMemo, memo } from "react";
 interface Props {
   disabled?: boolean;
   checked?: boolean;
+  iconPosition?:string
 }
 
-const CheckboxIcon: React.FC<Props> = ({ disabled, checked }) => {
+const CheckboxIcon: React.FC<Props> = ({ iconPosition,disabled, checked }) => {
   const { fill, bg, stroke } = useMemo(() => {
     return {
       fill: "#000",
@@ -48,7 +49,7 @@ const CheckboxIcon: React.FC<Props> = ({ disabled, checked }) => {
           width: 2rem;
           height: 2rem;
           position: absolute;
-          left: 8%;
+          left: ${iconPosition};
           transform: translate(50%, -50%);
           top: 50%;
         }

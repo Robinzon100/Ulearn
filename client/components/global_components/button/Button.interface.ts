@@ -6,20 +6,14 @@ export interface ButtonInterface extends GlobalInterface {
   stroke?:"primary" | "blue" | "yellow" | "green" | "red" | "black";
   onClick?:MouseEventHandler<HTMLButtonElement>;
   route?: string;
-  buttonWidth?:string;
   type?:"submit";
   width?:string,
 }
 
 export interface ButtonSizeGroup  {
-    height: string
-    width: string
-    padding: string
-    minWidth?: string
+    padding: string 
     fontSize?:string
-    fontFamily?:string
     iconPosition?:string
-    
 }
 
 export interface ButtonStyleInterface  {

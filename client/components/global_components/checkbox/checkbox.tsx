@@ -1,9 +1,11 @@
 import { useMemo, memo, useState, useEffect } from "react";
-import { getCheckBoxSize } from "./checkbox.style";
+import { getCheckBoxSize,getCheckBoxColor } from "./checkbox.style";
 
 import { CheckBoxInterface } from "./checkbox.interface";
-
+import Loading from "components/loading/Loading";
 import CheckBoxIcon from "./checkbox-icon";
+import CheckBoxGroup from "./checkbox-group";
+
 
 const checkbox: React.FC<CheckBoxInterface> = ({
   width,
@@ -20,8 +22,10 @@ const checkbox: React.FC<CheckBoxInterface> = ({
   iconRight,
   disabled,
   checked,
+  value
 }) => {
-  const { padding, fontSize } = useMemo(() => getCheckBoxSize(size), [size]);
+  const { padding, fontSize,iconPosition } = useMemo(() => getCheckBoxSize(size), [size]);
+  const {...checkBox } = useMemo(() => getCheckBoxColor(color), [color]);
   const [selfChecked, setSelfChecked] = useState<boolean>(false);
 
   const changeHandle = () => {
@@ -35,13 +39,10 @@ const checkbox: React.FC<CheckBoxInterface> = ({
   }, [checked]);
   return (
     <>
-      <div className={`checkbox-wrapper noselect ${className && className}`}>
+      <div className={`checkbox-wrapper noselect ${className && className}`} style={style}>
         <label className={`checkbox-label ${checkBoxWidth && checkBoxWidth}`}>
           {!loading && (
-            <CheckBoxIcon
-              // disabled={disabled}
-              checked={selfChecked}
-            />
+            <CheckBoxIcon iconPosition={iconPosition} disabled={disabled} checked={selfChecked}/>
           )}
           <input
             type="checkbox"
@@ -49,8 +50,13 @@ const checkbox: React.FC<CheckBoxInterface> = ({
             checked={selfChecked}
             //   disabled={disabled}
             onChange={changeHandle}
+            value={value}
           />
-          <span className="checkbox-title">{title}</span>
+          {loading && (
+          <Loading bgColor={color == 'white' ? 'black' : checkBox.textColor} padding={padding} />
+        )}
+          <span className="checkbox-title" 
+          style={disabled || loading ? { pointerEvents: "none" } : {}}>{!loading && title}</span>
         </label>
       </div>
 
@@ -58,23 +64,34 @@ const checkbox: React.FC<CheckBoxInterface> = ({
 
 
       <style jsx>{`
-        .checkbox-wrapper {
-          position: relative;
-          padding: ${padding};
-          border-radius: 8px;
-          width: ${width};
-          background-color: white;
-          cursor: pointer;
-        }
+
+
         .checkbox-label {
+          opacity: ${disabled || loading ? 0.8 : 1};
+          cursor: ${disabled || loading ? "not-allowed" : "pointer"};
+          pointer-events: ${disabled || loading ? "none" : "auto" };
+          position: relative;
+          border-radius: 8px;
+          box-shadow:${checkBox.defaultShadow};
+          padding: ${padding};
           display: inline-flex;
           justify-content: center;
           align-items: center;
-          width: auto;
-          cursor: pointer;
-          opacity: 1;
-          /* height: var(--checkbox-size);
-    line-height: var(--checkbox-size); */
+          width: ${width && width};  
+          border: ${checkBox.border};
+          background: ${color === "white" ?  checkBox.bg : "var(--white)"};
+          transition: all .2s ease;
+        }
+
+        .checkbox-label :disabled {
+            box-shadow:none;
+        }
+         
+        .checkbox-label:hover {
+            box-shadow:${checkBox.hoverShadow};
+        }
+        .checkbox-label:active {
+            box-shadow:${checkBox.activeShadow};
         }
         .checkbox {
           opacity: 0;
@@ -91,9 +108,17 @@ const checkbox: React.FC<CheckBoxInterface> = ({
         .checkbox-title {
           font-size: ${fontSize};
           font-family: var(--button-fontFamily);
+          color: ${color === "red" ? checkBox.textColor : "var(--secondary-light-black)"};
         }
       `}</style>
     </>
   );
 };
-export default memo(checkbox);
+
+
+//TODO გაარკვიე როგორ მუშაობს Group
+type CheckboxComponent<P = {}> = React.FC<P> & {
+    Group: typeof CheckBoxGroup;
+}
+
+export default checkbox as CheckboxComponent<CheckBoxInterface>;

@@ -22,7 +22,7 @@ const Button: FC<ButtonInterface> = ({
   iconRight,
   route,
   disabled,
-  buttonWidth
+  width
 }) => {
 
   const router = useRouter();
@@ -36,7 +36,7 @@ const Button: FC<ButtonInterface> = ({
 
 
 
-  const { height,padding, width, fontSize, fontFamily, iconPosition } = useMemo(() => getButtonSize(size), [size]);
+  const {padding, fontSize,iconPosition } = useMemo(() => getButtonSize(size), [size]);
   const { ...fillColors } = useMemo(() => getButtonColors(color,stroke), [color,stroke]);
   const { ...strokeColors } = useMemo(() => getButtonStrokeColors(stroke), [stroke]);
 
@@ -48,16 +48,7 @@ const Button: FC<ButtonInterface> = ({
         onClick={blockClicks(route, disabled, loading, onClick, router)}
         type={type}
         className={`btn ${className ? className : ""}`}
-        style={
-          disabled || loading
-            ? {
-              cursor: "not-allowed",
-              boxShadow: `${fillColors.btnShadowDisabled}`,
-              opacity: "0.6",
-              pointerEvents: 'none'
-            }
-            : style
-        }>
+        style={style}>
         {size !== "mini" && icon && !loading &&(
           <span
             className="icon_base-style icon"
@@ -67,7 +58,7 @@ const Button: FC<ButtonInterface> = ({
         )}
 
         <p className="title" style={disabled || loading ? { pointerEvents: "none" } : {}}>
-          {!loading ? title : null}
+          {!loading && title}
         </p>
 
 
@@ -89,19 +80,21 @@ const Button: FC<ButtonInterface> = ({
 
         <style jsx>{`
           .btn {
+            opacity: ${disabled || loading ? 0.8 : 1};
+            cursor: ${disabled || loading ? "not-allowed" : "pointer"};
+            pointer-events: ${disabled || loading && "none" };
             user-select: none;
             text-decoration: none;
             display: block;
             border-radius: 8px;
             background: ${stroke ? "white" : fillColors.bg};
             box-shadow: ${stroke ? strokeColors.defaultShadow : fillColors.defaultShadow};
-            width: ${buttonWidth ? buttonWidth : width};
-            height: ${height};
+            width: ${width && width};
+            height: auto;
             padding: ${padding};
             position: relative;
             border-image: none;
             text-decoration: none;
-            cursor: pointer;
             border: ${stroke ? strokeColors.border : 'none'};
             outline: none !important;
             transition: all .2s ease;
@@ -127,7 +120,7 @@ const Button: FC<ButtonInterface> = ({
           .title {
             color: ${stroke || color === "white" ?   strokeColors.textColor : "white" };
             font-size: ${fontSize};
-            font-family: ${fontFamily};
+            font-family: var(--button-fontFamily);
             text-align: center;
             font-weight: 400;
             letter-spacing: 0.5px;

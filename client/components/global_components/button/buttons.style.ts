@@ -98,7 +98,7 @@ export const buttonStyleInterface = {
     bg: "var(--white-button-gradient)",
     textColor: "var(--primary-dark)",
     defaultShadow: "var(--btn-shadow) rgba(var(--white-shadow--rgb),0.2)",
-    hoverShadow:"0 21px 38px rgba(var(--white-shadow--rgb),0.30)",
+    hoverShadow:"var(--btn-hover-shadow) rgba(var(--white-shadow--rgb),0.45)",
     activeShadow:"var(--btn-active-shadow) rgba(var(--btn-white-shadow),0.73)",
     iconColor:"var(--primary-dark)"
   },
@@ -113,34 +113,22 @@ export const getButtonColors = (color: string,stroke:string): ButtonStyleInterfa
 export const getButtonSize = (size: string): ButtonSizeGroup => {
   const layouts = {
     mini: {
-      height: "auto",
-      width: "auto",
       padding: "var(--mini-button-padding)",
       fontSize: "var(--mini-button-fontSize)",
-      fontFamily: "var(--button-fontFamily)",
     },
     small: {
-      height: "auto",
-      width: "auto",
       padding: "var(--small-button-padding)",
       fontSize: "var(--small-button-fontSize)",
-      fontFamily: "var(--button-fontFamily)",
       iconPosition: "2%",
     },
     medium: {
-      height: "auto",
-      width: "auto",
       padding: "var(--medium-button-padding)",
       fontSize: "var(--medium-button-fontSize)",
-      fontFamily: "var(--button-fontFamily)",
       iconPosition: "6%",
     },
     large: {
-      height: "auto",
-      width: "auto",
       padding: "var(--large-button-padding)",
       fontSize: "var(--large-button-fontSize)",
-      fontFamily: "var(--button-fontFamily)",
       iconPosition: "8%",
     },
   };

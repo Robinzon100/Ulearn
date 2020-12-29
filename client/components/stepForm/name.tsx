@@ -1,4 +1,5 @@
 import React from "react";
+import { ChevronDown} from 'react-feather';
 
 import Input from "components/global_components/inputs/Input";
 import Button from "components/global_components/button/Button";
@@ -16,7 +17,7 @@ const name = ({ value, handleInputChange,handleNextStep}) => {
         type="text"
         value={value}
         onChange={(e) => handleInputChange(e, "name")}
-
+        icon={< ChevronDown/>}
       />
       <Button
         title="წინ"
