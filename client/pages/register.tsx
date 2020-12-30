@@ -43,33 +43,36 @@ const Register: React.FC = () => {
 
     return (
         <>
+        {/* //* აქ შეიძლება ვცდები მაგრამ მგონი ერმანეთზე რო იყო მიჯრილი მაგიტო იჭრებოდა შადოუ */}
+        {/* //* კონტეინერსტაილს მიეცი თუ გინდა რომ მარგინი ქნას */}
+
             <Input
                 size={'large'}
                 placeHolder='enter your full name'
                 style={{ marginTop: '1rem' }}
                 value={full_name}
                 type='text'
-                className={"regular paragraph-small"}
+                className={"regular f-size-p6"}
 
                 width='50rem'
                 onChange={(e) => handleInputChange(e, 'full_name')} />
             <Input
-                style={{ marginTop: '1rem' }}
+                containerStyle={{ marginTop: '1rem' }}
                 size={'large'}
                 placeHolder='enter your email'
                 value={email}
                 type='email'
-                className={"regular paragraph-small"}
+                className={"regular f-size-p6"}
                 iconRight={<Mail size={20} strokeWidth='1.5px' />}
                 width='50rem'
                 onChange={(e) => handleInputChange(e, 'email')} />
             <Input
-                style={{ marginTop: '1rem' }}
+                containerStyle={{ marginTop: '1rem' }}
                 size={'large'}
                 placeHolder='enter your password'
                 value={password}
                 type='password'
-                className={"regular paragraph-small"}
+                className={"regular f-size-p6"}
                 width='50rem'
                 iconRight={<Eye size={20} strokeWidth='1.5px' />}
                 onChange={(e) => handleInputChange(e, 'password')} />
@@ -79,7 +82,7 @@ const Register: React.FC = () => {
                 placeHolder='enter your recovery email'
                 value={recovery_email}
                 type='email'
-                className={"regular paragraph-small"}
+                className={"regular f-size-p6"}
                 icon={<Mail size={16} strokeWidth='1.5px' />}
                 width='50rem'
                 onChange={(e) => handleInputChange(e, 'recovery_email')} />

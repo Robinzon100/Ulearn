@@ -54,20 +54,20 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
         <div className="inside_content">
           <div className="card_detail--container__title">
             <NextLink route="/someCourseName">
-              <p className="bold paragraph-regular">
+              <p className="bold f-size-p4">
                 {stringToCut(title, 25)}
               </p>
             </NextLink>
           </div>
           <div className="card_detail--container__date">
             <p
-              className="light paragraph-smallest"
+              className="light f-size-p7"
               style={{ color: "#00E267" }}>
               დაიდო:
-              <span className="paragraph-smallest semi-bold">{posted}</span>
+              <span className="f-size-p6est bold">{posted}</span>
             </p>
             <p
-              className="light paragraph-smallest"
+              className="light f-size-p7"
               style={{ color: "#636469" }}>
               სირთულე:
               <span className="" style={{ color: "#FFD703" }}>
@@ -76,7 +76,7 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
             </p>
           </div>
           <div className="card_detail--container__description">
-            <p className="light paragraph-small">{description}</p>
+            <p className="light f-size-p6">{description}</p>
           </div>
           <div className="card_detail--container__list">
             <ul>
@@ -87,7 +87,7 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
                       <Check size={15} />
                     </div>
                     <div className="paragraph">
-                      <p className="light paragraph-small ">
+                      <p className="light f-size-p6">
                         {list.list}
                       </p>
                     </div>
@@ -100,7 +100,7 @@ const CardDetail: React.FC<PrimaryContentCardHover & isLastCard> = ({
         <a href="#">
           <div className="card_detail--container__addtobucket">
             <div className="heading">
-              <p className="bold paragraph-regular">
+              <p className="bold f-size-p4">
                 კალათაში დამატება
               </p>
             </div>

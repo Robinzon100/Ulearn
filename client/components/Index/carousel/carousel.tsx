@@ -55,7 +55,7 @@ const carousel: React.FC<CarouselInterface> = ({ carouselJson,CarouselImgs }) =>
                 style={{ backgroundImage: `url('/pictures/slider/${data.name.trim(" ")}.jpg')` }}
               ></div> 
               <div className="carousel_card--heading">
-                <p className="bold paragraph-medium">{data.name}</p>
+                <p className="bold f-size-p5">{data.name}</p>
               </div>
             </NextLink>
           ))}

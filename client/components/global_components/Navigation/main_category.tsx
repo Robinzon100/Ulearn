@@ -23,7 +23,7 @@ const Category = ({ handleFetchMainCategory,setIsMainCategoryChosen,id,name },pr
               <div className="text">
                 <NextLink
                     route=""
-                  className="list--items__links regular paragraph-small"
+                  className="list--items__links regular f-size-p6"
                 >
                   {name}
                 </NextLink>

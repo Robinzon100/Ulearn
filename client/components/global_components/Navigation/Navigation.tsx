@@ -45,7 +45,7 @@ const Navigation: FC = () => {
         <div className="header__category-menu"
           onClick={() => { setIsToggled((isToggled) => !isToggled); setIsMouseLeftCategory(true) }}>
           <div className="header__category-menu--heading">
-            <p className="extra-bold paragraph-medium-mini">
+            <p className="black f-size-p5">
               კატეგორიები
             </p>
             <span className="chevrondown">
@@ -70,12 +70,12 @@ const Navigation: FC = () => {
               <ul className="menu--list">
                 <li className="menu--list__items">
                   <NextLink route="/courses" className="menu--list__items--links">
-                    <p className="regular paragraph-small">კურსები</p>
+                    <p className="regular f-size-p6">კურსები</p>
                   </NextLink>
                 </li>
                 <li className="menu--list__items">
                   <NextLink route="/myCourses" className="menu--list__items--links">
-                    <p className="regular paragraph-small">გახდი ლექტორი</p>
+                    <p className="regular f-size-p6">გახდი ლექტორი</p>
                   </NextLink>
                 </li>
               </ul>
@@ -83,7 +83,7 @@ const Navigation: FC = () => {
 
             <div className="login">
               <NextLink route="/multiStepForm">
-                <p className="medium paragraph-small">login / sign up</p>
+                <p className="regular f-size-p6">login / sign up</p>
               </NextLink>
             </div>
 

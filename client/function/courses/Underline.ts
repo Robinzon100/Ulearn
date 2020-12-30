@@ -1,3 +1,5 @@
+import { motion, AnimateSharedLayout } from "framer-motion";
+
 export const changeTabPositionAndColor = () => {
   let main = document.querySelector<HTMLElement>(".Tabs");
   let tabs = main.querySelectorAll<HTMLElement>(".Tab");

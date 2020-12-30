@@ -84,7 +84,7 @@ const Input: React.FC<InputInterface> = ({
               opacity: 50%;
             }
             .input_container:focus-within  {
-                background-color:transparent;
+                background-color:var(--white);
                 box-shadow: var(--text-input-shadow);
                 
             }
@@ -98,7 +98,7 @@ const Input: React.FC<InputInterface> = ({
             }
 
             .input_field:focus {
-              background-color:white;
+              background:var(--white);
               opacity: 100%;
               padding: ${focusedPadding};
             }

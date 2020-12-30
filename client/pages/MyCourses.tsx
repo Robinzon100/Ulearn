@@ -43,12 +43,12 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
             <div className="mycourses-hero">
               <div className="mycourses-hero__about-course">
                 <div className="mycourses-hero__about-course--heading">
-                  <p className="bold heading-3_5">
+                  <p className="bold f-size-h5">
                     როგორ გახდე DJ, DJ პროფესიის შესწავლა პროფესიულ დონეზე.
                   </p>
                 </div>
                 <div className="mycourses-hero__about-course--paragraph">
-                  <p className="regular paragraph-small line-height">
+                  <p className="regular f-size-p6 line-height">
                     გავივლით DJ-ის პროფესიის ყველა ნიუანს, რას აკეთებს რეალრად
                     DJ რა ევალება ნებისმიერ დაწესებულებაში და ასევე შევქმნით
                     რამოდენიმე ტრეკს რომლის გაყიდვას და გაპიარებასაც შეძლებთ
@@ -98,7 +98,7 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
 
                 {/* //! ინსტრუქტორის შესახებ */}
 
-                <h1 className="bold heading-6">
+                <h1 className="bold f-size-h8">
                   ინსტრუქტორის ონფორმაცია
                 </h1>
 

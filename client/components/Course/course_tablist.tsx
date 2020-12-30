@@ -1,8 +1,8 @@
 import React,{useState,useEffect,useRef} from 'react'
 import ReactHtmlParser from "react-html-parser";
 import NextLink  from "components/utils/NextLink";
-import { Folder } from "react-feather";
 
+import { motion, AnimateSharedLayout } from "framer-motion";
 
 //! ===========OUR IMPORTS
 import CoursesJson from "../../public/json/Courses.json";
@@ -119,11 +119,11 @@ const course_tablist = () => {
             <div className="section-courses--tablist">
                 <div className="section-courses--tablist__container gray-border">
                   <nav>
+                      
                   <ul className="Tabs">
                     {
                       courseTabs.map((courseTab, i) => (
                         <li
-                          
                           style={{ cursor: "pointer" }}
                           className="Tabs--item noselect  Tab"
                           onClick={(e) => {
@@ -136,7 +136,7 @@ const course_tablist = () => {
                             {renderIcon(courseTab.iconComponent)}
                           </div>
                           <div className="rendered_title">
-                            <p className="semi-bold paragraph-medium">
+                            <p className="bold f-size-p5">
                               {courseTab.title}
                             </p>
                         </div>

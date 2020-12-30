@@ -20,13 +20,13 @@ const Hero: FC = () => {
         <div className="hero--mobile-bg"></div>
         <div className="hero--steps">
           <div className="hero--steps__heading">
-            <h1 className="bold heading-3_5">
+            <h1 className="bold f-size-h5">
               რაღაცა ტექსტი იქნება აქ რომელიც აღწერს სერვის
             </h1>
           </div>
           <div className="hero--steps__line"></div>
           <div className="hero--steps__paragraph">
-            <p className="regular paragraph-medium-mini">
+            <p className="regular f-size-p5">
               რაიმე პატარა ტექსტი რომელიც უფრო დეტალურად აღწერს რას აკეთებს
               საიტი და ისეთი სიტყვები იქნება რაც SEO-ს დაევასება და googl-იც
               მაღლა აგვაგდებს
@@ -47,7 +47,7 @@ const Hero: FC = () => {
                 // stroke="black"
                 icon={<ChevronDown/>}
                 />
-              
+{/*               
                 <CheckBox
                     size="large"
                     color="white"
@@ -57,10 +57,8 @@ const Hero: FC = () => {
                     // width="31rem"
                     checked={false}
                     value="beqa"
-                />
-              
+                /> */}
                 
-
             </div>
         </div>
         <div className="hero--video">
