@@ -4,6 +4,7 @@ interface Props {
   disabled?: boolean;
   checked?: boolean;
   iconPosition?:string
+  
 }
 
 const CheckboxIcon: React.FC<Props> = ({ iconPosition,disabled, checked }) => {

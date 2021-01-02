@@ -10,4 +10,5 @@ export interface SelectInterface extends GlobalInterface {
     dropDownClassName?:string,
     dropDownStyle?:string,
     name?:string
+    width?:string
 }

@@ -52,7 +52,7 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
             
             &:hover {
                 .course_card_hover_logo {
-                    background-color: var(--white);
+                    background-color: var(--primary-white);
                     border-radius: 50%;
                     display: block;
                     cursor: pointer;       
@@ -84,7 +84,7 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
                 max-width: 24.3%;
                 text-align: center;
                 cursor: pointer;
-                color: var(--white);
+                color: var(--primary-white);
             }
 
             &__title {
@@ -123,7 +123,7 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    background-color: var(--white);
+                    background-color: var(--primary-white);
                     border-radius: 18px 0px 0px 0px; 
 
                 }
@@ -171,7 +171,7 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
                     border-radius: 5px;
 
                     p{
-                        color: var(--white);
+                        color: var(--primary-white);
                     }
                 }
                 
@@ -202,7 +202,7 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
                 }
 
                 .heart-background {
-                    background-color: var(--white);
+                    background-color: var(--primary-white);
                     box-shadow: 0px 7px 11px rgba(0, 0, 0, 0.19);
                     border-radius: 50%;
                 }

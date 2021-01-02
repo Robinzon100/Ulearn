@@ -1,15 +1,12 @@
 import {CheckBoxSizeGroupInterface,CheckBoxStyleInterface} from "./checkbox.interface";
 
 export const getCheckBoxColor = (color: string): CheckBoxStyleInterface => {
-    //* დიდად ამაზე აქტივე შადოუ არ მომწონს. არ ხდება ამ შემთხვევაში თვალს.
-    //* ჩექის ნიშანი ისედაც აქვს და კიდევ ბორდერით მითითება აღარ უნდა. დაინახავს რომ დააჭირა ისედაც
-    //* კიდევ თვალში რომ არ ვზასოთ
   const colors = {
     white: {
       bg: "var(--primary-grey)",
       border: "none",
-      defaultShadow: "var(--btn-shadow) rgba(var(--white-shadow--rgb),0.2)",
-      hoverShadow:"var(--btn-hover-shadow) rgba(var(--white-shadow--rgb),0.45)",
+      defaultShadow: "var(--btn-shadow) rgba(var(--primary-white-shadow--rgb),0.2)",
+      hoverShadow:"var(--btn-hover-shadow) rgba(var(--primary-white-shadow--rgb),0.45)",
     //   activeShadow:"var(--btn-active-shadow) rgba(var(--btn-white-shadow),0.73)",
     },
     primary: {

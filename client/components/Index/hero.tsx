@@ -5,6 +5,7 @@ import { useRootStore } from "../../mobx/RootStateContext";
 import Button from "components/global_components/button/Button";
 import { ChevronDown} from 'react-feather';
 import CheckBox from "components/global_components/checkbox/checkbox";
+import Radio from "components/global_components/radio/radio";
 import CheckBoxGroup from "components/global_components/checkbox/checkbox-group";
 
 
@@ -12,7 +13,7 @@ import CheckBoxGroup from "components/global_components/checkbox/checkbox-group"
 const Hero: FC = () => {
     const handler = (value) => {
         console.log(value)
-      }
+    }
   return (
     <>
     
@@ -33,13 +34,11 @@ const Hero: FC = () => {
             </p>
           </div>
           <div className="hero--steps__btn">
-           
               <Button
                 title="შემოგვიერთდი"
                 className=""
                 route="/register"
                 onClick={() => console.log('asdasda')}
-                
                 color="white"
                 size="large"
                 disabled={false}
@@ -47,8 +46,33 @@ const Hero: FC = () => {
                 // stroke="black"
                 icon={<ChevronDown/>}
                 />
-{/*               
+              <CheckBoxGroup onChange={handler}>
+               <CheckBox
+                    size="large"
+                    color="white"
+                    disabled={false}
+                    loading={false}
+                    title="შემოგვიერთდი"
+                    // width="31rem"
+                    checked={false}
+                    value="beqa"
+                    onChange={handler}
+                />
+
                 <CheckBox
+                    size="large"
+                    color="white"
+                    disabled={false}
+                    loading={false}
+                    title="შემოგვიერთდი"
+                    // width="31rem"
+                    checked={false}
+                    value="beqaaaaaa"
+                    onChange={handler}
+                />
+              </CheckBoxGroup>
+      
+                {/* <Radio
                     size="large"
                     color="white"
                     disabled={false}
@@ -58,6 +82,7 @@ const Hero: FC = () => {
                     checked={false}
                     value="beqa"
                 /> */}
+
                 
             </div>
         </div>

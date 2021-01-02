@@ -61,7 +61,7 @@ const Input: React.FC<InputInterface> = ({
               align-items: center;
               border-radius: 8px;
               border: ${fillColors.borderColor};
-              background: ${color === "white" ?  fillColors.defaultBg : "var(--white)"};
+              background: ${color === "white" ?  fillColors.defaultBg : "var(--primary-white)"};
               transition: all 0.1s cubic-bezier(0, 1.06, 0.37, 0.38);
               outline: none !important;
             }
@@ -70,7 +70,7 @@ const Input: React.FC<InputInterface> = ({
               font-family: var(--regular);
               font-size: ${fontSize};
               padding: ${padding};
-              background: ${color === "white" ?  fillColors.defaultBg : "var(--white)"};
+              background: ${color === "white" ?  fillColors.defaultBg : "var(--primary-white)"};
               box-sizing: border-box;
               border-radius: 8px; 
               outline: none !important;
@@ -84,7 +84,7 @@ const Input: React.FC<InputInterface> = ({
               opacity: 50%;
             }
             .input_container:focus-within  {
-                background-color:var(--white);
+                background-color:var(--primary-white);
                 box-shadow: var(--text-input-shadow);
                 
             }
@@ -98,7 +98,7 @@ const Input: React.FC<InputInterface> = ({
             }
 
             .input_field:focus {
-              background:var(--white);
+              background:var(--primary-white);
               opacity: 100%;
               padding: ${focusedPadding};
             }
