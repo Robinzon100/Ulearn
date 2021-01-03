@@ -2,10 +2,13 @@ import * as Knex from "knex";
 import { user } from "../../constants/defaults";
 import tableNames from "../../constants/tableNames";
 import { references, addTimestamps } from '../lib/table functions/tableUtils';
+import { v4 as uuidv4 } from "uuid";
+
 
 export async function up(knex: Knex): Promise<void> {
     await knex.schema.createTable(tableNames.users, table => {
         table.increments('id');
+        table.string('uuid').defaultTo(uuidv4());
         table.string("full_name", 256).notNullable();
         table.string('email', 254).notNullable().notNullable();
         table.string('password', 255).notNullable();

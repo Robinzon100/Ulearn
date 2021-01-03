@@ -8,6 +8,7 @@ import { useRootStore } from '../mobx/RootStateContext';
 
 const Register: React.FC = () => {
     const [cookie, setCookie] = useCookies()
+
     const { userStore } = useRootStore();
 
 
@@ -31,12 +32,10 @@ const Register: React.FC = () => {
         let response = await postRegistration(registrationInfo)
         if (response) {
             setCookie('refreshToken', response.refreshToken, { sameSite: true })
-            localStorage.setItem('accessToken', response.accessToken)
-            userStore.isLogedIn = true
+            localStorage.setItem('token', JSON.stringify({token: response.accessToken, expiration: response.expiration}))
+            // userStore.isLogedIn = true
         }
     }
-
-
 
 
     let { full_name, email, password, recovery_email } = registrationInfo
@@ -44,49 +43,48 @@ const Register: React.FC = () => {
     return (
         <>
             <Input
-                size={'large'}
+                size={'medium'}
+                color='white'
                 placeHolder='enter your full name'
-                style={{ marginTop: '1rem' }}
+                containerStyle={{ marginTop: '10rem' }}
                 value={full_name}
                 type='text'
-                className={"regular paragraph-small"}
-
                 width='50rem'
                 onChange={(e) => handleInputChange(e, 'full_name')} />
             <Input
-                style={{ marginTop: '1rem' }}
-                size={'large'}
+                containerStyle={{ marginTop: '1rem' }}
+                size={'medium'}
+                color='white'
                 placeHolder='enter your email'
                 value={email}
                 type='email'
-                className={"regular paragraph-small"}
                 iconRight={<Mail size={20} strokeWidth='1.5px' />}
                 width='50rem'
                 onChange={(e) => handleInputChange(e, 'email')} />
             <Input
-                style={{ marginTop: '1rem' }}
-                size={'large'}
+                containerStyle={{ marginTop: '1rem' }}
+                size={'medium'}
+                color='white'
                 placeHolder='enter your password'
                 value={password}
                 type='password'
-                className={"regular paragraph-small"}
                 width='50rem'
                 iconRight={<Eye size={20} strokeWidth='1.5px' />}
                 onChange={(e) => handleInputChange(e, 'password')} />
             <Input
                 containerStyle={{ marginTop: '1rem' }}
-                size={'mini'}
+                size={'medium'}
+                color='white'
                 placeHolder='enter your recovery email'
                 value={recovery_email}
                 type='email'
-                className={"regular paragraph-small"}
-                icon={<Mail size={16} strokeWidth='1.5px' />}
+                iconRight={<Mail size={20} strokeWidth='1.5px' />}
                 width='50rem'
                 onChange={(e) => handleInputChange(e, 'recovery_email')} />
 
             <Button
                 color='black'
-                size='large'
+                size='small'
                 title='დარეგისტრირდი'
                 onClick={() => handleSend()}
                 style={{ marginTop: '2rem' }}
@@ -94,7 +92,7 @@ const Register: React.FC = () => {
             // buttonWidth='100%'
             />
 
-            <p>asd{JSON.stringify(userStore.isLogedIn)}</p>
+            {/* <p>{userStore.isLogedIn = false}</p> */}
         </>
     )
 }

@@ -5,7 +5,7 @@ import User from '../../../models/user/user.model';
 import bcrypt from "bcrypt";
 import customError from '../../../utils/createError';
 import { regsiterUserSchemaWithEncryptedPassword } from '../../../schemas/auth/schema.registration';
-import { createRefreshToken } from '../../../utils/auth/auth.util';
+import { createRefreshToken, createTokenExpirationHeader } from '../../../utils/auth/auth.util';
 
 
 
@@ -27,15 +27,17 @@ export const postRegistration = async (req: Request, res: Response, next: NextFu
             password: hashedPassword,
         }
 
-
+        
         try {
             // validate the created use objects
             const validatedUser = await regsiterUserSchemaWithEncryptedPassword.validateAsync(user);
+            
             if (validatedUser) {
-                const { id } = await User.query().insert(validatedUser);
+                const { uuid } = await User.query().insert(validatedUser);
 
-                await createJwtAuthorizationHeader(res, { userId: id })
-                await createRefreshToken(res, { userId: id })
+                await createJwtAuthorizationHeader(res, { userUUID: uuid })
+                await createRefreshToken(res, { userUUID: uuid })
+                await createTokenExpirationHeader(res)
 
                 return res.status(200).json({
                     message: "user successfully registered",
