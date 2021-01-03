@@ -8,7 +8,7 @@
 
         font-size: calc(18px + (23 - 18) * ((100vw - 300px) / (1900 - 700))) !important;
         display: inline-block;
-        font-family: $semi-bold;
+        font-family: $bold;
         line-height: 180%;
 
     }
@@ -26,7 +26,7 @@
 
         span {
             font-size: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
-            font-family: $semi-bold !important;
+            font-family: $bold !important;
 
         }
     }
@@ -257,7 +257,7 @@
 
             a {
                 text-decoration: none;
-                color: var(--white);
+                color: var(--primary-white);
                 width: 48%;
                 padding: 3rem;
 
@@ -321,7 +321,7 @@
 
                         a {
                             text-decoration: none;
-                            color: var(--white);
+                            color: var(--primary-white);
 
                         }
                     }

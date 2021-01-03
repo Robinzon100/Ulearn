@@ -34,7 +34,7 @@ $card-detail-shadow:20px 30px 90px 10px rgba(19, 21, 26, 0.2);
     }
 
     &--container {
-        background: var(--white);
+        background: var(--primary-white);
         box-shadow: $card-detail-shadow;
         border-radius: 12px;
         
@@ -90,7 +90,7 @@ $card-detail-shadow:20px 30px 90px 10px rgba(19, 21, 26, 0.2);
             padding: 2.5rem 2rem;
             cursor: pointer;
             .heading {
-                color: var(--white);
+                color: var(--primary-white);
                 margin-right: 1rem;
                 letter-spacing: 2px;
             }

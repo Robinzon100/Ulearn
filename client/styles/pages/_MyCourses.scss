@@ -225,12 +225,12 @@ $ratings-padding:1.3rem 1.5rem 1.3rem 1.5rem;
 
         a {
             font-size: calc(11px + (14 - 11) * ((100vw - 300px) / (1900 - 700))) !important;
-            font-family: $semi-bold;
+            font-family: $bold;
             text-decoration: none !important;
             color: #338EFF;
 
             &:last-child {
-                color: var(--white);
+                color: var(--primary-white);
             }
         }
 

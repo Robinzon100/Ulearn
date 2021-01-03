@@ -24,7 +24,7 @@ const sub_category = ({handleFetchSubCategoryClick,setIsSubCategoryChosen,setIsM
                       <div className="text">
                         <NextLink
                           route=""
-                          className="list--items__links  regular paragraph-small"
+                          className="list--items__links  regular f-size-p6"
                         >
                           {name}
                         </NextLink>

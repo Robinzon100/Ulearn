@@ -2,7 +2,7 @@
 @import "abstracts/variables";
 @import "abstracts/mixins";
 @import "abstracts/utilities";
-
+@import "abstracts/color-classes";
 
 /// === === ===  BASE=== === === ===
 @import "base/base";
@@ -11,7 +11,7 @@
 @import "fonts/font-face";
 @import "fonts/font-sizes";
 @import "fonts/font-styles";
-
+@import "fonts/font-weight";
 
 /// === === === PAGES === === === ===
 @import "pages/landing";

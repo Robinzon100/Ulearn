@@ -89,16 +89,16 @@ export const buttonStyleInterface = {
   },
   black: {
     bg: "var(--black-button-gradient)",
-    textColor: "var(--white)",
+    textColor: "var(--primary-white)",
     defaultShadow: "var(--btn-shadow) rgba(var(--black-shadow--rgb),0.2)",
     hoverShadow:"var(--btn-hover-shadow) rgba(var(--black-shadow--rgb),0.45)",
     activeShadow:"var(--btn-active-shadow) rgba(var(--btn-black-active),0.73)",
   },
   white: {
-    bg: "var(--white-button-gradient)",
+    bg: "var(--primary-white-button-gradient)",
     textColor: "var(--primary-dark)",
-    defaultShadow: "var(--btn-shadow) rgba(var(--white-shadow--rgb),0.2)",
-    hoverShadow:"var(--btn-hover-shadow) rgba(var(--white-shadow--rgb),0.45)",
+    defaultShadow: "var(--btn-shadow) rgba(var(--primary-white-shadow--rgb),0.2)",
+    hoverShadow:"var(--btn-hover-shadow) rgba(var(--primary-white-shadow--rgb),0.45)",
     activeShadow:"var(--btn-active-shadow) rgba(var(--btn-white-shadow),0.73)",
     iconColor:"var(--primary-dark)"
   },

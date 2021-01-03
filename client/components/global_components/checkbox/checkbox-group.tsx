@@ -1,13 +1,15 @@
 import React from "react";
 
-// interface Props {
-//   childredn;
-// }
+interface Props {
+  childred?:any;
+  onChange?:any,
+//   value?:string | number
+}
 
-const checkBoxGroup = ({ children,onChange }) => {
+const checkBoxGroup = ({ children,onChange}) => {
   return (
     
-      <div className="group">{children}</div>
+    <div className="group">{children}</div>
     
   );
 };

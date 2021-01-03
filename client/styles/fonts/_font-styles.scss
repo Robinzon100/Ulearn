@@ -1,27 +1,14 @@
-/// ========================= HEADING
-$extra-bold:"georgian-extra-bold","Eina-semibold","sailec-bold";
+
+$black:"georgian-extra-bold","Eina-semibold","sailec-bold";
 $bold: "georgian-bold","Eina-semibold","sailec-bold";
-$semi-bold: "georgian-semi-bold","Eina-semibold","sailec-bold";
-$medium: "georgian-medium","Eina-semibold","sailec-medium";
-$light: "georgian-light","Eina-regular","sailec-medium";
 $regular: "georgian-regular","Eina-regular","sailec-medium";
-$regular-arial: "georgian-regular-arial","Eina-semibold","sailec-medium";
-$regular-bold:"georgian-bold","Eina-semibold","sailec-bold";
+$light: "georgian-light","Eina-regular","sailec-medium";
 
-
-.extra-bold {
-    font-family: $extra-bold;
+.black {
+    font-family: $black;
 }
 .bold {
     font-family: $bold;
-}
-
-.semi-bold {
-    font-family: $semi-bold;
-}
-
-.medium {
-    font-family: $medium;
 }
 
 .light {
@@ -31,3 +18,6 @@ $regular-bold:"georgian-bold","Eina-semibold","sailec-bold";
 .regular {
     font-family: $regular;
 }
+
+
+

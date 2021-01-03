@@ -1,10 +1,10 @@
 import { useMemo, memo, useState, useEffect } from "react";
-import { getCheckBoxSize,getCheckBoxColor } from "./checkbox.style";
 
+import { getCheckBoxSize,getCheckBoxColor } from "./checkbox.style";
 import { CheckBoxInterface } from "./checkbox.interface";
 import Loading from "components/loading/Loading";
 import CheckBoxIcon from "./checkbox-icon";
-import CheckBoxGroup from "./checkbox-group";
+
 
 
 const checkbox: React.FC<CheckBoxInterface> = ({
@@ -17,20 +17,22 @@ const checkbox: React.FC<CheckBoxInterface> = ({
   size,
   style,
   loading,
-  icon,
   iconStyle,
-  iconRight,
   disabled,
   checked,
-  value
+  value,
+  id,
+  onChange
 }) => {
   const { padding, fontSize,iconPosition } = useMemo(() => getCheckBoxSize(size), [size]);
   const {...checkBox } = useMemo(() => getCheckBoxColor(color), [color]);
   const [selfChecked, setSelfChecked] = useState<boolean>(false);
 
-  const changeHandle = () => {
+  const changeHandler = ({ currentTarget: { id, value } }) => {
     if(disabled) return;
     setSelfChecked(!selfChecked);
+    onChange(value);
+    // console.log(value);
   };
 
   useEffect(() => {
@@ -39,8 +41,8 @@ const checkbox: React.FC<CheckBoxInterface> = ({
   }, [checked]);
   return (
     <>
-      <div className={`checkbox-wrapper noselect ${className && className}`} style={style}>
-        <label className={`checkbox-label ${checkBoxWidth && checkBoxWidth}`}>
+      <div className={`checkbox-wrapper noselect ${className ? className : ""}`} style={style}>
+        <label className={`checkbox-label ${checkBoxWidth ? checkBoxWidth : ""}`}>
           {!loading && (
             <CheckBoxIcon iconPosition={iconPosition} disabled={disabled} checked={selfChecked}/>
           )}
@@ -49,12 +51,12 @@ const checkbox: React.FC<CheckBoxInterface> = ({
             className="checkbox"
             checked={selfChecked}
             //   disabled={disabled}
-            onChange={changeHandle}
+            onChange={changeHandler}
             value={value}
           />
           {loading && (
           <Loading bgColor={color == 'white' ? 'black' : checkBox.textColor} padding={padding} />
-        )}
+            )}
           <span className="checkbox-title" 
           style={disabled || loading ? { pointerEvents: "none" } : {}}>{!loading && title}</span>
         </label>
@@ -79,7 +81,7 @@ const checkbox: React.FC<CheckBoxInterface> = ({
           align-items: center;
           width: ${width && width};  
           border: ${checkBox.border};
-          background: ${color === "white" ?  checkBox.bg : "var(--white)"};
+          background: ${color === "white" ?  checkBox.bg : "var(--primary-white)"};
           transition: all .2s ease;
         }
 
@@ -117,8 +119,8 @@ const checkbox: React.FC<CheckBoxInterface> = ({
 
 
 //TODO გაარკვიე როგორ მუშაობს Group
-type CheckboxComponent<P = {}> = React.FC<P> & {
-    Group: typeof CheckBoxGroup;
-}
+// type CheckboxComponent<P = {}> = React.FC<P> & {
+//     Group: typeof CheckBoxGroup;
+// }
 
-export default checkbox as CheckboxComponent<CheckBoxInterface>;
+export default checkbox;

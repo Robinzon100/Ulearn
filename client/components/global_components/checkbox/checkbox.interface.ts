@@ -1,14 +1,22 @@
-import { MouseEventHandler } from "react";
-import {GlobalInterface} from "../../../interfaces/global.interface";
+import { CSSProperties, MouseEventHandler } from "react";
 
-export interface CheckBoxInterface extends GlobalInterface {
+
+export interface CheckBoxInterface  {
+    color?:"primary" | "blue" | "yellow" | "green" | "red" | "white" | "black",
+    size?:"small" | "medium" | "large",
+    title?:string,
+    className?:string,
+    style?:CSSProperties,
+    disabled?:boolean,
+    loading?:boolean,
+    id?:number,
+    iconStyle?:CSSProperties
     onClick?:MouseEventHandler<HTMLButtonElement>;
     checkBoxWidth?:string;
     width?:string,
     onChange?:any;
     checked?:boolean
     value?:string
-    size?:"small" | "medium" | "large",
 }
 
 export interface CheckBoxSizeGroupInterface {
@@ -24,7 +32,6 @@ export interface CheckBoxStyleInterface  {
     activeShadow?:string
     textColor?:string
     border?:string
-    iconColor?:string,
-
+    iconColor?:string
 }
 

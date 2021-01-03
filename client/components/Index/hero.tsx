@@ -5,6 +5,7 @@ import { useRootStore } from "../../mobx/RootStateContext";
 import Button from "components/global_components/button/Button";
 import { ChevronDown} from 'react-feather';
 import CheckBox from "components/global_components/checkbox/checkbox";
+import Radio from "components/global_components/radio/radio";
 import CheckBoxGroup from "components/global_components/checkbox/checkbox-group";
 
 
@@ -12,7 +13,7 @@ import CheckBoxGroup from "components/global_components/checkbox/checkbox-group"
 const Hero: FC = () => {
     const handler = (value) => {
         console.log(value)
-      }
+    }
   return (
     <>
     
@@ -20,26 +21,24 @@ const Hero: FC = () => {
         <div className="hero--mobile-bg"></div>
         <div className="hero--steps">
           <div className="hero--steps__heading">
-            <h1 className="bold heading-3_5">
+            <h1 className="bold f-size-h5">
               რაღაცა ტექსტი იქნება აქ რომელიც აღწერს სერვის
             </h1>
           </div>
           <div className="hero--steps__line"></div>
           <div className="hero--steps__paragraph">
-            <p className="regular paragraph-medium-mini">
+            <p className="regular f-size-p5">
               რაიმე პატარა ტექსტი რომელიც უფრო დეტალურად აღწერს რას აკეთებს
               საიტი და ისეთი სიტყვები იქნება რაც SEO-ს დაევასება და googl-იც
               მაღლა აგვაგდებს
             </p>
           </div>
           <div className="hero--steps__btn">
-           
               <Button
                 title="შემოგვიერთდი"
                 className=""
                 route="/register"
                 onClick={() => console.log('asdasda')}
-                
                 color="white"
                 size="large"
                 disabled={false}
@@ -47,8 +46,8 @@ const Hero: FC = () => {
                 // stroke="black"
                 icon={<ChevronDown/>}
                 />
-              
-                <CheckBox
+              <CheckBoxGroup onChange={handler}>
+               <CheckBox
                     size="large"
                     color="white"
                     disabled={false}
@@ -57,10 +56,34 @@ const Hero: FC = () => {
                     // width="31rem"
                     checked={false}
                     value="beqa"
+                    onChange={handler}
                 />
-              
-                
 
+                <CheckBox
+                    size="large"
+                    color="white"
+                    disabled={false}
+                    loading={false}
+                    title="შემოგვიერთდი"
+                    // width="31rem"
+                    checked={false}
+                    value="beqaaaaaa"
+                    onChange={handler}
+                />
+              </CheckBoxGroup>
+      
+                {/* <Radio
+                    size="large"
+                    color="white"
+                    disabled={false}
+                    loading={false}
+                    title="შემოგვიერთდი"
+                    // width="31rem"
+                    checked={false}
+                    value="beqa"
+                /> */}
+
+                
             </div>
         </div>
         <div className="hero--video">

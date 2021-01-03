@@ -46,13 +46,13 @@ const sideMenu: React.FC<videoList> = (
         <div onClick={handleSetRevealContent} className="card_container">
           <div className="card">
             <div className="card__number">
-              <p className="regular paragraph-medium">{id}</p>
+              <p className="regular f-size-p5">{id}</p>
             </div>
             <div className="card__text">
-              <p className=" regular paragraph-medium">{title}</p>
+              <p className=" regular f-size-p5">{title}</p>
             </div>
             <div className="card__time">
-              <p className="light paragraph-smallest">
+              <p className="light f-size-p7">
                 {courseChapterTime}m
               </p>
             </div>
@@ -77,7 +77,7 @@ const sideMenu: React.FC<videoList> = (
               <div className="details_heading">
                 <p className="regular paragraph-medium-mini ">
                   {sub.text}
-                  <span className="semi-bold paragraph-smallest">
+                  <span className="bold f-size-p7">
                     ({sub.amountOfMinutes}m)
                   </span>
                 </p>

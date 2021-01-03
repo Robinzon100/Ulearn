@@ -42,6 +42,9 @@ const Register: React.FC = () => {
 
     return (
         <>
+        {/* //* აქ შეიძლება ვცდები მაგრამ მგონი ერმანეთზე რო იყო მიჯრილი მაგიტო იჭრებოდა შადოუ */}
+        {/* //* კონტეინერსტაილს მიეცი თუ გინდა რომ მარგინი ქნას */}
+
             <Input
                 size={'medium'}
                 color='white'
@@ -49,25 +52,46 @@ const Register: React.FC = () => {
                 containerStyle={{ marginTop: '10rem' }}
                 value={full_name}
                 type='text'
+<<<<<<< HEAD
+=======
+                className={"regular f-size-p6"}
+
+>>>>>>> 41bde1db87888aed25456121f812f3fdeae44cda
                 width='50rem'
                 onChange={(e) => handleInputChange(e, 'full_name')} />
             <Input
                 containerStyle={{ marginTop: '1rem' }}
+<<<<<<< HEAD
                 size={'medium'}
                 color='white'
                 placeHolder='enter your email'
                 value={email}
                 type='email'
+=======
+                size={'large'}
+                placeHolder='enter your email'
+                value={email}
+                type='email'
+                className={"regular f-size-p6"}
+>>>>>>> 41bde1db87888aed25456121f812f3fdeae44cda
                 iconRight={<Mail size={20} strokeWidth='1.5px' />}
                 width='50rem'
                 onChange={(e) => handleInputChange(e, 'email')} />
             <Input
                 containerStyle={{ marginTop: '1rem' }}
+<<<<<<< HEAD
                 size={'medium'}
                 color='white'
                 placeHolder='enter your password'
                 value={password}
                 type='password'
+=======
+                size={'large'}
+                placeHolder='enter your password'
+                value={password}
+                type='password'
+                className={"regular f-size-p6"}
+>>>>>>> 41bde1db87888aed25456121f812f3fdeae44cda
                 width='50rem'
                 iconRight={<Eye size={20} strokeWidth='1.5px' />}
                 onChange={(e) => handleInputChange(e, 'password')} />
@@ -78,7 +102,12 @@ const Register: React.FC = () => {
                 placeHolder='enter your recovery email'
                 value={recovery_email}
                 type='email'
+<<<<<<< HEAD
                 iconRight={<Mail size={20} strokeWidth='1.5px' />}
+=======
+                className={"regular f-size-p6"}
+                icon={<Mail size={16} strokeWidth='1.5px' />}
+>>>>>>> 41bde1db87888aed25456121f812f3fdeae44cda
                 width='50rem'
                 onChange={(e) => handleInputChange(e, 'recovery_email')} />
 
