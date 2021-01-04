@@ -13,7 +13,7 @@ let corsOptions = {
     optionsSuccessStatus: 200,
     methods: ['GET', 'PUT', 'POST', 'PATCH', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    exposedHeaders: ['refreshToken', 'accessToken']
+    exposedHeaders: ['x-access_token', 'x-refresh_token', 'x-token_expiration']
 }
 
 

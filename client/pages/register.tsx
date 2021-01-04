@@ -8,6 +8,7 @@ import { useRootStore } from '../mobx/RootStateContext';
 
 const Register: React.FC = () => {
     const [cookie, setCookie] = useCookies()
+
     const { userStore } = useRootStore();
 
 
@@ -31,12 +32,10 @@ const Register: React.FC = () => {
         let response = await postRegistration(registrationInfo)
         if (response) {
             setCookie('refreshToken', response.refreshToken, { sameSite: true })
-            localStorage.setItem('accessToken', response.accessToken)
-            userStore.isLogedIn = true
+            localStorage.setItem('token', JSON.stringify({token: response.accessToken, expiration: response.expiration}))
+            // userStore.isLogedIn = true
         }
     }
-
-
 
 
     let { full_name, email, password, recovery_email } = registrationInfo
@@ -47,9 +46,10 @@ const Register: React.FC = () => {
         {/* //* კონტეინერსტაილს მიეცი თუ გინდა რომ მარგინი ქნას */}
 
             <Input
-                size={'large'}
+                size={'medium'}
+                color='white'
                 placeHolder='enter your full name'
-                style={{ marginTop: '1rem' }}
+                containerStyle={{ marginTop: '10rem' }}
                 value={full_name}
                 type='text'
                 className={"regular f-size-p6"}
@@ -78,7 +78,8 @@ const Register: React.FC = () => {
                 onChange={(e) => handleInputChange(e, 'password')} />
             <Input
                 containerStyle={{ marginTop: '1rem' }}
-                size={'mini'}
+                size={'medium'}
+                color='white'
                 placeHolder='enter your recovery email'
                 value={recovery_email}
                 type='email'
@@ -89,7 +90,7 @@ const Register: React.FC = () => {
 
             <Button
                 color='black'
-                size='large'
+                size='small'
                 title='დარეგისტრირდი'
                 onClick={() => handleSend()}
                 style={{ marginTop: '2rem' }}
@@ -97,7 +98,7 @@ const Register: React.FC = () => {
             // buttonWidth='100%'
             />
 
-            <p>asd{JSON.stringify(userStore.isLogedIn)}</p>
+            {/* <p>{userStore.isLogedIn = false}</p> */}
         </>
     )
 }
