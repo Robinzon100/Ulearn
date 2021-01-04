@@ -1,6 +1,6 @@
-import {RadioSizeGroupInterface,RadioStyleInterface} from "./radio.interface";
+import {IRadioSizeGroup,IRadioStyle} from "./radio.interface";
 
-export const getRadioColor = (color: string): RadioStyleInterface => {
+export const getRadioColor = (color: string): IRadioStyle => {
     //* დიდად ამაზე აქტივე შადოუ არ მომწონს. არ ხდება ამ შემთხვევაში თვალს.
     //* ჩექის ნიშანი ისედაც აქვს და კიდევ ბორდერით მითითება აღარ უნდა. დაინახავს რომ დააჭირა ისედაც
     //* კიდევ თვალში რომ არ ვზასოთ
@@ -58,7 +58,7 @@ export const getRadioColor = (color: string): RadioStyleInterface => {
   return colors[color];
 };
 
-export const getRadioSize = (size: string): RadioSizeGroupInterface => {
+export const getRadioSize = (size: string): IRadioSizeGroup => {
   const layouts = {
     small: {
       padding: "var(--small-button-padding)",

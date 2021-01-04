@@ -15,6 +15,7 @@ const surname = ({ value, handleInputChange,handleNextStep,handlePrevStep }) => 
           type="text"
           value={value}
           onChange={(e) => handleInputChange(e, "surname")}
+          width="100%"
         />
 
 <Button

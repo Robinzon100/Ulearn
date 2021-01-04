@@ -46,8 +46,20 @@ const Hero: FC = () => {
                 // stroke="black"
                 icon={<ChevronDown/>}
                 />
-              <CheckBoxGroup onChange={handler}>
-               <CheckBox
+
+          
+                <CheckBox
+                    size="large"
+                    color="white"
+                    disabled={false}
+                    loading={false}
+                    title="შემოგვიერთდი"
+                    // width="31rem"
+                    // checked={false}
+                    value="beqaaaaaa"
+                    onChange={handler}
+                />
+                 {/* <CheckBox
                     size="large"
                     color="white"
                     disabled={false}
@@ -57,20 +69,9 @@ const Hero: FC = () => {
                     checked={false}
                     value="beqa"
                     onChange={handler}
-                />
-
-                <CheckBox
-                    size="large"
-                    color="white"
-                    disabled={false}
-                    loading={false}
-                    title="შემოგვიერთდი"
-                    // width="31rem"
-                    checked={false}
-                    value="beqaaaaaa"
-                    onChange={handler}
-                />
-              </CheckBoxGroup>
+                /> */}
+   
+       
       
                 {/* <Radio
                     size="large"

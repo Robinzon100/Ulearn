@@ -1,6 +1,6 @@
-import {CheckBoxSizeGroupInterface,CheckBoxStyleInterface} from "./checkbox.interface";
+import {ICheckBoxSizeGroup,ICheckBoxStyle} from "./checkbox.interface";
 
-export const getCheckBoxColor = (color: string): CheckBoxStyleInterface => {
+export const getCheckBoxColor = (color: string): ICheckBoxStyle => {
   const colors = {
     white: {
       bg: "var(--primary-grey)",
@@ -55,7 +55,7 @@ export const getCheckBoxColor = (color: string): CheckBoxStyleInterface => {
   return colors[color];
 };
 
-export const getCheckBoxSize = (size: string): CheckBoxSizeGroupInterface => {
+export const getCheckBoxSize = (size: string): ICheckBoxSizeGroup => {
   const layouts = {
     small: {
       padding: "var(--small-button-padding)",
@@ -73,7 +73,6 @@ export const getCheckBoxSize = (size: string): CheckBoxSizeGroupInterface => {
       iconPosition: "8%",
     },
   };
-  if(size === "mini") return layouts.small;
   if (!size) return layouts.medium;
 
   return layouts[size];

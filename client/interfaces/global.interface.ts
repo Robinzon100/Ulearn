@@ -1,6 +1,6 @@
 import { CSSProperties, ReactNode } from "react";
 
-export interface GlobalInterface {
+export interface IGlobal {
     color?:"primary" | "blue" | "yellow" | "green" | "red" | "white" | "black",
     size?:"mini" | "small" | "medium" | "large",
     title?:string,
@@ -15,8 +15,9 @@ export interface GlobalInterface {
 }
 
 
-export interface LoadingInterface {
+export interface ILoadingInterface {
     bgColor?:string
     width?:string
     padding?:string
+    style?:CSSProperties
 }

@@ -1,5 +1,5 @@
 
-import { InputSizeGroup, InputStateGroup } from './Input.interface';
+import { IinputSizeGroup, IinputStateGroup } from './Input.interface';
 
 
 
@@ -16,7 +16,6 @@ const sizes = {
         focusedPadding: '10px 12px 10px 5px',
         paddingWithOutIcons:'10px 12px 10px 12px'
     },
-    //! თუ მერგი ამოაგდო,აქ ჩემი შეცვლილები შეინახე
     medium: {
         padding: '12px 14px 12px 0px',
         fontSize: '17px',
@@ -30,7 +29,7 @@ const sizes = {
         paddingWithOutIcons:'16px 18px 16px 18px'
     },
 }
-export const getInputSize = (size: string): InputSizeGroup => {
+export const getInputSize = (size: string): IinputSizeGroup => {
     if (!size) return sizes.medium
     return sizes[size]
 }
@@ -62,7 +61,7 @@ const colors = {
     }
 }
 
-export const getColors = (color: string): InputStateGroup => {
+export const getColors = (color: string): IinputStateGroup => {
     if (!color) return colors.white;
     return colors[color]
 }

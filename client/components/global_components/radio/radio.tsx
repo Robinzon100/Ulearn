@@ -1,11 +1,11 @@
 import { useMemo, memo, useState, useEffect,FC } from "react";
 
 import { getRadioSize,getRadioColor } from "./ratio.style";
-import { RadioInterface } from "./radio.interface";
+import { IRadio } from "./radio.interface";
 import Loading from "components/loading/Loading";
 import RadioIcon from "./radio-icon";
 
-const radio:FC<RadioInterface> = ({
+const radio:FC<IRadio> = ({
     width,
     radioWidth,
     onClick,

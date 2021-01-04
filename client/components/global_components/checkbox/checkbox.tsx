@@ -1,13 +1,13 @@
 import { useMemo, memo, useState, useEffect } from "react";
 
 import { getCheckBoxSize,getCheckBoxColor } from "./checkbox.style";
-import { CheckBoxInterface } from "./checkbox.interface";
+import { ICheckBox } from "./checkbox.interface";
 import Loading from "components/loading/Loading";
 import CheckBoxIcon from "./checkbox-icon";
 
 
 
-const checkbox: React.FC<CheckBoxInterface> = ({
+const checkbox: React.FC<ICheckBox> = ({
   width,
   checkBoxWidth,
   onClick,
@@ -27,6 +27,8 @@ const checkbox: React.FC<CheckBoxInterface> = ({
   const { padding, fontSize,iconPosition } = useMemo(() => getCheckBoxSize(size), [size]);
   const {...checkBox } = useMemo(() => getCheckBoxColor(color), [color]);
   const [selfChecked, setSelfChecked] = useState<boolean>(false);
+  const [selfVal, setSelfVal] = useState<string | number>();
+
 
   const changeHandler = ({ currentTarget: { id, value } }) => {
     if(disabled) return;
@@ -50,15 +52,14 @@ const checkbox: React.FC<CheckBoxInterface> = ({
             type="checkbox"
             className="checkbox"
             checked={selfChecked}
-            //   disabled={disabled}
+            disabled={disabled}
             onChange={changeHandler}
             value={value}
           />
           {loading && (
           <Loading bgColor={color == 'white' ? 'black' : checkBox.textColor} padding={padding} />
             )}
-          <span className="checkbox-title" 
-          style={disabled || loading ? { pointerEvents: "none" } : {}}>{!loading && title}</span>
+          <span className="checkbox-title">{!loading && title}</span>
         </label>
       </div>
 
@@ -71,7 +72,7 @@ const checkbox: React.FC<CheckBoxInterface> = ({
         .checkbox-label {
           opacity: ${disabled || loading ? 0.8 : 1};
           cursor: ${disabled || loading ? "not-allowed" : "pointer"};
-          pointer-events: ${disabled || loading ? "none" : "auto" };
+          pointerEvents: ${disabled || loading ? "none" : "auto" };
           position: relative;
           border-radius: 8px;
           box-shadow:${checkBox.defaultShadow};

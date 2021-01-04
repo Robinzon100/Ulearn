@@ -34,28 +34,31 @@ const SortingDropdown: React.FC<SortingDropdown> = ({ type }) => {
 
             {type === "rating" && (
                 <Select
+                    // width="11vw"
                     size="small"                 
                     placeHolder="რეიტინგი"
                     id={2}
-                    type="radio"
                     options={SelectJson.SelectRatingsOptions}
                     onChange={handleSelectChange}
                     icon={<Star size={15}/>}
-                    iconStyle={{ color: "yellow", opacity: "70%",backgroundColor:"var(--primary-yellow)" }}
+                    color="yellow"
+                    loading={false}
+                    disabled={false}
+
                 />
 
             )}
 
             {type === "time" && (
                 <Select
-                    size="small"  
+                    // width="13vw"
+                    size="large"  
                     placeHolder="ხანგძლივობა"
                     id={3}
-                    type="radio"
                     options={SelectJson.SelectTimeOptions}
                     onChange={handleSelectChange}
                     icon={<Clock size={15} />}
-                    iconStyle={{ color: "red", opacity: "70%",backgroundColor:"var(--primary-red)" }}
+                    color="red"
 
                 />
             )}

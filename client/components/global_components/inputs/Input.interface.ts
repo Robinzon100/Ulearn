@@ -1,8 +1,8 @@
 
-import {GlobalInterface} from "../../../interfaces/global.interface";
+import {IGlobal} from "../../../interfaces/global.interface";
 
 
-export interface InputInterface extends GlobalInterface {
+export interface IinputInterface extends IGlobal {
     width:string,
     type: "text" | "email" | "password" | "number";
     placeHolder?: string;
@@ -13,14 +13,14 @@ export interface InputInterface extends GlobalInterface {
 }
 
 
-export type InputSizeGroup = {
+export interface IinputSizeGroup  {
     fontSize?:string,
     padding?:string,
     focusedPadding?:string
     paddingWithOutIcons?:string
 }
 
-export type InputStateGroup = {
+export interface IinputStateGroup  {
     defaultBg?:string,
     textColor?:string,
     borderColor:string 

@@ -1,7 +1,7 @@
 import { CSSProperties, MouseEventHandler } from "react";
 
 
-export interface CheckBoxInterface  {
+export interface ICheckBox  {
     color?:"primary" | "blue" | "yellow" | "green" | "red" | "white" | "black",
     size?:"small" | "medium" | "large",
     title?:string,
@@ -19,13 +19,13 @@ export interface CheckBoxInterface  {
     value?:string
 }
 
-export interface CheckBoxSizeGroupInterface {
+export interface ICheckBoxSizeGroup {
     padding: string
     fontSize?:string
     iconPosition?:string
 }
 
-export interface CheckBoxStyleInterface  {
+export interface ICheckBoxStyle  {
     bg?:string
     defaultShadow?:string
     hoverShadow?:string

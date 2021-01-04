@@ -1,14 +1,31 @@
-import {GlobalInterface} from "../../../interfaces/global.interface";
+import { CSSProperties, ReactNode } from "react";
+import {IGlobal } from "../../../interfaces/global.interface";
 
-export interface SelectInterface extends GlobalInterface {
-    type: "radio";
+export interface ISelect extends IGlobal {
+    size?:"small" | "medium" | "large",
+    color?:"primary" | "blue" | "yellow" | "green" | "red" | "white" | "black",
     placeHolder?: string;
-    containerStyle?: any;
     value?: string;
-    onChange?: any;    
+    onChange?: any;
+    onClick?:any;    
     options?:any,
-    dropDownClassName?:string,
-    dropDownStyle?:string,
     name?:string
     width?:string
+    className?:string,
+    style?:CSSProperties,
+    disabled?:boolean,
+    loading?:boolean,
+    id?:number,
+    icon?:ReactNode,
+    iconStyle?:CSSProperties
+}
+
+
+export interface ISelectSizeGroup {
+    iconPosition?:string
+    iconPadding?:string
+    padding?:string
+}
+export interface ISelectColorGroup {
+    iconBgColor?:string
 }

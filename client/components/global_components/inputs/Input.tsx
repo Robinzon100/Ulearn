@@ -1,8 +1,8 @@
 import { useMemo } from "react";
-import { InputInterface } from "components/global_components/inputs/Input.interface";
+import { IinputInterface } from "components/global_components/inputs/Input.interface";
 import { getInputSize, getColors } from "./inputs.style";
 
-const Input: React.FC<InputInterface> = ({
+const Input: React.FC<IinputInterface> = ({
   color,
   type,
   size,

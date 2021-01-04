@@ -1,8 +1,8 @@
 import {MouseEventHandler} from "react";
 
-import {GlobalInterface} from "../../../interfaces/global.interface";
+import {IGlobal} from "../../../interfaces/global.interface";
 
-export interface ButtonInterface extends GlobalInterface {
+export interface ButtonInterface extends IGlobal {
   stroke?:"primary" | "blue" | "yellow" | "green" | "red" | "black";
   onClick?:MouseEventHandler<HTMLButtonElement>;
   route?: string;
@@ -31,7 +31,7 @@ export interface ButtonStyleInterface  {
     btnShadowDisabled?:string,
 }
 
-export interface ButtonLoadingInterface {
+export interface ButtonILoadingInterface {
     bgColor?:string
     width?:string
     padding?:string

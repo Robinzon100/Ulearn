@@ -2,7 +2,7 @@ import { CSSProperties, MouseEventHandler } from "react";
 
 
 
-export interface RadioInterface  {
+export interface IRadio  {
     color?:"primary" | "blue" | "yellow" | "green" | "red" | "white" | "black",
     size?:"small" | "medium" | "large",
     title?:string,
@@ -20,13 +20,13 @@ export interface RadioInterface  {
     value?:string
 }
 
-export interface RadioSizeGroupInterface {
+export interface IRadioSizeGroup {
     padding: string
     fontSize?:string
     iconPosition?:string
 }
 
-export interface RadioStyleInterface  {
+export interface IRadioStyle  {
     bg?:string
     defaultShadow?:string
     hoverShadow?:string
