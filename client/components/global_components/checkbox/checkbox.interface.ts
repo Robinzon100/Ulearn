@@ -16,7 +16,7 @@ export interface ICheckBox  {
     width?:string,
     onChange?:any;
     checked?:boolean
-    value?:string
+    value?:string | number
 }
 
 export interface ICheckBoxSizeGroup {

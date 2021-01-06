@@ -34,6 +34,7 @@ const Register: React.FC = () => {
             setCookie('refreshToken', response.refreshToken, { sameSite: true })
             localStorage.setItem('token', JSON.stringify({token: response.accessToken, expiration: response.expiration}))
             // userStore.isLogedIn = true
+            
         }
     }
 

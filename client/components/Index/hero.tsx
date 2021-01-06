@@ -1,4 +1,4 @@
-import { FC} from "react";
+import { FC, useState} from "react";
 import { useRootStore } from "../../mobx/RootStateContext";
 
 
@@ -11,9 +11,20 @@ import CheckBoxGroup from "components/global_components/checkbox/checkbox-group"
 
 
 const Hero: FC = () => {
+    // const [fruits, setFruits] = useState<string[]>(['apple', 'watermelon'])
+    const [storedValues, setStoredValues] = useState<any[]>([])
+
+    const [names, setNames] = useState({
+        name: "beqa",
+        surname: "jumber",
+    });
+
     const handler = (value) => {
         console.log(value)
+        // setStoredValues([value])
     }
+
+    const {name,surname} = names;
   return (
     <>
     
@@ -34,7 +45,7 @@ const Hero: FC = () => {
             </p>
           </div>
           <div className="hero--steps__btn">
-              <Button
+              {/* <Button
                 title="შემოგვიერთდი"
                 className=""
                 route="/register"
@@ -45,32 +56,29 @@ const Hero: FC = () => {
                 loading={false}
                 // stroke="black"
                 icon={<ChevronDown/>}
-                />
-
-          
-                <CheckBox
-                    size="large"
-                    color="white"
-                    disabled={false}
-                    loading={false}
-                    title="შემოგვიერთდი"
-                    // width="31rem"
-                    // checked={false}
-                    value="beqaaaaaa"
-                    onChange={handler}
-                />
-                 {/* <CheckBox
-                    size="large"
-                    color="white"
-                    disabled={false}
-                    loading={false}
-                    title="შემოგვიერთდი"
-                    // width="31rem"
-                    checked={false}
-                    value="beqa"
-                    onChange={handler}
                 /> */}
-   
+
+            <CheckBoxGroup 
+              onChange={handler}
+              checkboxes={[
+                {
+                  label: 'პროგრამირება',
+                  value: 23,
+                  checked: false
+                },
+                {
+                  label: 'მუსიკა',
+                  value: 44,
+                  checked: false
+                },
+                {
+                  label: 'დიზაინი',
+                  value: 5,
+                  checked: false
+                },
+              ]}
+              />  
+
        
       
                 {/* <Radio

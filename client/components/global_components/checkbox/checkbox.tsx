@@ -6,8 +6,7 @@ import Loading from "components/loading/Loading";
 import CheckBoxIcon from "./checkbox-icon";
 
 
-
-const checkbox: React.FC<ICheckBox> = ({
+const CheckBox: React.FC<ICheckBox> = ({
   width,
   checkBoxWidth,
   onClick,
@@ -27,23 +26,30 @@ const checkbox: React.FC<ICheckBox> = ({
   const { padding, fontSize,iconPosition } = useMemo(() => getCheckBoxSize(size), [size]);
   const {...checkBox } = useMemo(() => getCheckBoxColor(color), [color]);
   const [selfChecked, setSelfChecked] = useState<boolean>(false);
-  const [selfVal, setSelfVal] = useState<string | number>();
+  const [selfVal, setSelfVal] = useState(value);
+  
 
 
-  const changeHandler = ({ currentTarget: { id, value } }) => {
+  const changeHandler = (e,value) => {
     if(disabled) return;
     setSelfChecked(!selfChecked);
-    onChange(value);
-    // console.log(value);
+    onChange({checked: e.target.checked, value: selfVal})
   };
+
+
 
   useEffect(() => {
     if (checked === undefined) return;
     setSelfChecked(checked);
   }, [checked]);
+
+
+  
+
+
   return (
     <>
-      <div className={`checkbox-wrapper noselect ${className ? className : ""}`} style={style}>
+      <div className={`checkbox-wrapper noselect ${className ? className : ""}`} data-is-open={'state'} style={style}>
         <label className={`checkbox-label ${checkBoxWidth ? checkBoxWidth : ""}`}>
           {!loading && (
             <CheckBoxIcon iconPosition={iconPosition} disabled={disabled} checked={selfChecked}/>
@@ -53,8 +59,8 @@ const checkbox: React.FC<ICheckBox> = ({
             className="checkbox"
             checked={selfChecked}
             disabled={disabled}
-            onChange={changeHandler}
-            value={value}
+            onChange={(e) => changeHandler(e,value)}
+            value={selfVal}
           />
           {loading && (
           <Loading bgColor={color == 'white' ? 'black' : checkBox.textColor} padding={padding} />
@@ -68,7 +74,6 @@ const checkbox: React.FC<ICheckBox> = ({
 
       <style jsx>{`
 
-
         .checkbox-label {
           opacity: ${disabled || loading ? 0.8 : 1};
           cursor: ${disabled || loading ? "not-allowed" : "pointer"};
@@ -80,7 +85,7 @@ const checkbox: React.FC<ICheckBox> = ({
           display: inline-flex;
           justify-content: center;
           align-items: center;
-          width: ${width && width};  
+          width: ${width && width};
           border: ${checkBox.border};
           background: ${color === "white" ?  checkBox.bg : "var(--primary-white)"};
           transition: all .2s ease;
@@ -124,4 +129,4 @@ const checkbox: React.FC<ICheckBox> = ({
 //     Group: typeof CheckBoxGroup;
 // }
 
-export default checkbox;
+export default CheckBox;
