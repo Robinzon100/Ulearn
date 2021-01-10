@@ -37,7 +37,7 @@ const Hero: FC = () => {
             </p>
           </div>
           <div className="hero--steps__btn">
-              {/* <Button
+              <Button
                 title="შემოგვიერთდი"
                 className=""
                 route="/register"
@@ -48,57 +48,7 @@ const Hero: FC = () => {
                 loading={false}
                 // stroke="black"
                 icon={<ChevronDown/>}
-                /> */}
-
-                <RadioGroup
-                    onChange={handler}
-                    radios={[
-                        {
-                            key:1,
-                            label: 'პროგრამირება',
-                            value: 23,
-                            name:"comp",
-                          },
-                          {
-                            key:2,
-                            label: 'მუსიკა',
-                            value: 44,
-                            name:"comp"
-                    
-                          },
-                          {
-                            key:3,
-                            label: 'დიზაინი',
-                            value: 5,
-                            name:"comp"
-                    
-                          }
-                      ]}
                 />
-                {/* <Radio
-                  size="large"
-                  color="white"
-                  disabled={false}
-                  loading={false}
-                  title="რაღაცა"
-                  checked={false}
-                  value="programireba"
-                  onChange={handler}
-                  name="beqa"
-                /> */}
-
-
-
-                {/* <CheckBox
-                  size="large"
-                  color="white"
-                  disabled={false}
-                  loading={false}
-                  title="რაღაცა"
-                  checked={false}
-                  value="beqa"
-                  onChange={handler}
-                /> */}
               
             </div>
         </div>
