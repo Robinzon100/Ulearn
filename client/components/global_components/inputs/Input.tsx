@@ -21,9 +21,6 @@ const Input: React.FC<IinputInterface> = ({
   iconStyle,
   width,
 }) => {
-  const {fontSize,padding,focusedPadding,paddingWithOutIcons} = useMemo(() => getInputSize(size), [size]);
-  const { ...fillColors } = useMemo(() => getColors(color), [color]);
-
   return (
     <>
       <div
@@ -39,7 +36,7 @@ const Input: React.FC<IinputInterface> = ({
           value={value}
           className={`input_field ${className && className}`}
           placeholder={placeHolder}
-          style={!icon ? { padding: `${paddingWithOutIcons}` } : style}
+          style={!icon ? { padding: `${getInputSize(size).paddingWithOutIcons}` } : style}
         />
 
         { iconRight && (
@@ -60,17 +57,17 @@ const Input: React.FC<IinputInterface> = ({
               display: flex;
               align-items: center;
               border-radius: 8px;
-              border: ${fillColors.borderColor};
-              background: ${color === "white" ?  fillColors.defaultBg : "var(--primary-white)"};
+              border: ${getColors(color).borderColor};
+              background: ${color === "white" ?  getColors(color).defaultBg : "var(--primary-white)"};
               transition: all 0.1s cubic-bezier(0, 1.06, 0.37, 0.38);
               outline: none !important;
             }
 
             .input_field {
               font-family: var(--regular);
-              font-size: ${fontSize};
-              padding: ${padding};
-              background: ${color === "white" ?  fillColors.defaultBg : "var(--primary-white)"};
+              font-size: ${getInputSize(size).fontSize};
+              padding: ${getInputSize(size).padding};
+              background: ${color === "white" ?  getColors(color).defaultBg : "var(--primary-white)"};
               box-sizing: border-box;
               border-radius: 8px; 
               outline: none !important;
@@ -100,7 +97,7 @@ const Input: React.FC<IinputInterface> = ({
             .input_field:focus {
               background:var(--primary-white);
               opacity: 100%;
-              padding: ${focusedPadding};
+              padding: ${getInputSize(size).focusedPadding};
             }
             .input_field:focus::placeholder {
                 opacity: 100%;
@@ -110,7 +107,7 @@ const Input: React.FC<IinputInterface> = ({
 
             .input_field::placeholder {
               opacity: 70%;
-              color: ${color === "red" ?  fillColors.textColor : "var(--secondary-light-black)"};
+              color: ${color === "red" ?  getColors(color).textColor : "var(--secondary-light-black)"};
             }
 
             .icon_base-style {

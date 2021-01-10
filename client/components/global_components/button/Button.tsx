@@ -34,9 +34,6 @@ const Button: FC<ButtonInterface> = ({
     }
   }, []);
 
-
-
-  const {padding, fontSize,iconPosition } = useMemo(() => getButtonSize(size), [size]);
   const { ...fillColors } = useMemo(() => getButtonColors(color,stroke), [color,stroke]);
   const { ...strokeColors } = useMemo(() => getButtonStrokeColors(stroke), [stroke]);
 
@@ -49,6 +46,7 @@ const Button: FC<ButtonInterface> = ({
         type={type}
         className={`btn ${className ? className : ""}`}
         style={style}>
+
         {size !== "mini" && icon && !loading &&(
           <span
             className="icon_base-style icon"
@@ -63,7 +61,9 @@ const Button: FC<ButtonInterface> = ({
 
 
         {loading && (
-          <Loading bgColor={color == 'white' || stroke ? fillColors.textColor : 'white'} padding={padding} />
+          <Loading 
+          bgColor={color == 'white' || stroke ? fillColors.textColor : 'white'} 
+          padding={getButtonSize(size).padding} />
         )}
 
 
@@ -91,7 +91,7 @@ const Button: FC<ButtonInterface> = ({
             box-shadow: ${stroke ? strokeColors.defaultShadow : fillColors.defaultShadow};
             width: ${width && width};
             height: auto;
-            padding: ${padding};
+            padding: ${getButtonSize(size).padding};
             position: relative;
             border-image: none;
             text-decoration: none;
@@ -119,7 +119,7 @@ const Button: FC<ButtonInterface> = ({
 
           .title {
             color: ${stroke || color === "white" ?   strokeColors.textColor : "white" };
-            font-size: ${fontSize};
+            font-size: ${getButtonSize(size).fontSize};
             font-family: var(--button-fontFamily);
             text-align: center;
             font-weight: 400;
@@ -150,12 +150,12 @@ const Button: FC<ButtonInterface> = ({
           } 
 
           .icon {
-            left: ${iconPosition};
+            left: ${getButtonSize(size).iconPosition};
             transform: translate(50%, -50%);
           }
 
         .iconRight {
-            right: ${iconPosition};
+            right: ${getButtonSize(size).iconPosition};
             transform: translate(-50%, -50%);
           }
         `}</style>

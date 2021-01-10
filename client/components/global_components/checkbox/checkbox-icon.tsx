@@ -50,7 +50,8 @@ const CheckboxIcon: React.FC<Props> = ({ iconPosition,disabled, checked }) => {
           width: 2rem;
           height: 2rem;
           position: absolute;
-          left: ${iconPosition};
+          left: 0;
+          margin:${iconPosition};
           transform: translate(50%, -50%);
           top: 50%;
         }

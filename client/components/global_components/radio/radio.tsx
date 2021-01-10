@@ -1,13 +1,12 @@
-import { useMemo, memo, useState, useEffect,FC } from "react";
+import {memo, useState, useEffect,FC } from "react";
 
-import { getRadioSize,getRadioColor } from "./ratio.style";
+import { getRadioSize,getRadioColor } from "./radio.style";
 import { IRadio } from "./radio.interface";
 import Loading from "components/loading/Loading";
 import RadioIcon from "./radio-icon";
 
 const radio:FC<IRadio> = ({
     width,
-    radioWidth,
     onClick,
     title,
     className,
@@ -19,16 +18,18 @@ const radio:FC<IRadio> = ({
     disabled,
     checked,
     value,
-    id
+    id,
+    onChange,
+    name,
 }) =>{
-    const { padding, fontSize,iconPosition } = useMemo(() => getRadioSize(size), [size]);
-    const {...radio } = useMemo(() => getRadioColor(color), [color]);
     const [selfChecked, setSelfChecked] = useState<boolean>(false);
+    const [radioValue, setRadioValue] = useState("");
 
-    const changeHandler = () => {
+    const changeHandler = (value) => {
         if(disabled) return;
         setSelfChecked(!selfChecked);
-      };
+        onChange(value)
+    };
     
       useEffect(() => {
         if (checked === undefined) return;
@@ -38,23 +39,30 @@ const radio:FC<IRadio> = ({
     return (
 
       <div className={`radop-wrapper noselect ${className ? className : ""}`} style={style}>
-      <label className={`radio-label ${radioWidth ? radioWidth : ""}`}>
+      <label className={`radio-label`}>
         <input
           type="radio"
+          name={name}
           value={value}
           checked={selfChecked}
-          onChange={changeHandler}
+          onChange={() => changeHandler(value)}
           className="radio"
         />
         {loading && (
-          <Loading bgColor={color == 'white' ? 'black' : radio.textColor} padding={padding} />
-        )}
+          <Loading  bgColor="black" padding={getRadioSize(size).padding}   />
+        )}  
+        <h1>{checked}</h1>
 
-        <span className="radio-title">
-          {!loading && title}
-        </span>
-            <RadioIcon checked={selfChecked} iconPosition={iconPosition} disabled={disabled}/>
-      </label>
+        <span className="radio-title">{!loading && title}</span>
+            {/* <RadioIcon 
+            checked={selfChecked} 
+            iconPosition={getRadioSize(size).iconPosition}
+            disabled={disabled}/> */}
+        </label>
+
+
+
+      
 
       <style jsx>{`
         .radio-label {
@@ -63,14 +71,14 @@ const radio:FC<IRadio> = ({
           pointer-events: ${disabled || loading ? "none" : "auto" };
           position: relative;
           border-radius: 8px;
-          box-shadow:${radio.defaultShadow};
-          padding: ${padding};
+          box-shadow:${color ? getRadioColor(color).defaultShadow : "none"};
+          padding: ${getRadioSize(size).padding};
           display: inline-flex;
           justify-content: center;
           align-items: center;
           width: ${width && width};  
-          border: ${radio.border};
-          background: ${color === "white" ?  radio.bg : "var(--primary-white)"};
+          border: none;
+          background: ${color ? getRadioColor(color).bg : "none"};
           transition: all .2s ease;
         }
 
@@ -79,27 +87,24 @@ const radio:FC<IRadio> = ({
         }
          
         .radio-label:hover {
-            box-shadow:${radio.hoverShadow};
-        }
-        .radio-label:active {
-            box-shadow:${radio.activeShadow};
+            box-shadow:${color ? getRadioColor(color).hoverShadow : "none"};
         }
         .radio {
-          opacity: 0;
+          /* opacity: 0; */
           outline: none;
           position: absolute;
-          width: 0px;
-          height: 0px;
+          width: 20px;
+          height: 20px;
           margin: 0px;
           padding: 0px;
-          z-index: -1;
+          /* z-index: -1; */
           background-color: transparent;
         }
 
         .radio-title {
-          font-size: ${fontSize};
+          font-size: ${getRadioSize(size).fontSize};
           font-family: var(--button-fontFamily);
-          color: ${color === "red" ? radio.textColor : "var(--secondary-light-black)"};
+          color: ${color ? "var(--secondary-light-black)" : "var(--primary-white)"};
         }
         
       `}</style>
@@ -109,4 +114,4 @@ const radio:FC<IRadio> = ({
 }
 
 
-export default radio;
+export default memo(radio);

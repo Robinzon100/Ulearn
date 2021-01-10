@@ -1,18 +1,17 @@
-import {ICheckBoxSizeGroup,ICheckBoxStyle} from "./checkbox.interface";
+import {IRadioSizeGroup,IRadioStyle} from "./radio.interface";
 
-export const getCheckBoxColor = (color: string): ICheckBoxStyle => {
+export const getRadioColor = (color: string): IRadioStyle => {
   const colors = {
     white: {
       bg: "var(--primary-grey)",
       defaultShadow: "var(--btn-shadow) rgba(var(--primary-white-shadow--rgb),0.2)",
       hoverShadow:"var(--btn-hover-shadow) rgba(var(--primary-white-shadow--rgb),0.45)",
-    },
+    }
   };
-//   if (!color) return colors.white;
   return colors[color];
 };
 
-export const getCheckBoxSize = (size: string): ICheckBoxSizeGroup => {
+export const getRadioSize = (size: string): IRadioSizeGroup => {
   const layouts = {
     small: {
       padding: "var(--small-button-padding)",
@@ -31,5 +30,6 @@ export const getCheckBoxSize = (size: string): ICheckBoxSizeGroup => {
     },
   };
   if (!size) return layouts.medium;
+
   return layouts[size];
 };

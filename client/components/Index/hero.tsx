@@ -1,4 +1,4 @@
-import { FC, useState} from "react";
+import { FC} from "react";
 import { useRootStore } from "../../mobx/RootStateContext";
 
 
@@ -6,25 +6,17 @@ import Button from "components/global_components/button/Button";
 import { ChevronDown} from 'react-feather';
 import CheckBox from "components/global_components/checkbox/checkbox";
 import Radio from "components/global_components/radio/radio";
-import CheckBoxGroup from "components/global_components/checkbox/checkbox-group";
+import RadioGroup from 'components/global_components/radio/radio-group';
 
 
 
 const Hero: FC = () => {
-    // const [fruits, setFruits] = useState<string[]>(['apple', 'watermelon'])
-    const [storedValues, setStoredValues] = useState<any[]>([])
-
-    const [names, setNames] = useState({
-        name: "beqa",
-        surname: "jumber",
-    });
 
     const handler = (value) => {
-        console.log(value)
+        console.log("ჰერო" + value)
         // setStoredValues([value])
     }
 
-    const {name,surname} = names;
   return (
     <>
     
@@ -58,41 +50,56 @@ const Hero: FC = () => {
                 icon={<ChevronDown/>}
                 /> */}
 
-            <CheckBoxGroup 
-              onChange={handler}
-              checkboxes={[
-                {
-                  label: 'პროგრამირება',
-                  value: 23,
-                  checked: false
-                },
-                {
-                  label: 'მუსიკა',
-                  value: 44,
-                  checked: false
-                },
-                {
-                  label: 'დიზაინი',
-                  value: 5,
-                  checked: false
-                },
-              ]}
-              />  
-
-       
-      
+                <RadioGroup
+                    onChange={handler}
+                    radios={[
+                        {
+                            key:1,
+                            label: 'პროგრამირება',
+                            value: 23,
+                            name:"comp",
+                          },
+                          {
+                            key:2,
+                            label: 'მუსიკა',
+                            value: 44,
+                            name:"comp"
+                    
+                          },
+                          {
+                            key:3,
+                            label: 'დიზაინი',
+                            value: 5,
+                            name:"comp"
+                    
+                          }
+                      ]}
+                />
                 {/* <Radio
-                    size="large"
-                    color="white"
-                    disabled={false}
-                    loading={false}
-                    title="შემოგვიერთდი"
-                    // width="31rem"
-                    checked={false}
-                    value="beqa"
+                  size="large"
+                  color="white"
+                  disabled={false}
+                  loading={false}
+                  title="რაღაცა"
+                  checked={false}
+                  value="programireba"
+                  onChange={handler}
+                  name="beqa"
                 /> */}
 
-                
+
+
+                {/* <CheckBox
+                  size="large"
+                  color="white"
+                  disabled={false}
+                  loading={false}
+                  title="რაღაცა"
+                  checked={false}
+                  value="beqa"
+                  onChange={handler}
+                /> */}
+              
             </div>
         </div>
         <div className="hero--video">

@@ -38,10 +38,7 @@ const selectInput: React.FC<ISelect> = ({
     setIsToggle(false);
     setMouseLeave(false);
   };
-
-  const {iconPadding,padding } = useMemo(() => getSelectSize(size),[size]);
-  const {iconBgColor} = useMemo(() => getSelectColors(color),[color]);
-
+ 
   return (
     <>
       <div
@@ -65,7 +62,7 @@ const selectInput: React.FC<ISelect> = ({
 
             
             {loading && (
-                <Loading bgColor={color == 'white' ? 'black' : iconBgColor} style={{margin:"0vw 1.5vw"}} />
+                <Loading bgColor={color == 'white' ? 'black' : getSelectColors(color).iconBgColor} style={{margin:"0vw 1.5vw"}} />
             )}
 
             <div className="dropdown_icon" style={{opacity:"70%"}}>
@@ -125,14 +122,14 @@ const selectInput: React.FC<ISelect> = ({
           }
 
           .select_icon {
-            padding: ${iconPadding};
+            padding: ${getSelectSize(size).iconPadding};
             left: 0;
             z-index: 1;
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color:${iconBgColor};
+            background-color:${getSelectColors(color).iconBgColor};
             color:white;
             box-shadow: 0px 4px 11px rgba(255, 92, 77, 0.47);
           }
@@ -141,7 +138,7 @@ const selectInput: React.FC<ISelect> = ({
             // pointerEvents: ${disabled || loading && "none"};
           }
           .dropdown {
-            padding:${padding};
+            padding:${getSelectSize(size).padding};
             width: 100%;
             position: relative;
             background-origin: padding-box;

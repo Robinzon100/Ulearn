@@ -3,7 +3,7 @@ import { CSSProperties, MouseEventHandler } from "react";
 
 
 export interface IRadio  {
-    color?:"primary" | "blue" | "yellow" | "green" | "red" | "white" | "black",
+    color?: "white",
     size?:"small" | "medium" | "large",
     title?:string,
     className?:string,
@@ -13,26 +13,22 @@ export interface IRadio  {
     id?:number,
     iconStyle?:CSSProperties
     onClick?:MouseEventHandler<HTMLButtonElement>;
-    radioWidth?:string;
     width?:string,
-    onChange?:any;
-    checked?:boolean
-    value?:string
+    onChange?:(value:string | number) => any;
+    checked:any;
+    value?:string | number;
+    name?:any;
 }
 
 export interface IRadioSizeGroup {
-    padding: string
-    fontSize?:string
-    iconPosition?:string
+    padding: string;
+    fontSize?:string;
+    iconPosition?:string;
 }
 
 export interface IRadioStyle  {
-    bg?:string
-    defaultShadow?:string
-    hoverShadow?:string
-    activeShadow?:string
-    textColor?:string
-    border?:string
-    iconColor?:string
+    bg?:string;
+    defaultShadow?:string;
+    hoverShadow?:string;
 }
 

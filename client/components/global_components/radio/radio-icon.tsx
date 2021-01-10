@@ -9,15 +9,16 @@ interface Props {
 const RadioIcon: FC<Props> = ({ disabled, checked, iconPosition }) => {
   return (
     <>
-      <span className={`point ${checked ? "active" : ""}`}>
+      <div className={`point ${checked ? "active" : ""}`}>
 
-      <style>
-        {`
+      <style jsx>
+          {`
                 .point {
                     width: 2rem;
                     height: 2rem;
                     position: absolute;
-                    left: ${iconPosition};
+                    left: 0;
+                    margin:${iconPosition};
                     transform: translate(50%, -50%) scale(0.875);
                     top: 50%;
                     border-radius: 50%;
@@ -33,18 +34,16 @@ const RadioIcon: FC<Props> = ({ disabled, checked, iconPosition }) => {
                     width: 2rem;
                     height: 2rem;
                     border-radius: 50%;
-                    background-color: ${
-                      disabled ? "red" : "var(--secondary-darkest-gray)"
-                    };
+                    background-color: ${disabled ? "red" : "var(--secondary-darkest-gray)"};
                   }
                   .point.active:before {
                     transform: scale(0.875);
                     transition: all 0.2s ease 0s;
                   }
-                `}
-      </style>
-      </span>
-      
+            `}
+        </style>
+      </div>
+     
     </>
   );
 };
