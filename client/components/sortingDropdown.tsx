@@ -52,7 +52,7 @@ const SortingDropdown: React.FC<SortingDropdown> = ({ type }) => {
             {type === "time" && (
                 <Select
                     // width="13vw"
-                    size="large"  
+                    size="small"  
                     placeHolder="ხანგძლივობა"
                     id={3}
                     options={SelectJson.SelectTimeOptions}

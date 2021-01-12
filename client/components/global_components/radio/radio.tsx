@@ -23,7 +23,6 @@ const radio:FC<IRadio> = ({
     name,
 }) =>{
     const [selfChecked, setSelfChecked] = useState<boolean>(false);
-    const [radioValue, setRadioValue] = useState("");
 
     const changeHandler = (value) => {
         if(disabled) return;
@@ -54,10 +53,10 @@ const radio:FC<IRadio> = ({
         <h1>{checked}</h1>
 
         <span className="radio-title">{!loading && title}</span>
-            {/* <RadioIcon 
+            <RadioIcon 
             checked={selfChecked} 
             iconPosition={getRadioSize(size).iconPosition}
-            disabled={disabled}/> */}
+            disabled={disabled}/>
         </label>
 
 
@@ -90,14 +89,14 @@ const radio:FC<IRadio> = ({
             box-shadow:${color ? getRadioColor(color).hoverShadow : "none"};
         }
         .radio {
-          /* opacity: 0; */
+          opacity: 0;
           outline: none;
           position: absolute;
-          width: 20px;
-          height: 20px;
+          width: 0px;
+          height: 0px;
           margin: 0px;
           padding: 0px;
-          /* z-index: -1; */
+          z-index: -1;
           background-color: transparent;
         }
 

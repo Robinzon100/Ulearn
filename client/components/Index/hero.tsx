@@ -1,13 +1,9 @@
 import { FC} from "react";
 import { useRootStore } from "../../mobx/RootStateContext";
 
-
 import Button from "components/global_components/button/Button";
 import { ChevronDown} from 'react-feather';
-import CheckBox from "components/global_components/checkbox/checkbox";
-import Radio from "components/global_components/radio/radio";
-import RadioGroup from 'components/global_components/radio/radio-group';
-
+import Tooltip from "components/global_components/tooltip/tooltip";
 
 
 const Hero: FC = () => {
@@ -37,7 +33,7 @@ const Hero: FC = () => {
             </p>
           </div>
           <div className="hero--steps__btn">
-              <Button
+              {/* <Button
                 title="შემოგვიერთდი"
                 className=""
                 route="/register"
@@ -48,8 +44,23 @@ const Hero: FC = () => {
                 loading={false}
                 // stroke="black"
                 icon={<ChevronDown/>}
+                /> */}
+                <Tooltip text="მე შენ და საქართველო" color="white" offset={10}>
+                <Button
+                title="შემოგვიერთდით"
+                className=""
+                route="/register"
+                onClick={() => console.log('asdasda')}
+                color="white"
+                size="large"
+                disabled={false}
+                loading={false}
+                // stroke="black"
+                icon={<ChevronDown/>}
+
                 />
-              
+
+                </Tooltip>
             </div>
         </div>
         <div className="hero--video">

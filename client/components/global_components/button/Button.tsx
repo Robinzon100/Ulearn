@@ -36,9 +36,7 @@ const Button: FC<ButtonInterface> = ({
 
   const { ...fillColors } = useMemo(() => getButtonColors(color,stroke), [color,stroke]);
   const { ...strokeColors } = useMemo(() => getButtonStrokeColors(stroke), [stroke]);
-
-
-
+  
   return (
     <>
       <button

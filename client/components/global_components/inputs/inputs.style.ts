@@ -47,7 +47,7 @@ const colors = {
         borderColor: '0.9px solid var(--primary-blue)'
     },
     yellow: {
-        borderColor: '0.9px solid var(--primary-yellow))'
+        borderColor: '0.9px solid var(--primary-yellow)'
     },
     green: {
         borderColor: '0.9px solid var(--primary-green)'
