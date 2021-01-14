@@ -11,6 +11,7 @@ const toolTip: FC<IToast> = ({
   children,
   color,
   offset,
+  tooltipWidth
 }) => {
   const selfRef = useRef<HTMLDivElement>(null);
   const [elProperties, setElProperties] = useState<any>({ top: 0, width: 0 });
@@ -19,10 +20,15 @@ const toolTip: FC<IToast> = ({
   const updateRect = () => {
     if (!selfRef || !selfRef.current) return elProperties;
     const rect = selfRef.current.getBoundingClientRect();
-    let width = rect.width;
-    let top = rect.top;
+    const width = rect.width;
+    const top = rect.top;
     setElProperties({ width, top });
   };
+
+  useEffect(() => {
+    updateRect();
+  }, [children]);
+
 
   const mouseEventHandler = (state:boolean,delay:number) => {
     setTimeout(() => {
@@ -30,9 +36,6 @@ const toolTip: FC<IToast> = ({
     }, delay);
   };
 
-  useEffect(() => {
-    updateRect();
-  }, [children]);
 
   return (
     <>
@@ -45,15 +48,15 @@ const toolTip: FC<IToast> = ({
         </div>
 
         {showTooltip && (
-          <div className="tooltip_container">
             <TooltipContent
               text={text}
               offset={offset}
               color={color}
               top={elProperties.top}
               width={elProperties.width}
+              tooltipWidth={tooltipWidth}
             />
-          </div>
+
         )}
 
         <style jsx>{`

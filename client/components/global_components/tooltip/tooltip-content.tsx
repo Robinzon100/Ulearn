@@ -5,7 +5,7 @@ import React from "react";
 //* ==========OUR IMPORTS
 import {getColors} from "./tooltip.style";
 
-const tooltipContent = ({text,color,offset,top,width}) => {
+const tooltipContent = ({text,color,offset,top,width,tooltipWidth}) => {
     
   return (
     <>
@@ -26,7 +26,7 @@ const tooltipContent = ({text,color,offset,top,width}) => {
         .tooltip_content {
           background:${getColors(color).background};
           position: absolute;
-          width: auto;
+          width: ${tooltipWidth ? tooltipWidth : "auto"};
           top:${Math.round((top - top) - offset)}px;
           left:${Math.round(width / 2)}px;
           transform: translate(-50%, -100%);
@@ -55,6 +55,7 @@ const tooltipContent = ({text,color,offset,top,width}) => {
 
         .content-text p {
             color:${color === "white" ? "var(--primary-dark)" : "var(--primary-white)"};
+            text-align: center;
         }
       `}</style>
     </>
