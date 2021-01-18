@@ -4,18 +4,25 @@ import { useRootStore } from "../../mobx/RootStateContext";
 import Button from "components/global_components/button/Button";
 import { ChevronDown} from 'react-feather';
 import Tooltip from "components/global_components/tooltip/tooltip";
+import Toast from "components/global_components/toast/toast";
+import useToasts from "components/global_components/toast/use-toast";
 
 
 const Hero: FC = () => {
 
     const handler = (value) => {
         console.log("ჰერო" + value)
-        // setStoredValues([value])
     }
+    const click = () => useToasts({title:"Beqa",size:"large"});
 
   return (
     <>
-    
+                  
+        {/* <Toast 
+            title="მე შენ და საქართველო,ოდელია რანუნი" 
+            color="black" 
+            size="large"
+        /> */}
       <section className="hero">
         <div className="hero--mobile-bg"></div>
         <div className="hero--steps">
@@ -36,8 +43,8 @@ const Hero: FC = () => {
               <Button
                 title="შემოგვიერთდი"
                 className=""
-                route="/register"
-                onClick={() => console.log('asdasda')}
+                // route="/register"
+                onClick={click}
                 color="white"
                 size="large"
                 disabled={false}
@@ -45,7 +52,7 @@ const Hero: FC = () => {
                 // stroke="black"
                 icon={<ChevronDown/>}
                 />
-
+  
             </div>
         </div>
         <div className="hero--video">

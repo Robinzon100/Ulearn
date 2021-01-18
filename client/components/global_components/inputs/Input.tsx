@@ -34,7 +34,7 @@ const Input: React.FC<IinputInterface> = ({
           type={type}
           onChange={onChange}
           value={value}
-          className={`input_field ${className && className}`}
+          className={`input_field f-weight-r ${className && className}`}
           placeholder={placeHolder}
           style={!icon ? { padding: `${getInputSize(size).paddingWithOutIcons}` } : style}
         />
@@ -74,6 +74,7 @@ const Input: React.FC<IinputInterface> = ({
               transition: all 0.1s cubic-bezier(0, 1.06, 0.37, 0.38);
               border:none;
               width:100%;
+
             }
 
             .input_field:disabled {
@@ -101,12 +102,11 @@ const Input: React.FC<IinputInterface> = ({
             }
             .input_field:focus::placeholder {
                 opacity: 100%;
-                font-weigth:600;
             }
           
 
             .input_field::placeholder {
-              opacity: 70%;
+              opacity: 100%;
               color: ${color === "red" ?  getColors(color).textColor : "var(--secondary-light-black)"};
             }
 

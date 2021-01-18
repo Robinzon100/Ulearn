@@ -92,7 +92,7 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
           <div className="price-tag">
             {checkNewPrice && (
               <div className="removed-price-tag">
-                <p className="bold f-size-p3">
+                <p className="f-weight-bo f-size-p3">
                   {newPrice}
                   <span style={{ color: "#00E267", fontWeight: "bold" }}>
                     &#8382;
@@ -102,7 +102,7 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
             )}
 
             <div className="normal-price">
-              <p className="bold f-size-p3">
+              <p className="f-weight-bo f-size-p3">
                 {price}
                 <span style={{ color: "#00E267", fontWeight: "bold" }}>
                   &#8382;
@@ -113,7 +113,7 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
         </div>
 
         <div className="PrimaryContentCard__title">
-          <p className="bold f-size-p5" title={title}>
+          <p className="f-weight-bo f-size-p5" title={title}>
             {stringToCut(title, 50)}
           </p>
         </div>
@@ -148,11 +148,11 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
             />
           </div>
           <div className="numbers">
-            <p className="bold f-size-p5">
+            <p className="f-weight-r f-size-p5">
               {raiting}{" "}
               <span
                 style={{ opacity: "50%" }}
-                className="bold f-size-p6"
+                className="f-weight-r f-size-p6"
               >
                 ({numberOfVotes})
               </span>
@@ -161,7 +161,7 @@ const PrimaryContentCard: React.FC<PrimaryContentCards> = ({
         </div>
         <div className="PrimaryContentCard__raiting--name">
           <NextLink route="/#">
-            <p className="regular f-size-p5">
+            <p className="f-weight-bo f-size-p5">
               {stringToCut(author, 25)}
             </p>
           </NextLink>

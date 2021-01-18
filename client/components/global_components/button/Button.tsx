@@ -53,7 +53,7 @@ const Button: FC<ButtonInterface> = ({
           </span>
         )}
 
-        <p className="title" style={disabled || loading ? { pointerEvents: "none" } : {}}>
+        <p className="title f-weight-r" style={disabled || loading ? { pointerEvents: "none" } : {}}>
           {!loading && title}
         </p>
 
@@ -118,9 +118,8 @@ const Button: FC<ButtonInterface> = ({
           .title {
             color: ${stroke || color === "white" ?   strokeColors.textColor : "white" };
             font-size: ${getButtonSize(size).fontSize};
-            font-family: var(--button-fontFamily);
+            /* font-family: var(--button-fontFamily); */
             text-align: center;
-            font-weight: 400;
             letter-spacing: 0.5px;
           }
 
