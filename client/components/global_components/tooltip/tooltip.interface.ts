@@ -6,8 +6,8 @@ export interface IToast {
     // placement?: "top" | "bottom" | "left" | "right";
     trigger?: "click" | "hover";
     className?: string;
-    children?:any;
-    color?:"primary" | "blue" | "yellow" | "green" | "red" | "white" | "black",
+    children:any;
+    color?:"primary" | "blue" | "yellow" | "green" | "red" | "black",
     offset:number
     tooltipWidth?:string
 }
