@@ -1,336 +1,279 @@
 //! კურსის კონტენტის დასაწყისი
 
-
 .СontentReveal {
+  h1 {
+    font-size: calc(18px + (23 - 18) * ((100vw - 300px) / (1900 - 700))) !important;
+    display: inline-block;
+    // font-family: $bold;
+    line-height: 180%;
+  }
 
+  p {
+    font-size: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
+    display: inline-block;
+    // font-family: $regular;
+    line-height: 180%;
+    // width: 90%;
 
-    h1 {
+    span {
+      font-size: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
+    //   font-family: $bold !important;
+    }
+  }
 
-        font-size: calc(18px + (23 - 18) * ((100vw - 300px) / (1900 - 700))) !important;
+  ul {
+    list-style: none !important;
+    margin-left: 1.5rem;
+
+    li {
+      position: relative;
+      margin-top: 0.8vw;
+
+      p {
+        font-size: calc(
+          13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))
+        ) !important;
         display: inline-block;
-        font-family: $bold;
+        // font-family: $regular;
         line-height: 180%;
+      }
 
-    }
-
-
-
-
-    p {
-
-        font-size: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
-        display: inline-block;
-        font-family: $regular;
-        line-height: 180%;
-        // width: 90%;
-
-        span {
-            font-size: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
-            font-family: $bold !important;
-
-        }
-    }
-
-
-
-
-
-    ul {
-        list-style: none !important;
-        margin-left: 1.5rem;
-
-        li {
-            position: relative;
-            margin-top: .8vw;
-
-            p {
-                font-size: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
-                display: inline-block;
-                font-family: $regular;
-                line-height: 180%;
-            }
-
-            &:before {
-                content: "";
-                position: absolute;
-                background: no-repeat url("/pictures/courses/blue_bullet.svg");
-                background-size: cover;
-                background-position: center;
-                display: inline-block;
-                width: 1.2rem;
-                height: 1.2rem;
-                margin-left: -2.2rem;
-                top: 35%;
-            }
-        }
-    }
-
-
-
-    ol {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        list-style-type: none !important;
-        padding: 0;
-        margin-top: -1rem;
-        width: 88%;
-
-
-
-        li {
-            width: 100%;
-            margin-top: 4.5rem;
-            // display: flex;
-            position: relative;
-
-            &:before {
-                // display: none !important;
-                content: "";
-                display: block !important;
-                top: 0;
-                background-size: cover !important;
-                height: 2.5rem !important;
-                width: 2.6rem !important;
-                background: no-repeat url("/pictures/courses/courses_side_menu_finished.svg");
-                background-position: center;
-                // display: inline-block;
-                padding: 1.3rem;
-                position: absolute;
-            }
-
-            p {
-                margin-top: -0.5rem;
-                margin-left: 4rem;
-
-
-            }
-
-
-        }
-    }
-
-
-    hr {
-        width: 85%;
-        margin: 5rem auto;
-        border: 1px solid #C9C9C961;
-    }
-
-    //! ეს არის აღწერის ცსს
-
-
-}
-
-
-.СontentReveal {
-    img {
-        background: no-repeat url("/pictures/courses/portfolio_photo.png");
+      &:before {
+        content: "";
+        position: absolute;
+        background: no-repeat url("/pictures/courses/blue_bullet.svg");
         background-size: cover;
         background-position: center;
-        width: 85%;
-        height: 45vh;
-        margin: 0 auto;
-        border-radius: 20px;
-        object-fit: cover;
+        display: inline-block;
+        width: 1.2rem;
+        height: 1.2rem;
+        margin-left: -2.2rem;
+        top: 35%;
+      }
     }
+  }
+
+  ol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    list-style-type: none !important;
+    padding: 0;
+    margin-top: -1rem;
+    width: 88%;
+
+    li {
+      width: 100%;
+      margin-top: 4.5rem;
+      // display: flex;
+      position: relative;
+
+      &:before {
+        // display: none !important;
+        content: "";
+        display: block !important;
+        top: 0;
+        background-size: cover !important;
+        height: 2.5rem !important;
+        width: 2.6rem !important;
+        background: no-repeat
+          url("/pictures/courses/courses_side_menu_finished.svg");
+        background-position: center;
+        // display: inline-block;
+        padding: 1.3rem;
+        position: absolute;
+      }
+
+      p {
+        margin-top: -0.5rem;
+        margin-left: 4rem;
+      }
+    }
+  }
+
+  hr {
+    width: 85%;
+    margin: 5rem auto;
+    border: 1px solid #c9c9c961;
+  }
+
+  //! ეს არის აღწერის ცსს
 }
 
-
+.СontentReveal {
+  img {
+    background: no-repeat url("/pictures/courses/portfolio_photo.png");
+    background-size: cover;
+    background-position: center;
+    width: 85%;
+    height: 45vh;
+    margin: 0 auto;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+}
 
 .courses_content {
-    margin: 5rem auto;
-    width: 100%;
-    // max-width: 69%;
-    // height: 100vh;
-    // max-height: 50vh;
+  margin: 5rem auto;
+  width: 100%;
+  // max-width: 69%;
+  // height: 100vh;
+  // max-height: 50vh;
 
-    .question-answer {
+  .question-answer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    &:not(:first-child) {
+      margin-top: 5rem;
+      margin-left: 5rem;
+    }
+
+    //! ეს არის ღილაკი
+    .user-answer {
+      &--heading {
+        p {
+          color: var(--primary-dark);
+          width: 19rem !important;
+          padding: 0.6rem !important;
+          // font-weight: bold;
+        }
+      }
+
+      &--input {
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
 
+        &__btn {
+          align-self: flex-end;
+          margin-top: 2rem;
+          p {
+            width: 19rem !important;
+            padding: 0.6rem !important;
+          }
+        }
+      }
+    }
 
-        &:not(:first-child) {
-            margin-top: 5rem;
-            margin-left: 5rem;
+    .main-comment,
+    .sub-comment {
+      display: flex;
+      flex-direction: row;
+
+      &__pic {
+        background-image: url("/pictures/courses/folder.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 7vw;
+        height: 4.5vw;
+        border-radius: 50%;
+      }
+
+      &__text {
+        margin-left: 2.5rem;
+
+        .about-user {
+          display: flex;
+          align-items: center;
+
+          &__time {
+            margin-left: 1.2vw;
+            color: #636469;
+          }
         }
 
-        //! ეს არის ღილაკი
-        .user-answer {
-            &--heading {
+        .user-comment {
+          width: 75%;
+          margin: 0.3vw 0vw 1.5vw 0vw;
 
-                p {
-                    color: var(--primary-dark);
-                    width: 19rem !important;
-                    padding: 0.6rem !important;
-                    // font-weight: bold;
-                }
-            }
-
-            &--input {
-                display: flex;
-                flex-direction: column;
-
-                &__btn {
-                    align-self: flex-end;
-                    margin-top: 2rem;
-                    p{
-                        width: 19rem !important;
-                        padding: 0.6rem !important;
-                    }
-                }
-            }
+          p {
+            line-height: 180%;
+          }
         }
+      }
+    }
 
-        .main-comment,
-        .sub-comment {
+    .sub-comment {
+      margin: 5rem 0rem 0rem 5rem;
+    }
+  }
+
+  //! ეს არის კითხვა-პასუხის ცსს
+
+  //! ეს არის რესურსების ცსს
+
+  .resources {
+    &_links {
+      margin: 1vw 0vw 3vw 0vw;
+    }
+
+    &_files {
+      a {
+        text-decoration: none;
+        color: var(--primary-white);
+        width: 48%;
+        padding: 3rem;
+
+        .files {
+          position: relative;
+          display: flex;
+          flex-direction: row-reverse;
+          align-items: center;
+
+          // h1 {
+          //     margin-left: 4vw;
+          // }
+
+          .icon {
+            margin-right: 3rem;
+          }
+        }
+      }
+    }
+  }
+
+  .estimates {
+    &__container {
+      .add_comment {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+
+        &--input {
+          width: 100%;
+          margin-left: 2rem;
+          display: flex;
+          flex-direction: column;
+
+          .about_user {
             display: flex;
             flex-direction: row;
+            align-items: center;
 
-
-            &__pic {
-                background-image: url("/pictures/courses/folder.svg");
-                background-repeat: no-repeat;
-                background-size: cover;
-                background-position: center;
-                width: 7vw;
-                height: 4.5vw;
-                border-radius: 50%;
+            &--star {
+              margin-left: 2rem;
             }
+          }
 
-            &__text {
-                margin-left: 2.5rem;
+          .comment_field {
+            margin: 0.8vw 0vw 0.8vw 0vw;
+          }
 
-                .about-user {
-                    display: flex;
-                    align-items: center;
-
-
-                    &__time {
-                        margin-left: 1.2vw;
-                        color: #636469;
-                    }
-
-                }
-
-                .user-comment {
-                    width: 75%;
-                    margin: 0.3vw 0vw 1.5vw 0vw;
-
-                    p {
-                        line-height: 180%;
-
-                    }
-                }
-
-
-
-            }
-
-
-
-        }
-
-        .sub-comment {
-            margin: 5rem 0rem 0rem 5rem;
-        }
-
-
-    }
-
-    //! ეს არის კითხვა-პასუხის ცსს
-
-
-    //! ეს არის რესურსების ცსს
-
-    .resources {
-
-
-
-
-        &_links {
-            margin: 1vw 0vw 3vw 0vw;
-        }
-
-        &_files {
-
+          .add_btn {
+            align-self: flex-end;
+            padding: 1rem;
+            width: 28rem;
 
             a {
-                text-decoration: none;
-                color: var(--primary-white);
-                width: 48%;
-                padding: 3rem;
-
-                .files {
-                    position: relative;
-                    display: flex;
-                    flex-direction: row-reverse;
-                    align-items: center;
-
-
-                    // h1 {
-                    //     margin-left: 4vw;
-                    // }
-
-                    .icon {
-                        margin-right: 3rem;
-                    }
-                }
-
+              text-decoration: none;
+              color: var(--primary-white);
             }
-
-
+          }
         }
-
+      }
     }
+  }
 
-
-    .estimates {
-
-        &__container {
-
-            .add_comment {
-                display: flex;
-                flex-direction: row;
-                width: 100%;
-
-                &--input {
-                    width: 100%;
-                    margin-left: 2rem;
-                    display: flex;
-                    flex-direction: column;
-
-                    .about_user {
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-
-                        &--star {
-                            margin-left: 2rem;
-                        }
-                    }
-
-                    .comment_field {
-                        margin: .8vw 0vw .8vw 0vw;
-                    }
-
-                    .add_btn {
-                        align-self: flex-end;
-                        padding: 1rem;
-                        width: 28rem;
-
-                        a {
-                            text-decoration: none;
-                            color: var(--primary-white);
-
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    //! ეს არის შეფასებების ცსს
-
-
+  //! ეს არის შეფასებების ცსს
 }

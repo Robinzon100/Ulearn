@@ -34,7 +34,7 @@ const Input: React.FC<IinputInterface> = ({
           type={type}
           onChange={onChange}
           value={value}
-          className={`input_field f-weight-r ${className && className}`}
+          className={`input_field  ${className && className}`}
           placeholder={placeHolder}
           style={!icon ? { padding: `${getInputSize(size).paddingWithOutIcons}` } : style}
         />
@@ -64,7 +64,7 @@ const Input: React.FC<IinputInterface> = ({
             }
 
             .input_field {
-              font-family: var(--regular);
+            //   font-family: var(--regular);
               font-size: ${getInputSize(size).fontSize};
               padding: ${getInputSize(size).padding};
               background: ${color === "white" ?  getColors(color).defaultBg : "var(--primary-white)"};

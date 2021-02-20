@@ -13,7 +13,7 @@ const tooltipContent = ({text,color,offset,top,width,tooltipWidth}) => {
         <div className="inner">
           <span className="inner-arrow"></span>
           <div className="content-text">
-          <p className="regular f-size-p5">{text}</p>
+          <p className="f-size-p5">{text}</p>
           </div>
         </div>
       </div>

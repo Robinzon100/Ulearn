@@ -44,7 +44,7 @@ const main_content: React.FC = () => {
         <div className="main_content--container">
           <div className="category">
             <div className="category_heading">
-              <p className="f-size-h8 bold">კატეგორიები</p>
+              <p className="f-size-h8">კატეგორიები</p>
             </div>
             <CategoriesComponent CategoriesJson={data} />
           </div>

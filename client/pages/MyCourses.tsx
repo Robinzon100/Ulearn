@@ -43,12 +43,12 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
             <div className="mycourses-hero">
               <div className="mycourses-hero__about-course">
                 <div className="mycourses-hero__about-course--heading">
-                  <p className="bold f-size-h5">
+                  <p className="f-size-h5">
                     როგორ გახდე DJ, DJ პროფესიის შესწავლა პროფესიულ დონეზე.
                   </p>
                 </div>
                 <div className="mycourses-hero__about-course--paragraph">
-                  <p className="regular f-size-p6 line-height">
+                  <p className="f-size-p6 line-height">
                     გავივლით DJ-ის პროფესიის ყველა ნიუანს, რას აკეთებს რეალრად
                     DJ რა ევალება ნებისმიერ დაწესებულებაში და ასევე შევქმნით
                     რამოდენიმე ტრეკს რომლის გაყიდვას და გაპიარებასაც შეძლებთ
@@ -58,28 +58,28 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
                   <div className="buy-course">
 
                 <Button
-                title="კურსის შეძენა"
-                className=""
-                route="/buy_course"
-                onClick={() => console.log('asdasda')}
-                color="green"
-                size="medium"
-                disabled={false}
-                loading={false}
+                    title="კურსის შეძენა"
+                    className=""
+                    route="/buy_course"
+                    onClick={() => console.log('asdasda')}
+                    color="green"
+                    size="medium"
+                    disabled={false}
+                    loading={false}
                 />
                   </div>
 
                 <div className="save-bucket">
                 <Button
-                title="კურსის შეძენა"
-                className=""
-                route="/save-bucket"
-                onClick={() => console.log('asdasda')}
-                color="yellow"
-                size="medium"
-                disabled={false}
-                loading={false}
-                icon={ <ShoppingCart />}
+                    title="კურსის შეძენა"
+                    className=""
+                    route="/save-bucket"
+                    onClick={() => console.log('asdasda')}
+                    color="yellow"
+                    size="medium"
+                    disabled={false}
+                    loading={false}
+                    icon={ <ShoppingCart />}
                 />
                   </div>
                 </div>
@@ -90,6 +90,10 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
               </div>
             </div>
 
+
+
+            
+
             <div className="СontentReveal">
               <div className="СontentReveal__mycourse-details">
                 {/* //! შენ ისწავლი*/}
@@ -98,7 +102,7 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
 
                 {/* //! ინსტრუქტორის შესახებ */}
 
-                <h1 className="bold f-size-h8">
+                <h1 className="f-size-h8">
                   ინსტრუქტორის ონფორმაცია
                 </h1>
 

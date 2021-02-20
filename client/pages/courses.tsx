@@ -29,12 +29,12 @@ export const Courses: React.FC<AboutCourse> = () => {
         <div className="courses-page">
           <div className="courses-page--about">
             <div className="courses-page--name">
-              <p className="bold  f-size-p5">
+              <p className="f-size-p5">
                 <strong>{CoursesJson.aboutCourses.aboutCourse.title}</strong>
               </p>
               <div className="viewers">
                 <Eye size={17} />
-                <p className="f-size-p5-mini bold">
+                <p className="f-size-p7 f-weight-bo">
                   {CoursesJson.aboutCourses.aboutCourse.peopleWatched}
                 </p>
               </div>
@@ -42,7 +42,7 @@ export const Courses: React.FC<AboutCourse> = () => {
 
             <div className="courses-page--about__heading">
               {/* {!displayName ? null : (
-                <p className="regular f-size-p5">
+                <p className="f-size-p5">
                   ვიდეოს დასახელება - {displayName}
                 </p>
               )} */}

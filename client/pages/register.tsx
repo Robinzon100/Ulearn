@@ -53,38 +53,39 @@ const Register: React.FC = () => {
                 containerStyle={{ marginTop: '10rem' }}
                 value={full_name}
                 type='text'
-                className={"regular f-size-p6"}
-
                 width='50rem'
                 onChange={(e) => handleInputChange(e, 'full_name')} />
-            <Input
+
+
+                <Input
                 containerStyle={{ marginTop: '1rem' }}
                 size={'large'}
                 placeHolder='enter your email'
                 value={email}
                 type='email'
-                className={"regular f-size-p6"}
                 iconRight={<Mail size={20} strokeWidth='1.5px' />}
                 width='50rem'
                 onChange={(e) => handleInputChange(e, 'email')} />
-            <Input
+
+
+                <Input
                 containerStyle={{ marginTop: '1rem' }}
                 size={'large'}
                 placeHolder='enter your password'
                 value={password}
                 type='password'
-                className={"regular f-size-p6"}
                 width='50rem'
                 iconRight={<Eye size={20} strokeWidth='1.5px' />}
                 onChange={(e) => handleInputChange(e, 'password')} />
-            <Input
+
+
+                <Input
                 containerStyle={{ marginTop: '1rem' }}
                 size={'medium'}
                 color='white'
                 placeHolder='enter your recovery email'
                 value={recovery_email}
                 type='email'
-                className={"regular f-size-p6"}
                 icon={<Mail size={16} strokeWidth='1.5px' />}
                 width='50rem'
                 onChange={(e) => handleInputChange(e, 'recovery_email')} />

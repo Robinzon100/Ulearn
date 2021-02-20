@@ -1,0 +1,15 @@
+.stepForm_container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: -50%;
+    transform: translate(50%, -50%);
+    z-index: 99;
+}
+
+.step-forms {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: var(--primary-white);
+}
