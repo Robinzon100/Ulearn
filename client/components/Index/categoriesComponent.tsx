@@ -11,23 +11,23 @@ const categoriesComponent: React.FC<Categories> = ({ CategoriesJson }) => {
       <div className="category_container">
         <ul>
           <li className="category_main--name categoryAll">
-            <NextLink route="/#" className="regular f-size-p4">
+            <NextLink route="/#" className="f-size-p4">
               ყველა
             </NextLink>
             <div className="category_main--number">
-              <p className="bold f-size-p7">20</p>
+              <p className="f-size-p7">20</p>
             </div>
           </li>
 
           {CategoriesJson?.map((data) => (
             
               <li className="category_main--name category_main" key={data.id}>
-                <NextLink route="/#" className="regular f-size-p4">
+                <NextLink route="/#" className="f-size-p4">
                   {data.name}
                 </NextLink>
 
                 <div className="category_main--number">
-                  <p className="bold f-size-p7">20</p>
+                  <p className="f-size-p7">20</p>
                 </div>
               </li>
             

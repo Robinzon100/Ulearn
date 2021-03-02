@@ -46,13 +46,13 @@ const sideMenu: React.FC<videoList> = (
         <div onClick={handleSetRevealContent} className="card_container">
           <div className="card">
             <div className="card__number">
-              <p className="regular f-size-p5">{id}</p>
+              <p className="f-size-p6">{id}</p>
             </div>
             <div className="card__text">
-              <p className=" regular f-size-p5">{title}</p>
+              <p className="f-weight-bo f-size-p6">{title}</p>
             </div>
             <div className="card__time">
-              <p className="light f-size-p7">
+              <p className="f-size-p7">
                 {courseChapterTime}m
               </p>
             </div>
@@ -62,8 +62,7 @@ const sideMenu: React.FC<videoList> = (
           className="card_container__info"
           variants={sideMenuAnimation}
           initial={{ height: "0rem" }}
-          animate={revealContent ? "open" : "closed"}
-        >
+          animate={revealContent ? "open" : "closed"}>
           {subTitles.map((sub, index) => (
             <div
               key={sub.id}
@@ -72,12 +71,11 @@ const sideMenu: React.FC<videoList> = (
                 handleSetFinished(e);
                 // handleClick(e)
               }}
-              data-title={sub.text}
-            >
+              data-title={sub.text}>
               <div className="details_heading">
-                <p className="regular paragraph-medium-mini ">
+                <p className="f-weight-l f-size-p6">
                   {sub.text}
-                  <span className="bold f-size-p7">
+                  <span className="f-weight-l f-size-p7">
                     ({sub.amountOfMinutes}m)
                   </span>
                 </p>

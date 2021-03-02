@@ -136,7 +136,7 @@ const course_tablist = () => {
                             {renderIcon(courseTab.iconComponent)}
                           </div>
                           <div className="rendered_title">
-                            <p className="bold f-size-p5">
+                            <p className="f-size-p5">
                               {courseTab.title}
                             </p>
                         </div>

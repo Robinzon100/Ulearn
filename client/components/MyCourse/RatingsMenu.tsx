@@ -13,7 +13,7 @@ const RatingsMenu: React.FC = () => {
                 
                 <div className="ratings__with-number">
                     <div className="ratings__with-number--heading">
-                        <p className="bold f-size-h1">4.4</p>
+                        <p className="f-size-h1">4.4</p>
                     </div>
                     <div className="ratings__with-number--stars">
                         <Stars StarWidth={20} numberOfStars={4} />
@@ -21,7 +21,7 @@ const RatingsMenu: React.FC = () => {
                     </div>
                     <div className="ratings__with-number--voice">
                         <ArrowUp size={15} />
-                        <p className="regular f-size-p6">ხმა</p>
+                        <p className="f-size-p6">ხმა</p>
                     </div>
 
                 </div>
@@ -41,7 +41,7 @@ const RatingsMenu: React.FC = () => {
                             
                         </div>
                         <div className="percentage_number">
-                            <p className="bold f-size-p5">65%</p>
+                            <p className="f-size-p5">65%</p>
                         </div>
                     </div>
 
@@ -52,7 +52,7 @@ const RatingsMenu: React.FC = () => {
                             
                         </div>
                         <div className="percentage_number">
-                            <p className="bold f-size-p5">5%</p>
+                            <p className="f-size-p5">5%</p>
                         </div>
                     </div>
                     <div className="percentage_container">
@@ -62,7 +62,7 @@ const RatingsMenu: React.FC = () => {
                             
                         </div>
                         <div className="percentage_number">
-                            <p className="bold f-size-p5">10%</p>
+                            <p className="f-size-p5">10%</p>
                         </div>
                     </div>
                     <div className="percentage_container">
@@ -72,7 +72,7 @@ const RatingsMenu: React.FC = () => {
                             
                         </div>
                         <div className="percentage_number">
-                            <p className="bold f-size-p5">20%</p>
+                            <p className="f-size-p5">20%</p>
                         </div>
                     </div>
                     <div className="percentage_container">
@@ -82,7 +82,7 @@ const RatingsMenu: React.FC = () => {
                             
                         </div>
                         <div className="percentage_number">
-                            <p className="bold f-size-p5">1%</p>
+                            <p className="f-size-p5">1%</p>
                         </div>
                     </div>
 
@@ -94,15 +94,15 @@ const RatingsMenu: React.FC = () => {
                 <div className="ratings-about__container">
                     <div className="difficulty">
                         <div className="graph"></div>
-                        <p className="f-size-p6 bold">სირთულე</p>
+                        <p className="f-size-p6">სირთულე</p>
                     </div>
                     <div className="learning">
-                        <h1 className="bold f-size-h7">2000</h1>
-                        <p className="f-size-p6 bold">სწავლობს</p>
+                        <h1 className="f-size-h7">2000</h1>
+                        <p className="f-size-p6">სწავლობს</p>
                     </div>
                     <div className="time-length">
-                        <h1 className="bold f-size-h7">8<span className="bold f-size-h7">სთ</span></h1>
-                        <p className="f-size-p6 bold">ხანგძლივობა</p>
+                        <h1 className="f-size-h7">8<span className="f-size-h7">სთ</span></h1>
+                        <p className="f-size-p6">ხანგძლივობა</p>
                     </div>
                 </div>
 

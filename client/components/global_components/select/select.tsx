@@ -87,7 +87,7 @@ const selectInput: React.FC<ISelect> = ({
                     type="radio"
                     className="radio"
                   />
-                  <label className="regular f-size-p7" htmlFor={option.value}>
+                  <label className="f-size-p7" htmlFor={option.value}>
                     {option.value}
 
                     {/* {placeHolder === "რეიტინგი" && (

@@ -42,12 +42,13 @@ const toolTip: FC<IToast> = ({
       <div className={`tooltip ${className ? className : ""}`} ref={selfRef}>
         <div
           className="tooltip_children"
-          onMouseEnter={() => mouseEventHandler(true,300)}
-          onMouseLeave={() => mouseEventHandler(false,300)}>
+        //   onMouseEnter={() => mouseEventHandler(true,300)}
+        //   onMouseLeave={() => mouseEventHandler(false,300)}
+          >
           {children}
         </div>
 
-        {showTooltip && (
+     
             <TooltipContent
               text={text}
               offset={offset}
@@ -57,7 +58,7 @@ const toolTip: FC<IToast> = ({
               tooltipWidth={tooltipWidth}
             />
 
-        )}
+    
 
         <style jsx>{`
           .tooltip {

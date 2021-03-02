@@ -1,5 +1,5 @@
 import React from "react";
-
+import {createPortal} from "react-dom"
 
 
 //* ==========OUR IMPORTS
@@ -7,13 +7,13 @@ import {getColors} from "./tooltip.style";
 
 const tooltipContent = ({text,color,offset,top,width,tooltipWidth}) => {
     
-  return (
+  return  (
     <>
       <div className="tooltip_content">
         <div className="inner">
           <span className="inner-arrow"></span>
           <div className="content-text">
-          <p className="regular f-size-p5">{text}</p>
+          <p className="f-size-p5">{text}</p>
           </div>
         </div>
       </div>
@@ -54,7 +54,7 @@ const tooltipContent = ({text,color,offset,top,width,tooltipWidth}) => {
         }
 
         .content-text p {
-            color:${color === "white" ? "var(--primary-dark)" : "var(--primary-white)"};
+            color:${!color || color === "white" ? "var(--primary-dark)" : "var(--primary-white)"};
             text-align: center;
         }
       `}</style>
