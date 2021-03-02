@@ -9,9 +9,10 @@ const useToast = ({title,size}) => {
         title,
         size
     ]);
+
+    
     
     const setToast = (title,size) => {
-        debugger
         toasts.map((toast) => (
             <Toast key={toast.key} title={title} size={size}/>
         ))

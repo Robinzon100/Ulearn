@@ -9,15 +9,24 @@ import useToasts from "components/global_components/toast/use-toast";
 
 
 const Hero: FC = () => {
+ 
 
     const handler = (value) => {
         console.log("ჰერო" + value)
     }
-    const click = () => useToasts({title:"Beqa",size:"large"});
+
+    // const [toast, setToasts] = useToasts({title:"Beqa",size:"large"});
+
+
+    const click = () => console.log('asdasd')
+
+
 
   return (
     <>
-                  
+
+        
+
         {/* <Toast 
             title="მე შენ და საქართველო,ოდელია რანუნი" 
             color="black" 

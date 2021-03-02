@@ -5,6 +5,7 @@ import { SWRConfig } from 'swr'
 import Navigation from "components/global_components/Navigation/Navigation"
 import { RootStateProvider } from '../mobx/RootStateContext';
 import { swrOptions } from '../constants/swrOptions';
+import ToastContainer from 'components/global_components/toast/toastContainer';
 
 
 
@@ -17,6 +18,7 @@ function MyApp({ Component, pageProps }) {
                     <main className='main'>
                         <Component {...pageProps} />
                     </main>
+                    <ToastContainer />
                 </RootStateProvider>
             </SWRConfig>
         </>
