@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import  { Fragment } from "react";
 import { Clipboard } from "react-feather";
 
 const Description: React.FC = () => {

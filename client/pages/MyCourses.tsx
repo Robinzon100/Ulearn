@@ -1,20 +1,24 @@
-import React, { useState } from "react";
+
+import {useState} from "react";
 import ReactHtmlParser from "react-html-parser";
+
+
 import { ShoppingCart } from "react-feather";
 import NextLink  from "components/utils/NextLink";
 
-import BaseLayout from "components/base-layout";
-import SideMenu from "components/sideMenu";
-import RatingsMenu from "components/myCourse/RatingsMenu";
-import Stars from "components/global_components/svg/Stars";
-import MyCoursesJson from "../public/json/MyCourses.json";
-import Button from "components/global_components/button/Button";
-//! === INTERFACES
-import { MyCoursePageContent } from "../interfaces/MyCoursesPage.interface";
+import SideMenu from "components/lib/sidemenu/sideMenu";
+import RatingsMenu from "components/pages/myCourse/RatingsMenu";
+import Stars from "components/lib/svg/Stars";
+import * as MyCoursesJson from "../public/json/MyCourses.json";
+import Button from "components/lib/button/Button";
+
+
+//! === INTERFACES(DO NOT DELETE)
+// import { MyCoursePageContent } from "../interfaces/MyCoursesPage.interface";
 
 
 
-const MyCourses: React.FC<MyCoursePageContent> = () => {
+const MyCourses= () => {
   let subTitles = [
     {
       id: 1,
@@ -33,7 +37,7 @@ const MyCourses: React.FC<MyCoursePageContent> = () => {
   ];
   
 
-  const [MyCourseContent, setMyCourseContent] = useState<any>(MyCoursesJson.description);
+  const [MyCourseContent] = useState(MyCoursesJson.description);
 
   return (
     <>

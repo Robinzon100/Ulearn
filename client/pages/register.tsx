@@ -1,15 +1,15 @@
-import { useState } from 'react';
-import Input from 'components/global_components/inputs/Input';
+import { useState, } from 'react';
+import Input from 'components/lib/inputs/Input';
 import { postRegistration } from 'actions/client/registration.action';
-import Button from 'components/global_components/button/Button';
-import { LogIn, ArrowUp, Search, Mail, Eye } from 'react-feather';
+import Button from 'components/lib/button/Button';
+import { LogIn, Mail, Eye } from 'react-feather';
 import { useCookies } from 'react-cookie';
-import { useRootStore } from '../mobx/RootStateContext';
+// import { useRootStore } from '../mobx/RootStateContext';
 
-const Register: React.FC = () => {
+const Register = () => {
     const [cookie, setCookie] = useCookies()
 
-    const { userStore } = useRootStore();
+    // const { userStore } = useRootStore();
 
 
 
@@ -34,6 +34,7 @@ const Register: React.FC = () => {
             setCookie('refreshToken', response.refreshToken, { sameSite: true })
             localStorage.setItem('token', JSON.stringify({token: response.accessToken, expiration: response.expiration}))
             // userStore.isLogedIn = true
+            console.log(cookie);
             
         }
     }
@@ -45,7 +46,6 @@ const Register: React.FC = () => {
         <>
         {/* //* აქ შეიძლება ვცდები მაგრამ მგონი ერმანეთზე რო იყო მიჯრილი მაგიტო იჭრებოდა შადოუ */}
         {/* //* კონტეინერსტაილს მიეცი თუ გინდა რომ მარგინი ქნას */}
-
             <Input
                 size={'medium'}
                 color='white'

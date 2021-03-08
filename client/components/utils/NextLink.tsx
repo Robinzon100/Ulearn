@@ -10,7 +10,6 @@ interface Props {
 
 
 const NextLink:FC<Props> = ({ route,children,className }) => {
-  // const { route, title, children } = props;
   return (
     <Link href={route}>
       <a style={{textDecoration:"none"}} className={className}>

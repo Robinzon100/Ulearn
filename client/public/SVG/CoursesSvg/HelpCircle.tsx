@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import { HelpCircle } from "react-feather";
 
 export default function QuestionAnswer() {

@@ -1,4 +1,4 @@
-import { rating } from "../type/course.type";
+// import { rating } from "../type/course.type";
 
 
 

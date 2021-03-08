@@ -3,29 +3,27 @@ import Head from "next/head";
 import { Eye} from "react-feather";
 
 //! ==== OTHER IMPORTS
-
-import SideMenu from "components/sideMenu";
-import CourseVideoPlayer from '../components/CourseVideoPlayer';
-import CoursesJson from "../public/json/Courses.json";
-import CourseTablist from "components/course/course_tablist";
-
-
-//! === INTERFACES
-import { AboutCourse } from "../interfaces/coursePage.interface";
+import SideMenu from "components/lib/sidemenu/sideMenu";
+import CourseVideoPlayer from '../components/pages/course/CourseVideoPlayer';
+import  * as CoursesJson from "../public/json/Courses.json";
+import CourseTablist from "components/pages/course/course_tablist";
 
 
+//! === INTERFACES(DO NOT DELETE)
+// import { AboutCourse } from "../interfaces/coursePage.interface";
 
-export const Courses: React.FC<AboutCourse> = () => {
-  const [placeHolder, setPlaceHolder] = useState<string>("დაწერე რაც გინდა");
-  const [videoLists, setVideoLists] = useState(CoursesJson.videoLists);
-  
+
+const Courses = () => {
+  const [videoLists] = useState(CoursesJson.videoLists);
+    
+
   return (
     <>
       <Head>
         <script src="js/player.js" async defer></script>
       </Head>
 
-      <>
+   
         <div className="courses-page">
           <div className="courses-page--about">
             <div className="courses-page--name">
@@ -34,7 +32,7 @@ export const Courses: React.FC<AboutCourse> = () => {
               </p>
               <div className="viewers">
                 <Eye size={17} />
-                <p className="f-size-p7 f-weight-bo">
+                <p className="f-size-p7 f-weight-700">
                   {CoursesJson.aboutCourses.aboutCourse.peopleWatched}
                 </p>
               </div>
@@ -76,7 +74,7 @@ export const Courses: React.FC<AboutCourse> = () => {
           </div>
         </div>
 
-      </>
+
     </>
   );
 };
