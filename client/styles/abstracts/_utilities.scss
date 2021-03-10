@@ -1,22 +1,4 @@
 
-
-.remove_underline {
-    text-decoration: none;
-
-}
-
-
-.line-height {
-    line-height: 180%;
-}
-
-.learning-list__line {
-    width: 85%;
-    background-color: #C9C9C9;
-    height: 1px;
-    margin: 5rem auto;
-}
-
 //! რომ არ მოინიშნოს დაჭერისას
 .noselect {
     -webkit-touch-callout: none;
@@ -70,35 +52,10 @@
         width: 4.4rem;
         height: .3rem;
         background-color: var(--primary-red);
-        top: 2rem;
+        top: 50%;
         opacity: 60%;
     }
 }
-
-//! CHECKBOX on Index
-
-.side-menu-checkbox {
-    @include checkbox;
-}
-
-.outside-list-check {
-    @include checkbox;
-}
-
-.inside-list-check {
-    @include checkbox;
-}
-
-
-// .checked-checkbox {
-//     width: 2rem;
-//     height: 2rem;
-//     background: no-repeat url("/pictures/courses/checkbox__checked_black.svg");
-//     background-size: cover;
-//     background-position: center;
-// }
-
-//! CHECKBOX on Index
 
 
 
@@ -116,29 +73,25 @@
 //! კურსის გვერდზე რონ სპიტკაა მისი ანთება ჩაქრობა
 .details_not_finished {
     &:before {
-        content: "";
+        @include after;
         height: 2rem;
         width: 2rem;
         margin-left: 3rem;
-        background: no-repeat url("/pictures/courses/courses-white-eclipse.svg");
-        background-position: center;
+        @include background-properties("/pictures/courses/courses-white-eclipse.svg",initial,center);
         display: inline-block;
         margin-bottom: 0;
         margin-top: 0;
-        position: absolute;
     }
 
 }
 
 .details_finished {
     &:before {
-        content: "";
-        position: absolute;
+        @include after;
+        @include background-properties("/pictures/courses/courses_side_menu_finished.svg",initial,center);
         height: 2rem;
         width: 2rem;
         margin-left: 3rem;
-        background: no-repeat url("/pictures/courses/courses_side_menu_finished.svg");
-        background-position: center;
         padding-left: 20px;
         margin-bottom: 0;
         margin-top: 0;

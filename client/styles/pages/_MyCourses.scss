@@ -258,10 +258,7 @@ $ratings-padding:1.3rem 1.5rem 1.3rem 1.5rem;
 
                     &--pic {
                         border-radius: 18px;
-                        background-image: url("/pictures/instructor_pic.png");
-                        background-size: cover;
-                        background-position: center;
-                        background-repeat: no-repeat;
+                        @include background-properties("/pictures/instructor_pic.png",cover,center 18%);
                         width: 8rem;
                         height: 8rem;
                         margin-top: 1rem;

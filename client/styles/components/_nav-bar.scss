@@ -27,14 +27,7 @@ $category-menu-width: 9%;
 
         .logo {
             display: inline-block;
-
-            background: {
-                image: url("/pictures/logo.svg");
-                size: contain;
-                position: center;
-                repeat: no-repeat;
-            }
-
+            @include background-properties("/pictures/logo.svg",contain,center);
             width: 10rem;
             height: 5rem;
             cursor: pointer;
@@ -43,10 +36,6 @@ $category-menu-width: 9%;
         .input {
             width: 29vw;
             margin: 0vw 1vw;
-
-            // svg {
-            //     margin-left: 1.5rem !important;
-            // }
         }
     }
 
@@ -104,11 +93,10 @@ $category-menu-width: 9%;
             background-color: var(--primary-white);
             padding: 1.8rem;
             border-radius: 10px;
-            // top: 0%;
 
             &--item {
                 width: 100%;
-                @include flex;
+                @include flex(space-between,center,row);
                 cursor: pointer;
 
                 &:not(:first-child) {
@@ -116,7 +104,7 @@ $category-menu-width: 9%;
                 }
 
                 .item-container {
-                    @include flex;
+                    @include flex(space-between,center,row);
                     width: 100%;
 
                     &__cube-text {
@@ -124,10 +112,8 @@ $category-menu-width: 9%;
                         align-items: center;
 
                         .cube {
+                            @include background-properties("/pictures/cube.svg",cover,center);
                             background-color: var(--secondary-light-grey);
-                            background: no-repeat url("/pictures/cube.svg");
-                            background-size: cover;
-                            background-position: center;
                             width: 2rem;
                             height: 2rem;
                         }
@@ -155,7 +141,7 @@ $category-menu-width: 9%;
     .navigation_menu {
        
         &--container {
-            @include flex;
+            @include flex(space-between,center,row);
             width: 30vw;
 
             &:not(:first-child) {
@@ -193,9 +179,7 @@ $category-menu-width: 9%;
             }
 
             .unregistered_user {
-                background: no-repeat url("/pictures/unregistered_user.svg");
-                background-size: cover;
-                background-position: center;
+                @include background-properties("/pictures/unregistered_user.svg",cover,center);
                 width: 4rem;
                 height: 4rem;
                 cursor: pointer;

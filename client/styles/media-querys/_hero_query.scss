@@ -27,10 +27,7 @@
 @media screen and (max-width: $ultra-small-breakpoint) {
 
     .hero {
-        background: url("/pictures/hero_mobile_bg.png");
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
+        @include background-properties("/pictures/hero_mobile_bg.png",cover,center);
         width: 100%;
         height: 53rem !important;
         grid-template-rows: 79% 21% !important;
@@ -45,10 +42,7 @@
         &--mobile-bg {
             display: block !important;
             position: absolute;
-            background: url("/pictures/mobile_illustration.svg");
-            background-position: center;
-            background-size: 80%;
-            background-repeat: no-repeat;
+            @include background-properties("/pictures/mobile_illustration.svg",80%,center);
             width: 100%;
             height: 40%;
             z-index: 1;

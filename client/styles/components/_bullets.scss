@@ -13,17 +13,12 @@
             // color: white !important;
     
             &:before {
-                content: "";
-                position: absolute;
+                @include after;
+                @include background-properties("/pictures/singleProduct/yellow_round_bullets.svg",cover,center);
                 width: 1.3rem;
                 height: 1.3rem;
-                background: no-repeat url("/pictures/singleProduct/yellow_round_bullets.svg");
-                background-size: cover;
-                background-position: center;
                 top: 0.4rem;
                 left: -2.35rem;
-                // z-index: -1;
-                // padding: 1rem;
             }
 
             img {

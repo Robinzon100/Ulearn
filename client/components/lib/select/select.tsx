@@ -154,7 +154,6 @@ const selectInput: React.FC<ISelect> = ({
             display: flex;
             align-items: center;
             justify-content: space-between;
-            @include flex;
             transition: all 1s ease;
           }
         `}

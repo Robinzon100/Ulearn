@@ -52,7 +52,7 @@ const MyCourses= () => {
                   </p>
                 </div>
                 <div className="mycourses-hero__about-course--paragraph">
-                  <p className="f-size-p6 line-height">
+                  <p className="f-size-p6">
                     გავივლით DJ-ის პროფესიის ყველა ნიუანს, რას აკეთებს რეალრად
                     DJ რა ევალება ნებისმიერ დაწესებულებაში და ასევე შევქმნით
                     რამოდენიმე ტრეკს რომლის გაყიდვას და გაპიარებასაც შეძლებთ

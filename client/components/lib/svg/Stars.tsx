@@ -12,7 +12,7 @@ const stars: React.FC<StarsWidth> = ({ StarWidth, numberOfStars }) => {
   const starsTotal = 5;
   return (
     <div className="stars">
-      {[...Array(starsTotal)].map(i => {
+      {[...Array(starsTotal)].map((_,i) => {
         // const starPercentage = (numberOfStars / starsTotal) * 100;
         const ratingValue = i + 1;
     

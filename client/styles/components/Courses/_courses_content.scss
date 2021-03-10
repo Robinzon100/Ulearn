@@ -4,20 +4,16 @@
   h1 {
     font-size: calc(18px + (23 - 18) * ((100vw - 300px) / (1900 - 700))) !important;
     display: inline-block;
-    // font-family: $bold;
     line-height: 180%;
   }
 
   p {
     font-size: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
     display: inline-block;
-    // font-family: $regular;
     line-height: 180%;
-    // width: 90%;
 
     span {
       font-size: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
-    //   font-family: $bold !important;
     }
   }
 
@@ -34,16 +30,12 @@
           13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))
         ) !important;
         display: inline-block;
-        // font-family: $regular;
         line-height: 180%;
       }
 
       &:before {
-        content: "";
-        position: absolute;
-        background: no-repeat url("/pictures/courses/blue_bullet.svg");
-        background-size: cover;
-        background-position: center;
+        @include after;
+        @include background-properties("/pictures/courses/blue_bullet.svg",cover,center);
         display: inline-block;
         width: 1.2rem;
         height: 1.2rem;
@@ -68,19 +60,14 @@
       position: relative;
 
       &:before {
-        // display: none !important;
-        content: "";
+        @include after;
+        @include background-properties("/pictures/courses/courses_side_menu_finished.svg",cover,center);
         display: block !important;
         top: 0;
-        background-size: cover !important;
         height: 2.5rem !important;
         width: 2.6rem !important;
-        background: no-repeat
-          url("/pictures/courses/courses_side_menu_finished.svg");
-        background-position: center;
-        // display: inline-block;
         padding: 1.3rem;
-        position: absolute;
+        
       }
 
       p {
@@ -101,9 +88,7 @@
 
 .СontentReveal {
   img {
-    background: no-repeat url("/pictures/courses/portfolio_photo.png");
-    background-size: cover;
-    background-position: center;
+    @include background-properties("/pictures/courses/portfolio_photo.png",cover,center);
     width: 85%;
     height: 45vh;
     margin: 0 auto;
@@ -115,9 +100,6 @@
 .courses_content {
   margin: 5rem auto;
   width: 100%;
-  // max-width: 69%;
-  // height: 100vh;
-  // max-height: 50vh;
 
   .question-answer {
     display: flex;
@@ -161,10 +143,7 @@
       flex-direction: row;
 
       &__pic {
-        background-image: url("/pictures/courses/folder.svg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
+        @include background-properties("/pictures/courses/folder.svg",cover,center);
         width: 7vw;
         height: 4.5vw;
         border-radius: 50%;
@@ -220,10 +199,6 @@
           display: flex;
           flex-direction: row-reverse;
           align-items: center;
-
-          // h1 {
-          //     margin-left: 4vw;
-          // }
 
           .icon {
             margin-right: 3rem;

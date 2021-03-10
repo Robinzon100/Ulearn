@@ -42,7 +42,7 @@ $box-shadow-category:0px 7px 9px -3px rgba(0, 0, 0, 0.1),
             padding: 0;
         }
         .category_main {
-            // @include flex;
+            // @include flex(space-between,center,row);
             border-radius: 8px;
             padding: 14px;
 
@@ -53,7 +53,7 @@ $box-shadow-category:0px 7px 9px -3px rgba(0, 0, 0, 0.1),
             }
 
             &--name {
-                @include flex;
+                @include flex(space-between,center,row);
                 color: var(--primary-white);
                 cursor: pointer;
 

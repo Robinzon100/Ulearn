@@ -2,36 +2,6 @@
     content: "";
     position: absolute;
 }
-@mixin checkbox {
-    border: 1px solid black;
-    border-radius: 5px;
-    width: 2rem;
-    height: 2rem;
-    cursor: pointer;
-    margin-left: -2rem;
-}
-
-//! ესენი არის ინდექსზე რომ ინფუთებია მაგის სტილები,გადაცემულია აქედან ვარად და იქ 
-//! რამხელაც გინდა მისცემ,როგორ წერია ისე უნდა გადასცე სადაც გამოიძახებ
-@mixin sortingStylesAfter($background,$width,$height,$left){
-    content:"";
-    position: absolute;
-    background: url($background);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width:$width;
-    height:$height;
-    left: $left;
-    z-index: 1;
-}
-@mixin sortingStylesForInputs($backgroundColor){
-    background-color: var($backgroundColor);
-    
-}
-//! ესენი არის ინდექსზე რომ ინფუთებია მაგის სტილები,გადაცემულია აქედან ვარად და იქ 
-//! რამხელაც გინდა მისცემ
-
 
 @mixin transform-center {
     transform: translate(-50%, -50%);
@@ -42,23 +12,18 @@
     height: 100%;
 }
 
-@mixin flex {
+@mixin flex($justify-content,$align-items,$flex-direction) {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: $justify-content;
+    align-items: $align-items;
+    flex-direction:  $flex-direction;
 }
-
-@mixin placed-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 
 /// MIXING FOR BACKGROUNG PICS
-@mixin background-properties {
-    background-size: contain;
-    background-position: center;
+@mixin background-properties($background-image,$background-size,$background-position) {
+    background-image: url($background-image);
+    background-size: $background-size;
+    background-position: $background-position;
     background-repeat: no-repeat;
 }
 

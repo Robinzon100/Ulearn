@@ -53,7 +53,7 @@ $card-detail-shadow:20px 30px 90px 10px rgba(19, 21, 26, 0.2);
 
         }
         &__date {
-            @include flex;
+            @include flex(space-between,center,row);
             margin: 0.8rem 0 !important;
         }
 

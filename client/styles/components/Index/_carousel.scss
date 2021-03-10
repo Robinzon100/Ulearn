@@ -34,17 +34,10 @@ $slider_btn-gradient:linear-gradient(271.08deg, #FFFFFF 62.68%, rgba(255, 255, 2
     }
 
     .right_slider_btn {
-        background-image: url("/pictures/slider/rigth_slide_button.svg");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        
+        @include background-properties("/pictures/slider/rigth_slide_button.svg",cover,center);
     }
     .left_slider_btn {
-        background: url("/pictures/slider/left_slide_button.svg");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+        @include background-properties("/pictures/slider/left_slide_button.svg",cover,center);
         transform: rotateY(180deg);
     }
     
@@ -78,10 +71,7 @@ $slider_btn-gradient:linear-gradient(271.08deg, #FFFFFF 62.68%, rgba(255, 255, 2
 
 
         &--pic {
-            background-image: url("/pictures/courses/carousel_pic.png");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            @include background-properties("/pictures/courses/carousel_pic.png",cover,center);
             width: 10rem;
             height: 9rem;
             border-radius: 18px;

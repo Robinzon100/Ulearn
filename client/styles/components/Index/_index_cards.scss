@@ -52,15 +52,12 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
             
             &:hover {
                 .course_card_hover_logo {
+                    @include background-properties("/pictures/courses/card_hover_btn.svg",60%,center);
                     background-color: var(--primary-white);
                     border-radius: 50%;
                     display: block;
                     cursor: pointer;       
                     position: absolute;
-                    background-image: url("/pictures/courses/card_hover_btn.svg");
-                    background-position: center;
-                    background-size:60%;
-                    background-repeat: no-repeat;
                     right: 2%;
                     top: 2%;
                     width: 4rem;
@@ -103,10 +100,8 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
             }
 
             &__img {
+                @include background-properties("/pictures/courses/card_picture.png",cover,center 18%);
                 position: relative;
-                // background: url("/pictures/courses/card_picture.png");
-                background-size: cover;
-                background-position: center 18%;
                 width: 100%;
                 height: 21rem;
                 border-radius: 18px;
@@ -132,18 +127,17 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
 
 
             &__raiting {
-                @include flex;
+                @include flex(space-between,center,row);
                 justify-content: space-between;
                 width: 100%;
                 margin: 1rem 0rem 1.5rem 0rem;
 
                 &--container {
-                    @include flex;
+                    @include flex(space-between,center,row);
 
 
                     .numbers {
                         margin-left: 1rem;
-                        // font-weight: bold;
                     }
 
                 }
@@ -161,7 +155,7 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
             }
 
             &__like {
-                @include flex;
+                @include flex(space-between,center,row);
                 justify-content: space-between;
                 width: 100%;
 
@@ -176,11 +170,7 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
                 }
                 
                 .stroke-heart-svg {
-                    // width: 3.5rem;
-                    // height: 3rem;
-                    background: no-repeat url("/pictures/courses/stroke_heart.svg");
-                    // background-size: cover;
-                    background-position: center;
+                    @include background-properties("/pictures/courses/stroke_heart.svg",initial,center);
                     cursor: pointer;
                     padding: 1.9rem;
 
@@ -191,14 +181,9 @@ $overlay-container-gradient:linear-gradient(360deg, #FFFFFF 77.29%, rgba(255, 25
                 }
 
                 .full-heart-svg {
-
-                    background: no-repeat url("/pictures/courses/heart_active.svg");
-                    // background-size: cover;
-                    background-position: center;
+                    @include background-properties("/pictures/courses/heart_active.svg",initial,center);
                     cursor: pointer;
                     padding: 1.9rem;
-
-
                 }
 
                 .heart-background {

@@ -33,17 +33,12 @@
 
         .mobile_hamburger {
             display: block !important;
-            background: url("/pictures/mobile_burger.svg");
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
+            @include background-properties("/pictures/mobile_burger.svg",cover,center);
+
             width: 7% !important;
             height: 35% !important;
         }
     }
     
 
-//    .mobile_active_menu {
-
-//    }
 }

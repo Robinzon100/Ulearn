@@ -55,10 +55,7 @@
                     display: block !important;
                     cursor: pointer;
                     position: absolute;
-                    background: url("/pictures/courses/card_hover_btn.svg");
-                    background-position: center;
-                    background-size: 60% !important;
-                    background-repeat: no-repeat;
+                    @include background-properties("/pictures/courses/card_hover_btn.svg",60%,center);
                     right: 2%;
                     top: 2%;
                     width: 4rem;
