@@ -53,7 +53,7 @@ const Button: FC<ButtonInterface> = ({
           </span>
         )}
 
-        <p className="title f-weight-500" style={disabled || loading ? { pointerEvents: "none" } : {}}>
+        <p className="title f-weight-r" style={disabled || loading ? { pointerEvents: "none" } : {}}>
           {!loading && title}
         </p>
 

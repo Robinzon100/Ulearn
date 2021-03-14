@@ -60,7 +60,7 @@ const Navigation: FC = () => {
             setIsMouseLeftCategory(true);
           }}>
           <div className="header__category-menu--heading">
-            <p className="f-weight-700 f-size-p5">კატეგორიები</p>
+            <p className="f-weight-b f-size-p5">კატეგორიები</p>
             <span className="chevrondown">
               <ChevronDown />
             </span>
@@ -87,14 +87,14 @@ const Navigation: FC = () => {
                   <NextLink
                     route="/courses"
                     className="menu--list__items--links">
-                    <p className="f-weight-500 f-size-p6">კურსები</p>
+                    <p className="f-weight-r f-size-p6">კურსები</p>
                   </NextLink>
                 </li>
                 <li className="menu--list__items">
                   <NextLink
                     route="/myCourses"
                     className="menu--list__items--links">
-                    <p className="f-weight-500 f-size-p6">გახდი ლექტორი</p>
+                    <p className="f-weight-r f-size-p6">გახდი ლექტორი</p>
                   </NextLink>
                 </li>
               </ul>

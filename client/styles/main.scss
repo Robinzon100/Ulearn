@@ -14,41 +14,55 @@
 @import "fonts/font-styles";
 @import "fonts/font-weight";
 
+
+
 /// === === === PAGES === === === ===
-@import "pages/landing";
 @import "pages/courses";
-@import "pages/MyCourses";
+@import "pages/myCourses";
+
+
 /// === === === QUERYS=== === === ===
 @import "media-querys/navigation_query";
 @import "media-querys/courses";
 @import "media-querys/landing_page";
 @import "media-querys/main-content_query";
-@import "media-querys/hero_query";
-/// === === ===  COMPONENTS === === === ===
-@import "components/nav-bar";
-@import "components/footer";
-@import "components/file_uploads";
-@import "components/Courses/courses_content";
-@import "components/Courses/course_video_player";
 
 
-// === === === === GLOBAL-COMPONENTS === === === ===
-@import "components/global_components/Button/buttons";
-@import "components/global_components/Button/button_colors";
-@import "components/global_components/Button/button_loading";
-@import "components/global_components/Button/button_sizes";
-@import "components/global_components/Input/input_fields";
-@import "components/global_components/Input/input_cards";
-@import "components/global_components/Input/input_file";
-@import "components/global_components/Cards/card_detail";
-@import "components/global_components/Cards/comment_cards";
-@import "components/global_components/Side-menu/side_menu";
-@import "components/global_components/stars";
-@import "components/global_components/multyStepForm/step-form";
-// === === === === HERO-COMPONENTS === === === ===
-@import "components/Index/hero";
-@import "components/Index/main_content";
-@import "components/Index/carousel";
-@import "components/Index/index_category";
-@import "components/Index/index_cards";
+
+/// === === ===  GLOBAL COMPONENTS === === === ===
+@import "components/global/navigation/nav-bar";
+@import "components/global/footer/footer";
+
+
+// === === ===  PAGES COMPONENTS === === === ===
+@import "components/pages_components/courses/courses_content";
+@import "components/pages_components/courses/course_video_player";
+@import "components/pages_components/index/hero";
+@import "components/pages_components/index/main_content";
+@import "components/pages_components/index/carousel";
+@import "components/pages_components/index/index_category";
+@import "components/pages_components/index/index_cards";
+
+
+
+// === === === === OUR LIBRARY COMPONENTS === === === ===
+@import "components/lib/button/buttons";
+@import "components/lib/button/button_colors";
+@import "components/lib/button/button_loading";
+@import "components/lib/button/button_sizes";
+@import "components/lib/input/input_fields";
+@import "components/lib/input/input_cards";
+@import "components/lib/input/input_file";
+@import "components/lib/card/card_detail";
+@import "components/lib/card/comment_cards";
+@import "components/lib/side-menu/side_menu";
+@import "components/lib/stars/stars";
+@import "components/lib/multyStepForm/step-form";
+@import "components/lib/bullet/bullet";
+
+
+// === === === === UTILS === === === ===
+@import "utils/conditional";
+@import "utils/file_uploads";
+
 

@@ -62,7 +62,7 @@ const PrimaryContentCard = ({id,price,title,author,raiting,bestseller,newPrice,n
           <div className="price-tag">
             {checkNewPrice && (
               <div className="removed-price-tag">
-                <p className="f-weight-700 f-size-p3">
+                <p className="f-weight-b f-size-p3">
                   {newPrice}
                   <span style={{ color: "#00E267", fontWeight: "bold" }}>
                     &#8382;
@@ -72,7 +72,7 @@ const PrimaryContentCard = ({id,price,title,author,raiting,bestseller,newPrice,n
             )}
 
             <div className="normal-price">
-              <p className="f-weight-700 f-size-p3">
+              <p className="f-weight-b f-size-p3">
                 {price}
                 <span style={{ color: "#00E267", fontWeight: "bold" }}>
                   &#8382;
@@ -83,7 +83,7 @@ const PrimaryContentCard = ({id,price,title,author,raiting,bestseller,newPrice,n
         </div>
 
         <div className="PrimaryContentCard__title">
-          <p className="f-weight-700 f-size-p5" title={title}>
+          <p className="f-weight-b f-size-p5" title={title}>
             {stringToCut(title, 50)}
           </p>
         </div>
@@ -118,11 +118,11 @@ const PrimaryContentCard = ({id,price,title,author,raiting,bestseller,newPrice,n
             />
           </div>
           <div className="numbers">
-            <p className="f-weight-500 f-size-p5">
+            <p className="f-weight-r f-size-p5">
               {raiting}{" "}
               <span
                 style={{ opacity: "50%" }}
-                className="f-weight-500 f-size-p6"
+                className="f-weight-r f-size-p6"
               >
                 ({numberOfVotes})
               </span>
@@ -131,7 +131,7 @@ const PrimaryContentCard = ({id,price,title,author,raiting,bestseller,newPrice,n
         </div>
         <div className="PrimaryContentCard__raiting--name">
           <NextLink route="/#">
-            <p className="f-weight-700 f-size-p5">
+            <p className="f-weight-b f-size-p5">
               {stringToCut(author, 25)}
             </p>
           </NextLink>

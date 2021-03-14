@@ -1,8 +1,5 @@
 :root {
 
-
-    // --toast-large: 30px;
-    // --toast-medium: 25px;
     
     //! BOX Shadow
     --box-shadow-for-navigation: 0px 3px 94px -20px rgba(0, 0, 0, 0.13);
@@ -25,7 +22,16 @@
     // LOADING ANIMATION
     --css-dot-animation: pulse 0.5s ease infinite alternate;
     --delay: 1.5s;
+
+
+    //* BREAKBOINTS
+    $ultra-small-breakpoint: 400px;
+    $small-breakpoint: 768px;
+    $medium-breakpoint: 1366px;
 }
+
+
+
 
 //! BREAKPOINTS
 $ultra-small-breakpoint: 400px;

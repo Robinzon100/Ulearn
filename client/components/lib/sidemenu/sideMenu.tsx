@@ -40,7 +40,7 @@ const sideMenu: React.FC<videoList> = ({id,title,courseChapterTime,subTitles},pr
               <p className="f-size-p6">{id}</p>
             </div>
             <div className="card__text">
-              <p className="f-weight-700 f-size-p6">{title}</p>
+              <p className="f-weight-b f-size-p6">{title}</p>
             </div>
             <div className="card__time">
               <p className="f-size-p7">
@@ -64,9 +64,9 @@ const sideMenu: React.FC<videoList> = ({id,title,courseChapterTime,subTitles},pr
               }}
               data-title={sub.text}>
               <div className="details_heading">
-                <p className="f-weight-300 f-size-p6">
+                <p className="f-weight-l f-size-p6">
                   {sub.text}
-                  <span className="f-weight-300 f-size-p7">
+                  <span className="f-weight-l f-size-p7">
                     ({sub.amountOfMinutes}m)
                   </span>
                 </p>
