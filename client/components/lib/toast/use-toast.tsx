@@ -4,7 +4,7 @@ import Toast from "./toast";
 
 
 const useToast = ({title,size}) => {
-    const [toasts] = useState([
+    const [toasts,] = useState([
         title,
         size
     ]);

@@ -1,14 +1,10 @@
-
-import { ChevronDown} from 'react-feather';
-
 import Input from "components/lib/inputs/Input";
-import Button from "components/lib/button/Button";
 
 
-const name = ({ value, handleInputChange,handleNextStep}) => {
+const name = ({ value, handleInputChange}) => {
     
   return (
-    <>
+
       <Input
         width="50rem"
         placeHolder="შეიყვანეთ სახელი"
@@ -17,17 +13,8 @@ const name = ({ value, handleInputChange,handleNextStep}) => {
         type="text"
         value={value}
         onChange={(e) => handleInputChange(e, "name")}
-        icon={< ChevronDown/>}
       />
-      <Button
-        title="წინ"
-        // type="submit"
-        size="medium"
-        color="white"
-        onClick={handleNextStep}
-      />
-      
-    </>
+
   );
 };
 

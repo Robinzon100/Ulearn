@@ -6,7 +6,7 @@ import { Eye} from "react-feather";
 import SideMenu from "components/lib/sidemenu/sideMenu";
 import CourseVideoPlayer from '../components/pages/course/CourseVideoPlayer';
 import  * as CoursesJson from "../public/json/Courses.json";
-import CourseTablist from "components/pages/course/course_tablist";
+import CourseTablist from "components/pages/course/course_tabs";
 
 
 //! === INTERFACES(DO NOT DELETE)
@@ -14,7 +14,7 @@ import CourseTablist from "components/pages/course/course_tablist";
 
 
 const Courses = () => {
-  const [videoLists] = useState(CoursesJson.videoLists);
+  const [videoLists,] = useState(CoursesJson.videoLists);
     
 
   return (

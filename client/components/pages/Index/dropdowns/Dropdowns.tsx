@@ -1,12 +1,12 @@
 import { Clock, Star } from "react-feather";
 
 import Select from "components/lib/select/select";
-import * as SelectJson from "../../../public/json/Select.json";
+import * as SelectJson from "../../../../public/json/Select.json";
 interface SortingDropdown {
     type: string;
 }
 
-const SortingDropdown: React.FC<SortingDropdown> = ({ type }) => {
+const Dropdowns: React.FC<SortingDropdown> = ({ type }) => {
     const handleSelectChange = (value) => {
         console.log(value);
     };
@@ -65,4 +65,4 @@ const SortingDropdown: React.FC<SortingDropdown> = ({ type }) => {
     );
 };
 
-export default SortingDropdown;
+export default Dropdowns;

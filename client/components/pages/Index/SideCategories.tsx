@@ -4,7 +4,7 @@ import NextLink from "components/utils/NextLink";
 
 
 
-const categoriesComponent: React.FC<Categories> = ({ CategoriesJson }) => {
+const SideCategories: React.FC<Categories> = ({ CategoriesJson }) => {
   return (
     <>
       <div className="category_container">
@@ -37,4 +37,4 @@ const categoriesComponent: React.FC<Categories> = ({ CategoriesJson }) => {
   );
 };
 
-export default categoriesComponent;
+export default SideCategories;

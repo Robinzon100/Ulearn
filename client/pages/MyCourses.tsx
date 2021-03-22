@@ -37,7 +37,7 @@ const MyCourses= () => {
   ];
   
 
-  const [MyCourseContent] = useState(MyCoursesJson.description);
+  const [MyCourseContent,] = useState(MyCoursesJson.description);
 
   return (
     <>

@@ -1,6 +1,5 @@
-// import  {JSX } from "react";
-import Hero from "components/pages/Index/hero";
-import Content from "components/pages/Index/main_content";
+import Hero from "components/pages/Index/Hero";
+import Content from "components/pages/Index/CourseCards";
 import { Observer } from "mobx-react-lite";
 
 const Index = () => {

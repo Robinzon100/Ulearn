@@ -10,6 +10,7 @@
 .step-forms {
     width: 100vw;
     height: 100vh;
-    position: absolute;
+    // position: absolute;
     background-color: var(--primary-white);
+    @include flex(center,center,column)
 }

@@ -15,7 +15,7 @@ import QuestionAnswer from "../../../public/SVG/CoursesSvg/HelpCircle";
 import Estimates from "../../../public/SVG/CoursesSvg/Estimates";
 
 
-const course_tablist = () => {
+const course_tabs = () => {
     const [tabIndex, setTabIndex] = useState<number>(0);
     const [tabContent, setTabContent] = useState<any>(CoursesJson.description);
    
@@ -242,4 +242,4 @@ const course_tablist = () => {
     )
 }
 
-export default course_tablist;
+export default course_tabs;

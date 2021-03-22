@@ -1,4 +1,6 @@
 import { useState } from "react";
+// import { motion } from "framer-motion";
+
 
 //* OUR IMPORTS============================
 import Button from "components/lib/button/Button";
@@ -7,43 +9,72 @@ import SurName from "components/utils/stepForm/surname";
 
 
 
-const multiStepForm = ({isFormToggled,FormToggle}) => {
+const multiStepForm = ({ isFormToggled, FormToggle }) => {
+    const initialValue = 1;
+
     const [stepFormInfo, setStepFormInfo] = useState({
         name: "",
         surname: "",
     });
-    const [stepIndex, setStepIndex] = useState<number>(1);
+    
+    const [stepIndex, setStepIndex] = useState<number>(initialValue);
 
-    const handleNextStep = (e) => {
-        e.preventDefault;
+    const [, setIsSubmitValid] = useState<boolean>();
+
+
+    //* GOES TO NEXT STEP
+    const handleNextStep = () => {
         setStepIndex(stepIndex + 1);
-    };
-    const handlePrevStep = (e) => {
-        e.preventDefault;
-        setStepIndex(stepIndex - 1);
+        console.log(stepIndex);
     };
 
+
+    //* GOES TO PREV STEP
+    const handlePrevStep = () => {
+        setStepIndex(stepIndex - 1);
+        console.log(stepIndex);
+    };
+
+
+    //* HERE COMES ALL THE INPUT VALUES
     const handleInputChange = (e, field: string) => {
         setStepFormInfo({ ...stepFormInfo, [field]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault;
-        console.log({ name, surname });
+
+    //* WE SUBMIT INPUT VALUES
+    const handleSubmit = () => {
+        if (name.length < 5 || surname.length < 6) {
+            setIsSubmitValid(false);
+            console.log("რაღაცა ნიტოა")
+        } else {
+            setIsSubmitValid(true);
+            console.log({ name, surname });
+        }
     };
+
+
+
+    //* STATE ACTIONS IF USER DELETES STEPFORM;
+    const deleteFormActions = () => {
+        FormToggle(false);
+
+        setStepFormInfo({name:"",surname:""});
+        
+        setStepIndex(initialValue)
+    }
 
     const { name, surname } = stepFormInfo;
 
 
+
     const handleStepChange = (i: number) => {
-        // debugger
         switch (i) {
             case 1:
                 return (
                     <Name
                         value={name}
                         handleInputChange={(e) => handleInputChange(e, "name")}
-                        handleNextStep={(e) => handleNextStep(e)}
                     />
                 );
 
@@ -52,34 +83,77 @@ const multiStepForm = ({isFormToggled,FormToggle}) => {
                     <SurName
                         value={surname}
                         handleInputChange={(e) => handleInputChange(e, "surname")}
-                        handleNextStep={(e) => handleNextStep(e)}
-                        handlePrevStep={(e) => handlePrevStep(e)}
                     />
                 );
             default:
-                return null;
+                return (
+                    <>
+                        <h1>{name}</h1>
+                        <br />
+                        <h1>{surname}</h1>
+                        <Button
+                            title="უკან დაბრუნება"
+                            size="medium"
+                            color="yellow"
+                            onClick={() => handlePrevStep()}
+                            width="30rem"
+                        />
+                    </>
+                );
         }
     };
 
     return (
         <>
-            {isFormToggled && 
-            <div className="stepForm_container">
-                <div className="step-forms">
-                    {handleStepChange(stepIndex)}
+            {isFormToggled &&
+                <div className="stepForm_container">
+                    <div className="step-forms">
 
-                    <Button
-                        title="გააგზავნე"
-                        type="submit"
-                        size="medium"
-                        color="white"
-                        onClick={(e) => handleSubmit(e)}
-                    />
-                 <button onClick={() => FormToggle(false)}>წაშალე</button>
+                        {handleStepChange(stepIndex)}
+
+                        <br />
+
+                        <Button
+                            title="წინ"
+                            size="medium"
+                            color="white"
+                            onClick={() => handleNextStep()}
+                        />
+
+
+
+                        <Button
+                            title="უკან"
+                            size="medium"
+                            color="white"
+                            onClick={() => handlePrevStep()}
+                        />
+
+
+
+                        <Button
+                            title="გააგზავნე"
+                            type="submit"
+                            size="medium"
+                            color="green"
+                            onClick={() => handleSubmit()}
+                            width="30rem"
+                        />
+
+
+                        <br />
+
+                        <Button
+                            title="წაშალე ფორმა"
+                            size="medium"
+                            color="red"
+                            width="30rem"
+                            onClick={() => deleteFormActions()}
+                        />
+                    </div>
+
                 </div>
-
-            </div>
-        }
+            }
         </>
     );
 };

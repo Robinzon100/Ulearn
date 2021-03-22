@@ -2,10 +2,10 @@
 import { Search } from "react-feather";
 
 import Input from "components/lib/inputs/Input";
-import SortingDropdown from "./sortingDropdown";
+import SortingDropdown from "./Dropdowns";
 
 
-const InputSelectComponent = () => {
+const DropdownsContainer = () => {
     return (
         <>
         <div className="main_content--input">
@@ -30,4 +30,4 @@ const InputSelectComponent = () => {
 }
 
 
-export default InputSelectComponent;
+export default DropdownsContainer;

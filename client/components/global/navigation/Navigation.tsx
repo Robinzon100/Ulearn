@@ -17,7 +17,7 @@ const Navigation: FC = () => {
   const [isFormToggled, setIsFormToggled] = useState(false);
 
   const FormToggle = (state) => {
-      debugger
+    //   debugger
     setIsFormToggled(state);
     console.log({state,isFormToggled});
     
@@ -103,10 +103,10 @@ const Navigation: FC = () => {
             {/* <div className="login"> */}
             {/* <NextLink route="/"> */}
                 <Button 
-                title="login / sign up" 
-                onClick={() => setIsFormToggled(true)}
-                size="mini"
-                color="blue"
+                    title="login / sign up" 
+                    onClick={() => setIsFormToggled(true)}
+                    size="mini"
+                    color="blue"
                 />
 
                 <MultiStepForm isFormToggled={isFormToggled} FormToggle={FormToggle} />

@@ -12,7 +12,7 @@ interface Props {
 }
 
 const checkBoxGroup: FC<Props> = ({ onChange, checkboxes}) => {      
-  const [checkBoxes] = useState<any[]>(checkboxes);
+  const [checkBoxes,] = useState<any[]>(checkboxes);
 
 
   const changeHandler = ({checked, value}):void => {

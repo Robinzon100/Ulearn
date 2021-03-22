@@ -7,7 +7,7 @@ import CardDetail from "./CardDetail";
 import { stringToCut } from "components/utils/stringToCut";
 import NextLink  from "components/utils/NextLink";
 
-const PrimaryContentCard = ({id,price,title,author,raiting,bestseller,newPrice,numberOfVotes,imageUrl,isLiked,posted,difficulty,description,
+const Card = ({id,price,title,author,raiting,bestseller,newPrice,numberOfVotes,imageUrl,isLiked,posted,difficulty,description,
   descriptionList}: PrimaryContentCards) => {
   const [addToFavorites, setAddToFavorites] = useState<boolean>(isLiked);
 
@@ -52,13 +52,11 @@ const PrimaryContentCard = ({id,price,title,author,raiting,bestseller,newPrice,n
     <div
       className="PrimaryContentCard"
       key={id}
-      onMouseLeave={handleHoverLeave}
-    >
+      onMouseLeave={handleHoverLeave}>
       <NextLink route="/#">
         <div
           className={"PrimaryContentCard__img"}
-        style={{ backgroundImage: `url(${imageUrl})` }}
-        >
+        style={{ backgroundImage: `url(${imageUrl})` }}>
           <div className="price-tag">
             {checkNewPrice && (
               <div className="removed-price-tag">
@@ -90,8 +88,7 @@ const PrimaryContentCard = ({id,price,title,author,raiting,bestseller,newPrice,n
       </NextLink>
       <div
         className="course_card_hover_logo course_card_hover_logo_mobile"
-        onClick={(e) => cardHoverHandler(e)}
-      >
+        onClick={(e) => cardHoverHandler(e)}>
         <div
           className={isClicked ? "card_detail" : "card_detail-display"}>
           {
@@ -122,8 +119,7 @@ const PrimaryContentCard = ({id,price,title,author,raiting,bestseller,newPrice,n
               {raiting}{" "}
               <span
                 style={{ opacity: "50%" }}
-                className="f-weight-r f-size-p6"
-              >
+                className="f-weight-r f-size-p6">
                 ({numberOfVotes})
               </span>
             </p>
@@ -141,8 +137,7 @@ const PrimaryContentCard = ({id,price,title,author,raiting,bestseller,newPrice,n
         <label
           className={
             isBestSeller ? "label regular  f-size-p7" : null
-          }
-        >
+          }>
           {isBestSeller ? <p>ბესტსელერი</p> : null}
         </label>
 
@@ -159,4 +154,4 @@ const PrimaryContentCard = ({id,price,title,author,raiting,bestseller,newPrice,n
   );
 };
 
-export default memo(PrimaryContentCard);
+export default memo(Card);

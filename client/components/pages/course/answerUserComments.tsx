@@ -6,39 +6,33 @@ interface answerUserComments {
     id: number
 }
 
-
-const answerUserComments = (props) => {
-
-
+const answerUserComments = ({id}:answerUserComments) => {
     const [answerComment, setAnswerComment] = useState(false);
-
-
+    
     const handleSetAnswerComment = () => {
         setAnswerComment((answerComment) => !answerComment)
     }
 
     return (
         <>
-            <div className="user-answer" onClick={(handleSetAnswerComment)} key={props.id}>
+            <div className="user-answer" onClick={(handleSetAnswerComment)} key={id}>
 
                 {!answerComment ?
                     <div className="user-answer--heading" >
                         <p className="btn blackbold f-size-p5">
                             პასუხის გაცემა
-                    </p>
-                    </div>
-                    :
-                    null
+                        </p>
+                    </div> : null
                 }
             </div>
             <div >
                 {answerComment ?
                     <div className="user-answer--input">
                         <Input
-                            color="white"
+                            color="red"
                             size="large"
-                            type={"text"}
-                            placeHolder={"მოძებნე სასურველი კურსი"}
+                            type="text"
+                            placeHolder="მოძებნე სასურველი კურსი"
                             className=""
                             width="100%"
                         // disabled={true}
