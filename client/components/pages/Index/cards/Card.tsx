@@ -1,4 +1,4 @@
-import  { useState,memo } from "react";
+import  { useState,memo,useRef, useEffect } from "react";
 import { Star } from "react-feather";
 
 //! ==================OUR IMPORTS
@@ -9,6 +9,10 @@ import NextLink  from "components/utils/NextLink";
 
 const Card = ({id,price,title,author,raiting,bestseller,newPrice,numberOfVotes,imageUrl,isLiked,posted,difficulty,description,
   descriptionList}: PrimaryContentCards) => {
+
+  const selfRef = useRef<HTMLDivElement>(null);
+  const [elProperties, setElProperties] = useState<any>({ top: 0, left: 0,width:0 });
+
   const [addToFavorites, setAddToFavorites] = useState<boolean>(isLiked);
 
   const [checkNewPrice] = useState<boolean | number>(newPrice);
@@ -34,13 +38,31 @@ const Card = ({id,price,title,author,raiting,bestseller,newPrice,numberOfVotes,i
     setAddToFavorites((addToFavorites) => !addToFavorites);
   };
 
-  const cardHoverHandler = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
 
-    if (window.innerWidth / 2 - 40 < e.currentTarget.parentElement.offsetLeft) {
+  const cardHoverHandler = (e) => {
+
+    if (!selfRef || !selfRef.current) return elProperties;
+    const rect = selfRef.current.getBoundingClientRect();
+    const left = rect.left;
+    const top = rect.top;
+    const width = rect.width;
+    setElProperties({ left, top,width });
+    console.log({ top, left,width })
+
+          
+    if (window.innerWidth / 2  < e.currentTarget.parentElement.offsetLeft) {
         setIsLastCard(true)
     }
+    
+
     setIsClicked((isClicked) => !isClicked);
 };
+
+    useEffect(() => {
+        // getCardPosition();
+  }, []);
+
+
 
   //! ეს გვეხმარება რომ როცა ჰოვერი მოხდება კარტა და ღილაღი გაქრეს!
   const handleHoverLeave = () => {
@@ -50,9 +72,10 @@ const Card = ({id,price,title,author,raiting,bestseller,newPrice,numberOfVotes,i
 
   return (
     <div
+      ref={selfRef}
       className="PrimaryContentCard"
       key={id}
-      onMouseLeave={handleHoverLeave}>
+      onMouseLeave={() => handleHoverLeave()}>
       <NextLink route="/#">
         <div
           className={"PrimaryContentCard__img"}
@@ -89,8 +112,9 @@ const Card = ({id,price,title,author,raiting,bestseller,newPrice,numberOfVotes,i
       <div
         className="course_card_hover_logo course_card_hover_logo_mobile"
         onClick={(e) => cardHoverHandler(e)}>
-        <div
-          className={isClicked ? "card_detail" : "card_detail-display"}>
+        <div 
+        style={{top:`${Math.round((elProperties.top - elProperties.top) - 30)}px`,left:`${Math.round(elProperties.width / 10)}px`}}
+        className={isClicked ? "card_detail" : "card_detail-display"} >
           {
             <CardDetail
               id={id}

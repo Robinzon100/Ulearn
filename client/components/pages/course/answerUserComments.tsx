@@ -15,7 +15,7 @@ const answerUserComments = ({id}:answerUserComments) => {
 
     return (
         <>
-            <div className="user-answer" onClick={(handleSetAnswerComment)} key={id}>
+            <div className="user-answer" onClick={(() => handleSetAnswerComment())} key={id}>
 
                 {!answerComment ?
                     <div className="user-answer--heading" >
