@@ -4,12 +4,14 @@ import { motion } from "framer-motion";
 
 import { sideMenuAnimation } from "components/lib/framer/framerAnimation";
 
-const sideMenu: React.FC<videoList> = ({id,title,courseChapterTime,subTitles},props) => {
+const sideMenu: React.FC<videoList> = ({ id,title,courseChapterTime,subTitles },props) => {
   const [revealContent, setRevealContent] = useState<boolean>(false);
+
 
   const handleSetRevealContent = () => {
     setRevealContent((revealContent) => !revealContent);
   };
+
 
   //! ეს ცვლის სტილს დაამთავრა თუ არა ესა თუ ის დავალება
   const handleSetFinished = (e) => {
@@ -23,6 +25,7 @@ const sideMenu: React.FC<videoList> = ({id,title,courseChapterTime,subTitles},pr
 
     e.currentTarget.classList.toggle("details_finished");
   };
+
 
   return (
     <>
@@ -52,7 +55,7 @@ const sideMenu: React.FC<videoList> = ({id,title,courseChapterTime,subTitles},pr
         <motion.div
           className="card_container__info"
           variants={sideMenuAnimation}
-          initial={{ height: "0rem" }}
+        //   initial={{ height: 0 }}
           animate={revealContent ? "open" : "closed"}>
           {subTitles.map(sub => (
             <div

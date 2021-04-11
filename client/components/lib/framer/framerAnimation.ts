@@ -49,15 +49,15 @@ export const seeMoreAnimation = {
 
 export const sideMenuAnimation = {
     open: {
-        height: "12rem",
+        height: 120,
         opacity: 1,
         display: "block",
         transition: { duration: 0.3 },
     },
     closed: {
-        height: "0rem",
+        height: 0,
         opacity: 0,
-        // 'visibility': 'hidden',
+        // display: "none",
         transition: {
             duration: 0.3,
         },

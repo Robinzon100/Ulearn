@@ -65,7 +65,7 @@ const selectInput: React.FC<ISelect> = ({
               />
             )}
 
-            <div className="dropdown_icon" style={{ opacity: "70%" }}>
+            <div className="dropdown_icon" style={{ opacity: "70%",marginTop:"3%" }}>
               <ChevronDown />
             </div>
           </div>

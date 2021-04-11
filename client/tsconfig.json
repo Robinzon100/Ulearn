@@ -19,7 +19,7 @@
     "emitDecoratorMetadata": true,
     "jsx": "preserve",
     "baseUrl": ".",
-    "allowSyntheticDefaultImports": false,
+    "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
     "strictFunctionTypes": true,
     "strictBindCallApply": true,

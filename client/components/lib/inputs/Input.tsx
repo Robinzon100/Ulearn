@@ -61,7 +61,6 @@ const Input: React.FC<IinputInterface> = ({
             }
 
             .input_field {
-            //   font-family: var(--regular);
               font-size: ${getInputSize(size).fontSize};
               padding: ${getInputSize(size).padding};
               background: ${color === "white" ?  getColors(color).defaultBg : "var(--primary-white)"};
@@ -78,11 +77,11 @@ const Input: React.FC<IinputInterface> = ({
               color: var(--primary-grey);
               opacity: 50%;
             }
-            .input_container:focus-within  {
-                background-color:var(--primary-white);
-                box-shadow: var(--text-input-shadow);
+            // .input_container:focus-within  {
+            //     background-color:var(--primary-white);
+            //     box-shadow: var(--text-input-shadow);
                 
-            }
+            // }
             
             .input_container:hover {
                 background: var(--primary-grey);

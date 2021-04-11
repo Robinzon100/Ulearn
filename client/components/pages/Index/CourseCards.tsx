@@ -3,12 +3,12 @@ import { useEffect, useState } from "react";
 //! ===========================OUR IMPORTS
 import PrimaryContentCard from "components/pages/Index/cards/Card";
 import Carousel from "components/lib/carousel/carousel";
-import * as PrimaryContentCardJson from "../../../public/json/PrimaryContentCard.json";
+import PrimaryContentCardJson from "../../../public/json/PrimaryContentCard.json";
 import CategoriesComponent from "components/pages/Index/SideCategories";
 import Overlay from "components/pages/Index/Overlay";
 
 //! ===================== JSON
-import * as CategoriesImgs from "../../../public/json/categories.json";
+import CategoriesImgs from "../../../public/json/categories.json";
 import InputSelectComponent from "components/pages/Index/dropdowns/DropdownsContainer";
 import { getAllCategories } from "actions/client/categories.action";
 

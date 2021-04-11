@@ -1,22 +1,30 @@
 import { useEffect } from "react";
+
+
 import NextLink from "components/utils/NextLink";
 import { ShoppingCart, Check } from "react-feather";
 import { stringToCut } from "components/utils/stringToCut";
+
+
 
 //! ============= INTERFACE
 import { PrimaryContentCardHover } from "../../../../interfaces/PrimaryContentCardHover.interface";
 
 interface isLastCard {
   isLastCard: boolean;
+  width:number
 }
 
-const CardDetail = ({id,title,posted,difficulty,description,descriptionList,isLastCard,}:PrimaryContentCardHover & isLastCard) => {
-  const handleHoverCardStyle = () => {
+const CardDetail = ({ id,title,posted,difficulty,description,descriptionList,isLastCard,width }:
+    PrimaryContentCardHover & isLastCard) => {
+    
+    const handleHoverCardStyle = () => {
     const hoverCards = document.querySelectorAll<HTMLElement>(".card_detail");
     // debugger
+
     if(isLastCard) {
         hoverCards.forEach(card => {
-            card.style.left = "-680px "
+            card.style.left = `${Math.round((width - (width * 3)) - 25)}px`
         })
     }
 
