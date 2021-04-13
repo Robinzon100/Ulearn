@@ -2,6 +2,7 @@ import '../styles/main.scss'
 import Head from "next/head";
 import 'video.js/dist/video-js.css'
 import { SWRConfig } from 'swr'
+import { AppProps } from 'next/dist/next-server/lib/router/router';
 
 
 import Navigation from "components/global/navigation/Navigation"
@@ -12,7 +13,7 @@ import ToastContainer from 'components/lib/toast/toastContainer';
 
 
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }:AppProps) {
     return (
         <>
         <Head>

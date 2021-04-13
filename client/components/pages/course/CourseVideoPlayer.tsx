@@ -9,7 +9,7 @@ const CourseVideoPlayer = () => {
     }, [])
 
 
-    
+
     const videoJsOptions = {
         autoplay: false,
         controls: true,
@@ -22,16 +22,16 @@ const CourseVideoPlayer = () => {
             hotkeys
         },
         sources: [
-          {
-            src: '/Videos/hero_section_animation.mp4'
-          },
+            {
+                src: '/Videos/hero_section_animation.mp4'
+            },
         ],
-      }
+    }
 
     useEffect(() => {
         if (videoEl == null) return;
         const player = videojs(videoEl, videoJsOptions)
-        
+
         return () => {
             player.dispose()
         }
@@ -41,7 +41,7 @@ const CourseVideoPlayer = () => {
         <>
             <div className='course_video_player_container' >
                 <div data-vjs-player>
-                    <video ref={onVideo} className="video-js course_video_player" playsInline />
+                    <video ref={onVideo} className="video-js vjs-default-skin course_video_player" playsInline />
                 </div>
             </div>
         </>

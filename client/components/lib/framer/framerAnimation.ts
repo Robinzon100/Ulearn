@@ -57,7 +57,7 @@ export const sideMenuAnimation = {
     closed: {
         height: 0,
         opacity: 0,
-        // display: "none",
+        display: "none",
         transition: {
             duration: 0.3,
         },

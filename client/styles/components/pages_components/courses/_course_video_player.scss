@@ -1,5 +1,5 @@
 .course_video_player_container {
-  width: 100%;
+//   width: 100%;
   height: 100%;
   box-shadow: 0 30px 50px -15px rgba(0, 0, 0, 0.25),
     0 20px 20px -5px rgba(0, 0, 0, 0.04);
@@ -70,54 +70,54 @@
       }
     }
 
-    .vjs-control-bar {
-      height: 6em;
-      background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0) 0%,
-        rgb(0 0 0 / 58%) 100.83%
-      );
-      font-size: 1.2rem;
+    // .vjs-control-bar {
+    //   height: 6em;
+    //   background: linear-gradient(
+    //     180deg,
+    //     rgba(0, 0, 0, 0) 0%,
+    //     rgb(0 0 0 / 58%) 100.83%
+    //   );
+    //   font-size: 1.2rem;
 
-      display: grid;
-      grid-template-areas:
-        "progress progress progress"
-        "controlls . settings";
+    //   display: grid;
+    //   grid-template-areas:
+    //     "progress progress progress"
+    //     "controlls . settings";
 
-      .vjs-play-control {
-        grid-area: controlls;
-        position: absolute;
-        left: 2%;
-      }
-      .vjs-volume-panel {
-        grid-area: controlls;
-        position: absolute;
-        left: 27%;
-      }
+    //   .vjs-play-control {
+    //     grid-area: controlls;
+    //     position: absolute;
+    //     left: 2%;
+    //   }
+    //   .vjs-volume-panel {
+    //     grid-area: controlls;
+    //     position: absolute;
+    //     left: 27%;
+    //   }
 
-      .vjs-playback-rate {
-        grid-area: controlls;
-        position: absolute;
-        left: 15%;
-      }
+    //   .vjs-playback-rate {
+    //     grid-area: controlls;
+    //     position: absolute;
+    //     left: 15%;
+    //   }
 
-      .vjs-progress-control {
-        grid-area: progress;
-        width: 98%;
-        justify-self: center;
-      }
-      .vjs-time-control {
-        grid-area: settings;
-      }
-      .vjs-fullscreen-control {
-        grid-area: settings;
-        grid-area: settings;
-        position: absolute;
-        right: 2%;
-      }
-      .vjs-control {
-        // grid-area: timeline;
-      }
-    }
+    //   .vjs-progress-control {
+    //     grid-area: progress;
+    //     width: 98%;
+    //     justify-self: center;
+    //   }
+    //   .vjs-time-control {
+    //     grid-area: settings;
+    //   }
+    //   .vjs-fullscreen-control {
+    //     grid-area: settings;
+    //     grid-area: settings;
+    //     position: absolute;
+    //     right: 2%;
+    //   }
+    //   .vjs-control {
+    //     // grid-area: timeline;
+    //   }
+    // }
   }
 }

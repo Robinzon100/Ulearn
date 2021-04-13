@@ -64,7 +64,8 @@ const course_tabs = () => {
 //   };
   
   //! ტაბებზე დაჭერისას კონტენტის შეცვლის ფუნქცია
-  const fetchTabConent = (route: string): | Description_type | QuestionAnswer_type | Resources_type | Estimates_type => {
+  const fetchTabConent = (route: string): | Description_type | QuestionAnswer_type | Resources_type 
+    | Estimates_type => {
     switch (route) {
       case "/description":
         return CoursesJson.description;
