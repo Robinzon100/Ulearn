@@ -34,7 +34,7 @@ const Category: FC<categories> = ({ categories: { main_categories, sub_categorie
         className="list__main-category"
         onMouseEnter={() => setIsMouseleftSubSubCategory(false)}
         variants={MainCategoryLeftMoveAnimation}
-        initial={{ left: "34rem" }}
+        initial={{ left: 340 }}
         animate={isMainCategoryChosen && "left"}>
 
 
@@ -59,7 +59,7 @@ const Category: FC<categories> = ({ categories: { main_categories, sub_categorie
         <motion.ul
           className="list__sub-category"
           variants={SubCategoryLeftMoveAnimation}
-          initial={{ left: "25rem", display: "none", opacity: 0 }}
+          initial={{ left: 250, display: "none", opacity: 0 }}
           animate={isMainCategoryChosen && rendersSubNames.length > 0 && "left"}>
             {rendersSubNames &&
             rendersSubNames?.map((data) => (
@@ -86,7 +86,7 @@ const Category: FC<categories> = ({ categories: { main_categories, sub_categorie
         <motion.ul
           className="list__sub-sub-category"
           variants={SubSubCategoryLeftMoveAnimation}
-          initial={{ right: "7rem", display: "none", opacity: 0 }}
+          initial={{ right: 70, display: "none", opacity: 0 }}
           animate={isSubCategoryChosen && rendersSubSubNames.length > 0 && "left"}
         >
           {rendersSubSubNames &&
