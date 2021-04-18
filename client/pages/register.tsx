@@ -1,7 +1,20 @@
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useState } from 'react';
+
+
+//! ─── OWN ────────────────────────────────────────────────────────────────────────
+//? COMPONENTS
 import Input from "components/lib/inputs/Input";
 import Button from "components/lib/button/Button";
+
+//? UTILS
 import { emailRegex, passwordRegex } from "components/utils/Regex";
+import CheckBoxGroup from "components/lib/checkbox/checkbox-group";
+import { postRegistration } from "actions/client/registration.action";
+
+
+
+
 
 type FormValues = {
   full_name: string;
@@ -9,55 +22,47 @@ type FormValues = {
   password: string;
   recovery_email: string;
   favorite_main_category_ids: string;
+  favorite_sub_category_ids: string;
 };
+
+
+
+
+
 
 const Register = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
+  let categoryIds = new Set()
 
-  const onSubmit: SubmitHandler<FormValues> = (data: FormValues) => {
-    if (data.email === data.recovery_email) {
-      console.log("აბაა გააჯვი");
-      return;
+
+  let categoryIdsHandler = (checkboxObjects) => {
+    checkboxObjects.map(checkbox => {
+      if (checkbox.checked === true)
+        categoryIds.add(checkbox.value)
+    })
+  }
+
+
+
+
+  const onSubmit: SubmitHandler<FormValues> = async (data: FormValues) => {
+    let registeredUser: FormValues = {
+      full_name: data.full_name,
+      email: data.email,
+      password: data.password,
+      recovery_email: data.recovery_email,
+      favorite_main_category_ids: JSON.stringify(Array.from(categoryIds)),
+      favorite_sub_category_ids: '[1]'
     }
 
-    const registeredUser: {
-      full_name,
-      email,
-      password,
-      recovery_email
-    } = data
-
-
-    console.log(registeredUser)
-    // const = {
-    //   full_name,
-    //   email,
-    //   password,
-    //   recovery_email,
-    //   favorite_main_category_ids
-    // }
-
-
+    let res = await postRegistration(registeredUser)
+    console.log(res)
   };
 
 
-  //   const [array, setArray] = useState([
-  //     {
-  //       label: 'პროგრამირება',
-  //       value: 23,
-  //       checked: false
-  //     },
-  //     {
-  //       label: 'მუსიკა',
-  //       value: 44,
-  //       checked: false
-  //     },
-  //     {
-  //       label: 'დიზაინი',
-  //       value: 5,
-  //       checked: false
-  //     },
-  //   ])
+
+
+
 
   return (
     <>
@@ -78,6 +83,7 @@ const Register = () => {
                   </div>
 
                   <Input
+                    name="full_name"
                     width="100%"
                     type="text"
                     placeHolder="beqa arabidze"
@@ -108,6 +114,7 @@ const Register = () => {
                   </div>
 
                   <Input
+                    name="email"
                     width="100%"
                     type="email"
                     placeHolder="arabson1009@gmail.com"
@@ -137,6 +144,7 @@ const Register = () => {
 
                   {/* //* მგონი შესამოწმებელი გექნება რომ ერთიდა იგივე არ შეიყანოს */}
                   <Input
+                    name="recovery_email"
                     width="100%"
                     type="email"
                     placeHolder="arab@gmail.com"
@@ -164,6 +172,7 @@ const Register = () => {
                   </div>
 
                   <Input
+                    name="password"
                     width="100%"
                     type="password"
                     placeHolder="arabidze98"
@@ -190,25 +199,35 @@ const Register = () => {
 
                 <div className="base_input_styles main_category">
                   <div className="heading">
-
                     <h1 className="f-size-p6 f-weight-b">
                       სასურველი კატეგორიები
                     </h1>
-
                   </div>
 
-                  {/* {array.map((c, i) => (
-                        <CheckBox
-                        checked={c.checked}
-                        size="medium"
-                        title={c.label}
-                        key={i}
-                          value={c.value}
-                          width="100%"
-                          color="white"
-                          {...register("main_category")}
-                        />
-                    ))} */}
+
+                  <CheckBoxGroup
+                    onChange={categoryIdsHandler}
+                    checkboxes={[
+                      {
+                        label: 'პროგრამირება',
+                        value: 23,
+                        checked: false
+                      },
+                      {
+                        label: 'მუსიკა',
+                        value: 44,
+                        checked: false
+                      },
+                      {
+                        label: 'დიზაინი',
+                        value: 5,
+                        checked: false
+                      },
+                    ]}
+                  // {...register("main_category")}
+                  />
+
+
                 </div>
 
                 <div className="server_errors"></div>

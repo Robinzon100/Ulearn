@@ -1,4 +1,4 @@
-import { memo, useState, useEffect } from "react";
+import { memo, useState, useEffect, forwardRef, PropsWithChildren, Ref } from "react";
 
 import { getCheckBoxSize,getCheckBoxColor } from "./checkbox.style";
 import { ICheckBox } from "./checkbox.interface";
@@ -6,7 +6,7 @@ import Loading from "components/lib/loading/Loading";
 import CheckBoxIcon from "./checkbox-icon";
 
 
-const CheckBox: React.FC<ICheckBox> = ({
+const CheckBox = forwardRef<HTMLInputElement,PropsWithChildren<ICheckBox>>(({
   width,
   title,
   className,
@@ -18,21 +18,22 @@ const CheckBox: React.FC<ICheckBox> = ({
   checked,
   value,
   onChange
-}) => {
+},ref: Ref<HTMLInputElement | null>) => {
+    
   const [selfChecked, setSelfChecked] = useState<boolean>(false);
 
   const changeHandler = (e,value) => {
     if(disabled) return;
     setSelfChecked(!selfChecked);
     onChange({checked: e.target.checked, value: value})
-    console.log(value)
+    // console.log(value)
   };
   
   useEffect(() => {
     if (checked === undefined) return;
     setSelfChecked(checked);
   }, [checked]);
-
+  
   
   return (
     <>
@@ -46,6 +47,7 @@ const CheckBox: React.FC<ICheckBox> = ({
           )}
 
           <input
+            ref={ref}
             type="checkbox"
             className="checkbox"
             checked={selfChecked}
@@ -113,7 +115,8 @@ const CheckBox: React.FC<ICheckBox> = ({
       `}</style>
     </>
   );
-};
+}
+)
 
 
 

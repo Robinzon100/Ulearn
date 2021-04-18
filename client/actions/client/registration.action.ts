@@ -1,7 +1,7 @@
 import { axiosInstance } from './../index';
  
 
-// TODO: the succes resoibse in 400
+// TODO: the succes results in 400
 export const postRegistration = async (data) => {
     return await axiosInstance
         .post(`/auth/register`, data)

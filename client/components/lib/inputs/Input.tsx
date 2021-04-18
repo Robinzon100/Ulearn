@@ -1,5 +1,5 @@
 import { IinputInterface } from "components/lib/inputs/Input.interface";
-import { useRef, forwardRef, PropsWithChildren } from "react";
+import { forwardRef, PropsWithChildren } from "react";
 import { getInputSize, getColors } from "./inputs.style";
 
 
@@ -72,7 +72,6 @@ const Input = forwardRef<HTMLInputElement,PropsWithChildren<IinputInterface>>(
                 background: ${color === "white"
                   ? getColors(color).defaultBg
                   : "var(--primary-white)"};
-                transition: all 0.1s cubic-bezier(0, 1.06, 0.37, 0.38);
                 width: ${width && width};
                 outline: none !important;
               }
@@ -88,6 +87,7 @@ const Input = forwardRef<HTMLInputElement,PropsWithChildren<IinputInterface>>(
                 border-radius: 8px;
                 outline: none !important;
                 width: 100%;
+                transition: all 0.1s cubic-bezier(0, 1.06, 0.37, 0.38);
               }
 
               .input_field:disabled {
