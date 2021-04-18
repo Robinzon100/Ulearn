@@ -1,4 +1,4 @@
-import {ButtonStyleInterface,ButtonSizeGroup} from "./Button.interface";
+import { ButtonStyleInterface,ButtonSizeGroup } from "./Button.interface";
 
 export const buttonStrokeColors = {
   primary: {
@@ -114,21 +114,17 @@ export const getButtonSize = (size: string): ButtonSizeGroup => {
   const layouts = {
     mini: {
       padding: "var(--mini-button-padding)",
-      fontSize: "var(--mini-button-fontSize)",
     },
     small: {
       padding: "var(--small-button-padding)",
-      fontSize: "var(--small-button-fontSize)",
       iconPosition: "2%",
     },
     medium: {
       padding: "var(--medium-button-padding)",
-      fontSize: "var(--medium-button-fontSize)",
       iconPosition: "6%",
     },
     large: {
       padding: "var(--large-button-padding)",
-      fontSize: "var(--large-button-fontSize)",
       iconPosition: "8%",
     },
   };

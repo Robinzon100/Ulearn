@@ -7,7 +7,7 @@ interface checkbox {
   checked: boolean;
 }
 interface Props {
-  onChange: (newValue: any[]) => any;
+  onChange?: (newValue: any[]) => any;
   checkboxes: checkbox[]
 }
 
@@ -25,7 +25,7 @@ const checkBoxGroup: FC<Props> = ({ onChange, checkboxes}) => {
 
   return (
     <>
-      {checkboxes.map(checkbox => (
+      {/* {checkboxes.map(checkbox => (
         <CheckBox
         //   width="15vw"       
           key={checkbox.value}
@@ -38,7 +38,7 @@ const checkBoxGroup: FC<Props> = ({ onChange, checkboxes}) => {
           value={checkbox.value}
           onChange={changeHandler}
         />
-      ))}
+      ))} */}
     </>
   )
 

@@ -8,11 +8,11 @@ export interface ButtonInterface extends IGlobal {
   route?: string;
   type?:"submit";
   width?:string,
+  children?:any
 }
 
 export interface ButtonSizeGroup  {
     padding: string 
-    fontSize?:string
     iconPosition?:string
 }
 

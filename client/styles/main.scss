@@ -19,7 +19,7 @@
 /// === === === PAGES === === === ===
 @import "pages/courses";
 @import "pages/myCourses";
-
+@import "pages/register";
 
 /// === === === QUERYS=== === === ===
 @import "media-querys/navigation_query";
@@ -64,4 +64,4 @@
 // === === === === UTILS === === === ===
 @import "utils/conditional";
 @import "utils/file_uploads";
-
+@import "utils/grid";

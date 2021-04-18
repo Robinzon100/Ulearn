@@ -103,11 +103,14 @@ const Navigation: FC = () => {
             {/* <div className="login"> */}
             {/* <NextLink route="/"> */}
                 <Button 
-                    title="login / sign up" 
                     onClick={() => setIsFormToggled(true)}
                     size="mini"
                     color="blue"
-                />
+                    width="25%">
+                    <p className="f-weight-r f-size-p7 ">
+                        login / sign up
+                    </p>
+                </Button>
 
                 <MultiStepForm isFormToggled={isFormToggled} FormToggle={FormToggle} />
             {/* </NextLink> */}
