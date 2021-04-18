@@ -1,13 +1,13 @@
 // import { useRootStore } from '../mobx/RootStateContext';
-import { useForm, SubmitHandler,Controller } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 
 
 import Input from "components/lib/inputs/Input";
 import Button from "components/lib/button/Button";
-import CheckBox from "components/lib/checkbox/checkbox";
+
 import { emailRegex, passwordRegex } from "components/utils/Regex";
 import CheckBoxGroup from "./../components/lib/checkbox/checkbox-group";
-import { useState } from "react";
+
 
 type FormValues = {
   full_name: string;

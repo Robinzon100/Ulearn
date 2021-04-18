@@ -1,6 +1,9 @@
 import { IinputInterface } from "components/lib/inputs/Input.interface";
-import { forwardRef, PropsWithChildren, Ref } from "react";
+import { forwardRef, PropsWithChildren } from "react";
 import { getInputSize, getColors } from "./inputs.style";
+
+
+
 
 const Input = forwardRef<HTMLInputElement,PropsWithChildren<IinputInterface>>(
   ({
@@ -18,8 +21,13 @@ const Input = forwardRef<HTMLInputElement,PropsWithChildren<IinputInterface>>(
     icon,
     iconRight,
     width,
-  },ref: Ref<HTMLInputElement | null>,) => {
-    // const inputRef = useRef<HTMLInputElement>(null);
+  },ref: React.Ref<HTMLInputElement | null>,) => {
+
+
+
+
+
+    
     return (
       <>
         <div
