@@ -1,0 +1,88 @@
+.registration-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(7, auto);
+    gap: 20px 0px;
+    grid-template-areas:
+        "full_name full_name full_name full_name"
+        "email email email email"
+        "password password password password"
+        "recovery_email recovery_email recovery_email recovery_email"
+        "main_category main_category main_category main_category"
+        "server_errors server_errors server_errors server_errors"
+        "submit_btn submit_btn submit_btn submit_btn";
+    align-items: center;
+
+
+    .full_name {
+        grid-area: full_name;
+    }
+    
+    .email {
+        grid-area: email;
+    }
+
+    .password {
+        grid-area: password;
+    }
+
+    .recovery_email {
+        grid-area: recovery_email;
+    }
+
+    .phone-number {
+        grid-area: phone-number;
+    }
+
+    .main_category {
+        grid-area: main_category;
+    }
+
+    .server_errors {
+        grid-area:server_errors;
+    }
+
+    .submit_btn {
+        grid-area: submit_btn;
+    }
+}
+
+
+.login-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr) repeat(2, auto);
+    gap: 20px 0px;
+    grid-template-areas:
+        "title ."
+        "email email"
+        "password password"
+        "errors errors"
+        "login login"
+        "register register";
+        
+
+    .email {
+        grid-area: email;
+    }
+
+    .password {
+        grid-area: password;
+    }
+
+    .title {
+        grid-area: title;
+    }
+
+    .login {
+        grid-area: login;
+    }
+
+    .errors {
+        grid-area: errors;
+    }
+
+    .register {
+        grid-area: register;
+    }
+}

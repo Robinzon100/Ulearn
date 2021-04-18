@@ -9,7 +9,6 @@ import { blockClicks } from './button.utils';
 
 const Button: FC<ButtonInterface> = ({
   type,
-  title,
   className,
   color,
   size,
@@ -22,7 +21,8 @@ const Button: FC<ButtonInterface> = ({
   iconRight,
   route,
   disabled,
-  width
+  width,
+  children
 }) => {
 
   const router = useRouter();
@@ -53,9 +53,9 @@ const Button: FC<ButtonInterface> = ({
           </span>
         )}
 
-        <p className="title f-weight-r" style={disabled || loading ? { pointerEvents: "none" } : {}}>
-          {!loading && title}
-        </p>
+        <span className="title" style={disabled || loading ? { pointerEvents: "none" } : {}}>
+          {!loading && children}
+        </span>
 
 
         {loading && (
@@ -117,8 +117,6 @@ const Button: FC<ButtonInterface> = ({
 
           .title {
             color: ${stroke || color === "white" ?   strokeColors.textColor : "white" };
-            font-size: ${getButtonSize(size).fontSize};
-            /* font-family: var(--button-fontFamily); */
             text-align: center;
             letter-spacing: 0.5px;
           }

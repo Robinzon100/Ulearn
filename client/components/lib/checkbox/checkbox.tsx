@@ -25,6 +25,7 @@ const CheckBox: React.FC<ICheckBox> = ({
     if(disabled) return;
     setSelfChecked(!selfChecked);
     onChange({checked: e.target.checked, value: value})
+    console.log(value)
   };
   
   useEffect(() => {
@@ -43,6 +44,7 @@ const CheckBox: React.FC<ICheckBox> = ({
             disabled={disabled} 
             checked={selfChecked}/>
           )}
+
           <input
             type="checkbox"
             className="checkbox"
@@ -51,10 +53,13 @@ const CheckBox: React.FC<ICheckBox> = ({
             onChange={(e) => changeHandler(e,value)}
             value={value}
           />
+
           {loading && (
             <Loading bgColor="black" padding={getCheckBoxSize(size).padding} />
           )}
+
           <span className="checkbox-title">{!loading && title}</span>
+          
         </label>
       </div>
 

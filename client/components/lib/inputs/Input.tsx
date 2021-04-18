@@ -1,134 +1,143 @@
-
 import { IinputInterface } from "components/lib/inputs/Input.interface";
+import { useRef, forwardRef, PropsWithChildren } from "react";
 import { getInputSize, getColors } from "./inputs.style";
 
-const Input: React.FC<IinputInterface> = ({
-  color,
-  type,
-  size,
-  placeHolder,
-  disabled,
-  style,
-  containerStyle,
-  value,
-  onChange,
-  className,
-  name,
-  icon,
-  iconRight,
-  width,
-}) => {
-  return (
-    <>
-      <div
-        className="input_container"
-        style={disabled ? { cursor: "not-allowed", pointerEvents: "none" } : containerStyle}>
-        
-        {icon && <span className="icon_base-style icon">{icon}</span>}
-        <input
-          name={name}
-          disabled={disabled}
-          type={type}
-          onChange={onChange}
-          value={value}
-          className={`input_field  ${className && className}`}
-          placeholder={placeHolder}
-          style={!icon ? { padding: `${getInputSize(size).paddingWithOutIcons}` } : style}
-        />
+const Input = forwardRef<HTMLInputElement,PropsWithChildren<IinputInterface>>(
+  ({
+    color,
+    type,
+    size,
+    placeHolder,
+    disabled,
+    style,
+    containerStyle,
+    value,
+    onChange,
+    className,
+    name,
+    icon,
+    iconRight,
+    width,
+  },ref: React.Ref<HTMLInputElement | null>,) => {
+    const inputRef = useRef<HTMLInputElement>(null);
+    return (
+      <>
+        <div
+          className="input_container"
+          style={
+            disabled
+              ? { cursor: "not-allowed", pointerEvents: "none" }
+              : containerStyle
+          }>
+          {icon && <span className="icon_base-style icon">{icon}</span>}
 
-        { iconRight && (
-          <span className="icon_base-style iconRight" style={{ opacity: "70%" }}>
-            {iconRight}
-          </span>
-        )}
-
-
-
-
-
-        <style jsx>
-          {`
-            .input_container {
-              width: ${width && width};
-              position: relative;
-              display: flex;
-              align-items: center;
-              border-radius: 8px;
-              border: ${getColors(color).borderColor};
-              background: ${color === "white" ?  getColors(color).defaultBg : "var(--primary-white)"};
-              transition: all 0.1s cubic-bezier(0, 1.06, 0.37, 0.38);
-              outline: none !important;
+          <input
+            ref={inputRef}
+            name={name}
+            disabled={disabled}
+            type={type}
+            onChange={onChange}
+            value={value}
+            className={`input_field  ${className && className}`}
+            placeholder={placeHolder}
+            style={
+              !icon ? { padding: `${getInputSize(size).paddingWithOutIcons}` } : style
             }
+          />
 
-            .input_field {
-              font-size: ${getInputSize(size).fontSize};
-              padding: ${getInputSize(size).padding};
-              background: ${color === "white" ?  getColors(color).defaultBg : "var(--primary-white)"};
-              box-sizing: border-box;
-              border-radius: 8px; 
-              outline: none !important;
-              transition: all 0.1s cubic-bezier(0, 1.06, 0.37, 0.38);
-              border:none;
-              width:100%;
+          {iconRight && (
+            <span
+              className="icon_base-style iconRight"
+              style={{ opacity: "70%", right: 0 }}>
+              {iconRight}
+            </span>
+          )}
 
-            }
+          <style jsx>
+            {`
+              .input_container {
+                box-sizing: border-box;
+                position: relative;
+                display: flex;
+                align-items: center;
+                border-radius: 8px;
+                background: ${color === "white"
+                  ? getColors(color).defaultBg
+                  : "var(--primary-white)"};
+                transition: all 0.1s cubic-bezier(0, 1.06, 0.37, 0.38);
+                width: ${width && width};
+                outline: none !important;
+              }
 
-            .input_field:disabled {
-              color: var(--primary-grey);
-              opacity: 50%;
-            }
-            // .input_container:focus-within  {
-            //     background-color:var(--primary-white);
-            //     box-shadow: var(--text-input-shadow);
-                
-            // }
-            
-            .input_container:hover {
+              .input_field {
+                border: ${getColors(color).borderColor};
+                font-size: ${getInputSize(size).fontSize};
+                padding: ${getInputSize(size).padding};
+                background: ${color === "white"
+                  ? getColors(color).defaultBg
+                  : "var(--primary-white)"};
+                box-sizing: border-box;
+                border-radius: 8px;
+                outline: none !important;
+                width: 100%;
+              }
+
+              .input_field:disabled {
+                color: var(--primary-grey);
+                opacity: 50%;
+              }
+
+              .input_container:hover {
                 background: var(--primary-grey);
-            }
-           
-            .input_container:hover .input_field {
+              }
+              .input_field:hover {
                 background: var(--primary-grey);
-            }
+              }
 
-            .input_field:focus {
-              background:var(--primary-white);
-              opacity: 100%;
-              padding: ${getInputSize(size).focusedPadding};
-            }
-            .input_field:focus::placeholder {
+              .input_field:focus {
+                background: var(--primary-white);
+                border: ${getColors(color).focusedBorder};
                 opacity: 100%;
-            }
-          
+                padding: ${getInputSize(size).focusedPadding};
+              }
 
-            .input_field::placeholder {
-              opacity: 100%;
-              color: ${color === "red" ?  getColors(color).textColor : "var(--secondary-light-black)"};
-            }
+              .input_field:focus::placeholder {
+                opacity: 100%;
+              }
 
-            .icon_base-style {
-              justify-content: center;
-              display: flex;
-              align-items: center;
-              z-index: 1;
-              opacity: 70%;
-              padding:0px 15px;
-            }
-            
-            .icon:disabled {
-              color: var(--primary-grey);
-              opacity: 50%;
-            }
-            .icon,.iconRight {
-              color:${color === "red" ? "red" : "var(--secondary-light-dark)"} ;
+              .input_field::placeholder {
+                opacity: 100%;
+                color: ${color === "red"
+                  ? getColors(color).textColor
+                  : "var(--secondary-light-black)"};
+              }
 
-            }
+              .icon_base-style {
+                position: absolute;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                z-index: 1;
+                opacity: 70%;
+                padding: 0px 15px;
+              }
 
-          `}
-        </style>
-      </div>
-    </>
-  );
-};
+              .icon:disabled {
+                color: var(--primary-grey);
+                opacity: 50%;
+              }
 
+              .icon,
+              .iconRight {
+                color: ${color === "red"
+                  ? "red"
+                  : "var(--secondary-light-dark)"};
+              }
+            `}
+          </style>
+        </div>
+      </>
+    )
+  }
+);
 export default Input;

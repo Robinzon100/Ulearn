@@ -25,6 +25,7 @@ export interface IinputStateGroup  {
     textColor?:string,
     borderColor:string 
     IconColor?:string
+    focusedBorder?:string
 }
 
 
