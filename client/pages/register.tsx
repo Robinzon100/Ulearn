@@ -11,6 +11,7 @@ import Button from "components/lib/button/Button";
 import { emailRegex, passwordRegex } from "components/utils/Regex";
 import CheckBoxGroup from "components/lib/checkbox/checkbox-group";
 import { postRegistration } from "actions/client/registration.action";
+import { Eye } from 'react-feather';
 
 
 
@@ -36,6 +37,7 @@ const Register = () => {
 
 
   let categoryIdsHandler = (checkboxObjects) => {
+    categoryIds.clear()
     checkboxObjects.map(checkbox => {
       if (checkbox.checked === true)
         categoryIds.add(checkbox.value)
@@ -51,12 +53,17 @@ const Register = () => {
       email: data.email,
       password: data.password,
       recovery_email: data.recovery_email,
-      favorite_main_category_ids: JSON.stringify(Array.from(categoryIds)),
+      favorite_main_category_ids: JSON.stringify(Array.from(categoryIds)) == "[]" && "[1]",
       favorite_sub_category_ids: '[1]'
     }
 
     let res = await postRegistration(registeredUser)
     console.log(res)
+    /* TODO: set cookie with these values 
+      auth-access_token: res.accessToken,
+      auth-refresh_token: res.refreshToken,
+      auth-token_expiration: res.expiration,
+    */
   };
 
 
@@ -171,12 +178,14 @@ const Register = () => {
                     <h1 className="f-size-p6 f-weight-b">პაროლი</h1>
                   </div>
 
+                  {/* TODO: add click event to icon on input conponent */}
                   <Input
                     name="password"
                     width="100%"
                     type="password"
                     placeHolder="arabidze98"
                     color="white"
+                    iconRight={<Eye />}
                     {...register("password", {
                       required: "აუცილებლად მიუთითეთ თქვენი პაროლი",
                       minLength: {

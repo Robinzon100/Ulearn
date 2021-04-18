@@ -4,6 +4,13 @@ export const emailRegex =  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*
 
 
 
+// const complexityOptions = {
+//     min: 6,
+//     max: 128,
+//     lowerCase: 1,
+//     upperCase: 1,
+//     numeric: 1
+// };
 
 export const passwordRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))");
 
