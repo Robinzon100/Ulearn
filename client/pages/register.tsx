@@ -1,12 +1,13 @@
 // import { useRootStore } from '../mobx/RootStateContext';
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler,Controller } from "react-hook-form";
+
 
 import Input from "components/lib/inputs/Input";
 import Button from "components/lib/button/Button";
-// import CheckBox from "components/lib/checkbox/checkbox";
+import CheckBox from "components/lib/checkbox/checkbox";
 import { emailRegex, passwordRegex } from "components/utils/Regex";
-// import CheckBoxGroup from "./../components/lib/checkbox/checkbox-group";
-// import { useState } from "react";
+import CheckBoxGroup from "./../components/lib/checkbox/checkbox-group";
+import { useState } from "react";
 
 type FormValues = {
   full_name: string;
@@ -17,34 +18,25 @@ type FormValues = {
 };
 
 const Register = () => {
-  const {register,handleSubmit,formState: { errors }} = useForm<FormValues>();
+  const {register,handleSubmit,formState: { errors } } = useForm<FormValues>();
+
+
+  
+  const handler = (value) => {
+    console.log(value)
+  }
 
   const onSubmit: SubmitHandler<FormValues> = (data: FormValues) => {
+
     if (data.email === data.recovery_email) {
       console.log("აბაა გააჯვი");
       return;
     }
+
+    handler(data.main_category)
     console.log(data);
   };
 
-
-//   const [array, setArray] = useState([
-//     {
-//       label: 'პროგრამირება',
-//       value: 23,
-//       checked: false
-//     },
-//     {
-//       label: 'მუსიკა',
-//       value: 44,
-//       checked: false
-//     },
-//     {
-//       label: 'დიზაინი',
-//       value: 5,
-//       checked: false
-//     },
-//   ])
 
   return (
     <>
@@ -65,6 +57,7 @@ const Register = () => {
                   </div>
 
                   <Input
+                    name="full_name"
                     width="100%"
                     type="text"
                     placeHolder="beqa arabidze"
@@ -95,6 +88,7 @@ const Register = () => {
                   </div>
 
                   <Input
+                    name="email"
                     width="100%"
                     type="email"
                     placeHolder="arabson1009@gmail.com"
@@ -124,6 +118,7 @@ const Register = () => {
 
                   {/* //* მგონი შესამოწმებელი გექნება რომ ერთიდა იგივე არ შეიყანოს */}
                   <Input
+                    name="recovery_email"
                     width="100%"
                     type="email"
                     placeHolder="arab@gmail.com"
@@ -151,6 +146,7 @@ const Register = () => {
                   </div>
 
                   <Input
+                    name="password"
                     width="100%"
                     type="password"
                     placeHolder="arabidze98"
@@ -177,25 +173,35 @@ const Register = () => {
 
                 <div className="base_input_styles main_category">
                   <div className="heading">
-
                     <h1 className="f-size-p6 f-weight-b">
                       სასურველი კატეგორიები
                     </h1>
-
                   </div>
 
-                    {/* {array.map((c, i) => (
-                        <CheckBox
-                        checked={c.checked}
-                        size="medium"
-                        title={c.label}
-                        key={i}
-                          value={c.value}
-                          width="100%"
-                          color="white"
-                          {...register("main_category")}
-                        />
-                    ))} */}
+
+                    <CheckBoxGroup
+                        onChange={handler}
+                        checkboxes={[
+                            {
+                              label: 'პროგრამირება',
+                              value: 23,
+                              checked: false
+                            },
+                            {
+                              label: 'მუსიკა',
+                              value: 44,
+                              checked: false
+                            },
+                            {
+                              label: 'დიზაინი',
+                              value: 5,
+                              checked: false
+                            },
+                          ]}
+                        // {...register("main_category")}
+                    />
+  
+
                 </div>
 
                 <div className="server_errors"></div>

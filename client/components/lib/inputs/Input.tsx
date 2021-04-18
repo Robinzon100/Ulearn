@@ -1,5 +1,5 @@
 import { IinputInterface } from "components/lib/inputs/Input.interface";
-import { useRef, forwardRef, PropsWithChildren } from "react";
+import { forwardRef, PropsWithChildren, Ref } from "react";
 import { getInputSize, getColors } from "./inputs.style";
 
 const Input = forwardRef<HTMLInputElement,PropsWithChildren<IinputInterface>>(
@@ -18,8 +18,8 @@ const Input = forwardRef<HTMLInputElement,PropsWithChildren<IinputInterface>>(
     icon,
     iconRight,
     width,
-  },ref: React.Ref<HTMLInputElement | null>,) => {
-    const inputRef = useRef<HTMLInputElement>(null);
+  },ref: Ref<HTMLInputElement | null>,) => {
+    // const inputRef = useRef<HTMLInputElement>(null);
     return (
       <>
         <div
@@ -32,7 +32,7 @@ const Input = forwardRef<HTMLInputElement,PropsWithChildren<IinputInterface>>(
           {icon && <span className="icon_base-style icon">{icon}</span>}
 
           <input
-            ref={inputRef}
+            ref={ref}
             name={name}
             disabled={disabled}
             type={type}
@@ -64,7 +64,6 @@ const Input = forwardRef<HTMLInputElement,PropsWithChildren<IinputInterface>>(
                 background: ${color === "white"
                   ? getColors(color).defaultBg
                   : "var(--primary-white)"};
-                transition: all 0.1s cubic-bezier(0, 1.06, 0.37, 0.38);
                 width: ${width && width};
                 outline: none !important;
               }
@@ -80,6 +79,7 @@ const Input = forwardRef<HTMLInputElement,PropsWithChildren<IinputInterface>>(
                 border-radius: 8px;
                 outline: none !important;
                 width: 100%;
+                transition: all 0.1s cubic-bezier(0, 1.06, 0.37, 0.38);
               }
 
               .input_field:disabled {

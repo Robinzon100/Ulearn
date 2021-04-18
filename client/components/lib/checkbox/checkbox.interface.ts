@@ -14,7 +14,7 @@ export interface ICheckBox  {
     iconStyle?:CSSProperties
     onClick?:MouseEventHandler<HTMLButtonElement>;
     width?:string;
-    onChange:(value) => any;
+    onChange?:(value) => any;
     checked:boolean;
     value:string | number;
 }
