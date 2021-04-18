@@ -8,9 +8,9 @@ export const postRegistration = async (data) => {
         .then(res => {
             return {
                 ...res.data,
-                accessToken: res.headers['x-access_token'],
-                refreshToken: res.headers['x-refresh_token'],
-                expiration: res.headers['x-token_expiration'],
+                accessToken: res.headers['auth-access_token'],
+                refreshToken: res.headers['auth-refresh_token'],
+                expiration: res.headers['auth-token_expiration'],
                 statusCode: res.status
             }
         })

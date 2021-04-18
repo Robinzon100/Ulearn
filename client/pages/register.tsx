@@ -8,38 +8,56 @@ type FormValues = {
   email: string;
   password: string;
   recovery_email: string;
-  main_category: string;
+  favorite_main_category_ids: string;
 };
 
 const Register = () => {
-  const {register,handleSubmit,formState: { errors }} = useForm<FormValues>();
+  const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
 
   const onSubmit: SubmitHandler<FormValues> = (data: FormValues) => {
     if (data.email === data.recovery_email) {
       console.log("აბაა გააჯვი");
       return;
     }
-    console.log(data);
+
+    const registeredUser: {
+      full_name,
+      email,
+      password,
+      recovery_email
+    } = data
+
+
+    console.log(registeredUser)
+    // const = {
+    //   full_name,
+    //   email,
+    //   password,
+    //   recovery_email,
+    //   favorite_main_category_ids
+    // }
+
+
   };
 
 
-//   const [array, setArray] = useState([
-//     {
-//       label: 'პროგრამირება',
-//       value: 23,
-//       checked: false
-//     },
-//     {
-//       label: 'მუსიკა',
-//       value: 44,
-//       checked: false
-//     },
-//     {
-//       label: 'დიზაინი',
-//       value: 5,
-//       checked: false
-//     },
-//   ])
+  //   const [array, setArray] = useState([
+  //     {
+  //       label: 'პროგრამირება',
+  //       value: 23,
+  //       checked: false
+  //     },
+  //     {
+  //       label: 'მუსიკა',
+  //       value: 44,
+  //       checked: false
+  //     },
+  //     {
+  //       label: 'დიზაინი',
+  //       value: 5,
+  //       checked: false
+  //     },
+  //   ])
 
   return (
     <>
@@ -179,7 +197,7 @@ const Register = () => {
 
                   </div>
 
-                    {/* {array.map((c, i) => (
+                  {/* {array.map((c, i) => (
                         <CheckBox
                         checked={c.checked}
                         size="medium"

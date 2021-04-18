@@ -18,37 +18,37 @@ export const postRegistration = async (req: Request, res: Response, next: NextFu
     const existingUser = await User.query().where("email", email)
     if (existingUser.length > 0) {
         customError(res, next, 'wrong email or password', 403)
-    } else {
-        // hash password
-        const hashedPassword = await getHashedPassword(password)
+        return
+    }
 
-        const user = {
-            ...req.body,
-            password: hashedPassword,
-        }
+    const hashedPassword = await getHashedPassword(password)
 
-        
-        try {
-            // validate the created use objects
-            const validatedUser = await regsiterUserSchemaWithEncryptedPassword.validateAsync(user);
-            
-            if (validatedUser) {
-                const { uuid } = await User.query().insert(validatedUser);
+    const user = {
+        ...req.body,
+        password: hashedPassword,
+    }
 
-                await createJwtAuthorizationHeader(res, { userUUID: uuid })
-                await createRefreshToken(res, { userUUID: uuid })
-                await createTokenExpirationHeader(res)
 
-                return res.status(200).json({
-                    message: "user successfully registered",
-                })
-            }
-        } catch (error) {
-            res.status(400).json({
-                error
+    try {
+        // validate the created use objects
+        const validatedUser = await regsiterUserSchemaWithEncryptedPassword.validateAsync(user);
+
+        if (validatedUser) {
+            const { uuid } = await User.query().insert(validatedUser);
+
+            await createJwtAuthorizationHeader(res, { userUUID: uuid })
+            await createRefreshToken(res, { userUUID: uuid })
+            await createTokenExpirationHeader(res)
+
+            return res.status(200).json({
+                message: "user successfully registered",
             })
-            next(error)
         }
+    } catch (error) {
+        res.status(400).json({
+            error
+        })
+        next(error)
     }
 }
 
