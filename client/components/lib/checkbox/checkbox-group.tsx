@@ -19,7 +19,7 @@ const checkBoxGroup: FC<Props> = ({ onChange, checkboxes}) => {
     let checkedObject = checkBoxes.find(checkbox => checkbox.value === value).checked = checked
     onChange(checkBoxes)
 
-    // return checkedObject
+    return checkedObject
   };
 
 
