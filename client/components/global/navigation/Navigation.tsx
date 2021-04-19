@@ -5,19 +5,23 @@ import NextLink from "components/utils/NextLink";
 import { Search } from "react-feather";
 
 //! ─── OWN IMPORTS ────────────────────────────────────────────────────────────────────
-
+//? COMPONENTS
 import Category from "components/global/navigation/Category";
-import { fetcher } from "../../../actions/swr/fetchers";
 import Input from "components/lib/inputs/Input";
 import MultiStepForm from "components/utils/stepForm/multiStepForm";
-
 import Button from "components/lib/button/Button"
+
+//? ACTIONS
+import { fetcher } from "actions/swr/fetchers";
+
+
+
+
 
 const Navigation: FC = () => {
   const [isFormToggled, setIsFormToggled] = useState(false);
 
   const FormToggle = (state) => {
-    //   debugger
     setIsFormToggled(state);
   }
 
@@ -97,22 +101,15 @@ const Navigation: FC = () => {
               </ul>
             </div>
 
-            {/* <div className="login"> */}
-            {/* <NextLink route="/"> */}
                 <Button 
-                    onClick={() => setIsFormToggled(true)}
+                    route='/login'
                     size="mini"
-                    color="blue"
-                    width="25%">
+                    color="blue">
                     <p className="f-weight-r f-size-p7 ">
                         login / sign up
                     </p>
                 </Button>
-
-                <MultiStepForm isFormToggled={isFormToggled} FormToggle={FormToggle} />
-            {/* </NextLink> */}
-            {/* </div> */}
-
+      
             <div className="cart">
               <NextLink route="/shopping_cart">
                 <ShoppingCart />

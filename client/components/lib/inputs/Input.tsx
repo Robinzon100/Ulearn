@@ -5,7 +5,7 @@ import { getInputSize, getColors } from "./inputs.style";
 
 
 
-const Input = forwardRef<HTMLInputElement,PropsWithChildren<IinputInterface>>(
+const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
   ({
     color,
     type,
@@ -21,13 +21,14 @@ const Input = forwardRef<HTMLInputElement,PropsWithChildren<IinputInterface>>(
     icon,
     iconRight,
     width,
-  },ref: React.Ref<HTMLInputElement | null>,) => {
+    filled = true
+  }, ref: React.Ref<HTMLInputElement | null>,) => {
 
 
 
 
 
-    
+
     return (
       <>
         <div
@@ -68,8 +69,8 @@ const Input = forwardRef<HTMLInputElement,PropsWithChildren<IinputInterface>>(
                 align-items: center;
                 border-radius: 8px;
                 background: ${color === "white"
-                  ? getColors(color).defaultBg
-                  : "var(--primary-white)"};
+                ? getColors(color).defaultBg
+                : "var(--primary-white)"};
                 width: ${width && width};
                 outline: none !important;
               }
@@ -77,11 +78,11 @@ const Input = forwardRef<HTMLInputElement,PropsWithChildren<IinputInterface>>(
               .input_field {
                 border: ${getColors(color).borderColor};
                 font-size: ${getInputSize(size).fontSize};
-                padding: ${icon ? getInputSize(size).padding : 
-                    getInputSize(size).paddingWithOutIcons};
+                padding: ${icon ? getInputSize(size).padding :
+                getInputSize(size).paddingWithOutIcons};
                 background: ${color === "white"
-                  ? getColors(color).defaultBg
-                  : "var(--primary-white)"};
+                ? getColors(color).defaultBg
+                : "var(--primary-white)"};
                 box-sizing: border-box;
                 border-radius: 8px;
                 outline: none !important;
@@ -100,24 +101,20 @@ const Input = forwardRef<HTMLInputElement,PropsWithChildren<IinputInterface>>(
 
               .input_field:focus {
                 background: var(--primary-white);
-                border: ${getColors(color).focusedBorder};
+                border: ${!filled && getColors(color).focusedBorder};
                 opacity: 100%;
-                padding: ${icon ? getInputSize(size).focusedPadding : 
-                    getInputSize(size).paddingWithOutIconsOnFocus};
+                padding: ${icon ? getInputSize(size).focusedPadding :
+                getInputSize(size).paddingWithOutIconsOnFocus};
                 box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.03), 
                 0px 9px 23px -6px rgba(0, 0, 0, 0.1), 
                 inset 0px -3px 8px -4px rgba(0, 0, 0, 0.1);
               }
 
-              .input_field:focus::placeholder {
-                opacity: 100%;
-              }
-
               .input_field::placeholder {
                 opacity: 100%;
                 color: ${color === "red"
-                  ? getColors(color).textColor
-                  : "var(--secondary-light-black)"};
+                ? getColors(color).textColor
+                : "var(--secondary-light-black)"};
               }
 
               .icon_base-style {
@@ -138,8 +135,8 @@ const Input = forwardRef<HTMLInputElement,PropsWithChildren<IinputInterface>>(
               .icon,
               .iconRight {
                 color: ${color === "red"
-                  ? "red"
-                  : "var(--secondary-light-dark)"};
+                ? "red"
+                : "var(--secondary-light-dark)"};
               }
             `}
           </style>

@@ -1,6 +1,3 @@
-
-
-
 .form_errors {
     color: var(--secondary-dark-red);
 }
@@ -43,7 +40,7 @@
         }
 
         .registration-forms {
-            height: 110vh;
+            // height: 110vh;
 
             @media screen and (max-width: $ultra-small-breakpoint){
                 height: initial !important;

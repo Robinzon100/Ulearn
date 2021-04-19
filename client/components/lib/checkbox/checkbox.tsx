@@ -26,7 +26,6 @@ const CheckBox = forwardRef<HTMLInputElement,PropsWithChildren<ICheckBox>>(({
     if(disabled) return;
     setSelfChecked(!selfChecked);
     onChange({checked: e.target.checked, value: value})
-    // console.log(value)
   };
   
   useEffect(() => {

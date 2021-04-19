@@ -1,11 +1,16 @@
 import { FC, memo, useEffect, useMemo } from "react";
 import { useRouter } from "next/router";
 
-//! ===========================OUR IMPORTS
+//! ─── OWN IMPORTS ────────────────────────────────────────────────────────────────
 import { ButtonInterface } from "components/lib/button/Button.interface";
-import { getButtonSize, getButtonColors,getButtonStrokeColors } from "./buttons.style";
+import { getButtonSize, getButtonColors, getButtonStrokeColors } from "./buttons.style";
 import Loading from "components/lib/loading/Loading";
 import { blockClicks } from './button.utils';
+
+
+
+
+
 
 const Button: FC<ButtonInterface> = ({
   type,
@@ -27,16 +32,24 @@ const Button: FC<ButtonInterface> = ({
 
   const router = useRouter();
 
-  useEffect(() => {
 
+
+
+  useEffect(() => {
     if (route && onClick) {
       console.warn("button can only have route or clikHandler");
     }
   }, []);
 
-  const { ...fillColors } = useMemo(() => getButtonColors(color,stroke), [color,stroke]);
+
+
+  const { ...fillColors } = useMemo(() => getButtonColors(color, stroke), [color, stroke]);
   const { ...strokeColors } = useMemo(() => getButtonStrokeColors(stroke), [stroke]);
-  
+
+
+
+
+
   return (
     <>
       <button
@@ -45,23 +58,23 @@ const Button: FC<ButtonInterface> = ({
         className={`btn ${className ? className : ""}`}
         style={style}>
 
-        {size !== "mini" && icon && !loading &&(
+        {size !== "mini" && icon && !loading && (
           <span
             className="icon_base-style icon"
-            style={iconStyle ?  { filter: "drop-shadow(0px 2.2px 2.5px rgba(0, 0, 0, 0.14))" } : {}}>
+            style={iconStyle ? { filter: "drop-shadow(0px 2.2px 2.5px rgba(0, 0, 0, 0.14))" } : {}}>
             {icon}
           </span>
         )}
 
-        <span className="title" style={disabled || loading ? { cursor: "not-allowed", pointerEvents: "none" } : {}}>
+        <div className="title" style={disabled || loading ? { cursor: "not-allowed", pointerEvents: "none" } : {}}>
           {!loading && children}
-        </span>
+        </div>
 
 
         {loading && (
-          <Loading 
-          bgColor={color == 'white' || stroke ? fillColors.textColor : 'white'} 
-          padding={getButtonSize(size).padding} />
+          <Loading
+            bgColor={color == 'white' || stroke ? fillColors.textColor : 'white'}
+            padding={getButtonSize(size).padding} />
         )}
 
 
@@ -80,7 +93,7 @@ const Button: FC<ButtonInterface> = ({
           .btn {
             opacity: ${disabled || loading ? 0.8 : 1};
             cursor: ${disabled || loading ? "not-allowed" : "pointer"};
-            pointer-events: ${disabled || loading ? "none" : "auto" };
+            pointer-events: ${disabled || loading ? "none" : "auto"};
             user-select: none;
             text-decoration: none;
             display: block;
@@ -104,21 +117,22 @@ const Button: FC<ButtonInterface> = ({
           }
 
           .btn:active {
-            box-shadow: ${stroke ? strokeColors.activeShadow :  '0 0 10px -5px inset'};
-            background: ${fillColors.bg ?  fillColors.bg : "white"};
+            box-shadow: ${stroke ? strokeColors.activeShadow : '0 0 10px -5px inset'};
+            background: ${fillColors.bg ? fillColors.bg : "white"};
           }
           
           .btn:hover .title {
-            color: ${!stroke && !color || stroke || color && color != "white" ?   "white" : strokeColors.textColor };
+            color: ${!stroke && !color || stroke || color && color != "white" ? "white" : strokeColors.textColor};
            }
            .btn:active .title {
-            color: ${stroke || color === "white" ? strokeColors.textColor :  "white"};
+            color: ${stroke || color === "white" ? strokeColors.textColor : "white"};
           } 
 
           .title {
-            color: ${stroke || color === "white" ?   strokeColors.textColor : "white" };
+            color: ${stroke || color === "white" ? strokeColors.textColor : "white"};
             text-align: center;
             letter-spacing: 0.5px;
+            margin: ${!width && '0 1rem'}
           }
 
 
@@ -130,18 +144,18 @@ const Button: FC<ButtonInterface> = ({
             align-items: center;
             z-index: 1;
             top: 50%;
-            color: ${ stroke || color === "white" ?  strokeColors.textColor : "white"};
+            color: ${stroke || color === "white" ? strokeColors.textColor : "white"};
             filter: ${fillColors.iconBoxShadow};
             -webkit-filter: ${fillColors.iconBoxShadow};
           }
 
           
           .btn:hover .icon_base-style {
-            color: ${!stroke && !color || stroke || color && color != "white" ?   "white" : strokeColors.textColor};
+            color: ${!stroke && !color || stroke || color && color != "white" ? "white" : strokeColors.textColor};
           }
 
           .btn:active .icon_base-style {
-            color: ${stroke || color === "white" ? strokeColors.textColor:  "white"};
+            color: ${stroke || color === "white" ? strokeColors.textColor : "white"};
           } 
 
           .icon {

@@ -14,6 +14,7 @@ import { showHidePasswordHandler } from "components/utils/showHidePassword";
 
 //? ACTIONS
 import { postLogin } from "actions/client/login.action";
+import { GetServerSideProps } from "next";
 
 
 
@@ -29,7 +30,7 @@ type LoginValues = {
 
 const login = () => {
   const router = useRouter();
-  const { register,handleSubmit,formState: { errors } } = useForm<LoginValues>();
+  const { register, handleSubmit, formState: { errors } } = useForm<LoginValues>();
 
 
   const [serverErrors, setServerErrors] = useState("")
@@ -37,7 +38,6 @@ const login = () => {
 
 
   const onSubmit: SubmitHandler<LoginValues> = async (data: LoginValues) => {
-
     let loginedUser: LoginValues = {
       email: data.email,
       password: data.password,
@@ -45,17 +45,16 @@ const login = () => {
 
     let res = await postLogin(loginedUser);
 
-    if(res.statusCode == 401) {
-        setServerErrors("თქვენი არასწორად შეიყვანეთ მონაცემები")
-        return true
+    if (res.statusCode == 200) {
+      router.push("/");
+    }else{
+      return setServerErrors("მონაცემები არასწორია");
     }
-
-    // console.log(loginedUser);
-    // console.log(res);
-    router.push("/");
-
-    return res;
   };
+
+
+
+
 
   return (
     <>
@@ -111,10 +110,10 @@ const login = () => {
                     color="white"
                     iconRight={
                       <span
-                        onClick={() =>showHidePasswordHandler(
-                            setIsPasswordHidden,
-                            ".registerPassword"
-                          )
+                        onClick={() => showHidePasswordHandler(
+                          setIsPasswordHidden,
+                          ".registerPassword"
+                        )
                         }>
                         {isPasswordHidden ? <Eye /> : <EyeOff />}
                       </span>
@@ -132,7 +131,7 @@ const login = () => {
                 </div>
 
                 <div className="server_errors">
-                    <p className="form_errors f-size-p6 f-weight-r">{serverErrors}</p>
+                  <p className="form_errors f-size-p6 f-weight-r">{serverErrors}</p>
                 </div>
 
                 <div className="submit_btn">
@@ -140,18 +139,38 @@ const login = () => {
                     type="submit"
                     width="100%"
                     size="medium"
-                    color="black"
-                    title="რეგისტრაცია">
+                    color="black">
                     <p className="f-weight-r f-size-p4 ">ავტორიზაცია</p>
                   </Button>
                 </div>
+
               </div>
             </div>
           </form>
+          <Button
+            size="small"
+            color="green"
+            route='/register'>
+            <p className="f-weight-r f-size-p4 ">
+              რეგისტრაცია
+            </p>
+          </Button>
+
         </div>
       </section>
     </>
   );
 };
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+
+
+  return {
+    props: {
+      something: 'aa'
+    }
+  }
+}
+
 
 export default login;

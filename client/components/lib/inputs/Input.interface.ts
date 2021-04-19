@@ -10,6 +10,7 @@ export interface IinputInterface extends IGlobal {
     value?: string;
     onChange?: any;    
     name?: string;
+    filled?: boolean
 }
 
 

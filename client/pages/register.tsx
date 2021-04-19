@@ -1,5 +1,5 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useState } from "react";
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
 import { Eye, EyeOff } from 'react-feather';
 import { useCookies } from 'react-cookie';
@@ -19,10 +19,12 @@ import { showHidePasswordHandler } from "components/utils/showHidePassword"
 
 //? ACTIONS
 import { postRegistration } from "actions/client/registration.action";
+import { getAllCategories } from "actions/client/categories.action";
+import { checkboxInterface } from '../components/lib/checkbox/checkbox-group';
 // import { getAllCategories } from "actions/client/categories.action";
 
 
-type RegistrationValues = {
+interface RegistrationValues {
   full_name: string;
   email: string;
   password: string;
@@ -32,31 +34,61 @@ type RegistrationValues = {
 };
 
 
-
+//TODO: seperate the register form from the Register page
 const Register = () => {
-  const router = useRouter();
-
-  const [cookies, setCookie] = useCookies(
-        ['auth-access_token','auth-refresh_token','auth-token_expiration']);
-
-
-  const [, setIsCheckBoxArrayEmpty] = useState(false);
-  const [checkBoxErrorMsg, setCheckBoxErrorMsg] = useState("");
-  const [isPasswordHidden, setIsPasswordHidden] = useState(true)   
-
   const { register, handleSubmit, formState: { errors } } = useForm<RegistrationValues>();
+  const router = useRouter();
+  const [cookies, setCookie] = useCookies(
+    ['auth-access_token', 'auth-refresh_token', 'auth-token_expiration']);
 
+
+  const [otherErrors, setOtherErrors] = useState("");
+  const [isPasswordHidden, setIsPasswordHidden] = useState(true)
+  const [checkboxContent, setCheckboxContent] = useState<checkboxInterface[]>([])
   let categoryIds = new Set();
 
 
-  let categoryIdsHandler = (checkboxObjects) => {
+
+
+  const getCategoriesForCheckBoxes = async () => {
+    const { categories: { main_categories } } = await getAllCategories()
+    let parsedCheckboxContent = []
+    main_categories.map(ca => {
+      parsedCheckboxContent.push({
+        label: ca.name,
+        value: ca.id,
+        checked: false
+      })
+    })
+    setCheckboxContent(parsedCheckboxContent)
+  }
+
+
+  useEffect(() => {
+    getCategoriesForCheckBoxes()
+  }, [])
+
+
+
+  const categoryIdsHandler = (checkboxObjects) => {
     categoryIds.clear()
+
     checkboxObjects.map(checkbox => {
       if (checkbox.checked === true)
         categoryIds.add(checkbox.value);
-    })
+    });
+
+    console.log(categoryIds);
+
+
+    if (categoryIds.size < 1)
+      setOtherErrors("მონიშნეთ 1 კატეგორია მაინც");
+    else
+      setOtherErrors('')
   }
-  
+
+
+
   const onSubmit: SubmitHandler<RegistrationValues> = async (data: RegistrationValues) => {
     let registeredUser: RegistrationValues = {
       full_name: data.full_name,
@@ -68,29 +100,24 @@ const Register = () => {
     }
 
 
-    //* ors imitom,rom,radgan stringad aqcev ereis prichxilebs agiqvams.
-    //* yovelstvis an oria(carieli anu) an meti(anu shevsebuli)
-    if ( registeredUser.favorite_main_category_ids.length == 2 ) {
-        setIsCheckBoxArrayEmpty(true);
-        setCheckBoxErrorMsg("აუცილებლად უნდა მონიშნოთ ერთი კატეგორია მაინც");
-        return true
-    }
 
-
-    setCheckBoxErrorMsg("")
     let res = await postRegistration(registeredUser)
-
-    router.push("/");
-
-    //! აქ react-cookie ar idzleva sashualebas ise derqvas rogorc axla gaqvs
-    //! აქ უკვე გადარქმეული მაგრამ იქ ხელი არ მოვკიდე მაინც
-    // setCookie('auth_access_token', res.auth_access_token);
-    // setCookie('auth-refresh_token', res.auth_refresh_token);
-    // setCookie('auth_token_expiration', res.auth_token_expiration);
-
-    return res
-
+    console.log(res)
+    console.log(registeredUser)
+    if (res.statusCode == 200 && otherErrors.length == 0) {
+      setCookie('auth-access_token', res.accessToken);
+      setCookie('auth-refresh_token', res.refreshToken);
+      setCookie('auth-token_expiration', res.expiration);
+      router.push("/");
+    } else {
+      return setOtherErrors("არასწორი მონაცემები");
+    }
   };
+
+
+
+
+
 
 
 
@@ -206,7 +233,7 @@ const Register = () => {
                     <h1 className="f-size-p6 f-weight-b">პაროლი</h1>
                   </div>
 
-                  <Input    
+                  <Input
                     className="registerPassword"
                     size="large"
                     name="password"
@@ -214,10 +241,10 @@ const Register = () => {
                     type="password"
                     placeHolder="arabidze98"
                     color="white"
-                    iconRight={ <span 
-                    onClick={() => showHidePasswordHandler(setIsPasswordHidden,".registerPassword")}> 
-                        {isPasswordHidden ? <Eye/> : <EyeOff/>}
-                    </span> }
+                    iconRight={<span
+                      onClick={() => showHidePasswordHandler(setIsPasswordHidden, ".registerPassword")}>
+                      {isPasswordHidden ? <Eye /> : <EyeOff />}
+                    </span>}
                     {...register("password", {
                       required: "აუცილებლად მიუთითეთ თქვენი პაროლი",
                       minLength: {
@@ -246,36 +273,19 @@ const Register = () => {
                     </h1>
                   </div>
 
-                    {/* TODO  ADD categories and checked props somehow */}
+                  {/* TODO  ADD categories and checked props somehow */}
                   <CheckBoxGroup
                     onChange={categoryIdsHandler}
-                    checkboxes={[
-                      {
-                        label: 'პროგრამირება',
-                        value: 23,
-                        checked: false
-                      },
-                      {
-                        label: 'მუსიკა',
-                        value: 44,
-                        checked: false
-                      },
-                      {
-                        label: 'დიზაინი',
-                        value: 5,
-                        checked: false
-                      },
-                    ]}
+                    checkboxContent={checkboxContent}
                   />
-          
-                    <p className="form_errors f-size-p6 f-weight-r">
-                      {checkBoxErrorMsg}
-                    </p>
-                  
-
                 </div>
 
-                <div className="server_errors"></div>
+
+                <div className="server_errors">
+                  <p className="form_errors f-size-p6 f-weight-r">
+                    {otherErrors}
+                  </p>
+                </div>
 
                 <div className="submit_btn">
                   <Button
@@ -295,16 +305,6 @@ const Register = () => {
     </>
   );
 };
-
-
-// export const  getServerSideProps = async () => {
-//     // Fetch data from external API
-//     const {categories: { main_categories }} = await getAllCategories();
-  
-//     // Pass data to the page via props
-//     return { props: { main_categories } }
-//   }
-  
 
 
 

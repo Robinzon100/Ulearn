@@ -1,10 +1,5 @@
-import Axios from 'axios';
+import { axiosInstance } from 'actions';
 
-
-export const axiosInstance = Axios.create({
-    baseURL: `${process.env.BACK_END_URL}/api`,
-    timeout: 5000
-});
 
 export const getAllCategories = async () => {
     return await axiosInstance

@@ -1,31 +1,38 @@
 import {FC, useState } from "react";
 import CheckBox from "components/lib/checkbox/checkbox";
 
-interface checkbox {
+
+
+
+
+export interface checkboxInterface {
   label: string;
   value: string | number;
   checked: boolean;
 }
+
 interface Props {
   onChange?: (newValue: any[]) => any;
-  checkboxes: checkbox[]
+  checkboxContent: checkboxInterface[]
 }
 
-const checkBoxGroup: FC<Props> = ({ onChange, checkboxes}) => {      
-  const [checkBoxes,] = useState<any[]>(checkboxes);
 
 
-  const changeHandler = ({checked, value}):void => {
-    let checkedObject = checkBoxes.find(checkbox => checkbox.value === value).checked = checked
-    onChange(checkBoxes)
 
-    return checkedObject
+
+const checkBoxGroup: FC<Props> = ({ onChange, checkboxContent}) => {      
+  let localCheckboxContent = checkboxContent
+
+
+  const changeHandler = ({checked, value}) => {
+    localCheckboxContent.find(checkbox => checkbox.value === value).checked = checked
+    onChange(localCheckboxContent)
   };
 
 
   return (
     <>
-      {checkboxes.map(checkbox => (
+      {localCheckboxContent.map(checkbox => (
         <CheckBox
           width="100%"       
           key={checkbox.value}
