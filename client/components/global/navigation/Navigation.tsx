@@ -19,8 +19,6 @@ const Navigation: FC = () => {
   const FormToggle = (state) => {
     //   debugger
     setIsFormToggled(state);
-    console.log({state,isFormToggled});
-    
   }
 
 
@@ -28,8 +26,7 @@ const Navigation: FC = () => {
   const [isMouseleftCategory, setIsMouseLeftCategory] = useState(false);
 
   const { data } = useSWR(
-    `${process.env.BACK_END_URL}/api/categories/all`,
-    fetcher
+    `${process.env.BACK_END_URL}/api/categories/all`,fetcher
   );
 
 

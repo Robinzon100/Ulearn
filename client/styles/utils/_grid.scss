@@ -51,16 +51,26 @@
 .login-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr) repeat(2, auto);
+    grid-template-rows: repeat(5,auto);
     gap: 20px 0px;
     grid-template-areas:
         "title ."
         "email email"
         "password password"
-        "errors errors"
-        "login login"
-        "register register";
+        "server_errors server_errors"
+        "submit_btn submit_btn";
         
+    .server_errors {
+        grid-area: server_errors;
+    }
+
+    .submit_btn {
+        grid-area: submit_btn;
+    }
+        
+    .title {
+        grid-area: title;
+    }
 
     .email {
         grid-area: email;
@@ -68,21 +78,5 @@
 
     .password {
         grid-area: password;
-    }
-
-    .title {
-        grid-area: title;
-    }
-
-    .login {
-        grid-area: login;
-    }
-
-    .errors {
-        grid-area: errors;
-    }
-
-    .register {
-        grid-area: register;
     }
 }

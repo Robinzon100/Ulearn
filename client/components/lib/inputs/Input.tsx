@@ -48,9 +48,7 @@ const Input = forwardRef<HTMLInputElement,PropsWithChildren<IinputInterface>>(
             value={value}
             className={`input_field  ${className && className}`}
             placeholder={placeHolder}
-            style={
-              !icon ? { padding: `${getInputSize(size).paddingWithOutIcons}` } : style
-            }
+            style={style}
           />
 
           {iconRight && (
@@ -79,7 +77,8 @@ const Input = forwardRef<HTMLInputElement,PropsWithChildren<IinputInterface>>(
               .input_field {
                 border: ${getColors(color).borderColor};
                 font-size: ${getInputSize(size).fontSize};
-                padding: ${getInputSize(size).padding};
+                padding: ${icon ? getInputSize(size).padding : 
+                    getInputSize(size).paddingWithOutIcons};
                 background: ${color === "white"
                   ? getColors(color).defaultBg
                   : "var(--primary-white)"};
@@ -95,18 +94,19 @@ const Input = forwardRef<HTMLInputElement,PropsWithChildren<IinputInterface>>(
                 opacity: 50%;
               }
 
-              .input_container:hover {
-                background: var(--primary-grey);
-              }
               .input_field:hover {
-                background: var(--primary-grey);
+                background: var(--secondary-light-grey);
               }
 
               .input_field:focus {
                 background: var(--primary-white);
                 border: ${getColors(color).focusedBorder};
                 opacity: 100%;
-                padding: ${getInputSize(size).focusedPadding};
+                padding: ${icon ? getInputSize(size).focusedPadding : 
+                    getInputSize(size).paddingWithOutIconsOnFocus};
+                box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.03), 
+                0px 9px 23px -6px rgba(0, 0, 0, 0.1), 
+                inset 0px -3px 8px -4px rgba(0, 0, 0, 0.1);
               }
 
               .input_field:focus::placeholder {

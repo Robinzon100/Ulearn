@@ -19,7 +19,10 @@
 /// === === === PAGES === === === ===
 @import "pages/courses";
 @import "pages/myCourses";
-@import "pages/register";
+@import "pages/login_registration/login_registration";
+@import "pages/login_registration/register";
+@import "pages/login_registration/login";
+
 
 /// === === === QUERYS=== === === ===
 @import "media-querys/navigation_query";

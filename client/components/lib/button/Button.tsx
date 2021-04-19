@@ -53,7 +53,7 @@ const Button: FC<ButtonInterface> = ({
           </span>
         )}
 
-        <span className="title" style={disabled || loading ? { pointerEvents: "none" } : {}}>
+        <span className="title" style={disabled || loading ? { cursor: "not-allowed", pointerEvents: "none" } : {}}>
           {!loading && children}
         </span>
 
@@ -80,7 +80,7 @@ const Button: FC<ButtonInterface> = ({
           .btn {
             opacity: ${disabled || loading ? 0.8 : 1};
             cursor: ${disabled || loading ? "not-allowed" : "pointer"};
-            pointer-events: ${disabled || loading && "none" };
+            pointer-events: ${disabled || loading ? "none" : "auto" };
             user-select: none;
             text-decoration: none;
             display: block;

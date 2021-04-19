@@ -18,6 +18,7 @@ export interface IinputSizeGroup  {
     padding?:string,
     focusedPadding?:string
     paddingWithOutIcons?:string
+    paddingWithOutIconsOnFocus?:string
 }
 
 export interface IinputStateGroup  {

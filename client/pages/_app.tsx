@@ -8,7 +8,6 @@ import { AppProps } from 'next/dist/next-server/lib/router/router';
 import Navigation from "components/global/navigation/Navigation"
 import { RootStateProvider } from '../mobx/RootStateContext';
 import { swrOptions } from '../constants/swrOptions';
-import ToastContainer from 'components/lib/toast/toastContainer';
 
 
 
@@ -30,7 +29,6 @@ function MyApp({ Component, pageProps }:AppProps) {
                     <main className='main'>
                         <Component {...pageProps} />
                     </main>
-                    <ToastContainer />
                 </RootStateProvider>
             </SWRConfig>
         </>

@@ -27,7 +27,7 @@ const checkBoxGroup: FC<Props> = ({ onChange, checkboxes}) => {
     <>
       {checkboxes.map(checkbox => (
         <CheckBox
-        //   width="15vw"       
+          width="100%"       
           key={checkbox.value}
           size="large"
           color="white"

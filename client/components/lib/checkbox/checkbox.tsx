@@ -38,6 +38,7 @@ const CheckBox = forwardRef<HTMLInputElement,PropsWithChildren<ICheckBox>>(({
   return (
     <>
       <div className={`checkbox-wrapper noselect ${className ? className : ""}`} >
+          
         <label className={`checkbox-label`} style={style}>
           {!loading && (
             <CheckBoxIcon 

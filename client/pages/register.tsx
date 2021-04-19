@@ -1,23 +1,28 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useState } from 'react';
+import { useState } from "react";
+import { useRouter } from 'next/router'
+import { Eye, EyeOff } from 'react-feather';
+import { useCookies } from 'react-cookie';
 
 
 //! ─── OWN ────────────────────────────────────────────────────────────────────────
 //? COMPONENTS
 import Input from "components/lib/inputs/Input";
 import Button from "components/lib/button/Button";
+import CheckBoxGroup from "components/lib/checkbox/checkbox-group";
+
 
 //? UTILS
 import { emailRegex, passwordRegex } from "components/utils/Regex";
-import CheckBoxGroup from "components/lib/checkbox/checkbox-group";
+import { showHidePasswordHandler } from "components/utils/showHidePassword"
+
+
+//? ACTIONS
 import { postRegistration } from "actions/client/registration.action";
-import { Eye } from 'react-feather';
+// import { getAllCategories } from "actions/client/categories.action";
 
 
-
-
-
-type FormValues = {
+type RegistrationValues = {
   full_name: string;
   email: string;
   password: string;
@@ -28,68 +33,89 @@ type FormValues = {
 
 
 
-
-
-
 const Register = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
-  let categoryIds = new Set()
+  const router = useRouter();
+
+  const [cookies, setCookie] = useCookies(
+        ['auth-access_token','auth-refresh_token','auth-token_expiration']);
+
+
+  const [, setIsCheckBoxArrayEmpty] = useState(false);
+  const [checkBoxErrorMsg, setCheckBoxErrorMsg] = useState("");
+  const [isPasswordHidden, setIsPasswordHidden] = useState(true)   
+
+  const { register, handleSubmit, formState: { errors } } = useForm<RegistrationValues>();
+
+  let categoryIds = new Set();
 
 
   let categoryIdsHandler = (checkboxObjects) => {
     categoryIds.clear()
     checkboxObjects.map(checkbox => {
       if (checkbox.checked === true)
-        categoryIds.add(checkbox.value)
+        categoryIds.add(checkbox.value);
     })
   }
-
-
-
-
-  const onSubmit: SubmitHandler<FormValues> = async (data: FormValues) => {
-    let registeredUser: FormValues = {
+  
+  const onSubmit: SubmitHandler<RegistrationValues> = async (data: RegistrationValues) => {
+    let registeredUser: RegistrationValues = {
       full_name: data.full_name,
       email: data.email,
       password: data.password,
       recovery_email: data.recovery_email,
-      favorite_main_category_ids: JSON.stringify(Array.from(categoryIds)) == "[]" && "[1]",
+      favorite_main_category_ids: JSON.stringify(Array.from(categoryIds)),
       favorite_sub_category_ids: '[1]'
     }
 
+
+    //* ors imitom,rom,radgan stringad aqcev ereis prichxilebs agiqvams.
+    //* yovelstvis an oria(carieli anu) an meti(anu shevsebuli)
+    if ( registeredUser.favorite_main_category_ids.length == 2 ) {
+        setIsCheckBoxArrayEmpty(true);
+        setCheckBoxErrorMsg("აუცილებლად უნდა მონიშნოთ ერთი კატეგორია მაინც");
+        return true
+    }
+
+
+    setCheckBoxErrorMsg("")
     let res = await postRegistration(registeredUser)
-    console.log(res)
-    /* TODO: set cookie with these values 
-      auth-access_token: res.accessToken,
-      auth-refresh_token: res.refreshToken,
-      auth-token_expiration: res.expiration,
-    */
+
+    router.push("/");
+
+    //! აქ react-cookie ar idzleva sashualebas ise derqvas rogorc axla gaqvs
+    //! აქ უკვე გადარქმეული მაგრამ იქ ხელი არ მოვკიდე მაინც
+    // setCookie('auth_access_token', res.auth_access_token);
+    // setCookie('auth-refresh_token', res.auth_refresh_token);
+    // setCookie('auth_token_expiration', res.auth_token_expiration);
+
+    return res
+
   };
-
-
 
 
 
 
   return (
     <>
-      <section className="registration">
-        <div className="registration_container">
+      <section className="login_registration">
+        <div className="login_registration_container">
           {/* <div className="picture"></div> */}
 
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="registration_forms">
+            <div className="base_form_styles registration-forms">
               <div className="title">
                 <h1 className="f-size-h7 f-weight-bl">რეგისტრაცია</h1>
               </div>
 
               <div className="registration-grid grid_base_styles">
+
                 <div className="base_input_styles full_name">
                   <div className="heading">
                     <h1 className="f-size-p6 f-weight-b">სახელი და გვარი</h1>
                   </div>
 
                   <Input
+                    size="large"
                     name="full_name"
                     width="100%"
                     type="text"
@@ -121,6 +147,7 @@ const Register = () => {
                   </div>
 
                   <Input
+                    size="large"
                     name="email"
                     width="100%"
                     type="email"
@@ -151,6 +178,7 @@ const Register = () => {
 
                   {/* //* მგონი შესამოწმებელი გექნება რომ ერთიდა იგივე არ შეიყანოს */}
                   <Input
+                    size="large"
                     name="recovery_email"
                     width="100%"
                     type="email"
@@ -178,14 +206,18 @@ const Register = () => {
                     <h1 className="f-size-p6 f-weight-b">პაროლი</h1>
                   </div>
 
-                  {/* TODO: add click event to icon on input conponent */}
-                  <Input
+                  <Input    
+                    className="registerPassword"
+                    size="large"
                     name="password"
                     width="100%"
                     type="password"
                     placeHolder="arabidze98"
                     color="white"
-                    iconRight={<Eye />}
+                    iconRight={ <span 
+                    onClick={() => showHidePasswordHandler(setIsPasswordHidden,".registerPassword")}> 
+                        {isPasswordHidden ? <Eye/> : <EyeOff/>}
+                    </span> }
                     {...register("password", {
                       required: "აუცილებლად მიუთითეთ თქვენი პაროლი",
                       minLength: {
@@ -207,13 +239,14 @@ const Register = () => {
                 </div>
 
                 <div className="base_input_styles main_category">
+
                   <div className="heading">
                     <h1 className="f-size-p6 f-weight-b">
                       სასურველი კატეგორიები
                     </h1>
                   </div>
 
-
+                    {/* TODO  ADD categories and checked props somehow */}
                   <CheckBoxGroup
                     onChange={categoryIdsHandler}
                     checkboxes={[
@@ -233,9 +266,12 @@ const Register = () => {
                         checked: false
                       },
                     ]}
-                  // {...register("main_category")}
                   />
-
+          
+                    <p className="form_errors f-size-p6 f-weight-r">
+                      {checkBoxErrorMsg}
+                    </p>
+                  
 
                 </div>
 
@@ -247,8 +283,7 @@ const Register = () => {
                     width="100%"
                     size="medium"
                     color="black"
-                    title="რეგისტრაცია"
-                  >
+                    title="რეგისტრაცია">
                     <p className="f-weight-r f-size-p4 ">რეგისტრაცია</p>
                   </Button>
                 </div>
@@ -260,5 +295,17 @@ const Register = () => {
     </>
   );
 };
+
+
+// export const  getServerSideProps = async () => {
+//     // Fetch data from external API
+//     const {categories: { main_categories }} = await getAllCategories();
+  
+//     // Pass data to the page via props
+//     return { props: { main_categories } }
+//   }
+  
+
+
 
 export default Register;
