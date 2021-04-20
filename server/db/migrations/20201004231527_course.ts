@@ -1,4 +1,4 @@
-import * as Knex from "knex";
+
 import tableNames from "../../constants/tableNames";
 import { references, addTimestamps } from '../lib/table functions/tableUtils';
 import { course } from "../../constants/defaults";
@@ -8,9 +8,10 @@ import { course } from "../../constants/defaults";
 
 
 
-export async function up(knex: Knex): Promise<void> {
-    await knex.schema.createTable(tableNames.courses, table => {
+export async function up(knex: any): Promise<void> {
+    await knex.schema.createTable(tableNames.courses, (table:any) => {
         table.increments();
+        table.uuid('uuid')
         table.string("name", 70).notNullable();
         table.string("description", 70).notNullable();
         table.string("detaled_description", 70).notNullable();
@@ -38,7 +39,7 @@ export async function up(knex: Knex): Promise<void> {
 }
 
 
-export async function down(knex: Knex): Promise<void> {
+export async function down(knex: any): Promise<void> {
     await Promise.all(
         [
             tableNames.questions,

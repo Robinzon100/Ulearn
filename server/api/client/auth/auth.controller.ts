@@ -1,8 +1,10 @@
 import jwt from 'jsonwebtoken';
-import { createJwtAuthorizationHeader, getHashedPassword } from './../../../utils/auth/auth.util';
 import { Request, Response, NextFunction } from "express";
-import User from '../../../models/user/user.model';
 import bcrypt from "bcrypt";
+
+
+import { createJwtAuthorizationHeader, getHashedPassword } from './../../../utils/auth/auth.util';
+import User from '../../../models/user/user.model';
 import customError from '../../../utils/createError';
 import { regsiterUserSchemaWithEncryptedPassword } from '../../../schemas/auth/schema.registration';
 import { createRefreshToken, createTokenExpirationHeader } from '../../../utils/auth/auth.util';
@@ -30,7 +32,6 @@ export const postRegistration = async (req: Request, res: Response, next: NextFu
 
 
     try {
-        // validate the created use objects
         const validatedUser = await regsiterUserSchemaWithEncryptedPassword.validateAsync(user);
 
         if (validatedUser) {

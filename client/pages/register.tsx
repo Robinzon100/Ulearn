@@ -15,6 +15,8 @@ import { getCategoriesForCheckBoxes } from "components/pages/register/utils/getC
 //? ACTIONS
 import { postRegistration } from "actions/client/registration.action";
 import { checkboxInterface } from '../components/lib/checkbox/checkbox-group';
+import { getCategoryIds } from "components/pages/register/utils/getCategoryIds";
+import { setCookiesAndRedirect } from "components/utils/auth/auth.utils";
 
 
 
@@ -37,31 +39,20 @@ const Register = () => {
     const [otherErrors, setOtherErrors] = useState("");
     const [checkboxContent, setCheckboxContent] = useState<checkboxInterface[]>([])
     const [isButtonLoading, setIsButtonLoading] = useState(false);
-
-    let categoryIds = new Set();
+    const [localCheckboxObjects, setLocalCheckboxObjects] = useState([])
 
 
 
     const categoryIdsHandler = (checkboxObjects) => {
-        categoryIds.clear();
-
-        checkboxObjects.map(checkbox => {
-            if (checkbox.checked === true)
-                categoryIds.add(checkbox.value);
-        });
-            
-        console.log(categoryIds);
-
-        if (categoryIds.size < 1)
-            setOtherErrors("მონიშნეთ 1 კატეგორია მაინც");
-        else
-            setOtherErrors('')
+       setLocalCheckboxObjects([])
+       setLocalCheckboxObjects(checkboxObjects)
     }
 
 
 
     const onSubmit: SubmitHandler<RegistrationValues> = async (data: RegistrationValues) => {
-        debugger
+        const categoryIds = getCategoryIds(localCheckboxObjects, setOtherErrors) as any
+
         let registeredUser: RegistrationValues = {
             full_name: data.full_name,
             email: data.email,
@@ -70,17 +61,11 @@ const Register = () => {
             favorite_main_category_ids: JSON.stringify(Array.from(categoryIds)),
             favorite_sub_category_ids: '[1]'
         }
+
+        const res = await postRegistration(registeredUser);
         
-
-        let res = await postRegistration(registeredUser);
-        debugger
-
-        console.log(res)
-        console.log(registeredUser)
-        if (res.statusCode == 200 && otherErrors.length == 0) {
-            setCookie('auth-access_token', res.accessToken);
-            setCookie('auth-refresh_token', res.refreshToken);
-            setCookie('auth-token_expiration', res.expiration);
+        if (res.statusCode == 200) {
+            setCookiesAndRedirect(res, setCookie) 
             setIsButtonLoading(true)
             router.push("/");
         } else {

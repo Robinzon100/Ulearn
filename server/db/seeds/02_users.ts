@@ -1,9 +1,9 @@
-import * as Knex from "knex";
+
 import tableNames from "../../constants/tableNames";
 import { user } from "../../constants/defaults";
 
 
-export async function seed(knex: Knex): Promise<void> {
+export async function seed(knex: any): Promise<void> {
 
 
     await knex(tableNames.users).insert([
