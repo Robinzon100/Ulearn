@@ -1,7 +1,8 @@
 
 import { Eye, EyeOff } from "react-feather";
-import { useForm } from "react-hook-form";
+import { useForm,SubmitHandler } from "react-hook-form";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 
 //! ─── OWN ────────────────────────────────────────────────────────────────────────
@@ -12,13 +13,48 @@ import Button from "components/lib/button/Button";
 //? UTILS
 import { emailRegex } from "components/utils/Regex";
 import { showHidePasswordHandler } from "components/utils/showHidePassword";
-import { LoginValues } from "../../../pages/login";
 
 
-const loginComponent = ({ onSubmit, serverErrors, isButtonLoading }) => {
+//? ACTIONS
+import { postLogin } from "actions/client/login.action";
+
+
+
+
+
+type LoginValues = {
+    email: string;
+    password: string;
+  };
+  
+
+
+  const loginComponent = () => {
+  const router = useRouter();
   const { register, handleSubmit, formState: { errors } } = useForm<LoginValues>();
 
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
+  const [serverErrors, setServerErrors] = useState("")
+  const [isButtonLoading, setIsButtonLoading] = useState(false);
+
+
+  const onSubmit: SubmitHandler<LoginValues> = async (data: LoginValues) => {
+    let loginedUser: LoginValues = {
+      email: data.email,
+      password: data.password,
+    };
+
+    let res = await postLogin(loginedUser);
+
+    if (res.statusCode == 200) {
+        setIsButtonLoading(true)
+      router.push("/");
+    }else{
+      return setServerErrors("მონაცემები არასწორია");
+    }
+  };
+
+
 
 
   return (
