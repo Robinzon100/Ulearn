@@ -1,7 +1,7 @@
 import { Clock, Star } from "react-feather";
 
 import Select from "components/lib/select/select";
-import SelectJson from "../../../../public/json/Select.json";
+import SelectJson from "../../../public/json/Select.json";
 interface SortingDropdown {
     type: string;
 }

@@ -8,7 +8,7 @@ import { stringToCut } from "components/utils/stringToCut";
 
 
 //! ============= INTERFACE
-import { PrimaryContentCardHover } from "../../../../interfaces/PrimaryContentCardHover.interface";
+import { PrimaryContentCardHover } from "../../../interfaces/PrimaryContentCardHover.interface";
 
 interface isLastCard {
   isLastCard: boolean;

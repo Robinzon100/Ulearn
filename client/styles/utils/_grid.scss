@@ -51,14 +51,15 @@
 .login-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(5,auto);
+    grid-template-rows: repeat(6,auto);
     gap: 20px 0px;
     grid-template-areas:
         "title ."
         "email email"
         "password password"
         "server_errors server_errors"
-        "submit_btn submit_btn";
+        "submit_btn submit_btn"
+        "register_btn register_btn";
         
     .server_errors {
         grid-area: server_errors;
@@ -78,5 +79,8 @@
 
     .password {
         grid-area: password;
+    }
+    .register_btn {
+        grid-area: register_btn;
     }
 }

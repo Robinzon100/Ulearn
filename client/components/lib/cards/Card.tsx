@@ -4,7 +4,7 @@ import { Star } from "react-feather";
 //! ==================OUR IMPORTS
 
 import { GetBoundingClientRect } from "components/utils/getBoundingClientRect";
-import { PrimaryContentCards } from "../../../../interfaces/PrimaryContentCard.interface";
+import { PrimaryContentCards } from "../../../interfaces/PrimaryContentCard.interface";
 
 import { stringToCut } from "components/utils/stringToCut";
 import CardDetail from "./CardDetail";

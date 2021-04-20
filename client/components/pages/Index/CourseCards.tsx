@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 //! ===========================OUR IMPORTS
-import PrimaryContentCard from "components/pages/Index/cards/Card";
+import PrimaryContentCard from "components/lib/cards/Card";
 import Carousel from "components/lib/carousel/carousel";
 import PrimaryContentCardJson from "../../../public/json/PrimaryContentCard.json";
 import CategoriesComponent from "components/pages/Index/SideCategories";
@@ -9,7 +9,7 @@ import Overlay from "components/pages/Index/Overlay";
 
 //! ===================== JSON
 import CategoriesImgs from "../../../public/json/categories.json";
-import InputSelectComponent from "components/pages/Index/dropdowns/DropdownsContainer";
+import InputSelectComponent from "components/lib/dropdowns/DropdownsContainer";
 import { getAllCategories } from "actions/client/categories.action";
 
 
