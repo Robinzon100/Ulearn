@@ -35,7 +35,7 @@ import { getCategoriesForCheckBoxes } from "components/pages/register/utils/getC
 
 
 const RegisterComponent = () => {
-  const { register,handleSubmit,formState: { errors } } = useForm<RegistrationValues>();
+  const { register,handleSubmit,formState: { errors },getValues } = useForm<RegistrationValues>();
 
 
   const router = useRouter();
@@ -183,7 +183,9 @@ const RegisterComponent = () => {
                   pattern: {
                     value: emailRegex,
                     message: "სწორად ჩაწერეთ თქვენი ელექტრონული ფოსტა",
-                  },
+                },
+                  validate: () => getValues("recovery_email") != getValues("email") 
+                    || 'ელექტრონული ფოსტები არ უნდა ემთხვეოდეს ერთმანეთს',
                 })}
               />
 
@@ -264,7 +266,11 @@ const RegisterComponent = () => {
                 width="100%"
                 size="medium"
                 color="black"
-                title="რეგისტრაცია">
+                title="რეგისტრაცია"
+                onClick={() => {
+                    console.log(getValues("email")); // "test-input"
+                  }}
+                >
                 <p className="f-weight-r f-size-p4 ">რეგისტრაცია</p>
               </Button>
             </div>

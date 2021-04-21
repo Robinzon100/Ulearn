@@ -1,7 +1,7 @@
 
 //! ─── OWN ────────────────────────────────────────────────────────────────────────
 //? COMPONENTS
-import LoginComponent from "components/pages/login/login.component";
+import LoginForm from "components/pages/login/login.form";
 
 //? ACTIONS
 
@@ -13,7 +13,7 @@ return (
       <section className="login_registration">
         <div className="login_registration_container">
 
-            <LoginComponent />
+            <LoginForm />
 
         </div>
       </section>

@@ -2,7 +2,7 @@
 
 // //! ─── OWN ────────────────────────────────────────────────────────────────────────
 // //? COMPONENTS
-import RegisterComponent from './../components/pages/register/Register.component';
+import RegisterForm from '../components/pages/register/Register.form';
 
 
 // //? UTILS
@@ -20,7 +20,7 @@ const Register = () => {
             <section className="login_registration">
                 <div className="login_registration_container">
                     
-                     <RegisterComponent/>
+                     <RegisterForm/>
 
                 </div>
             </section>
