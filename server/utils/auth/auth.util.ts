@@ -35,8 +35,10 @@ export const createRefreshToken = async (res: Response, object: any) => {
 
 
 
+
+
 export const createTokenExpirationHeader = async (res: Response) => {
-    res.setHeader('auth-token_expiration', new Date().getTime() + process.env.TOKEN_EXPIRATION_IN_MILLISECONDS!)
+    res.setHeader('auth-token_expiration', new Date().getTime() +  +process.env.TOKEN_EXPIRATION_IN_MILLISECONDS!)
 }
 
 
