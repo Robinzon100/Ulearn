@@ -4,7 +4,7 @@ import ReactHtmlParser from "react-html-parser";
 
 
 import { ShoppingCart } from "react-feather";
-import NextLink  from "components/utils/NextLink";
+import NextLink  from "components/utils/nextLink/NextLink";
 
 import SideMenu from "components/lib/sidemenu/sideMenu";
 import RatingsMenu from "components/pages/myCourse/RatingsMenu";

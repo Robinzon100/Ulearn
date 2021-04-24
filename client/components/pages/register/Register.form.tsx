@@ -13,8 +13,8 @@ import CheckBoxGroup from "components/lib/checkbox/checkbox-group";
 
 
 //? UTILS
-import { emailRegex, passwordRegex } from "components/utils/Regex";
-import { showHidePasswordHandler } from "components/utils/showHidePassword";
+import { emailRegex, passwordRegex } from "components/utils/regex/Regex";
+import { showHidePasswordHandler } from "components/utils/helpers/showHidePassword";
 import { postRegistration } from "actions/client/registration.action";
 import { checkboxInterface } from 'components/lib/checkbox/checkbox-group';
 import { getCategoryIds } from "components/pages/register/utils/getCategoryIds";
@@ -74,8 +74,6 @@ const RegisterComponent = () => {
 
         const res = await postRegistration(registeredUser);
         
-        console.log(res)
-        console.log(registeredUser);
         
         if (res.statusCode == 200) {
             setCookiesAndRedirect(res, setCookie) 
@@ -265,12 +263,7 @@ const RegisterComponent = () => {
                 type="submit"
                 width="100%"
                 size="medium"
-                color="black"
-                title="რეგისტრაცია"
-                onClick={() => {
-                    console.log(getValues("email")); // "test-input"
-                  }}
-                >
+                color="black">
                 <p className="f-weight-r f-size-p4 ">რეგისტრაცია</p>
               </Button>
             </div>

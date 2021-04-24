@@ -1,6 +1,6 @@
 
 import { Categories } from "../../../interfaces/categories.inteface";
-import NextLink from "components/utils/NextLink";
+import NextLink from "components/utils/nextLink/NextLink";
 
 
 

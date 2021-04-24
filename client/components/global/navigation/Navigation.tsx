@@ -1,14 +1,14 @@
 import { FC, useState } from "react";
 import useSWR from "swr";
 import { ShoppingCart, ChevronDown } from "react-feather";
-import NextLink from "components/utils/NextLink";
+import NextLink from "components/utils/nextLink/NextLink";
 import { Search } from "react-feather";
 
 //! ─── OWN IMPORTS ────────────────────────────────────────────────────────────────────
 //? COMPONENTS
 import Category from "components/global/navigation/Category";
 import Input from "components/lib/inputs/Input";
-import MultiStepForm from "components/utils/stepForm/multiStepForm";
+// import MultiStepForm from "components/utils/stepForm/multiStepForm";
 import Button from "components/lib/button/Button"
 
 //? ACTIONS
@@ -19,11 +19,6 @@ import { fetcher } from "actions/swr/fetchers";
 
 
 const Navigation: FC = () => {
-  const [isFormToggled, setIsFormToggled] = useState(false);
-
-  const FormToggle = (state) => {
-    setIsFormToggled(state);
-  }
 
 
   const [isToggled, setIsToggled] = useState(false);

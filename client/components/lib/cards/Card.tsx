@@ -3,12 +3,12 @@ import { Star } from "react-feather";
 
 //! ==================OUR IMPORTS
 
-import { GetBoundingClientRect } from "components/utils/getBoundingClientRect";
+import { GetBoundingClientRect } from "components/utils/helpers/getBoundingClientRect";
 import { PrimaryContentCards } from "../../../interfaces/PrimaryContentCard.interface";
 
-import { stringToCut } from "components/utils/stringToCut";
+import { stringToCut } from "components/utils/helpers/stringToCut";
 import CardDetail from "./CardDetail";
-import NextLink from "components/utils/NextLink";
+import NextLink from "components/utils/nextLink/NextLink";
 
 
 
