@@ -1,5 +1,5 @@
 import { ChevronRight } from "react-feather";
-import NextLink from 'components/utils/NextLink';
+import NextLink from 'components/utils/nextLink/NextLink';
 
 
 

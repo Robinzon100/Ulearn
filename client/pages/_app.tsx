@@ -3,7 +3,7 @@ import Head from "next/head";
 import 'video.js/dist/video-js.css'
 import { SWRConfig } from 'swr'
 import { AppProps } from 'next/dist/next-server/lib/router/router';
-
+import { CookiesProvider } from 'react-cookie';
 
 import Navigation from "components/global/navigation/Navigation"
 import { RootStateProvider } from '../mobx/RootStateContext';
@@ -25,10 +25,12 @@ function MyApp({ Component, pageProps }:AppProps) {
       </Head>
             <SWRConfig value={swrOptions}>
                 <RootStateProvider>
+                <CookiesProvider>
                     <Navigation />
                     <main className='main'>
                         <Component {...pageProps} />
                     </main>
+                </CookiesProvider>
                 </RootStateProvider>
             </SWRConfig>
         </>

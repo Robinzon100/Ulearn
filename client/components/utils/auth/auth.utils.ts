@@ -1,5 +1,14 @@
 export const setCookiesAndRedirect = (res, setCookie) => {
-    setCookie('auth-access_token', res.accessToken);
-    setCookie('auth-refresh_token', res.refreshToken);
-    setCookie('auth-token_expiration', res.expiration);
+    setCookie('auth_access_token', res.accessToken, {
+        path: "/",
+        sameSite: true,
+    });
+    setCookie('auth_refresh_token', res.refreshToken, {
+        path: "/",
+        sameSite: true,
+    });
+    setCookie('auth_token_expiration', res.expiration, {
+        path: "/",
+        sameSite: true,
+    });
 }

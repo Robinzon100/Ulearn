@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 
 
-import NextLink from "components/utils/NextLink";
+import NextLink from "components/utils/nextLink/NextLink";
 import { ShoppingCart, Check } from "react-feather";
-import { stringToCut } from "components/utils/stringToCut";
+import { stringToCut } from "components/utils/helpers/stringToCut";
 
 
 

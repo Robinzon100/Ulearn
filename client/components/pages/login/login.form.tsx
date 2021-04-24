@@ -11,8 +11,8 @@ import Input from "components/lib/inputs/Input";
 import Button from "components/lib/button/Button";
 
 //? UTILS
-import { emailRegex } from "components/utils/Regex";
-import { showHidePasswordHandler } from "components/utils/showHidePassword";
+import { emailRegex } from "components/utils/regex/Regex";
+import { showHidePasswordHandler } from "components/utils/helpers/showHidePassword";
 
 
 //? ACTIONS

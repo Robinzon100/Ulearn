@@ -1,7 +1,7 @@
 
 import * as React from "react";
 import Input from "components/lib/inputs/Input";
-import NextLink from "components/utils/NextLink";
+import NextLink from "components/utils/nextLink/NextLink";
 import Stars from "components/lib/svg/Stars";
 
 interface Props {

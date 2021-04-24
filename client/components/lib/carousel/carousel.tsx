@@ -1,5 +1,5 @@
 import { useState, memo } from "react";
-import NextLink from "components/utils/NextLink";
+import NextLink from "components/utils/nextLink/NextLink";
 
 import {mouseDown,mouseMove,mouseLeave,mouseUp,sideScroll} from "components/lib/carousel/carouselLogic";
 import { CarouselInterface } from "../../../interfaces/carousel.interface";
