@@ -6,7 +6,7 @@ import bcrypt from 'bcrypt';
 
 
 
-// ─── SETTING HEADERS ────────────────────────────────────────────────────────────
+//! ─── SETTING HEADERS ────────────────────────────────────────────────────────────
 export const createAccessToken = async (res: Response, object: any) => {
     const token = await jwt.sign(
         object,
@@ -37,7 +37,9 @@ export const createTokenExpirationHeader = async (res: Response) => {
 
 
 
-// ─── AUTH UTILS ───────────────────────────────────────────────────────────
+
+
+//! ─── AUTH UTILS ───────────────────────────────────────────────────────────
 export const getHashedPassword = async (password: string) => {
     const salt = await bcrypt.genSaltSync(10);
     const hashedPassword = await bcrypt.hashSync(password, salt);
