@@ -6,10 +6,19 @@ import { Model } from 'objection';
 import connection from "./api/db";
 
 const app = Express()
+declare global {
+    namespace Express {
+        interface Request {
+            user: {}
+        }
+    }
+}
+
+
+
 Model.knex(connection);
 
 
- 
 // ─── BASE MIDDLEWARES ────────────────────────────────────────────────────────────
 baseMiddlewares(app)
 

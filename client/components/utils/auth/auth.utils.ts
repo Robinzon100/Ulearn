@@ -1,3 +1,6 @@
+
+
+
 export const setCookiesAndRedirect = (res, setCookie) => {
     setCookie('auth_access_token', res.accessToken, {
         path: "/",

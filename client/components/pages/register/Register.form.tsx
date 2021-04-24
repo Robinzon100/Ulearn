@@ -1,5 +1,5 @@
-import { useState,useEffect } from "react";
-import { useForm,SubmitHandler } from "react-hook-form";
+import { useState, useEffect } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { Eye, EyeOff } from "react-feather";
 import { useRouter } from 'next/router'
 import { useCookies } from 'react-cookie';
@@ -23,73 +23,72 @@ import { getCategoriesForCheckBoxes } from "components/pages/register/utils/getC
 
 
 
- interface RegistrationValues {
-    full_name: string;
-    email: string;
-    password: string;
-    recovery_email: string;
-    favorite_main_category_ids: string;
-    favorite_sub_category_ids: string;
+interface RegistrationValues {
+  full_name: string;
+  email: string;
+  password: string;
+  recovery_email: string;
+  favorite_main_category_ids: string;
+  favorite_sub_category_ids: string;
 };
 
 
 
 const RegisterComponent = () => {
-  const { register,handleSubmit,formState: { errors },getValues } = useForm<RegistrationValues>();
+  const { register, handleSubmit, formState: { errors }, getValues } = useForm<RegistrationValues>();
 
 
   const router = useRouter();
 
-    const [, setCookie] = useCookies(
-        ['auth-access_token', 'auth-refresh_token', 'auth-token_expiration']);
+  const [, setCookie] = useCookies();
 
 
-    const [isPasswordHidden, setIsPasswordHidden] = useState(true);
-    const [otherErrors, setOtherErrors] = useState("");
-    const [categoryErrors, setCategoryErrors] = useState("");
-    const [checkboxContent, setCheckboxContent] = useState<checkboxInterface[]>([]);
-    const [isButtonLoading, setIsButtonLoading] = useState(false);
-    const [localCheckboxObjects, setLocalCheckboxObjects] = useState([]);
+  const [isPasswordHidden, setIsPasswordHidden] = useState(true);
+  const [otherErrors, setOtherErrors] = useState("");
+  const [categoryErrors, setCategoryErrors] = useState("");
+  const [checkboxContent, setCheckboxContent] = useState<checkboxInterface[]>([]);
+  const [isButtonLoading, setIsButtonLoading] = useState(false);
+  const [localCheckboxObjects, setLocalCheckboxObjects] = useState([]);
 
 
 
-    const categoryIdsHandler = (checkboxObjects) => {
-       setLocalCheckboxObjects([])
-       setLocalCheckboxObjects(checkboxObjects)
+  const categoryIdsHandler = (checkboxObjects) => {
+    setLocalCheckboxObjects([])
+    setLocalCheckboxObjects(checkboxObjects)
+  }
+
+
+
+  const onSubmit: SubmitHandler<RegistrationValues> = async (data: RegistrationValues) => {
+    const categoryIds = getCategoryIds(localCheckboxObjects, setCategoryErrors) as any
+
+    let registeredUser: RegistrationValues = {
+      full_name: data.full_name,
+      email: data.email,
+      password: data.password,
+      recovery_email: data.recovery_email,
+      favorite_main_category_ids: JSON.stringify(Array.from(categoryIds)),
+      favorite_sub_category_ids: '[1]'
     }
 
+    const res = await postRegistration(registeredUser);
 
 
-    const onSubmit: SubmitHandler<RegistrationValues> = async (data: RegistrationValues) => {
-        const categoryIds = getCategoryIds(localCheckboxObjects, setCategoryErrors) as any
-
-        let registeredUser: RegistrationValues = {
-            full_name: data.full_name,
-            email: data.email,
-            password: data.password,
-            recovery_email: data.recovery_email,
-            favorite_main_category_ids: JSON.stringify(Array.from(categoryIds)),
-            favorite_sub_category_ids: '[1]'
-        }
-
-        const res = await postRegistration(registeredUser);
-        
-        
-        if (res.statusCode == 200) {
-            setCookiesAndRedirect(res, setCookie) 
-            setIsButtonLoading(true)
-            router.push("/");
-        } else {
-            setOtherErrors("არასწორი მონაცემები");
-        }
-    };
+    if (res.statusCode == 200) {
+      setCookiesAndRedirect(res, setCookie)
+      setIsButtonLoading(true)
+      router.push("/");
+    } else {
+      setOtherErrors("არასწორი მონაცემები");
+    }
+  };
 
 
-    
 
-    useEffect(() => {
-        getCategoriesForCheckBoxes(setCheckboxContent)
-    }, [])
+
+  useEffect(() => {
+    getCategoriesForCheckBoxes(setCheckboxContent)
+  }, [])
 
 
   return (
@@ -181,8 +180,8 @@ const RegisterComponent = () => {
                   pattern: {
                     value: emailRegex,
                     message: "სწორად ჩაწერეთ თქვენი ელექტრონული ფოსტა",
-                },
-                  validate: () => getValues("recovery_email") != getValues("email") 
+                  },
+                  validate: () => getValues("recovery_email") != getValues("email")
                     || 'ელექტრონული ფოსტები არ უნდა ემთხვეოდეს ერთმანეთს',
                 })}
               />
@@ -247,10 +246,10 @@ const RegisterComponent = () => {
                 checkboxContent={checkboxContent}
               />
 
-                <div className="server_errors">
-                    <p className="form_errors f-size-p6 f-weight-r">{categoryErrors}</p>
-                </div>
-                
+              <div className="server_errors">
+                <p className="form_errors f-size-p6 f-weight-r">{categoryErrors}</p>
+              </div>
+
             </div>
 
             <div className="server_errors">
@@ -259,7 +258,7 @@ const RegisterComponent = () => {
 
             <div className="submit_btn">
               <Button
-                loading={isButtonLoading ? true :false}
+                loading={isButtonLoading ? true : false}
                 type="submit"
                 width="100%"
                 size="medium"

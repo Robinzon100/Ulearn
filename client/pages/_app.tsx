@@ -12,25 +12,25 @@ import { swrOptions } from '../constants/swrOptions';
 
 
 
-function MyApp({ Component, pageProps }:AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
     return (
         <>
-        <Head>
-        <title>Ulearn</title>
-        <link rel="shortcut icon" href="#"/>
-        <meta name="viewport" content="height=device-height, 
+            <Head>
+                <title>Ulearn</title>
+                <link rel="shortcut icon" href="#" />
+                <meta name="viewport" content="height=device-height, 
                       width=device-width, initial-scale=1.0, 
                       minimum-scale=1.0, maximum-scale=1.0, 
                       user-scalable=no, target-densitydpi=device-dpi"></meta>
-      </Head>
+            </Head>
             <SWRConfig value={swrOptions}>
                 <RootStateProvider>
-                <CookiesProvider>
-                    <Navigation />
-                    <main className='main'>
-                        <Component {...pageProps} />
-                    </main>
-                </CookiesProvider>
+                    <CookiesProvider>
+                        <Navigation />
+                        <main className='main'>
+                            <Component {...pageProps} />
+                        </main>
+                    </CookiesProvider>
                 </RootStateProvider>
             </SWRConfig>
         </>

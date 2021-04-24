@@ -8,7 +8,6 @@ import User from '../../../models/user/user.model';
 import customError from '../../../utils/createError';
 import { regsiterUserSchemaWithEncryptedPassword } from '../../../schemas/auth/schema.registration';
 import { createRefreshToken, createTokenExpirationHeader } from '../../../utils/auth/auth.util';
-import { Token } from 'typescript';
 
 
 
@@ -90,12 +89,13 @@ export const postLogin = async (req: Request, res: Response, next: NextFunction)
 
 //! ─── TOKEN REFRESH ───────────────────────────────────────────────────────────────
 export const postRefreshToken = async (req: Request, res: Response, next: NextFunction) => {
-    const { refresh_token } = req.headers
-    interface IRefreshToken extends Token<any> { userUUID: string }
+    const { auth_refresh_token } = req.headers
+    // TODO: import this from another file
+    interface IRefreshToken { userUUID: string }
 
     try {
         const { userUUID } = jwt.verify(
-            `${refresh_token}`, process.env.JWT_REFRESH_TOKEN_SECRET!) as IRefreshToken
+            `${auth_refresh_token}`, process.env.JWT_REFRESH_TOKEN_SECRET!) as IRefreshToken
 
         if (!userUUID)
             customError(res, next, 'token not valid', 403)
@@ -104,7 +104,7 @@ export const postRefreshToken = async (req: Request, res: Response, next: NextFu
         await createTokenExpirationHeader(res)
 
         res.status(200).json({
-            message: 'user authanticated'
+            message: 'user authanticated',
         })
 
     } catch (err) {

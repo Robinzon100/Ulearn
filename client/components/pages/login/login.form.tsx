@@ -1,6 +1,6 @@
 
 import { Eye, EyeOff } from "react-feather";
-import { useForm,SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
@@ -17,21 +17,24 @@ import { showHidePasswordHandler } from "components/utils/helpers/showHidePasswo
 
 //? ACTIONS
 import { postLogin } from "actions/client/login.action";
+import { setCookiesAndRedirect } from "components/utils/auth/auth.utils";
+import { useCookies } from 'react-cookie';
 
 
 
 
 
 type LoginValues = {
-    email: string;
-    password: string;
-  };
-  
+  email: string;
+  password: string;
+};
 
 
-  const loginComponent = () => {
+
+const loginComponent = () => {
   const router = useRouter();
   const { register, handleSubmit, formState: { errors } } = useForm<LoginValues>();
+  const [, setCookie] = useCookies()
 
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
   const [serverErrors, setServerErrors] = useState("")
@@ -46,10 +49,12 @@ type LoginValues = {
 
     let res = await postLogin(loginedUser);
 
+
     if (res.statusCode == 200) {
-        setIsButtonLoading(true)
+      setCookiesAndRedirect(res, setCookie)
+      setIsButtonLoading(true)
       router.push("/");
-    }else{
+    } else {
       return setServerErrors("მონაცემები არასწორია");
     }
   };
