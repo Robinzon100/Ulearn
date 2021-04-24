@@ -1,10 +1,10 @@
-
+import { Knex } from 'knex';
 import tableNames from "../../constants/tableNames"
 import { addSimpleIdAndName, references } from '../lib/table functions/tableUtils';
 
 
 
-export async function up(knex: any): Promise<void> {
+export async function up(knex: Knex): Promise<void> {
     await Promise.all([
         //! Rating title
         knex.schema.createTable(tableNames.rating_titles, (table: any) => {
@@ -46,7 +46,7 @@ export async function up(knex: any): Promise<void> {
 }
 
 
-export async function down(knex: any): Promise<void> {
+export async function down(knex: Knex): Promise<void> {
     await Promise.all(
         [
             tableNames.sub_sub_categories,

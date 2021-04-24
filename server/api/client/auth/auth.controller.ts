@@ -3,11 +3,12 @@ import { Request, Response, NextFunction } from "express";
 import bcrypt from "bcrypt";
 
 
-import { createJwtAuthorizationHeader, getHashedPassword } from './../../../utils/auth/auth.util';
+import { getHashedPassword, createAccessToken } from './../../../utils/auth/auth.util';
 import User from '../../../models/user/user.model';
 import customError from '../../../utils/createError';
 import { regsiterUserSchemaWithEncryptedPassword } from '../../../schemas/auth/schema.registration';
 import { createRefreshToken, createTokenExpirationHeader } from '../../../utils/auth/auth.util';
+import { Token } from 'typescript';
 
 
 
@@ -35,9 +36,9 @@ export const postRegistration = async (req: Request, res: Response, next: NextFu
         const validatedUser = await regsiterUserSchemaWithEncryptedPassword.validateAsync(user);
 
         if (validatedUser) {
-            const { uuid } = await User.query().insert(validatedUser);
+            const { uuid } = await User.query().insertAndFetch(validatedUser);
 
-            await createJwtAuthorizationHeader(res, { userUUID: uuid })
+            await createAccessToken(res, { userUUID: uuid })
             await createRefreshToken(res, { userUUID: uuid })
             await createTokenExpirationHeader(res)
 
@@ -68,7 +69,10 @@ export const postLogin = async (req: Request, res: Response, next: NextFunction)
         const doesPasswordMatch = user ? await bcrypt.compareSync(password, user.password) : false
 
         if (doesPasswordMatch && user) {
-            await createJwtAuthorizationHeader(res, { userId: user.id })
+            await createAccessToken(res, { userUUID: user.uuid })
+            await createRefreshToken(res, { userUUID: user.uuid })
+            await createTokenExpirationHeader(res)
+
             res.status(200).json({
                 user: 'successfully loged in'
             })
@@ -84,13 +88,27 @@ export const postLogin = async (req: Request, res: Response, next: NextFunction)
 
 
 
+//! ─── TOKEN REFRESH ───────────────────────────────────────────────────────────────
 export const postRefreshToken = async (req: Request, res: Response, next: NextFunction) => {
-    const { refres_token } = req.body
+    const { refresh_token } = req.headers
+    interface IRefreshToken extends Token<any> { userUUID: string }
 
-    const token = jwt.verify(refres_token, process.env.JWT_REFRESH_TOKEN_SECRET!)
+    try {
+        const { userUUID } = jwt.verify(
+            `${refresh_token}`, process.env.JWT_REFRESH_TOKEN_SECRET!) as IRefreshToken
 
-    if (token) {
+        if (!userUUID)
+            customError(res, next, 'token not valid', 403)
 
+        await createAccessToken(res, { userUUID: userUUID })
+        await createTokenExpirationHeader(res)
+
+        res.status(200).json({
+            message: 'user authanticated'
+        })
+
+    } catch (err) {
+        customError(res, next, err.message)
     }
 }
 

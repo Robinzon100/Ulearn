@@ -1,9 +1,10 @@
+import { Knex } from 'knex';
 
 import orderedTableNames from "../../constants/orderedTableNames";
 import tableNames from "../../constants/tableNames";
 import { userTypesDefaults, ratingTitlesDefaults, typesOfReportsDefaults } from '../../constants/seeds/defaults/initials.defaults'
 
-export async function seed(knex: any): Promise<void> {
+export async function seed(knex: Knex): Promise<void> {
     await Promise.all(orderedTableNames.map((name) => knex(name).del()));
 
     
