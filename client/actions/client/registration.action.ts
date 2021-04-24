@@ -1,4 +1,4 @@
-import { axiosInstance } from './../index';
+import { axiosInstance } from '../action.index';
  
 
 // TODO: the succes results in 400

@@ -1,4 +1,4 @@
-import { axiosInstance } from 'actions';
+import { axiosInstance } from 'actions/action.index';
 
 
 export const getAllCategories = async () => {
