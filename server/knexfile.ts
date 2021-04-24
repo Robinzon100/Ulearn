@@ -1,6 +1,12 @@
 require("dotenv").config();
 
-export = {
+
+interface KnexConfig {
+  [key: string]: object;
+};
+
+
+const knexConfig: KnexConfig = {
   development: {
     client: "pg",
     connection: {
@@ -16,3 +22,6 @@ export = {
     }
   },
 };
+
+
+export default knexConfig

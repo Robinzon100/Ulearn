@@ -1,8 +1,9 @@
-import * as Knex from 'knex';
+import { Knex } from 'knex';
+
 import { mainCategories, subCategories, subSubCategories } from '../../constants/seeds/defaults/categories.defaults';
 import tableNames from '../../constants/tableNames';
 
-export async function seed(knex: any): Promise<void> {
+export async function seed(knex: Knex): Promise<void> {
 
     
     await knex(tableNames.sub_categories).del()

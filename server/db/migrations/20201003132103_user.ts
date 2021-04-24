@@ -1,11 +1,13 @@
 import { user } from "../../constants/defaults";
 import tableNames from "../../constants/tableNames";
 import { references, addTimestamps } from '../lib/table functions/tableUtils';
+import { Knex } from 'knex';
 
 
-export const up = async (knex: any): Promise<void> => {
+
+export const up = async (knex: Knex): Promise<void> => {
     await knex.raw('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');
-    await knex.schema.createTable(tableNames.users, (table: any) => {
+    await knex.schema.createTable(tableNames.users, (table: Knex.TableBuilder) => {
         table.increments('id');
         table.uuid('uuid').defaultTo(knex.raw('uuid_generate_v4()'));
         table.string("full_name", 256).notNullable();
@@ -14,7 +16,7 @@ export const up = async (knex: any): Promise<void> => {
         table.string('recovery_email', 254).defaultTo('');
         table.string('description', 1000).defaultTo('')
 
-        // TODO:  piradi infos defaults
+        // TODO:  piradi infos defaults 
         // TODO:  add sub_sub_category column
 
         table.timestamp('last_login', { precision: 2 }).defaultTo(knex.fn.now());
@@ -54,7 +56,7 @@ export const up = async (knex: any): Promise<void> => {
         addTimestamps(table);
     })
 
-    await knex.schema.createTable(tableNames.subscriptions, (table:any) => {
+    await knex.schema.createTable(tableNames.subscriptions, (table:Knex.TableBuilder) => {
         table.increments('id');
         references(table, tableNames.users, true, "user");
         references(table, tableNames.users, true, "instructor");
@@ -62,7 +64,7 @@ export const up = async (knex: any): Promise<void> => {
 }
 
 
-export async function down(knex: any): Promise<void> {
+export async function down(knex: Knex): Promise<void> {
     await Promise.all(
         [
             tableNames.subscriptions,

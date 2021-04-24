@@ -1,10 +1,11 @@
+import { Knex } from 'knex';
 
 import tableNames from "../../constants/tableNames";
 import { references } from '../lib/table functions/tableUtils';
 import { comment } from "../../constants/defaults";
 
-export async function up(knex: any): Promise<void> {
-    await knex.schema.createTable(tableNames.questions, (table:any) => {
+export async function up(knex: Knex): Promise<void> {
+    await knex.schema.createTable(tableNames.questions, (table:Knex.TableBuilder) => {
         table.bigIncrements();
         references(table, tableNames.users, true, "user");
         references(table, tableNames.courses, true, "course");
@@ -15,7 +16,7 @@ export async function up(knex: any): Promise<void> {
     });
 
 
-    await knex.schema.createTable(tableNames.comments, (table:any) => {
+    await knex.schema.createTable(tableNames.comments, (table:Knex.TableBuilder) => {
         table.bigIncrements();
         references(table, tableNames.users, true, "user");
         references(table, tableNames.courses, true, "course");
@@ -28,7 +29,7 @@ export async function up(knex: any): Promise<void> {
 }
 
 
-export async function down(knex: any): Promise<void> {
+export async function down(knex: Knex): Promise<void> {
 
 }
 

@@ -1,10 +1,11 @@
+import { Knex } from 'knex';
 
 import tableNames from "../../constants/tableNames";
 import { references, addTimestamps } from '../lib/table functions/tableUtils';
 
 
-export async function up(knex: any): Promise<void> {
-    await knex.schema.createTable(tableNames.reports, (table:any) => {
+export async function up(knex: Knex): Promise<void> {
+    await knex.schema.createTable(tableNames.reports, (table:Knex.TableBuilder) => {
         table.increments('id');
         table.string("text", 1000);
         references(table, tableNames.types_of_reports, true, "type_of_report");
@@ -14,7 +15,7 @@ export async function up(knex: any): Promise<void> {
     })
     
     
-    await knex.schema.createTable(tableNames.made_reports, (table:any) => {
+    await knex.schema.createTable(tableNames.made_reports, (table:Knex.TableBuilder) => {
         table.increments('id');
         references(table, tableNames.reports, true, 'report');
         references(table, tableNames.users, true, 'user');
@@ -23,7 +24,7 @@ export async function up(knex: any): Promise<void> {
 }
 
 
-export async function down(knex: any): Promise<void> {
+export async function down(knex: Knex): Promise<void> {
   
 }
 
