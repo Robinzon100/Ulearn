@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Eye, EyeOff } from "react-feather";
 import { useRouter } from 'next/router'
-import { useCookies } from 'react-cookie';
 
 
 //! ─── OWN ────────────────────────────────────────────────────────────────────────
@@ -18,9 +17,8 @@ import { showHidePasswordHandler } from "components/utils/helpers/showHidePasswo
 import { postRegistration } from "actions/client/registration.action";
 import { checkboxInterface } from 'components/lib/checkbox/checkbox-group';
 import { getCategoryIds } from "components/pages/register/utils/getCategoryIds";
-import { setCookiesAndRedirect } from "components/utils/auth/auth.utils";
 import { getCategoriesForCheckBoxes } from "components/pages/register/utils/getCategoriesForCheckBoxes"
-
+import  AuthUtils  from "components/utils/auth/authUtils";
 
 
 interface RegistrationValues {
@@ -35,12 +33,14 @@ interface RegistrationValues {
 
 
 const RegisterComponent = () => {
+    
   const { register, handleSubmit, formState: { errors }, getValues } = useForm<RegistrationValues>();
 
 
   const router = useRouter();
 
-  const [, setCookie] = useCookies();
+  
+  const { setCookiesAndRedirect }  = AuthUtils();
 
 
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
@@ -75,7 +75,7 @@ const RegisterComponent = () => {
 
 
     if (res.statusCode == 200) {
-      setCookiesAndRedirect(res, setCookie)
+      setCookiesAndRedirect(res)
       setIsButtonLoading(true)
       router.push("/");
     } else {

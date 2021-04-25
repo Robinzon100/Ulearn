@@ -17,8 +17,7 @@ import { showHidePasswordHandler } from "components/utils/helpers/showHidePasswo
 
 //? ACTIONS
 import { postLogin } from "actions/client/login.action";
-import { setCookiesAndRedirect } from "components/utils/auth/auth.utils";
-import { useCookies } from 'react-cookie';
+import AuthUtils from "components/utils/auth/authUtils";
 
 
 
@@ -32,9 +31,13 @@ type LoginValues = {
 
 
 const loginComponent = () => {
+
   const router = useRouter();
+
   const { register, handleSubmit, formState: { errors } } = useForm<LoginValues>();
-  const [, setCookie] = useCookies()
+
+  const { setCookiesAndRedirect } = AuthUtils();
+  
 
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
   const [serverErrors, setServerErrors] = useState("")
@@ -51,7 +54,7 @@ const loginComponent = () => {
 
 
     if (res.statusCode == 200) {
-      setCookiesAndRedirect(res, setCookie)
+      setCookiesAndRedirect(res)
       setIsButtonLoading(true)
       router.push("/");
     } else {
