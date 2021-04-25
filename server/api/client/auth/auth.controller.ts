@@ -93,6 +93,8 @@ export const postRefreshToken = async (req: Request, res: Response, next: NextFu
     // TODO: import this from another file
     interface IRefreshToken { userUUID: string }
 
+    console.log(auth_refresh_token)
+
     try {
         const { userUUID } = jwt.verify(
             `${auth_refresh_token}`, process.env.JWT_REFRESH_TOKEN_SECRET!) as IRefreshToken
@@ -112,41 +114,3 @@ export const postRefreshToken = async (req: Request, res: Response, next: NextFu
     }
 }
 
-
-// export const postLogin = async (req: Request, res: Response, next: NextFunction) => {
-//     const { email, password } = req.body;
-
-//     let reqeustToken = req.headers.authorization?.split(' ')[1]
-
-//     await jwt.verify(`${reqeustToken}`, `${process.env.JWT_SECRET}`, async (err, userToken) => {
-//         // check if the token is valid
-//         if (err) {
-//             customError(res, next, 'token not valid. unauthorized_client', 401)
-//         } else {
-
-                // interface userToken{
-                //     userId: number
-                // }
-
-//             // if token is valid search the email and decode the password
-//             let { userId } = userToken as userToken
-//             try {
-//                 const [user] = await User.query().where("email", email)
-//                 const doesPasswordMatch = user ? await bcrypt.compareSync(password, user.password) : false
-
-//                 if (doesPasswordMatch && user) {
-//                     res.status(200).json({
-//                         user: user
-//                     })
-//                 } else {
-//                     customError(res, next, 'provide email or password are not valid', 401)
-//                 }
-//             } catch (error) {
-//                 next(error)
-//             }
-
-//         }
-//     })
-
-
-// }

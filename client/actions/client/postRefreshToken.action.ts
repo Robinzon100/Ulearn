@@ -4,9 +4,13 @@ import { axiosInstance } from '../action.index';
 
 
 
-export const postRefreshToken = async ({}) => {
+export const postRefreshToken = async (refreshToken) => {
     return await axiosInstance
-        .post(`/auth/refresh_token`, {})
+        .post(`/auth/refresh_token`, {}, {
+            headers: {
+                auth_refresh_token: `${refreshToken}`
+            },
+        })
         .then(res => {
             return {
                 accessToken: res.headers['auth-access_token'],

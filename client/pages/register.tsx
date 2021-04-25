@@ -1,11 +1,13 @@
+import RegisterForm from 'components/pages/register/Register.form';
 
 
-// //! ─── OWN ────────────────────────────────────────────────────────────────────────
-// //? COMPONENTS
-import RegisterForm from '../components/pages/register/Register.form';
+//! ─── OWN ────────────────────────────────────────────────────────────────────────
+//? COMPONENTS
+import { ifLogedInRedirect } from 'components/utils/auth/redirect.utils';
+import { GetServerSideProps } from 'next';
 
 
-// //? UTILS
+//? UTILS
 
 
 //? ACTIONS
@@ -19,9 +21,7 @@ const Register = () => {
         <>
             <section className="login_registration">
                 <div className="login_registration_container">
-                    
-                     <RegisterForm/>
-
+                    <RegisterForm />
                 </div>
             </section>
         </>
@@ -30,6 +30,9 @@ const Register = () => {
 
 
 
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+    return ifLogedInRedirect(ctx)
+}
 
 
 export default Register;

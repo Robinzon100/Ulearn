@@ -37,7 +37,7 @@ const loginComponent = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<LoginValues>();
 
   const { setCookiesAndRedirect } = AuthUtils();
-  
+
 
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
   const [serverErrors, setServerErrors] = useState("")

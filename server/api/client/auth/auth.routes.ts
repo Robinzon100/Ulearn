@@ -4,30 +4,21 @@ import { defaultRouterOptions } from "../../../constants/router.options";
 const router = express.Router(defaultRouterOptions);
 
 
-// ─── CONTROLLERS AND MIDDLAWARES ────────────────────────────────────────────────
+//! ─── OWN ────────────────────────────────────────────────
+//? UTILS
+
+//? CONTROLLERS
 import { postRegistration, postLogin, postRefreshToken } from './auth.controller';
+
+//? MIDDLEWARE
 import validateRegistrationObject from '../../../middleware/auth/registration.middleware';
 import validateLoginObject from '../../../middleware/auth/login.middleware';
-// import validateRefreshTokenObject from '../../../middleware/auth/refreshToken.middlware';
-import User from '../../../models/user/user.model';
 
 
 
 
 
-// router.use(async (req, res, next) => {
-//     const { auth_refresh_token } = req.headers
-//     interface IRefreshToken { userUUID: string }
-
-//     const { userUUID } = jwt.verify(
-//         `${auth_refresh_token}`, process.env.JWT_REFRESH_TOKEN_SECRET!) as IRefreshToken
-
-//     const user = await User.query().where('uuid', userUUID)
-//     req.user = user
-//     next()
-// })
-
-
+// ─── ROUTES ─────────────────────────────────────────────────────────────────────
 router.post('/register', validateRegistrationObject, postRegistration);
 router.post('/login', validateLoginObject, postLogin);
 
