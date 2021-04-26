@@ -2,7 +2,7 @@ import cookie from 'cookie';
 import { GetServerSideProps } from 'next';
 
 //? WON
-// import { postRefreshToken } from 'actions/client/postRefreshToken.action';
+import { postRefreshToken } from 'actions/client/postRefreshToken.action';
 
 //? UTILS
 import { redirect } from 'components/utils/auth/redirect.utils';
@@ -21,7 +21,7 @@ const profile = ({value}) => {
 
 export const getServerSideProps: GetServerSideProps= async (ctx) => {
     const { auth_access_token, auth_refresh_token, auth_token_expiration } = cookie.parse(ctx.req.headers.cookie || '')
-    // let newDate = new Date().getTime();
+    let newDate = new Date().getTime();
 
 
         
@@ -30,11 +30,17 @@ export const getServerSideProps: GetServerSideProps= async (ctx) => {
     
     
 
-    // if (newDate < +auth_token_expiration){
-    //     //* TRUE - SEND-ACCESS-Token
-    // }else {
-    //     //* FALSE - SEND-REFRESH-Token
-    // }
+    if (newDate < +auth_token_expiration){
+        const res = await postRefreshToken(auth_refresh_token);
+
+        if(res.statusCode == 200) {
+            console.log("nice")
+        }else {
+            console.log("bad")
+        }
+    }else {
+        //* FALSE - SEND-REFRESH-Token
+    }
         
 
     return {
