@@ -4,13 +4,12 @@
 import { axiosInstance } from 'actions/action.index';
  
 
-// TODO: the succes results in 400
 export const getUser = async (accessToken) => {
     return await axiosInstance
-        .post(`/auth/register`, {}, {
+        .get(`/user/profile`,{
             headers: {
                 auth_access_token: `${accessToken}`
-            }
+            },
         })
         .then(res => {
             return {

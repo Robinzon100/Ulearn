@@ -9,7 +9,7 @@ export const postRefreshToken = async (refreshToken) => {
         .post(`/auth/refresh_token`, {}, {
             headers: {
                 auth_refresh_token: `${refreshToken}`
-            },
+            }
         })
         .then(res => {
             return {

@@ -10,7 +10,7 @@ import LoginForm from "components/pages/login/login.form";
 
 
 //? ACTIONS
-import { ifLogedInRedirect } from '../components/utils/auth/redirect.utils';
+import { ifUserLoginOrRegister } from '../components/utils/auth/redirect.utils';
 
 
 
@@ -35,7 +35,7 @@ const login = ({ value }) => {
 
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-    return ifLogedInRedirect(ctx)
+    return ifUserLoginOrRegister(ctx)
 }
 
 
