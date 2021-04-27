@@ -1,34 +1,38 @@
-import cookie from 'cookie';
 import { GetServerSideProps } from 'next';
 
 //? WON
-import { postRefreshToken, } from 'actions/client/postRefreshToken.action';
+
 
 //? UTILS
 import { getUser } from 'actions/client/user/profile/profile.action';
-import { bla } from "components/utils/auth/IfTokenExpiered"
+import { authenticatedGet } from '../components/utils/auth/IfTokenExpiered';
+// import cookie from 'cookie';
 
 
 
-const profile = ({value}) => {
+const profile = ({ user }) => {
     return (
-        <div style={{marginTop:"10rem"}}>
-            <h1>{value}</h1>
+        <div style={{ marginTop: "10rem" }}>
+            <h1>{JSON.stringify(user)}</h1>
         </div>
     )
 }
 
 
 
-export const getServerSideProps: GetServerSideProps= async (ctx) => {
-    const { auth_access_token, auth_refresh_token } = cookie.parse(ctx.req.headers.cookie || '')
-    // let date = new Date().getTime();
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+    const res = await authenticatedGet(getUser, ctx)
+    // const { auth_access_token } = cookie.parse(ctx.req.headers.cookie || '')
+    // const res = await getUser(auth_access_token)
 
-    const accessRes = await getUser(auth_access_token);
-    const refreshRes = await postRefreshToken(auth_refresh_token);
 
-    return bla(accessRes,refreshRes,ctx)
+    console.log(res.user)
 
+    return {
+        props: {
+            user: res.user
+        }
+    }
 }
 
 

@@ -112,7 +112,7 @@ const Navigation: FC = () => {
             </div>
 
             <NextLink
-              route="/unregistered_user"
+              route="/profile"
               className="unregistered_user"
             ></NextLink>
           </div>

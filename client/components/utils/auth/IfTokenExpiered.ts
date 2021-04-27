@@ -1,53 +1,46 @@
 
+import { postRefreshToken } from 'actions/client/postRefreshToken.action';
 import cookie from 'cookie';
 
 
 //? UTILS
-import { redirect } from './redirect.utils';
 
 
-export const ifTokenExpiered = (res,ctx) => {
-
-    if (res.statusCode == 200) {
-      ctx.res.setHeader("Set-Cookie", [
-        cookie.serialize("auth_token_expiration", res.expiration, {
-          httpOnly: true,
-          path: "/",
-        }),
-        cookie.serialize("auth_access_token", res.accessToken, {
-          httpOnly: true,
-          path: "/",
-        }),
-      ]);
-  
-      // console.log("good refresh", res);
-      return { props: { res: true } };
-    } else {
-      // console.log("bad refresh");
-      return redirect("/login");
-    }
+export const renewAccExpCookiesSRR = async (res, ctx) => {
+  ctx.res.setHeader("Set-Cookie", [
+    cookie.serialize("auth_token_expiration", res.expiration, {
+      httpOnly: true,
+      path: "/",
+    }),
+    cookie.serialize("auth_access_token", res.accessToken, {
+      httpOnly: true,
+      path: "/",
+    }),
+  ]);
 };
 
 
 
 
-export const bla = (accessRes,refreshRes,ctx) => {
-    const { auth_token_expiration } = cookie.parse(ctx.req.headers.cookie || '')
-    let date = new Date().getTime();
 
-        
-        if (date < +auth_token_expiration){
-    
-            if(accessRes.statusCode == 200) {
-                return { props:{res:true} }
-            
-            }else {
-                return ifTokenExpiered(refreshRes,ctx)
-            }
-    
-        }else {
-            //* token expiered
-            return ifTokenExpiered(refreshRes,ctx)
-        }
-    
+
+
+export const authenticatedGet = async (fetcher, ctx) => {
+  const {
+    auth_access_token,
+    auth_refresh_token,
+    auth_token_expiration } = cookie.parse(ctx.req.headers.cookie || '')
+  const date = new Date().getTime();
+
+  let res = date < +auth_token_expiration && await fetcher(auth_access_token);
+
+
+  if (!res && res.statusCode != 200) {
+    const tokenRes = await postRefreshToken(auth_refresh_token);
+    await renewAccExpCookiesSRR(tokenRes, ctx)
+    const { auth_access_token } = cookie.parse(ctx.req.headers.cookie || '')
+    res = await fetcher(auth_access_token)
+  }
+
+  return res
 }

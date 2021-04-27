@@ -93,8 +93,6 @@ export const postRefreshToken = async (req: Request, res: Response, next: NextFu
     // TODO: import this from another file
     interface IRefreshToken { userUUID: string }
 
-    // console.log(auth_refresh_token)
-
     try {
         const { userUUID } = jwt.verify(
             `${auth_refresh_token}`, process.env.JWT_REFRESH_TOKEN_SECRET!) as IRefreshToken

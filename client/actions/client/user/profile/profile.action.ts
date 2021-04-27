@@ -1,8 +1,8 @@
-
-
-
 import { axiosInstance } from 'actions/action.index';
  
+
+
+
 
 export const getUser = async (accessToken) => {
     return await axiosInstance
