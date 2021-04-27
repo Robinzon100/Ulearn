@@ -3,7 +3,7 @@ import RegisterForm from 'components/pages/register/Register.form';
 
 //! ─── OWN ────────────────────────────────────────────────────────────────────────
 //? COMPONENTS
-import { ifLogedInRedirect } from 'components/utils/auth/redirect.utils';
+import { ifUserLoginOrRegister } from 'components/utils/auth/redirect.utils';
 import { GetServerSideProps } from 'next';
 
 
@@ -31,7 +31,7 @@ const Register = () => {
 
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-    return ifLogedInRedirect(ctx)
+    return ifUserLoginOrRegister(ctx)
 }
 
 

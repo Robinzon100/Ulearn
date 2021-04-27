@@ -1,20 +1,19 @@
 
-import { axiosInstance } from '../action.index';
 
 
+import { axiosInstance } from 'actions/action.index';
+ 
 
-
-export const postRefreshToken = async (refreshToken) => {
+export const getUser = async (accessToken) => {
     return await axiosInstance
-        .post(`/auth/refresh_token`, {}, {
+        .get(`/user/profile`,{
             headers: {
-                auth_refresh_token: `${refreshToken}`
-            }
+                auth_access_token: `${accessToken}`
+            },
         })
         .then(res => {
             return {
-                accessToken: res.headers['auth-access_token'],
-                expiration: res.headers['auth-token_expiration'],
+                ...res.data,
                 statusCode: res.status
             }
         })

@@ -11,8 +11,6 @@ const validateTokenAndGetUser = async (req: Request, res: Response, next: NextFu
         const { auth_access_token } = req.headers
         interface IRefreshToken { userUUID: string }
 
-        console.log()
-
         const { userUUID } = jwt.verify(
             `${auth_access_token}`, process.env.JWT_ACCESS_TOKEN_SECRET!) as IRefreshToken
 

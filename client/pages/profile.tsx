@@ -2,10 +2,11 @@ import cookie from 'cookie';
 import { GetServerSideProps } from 'next';
 
 //? WON
-import { postRefreshToken } from 'actions/client/postRefreshToken.action';
+import { postRefreshToken, } from 'actions/client/postRefreshToken.action';
 
 //? UTILS
-import { redirect } from 'components/utils/auth/redirect.utils';
+import { getUser } from 'actions/client/user/profile/profile.action';
+import { bla } from "components/utils/auth/IfTokenExpiered"
 
 
 
@@ -20,28 +21,14 @@ const profile = ({value}) => {
 
 
 export const getServerSideProps: GetServerSideProps= async (ctx) => {
-    const { auth_access_token, auth_refresh_token, auth_token_expiration } = cookie.parse(ctx.req.headers.cookie || '')
-    let newDate = new Date().getTime();
+    const { auth_access_token, auth_refresh_token } = cookie.parse(ctx.req.headers.cookie || '')
+    // let date = new Date().getTime();
 
+    const accessRes = await getUser(auth_access_token);
+    const refreshRes = await postRefreshToken(auth_refresh_token);
 
-    if (newDate < +auth_token_expiration)
-        return redirect('/')
+    return bla(accessRes,refreshRes,ctx)
 
-
-    const res = await postRefreshToken(auth_refresh_token);
-
-    if (res.statusCode == 200) {
-        console.log(res.statusCode + "good")
-    } else {
-        console.log(res.statusCode + "bad")
-    }
-
-
-    return {
-        props: {
-            value: auth_access_token
-        }
-    }
 }
 
 
