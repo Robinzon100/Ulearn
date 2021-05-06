@@ -1,18 +1,20 @@
 import { Knex } from 'knex';
 
 import tableNames from "../../constants/tableNames";
-import { references, addTimestamps } from '../lib/table functions/tableUtils';
+import { references, addTimestamps, referencesByUUID } from '../lib/table functions/tableUtils';
 import { course } from "../../constants/defaults";
 
 // TODO: add if user needs something before 
 //       starting the course, like a program or a knolage of something
+// TODO: add course cretor/instructor ID
 
 
 
 export async function up(knex: Knex): Promise<void> {
+    await knex.raw('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');
     await knex.schema.createTable(tableNames.courses, (table:Knex.TableBuilder) => {
-        table.increments();
-        table.uuid('uuid')
+        table.increments('id');
+        table.uuid('uuid').defaultTo(knex.raw('uuid_generate_v4()'));
         table.string("name", 70).notNullable();
         table.string("description", 70).notNullable();
         table.string("detaled_description", 70).notNullable();
@@ -35,7 +37,7 @@ export async function up(knex: Knex): Promise<void> {
 
         references(table, tableNames.main_categories, true, 'main_category')
         references(table, tableNames.sub_categories, true, 'sub_category')
-
+        references(table, tableNames.users, true, 'creator')
     })
 }
 
