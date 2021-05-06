@@ -14,6 +14,7 @@ const carousel: React.FC<CarouselInterface> = ({ carouselJson}) => {
     const carousel = document.querySelector<HTMLElement>(".carousel_container");
     sideScroll(carousel, "right", 25, 800, 50, setIsFinishedScrolling); //* ELEMENT,DIRECTION,SPEED,DISTANCE,STEP
   };
+  
   const scrollLeft = () => {
     const carousel = document.querySelector<HTMLElement>(".carousel_container");
     sideScroll(carousel, "left", 25, 800, 50, setIsFinishedScrolling); //* ELEMENT,DIRECTION,SPEED,DISTANCE,STEP

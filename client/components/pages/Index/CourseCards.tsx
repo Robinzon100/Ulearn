@@ -7,16 +7,25 @@ import PrimaryContentCardJson from "../../../public/json/PrimaryContentCard.json
 import CategoriesComponent from "components/pages/Index/SideCategories";
 import Overlay from "components/pages/Index/Overlay";
 
+
+
+
 //! ===================== JSON
 import CategoriesImgs from "../../../public/json/categories.json";
 import InputSelectComponent from "components/lib/dropdowns/DropdownsContainer";
 import { getAllCategories } from "actions/client/categories.action";
 
 
-const CourseCards = () => {
+
+
+
+const CourseCards = (courseData: any) => {
   const carouselImgs = CategoriesImgs.Categories;
   const CardsJson = PrimaryContentCardJson.contentCard;
+
+
   const [data, setData] = useState([]);
+
   
   const fetchCarouselCategories = async () => {
     const {categories: { main_categories }} = await getAllCategories();
@@ -24,7 +33,6 @@ const CourseCards = () => {
   };
 
   useEffect(() => {
-      //*თუ კომენტარი აღარ იქნება,მაშინ წამოვა კარუსელისა და გვერდითა კატეგორიები
     fetchCarouselCategories();
   }, []);
 
@@ -55,13 +63,13 @@ const CourseCards = () => {
                 <PrimaryContentCard
                   key={card.id}
                   id={card.id}
-                  imageUrl={card.imageUrl}
-                  title={card.title}
-                  author={card.author}
+                  name={card.title}
+                  price={card.price}
+                  image_url={card.imageUrl}
+                  creator={card.author}
                   raiting={card.raiting}
                   numberOfVotes={card.numberOfVotes}
                   bestseller={card.bestseller}
-                  price={card.price}
                   newPrice={card.newPrice}
                   isLiked={card.isLiked}
                   posted={card.posted}

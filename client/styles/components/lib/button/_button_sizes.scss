@@ -7,10 +7,10 @@
     --mini:125px;
     
     //! ========= Button-Padding
-    --large-button-padding:18px 0px;
-    --medium-button-padding:16px 0px;
-    --small-button-padding:14px 0px;
-    --mini-button-padding:12px 0px;
+    --large-button-padding:18px;
+    --medium-button-padding:16px;
+    --small-button-padding:14px;
+    --mini-button-padding:12px;
 
     //! ========= Button-Padding
     --large-button-fontSize:calc(18px + (20 - 18) * ((100vw - 300px) / (1900 - 700))) !important;

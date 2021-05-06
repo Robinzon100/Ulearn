@@ -5,10 +5,10 @@ interface hoverCardDetailList {
 
 export interface PrimaryContentCardHover{
     id: number,
-    imageUrl:string,
-    title:string,
+    name: string;
     posted: string,
     difficulty:string,
     description:string,
+    detailed_description?:string;
     descriptionList:hoverCardDetailList[]
 }

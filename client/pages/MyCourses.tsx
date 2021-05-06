@@ -9,7 +9,7 @@ import NextLink  from "components/utils/nextLink/NextLink";
 import SideMenu from "components/lib/sidemenu/sideMenu";
 import RatingsMenu from "components/pages/myCourse/RatingsMenu";
 import Stars from "components/lib/svg/Stars";
-import * as MyCoursesJson from "../public/json/MyCourses.json";
+import MyCoursesJson from "../public/json/MyCourses.json";
 import Button from "components/lib/button/Button";
 
 
@@ -62,32 +62,35 @@ const MyCourses= () => {
                   <div className="buy-course">
 
                 <Button
-                    title="კურსის შეძენა"
-                    className=""
                     route="/buy_course"
                     onClick={() => console.log('asdasda')}
                     color="green"
                     size="medium"
                     disabled={false}
-                    loading={false}
-                />
+                    loading={false}>
+                    <p className="f-weight-r f-size-p6">კურსის შეძენა</p>
+                </Button>
                   </div>
 
                 <div className="save-bucket">
+
                 <Button
-                    title="კურსის შეძენა"
-                    className=""
                     route="/save-bucket"
                     onClick={() => console.log('asdasda')}
                     color="yellow"
                     size="medium"
                     disabled={false}
                     loading={false}
-                    icon={ <ShoppingCart />}
-                />
+                    icon={ <ShoppingCart />}>
+                    <p className="f-weight-r f-size-p6" style={{marginLeft: "calc(2.5rem + 1vw)"}}>კურსის შენახვა</p>
+
+                </Button>
+
                   </div>
                 </div>
               </div>
+
+
               {/* //! რეიტინგები */}
               <div className="mycourses-hero__rating-course">
                 <RatingsMenu />
@@ -115,8 +118,8 @@ const MyCourses= () => {
                 <br />
                 <div className="instructor_profile">
                   {MyCoursesJson.instructors.instructor.map((instructorInfo,i) => (
-                    <>
-                      <div className="instructor_profile__info" key={i}>
+                    <div key={i}>
+                      <div className="instructor_profile__info" >
                         <div className="instructor_profile__info--pic" style={{backgroundImage:`url(${instructorInfo.imageUrl})`}}></div>
                         <div className="instructor_profile__info--about">
                           <p>
@@ -144,7 +147,7 @@ const MyCourses= () => {
                       <br />
                         {ReactHtmlParser(instructorInfo.aboutInstructor)}
                       
-                    </>
+                    </div>
                   ))}
                 </div>
 

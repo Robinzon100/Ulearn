@@ -100,7 +100,7 @@ const Navigation: FC = () => {
                     route='/login'
                     size="mini"
                     color="blue">
-                    <p className="f-weight-r f-size-p7 ">
+                    <p className="f-weight-r f-size-p7">
                         login / sign up
                     </p>
                 </Button>

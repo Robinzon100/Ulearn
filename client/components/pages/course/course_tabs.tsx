@@ -2,7 +2,7 @@ import {useState,useEffect} from 'react'
 import ReactHtmlParser from "react-html-parser";
 
 //! ===========OUR IMPORTS
-import * as CoursesJson from "../../../public/json/Courses.json";
+import CoursesJson from "../../../public/json/Courses.json";
 import {Description_type, QuestionAnswer_type, Resources_type, Estimates_type, } from "../../../interfaces/coursePage.interface";
 import CommentCards from "components/lib/comment_cards/comment_cards";
 import { changeTabPositionAndColor } from "./Underline";

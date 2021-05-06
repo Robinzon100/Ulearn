@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 
 
 import NextLink from "components/utils/nextLink/NextLink";
@@ -10,32 +9,21 @@ import { stringToCut } from "components/utils/helpers/stringToCut";
 //! ============= INTERFACE
 import { PrimaryContentCardHover } from "../../../interfaces/PrimaryContentCardHover.interface";
 
-interface isLastCard {
-  isLastCard: boolean;
-  width:number
-}
 
-const CardDetail = ({ id,title,posted,difficulty,description,descriptionList,isLastCard,width }:
-    PrimaryContentCardHover & isLastCard) => {
+
+const CardDetail = ({ id,name,posted,difficulty,description,descriptionList }:
+    PrimaryContentCardHover) => {
     
-    const handleHoverCardStyle = () => {
-    const hoverCards = document.querySelectorAll<HTMLElement>(".card_detail");
-    // debugger
 
-    if(isLastCard) {
-        hoverCards.forEach(card => {
-            card.style.left = `${Math.round((width - (width * 3)) - 25)}px`
-        })
-    }
 
-  };
+//   useEffect(() => {
+//     if (isLastCard) {
+//       console.log("left");
+//       handleHoverCardStyle();
+//     }
+//   }, [isLastCard]);
 
-  useEffect(() => {
-    if (isLastCard) {
-      console.log("left");
-      handleHoverCardStyle();
-    }
-  }, [isLastCard]);
+
 
   return (
     <>
@@ -44,7 +32,7 @@ const CardDetail = ({ id,title,posted,difficulty,description,descriptionList,isL
           <div className="card_detail--container__title">
             <NextLink route="/someCourseName">
               <p className="f-size-p4">
-                {stringToCut(title, 25)}
+                {stringToCut(name, 25)}
               </p>
             </NextLink>
           </div>

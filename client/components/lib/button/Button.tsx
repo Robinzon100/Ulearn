@@ -61,7 +61,7 @@ const Button: FC<ButtonInterface> = ({
         {size !== "mini" && icon && !loading && (
           <span
             className="icon_base-style icon"
-            style={iconStyle ? { filter: "drop-shadow(0px 2.2px 2.5px rgba(0, 0, 0, 0.14))" } : {}}>
+            style={iconStyle}>
             {icon}
           </span>
         )}
@@ -79,7 +79,7 @@ const Button: FC<ButtonInterface> = ({
 
 
         {size !== "mini" && iconRight && !loading && (
-          <span className="icon_base-style iconRight">
+          <span className="icon_base-style iconRight" style={iconStyle}>
             {iconRight}
           </span>
         )}

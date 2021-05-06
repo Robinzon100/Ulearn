@@ -4,7 +4,7 @@ import { Star } from "react-feather";
 //! ==================OUR IMPORTS
 
 import { GetBoundingClientRect } from "components/utils/helpers/getBoundingClientRect";
-import { PrimaryContentCards } from "../../../interfaces/PrimaryContentCard.interface";
+import { PrimaryContentCards } from "interfaces/PrimaryContentCard.interface";
 
 import { stringToCut } from "components/utils/helpers/stringToCut";
 import CardDetail from "./CardDetail";
@@ -12,10 +12,11 @@ import NextLink from "components/utils/nextLink/NextLink";
 
 
 
-const Card = ({ id, price, title, author, raiting, bestseller, newPrice, numberOfVotes, imageUrl, 
+const Card = ({ id, price, name, creator, raiting, bestseller, newPrice, numberOfVotes, image_url, 
     isLiked, posted, difficulty, description,descriptionList, }: PrimaryContentCards) => {
 
     const selfRef = useRef<HTMLDivElement>(null);
+    
 
     const [elProperties, setElProperties] = useState<any>({ top: 0, left: 0, width: 0 });
 
@@ -25,7 +26,6 @@ const Card = ({ id, price, title, author, raiting, bestseller, newPrice, numberO
 
     const [isClicked, setIsClicked] = useState<boolean | null>(false);
 
-    const [isLastCard, setIsLastCard] = useState<boolean>(false);
 
     const [isBestSeller,] = useState<boolean>(bestseller);
 
@@ -50,11 +50,28 @@ const Card = ({ id, price, title, author, raiting, bestseller, newPrice, numberO
 
     const cardHoverHandler = (e) => {
         //Calculates Card width and positions
-        GetBoundingClientRect(selfRef, elProperties, setElProperties)
 
-        if (window.innerWidth / 2 < e.currentTarget.parentElement.offsetLeft) {
-            setIsLastCard(true)
+        let ww = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        let offSetLeft = e.currentTarget.parentElement.offsetLeft;
+
+
+        if (Math.round(offSetLeft) > (ww / 2) - (offSetLeft / 10) ) {
+            console.log('right');
+            GetBoundingClientRect(selfRef, elProperties, setElProperties)
+            e.currentTarget.firstChild.style.top = `${(elProperties.top - elProperties.top - 30)}px`;
+            e.currentTarget.firstChild.style.right = `${(elProperties.width - elProperties.width) + 315 }px`;
+
+        }else {
+            e.currentTarget.firstChild.style.top = `${(elProperties.top - elProperties.top) - 30}px`;
+            e.currentTarget.firstChild.style.left = `${(elProperties.width - elProperties.width) + 35}px`;
+            GetBoundingClientRect(selfRef, elProperties, setElProperties)
+
         }
+        
+        console.log("offset " + offSetLeft);
+        console.log("ww " + (ww / 2));
+
+        
         setIsClicked((isClicked) => !isClicked);
     };
 
@@ -71,7 +88,7 @@ const Card = ({ id, price, title, author, raiting, bestseller, newPrice, numberO
             <NextLink route="/#">
                 <div
                     className={"PrimaryContentCard__img"}
-                    style={{ backgroundImage: `url(${imageUrl})` }}>
+                    style={{ backgroundImage: `url(${image_url})` }}>
                     <div className="price-tag">
                         {checkNewPrice && (
                             <div className="removed-price-tag">
@@ -79,7 +96,7 @@ const Card = ({ id, price, title, author, raiting, bestseller, newPrice, numberO
                                     {newPrice}
                                     <span style={{ color: "#00E267", fontWeight: "bold" }}>
                                         &#8382;
-                  </span>
+                                    </span>
                                 </p>
                             </div>
                         )}
@@ -96,30 +113,23 @@ const Card = ({ id, price, title, author, raiting, bestseller, newPrice, numberO
                 </div>
 
                 <div className="PrimaryContentCard__title">
-                    <p className="f-weight-b f-size-p5" title={title}>
-                        {stringToCut(title, 50)}
+                    <p className="f-weight-b f-size-p5" title={name}>
+                        {stringToCut(name, 50)}
                     </p>
                 </div>
             </NextLink>
             <div
                 className="course_card_hover_logo course_card_hover_logo_mobile"
                 onClick={(e) => cardHoverHandler(e)}>
-                <div className={isClicked ? "card_detail" : "card_detail-display"}
-                    style={{
-                        top: `${Math.round((elProperties.top - elProperties.top) - 30)}px`,
-                        left: `${Math.round(elProperties.width / 10) + 5}px`
-                    }}>
+                <div className={isClicked ? "card_detail" : "card_detail-display"}>
                     {
                         <CardDetail
                             id={id}
-                            title={title}
-                            imageUrl={imageUrl}
+                            name={name}
                             posted={posted}
                             difficulty={difficulty}
                             description={description}
                             descriptionList={descriptionList}
-                            isLastCard={isLastCard}
-                            width={elProperties.width}
                         />
                     }
                 </div>
@@ -147,7 +157,7 @@ const Card = ({ id, price, title, author, raiting, bestseller, newPrice, numberO
                 <div className="PrimaryContentCard__raiting--name">
                     <NextLink route="/#">
                         <p className="f-weight-b f-size-p5">
-                            {stringToCut(author, 25)}
+                            {stringToCut(creator, 25)}
                         </p>
                     </NextLink>
                 </div>

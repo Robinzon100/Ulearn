@@ -36,8 +36,7 @@ const Hero: FC = () => {
             loading={false}
             // stroke="black"
             icon={<ChevronDown/>}
-            width="55%"
-            >
+            width="55%">
             <p className="f-weight-r f-size-p4 ">
                 შემოგვიერთდი
             </p>

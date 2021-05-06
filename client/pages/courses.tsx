@@ -5,7 +5,7 @@ import { Eye} from "react-feather";
 //! ==== OTHER IMPORTS
 import SideMenu from "components/lib/sidemenu/sideMenu";
 import CourseVideoPlayer from '../components/pages/course/CourseVideoPlayer';
-import  * as CoursesJson from "../public/json/Courses.json";
+import CoursesJson from "../public/json/Courses.json";
 import CourseTablist from "components/pages/course/course_tabs";
 
 
