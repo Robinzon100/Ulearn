@@ -7,11 +7,14 @@ const router = express.Router(defaultRouterOptions)
 import authRoutes from "./client/auth/auth.routes";
 import userRoutes from "./client/user/user.routes";
 import categoriesRoutes from "./client/categories/categories.routes";
+import courseRoutes from "./client/courses/courses.routes";
+
 
 
 router.use("/user", userRoutes)
 router.use("/auth", authRoutes)
 router.use("/categories", categoriesRoutes)
+router.use("/course", courseRoutes)
 
 
 export default router

@@ -23,7 +23,7 @@ Model.knex(connection);
 baseMiddlewares(app)
 
 //  ─── API ──────────────────────────────────────────────────────────────────────
-import api from "./api"
+import api from "./api/api.index"
 app.use('/api', api)
 
 

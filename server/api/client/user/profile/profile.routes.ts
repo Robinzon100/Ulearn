@@ -23,7 +23,8 @@ router.use(validateTokenAndGetUser)
 
 
 // ─── ROUTES ─────────────────────────────────────────────────────────────────────
-router.get('/', getUser);
+router.route('/')
+    .get(getUser)
 
 
 export default router;
