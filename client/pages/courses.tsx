@@ -22,7 +22,6 @@ const Courses = () => {
       <Head>
         {/* <script src="js/player.js" async defer></script> */}
       </Head>
-
    
         <div className="courses-page">
           <div className="courses-page--about">
