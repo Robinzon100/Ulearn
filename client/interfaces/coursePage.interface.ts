@@ -14,17 +14,17 @@ export interface AboutCourse {
 //! video content
 interface subTitle {
     id: number,
-    text: string,
-    videoUrl: string,
-    amountOfMinutes: number
+    title?: string,
+    videoUrl?: string,
+    duration?: number
 }
 
 
 export interface videoList {
     id: number;
     title: string;
-    courseChapterTime: number;
-    subTitles: subTitle[];
+    courseChapterTime?: number;
+    content: subTitle[];
     // handleClick:any
 }
 

@@ -85,7 +85,7 @@ const Card = ({ id, price, name, creator, raiting, bestseller, newPrice, numberO
     return (
         <div ref={selfRef} className="PrimaryContentCard" key={id}
             onMouseLeave={() => handleHoverLeave()}>
-            <NextLink route="/#">
+            <NextLink route="/course/12234">
                 <div
                     className={"PrimaryContentCard__img"}
                     style={{ backgroundImage: `url(${image_url})` }}>
@@ -106,7 +106,7 @@ const Card = ({ id, price, name, creator, raiting, bestseller, newPrice, numberO
                                 {price}
                                 <span style={{ color: "#00E267", fontWeight: "bold" }}>
                                     &#8382;
-                </span>
+                                </span>
                             </p>
                         </div>
                     </div>
@@ -150,7 +150,7 @@ const Card = ({ id, price, name, creator, raiting, bestseller, newPrice, numberO
                                 style={{ opacity: "50%" }}
                                 className="f-weight-r f-size-p6">
                                 ({numberOfVotes})
-              </span>
+                            </span>
                         </p>
                     </div>
                 </div>

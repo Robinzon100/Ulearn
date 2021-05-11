@@ -3,7 +3,7 @@ import { GetServerSideProps } from "next";
 
 
 import Hero from "components/pages/Index/Hero";
-import Content from "components/pages/Index/CourseCards";
+import CourseCards from "components/pages/Index/CourseCards";
 import { Observer } from "mobx-react-lite";
 
 
@@ -16,7 +16,7 @@ const Index = (data:any) => {
       {() => (
         <>
           <Hero />
-          <Content 
+          <CourseCards 
             data={data}
           />
         </>
