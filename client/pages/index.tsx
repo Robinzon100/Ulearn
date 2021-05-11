@@ -1,4 +1,4 @@
-import { GetServerSideProps } from "next";
+// import { GetServerSideProps } from "next";
 
 
 
@@ -10,14 +10,14 @@ import { Observer } from "mobx-react-lite";
 
 
 
-const Index = (data:any) => {
+const Index = () => {
   return (
     <Observer>
       {() => (
         <>
           <Hero />
           <CourseCards 
-            data={data}
+            // data={data}
           />
         </>
       )}
