@@ -1,6 +1,6 @@
 
 let course = {
-    detaled_rating: { "5": 0, "4": 0, "3": 0, "2": 0, "1": 0, "0": 0 },
+    detailed_rating: { "5": 0, "4": 0, "3": 0, "2": 0, "1": 0, "0": 0 },
     student_amount: 0
 }
 

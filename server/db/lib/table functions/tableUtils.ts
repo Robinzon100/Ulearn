@@ -43,3 +43,18 @@ export const referencesByUUID = (table: any, tableName: string, notNullable = tr
 
     return definition;
 }
+
+
+// export const referencesByCustomColumn = (table: any, tableName: string, notNullable = true, columnName = '') => {
+//     const definition = table
+//         .integer(`${columnName || tableName}_uuid`)
+//         .unsigned()
+//         .references('id')
+//         .inTable(tableName)
+//         .onDelete('cascade');
+
+//     if (notNullable)
+//         definition.notNullable();
+
+//     return definition;
+// }

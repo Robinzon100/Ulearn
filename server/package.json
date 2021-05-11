@@ -42,7 +42,9 @@
   "scripts": {
     "start": "nodemon --watch '*.ts' --exec ts-node server.ts",
     "db-migrate": "knex migrate:latest",
-    "db-rollback": "knex migrate:rollback"
+    "db-rollback": "knex migrate:rollback",
+    "db-newMigration": "npm run db-rollback; npm run db-migrate",
+    "seed-run": "knex seed:run"
   },
   "author": "",
   "license": "ISC"
