@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ReactHtmlParser from "react-html-parser";
 import { GetServerSideProps } from "next";
 
@@ -11,30 +10,17 @@ import Stars from "components/lib/svg/Stars";
 import MyCoursesJson from "../../public/json/MyCourses.json";
 import Button from "components/lib/button/Button";
 
+
+
+//! ─── ACTIONS ────────────────────────────────────────────────────────────────────
 import { getCourse } from "actions/client/course/course.index.action";
 
-//! === INTERFACES(DO NOT DELETE)
-// import { MyCoursePageContent } from "../interfaces/MyCoursesPage.interface";
+
+
 
 const MyCourses = ({ course }) => {
-  let subTitles = [
-    {
-      id: 1,
-      text: "ჯავა და მიში ჯანი",
-      videoUrl:
-        "https://s4106-05.imovies.cc/video/imovie_hash_code/1/2020090407554015_high_ENG.mp4?md5=Ul1cPbbjqASrVDkrD7Cmqg&expires=1599656612&data=YTozOntzOjc6InVzZXJfaXAiO3M6MTU6IjE3Ni4yMjEuMTMyLjIxMCI7czoxMDoidXNlcl9hZ2VudCI7czoxMTQ6Ik1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS84NS4wLjQxODMuODMgU2FmYXJpLzUzNy4zNiI7czo3OiJyZWZlcmVyIjtzOjIzOiJodHRwczovL3d3dy5pbW92aWVzLmNjLyI7fQ==",
-      amountOfMinutes: 12,
-    },
-    {
-      id: 2,
-      text: "მიდი მიდი აბა რა",
-      videoUrl:
-        "https://s4114-21.imovies.cc/video/imovie_hash_code/3/2017050923065223_high_eng.mp4?md5=W1C5ex9RqZWL-Rejf4JUqw&expires=1599656434&data=YTozOntzOjc6InVzZXJfaXAiO3M6MTU6IjE3Ni4yMjEuMTMyLjIxMCI7czoxMDoidXNlcl9hZ2VudCI7czoxMTQ6Ik1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS84NS4wLjQxODMuODMgU2FmYXJpLzUzNy4zNiI7czo3OiJyZWZlcmVyIjtzOjIzOiJodHRwczovL3d3dy5pbW92aWVzLmNjLyI7fQ==",
-      amountOfMinutes: 12,
-    },
-  ];
+ 
 
-//   const [MyCourseContent] = useState(MyCoursesJson.description);
 
   return (
     <>
@@ -182,16 +168,16 @@ const MyCourses = ({ course }) => {
 
               <div className="side-menu noselect ">
 
-                {course.course_content.map((data,i) => (
-                    <SideMenu
+                {course.course_content.map((data, i) => (
+                  <SideMenu
                     id={i}
                     title={data.title}
                     courseChapterTime={45}
                     content={data.content}
-                    //   handleClick={handleDisplayVideoNameClick}
+                  //   handleClick={handleDisplayVideoNameClick}
                   />
                 ))}
-                
+
               </div>
             </div>
           </div>
@@ -202,80 +188,22 @@ const MyCourses = ({ course }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const course = {
-    affiliation_price: 25,
-    course_content: [
-      {
-        content: [
-          {
-            duration: 12,
-            title: "როგორო მუშაობს ჯავასკრიპტი",
-          },
-          {
-            duration: 12,
-            title: "როგორო მუშაობს ჯავასკრიპტი",
-          },
-        ],
-        title: "ჯავასცრიპტის ძირითადები",
+  const { courseId } = ctx.params
+  const { course, statusCode } = await getCourse(courseId);
+
+
+  if (statusCode != 200) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
       },
-    ],
-    created_at: "2021-05-11T16:19:29.876Z",
-    creator_id: 1,
-    deleted_at: null,
-    description:
-      "გავივლით DJ-ის პროფესიის ყველა ნიუანს, რას აკეთებს რეალრად DJ რა ევალება ნებისმიერ დაწესებულებაში და ასევე შევქმნით რამოდენიმე ტრეკს რომლის გაყიდვას და გაპიარებასაც შეძლებთ",
-    detailed_description:
-      "<p>ვარ fullstack დეველოპერი რომესაც აქვს წლების გამოცდილება, როგორც front-end დეველოპმენტში ასევე back-end დეველოპმენტში,ვცხოვრობ რუსთავში და მაქვს უმაღლესი განათლება მიღებული ქართულ-ამერიკულ უნივერსიტეტში.</p><br /><br /><p>ჩემი ერთ-ერთი ყველაზე დიდი პროექტი არის სწორედ ეს საიტი სადაც ნებისმიერი შეძლებს ქართული რესურსებით ისწავლოს  ნებისმიერი პროფესია ან ჰობი.</p>",
-    detaled_rating: {
-      "0": 0,
-      "1": 0,
-      "2": 2,
-      "3": 30,
-      "4": 10,
-      "5": 0,
-    },
-    difficulty: 3,
-    discount_price: 15,
-    duration: 6.3,
-    id: 1,
-    intro_videoUrl:
-      "https://temp.media/video/?height=1080&width=1920&length=10",
-    main_category_id: 1,
-    overall_rating: 4.5,
-    price: 35,
-    student_amount: 140,
-    sub_category_id: 1,
-    sub_sub_category_id: 1,
-    thumbnail_imageUrl: "https://picsum.photos/200/300",
-    title: "როგორ გახდე DJ, DJ პროფესიის შესწავლა პროფესიულ დონეზე.",
-    ulearn_coin_price: 200,
-    units_sold: 25,
-    updated_at: "2021-05-11T16:19:29.876Z",
-    uuid: "5cd940f4-40d8-4e34-b37b-316c1df9ef13",
-    what_will_you_learn: [
-      "გარემიქსებას ნებისმიერი მუსიკის",
-      "DJ-ის მოწყობილობების გამოყენება",
-      "მუსიკის იზოლირება სიმღერიდან",
-      "მუსიკის გადაკეთება და რა არის BPS",
-      "საუკეთესო პრაქტიკები",
-      "როგორ მოძებნო კლიენტი და გაყიდო თქვენი მუსიკა და სერვისები",
-    ],
-  };
-
-  const res = await getCourse(ctx.params);
-
-  // if (res != 'error') {
-  //     return {
-  //         redirect: {
-  //             destination: '/',
-  //             permanent: false,
-  //         },
-  //     }
-  // }
+    }
+  }
 
   return {
     props: {
-      course: course,
+      course
     },
   };
 };

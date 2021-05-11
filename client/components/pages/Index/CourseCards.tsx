@@ -19,7 +19,7 @@ import { getAllCategories } from "actions/client/categories.action";
 
 
 
-const CourseCards = (courseData: any) => {
+const CourseCards = () => {
   const carouselImgs = CategoriesImgs.Categories;
   const CardsJson = PrimaryContentCardJson.contentCard;
 

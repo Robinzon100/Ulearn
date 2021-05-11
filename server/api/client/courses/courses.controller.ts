@@ -13,7 +13,7 @@ export const getSingleCourses = async (req: Request, res: Response, next: NextFu
         if (course)
             return res.status(200).json({
                 message: 'success',
-                course: course
+                course: course[0]
             })
 
         return customError(res, next, 'no course found', 404)
