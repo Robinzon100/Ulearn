@@ -4,6 +4,10 @@ import { ArrowUp } from "react-feather";
 import Stars from "components/lib/svg/Stars";
 import Lines from "components/lib/svg/Lines";
 
+interface RatingsMenu {
+    
+}
+
 
 const RatingsMenu: React.FC = () => {
     return (
