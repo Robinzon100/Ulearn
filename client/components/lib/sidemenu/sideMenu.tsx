@@ -5,9 +5,7 @@ import { motion } from "framer-motion";
 import { sideMenuAnimation } from "components/lib/framer/framerAnimation";
 
 const sideMenu: React.FC<videoList> = (
-  { id, title, courseChapterTime, content },
-  props
-) => {
+  { id, title, courseChapterTime, content }) => {
   const [revealContent, setRevealContent] = useState<boolean>(false);
 
   const handleSetRevealContent = () => {
@@ -28,9 +26,9 @@ const sideMenu: React.FC<videoList> = (
   };
 
   return (
-    <>
+
       <div
-        key={props.key}
+        key={id}
         data-id={id}
         className={
           !revealContent
@@ -58,9 +56,9 @@ const sideMenu: React.FC<videoList> = (
           className="card_container__info"
           variants={sideMenuAnimation}
           animate={revealContent ? "open" : "closed"}>
-          {content.map((data) => (
+          {content.map((data,i) => (
             <div
-              key={data.id}
+              key={i}
               className="card_container__info--details details_not_finished"
               onClick={(e) => {
                 handleSetFinished(e);
@@ -81,7 +79,6 @@ const sideMenu: React.FC<videoList> = (
 
         </motion.div>
       </div>
-    </>
   );
 };
 

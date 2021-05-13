@@ -18,7 +18,7 @@ import { getCourse } from "actions/client/course/course.index.action";
 
 
 
-const MyCourses = ({ course }) => {
+const course = ({ course }) => {
  
 
 
@@ -77,7 +77,13 @@ const MyCourses = ({ course }) => {
 
               {/* //! რეიტინგები */}
               <div className="mycourses-hero__rating-course">
-                <RatingsMenu />
+                <RatingsMenu
+                    difficulty={course.difficulty}
+                    student_amount={course.student_amount}
+                    overall_rating={course.overall_rating}
+                    detailed_rating={course.detailed_rating}
+                    duration={course.duration}
+                />
               </div>
             </div>
 
@@ -167,14 +173,13 @@ const MyCourses = ({ course }) => {
               </div>
 
               <div className="side-menu noselect ">
-
+              {/* TODO /// აქ აგდებს Warning: Each child in a list should have a unique "key" prop.*/}
                 {course.course_content.map((data, i) => (
                   <SideMenu
                     id={i}
                     title={data.title}
                     courseChapterTime={45}
                     content={data.content}
-                  //   handleClick={handleDisplayVideoNameClick}
                   />
                 ))}
 
@@ -190,7 +195,6 @@ const MyCourses = ({ course }) => {
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { courseId } = ctx.params
   const { course, statusCode } = await getCourse(courseId);
-
 
   if (statusCode != 200) {
     return {
@@ -208,4 +212,4 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   };
 };
 
-export default MyCourses;
+export default course;

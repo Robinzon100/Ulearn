@@ -4,7 +4,7 @@ import { axiosInstance } from "actions/action.index";
 
 export const getAllCourseVideos = async () => {
   return await axiosInstance
-    .get(`/categories/all`)
+    .get(`/course/all`)
     .then((res) => {
       return res.data;
     })

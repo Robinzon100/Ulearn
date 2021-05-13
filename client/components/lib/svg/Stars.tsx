@@ -3,20 +3,22 @@ import { Star } from "react-feather";
 
 interface StarsWidth {
   StarWidth: number;
-  numberOfStars: number | 0 | 1 | 2 | 3 | 4 | 5;
+  numberOfStars:any;
 }
 
 const stars: React.FC<StarsWidth> = ({ StarWidth, numberOfStars }) => {
+
   const [rating, setRating] = useState<number | string | null>(numberOfStars);
   const [hover, setHover] = useState<number | string | null>(null);
-  const starsTotal = 5;
+
+
   return (
     <div className="stars">
-      {[...Array(starsTotal)].map((_,i) => {
+      {[...Array(5)].map((_,i) => {
         // const starPercentage = (numberOfStars / starsTotal) * 100;
         const ratingValue = i + 1;
     
-        
+        /// TODO fix star logic
         return (
           <label className="star_component" key={i}>
             <input

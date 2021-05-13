@@ -7,11 +7,11 @@ import { GetServerSideProps } from 'next';
 import LoginForm from "components/pages/login/login.form";
 
 //? UTILS
+import { ifUserLoginOrRegister } from '../components/utils/auth/redirect.utils';
+
 
 
 //? ACTIONS
-import { ifUserLoginOrRegister } from '../components/utils/auth/redirect.utils';
-
 
 
 

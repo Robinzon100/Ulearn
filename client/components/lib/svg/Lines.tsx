@@ -1,7 +1,7 @@
 
 
 interface LinesWith {
-    LineWidth:number;
+    LineWidth:any;
 }
 
 const Lines:React.FC<LinesWith> = ({LineWidth}) => {
@@ -10,7 +10,7 @@ const Lines:React.FC<LinesWith> = ({LineWidth}) => {
             <svg width="189" height="16" viewBox="0 0 189 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect opacity="0.36" x="5.97119" y="4.08789" width="100%" height="5.38091" rx="2.69046" fill="#FCE984" />
                 <g filter="url(#filter0_d)">
-                    <rect x="5.97119" y="4.08789" width={`${LineWidth}%`} height="5.38091" rx="2.69046" fill="#FFD703" />
+                    <rect x="5.97119" y="4.08789" width={`${LineWidth}`} height="5.38091" rx="2.69046" fill="#FFD703" />
                 </g>
                 <defs>
                     <filter id="filter0_d" x="0.971191" y="0.0878906" width="159.23" height="15.3809" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">

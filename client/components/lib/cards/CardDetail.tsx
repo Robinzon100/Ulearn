@@ -13,16 +13,6 @@ import { PrimaryContentCardHover } from "../../../interfaces/PrimaryContentCardH
 
 const CardDetail = ({ id,name,posted,difficulty,description,descriptionList }:
     PrimaryContentCardHover) => {
-    
-
-
-//   useEffect(() => {
-//     if (isLastCard) {
-//       console.log("left");
-//       handleHoverCardStyle();
-//     }
-//   }, [isLastCard]);
-
 
 
   return (
@@ -30,7 +20,7 @@ const CardDetail = ({ id,name,posted,difficulty,description,descriptionList }:
       <div className="card_detail--container" key={id}>
         <div className="inside_content">
           <div className="card_detail--container__title">
-            <NextLink route="/someCourseName">
+            <NextLink route={`/course/${id}`}>
               <p className="f-size-p4">
                 {stringToCut(name, 25)}
               </p>

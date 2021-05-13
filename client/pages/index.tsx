@@ -1,4 +1,4 @@
-// import { GetServerSideProps } from "next";
+import { GetServerSideProps } from "next";
 
 
 
@@ -6,18 +6,18 @@ import Hero from "components/pages/Index/Hero";
 import CourseCards from "components/pages/Index/CourseCards";
 import { Observer } from "mobx-react-lite";
 
+//* ACTIONS 
+import { getAllCourseVideos } from "actions/client/course/landingPage/landing.courses.action"
 
 
-
-
-const Index = () => {
+const Index = ({ data }) => {
   return (
     <Observer>
       {() => (
         <>
           <Hero />
           <CourseCards 
-            // data={data}
+            landingCourse={data}
           />
         </>
       )}
@@ -27,15 +27,16 @@ const Index = () => {
 
 
 
-// export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
 
-
-//     return {
-//         props: {
-//             data: data
-//         }
-//     }
-// }
+    const landingCourse = await getAllCourseVideos();
+    
+    return {
+        props: {
+            data:landingCourse
+        }
+    }
+}
 
 
 

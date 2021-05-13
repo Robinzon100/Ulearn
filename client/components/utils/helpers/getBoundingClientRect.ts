@@ -6,7 +6,6 @@ export const GetBoundingClientRect = (selfRef,elProperties,setElProperties) => {
     const width = rect.width;
     const right = rect.right;
 
-    // console.log({ top, left,width })
 
     return setElProperties({ left, top,width,right });
 }

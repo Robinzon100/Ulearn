@@ -1,329 +1,304 @@
-$mycourse-padding:0vw 10vw 0vw 10vw;
-$ratings-padding:1.3rem 1.5rem 1.3rem 1.5rem;
+$mycourse-padding: 0vw 10vw 0vw 10vw;
+$ratings-padding: 1.3rem 1.5rem 1.3rem 1.5rem;
 
 .mycourse-line {
-    margin: 8rem 0 !important;
-    width: 70% !important;
+  margin: 8rem 0 !important;
+  width: 70% !important;
 }
-
 
 .mycourses {
+  .mycourses-hero {
+    // background-color: wheat;
+    width: 100%;
+    height: 55vh;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: $mycourse-padding;
+    margin-top: 8rem;
+    color: white;
+    background: no-repeat url("/pictures/mycourses/hero_img.png");
+    background-size: cover;
+    background-position: center;
 
-    .mycourses-hero {
-        // background-color: wheat;
-        width: 100%;
-        height: 55vh;
-        display: grid;
-        grid-template-columns: 70% 30%;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        padding: $mycourse-padding;
-        margin-top: 8rem;
+    &__about-course {
+      // padding: 0rem 0rem 0rem 11.5rem;
+
+      &--heading,
+      &--paragraph,
+      &--btns {
         color: white;
-        background: no-repeat url("/pictures/mycourses/hero_img.png");
-        background-size: cover;
-        background-position: center;
+      }
 
+      &--heading {
+        width: 80%;
 
-        &__about-course {
-            // padding: 0rem 0rem 0rem 11.5rem;
+        p {
+          line-height: 168.28%;
+        }
+      }
 
-            &--heading,
-            &--paragraph,
-            &--btns {
-                color: white;
-            }
+      &--paragraph {
+        margin: 0.8vw 0vw 3vw 0vw;
+        width: 60%;
 
-            &--heading {
-                width: 80%;
+        p {
+          line-height: 180%;
+        }
+      }
 
-                p {
-                    line-height: 168.28%;
+      &--btns {
+        display: flex;
+        align-items: center;
+        width: 100%;
 
-                }
-            }
-
-            &--paragraph {
-                margin: .8vw 0vw 3vw 0vw;
-                width: 60%;
-
-                p {
-                    line-height: 180%;
-
-                }
-            }
-
-            &--btns {
-                display: flex;
-                align-items: center;
-                width: 100%;
-
-                .save-bucket,
-                .buy-course {
-                    a {
-                        width: 28rem !important;
-                    }
-                }
-
-                .save-bucket {
-                    margin-left: 4rem;
-                    position: relative;
-
-                    a {
-
-                        p {
-                            margin-left: 4rem;
-                        }
-
-                        .shopping_cart {
-                            position: absolute;
-                            top: 30%;
-                            left: 8%;
-                        }
-                    }
-                }
-
-
-            }
-
+        .save-bucket,
+        .buy-course {
+          a {
+            width: 28rem !important;
+          }
         }
 
-        &__rating-course {
-            margin-top: 4rem;
+        .save-bucket {
+          margin-left: 4rem;
+          position: relative;
 
-            .ratings,
-            .ratings-about {
-                border-radius: 18px;
-                border: 0.5px solid #ffffff6b;
-                padding: $ratings-padding;
-                text-align: center;
+          a {
+            p {
+              margin-left: 4rem;
             }
 
-            .ratings {
-                display: grid;
-                grid-template-columns: 40% 60%;
-
-                &__with-number {
-                    margin-top: -2.5rem;
-
-                    &>div {
-                        width: 82%;
-                    }
-
-                    &--voice {
-                        display: flex;
-                        align-items: center;
-
-                        p {
-                            margin-left: .5rem;
-                        }
-                    }
-
-                    &--stars,
-                    &--voice {
-                        margin-left: 1rem;
-                    }
-
-
-                }
-
-                &__with-percentage {
-                    // width: 60%;
-                    // margin-left: 5rem;
-
-
-                    .percentage_container {
-                        // margin-top: 1rem;
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-
-                        &:not(:first-child) {
-                            margin-top: .5rem;
-                        }
-
-
-
-                        .lines_stars {
-                            display: flex;
-                            flex-direction: column;
-                        }
-
-                        .percentage_number {
-                            align-self: flex-end;
-                        }
-                    }
-                }
+            .shopping_cart {
+              position: absolute;
+              top: 30%;
+              left: 8%;
             }
-
-            .ratings-about {
-                margin-top: 2rem;
-
-                &__container {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-
-                    p {
-                        margin-top: 1rem;
-                    }
-
-                    // &:not(:first-child) {
-                    //     margin-left: 2rem;
-                    // }
-
-                    .difficulty {
-
-                        position: relative;
-
-                        .graph {
-
-                            background: no-repeat url("/pictures/mycourses/graph.svg");
-                            // background-size: cover;
-                            background-position: center;
-                            // width: 5rem;
-                            height: 5rem;
-                        }
-                    }
-
-                    .learning {
-                        margin: 0 5rem;
-                    }
-                }
-
-
-            }
+          }
         }
-
+      }
     }
 
+    &__rating-course {
+      margin-top: 4rem;
 
+      .ratings,
+      .ratings-about {
+        border-radius: 18px;
+        border: 0.5px solid #ffffff6b;
+        padding: $ratings-padding;
+        text-align: center;
+      }
 
-
-
-    .СontentReveal {
-        width: 100%;
-        height: 100vh;
+      .ratings {
         display: grid;
-        grid-template-columns: 70% 30%;
-        position: relative;
-        margin-top: 7rem;
-        padding: $mycourse-padding;
+        grid-template-columns: 40% 60%;
 
-        h1 {
+        &__with-number {
+          margin-top: -2.5rem;
 
-            font-size: calc(15px + (26 - 15) * ((100vw - 300px) / (1900 - 700))) !important;
-            display: inline-block;
-            // font-family: $bold;
-            line-height: 180%;
+          & > div {
+            width: 82%;
+          }
 
-        }
-
-        a {
-            font-size: calc(11px + (14 - 11) * ((100vw - 300px) / (1900 - 700))) !important;
-            // font-family: $bold;
-            text-decoration: none !important;
-            color: #338EFF;
-
-            &:last-child {
-                color: var(--primary-white);
-            }
-        }
-
-
-
-        &__mycourse-details {
-            hr {
-                width: 70%;
-                margin: 5rem 0;
-                border: 1px solid #C9C9C961;
-            }
+          &--voice {
+            display: flex;
+            align-items: center;
 
             p {
-                width: 87%;
+              margin-left: 0.5rem;
             }
+          }
 
-
-
-            //! ინსტრუქტორის შესახებ
-
-            .instructor_profile {
-                display: flex;
-                flex-direction: column;
-
-                &__info {
-                    display: flex;
-                    // align-items: center;
-
-                    &--pic {
-                        border-radius: 18px;
-                        @include background-properties("/pictures/instructor_pic.png",cover,center 18%);
-                        width: 8rem;
-                        height: 8rem;
-                        margin-top: 1rem;
-                    }
-
-                    &--about {
-                        margin-left: 2rem;
-                        display: flex;
-                        flex-direction: column;
-
-                        p,
-                        a,
-                        div {
-                            width: 100% !important;
-                            margin-bottom: 0.3rem;
-                        }
-
-                        .students {
-
-                            .stars {
-                                margin-left: 0 !important;
-                                margin-top: 0.3rem;
-                            }
-                        }
-                    }
-                }
-
-
-            }
-
-            .instructor_btn {
-                a {
-                    width: 32rem !important;
-                    padding: 1.7rem !important;
-
-                    p {
-                        font-size: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
-
-                    }
-
-                }
-            }
-
+          &--stars,
+          &--voice {
+            margin-left: 1rem;
+          }
         }
 
+        &__with-percentage {
+          // width: 60%;
+          // margin-left: 5rem;
 
+          .percentage_container {
+            @include flex(space-between, center, column);
 
+            &:not(:first-child) {
+              margin-top: 0.5rem;
+            }
 
-        .side-menu {
-            width: 46rem;
-            // margin-top: 0;
+            .rating {
+              @include flex(center, center, row);
+
+              .lines_stars {
+                @include flex(center, flex-start, column);
+
+                .stars {
+                  cursor: pointer;
+
+                  label {
+                    cursor: pointer;
+                  }
+                }
+              }
+
+              .percentage_number {
+                margin-left: calc(0.5rem + 0.5vw);
+              }
+            }
+          }
         }
+      }
+
+      .ratings-about {
+        margin-top: 2rem;
+
+        &__container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          p {
+            margin-top: 1rem;
+          }
+
+          // &:not(:first-child) {
+          //     margin-left: 2rem;
+          // }
+
+          .difficulty {
+            position: relative;
+
+            .graph {
+              background: no-repeat url("/pictures/mycourses/graph.svg");
+              // background-size: cover;
+              background-position: center;
+              // width: 5rem;
+              height: 5rem;
+            }
+          }
+
+          .learning {
+            margin: 0 5rem;
+          }
+        }
+      }
+    }
+  }
+
+  .СontentReveal {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    position: relative;
+    margin-top: 7rem;
+    padding: $mycourse-padding;
+
+    h1 {
+      font-size: calc(
+        15px + (26 - 15) * ((100vw - 300px) / (1900 - 700))
+      ) !important;
+      display: inline-block;
+      // font-family: $bold;
+      line-height: 180%;
     }
 
+    a {
+      font-size: calc(
+        11px + (14 - 11) * ((100vw - 300px) / (1900 - 700))
+      ) !important;
+      // font-family: $bold;
+      text-decoration: none !important;
+      color: #338eff;
+
+      &:last-child {
+        color: var(--primary-white);
+      }
+    }
+
+    &__mycourse-details {
+      hr {
+        width: 70%;
+        margin: 5rem 0;
+        border: 1px solid #c9c9c961;
+      }
+
+      p {
+        width: 87%;
+      }
+
+      //! ინსტრუქტორის შესახებ
+
+      .instructor_profile {
+        display: flex;
+        flex-direction: column;
+
+        &__info {
+          display: flex;
+          // align-items: center;
+
+          &--pic {
+            border-radius: 18px;
+            @include background-properties(
+              "/pictures/instructor_pic.png",
+              cover,
+              center 18%
+            );
+            width: 8rem;
+            height: 8rem;
+            margin-top: 1rem;
+          }
+
+          &--about {
+            margin-left: 2rem;
+            display: flex;
+            flex-direction: column;
+
+            p,
+            a,
+            div {
+              width: 100% !important;
+              margin-bottom: 0.3rem;
+            }
+
+            .students {
+              .stars {
+                margin-left: 0 !important;
+                margin-top: 0.3rem;
+              }
+            }
+          }
+        }
+      }
+
+      .instructor_btn {
+        a {
+          width: 32rem !important;
+          padding: 1.7rem !important;
+
+          p {
+            font-size: calc(
+              13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))
+            ) !important;
+          }
+        }
+      }
+    }
+
+    .side-menu {
+      width: 46rem;
+      // margin-top: 0;
+    }
+  }
 }
 
-
-
 @supports ((-webkit-backdrop-filter: blur(47px)) or (filter: blur(47px))) {
-
-    .ratings-about,
-    .ratings {
-        background: rgba(207, 207, 207, 0.26);
-        box-shadow: inset 0px 0px 10px rgba(255, 255, 255, 0.4);
-        backdrop-filter: blur(47px);
-
-    }
+  .ratings-about,
+  .ratings {
+    background: rgba(207, 207, 207, 0.26);
+    box-shadow: inset 0px 0px 10px rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(47px);
+  }
 }

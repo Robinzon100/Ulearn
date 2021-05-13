@@ -19,7 +19,7 @@ import { getAllCategories } from "actions/client/categories.action";
 
 
 
-const CourseCards = () => {
+const CourseCards = ({landingCourse}) => {
   const carouselImgs = CategoriesImgs.Categories;
   const CardsJson = PrimaryContentCardJson.contentCard;
 
@@ -34,6 +34,7 @@ const CourseCards = () => {
 
   useEffect(() => {
     fetchCarouselCategories();
+    console.log(landingCourse.courses)
   }, []);
 
 
@@ -58,19 +59,19 @@ const CourseCards = () => {
             <Overlay CardsJson={CardsJson} />
 
             <div className="landing_courses--cards">
-              {/* //! ეს არის მთავარი გვერდზე რაც კარტებია */}
-              {CardsJson?.map((card) => (
+
+              {landingCourse.courses.map((card) => (
                 <PrimaryContentCard
                   key={card.id}
-                  id={card.id}
+                  id={card.uuid}
                   name={card.title}
                   price={card.price}
-                  image_url={card.imageUrl}
-                  creator={card.author}
-                  raiting={card.raiting}
-                  numberOfVotes={card.numberOfVotes}
+                  thumbnail_imageUrl={card.thumbnail_imageUrl}
+                  creator={card.id}
+                  overall_rating={card.overall_rating}
+                  numberOfVotes={20}
                   bestseller={card.bestseller}
-                  newPrice={card.newPrice}
+                  discount_price={card.discount_price}
                   isLiked={card.isLiked}
                   posted={card.posted}
                   difficulty={card.difficulty}
