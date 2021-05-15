@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useEffect, useState} from "react";
 import { Star } from "react-feather";
 
 interface StarsWidth {
@@ -11,11 +11,13 @@ const stars: React.FC<StarsWidth> = ({ StarWidth, numberOfStars }) => {
   const [rating, setRating] = useState<number | string | null>(numberOfStars);
   const [hover, setHover] = useState<number | string | null>(null);
 
-
+    // useEffect(() => {
+    //    console.log(numberOfStars)
+    // }, [])
+    
   return (
     <div className="stars">
       {[...Array(5)].map((_,i) => {
-        // const starPercentage = (numberOfStars / starsTotal) * 100;
         const ratingValue = i + 1;
     
         /// TODO fix star logic
@@ -24,7 +26,7 @@ const stars: React.FC<StarsWidth> = ({ StarWidth, numberOfStars }) => {
             <input
               type="radio"
               name="rating"
-              value={ratingValue}
+              value={numberOfStars}
               onClick={() => setRating(ratingValue)}
             />
 
@@ -40,6 +42,8 @@ const stars: React.FC<StarsWidth> = ({ StarWidth, numberOfStars }) => {
           </label>
         );
       })}
+
+
 
       <style jsx>
         {`

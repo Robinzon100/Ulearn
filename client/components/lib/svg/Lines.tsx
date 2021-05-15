@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 
 
 interface LinesWith {
@@ -5,9 +6,44 @@ interface LinesWith {
 }
 
 const Lines:React.FC<LinesWith> = ({LineWidth}) => {
+
+    const sumRaitings = () => {
+        let array = [];
+        let sum = 0;
+
+
+        // console.log(LineWidth)
+        array.push(LineWidth)
+
+        // console.log(array)
+        // console.log(array.reduce((a, b) => a[0] + b[0], 0))
+
+        return sum
+
+    }
+    const computeLines = () => {
+        const rating_lines = document.querySelectorAll<HTMLElement>(".rating_lines");
+        let svgWidth = 0;
+
+
+        rating_lines.forEach((line) => {
+            let svg = line.getBoundingClientRect();
+            
+            svgWidth = svg.width
+
+            console.log(svgWidth / LineWidth)
+        })
+        
+        return svgWidth;
+    }     
+    
+    useEffect(() => {
+        sumRaitings()
+    }, [])
+
     return (
         <>
-            <svg width="189" height="16" viewBox="0 0 189 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="rating_lines" width="200" height="16" viewBox="0 0 189 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect opacity="0.36" x="5.97119" y="4.08789" width="100%" height="5.38091" rx="2.69046" fill="#FCE984" />
                 <g filter="url(#filter0_d)">
                     <rect x="5.97119" y="4.08789" width={`${LineWidth}`} height="5.38091" rx="2.69046" fill="#FFD703" />

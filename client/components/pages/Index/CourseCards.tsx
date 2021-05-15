@@ -34,7 +34,6 @@ const CourseCards = ({landingCourse}) => {
 
   useEffect(() => {
     fetchCarouselCategories();
-    console.log(landingCourse.courses)
   }, []);
 
 

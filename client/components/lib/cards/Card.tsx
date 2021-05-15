@@ -14,7 +14,6 @@ const Card = ({
   id,
   price,
   name,
-  creator,
   bestseller,
   discount_price,
   numberOfVotes,

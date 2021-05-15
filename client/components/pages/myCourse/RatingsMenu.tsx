@@ -2,7 +2,8 @@ import { ArrowUp } from "react-feather";
 
 import Stars from "components/lib/svg/Stars";
 import Lines from "components/lib/svg/Lines";
-import { useEffect } from "react";
+
+
 
 interface RatingMenu {
   difficulty: number;
@@ -12,15 +13,9 @@ interface RatingMenu {
   duration: number;
 }
 
-const RatingMenu = ({
-  difficulty,
-  student_amount,
-  overall_rating,
-  detailed_rating,
-  duration,
+const RatingMenu = ({difficulty,student_amount,overall_rating,detailed_rating,duration,
 }: RatingMenu) => {
 
- let rating = Object.values(detailed_rating)
 
     
   return (
@@ -44,18 +39,19 @@ const RatingMenu = ({
 
           <div className="percentage_container">
 
-             {rating.map((data, i) => (
-              <div className="rating" key={i}>
+             {Object.entries(detailed_rating).map((value, key) => (
+                 
+              <div className="rating" key={key}>
                 <div className="lines_stars" >
-                  <Stars StarWidth={16} numberOfStars={data} />
-                  <Lines LineWidth={data} />
+                  <Stars StarWidth={16} numberOfStars={key + 1} />
+                  <Lines LineWidth={value[1]} />
                 </div>
 
                 <div className="percentage_number">
-                  <p className="f-size-p5">{data}%</p>
+                  <p className="f-size-p5">{value[1]}%</p>
                 </div>
               </div>
-            ))} 
+            ))}  
           </div>
         </div>
       </div>

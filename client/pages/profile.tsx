@@ -6,7 +6,7 @@ import { GetServerSideProps } from 'next';
 //? UTILS
 import { getUser } from 'actions/client/user/profile/profile.action';
 import { authenticatedGet } from '../components/utils/auth/IfTokenExpiered';
-import { ifUserLoginOrRegister } from '../components/utils/auth/redirect.utils';
+// import { ifUserIsAuthenticated } from '../components/utils/auth/redirect.utils';
 
 // import cookie from 'cookie';
 
@@ -23,13 +23,15 @@ const profile = ({ user }) => {
 
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-    ifUserLoginOrRegister(ctx)
+
     const res = await authenticatedGet(getUser, ctx)
     // const { auth_access_token } = cookie.parse(ctx.req.headers.cookie || '')
     // const res = await getUser(auth_access_token)
 
 
     // console.log(res.user)
+
+
 
     return {
         props: {
