@@ -2,11 +2,11 @@ import { useEffect, useState} from "react";
 import { Star } from "react-feather";
 
 interface StarsWidth {
-  StarWidth: number;
+  starWidth: number;
   numberOfStars:any;
 }
 
-const stars: React.FC<StarsWidth> = ({ StarWidth, numberOfStars }) => {
+const stars: React.FC<StarsWidth> = ({ starWidth, numberOfStars }) => {
 
   const [rating, setRating] = useState<number | string | null>(numberOfStars);
   const [hover, setHover] = useState<number | string | null>(null);
@@ -33,7 +33,7 @@ const stars: React.FC<StarsWidth> = ({ StarWidth, numberOfStars }) => {
             <Star
               key={i}
               className="star"
-              size={StarWidth}
+              size={starWidth}
               color={ratingValue <= (hover || rating) ? "#FFD703" : "#EBEBEB"}
               fill={ratingValue <= (hover || rating) ? "#FFD703" : "#EBEBEB"}
               onMouseEnter={() => setHover(ratingValue)}

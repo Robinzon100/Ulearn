@@ -2,6 +2,8 @@ import { ArrowUp } from "react-feather";
 
 import Stars from "components/lib/svg/Stars";
 import Lines from "components/lib/svg/Lines";
+import { useEffect, useState } from 'react';
+import { geteveryRattingValuePercentages } from './RattingMenus.utils';
 
 
 
@@ -13,11 +15,21 @@ interface RatingMenu {
   duration: number;
 }
 
-const RatingMenu = ({difficulty,student_amount,overall_rating,detailed_rating,duration,
+
+
+
+
+const RatingMenu = ({
+  difficulty,
+  student_amount,
+  overall_rating,
+  detailed_rating,
+  duration,
 }: RatingMenu) => {
+  const [rattingPercentage,] = useState(geteveryRattingValuePercentages(detailed_rating))
 
 
-    
+
   return (
     <>
       <div className="ratings ">
@@ -26,7 +38,7 @@ const RatingMenu = ({difficulty,student_amount,overall_rating,detailed_rating,du
             <p className="f-size-h1">{overall_rating}</p>
           </div>
           <div className="ratings__with-number--stars">
-            <Stars StarWidth={20} numberOfStars={4} />
+            <Stars starWidth={20} numberOfStars={4} />
           </div>
           <div className="ratings__with-number--voice">
             <ArrowUp size={15} />
@@ -38,20 +50,18 @@ const RatingMenu = ({difficulty,student_amount,overall_rating,detailed_rating,du
           {/* //! ხაზები და პროცენტები */}
 
           <div className="percentage_container">
-
-             {Object.entries(detailed_rating).map((value, key) => (
-                 
-              <div className="rating" key={key}>
+            {rattingPercentage.map((percent, i) => (
+              <div className="rating" key={i}>
                 <div className="lines_stars" >
-                  <Stars StarWidth={16} numberOfStars={key + 1} />
-                  <Lines LineWidth={value[1]} />
+                  <Stars starWidth={16} numberOfStars={i + 1} />
+                  <Lines percent={percent} />
                 </div>
 
                 <div className="percentage_number">
-                  <p className="f-size-p5">{value[1]}%</p>
+                  <p className="f-size-p5">{percent}%</p>
                 </div>
               </div>
-            ))}  
+            ))}
           </div>
         </div>
       </div>

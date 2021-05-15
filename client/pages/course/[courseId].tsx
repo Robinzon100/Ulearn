@@ -92,8 +92,6 @@ const course = ({ course }) => {
 
             <div className="СontentReveal">
               <div className="СontentReveal__mycourse-details">
-
-
                 {/* //! შენ ისწავლი*/}
                 <ol>
                   {course.what_will_you_learn.map((data, i) => (
@@ -103,10 +101,8 @@ const course = ({ course }) => {
                   ))}
                 </ol>
 
+
                 {/* //! ინსტრუქტორის შესახებ */}
-
-
-
                 <h1 className="f-size-h8">ინსტრუქტორის ონფორმაცია</h1>
 
                 <br />
@@ -142,7 +138,7 @@ const course = ({ course }) => {
                               </NextLink>
                               <div className="stars">
                                 <Stars
-                                  StarWidth={18}
+                                  starWidth={18}
                                   numberOfStars={instructorInfo.amountOfStars}
                                 />
                                 {/* <p>({instructorInfo.amountOfVotes})</p> */}
@@ -177,6 +173,7 @@ const course = ({ course }) => {
                 {course.course_content.map((data, i) => (
                   <SideMenu
                     id={i}
+                    key={i}
                     title={data.title}
                     courseChapterTime={45}
                     content={data.content}
