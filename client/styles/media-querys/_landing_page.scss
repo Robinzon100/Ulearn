@@ -24,7 +24,7 @@
 
 }
 
-@media screen and (max-width: $ultra-small-breakpoint) {
+@media screen and (max-width: $ultra-small-screen) {
 
     .hero {
         @include background-properties("/pictures/hero_mobile_bg.png",cover,center);

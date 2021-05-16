@@ -1,12 +1,12 @@
-import { useState} from "react";
+// import { useState} from "react";
 import Head from "next/head";
 import { Eye} from "react-feather";
 
 //! ==== OTHER IMPORTS
-import SideMenu from "components/lib/sidemenu/sideMenu";
-import CourseVideoPlayer from '../components/pages/course/CourseVideoPlayer';
+// import SideMenu from "components/lib/sidemenu/sideMenu";
+import CourseVideoPlayer from '../components/pages/myCourse/CourseVideoPlayer';
 import CoursesJson from "../public/json/Courses.json";
-import CourseTablist from "components/pages/course/course_tabs";
+import CourseTablist from "components/pages/myCourse/course_tabs";
 
 
 //! === INTERFACES(DO NOT DELETE)
@@ -14,7 +14,7 @@ import CourseTablist from "components/pages/course/course_tabs";
 
 
 const Courses = () => {
-  const [videoLists,] = useState(CoursesJson.videoLists);
+//   const [videoLists,] = useState(CoursesJson.videoLists);
     
 
   return (
@@ -55,7 +55,7 @@ const Courses = () => {
               <CourseTablist/>
             </div>
             
-            <div className="side-menu noselect ">
+            {/* <div className="side-menu noselect ">
               {videoLists.Lists.map((videoList) => (
                 <SideMenu
                   key={videoList.id}
@@ -69,7 +69,7 @@ const Courses = () => {
 
               <br />
               <br />
-            </div>
+            </div> */}
           </div>
         </div>
 

@@ -9,10 +9,10 @@ import { changeTabPositionAndColor } from "./Underline";
 
 
 //! === IMPORTED ICONS FROM Courses.json
-import Description from "../../../public/SVG/CoursesSvg/Clipboard";
-import Resources from "../../../public/SVG/CoursesSvg/Folder";
-import QuestionAnswer from "../../../public/SVG/CoursesSvg/HelpCircle";
-import Estimates from "../../../public/SVG/CoursesSvg/Estimates";
+import Description from "./CoursesSvg/Clipboard";
+import Resources from "./CoursesSvg/Folder";
+import QuestionAnswer from "./CoursesSvg/HelpCircle";
+import Estimates from "./CoursesSvg/Estimates";
 
 
 const course_tabs = () => {

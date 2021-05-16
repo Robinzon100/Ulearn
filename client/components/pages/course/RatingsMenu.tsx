@@ -1,9 +1,16 @@
-import { ArrowUp } from "react-feather";
+import {  useState } from 'react';
 
+//* ============= OUR IMPORTS
 import Stars from "components/lib/svg/Stars";
 import Lines from "components/lib/svg/Lines";
-import { useEffect, useState } from 'react';
-import { geteveryRattingValuePercentages } from './RattingMenus.utils';
+
+
+
+import DifficultySvg from "components/pages/course/difficultySvg/DifficultySvg"
+
+import { geteveryRattingValuePercentages,objectValueSum } from './RattingMenus.utils';
+
+
 
 
 
@@ -27,7 +34,7 @@ const RatingMenu = ({
   duration,
 }: RatingMenu) => {
   const [rattingPercentage,] = useState(geteveryRattingValuePercentages(detailed_rating))
-
+  const [displaySum,] = useState(objectValueSum(detailed_rating))
 
 
   return (
@@ -41,8 +48,8 @@ const RatingMenu = ({
             <Stars starWidth={20} numberOfStars={4} />
           </div>
           <div className="ratings__with-number--voice">
-            <ArrowUp size={15} />
-            <p className="f-size-p6">ხმა</p>
+            <p className="f-size-p6">{displaySum}</p>
+            <p style={{marginLeft:"1rem"}} className="f-size-p6">ხმა</p>
           </div>
         </div>
 
@@ -65,16 +72,23 @@ const RatingMenu = ({
           </div>
         </div>
       </div>
+
+      
       <div className="ratings-about">
         <div className="ratings-about__container">
+
           <div className="difficulty">
-            <div className="graph">{difficulty}</div>
+            <div className="graph">
+                <DifficultySvg difficulty={difficulty}/>
+            </div>
             <p className="f-size-p6">სირთულე</p>
           </div>
+
           <div className="learning">
             <h1 className="f-size-h7">{student_amount}</h1>
             <p className="f-size-p6">სწავლობს</p>
           </div>
+
           <div className="time-length">
             <h1 className="f-size-h7">
               {duration}
@@ -82,6 +96,8 @@ const RatingMenu = ({
             </h1>
             <p className="f-size-p6">ხანგძლივობა</p>
           </div>
+
+          
         </div>
       </div>
     </>

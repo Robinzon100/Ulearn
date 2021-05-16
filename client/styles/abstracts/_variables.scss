@@ -23,19 +23,15 @@
     --css-dot-animation: pulse 0.5s ease infinite alternate;
     --delay: 1.5s;
 
-
-    //* BREAKBOINTS
-    $ultra-small-breakpoint: 400px;
-    $small-breakpoint: 768px;
-    $medium-breakpoint: 1366px;
 }
 
 
-
-
 //! BREAKPOINTS
-$ultra-small-breakpoint: 400px;
-$small-breakpoint: 768px;
-$medium-breakpoint: 1366px;
+$large-screen: 1486px;
+$medium-screen: 1286px;
+$small-screen: 768px;
+$ultra-small-screen: 468px;
+
+
 
 $transition: all 0.1s cubic-bezier(0, 1.06, 0.37, 0.38);

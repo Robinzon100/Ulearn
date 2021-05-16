@@ -27,7 +27,8 @@ const Button: FC<ButtonInterface> = ({
   route,
   disabled,
   width,
-  children
+  children,
+  maxWidth
 }) => {
 
   const router = useRouter();
@@ -91,6 +92,7 @@ const Button: FC<ButtonInterface> = ({
 
         <style jsx>{`
           .btn {
+            max-width:${maxWidth};
             opacity: ${disabled || loading ? 0.8 : 1};
             cursor: ${disabled || loading ? "not-allowed" : "pointer"};
             pointer-events: ${disabled || loading ? "none" : "auto"};

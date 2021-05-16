@@ -17,8 +17,8 @@
 
 
 /// === === === PAGES === === === ===
-@import "pages/courses";
-@import "pages/myCourses";
+@import "pages/course/course";
+@import "pages/myCourse/myCourse";
 @import "pages/login_registration/login_registration";
 @import "pages/login_registration/register";
 @import "pages/login_registration/login";
@@ -26,7 +26,7 @@
 
 /// === === === QUERYS=== === === ===
 @import "media-querys/navigation_query";
-@import "media-querys/courses";
+@import "media-querys/courses.media-query";
 @import "media-querys/landing_page";
 @import "media-querys/main-content_query";
 
@@ -38,14 +38,14 @@
 
 
 // === === ===  PAGES COMPONENTS === === === ===
-@import "components/pages_components/courses/courses_content";
-@import "components/pages_components/courses/course_video_player";
+@import "components/pages_components/myCourses/myCourses_content";
+@import "components/pages_components/myCourses/myCourse_video_player";
 @import "components/pages_components/index/hero";
 @import "components/pages_components/index/main_content";
 @import "components/pages_components/index/carousel";
 @import "components/pages_components/index/index_category";
 @import "components/pages_components/index/index_cards";
-
+@import "components/pages_components/global_course.styles";
 
 
 // === === === === OUR LIBRARY COMPONENTS === === === ===

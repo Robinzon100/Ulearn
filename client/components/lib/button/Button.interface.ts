@@ -9,6 +9,7 @@ export interface ButtonInterface extends IGlobal {
   type?:"submit";
   width?:string,
   children?:any
+  maxWidth?:string;
 }
 
 export interface ButtonSizeGroup  {

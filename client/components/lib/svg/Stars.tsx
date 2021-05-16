@@ -1,4 +1,4 @@
-import { useEffect, useState} from "react";
+import { useState} from "react";
 import { Star } from "react-feather";
 
 interface StarsWidth {
@@ -8,12 +8,10 @@ interface StarsWidth {
 
 const stars: React.FC<StarsWidth> = ({ starWidth, numberOfStars }) => {
 
-  const [rating, setRating] = useState<number | string | null>(numberOfStars);
-  const [hover, setHover] = useState<number | string | null>(null);
+  const [rating,] = useState<number | string | null>(numberOfStars);
+  const [hover,] = useState<number | string | null>(null);
 
-    // useEffect(() => {
-    //    console.log(numberOfStars)
-    // }, [])
+
     
   return (
     <div className="stars">
@@ -27,7 +25,6 @@ const stars: React.FC<StarsWidth> = ({ starWidth, numberOfStars }) => {
               type="radio"
               name="rating"
               value={numberOfStars}
-              onClick={() => setRating(ratingValue)}
             />
 
             <Star
@@ -36,8 +33,6 @@ const stars: React.FC<StarsWidth> = ({ starWidth, numberOfStars }) => {
               size={starWidth}
               color={ratingValue <= (hover || rating) ? "#FFD703" : "#EBEBEB"}
               fill={ratingValue <= (hover || rating) ? "#FFD703" : "#EBEBEB"}
-              onMouseEnter={() => setHover(ratingValue)}
-              onMouseLeave={() => setHover(null)}
             />
           </label>
         );
@@ -45,11 +40,13 @@ const stars: React.FC<StarsWidth> = ({ starWidth, numberOfStars }) => {
 
 
 
+
+
+
       <style jsx>
         {`
           .stars {
             display: flex;
-            // margin-left: .3rem;
           }
           .star_component input[type="radio"] {
             display: none !important;
@@ -57,11 +54,6 @@ const stars: React.FC<StarsWidth> = ({ starWidth, numberOfStars }) => {
 
           .star_component:not(:first-child) {
             margin-left: 0.2rem;
-          }
-
-          .star_component .star {
-            cursor: pointer;
-            transition: color 200ms;
           }
         `}
       </style>

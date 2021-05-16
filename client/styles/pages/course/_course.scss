@@ -1,0 +1,239 @@
+$mycourse-padding: 4vw 10vw 4vw 10vw;
+$ratings-padding: 1.3rem 1.5rem 1.3rem 1.5rem;
+$margin-top:4rem;
+
+
+
+.course {
+  .course-hero {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: $mycourse-padding;
+    margin-top: 7rem;
+    @include background-properties(
+      "/pictures/course/hero_img.png",
+      cover,
+      center
+    );
+
+    &__about-course {
+      &--heading,
+      &--paragraph {
+        color: white;
+      }
+
+      &--heading {
+        width: 80%;
+
+        p {
+          line-height: 168.28%;
+        }
+      }
+
+      &--paragraph {
+        margin: 0.8vw 0vw 3vw 0vw;
+        width: 60%;
+
+        p {
+          line-height: 180%;
+        }
+      }
+
+      &--btns {
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        .save-bucket,
+        .buy-course {
+          width: 26%;
+        }
+
+        .save-bucket {
+          margin-left: calc(2rem + 1vw);
+          position: relative;
+
+          .shopping_cart {
+            position: absolute;
+            top: 30%;
+            left: 8%;
+          }
+        }
+      }
+    }
+
+    &__rating-course {
+      color: var(--primary-white);
+
+      .ratings,
+      .ratings-about {
+        border-radius: 18px;
+        border: 0.5px solid #ffffff6b;
+        padding: $ratings-padding;
+        text-align: center;
+      }
+
+      .ratings {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+
+        &__with-percentage {
+          .lines_stars {
+            svg {
+              width: 100%;
+            }
+          }
+        }
+
+        &__with-number {
+          margin-top: -1.5vw;
+
+          & > div {
+            width: 82%;
+          }
+
+          &--voice {
+            @include flex(initial, center, initial);
+          }
+
+          &--stars {
+            margin: 0.3vw 1vw;
+          }
+
+          &--voice {
+            margin-left: 1vw;
+          }
+        }
+
+        &__with-percentage {
+          .percentage_container {
+            @include flex(space-between, center, column);
+
+            &:not(:first-child) {
+              margin-top: 0.5rem;
+            }
+
+            .rating {
+              @include flex(center, center, row);
+
+              .lines_stars {
+                @include flex(center, flex-start, column);
+              }
+
+              .percentage_number {
+                margin-left: calc(0.5rem + 0.5vw);
+              }
+            }
+          }
+        }
+      }
+
+      .ratings-about {
+        margin-top: 2rem;
+
+        &__container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          p {
+            margin-top: 1rem;
+          }
+
+          .difficulty {
+            .graph {
+              background-position: center;
+            }
+          }
+
+          .learning {
+            margin: 0 calc(3rem + 2vw);
+          }
+        }
+      }
+    }
+  }
+
+
+
+  .course_info {
+    gap: 0 80px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    position: relative;
+    padding: $mycourse-padding;
+
+    .detailed_description {
+        margin-top: $margin-top;
+    }
+
+
+    .instructor_profile {
+      @include flex(initial, initial, column);
+      margin-top: $margin-top;
+      
+      h1 {
+          margin-bottom: 2rem;
+      }
+
+      &__info {
+        display: flex;
+
+        &--pic {
+          border-radius: 18px;
+          @include background-properties(
+            "/pictures/instructor_pic.png",
+            cover,
+            center 18%
+          );
+          width: 8rem;
+          height: 8rem;
+          margin-top: 1rem;
+        }
+
+        &--about {
+          margin-left: 2rem;
+          @include flex(initial, initial, column);
+
+          a {
+            color: var(--primary-blue);
+          }
+          p,a,div {
+            width: 100% !important;
+            margin-bottom: 0.3rem;
+          }
+
+          .students {
+            .stars {
+              margin-left: 0 !important;
+              margin-top: 0.3rem;
+            }
+          }
+        }
+      }
+    }
+
+    .instructor_btn {
+        margin-top: $margin-top;
+    }
+
+    .side-menu {
+        width: 45rem;
+    }
+  }
+}
+
+
+@supports ((-webkit-backdrop-filter: blur(47px)) or (filter: blur(47px))) {
+  .ratings-about,
+  .ratings {
+    background: rgba(207, 207, 207, 0.26);
+    box-shadow: inset 0px 0px 10px rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(47px);
+  }
+}

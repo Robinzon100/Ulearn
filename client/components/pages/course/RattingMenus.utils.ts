@@ -1,4 +1,4 @@
-const objectValueSum = (rattingObject: any): number => {
+export const objectValueSum = (rattingObject: any): number => {
     const sum: number = Object.values(rattingObject)
         .reduce((a, b) => +a + +b, 0) as number
     return sum

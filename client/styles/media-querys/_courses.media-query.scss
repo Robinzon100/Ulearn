@@ -1,0 +1,55 @@
+$medium-screen-padding:4vw;
+
+@media screen and (max-width: $large-screen) {
+  .course {
+    &__container {
+      .course-hero {
+        padding:$medium-screen-padding;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $medium-screen) {
+  .course .course-hero__about-course--btns .save-bucket,
+  .course .course-hero__about-course--btns .buy-course {
+    width: initial;
+  }
+
+  .course {
+    &__container {
+      .course-hero {
+        padding: 4vw;
+
+        &__about-course {
+          &--heading {
+            width: 95%;
+          }
+
+          &--paragraph {
+            width: 85%;
+          }
+        }
+      }
+    }
+    .course_info {
+        padding: $medium-screen-padding;
+        grid-template-rows: repeat(2,auto) !important;
+        grid-template-columns: initial !important;
+        gap: 80px 0;
+
+        .side-menu {
+            width: 100% !important;
+            grid-row: 1/2;
+            height: initial !important;
+            position: initial !important;
+        }
+    }
+  }
+}
+
+
+
+@media screen and (max-width: $small-screen) {
+
+}

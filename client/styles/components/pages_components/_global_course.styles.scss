@@ -1,0 +1,108 @@
+//! კურსის კონტენტის დასაწყისი
+
+.СontentReveal {
+    h1 {
+      font-size: calc(18px + (28 - 18) * ((100vw - 300px) / (1900 - 700))) !important;
+      display: inline-block;
+      line-height: 180%;
+    }
+  
+    p {
+      font-size: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
+      display: inline-block;
+      line-height: 180%;
+  
+      span {
+        font-size: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
+      }
+    }
+  
+  
+    ul {
+      list-style: none !important;
+      margin-left: 1.5rem;
+  
+      li {
+        position: relative;
+        margin-top: 0.8vw;
+  
+        p {
+          font-size: calc(
+            13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))
+          ) !important;
+          display: inline-block;
+          line-height: 180%;
+        }
+  
+        &:before {
+          @include after;
+          @include background-properties("/pictures/courses/blue_bullet.svg",cover,center);
+          display: inline-block;
+          width: 1.2rem;
+          height: 1.2rem;
+          margin-left: -2.2rem;
+          top: 35%;
+        }
+      }
+    }
+  
+  
+  
+    ol {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      list-style-type: none !important;
+      padding: 0;
+      margin-top: -1rem;
+
+      @media screen and (max-width: $small-screen) {
+        grid-template-columns: initial;
+        grid-template-rows: repeat(2,auto);
+    }
+  
+      li {
+        width: 100%;
+        margin-top: 4.5rem;
+        position: relative;
+  
+        &:before {
+          @include after;
+          @include background-properties("/pictures/courses/courses_side_menu_finished.svg",cover,center);
+          display: block !important;
+          top: 0;
+          height: 2.5rem !important;
+          width: 2.6rem !important;
+          padding: 1.3rem;
+          
+        }
+  
+        p {
+          margin-top: -0.5rem;
+          margin-left: 4rem;
+        }
+      }
+    }
+  
+    hr {
+      width: 85%;
+      margin: 5rem auto;
+      border: 1px solid #c9c9c961;
+    }
+  
+  }
+  
+  
+  
+  
+  
+  .СontentReveal {
+    img {
+      @include background-properties("/pictures/courses/portfolio_photo.png",cover,center);
+      width: 85%;
+      height: 45vh;
+      margin: 0 auto;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+  }
+  

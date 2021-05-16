@@ -34,7 +34,7 @@
         .login_forms {
             height: 100vh;
 
-            @media screen and (max-width: $ultra-small-breakpoint){
+            @media screen and (max-width: $ultra-small-screen){
                 height: initial !important;
             }
         }
@@ -42,7 +42,7 @@
         .registration-forms {
             // height: 110vh;
 
-            @media screen and (max-width: $ultra-small-breakpoint){
+            @media screen and (max-width: $ultra-small-screen){
                 height: initial !important;
             }
 
