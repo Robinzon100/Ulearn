@@ -21,7 +21,7 @@ const InputCommentCards = ({id,name,rating}:Props) => {
                     <h1>{name}</h1>
 
                     <div className="about_user--star">
-                        <Stars  StarWidth={17} numberOfStars={rating} />
+                        <Stars  starWidth={17} numberOfStars={rating} />
                     </div>
                 </div>
 

@@ -91,7 +91,7 @@ const selectInput: React.FC<ISelect> = ({
                     {option.value}
 
                     {/* {placeHolder === "რეიტინგი" && (
-                      <Stars StarWidth={16} numberOfStars={option.reiting} />
+                      <Stars starWidth={16} numberOfStars={option.reiting} />
                     )} */}
                   </label>
                 </div>

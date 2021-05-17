@@ -1,12 +1,12 @@
 import {  useState } from 'react';
 
+
 //* ============= OUR IMPORTS
 import Stars from "components/lib/svg/Stars";
 import Lines from "components/lib/svg/Lines";
-
-
-
 import DifficultySvg from "components/pages/course/difficultySvg/DifficultySvg"
+
+
 
 import { geteveryRattingValuePercentages,objectValueSum } from './RattingMenus.utils';
 

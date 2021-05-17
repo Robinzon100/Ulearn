@@ -1,8 +1,6 @@
 $mycourse-padding: 4vw 10vw 4vw 10vw;
 $ratings-padding: 1.3rem 1.5rem 1.3rem 1.5rem;
-$margin-top:4rem;
-
-
+$margin-top: 4rem;
 
 .course {
   .course-hero {
@@ -35,7 +33,7 @@ $margin-top:4rem;
       }
 
       &--paragraph {
-        margin: 0.8vw 0vw 3vw 0vw;
+        margin: 1.8vw 0vw 4vw 0vw;
         width: 60%;
 
         p {
@@ -66,6 +64,8 @@ $margin-top:4rem;
       }
     }
 
+    
+
     &__rating-course {
       color: var(--primary-white);
 
@@ -81,12 +81,16 @@ $margin-top:4rem;
         display: grid;
         grid-template-columns: repeat(2, auto);
 
-        &__with-percentage {
-          .lines_stars {
-            svg {
-              width: 100%;
-            }
+        .lines_stars {
+          .rating_lines {
+            margin-left: -0.5rem !important;
+
+            width: 100%;
           }
+        }
+
+        .percentage_number {
+          margin-top: 2rem !important;
         }
 
         &__with-number {
@@ -119,6 +123,8 @@ $margin-top:4rem;
 
             .rating {
               @include flex(center, center, row);
+              width: 100%;
+              max-width: 20rem;
 
               .lines_stars {
                 @include flex(center, flex-start, column);
@@ -131,6 +137,10 @@ $margin-top:4rem;
           }
         }
       }
+
+
+
+
 
       .ratings-about {
         margin-top: 2rem;
@@ -151,7 +161,7 @@ $margin-top:4rem;
           }
 
           .learning {
-            margin: 0 calc(3rem + 2vw);
+            margin: 0 calc(1.5rem + 1.5vw);
           }
         }
       }
@@ -159,6 +169,7 @@ $margin-top:4rem;
   }
 
 
+  
 
   .course_info {
     gap: 0 80px;
@@ -169,16 +180,15 @@ $margin-top:4rem;
     padding: $mycourse-padding;
 
     .detailed_description {
-        margin-top: $margin-top;
+      margin-top: $margin-top;
     }
-
 
     .instructor_profile {
       @include flex(initial, initial, column);
       margin-top: $margin-top;
-      
+
       h1 {
-          margin-bottom: 2rem;
+        margin-bottom: 2rem;
       }
 
       &__info {
@@ -203,7 +213,9 @@ $margin-top:4rem;
           a {
             color: var(--primary-blue);
           }
-          p,a,div {
+          p,
+          a,
+          div {
             width: 100% !important;
             margin-bottom: 0.3rem;
           }
@@ -219,15 +231,14 @@ $margin-top:4rem;
     }
 
     .instructor_btn {
-        margin-top: $margin-top;
+      margin-top: $margin-top;
     }
 
     .side-menu {
-        width: 45rem;
+      width: 45rem;
     }
   }
 }
-
 
 @supports ((-webkit-backdrop-filter: blur(47px)) or (filter: blur(47px))) {
   .ratings-about,

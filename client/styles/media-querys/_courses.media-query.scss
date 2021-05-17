@@ -1,10 +1,10 @@
-$medium-screen-padding:4vw;
+$medium-screen-padding: 4vw;
 
 @media screen and (max-width: $large-screen) {
   .course {
     &__container {
       .course-hero {
-        padding:$medium-screen-padding;
+        padding: $medium-screen-padding;
       }
     }
   }
@@ -19,8 +19,6 @@ $medium-screen-padding:4vw;
   .course {
     &__container {
       .course-hero {
-        padding: 4vw;
-
         &__about-course {
           &--heading {
             width: 95%;
@@ -33,23 +31,123 @@ $medium-screen-padding:4vw;
       }
     }
     .course_info {
-        padding: $medium-screen-padding;
-        grid-template-rows: repeat(2,auto) !important;
-        grid-template-columns: initial !important;
-        gap: 80px 0;
+      padding: $medium-screen-padding;
+      grid-template-rows: repeat(2, auto) !important;
+      grid-template-columns: initial !important;
+      gap: 80px 0;
 
-        .side-menu {
-            width: 100% !important;
-            grid-row: 1/2;
-            height: initial !important;
-            position: initial !important;
+      &__mycourse-details {
+        .line {
+          width: 100%;
         }
+      }
+
+      .side-menu {
+        width: 100% !important;
+        grid-row: 1/2;
+        height: initial !important;
+        position: initial !important;
+      }
+    }
+
+    .instructor_btn {
+      .btn {
+        width: 100%;
+        max-width: initial !important;
+      }
     }
   }
 }
 
-
-
 @media screen and (max-width: $small-screen) {
+  .course {
+    &__container {
+      .course-hero {
+        margin-top: 8rem;
+        display: grid;
+        grid-template-rows: repeat(2, auto);
+        grid-template-columns: initial !important;
+        gap: 50px 0px;
 
+        &__about-course {
+          &--heading {
+            width: 100%;
+          }
+
+          &--paragraph {
+            width: 80%;
+          }
+        }
+        &__rating-course {
+          .ratings-about,
+          .ratings {
+            width: 100%;
+            max-width: 35rem;
+
+          }
+
+          .ratings-about {
+            &__container {
+              .learning {
+                margin: 0 3vw;
+              }
+
+              .difficulty {
+                p {
+                  margin-top: -1rem !important;
+                }
+                .graph {
+                  svg {
+                    width: 100% !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $ultra-small-screen) {
+  .course {
+    &__container {
+      .course-hero {
+        &__about-course {
+
+          &--paragraph {
+            width: 100%;
+            margin: calc(1rem + 1vh) 0 calc(2rem + 1.5vh) 0;
+          }
+
+
+          &--btns {
+            .buy-course,
+            .save-bucket {
+              width: 100%;
+
+              .btn {
+                max-width: initial !important;
+              }
+            }
+          }
+        }
+
+
+        &__rating-course {
+          .ratings-about,
+          .ratings {
+            max-width: initial !important;
+          }
+          
+          .ratings-about {
+            &__container {
+              justify-content: space-around !important;
+            }
+          }
+        }
+      }
+    }
+  }
 }

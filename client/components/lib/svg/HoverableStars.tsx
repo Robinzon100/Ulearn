@@ -6,10 +6,10 @@ interface StarsWidth {
   numberOfStars:any;
 }
 
-const stars: React.FC<StarsWidth> = ({ starWidth, numberOfStars}) => {
+const stars: React.FC<StarsWidth> = ({ starWidth, numberOfStars }) => {
 
-  const [rating,] = useState<number | string | null>(numberOfStars);
-  const [hover,] = useState<number | string | null>(null);
+  const [rating, setRating] = useState<number | string | null>(numberOfStars);
+  const [hover, setHover] = useState<number | string | null>(null);
 
 
     
@@ -26,6 +26,7 @@ const stars: React.FC<StarsWidth> = ({ starWidth, numberOfStars}) => {
               type="radio"
               name="rating"
               value={numberOfStars}
+              onClick={() => setRating(ratingValue)}
             />
 
             <Star
@@ -34,6 +35,8 @@ const stars: React.FC<StarsWidth> = ({ starWidth, numberOfStars}) => {
               size={starWidth}
               color={ratingValue <= (hover || rating) ? "#FFD703" : "#EBEBEB"}
               fill={ratingValue <= (hover || rating) ? "#FFD703" : "#EBEBEB"}
+              onMouseEnter={() => setHover(ratingValue)}
+              onMouseLeave={() => setHover(null)}
             />
           </label>
         );
@@ -55,6 +58,10 @@ const stars: React.FC<StarsWidth> = ({ starWidth, numberOfStars}) => {
 
           .star_component:not(:first-child) {
             margin-left: 0.2rem;
+          }
+          .star_component .star {
+            cursor: "pointer";
+            transition: color 200ms;
           }
         `}
       </style>

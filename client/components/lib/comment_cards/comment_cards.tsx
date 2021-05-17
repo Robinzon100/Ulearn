@@ -78,7 +78,7 @@ const comment_cards: React.FC<CommentCards> = ({
                     </div>
 
                     <div className="about-user__raiting">
-                        {/* <Stars key={id} StarWidth={20} numberOfStars={rating} /> */}
+                        {/* <Stars key={id} starWidth={20} numberOfStars={rating} /> */}
                     </div>
                     <div className="added-comment">
                         <p>{addedComment}</p>
