@@ -33,9 +33,10 @@
 
 
 /// === === ===  GLOBAL COMPONENTS === === === ===
-@import "components/global/navigation/nav-bar";
+@import "components/global/navigation/navigation";
+@import "components/global/navigation/mobile-header";
 @import "components/global/footer/footer";
-
+@import "components/global/bottom-navigation/bottom-navigation";
 
 // === === ===  PAGES COMPONENTS === === === ===
 @import "components/pages_components/myCourses/myCourses_content";

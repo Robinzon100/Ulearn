@@ -1,44 +1,14 @@
-@media screen and (max-width: $ultra-small-screen) {
-    .header {
-        // background-color: red !important; 
-        height: 5rem !important;
-        flex-direction: row !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-      
-        .input,
-        .login,
-        .cart,
-        .unregistered_user,
-        &__category-menu {
-            display: none !important;
-
-        }
-        
-        .logo_container {
-            display: block !important;
-            width: 7.5rem !important;
-            height: 100% !important;
-            
-            .logo {
-                width: 100% !important;
-                height: 100% !important;
-            }
-        }
-        
-        
-        .navigation_menu {
-            display: none !important;
-        }
-
-        .mobile_hamburger {
-            display: block !important;
-            @include background-properties("/pictures/mobile_burger.svg",cover,center);
-
-            width: 7% !important;
-            height: 35% !important;
-        }
+@media screen and (max-width: $medium-screen) {
+  .header {
+    .become-lectore {
+      display: none;
     }
-    
-
+  }
 }
+@media screen and (max-width: $small-screen) {
+
+    .header {
+        display: none !important;
+    }   
+}
+

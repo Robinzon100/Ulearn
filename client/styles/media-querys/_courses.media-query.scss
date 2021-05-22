@@ -63,7 +63,7 @@ $medium-screen-padding: 4vw;
   .course {
     &__container {
       .course-hero {
-        margin-top: 8rem;
+        margin-top: var(--navigation-heigth-for-mobile);
         display: grid;
         grid-template-rows: repeat(2, auto);
         grid-template-columns: initial !important;
@@ -112,8 +112,13 @@ $medium-screen-padding: 4vw;
 
 @media screen and (max-width: $ultra-small-screen) {
   .course {
+    padding-bottom: calc(var(--bottom-navigation-heigth) + 7vh) ;
+
     &__container {
       .course-hero {
+        padding: 10vw 4vw;
+        margin-top: var(--navigation-heigth-for-mobile);
+
         &__about-course {
 
           &--paragraph {
@@ -123,12 +128,26 @@ $medium-screen-padding: 4vw;
 
 
           &--btns {
+            .save-bucket {
+                .btn {
+                    span {
+                        display: none !important;
+                    }
+
+                    .title {
+                        p{
+                            margin-left: initial !important;
+                        }
+                    }
+                }
+            }
             .buy-course,
             .save-bucket {
               width: 100%;
 
               .btn {
                 max-width: initial !important;
+                padding: 12px 10px 12px 10px !important;
               }
             }
           }
@@ -136,6 +155,9 @@ $medium-screen-padding: 4vw;
 
 
         &__rating-course {
+            .ratings{
+                gap: 0 30px;
+            }
           .ratings-about,
           .ratings {
             max-width: initial !important;

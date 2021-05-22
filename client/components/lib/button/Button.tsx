@@ -111,6 +111,9 @@ const Button: FC<ButtonInterface> = ({
             border: ${stroke ? strokeColors.border : 'none'};
             outline: none !important;
             transition: all .2s ease;
+            user-select: none;
+            vertical-align: bottom;
+            white-space: nowrap;
           }
 
           .btn:hover {

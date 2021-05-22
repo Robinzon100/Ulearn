@@ -1,0 +1,64 @@
+.mobile-header {
+  display: none;
+}
+
+@media screen and (max-width: $small-screen) {
+  .mobile-header {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    top: 0 !important;
+    padding: var(--nav-bar-padding);
+    @include flex(space-between, center, row);
+    background-color: white;
+
+    .logo_container {
+      display: block !important;
+      width: 8.5rem !important;
+      height: 100% !important;
+
+      .logo {
+        height: var(--navigation-heigth-for-mobile) !important;
+        @include background-properties("/pictures/logo.svg", contain, center);
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .mobile-header_container {
+      @include flex(space-between, center, row);
+      width: 100%;
+      max-width: 20rem;
+
+      .mobile-search {
+          cursor: pointer;
+      }
+
+      .mobile_hamburger {
+        display: block !important;
+        @include background-properties(
+          "/pictures/mobile_burger.svg",
+          cover,
+          center
+        );
+
+        width: 2.5rem !important;
+        height: 2.5rem !important;
+        cursor: pointer;
+      }
+
+      .profile {
+        .user-icon {
+          @include background-properties(
+            "/pictures/unregistered_user.svg",
+            cover,
+            center
+          );
+          width: 4rem;
+          height: 4rem;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

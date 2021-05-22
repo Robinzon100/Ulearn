@@ -6,6 +6,7 @@ import { AppProps } from 'next/dist/next-server/lib/router/router';
 import { CookiesProvider } from 'react-cookie';
 
 import Navigation from "components/global/navigation/Navigation"
+import BottomNavigation from "components/global/bottom-navigation/BottomNavigation"
 import { RootStateProvider } from '../mobx/RootStateContext';
 import { swrOptions } from '../constants/swrOptions';
 
@@ -19,8 +20,8 @@ function MyApp({ Component, pageProps }: AppProps) {
                 <title>Ulearn</title>
                 <link rel="shortcut icon" href="#" />
                 <meta name="viewport" content="height=device-height, 
-                      width=device-width, initial-scale=1.0, 
-                      minimum-scale=1.0, maximum-scale=1.0, 
+                      width=device-width, initial-scale=1, 
+                      minimum-scale=1, maximum-scale=1, 
                       user-scalable=no, target-densitydpi=device-dpi"></meta>
             </Head>
             <SWRConfig value={swrOptions}>
@@ -30,6 +31,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                         <main className='main'>
                             <Component {...pageProps} />
                         </main>
+                        <BottomNavigation/>
                     </CookiesProvider>
                 </RootStateProvider>
             </SWRConfig>
@@ -37,18 +39,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     )
 }
 
-// Only uncomment this method if you have blocking data requirements for
-// every single page in your application. This disables the ability to
-// perform automatic static optimizaxtion, causing every page in your app to
-// be server-side rendered.
-//
 
-// MyApp.getInitialProps = async (appContext) => {
-//   // calls page's `getInitialProps` and fills `appProps.pageProps`
-// //   console.log(fs)
-// //   const appProps = await App.getInitialProps(appContext);
 
-//   return { name: "kutu" }
-// }
 
 export default MyApp

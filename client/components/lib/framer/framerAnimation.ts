@@ -49,7 +49,7 @@ export const seeMoreAnimation = {
 
 export const sideMenuAnimation = {
     open: {
-        height: 120,
+        height: "auto",
         opacity: 1,
         display: "block",
         transition: { duration: 0.3 },
