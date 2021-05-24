@@ -34,7 +34,8 @@
 
 /// === === ===  GLOBAL COMPONENTS === === === ===
 @import "components/global/navigation/navigation";
-@import "components/global/navigation/mobile-header";
+@import "components/global/navigation/mobile-header/mobile-header";
+@import "components/global/navigation/mobile-header/mobile-category";
 @import "components/global/footer/footer";
 @import "components/global/bottom-navigation/bottom-navigation";
 

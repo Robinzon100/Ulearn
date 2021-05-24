@@ -28,7 +28,7 @@
     .mobile-header_container {
       @include flex(space-between, center, row);
       width: 100%;
-      max-width: 20rem;
+      max-width: 18rem;
 
       .mobile-search {
           cursor: pointer;

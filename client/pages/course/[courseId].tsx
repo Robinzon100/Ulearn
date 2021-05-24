@@ -109,7 +109,7 @@ const course = ({ course }) => {
                   <Line
                   width="80%"
                   thickness="1px"
-                  color="#bbbbbb"
+                  color="#c9c9c9"
                   borderRadius="10px"
                   margin="6rem"
                 />
@@ -126,7 +126,7 @@ const course = ({ course }) => {
                 <Line
                   width="80%"
                   thickness="1px"
-                  color="#bbbbbb"
+                  color="#c9c9c9"
                   borderRadius="10px"
                   margin="6rem"
                 />

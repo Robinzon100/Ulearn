@@ -1,7 +1,17 @@
 import NextLink from "components/utils/nextLink/NextLink";
+import { useState } from "react";
 import { ShoppingCart, Search } from "react-feather";
 
+import MobileCategory from "./MobileCategory";
+
 const MobileHeader = () => {
+
+    
+  const [toggleMobileCategory, setToggleMobileCategory] = useState(false);
+
+
+
+
   return (
     <>
       <header className="mobile-header">
@@ -28,7 +38,26 @@ const MobileHeader = () => {
             </div>
           </div>
 
-          <div className="mobile_hamburger"></div>
+
+
+          <div
+            className="mobile_hamburger"
+            onClick={() =>
+              setToggleMobileCategory(
+                (toggleMobileCategory) => !toggleMobileCategory
+              )
+            }
+          />
+          {toggleMobileCategory && (
+            <MobileCategory
+              toggleMobileCategory={toggleMobileCategory}
+              setToggleMobileCategory={() =>
+                setToggleMobileCategory(
+                  (toggleMobileCategory) => !toggleMobileCategory
+                )
+              }
+            />
+          )}
         </div>
       </header>
     </>

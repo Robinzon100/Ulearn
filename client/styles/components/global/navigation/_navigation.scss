@@ -2,9 +2,6 @@ $logo_container_width: 40%;
 $menu_container-width: 33%;
 $category-menu-width: 9%;
 
-:root {
-  --nav-bar-padding: 0.4vw 2vw;
-}
 
 .header {
   position: fixed;
@@ -17,7 +14,7 @@ $category-menu-width: 9%;
 
   .header-container {
     box-shadow: var(--box-shadow-for-navigation);
-    @include flex(space-around, center, initial);
+    @include flex(space-between, center, initial);
     width: 100%;
   }
 
@@ -27,18 +24,18 @@ $category-menu-width: 9%;
     display: none;
   }
 
-  .logo_container,
-  .header__category-menu,
-  .search,
-  .course-page,
-  .become-lectore,
-  .cart,
-  .profile,
-  .login {
-    &:not(:first-child) {
-      margin-left: 1.5rem !important;
-    }
-  }
+//   .logo_container,
+//   .header__category-menu,
+//   .search,
+//   .course-page,
+//   .become-lectore,
+//   .cart,
+//   .profile,
+//   .login {
+//     &:not(:first-child) {
+//       margin-left: 1.5rem !important;
+//     }
+//   }
 
   .logo_container {
     .logo {
