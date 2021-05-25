@@ -1,10 +1,12 @@
 .bottom-navigation {
-    display: none ;
+  display: none;
 }
 
 @media screen and (max-width: $small-screen) {
   .bottom-navigation {
-      display: block;
+    display: block;
+
+
     &__container {
       position: fixed;
       bottom: 0;
@@ -17,31 +19,37 @@
         cover,
         center
       );
+      z-index: 10;
+
+      
 
       .item {
-        @include flex(initial,center,row);
+        @include flex(initial, center, row);
 
         .bottom-course {
-            @include flex(initial,center,column);
-            width: 100%;
-            height: 100%;
-            max-width: 12rem;
-            max-height: 6rem;
+          @include flex(initial, center, column);
+          width: 100%;
+          height: 100%;
+          max-width: 12rem;
+          max-height: 6rem;
 
           .bottom-course-svg {
             @include background-properties(
-              "/pictures/bottom-navigation/course.svg",cover,center
+              "/pictures/bottom-navigation/course.svg",
+              cover,
+              center
             );
             height: 3rem;
             width: 3rem;
           }
 
           .bottom-course-heading {
-              text-align: center;
+            text-align: center;
           }
-
         }
       }
+
+
 
       .search {
         @include background-properties(
@@ -51,29 +59,52 @@
         );
 
         cursor: pointer;
-        // z-index: -1;
         background-size: contain !important;
-          height: 16rem;
-          width: 16rem;
-          margin-top: -5rem;
-          margin-left: 1rem;
+        height: 16rem;
+        width: 16rem;
+        margin-top: -5rem;
+        margin-left: 1rem;
       }
+
+      [data-open="true"] {
+        background-image: url("/pictures/bottom-navigation/bottom_navigation-search-close.png") !important;
+      }
+    }
+
+
+
+    .bottom-search {
+        &--container {
+            background-color: var(--primary-white);
+            width: 100%;
+            height: 60vh;
+            position: fixed;
+            // bottom:-100%;
+            left: 0;
+            bottom: 0;
+    
+    
+            .search-input {
+                padding: 1rem 1rem;
+    
+            }
+        }
     }
   }
 }
 
 @media screen and (max-width: $ultra-small-screen) {
-    .bottom-navigation {
-      &__container {
-        grid-template-columns: 1fr .5fr 1fr;
+  .bottom-navigation {
+    &__container {
+      grid-template-columns: 1fr 0.5fr 1fr;
 
-        .search {
+      .search {
         height: 14rem;
         width: 13rem;
         margin-top: -4.2rem;
-        margin-left:  0 !important;
+        margin-left: 0 !important;
         background-size: cover !important;
-        }
       }
     }
+  }
 }

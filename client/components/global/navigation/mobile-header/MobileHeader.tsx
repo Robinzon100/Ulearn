@@ -43,9 +43,7 @@ const MobileHeader = ({ categories }) => {
           <div
             className="mobile_hamburger"
             onClick={() =>
-              setToggleMobileCategory(
-                (toggleMobileCategory) => !toggleMobileCategory
-              )
+              setToggleMobileCategory((toggleMobileCategory) => !toggleMobileCategory)
             }
           />
           {toggleMobileCategory && (

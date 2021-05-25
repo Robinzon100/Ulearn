@@ -1,4 +1,4 @@
-$category-max-width:23rem;
+$category-max-width:25rem;
 
 @media screen and (max-width: $small-screen) {
   .mobile-category {
@@ -7,6 +7,8 @@ $category-max-width:23rem;
     width: 100%;
     left: 0;
     top: 0;
+    background: #191b1f82;
+    
 
     .mobile-category_container {
       @include flex(initial, initial, row);
@@ -16,16 +18,19 @@ $category-max-width:23rem;
       z-index: 1030;
       margin: 0;
       cursor: pointer;
-      overflow: hidden;
       position: relative;
+      overflow: hidden;
+      max-width: $category-max-width;
 
       
       .subSub-category-list,.sub-category-list,.category-navigation{
-        width: 100%;
-        max-width: $category-max-width;
+            width: 100%;
+            max-width: $category-max-width;
         }
 
       .category-navigation {
+      overflow: hidden;
+
         background-color: var(--primary-white);
 
         .main-category-list,
@@ -48,7 +53,7 @@ $category-max-width:23rem;
           background-color: var(--primary-white);
 
           height: 100%;
-          overflow: hidden;
+        //   overflow: hidden;
           display: block;
 
           .go-back-arrow {
@@ -70,7 +75,7 @@ $category-max-width:23rem;
           left: 23rem !important;
           max-width: 18rem;
           height: 100%;
-          overflow: hidden;
+        //   overflow: hidden;
           display: block;
         }
 
@@ -88,15 +93,18 @@ $category-max-width:23rem;
         }
       }
 
-      .caregory_closeBtn {
+
+    }
+
+    .caregory_closeBtn {
         position: absolute;
         left: $category-max-width + 1rem;
         top: 1%;
         background-color: var(--primary-white);
         border-radius: 50%;
         @include flex(center, center, row);
-        padding: 1.5rem;
+        padding: 1rem;
       }
-    }
   }
+
 }

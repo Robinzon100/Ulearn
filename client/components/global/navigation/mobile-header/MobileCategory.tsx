@@ -175,15 +175,17 @@ const MobileCategory = ({
 
 
 
+          </div>
+
+          
 
 
-            <div
+          <div
               className="caregory_closeBtn"
               onClick={() => closeMobileCategoryNavigation()}
             >
               <X size="25" stroke="var(--primary-dark)" />
             </div>
-          </div>
         </div>
       )}
     </>
