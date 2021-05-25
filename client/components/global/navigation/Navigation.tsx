@@ -6,7 +6,7 @@ import NextLink from "components/utils/nextLink/NextLink";
 
 //! ─── OWN IMPORTS ────────────────────────────────────────────────────────────────────
 //? COMPONENTS
-import Category from "components/global/navigation/Category";
+import Category from "components/global/navigation/Category/Category";
 import Input from "components/lib/inputs/Input";
 import MobileHeader from "components/global/navigation/mobile-header/MobileHeader"
 // import MultiStepForm from "components/utils/stepForm/multiStepForm";
@@ -135,8 +135,8 @@ const Navigation: FC = () => {
     </header>
 
 
-
-    <MobileHeader />
+     {/* //* MOBILE HEADER */}
+    <MobileHeader categories={data?.categories} />
 
     </>
   );

@@ -28,6 +28,10 @@ const Category: FC<categories> = ({ categories: { main_categories, sub_categorie
   const [isMainCategoryChosen, setIsMainCategoryChosen] = useState<boolean>(false);
   const [isSubCategoryChosen, setIsSubCategoryChosen] = useState<boolean>(false);
   
+
+
+
+  
   return (
     <>
       <motion.ul
@@ -73,7 +77,6 @@ const Category: FC<categories> = ({ categories: { main_categories, sub_categorie
                 }
                 setIsSubCategoryChosen={setIsSubCategoryChosen}
                 setIsMouseleftSubSubCategory={setIsMouseleftSubSubCategory}
-                // rendersSubSubNames={rendersSubSubNames}
                 key={data.id}
                 id={data.id}
                 name={data.name}

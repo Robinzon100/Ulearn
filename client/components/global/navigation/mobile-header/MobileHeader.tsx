@@ -1,10 +1,10 @@
 import NextLink from "components/utils/nextLink/NextLink";
 import { useState } from "react";
-import { ShoppingCart, Search } from "react-feather";
+import { ShoppingCart } from "react-feather";
 
 import MobileCategory from "./MobileCategory";
 
-const MobileHeader = () => {
+const MobileHeader = ({ categories }) => {
 
     
   const [toggleMobileCategory, setToggleMobileCategory] = useState(false);
@@ -22,9 +22,9 @@ const MobileHeader = () => {
         </div>
 
         <div className="mobile-header_container">
-          <div className="mobile-search">
+          {/* <div className="mobile-search">
             <Search size={20} />
-          </div>
+          </div> */}
 
           <div className="cart">
             <NextLink route="/shopping_cart">
@@ -51,11 +51,11 @@ const MobileHeader = () => {
           {toggleMobileCategory && (
             <MobileCategory
               toggleMobileCategory={toggleMobileCategory}
-              setToggleMobileCategory={() =>
-                setToggleMobileCategory(
+              setToggleMobileCategory={() =>setToggleMobileCategory(
                   (toggleMobileCategory) => !toggleMobileCategory
                 )
               }
+              categories={categories}
             />
           )}
         </div>

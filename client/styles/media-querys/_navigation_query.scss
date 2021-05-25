@@ -3,6 +3,9 @@
     .become-lectore {
       display: none;
     }
+    .course-page{
+        display: none;
+    }
   }
 }
 @media screen and (max-width: $small-screen) {
@@ -12,3 +15,10 @@
     }   
 }
 
+@media screen and (max-width: $ultra-small-screen) {
+
+
+    .mobile-header .logo_container .logo {
+        background-position: center 40% !important;
+    }
+}

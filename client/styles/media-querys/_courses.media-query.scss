@@ -1,4 +1,5 @@
-$medium-screen-padding: 4vw;
+$medium-screen-padding: 4vw 2vw 4vw 2vw;
+
 
 @media screen and (max-width: $large-screen) {
   .course {
@@ -61,6 +62,8 @@ $medium-screen-padding: 4vw;
 
 @media screen and (max-width: $small-screen) {
   .course {
+    padding-bottom: calc(var(--bottom-navigation-heigth) + 9vh);
+
     &__container {
       .course-hero {
         margin-top: var(--navigation-heigth-for-mobile);
@@ -83,7 +86,6 @@ $medium-screen-padding: 4vw;
           .ratings {
             width: 100%;
             max-width: 35rem;
-
           }
 
           .ratings-about {
@@ -112,7 +114,6 @@ $medium-screen-padding: 4vw;
 
 @media screen and (max-width: $ultra-small-screen) {
   .course {
-    padding-bottom: calc(var(--bottom-navigation-heigth) + 7vh) ;
 
     &__container {
       .course-hero {
@@ -120,26 +121,24 @@ $medium-screen-padding: 4vw;
         margin-top: var(--navigation-heigth-for-mobile);
 
         &__about-course {
-
           &--paragraph {
             width: 100%;
             margin: calc(1rem + 1vh) 0 calc(2rem + 1.5vh) 0;
           }
 
-
           &--btns {
             .save-bucket {
-                .btn {
-                    span {
-                        display: none !important;
-                    }
-
-                    .title {
-                        p{
-                            margin-left: initial !important;
-                        }
-                    }
+              .btn {
+                span {
+                  display: none !important;
                 }
+
+                .title {
+                  p {
+                    margin-left: initial !important;
+                  }
+                }
+              }
             }
             .buy-course,
             .save-bucket {
@@ -153,16 +152,15 @@ $medium-screen-padding: 4vw;
           }
         }
 
-
         &__rating-course {
-            .ratings{
-                gap: 0 30px;
-            }
+          .ratings {
+            gap: 0 30px;
+          }
           .ratings-about,
           .ratings {
             max-width: initial !important;
           }
-          
+
           .ratings-about {
             &__container {
               justify-content: space-around !important;
