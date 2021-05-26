@@ -72,7 +72,7 @@ const CourseCards = ({landingCourse}) => {
                   bestseller={card.bestseller}
                   discount_price={card.discount_price}
                   isLiked={card.isLiked}
-                  posted={card.posted}
+                  created_at={card.created_at}
                   difficulty={card.difficulty}
                   description={card.description}
                   descriptionList={card.hoverCardList}

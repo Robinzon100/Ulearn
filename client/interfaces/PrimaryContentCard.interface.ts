@@ -18,7 +18,7 @@ export interface PrimaryContentCards extends PrimaryContentCardHover{
     comments?:string[];
     course_content?:any;
     creator: string;
-    created_at?:number;
+    created_at?:string;
     units_sold?:number;
     category_id?:number;
     sub_category_ids?:number[];

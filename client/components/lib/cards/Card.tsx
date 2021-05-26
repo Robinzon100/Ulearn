@@ -19,7 +19,7 @@ const Card = ({
   numberOfVotes,
   thumbnail_imageUrl,
   isLiked,
-  posted,
+  created_at,
   difficulty,
   description,
   descriptionList,
@@ -142,7 +142,7 @@ const Card = ({
               <CardDetail
                 id={id}
                 name={name}
-                posted={posted}
+                created_at={created_at}
                 difficulty={difficulty}
                 description={description}
                 descriptionList={descriptionList}

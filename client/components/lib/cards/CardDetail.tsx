@@ -1,4 +1,6 @@
 
+import dayjs  from "dayjs";
+
 
 import NextLink from "components/utils/nextLink/NextLink";
 import { ShoppingCart, Check } from "react-feather";
@@ -11,7 +13,7 @@ import { PrimaryContentCardHover } from "../../../interfaces/PrimaryContentCardH
 
 
 
-const CardDetail = ({ id,name,posted,difficulty,description,descriptionList }:
+const CardDetail = ({ id,name,created_at,difficulty,description,descriptionList }:
     PrimaryContentCardHover) => {
 
 
@@ -31,15 +33,21 @@ const CardDetail = ({ id,name,posted,difficulty,description,descriptionList }:
               className="f-size-p7"
               style={{ color: "#00E267" }}>
               დაიდო:
-              <span className="f-size-p6est">{posted}</span>
+              <span className="f-size-p6est">{dayjs(created_at).format('YYYY/MM/DD')}</span>
             </p>
             <p
               className="f-size-p7"
               style={{ color: "#636469" }}>
               სირთულე:
-              <span className="" style={{ color: "#FFD703" }}>
-                {difficulty}
-              </span>
+
+              {difficulty == 1 && <span style={{ color: "#16c93e" }}>მარტივი</span>}
+
+              {difficulty == 2 && <span style={{ color: "#ffd703" }}>საშუალო</span>}
+
+              {difficulty == 3 && <span style={{ color: "#ff5c4d" }}>რთული</span>}
+
+
+              
             </p>
           </div>
           <div className="card_detail--container__description">

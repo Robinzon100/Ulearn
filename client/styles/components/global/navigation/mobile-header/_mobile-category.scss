@@ -104,6 +104,7 @@ $category-max-width:25rem;
         border-radius: 50%;
         @include flex(center, center, row);
         padding: 1rem;
+        cursor: pointer;
       }
   }
 
