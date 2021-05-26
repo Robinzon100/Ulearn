@@ -1,4 +1,3 @@
-
 .header {
   position: fixed;
   z-index: 999;
@@ -14,28 +13,32 @@
     width: 100%;
   }
 
-  
+  .logo-search {
+    @include flex(initial, center);
+    max-width: 60rem;
+    width: 100%;
+
+    :not(:last-child) {
+        margin-right: 4.5rem !important;
+    }
+  }
+  .login-profile {
+    @include flex(initial, center);
+    max-width: 56rem;
+    width: 100%;
+
+
+    :not(:last-child) {
+        margin-right: 4.5rem !important;
+    }
+  }
+
 
   .mobile_hamburger {
     display: none;
   }
 
-  .logo_container,
-  .header__category-menu,
-  .search,
-  .course-page,
-  .become-lectore,
-  .cart,
-  .profile,
-  .login {
-    &:not(:first-child) {
-      margin-left: 1.5rem !important;
-    }
-  }
-  
-//   &:not(:first-child) {
-//     margin-left: 1.5rem !important;
-//   }
+
 
   .logo_container {
     .logo {
@@ -50,6 +53,7 @@
   &__category-menu {
     position: relative;
     cursor: pointer;
+    margin: 0 2rem;
 
     &--heading {
       display: flex;
@@ -168,7 +172,7 @@
   }
 
   .cart {
-    transform: rotateY(-180deg);
+    // transform: rotateY(-180deg);
 
     a {
       text-decoration: none;

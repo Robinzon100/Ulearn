@@ -1,5 +1,6 @@
-import { FC, useState } from "react";
+import { useEffect, useState } from "react";
 import useSWR from "swr";
+import { GetServerSideProps } from 'next';
 import { ShoppingCart, ChevronDown,Search } from "react-feather";
 import NextLink from "components/utils/nextLink/NextLink";
 
@@ -14,11 +15,12 @@ import Button from "components/lib/button/Button";
 
 //? ACTIONS
 import { fetcher } from "actions/swr/fetchers";
+import { ifUserCookieExistsReturnProp } from "components/utils/auth/redirect.utils";
 
 
 
 
-const Navigation: FC = () => {
+const Navigation = ({ isLogedIn }) => {
   const [isToggled, setIsToggled] = useState(false);
   const [isMouseleftCategory, setIsMouseLeftCategory] = useState(false);
 
@@ -30,7 +32,9 @@ const Navigation: FC = () => {
     fetcher
   );
 
-
+    useEffect(() => {
+        console.log(isLogedIn)
+    }, [])
 
 
 
@@ -40,13 +44,13 @@ const Navigation: FC = () => {
         
         <div className="header-container">
 
+        <div className="logo-search">
 
         <div className="logo_container">
           <NextLink route="/">
             <div className="logo"></div>
           </NextLink>
         </div>
-
 
         <div className="search">
           <Input
@@ -59,6 +63,8 @@ const Navigation: FC = () => {
             disabled={false}
           />
         </div>
+        </div>
+        
 
 
         <div
@@ -90,7 +96,9 @@ const Navigation: FC = () => {
         </div>
 
 
-
+       
+       <div className="login-profile">
+              
         <div className="course-page">
           <NextLink route="/courses" className="link">
             <p className="f-weight-r f-size-p6">კურსები</p>
@@ -106,13 +114,13 @@ const Navigation: FC = () => {
         </div>
 
 
-
+        {isLogedIn &&
         <div className="login">
           <Button route="/login" size="mini" color="blue">
             <p className="f-weight-r f-size-p7">login / sign up</p>
           </Button>
         </div>
-
+        }
 
 
         <div className="cart">
@@ -122,12 +130,15 @@ const Navigation: FC = () => {
         </div>
 
 
-
+        {isLogedIn && 
         <div className="profile">
           <div className="user-icon">
             <NextLink route="/profile" />
           </div>
         </div>
+        }
+
+       </div>
 
 
 
@@ -141,5 +152,24 @@ const Navigation: FC = () => {
     </>
   );
 };
+
+
+export const getServerSideProps = async (ctx) => {
+
+    const ifLogedIn = await ifUserCookieExistsReturnProp(
+        {propsObject:{failObject:{ isLogedIn:false },successObject:{isLogedIn:true}}},ctx);
+
+    return{
+        props:{
+            ifLogedIn
+        }
+    }
+}
+
+
+
+
+
+
 
 export default Navigation;

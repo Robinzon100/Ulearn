@@ -6,14 +6,32 @@
     .course-page{
         display: none;
     }
+
+    .login {
+        display: none;
+    }
+
+    .logo-search {
+        max-width: initial !important;
+        width: initial !important;
+      }
+      .login-profile {
+        max-width: initial !important; 
+        width: initial !important;
+      }
   }
 }
+
+
+
 @media screen and (max-width: $small-screen) {
 
     .header {
         display: none !important;
     }   
 }
+
+
 
 @media screen and (max-width: $ultra-small-screen) {
 

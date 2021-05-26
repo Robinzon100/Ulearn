@@ -12,7 +12,7 @@
     height: 100%;
 }
 
-@mixin flex($justify-content,$align-items,$flex-direction) {
+@mixin flex($justify-content,$align-items:center,$flex-direction:row) {
     display: flex;
     justify-content: $justify-content;
     align-items: $align-items;
