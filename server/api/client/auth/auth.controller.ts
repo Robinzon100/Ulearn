@@ -90,12 +90,10 @@ export const postLogin = async (req: Request, res: Response, next: NextFunction)
 //! ─── TOKEN REFRESH ───────────────────────────────────────────────────────────────
 export const postRefreshToken = async (req: Request, res: Response, next: NextFunction) => {
     const { auth_refresh_token } = req.headers
-    // TODO: import this from another file
-    interface IRefreshToken { userUUID: string }
 
     try {
         const { userUUID } = jwt.verify(
-            `${auth_refresh_token}`, process.env.JWT_REFRESH_TOKEN_SECRET!) as IRefreshToken
+            `${auth_refresh_token}`, process.env.JWT_REFRESH_TOKEN_SECRET!) as { userUUID: string }
 
         if (!userUUID)
             customError(res, next, 'token not valid', 403)

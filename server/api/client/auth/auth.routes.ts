@@ -1,7 +1,6 @@
-import jwt from 'jsonwebtoken';
-import express from "express";
+import { Router } from "express";
 import { defaultRouterOptions } from "../../../constants/router.options";
-const router = express.Router(defaultRouterOptions);
+const router = Router(defaultRouterOptions);
 
 
 //! ─── OWN ────────────────────────────────────────────────

@@ -1,14 +1,16 @@
+import { Router } from "express";
+
+import { defaultRouterOptions } from "../../../constants/router.options";
+const router = Router(defaultRouterOptions);
+
 //! ─── OWN ────────────────────────────────────────────────────────────────────────
 //? UTILS
-import defaultRouter from './landingCourses/landingCourses.routes';
-
 
 //? ROUTES
 import landingCourseRoutes from "./landingCourses/landingCourses.routes";
-import { getSingleCourses } from './courses.controller';
-
 
 //? CONTROLLERS
+import { getSingleCourses } from './courses.controller';
 
 //? MIDDLEWARES
 
@@ -17,16 +19,16 @@ import { getSingleCourses } from './courses.controller';
 
 // ─── ROUTES ─────────────────────────────────────────────────────────────────────
 //? general
-defaultRouter.get('/:uuid', getSingleCourses)
+router.get('/:uuid', getSingleCourses)
 
 
 //? landing
-defaultRouter.use('/landing_courses', landingCourseRoutes);
+router.use('/landing_courses', landingCourseRoutes);
 
 
 
 
-export default defaultRouter;
+export default router;
 
 
 

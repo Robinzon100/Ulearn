@@ -1,7 +1,12 @@
+import { Router } from "express";
+
+import { defaultRouterOptions } from "../../../../constants/router.options";
+const router = Router(defaultRouterOptions);
+
 
 //! ─── OWN ────────────────────────────────────────────────────────────────────────
 //? UTILS
-import { defaultRouter } from '../../../../utils/router/defautl.router';
+
 
 //? CONTROLLERS
 import { getLandingCourses } from './landingCourses.controller';
@@ -13,13 +18,13 @@ import { getLandingCourses } from './landingCourses.controller';
 
 
 // ─── ROUTES ─────────────────────────────────────────────────────────────────────
-defaultRouter.get('/all', getLandingCourses);
+router.get('/all', getLandingCourses);
 
 
 
 
 
-export default defaultRouter;
+export default router;
 
 
 
