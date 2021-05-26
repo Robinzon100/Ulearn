@@ -70,13 +70,13 @@ const Navigation = () => {
 
 
           <div
-            className="header__category-menu"
+            className="header-category-menu"
             onClick={() => {
               setIsToggled((isToggled) => !isToggled);
               setIsMouseLeftCategory(true);
             }}
           >
-            <div className="header__category-menu--heading">
+            <div className="header-category-menu--heading">
               <p className="f-weight-b f-size-p5">კატეგორიები</p>
               <span className="chevrondown">
                 <ChevronDown />

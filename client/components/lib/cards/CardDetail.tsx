@@ -13,7 +13,7 @@ import { PrimaryContentCardHover } from "../../../interfaces/PrimaryContentCardH
 
 
 
-const CardDetail = ({ id,name,created_at,difficulty,description,descriptionList }:
+const CardDetail = ({ id,name,created_at,difficulty,description}:
     PrimaryContentCardHover) => {
 
 
@@ -53,23 +53,8 @@ const CardDetail = ({ id,name,created_at,difficulty,description,descriptionList 
           <div className="card_detail--container__description">
             <p className="f-size-p6">{description}</p>
           </div>
-          <div className="card_detail--container__list">
-            <ul>
-              {descriptionList &&
-                descriptionList.map((list, i) => (
-                  <li key={i}>
-                    <div className="check">
-                      <Check size={15} />
-                    </div>
-                    <div className="paragraph">
-                      <p className="f-size-p6">
-                        {list.list}
-                      </p>
-                    </div>
-                  </li>
-                ))}
-            </ul>
-          </div>
+
+
         </div>
 
         <a href="#">

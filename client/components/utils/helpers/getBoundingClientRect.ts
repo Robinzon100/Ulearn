@@ -1,11 +1,13 @@
 export const GetBoundingClientRect = (selfRef,elProperties,setElProperties) => {
     if (!selfRef || !selfRef.current) return elProperties;
-    const rect = selfRef.current.getBoundingClientRect();
-    const left = rect.left;
-    const top = rect.top;
-    const width = rect.width;
-    const right = rect.right;
+    let rect = selfRef.current.getBoundingClientRect();
+    let left = rect.left;
+    let top = rect.top;
+    let width = rect.width;
+    let right = rect.right;
+
+    setElProperties({ left, top,width,right })
 
 
-    return setElProperties({ left, top,width,right });
+    return { left, top,width,right }
 }

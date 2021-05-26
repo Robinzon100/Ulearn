@@ -3,12 +3,19 @@ import { Star } from "react-feather";
 
 //! ==================OUR IMPORTS
 
-import { GetBoundingClientRect } from "components/utils/helpers/getBoundingClientRect";
-import { PrimaryContentCards } from "interfaces/PrimaryContentCard.interface";
 
+import { cardHoverHandler } from "./utils/cardHoverHandler"
+import { handleAddFavorite } from "./utils/handleAddFavorite"
+
+
+
+import { PrimaryContentCards } from "interfaces/PrimaryContentCard.interface";
 import { stringToCut } from "components/utils/helpers/stringToCut";
 import CardDetail from "./CardDetail";
 import NextLink from "components/utils/nextLink/NextLink";
+
+
+
 
 const Card = ({
   id,
@@ -22,7 +29,6 @@ const Card = ({
   created_at,
   difficulty,
   description,
-  descriptionList,
   overall_rating,
 }: PrimaryContentCards) => {
   const selfRef = useRef<HTMLDivElement>(null);
@@ -43,51 +49,19 @@ const Card = ({
 
   const [, setIsVisible] = useState<boolean>(false);
 
-  const handleAddFavorite = (e) => {
-    // debugger
-    const hearts = document.querySelectorAll(".heart");
-    hearts.forEach((heart) => {
-      if (heart.classList.contains("heart-background")) {
-        heart.classList.remove("heart-background");
-      }
-    });
-    e.currentTarget.classList.toggle("heart-background");
 
-    setAddToFavorites((addToFavorites) => !addToFavorites);
-  };
 
-  const cardHoverHandler = (e) => {
-    //Calculates Card width and positions
 
-    let ww = Math.max(document.documentElement.clientWidth,window.innerWidth || 0);
-    let offSetLeft = e.currentTarget.parentElement.offsetLeft;
 
-    if (Math.round(offSetLeft) > ww / 2 - offSetLeft / 10) {
-      GetBoundingClientRect(selfRef, elProperties, setElProperties);
-      e.currentTarget.firstChild.style.top = `${
-        elProperties.top - elProperties.top - 30
-      }px`;
-      e.currentTarget.firstChild.style.right = `${
-        elProperties.width - elProperties.width + 315
-      }px`;
-    } else {
-      e.currentTarget.firstChild.style.top = `${
-        elProperties.top - elProperties.top - 30
-      }px`;
-      e.currentTarget.firstChild.style.left = `${
-        elProperties.width - elProperties.width + 35
-      }px`;
-      GetBoundingClientRect(selfRef, elProperties, setElProperties);
-    }
-
-    setIsClicked((isClicked) => !isClicked);
-  };
 
   //! ეს გვეხმარება რომ როცა ჰოვერი მოხდება კარტა და ღილაღი გაქრეს!
   const handleHoverLeave = () => {
     setIsClicked(null);
     setIsVisible(false);
   };
+
+
+
 
   return (
     <>
@@ -135,7 +109,7 @@ const Card = ({
         </NextLink>
         <div
           className="course_card_hover_logo course_card_hover_logo_mobile"
-          onClick={(e) => cardHoverHandler(e)}
+          onClick={(e) => cardHoverHandler(e,selfRef,elProperties,setElProperties,setIsClicked)}
         >
           <div className={isClicked ? "card_detail" : "card_detail-display"}>
             {
@@ -145,7 +119,6 @@ const Card = ({
                 created_at={created_at}
                 difficulty={difficulty}
                 description={description}
-                descriptionList={descriptionList}
               />
             }
           </div>
@@ -190,7 +163,7 @@ const Card = ({
                 ? "full-heart-svg heart heart-background"
                 : "stroke-heart-svg heart"
             }
-            onClick={handleAddFavorite}
+            onClick={(e) => handleAddFavorite(e,setAddToFavorites)}
           ></div>
         </div>
       </div>

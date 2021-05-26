@@ -7,7 +7,6 @@ import { GetServerSideProps } from 'next';
 import { getUser } from 'actions/client/user/profile/profile.action';
 import { authenticatedGet } from '../components/utils/auth/IfTokenExpiered';
 import { redirect } from 'components/utils/auth/redirect.utils';
-// import { ifUserIsAuthenticated } from '../components/utils/auth/redirect.utils';
 
 // import cookie from 'cookie';
 
