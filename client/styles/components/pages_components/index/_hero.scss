@@ -61,11 +61,8 @@ $hero-paragraph-margin: 0vw 0vw 3vw 0vw;
     }
 
     &__paragraph {
-      // color: $opacity-grey;
-      // max-width: 85%;
       width: 100%;
       margin: $hero-paragraph-margin;
-      // opacity: 50%;
       color: var(--primary-white);
 
       p {
