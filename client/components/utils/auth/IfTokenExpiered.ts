@@ -41,6 +41,8 @@ export const authenticatedGet = async (fetcher, ctx) => {
     await renewAccExpCookiesSRR(tokenRes, ctx)
     const { auth_access_token } = cookie.parse(ctx.req.headers.cookie || '')
     res = await fetcher(auth_access_token)
+
+    return false
   }
 
   return res

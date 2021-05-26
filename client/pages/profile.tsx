@@ -6,6 +6,7 @@ import { GetServerSideProps } from 'next';
 //? UTILS
 import { getUser } from 'actions/client/user/profile/profile.action';
 import { authenticatedGet } from '../components/utils/auth/IfTokenExpiered';
+import { redirect } from 'components/utils/auth/redirect.utils';
 // import { ifUserIsAuthenticated } from '../components/utils/auth/redirect.utils';
 
 // import cookie from 'cookie';
@@ -15,7 +16,9 @@ import { authenticatedGet } from '../components/utils/auth/IfTokenExpiered';
 const profile = ({ user }) => {
     return (
         <div style={{ marginTop: "10rem" }}>
-            <h1>{JSON.stringify(user)}</h1>
+            <h1>
+                <pre>{JSON.stringify(user, null, "\t")}</pre>
+            </h1>
         </div>
     )
 }
@@ -23,21 +26,17 @@ const profile = ({ user }) => {
 
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-
     const res = await authenticatedGet(getUser, ctx)
-    // const { auth_access_token } = cookie.parse(ctx.req.headers.cookie || '')
-    // const res = await getUser(auth_access_token)
 
-
-    // console.log(res.user)
-
-
-
-    return {
-        props: {
-            user: res.user
+    if (res) {
+        return {
+            props: {
+                user: res.user
+            }
         }
     }
+
+    return redirect('/login')
 }
 
 

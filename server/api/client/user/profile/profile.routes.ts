@@ -12,7 +12,7 @@ const router = express.Router(defaultRouterOptions);
 
 
 //? CONTROLLERS
-import { getUser } from "./profile.controller";
+import { getUser, updateUser } from "./profile.controller";
 
 //? MIDDLEWARES
 
@@ -25,6 +25,7 @@ router.use(validateTokenAndGetUser)
 // ─── ROUTES ─────────────────────────────────────────────────────────────────────
 router.route('/')
     .get(getUser)
+    .post(updateUser)
 
 
 export default router;

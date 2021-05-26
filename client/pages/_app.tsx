@@ -13,7 +13,7 @@ import { swrOptions } from '../constants/swrOptions';
 
 
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps}: AppProps) {
     return (
         <>
             <Head>
@@ -31,7 +31,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                         <main className='main'>
                             <Component {...pageProps} />
                         </main>
-                        <BottomNavigation/>
+                        <BottomNavigation />
                     </CookiesProvider>
                 </RootStateProvider>
             </SWRConfig>

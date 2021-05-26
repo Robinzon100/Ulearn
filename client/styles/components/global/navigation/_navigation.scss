@@ -19,17 +19,18 @@
     width: 100%;
 
     :not(:last-child) {
-        margin-right: 4.5rem !important;
+      margin-right: 4.5rem !important;
     }
   }
+
   .login-profile {
-    @include flex(initial, center);
+    @include flex(flex-end, center);
     max-width: 56rem;
     width: 100%;
 
 
     :not(:last-child) {
-        margin-right: 4.5rem !important;
+      margin-right: 4.5rem !important;
     }
   }
 
@@ -120,11 +121,9 @@
               align-items: center;
 
               .cube {
-                @include background-properties(
-                  "/pictures/cube.svg",
+                @include background-properties("/pictures/cube.svg",
                   cover,
-                  center
-                );
+                  center);
                 background-color: var(--secondary-light-grey);
                 width: 2rem;
                 height: 2rem;
@@ -187,11 +186,9 @@
 
   .profile {
     .user-icon {
-      @include background-properties(
-        "/pictures/unregistered_user.svg",
+      @include background-properties("/pictures/unregistered_user.svg",
         cover,
-        center
-      );
+        center);
       width: 4rem;
       height: 4rem;
       cursor: pointer;

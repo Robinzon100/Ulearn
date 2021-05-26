@@ -5,6 +5,12 @@ import customError from '../../../../utils/createError';
 
 export const getUser = async (req: Request, res: Response, next: NextFunction) => {
     res.json({
-        user: req.user 
+        user: req.user
     })
+}
+
+
+
+export const updateUser = async (req: Request, res: Response, next: NextFunction) => {
+    
 }
