@@ -15,6 +15,10 @@ const profile = ({ user }) => {
 
   return (
     <>
+     <h1>
+        <pre>{JSON.stringify(user, null, "\t")}</pre>
+    </h1>
+
       <section className="profile-hero">
         <div className="profile-hero__img"></div>
 
@@ -40,6 +44,3 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
 export default profile;
 
-// <h1>
-//                 <pre>{JSON.stringify(user, null, "\t")}</pre>
-//             </h1>

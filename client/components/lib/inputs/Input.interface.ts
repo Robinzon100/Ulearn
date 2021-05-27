@@ -12,6 +12,7 @@ export interface IinputInterface extends IGlobal {
     name?: string;
     filled?: boolean,
     defaultValue?:string
+    readonly?:boolean;
 }
 
 

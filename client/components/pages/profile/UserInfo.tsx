@@ -45,19 +45,33 @@ const UserInfo = () => {
 
             <div className="name-surname">
                 <Input
+                    className="f-size-p2 f-weight-bl"
                     color="white"
                     size="medium"
                     type="text"
-                    placeHolder="მოძებნე სასურველი კურსი"
                     width="100%"
-                    disabled={false}
-                    defaultValue="სახელა სახელაშვილი"
-                    style={{background:"none"}}
-                    
+                    disabled={true}
+                    value="სახელა სახელაშვილი"
+                    // defaultValue="სახელა სახელაშვილი"
+                    style={{background:"none",border:"none"}}
+                    readonly={true}
                 />
             </div>
 
-            <div className="about-user"></div>
+            <div className="about-user">
+                <Input
+                    className="f-size-p2 f-weight-bl"
+                    color="white"
+                    size="medium"
+                    type="text"
+                    width="100%"
+                    disabled={true}
+                    value="სახელა სახელაშვილი"
+                    // defaultValue="სახელა სახელაშვილი"
+                    style={{background:"none",border:"none"}}
+                    readonly={true}
+                />
+            </div>
 
             <div className="email"></div>
 
