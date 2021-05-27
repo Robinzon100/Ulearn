@@ -21,6 +21,7 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
     icon,
     iconRight,
     width,
+    defaultValue,
     filled = true
   }, ref: React.Ref<HTMLInputElement | null>,) => {
 
@@ -50,6 +51,7 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
             className={`input_field  ${className && className}`}
             placeholder={placeHolder}
             style={style}
+            defaultValue={defaultValue}
           />
 
           {iconRight && (

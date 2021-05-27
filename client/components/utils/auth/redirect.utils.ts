@@ -17,12 +17,12 @@ export const ifUserLoginOrRegister = (ctx,redirectLocation:string) => {
     cookie.parse(ctx.req.headers.cookie || "");
 
   if (!auth_access_token || !auth_refresh_token || !auth_token_expiration) {
-    return redirect(redirectLocation);
-  } else {
     return {
-      props: {},
-    };
-  }
+        props: {},
+      };
+  } else {
+      return redirect(redirectLocation);
+    }
 };
 
 

@@ -114,17 +114,8 @@ const Navigation = () => {
                 <p className="f-weight-r f-size-p6">ლექტორი</p>
               </NextLink>
             </div>
-
-
-            {!isLogedIn &&
-              <div className="login">
-                <Button route="/login" size="mini" color="blue">
-                  <p className="f-weight-r f-size-p7">login / sign up</p>
-                </Button>
-              </div>
-            }
-
-
+            
+            
             <div className="cart">
               <NextLink route="/shopping_cart">
                 <ShoppingCart />
@@ -139,6 +130,14 @@ const Navigation = () => {
                   <div className="user-icon" />
                 </div>
               </NextLink>
+            }
+
+            {!isLogedIn &&
+              <div className="login">
+                <Button route="/login" size="mini" color="blue">
+                  <p className="f-weight-r f-size-p7">login / sign up</p>
+                </Button>
+              </div>
             }
 
           </div>

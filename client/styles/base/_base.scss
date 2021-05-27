@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+
 *,
 *::before,
 *::after {
@@ -35,7 +38,7 @@ html {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased !important;
-    font-family: 'georgian', 'Eina' , 'sailec';
+    font-family: 'georgian', 'Inter', sans-serif;
 }
 
 body {
