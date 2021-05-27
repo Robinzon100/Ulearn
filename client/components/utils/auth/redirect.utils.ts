@@ -42,6 +42,4 @@ export const ifUserCookieExistsReturnProp = async (option: IOption, ctx) => {
   } else {
     return option.successObject
   }
-
-
 };

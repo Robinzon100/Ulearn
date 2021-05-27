@@ -15,7 +15,7 @@ import profileRoutes from "./profile/profile.routes";
 
 
 // ─── ROUTES ─────────────────────────────────────────────────────────────────────
-router.use('/profile', profileRoutes );
+router.use('/profile', profileRoutes);
 
 
 export default router;

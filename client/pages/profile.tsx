@@ -5,41 +5,36 @@ import UserInfo from "components/pages/profile/UserInfo";
 
 
 //? UTILS
-import { getUser } from "actions/client/user/profile/profile.action";
-import { authenticatedGet } from "../components/utils/auth/IfTokenExpiered";
-import { redirect } from "components/utils/auth/redirect.utils";
-
-// import cookie from 'cookie';
+import { getUser } from 'actions/client/user/profile/profile.action';
+import { authenticatedGet } from 'components/utils/auth/IfTokenExpiered';
+import { redirect } from 'components/utils/auth/redirect.utils';
 
 const profile = ({ user }) => {
 
-  return (
-    <>
-     <h1>
-        <pre>{JSON.stringify(user, null, "\t")}</pre>
-    </h1>
+    return (
+        <>
+            <pre>{JSON.stringify(user, null, "\t")}</pre>
 
-      <section className="profile-hero">
-        <div className="profile-hero__img"></div>
-
-        <UserInfo/>
-      </section>
-    </>
-  );
+            <section className="profile-hero">
+                <div className="profile-hero__img" />
+                <UserInfo />
+            </section>
+        </>
+    );
 };
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const res = await authenticatedGet(getUser, ctx);
+    const res = await authenticatedGet(getUser, ctx)
 
-  if (res) {
-    return {
-      props: {
-        user: res.user,
-      },
-    };
-  }
+    if (res) {
+        return {
+            props: {
+                user: res.user,
+            },
+        };
+    }
 
-  return redirect("/login");
+    return redirect("/login");
 };
 
 export default profile;
