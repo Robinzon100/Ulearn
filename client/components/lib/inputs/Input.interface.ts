@@ -13,6 +13,8 @@ export interface IinputInterface extends IGlobal {
     filled?: boolean,
     defaultValue?:string
     readonly?:boolean;
+    minHeight?:string;
+    maxHeight?:string;
 }
 
 
