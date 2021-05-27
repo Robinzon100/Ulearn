@@ -13,9 +13,10 @@ const profile = ({ user }) => {
 
     return (
         <>
-            <section className="profile-hero">
-                <div className="profile-hero__img"></div>
+            <pre>{JSON.stringify(user, null, "\t")}</pre>
 
+            <section className="profile-hero">
+                <div className="profile-hero__img" />
                 <UserInfo />
             </section>
         </>
