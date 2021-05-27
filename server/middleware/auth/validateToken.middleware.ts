@@ -5,15 +5,22 @@ import customError from '../../utils/createError';
 
 
 
+const decodeAccessToken = async (req: Request) => {
+    const { auth_access_token } = req.headers
+    const decoded = await jwt.verify(
+        `${auth_access_token}`,
+        process.env.JWT_ACCESS_TOKEN_SECRET!)
+    return decoded
+}
 
-const validateTokenAndGetUser = async (req: Request, res: Response, next: NextFunction) => {
+
+
+const getUserWithAccessToken = async (
+    req: Request,
+    res: Response,
+    next: NextFunction) => {
     try {
-        const { auth_access_token } = req.headers
-        interface IRefreshToken { userUUID: string }
-
-        const { userUUID } = jwt.verify(
-            `${auth_access_token}`, process.env.JWT_ACCESS_TOKEN_SECRET!) as IRefreshToken
-
+        const { userUUID } = await decodeAccessToken(req) as { userUUID: string }
         const user = await User.query().where('uuid', userUUID)
         req.user = user
         next()
@@ -24,6 +31,28 @@ const validateTokenAndGetUser = async (req: Request, res: Response, next: NextFu
 
 
 
+const validateAccessToken = async (
+    req: Request,
+    res: Response,
+    next: NextFunction) => {
+    try {
+        const decoded = await decodeAccessToken(req)
+        if (decoded) {
+            next()
+        } else {
+            return customError(res, next, "token not valid", 403)
+        }
+    } catch (err) {
+        return customError(res, next, "token not valid", 403)
+    }
+}
+
+
+
+
+
 export {
-    validateTokenAndGetUser
+    getUserWithAccessToken,
+    decodeAccessToken,
+    validateAccessToken
 }

@@ -5,11 +5,8 @@ import { GetServerSideProps } from 'next';
 
 //? UTILS
 import { getUser } from 'actions/client/user/profile/profile.action';
-import { authenticatedGet } from '../components/utils/auth/IfTokenExpiered';
+import { authenticatedGet } from 'components/utils/auth/IfTokenExpiered';
 import { redirect } from 'components/utils/auth/redirect.utils';
-// import { ifUserIsAuthenticated } from '../components/utils/auth/redirect.utils';
-
-// import cookie from 'cookie';
 
 
 
@@ -27,8 +24,8 @@ const profile = ({ user }) => {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
     const res = await authenticatedGet(getUser, ctx)
-
-    if (res) {
+    
+    if (res.statusCode == 200) {
         return {
             props: {
                 user: res.user
