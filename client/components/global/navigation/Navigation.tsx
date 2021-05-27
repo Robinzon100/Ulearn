@@ -70,13 +70,13 @@ const Navigation = () => {
 
 
           <div
-            className="header__category-menu"
+            className="header-category-menu"
             onClick={() => {
               setIsToggled((isToggled) => !isToggled);
               setIsMouseLeftCategory(true);
             }}
           >
-            <div className="header__category-menu--heading">
+            <div className="header-category-menu--heading">
               <p className="f-weight-b f-size-p5">კატეგორიები</p>
               <span className="chevrondown">
                 <ChevronDown />
@@ -114,17 +114,8 @@ const Navigation = () => {
                 <p className="f-weight-r f-size-p6">ლექტორი</p>
               </NextLink>
             </div>
-
-
-            {!isLogedIn &&
-              <div className="login">
-                <Button route="/login" size="mini" color="blue">
-                  <p className="f-weight-r f-size-p7">login / sign up</p>
-                </Button>
-              </div>
-            }
-
-
+            
+            
             <div className="cart">
               <NextLink route="/shopping_cart">
                 <ShoppingCart />
@@ -139,6 +130,14 @@ const Navigation = () => {
                   <div className="user-icon" />
                 </div>
               </NextLink>
+            }
+
+            {!isLogedIn &&
+              <div className="login">
+                <Button route="/login" size="mini" color="blue">
+                  <p className="f-weight-r f-size-p7">login / sign up</p>
+                </Button>
+              </div>
             }
 
           </div>

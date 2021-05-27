@@ -22,6 +22,8 @@
 @import "pages/login_registration/login_registration";
 @import "pages/login_registration/register";
 @import "pages/login_registration/login";
+@import "pages/profile/profile";
+
 
 
 /// === === === QUERYS=== === === ===
@@ -34,6 +36,7 @@
 
 /// === === ===  GLOBAL COMPONENTS === === === ===
 @import "components/global/navigation/navigation";
+@import "components/global/navigation/NavigationCategory";
 @import "components/global/bottom-navigation/bottomNavigationSearch";
 
 @import "components/global/navigation/mobile-header/mobile-header";

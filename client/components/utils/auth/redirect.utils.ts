@@ -1,5 +1,6 @@
 import cookie from "cookie";
-import { GetServerSideProps } from 'next';
+
+
 
 export const redirect = (destination: string, permanent: boolean = false) => {
   return {
@@ -11,35 +12,18 @@ export const redirect = (destination: string, permanent: boolean = false) => {
 };
 
 
-export const ifUserLoginOrRegister = (ctx) => {
-  const { auth_access_token, auth_refresh_token, auth_token_expiration } =
-    cookie.parse(ctx.req.headers.cookie || "");
-
-  if (auth_access_token && auth_refresh_token && auth_token_expiration) {
-    return redirect("/");
-  } else {
-    return {
-      props: {},
-    };
-  }
-};
-
-
-export const ifUserIsAuthenticated = async (ctx) => {
+export const ifUserLoginOrRegister = (ctx,redirectLocation:string) => {
   const { auth_access_token, auth_refresh_token, auth_token_expiration } =
     cookie.parse(ctx.req.headers.cookie || "");
 
   if (!auth_access_token || !auth_refresh_token || !auth_token_expiration) {
-    return redirect("/login");
-  } else {
     return {
-      props: {},
-    };
-  }
+        props: {},
+      };
+  } else {
+      return redirect(redirectLocation);
+    }
 };
-
-
-
 
 
 
@@ -52,7 +36,6 @@ export const ifUserCookieExistsReturnProp = async (option: IOption, ctx) => {
   const { auth_access_token, auth_refresh_token, auth_token_expiration } =
     cookie.parse(ctx.req.headers.cookie || "");
 
-  console.log(option)
 
   if (!auth_access_token || !auth_refresh_token || !auth_token_expiration) {
     return option.failObject

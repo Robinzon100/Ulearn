@@ -31,7 +31,7 @@ const Register = () => {
 
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-    return ifUserLoginOrRegister(ctx)
+    return ifUserLoginOrRegister(ctx,"/")
 }
 
 
