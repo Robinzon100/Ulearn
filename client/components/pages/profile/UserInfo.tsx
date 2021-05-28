@@ -12,6 +12,7 @@ import { emailRegex, passwordRegex } from "components/utils/regex/Regex";
 import Input from "components/lib/inputs/Input";
 import TextArea from "components/lib/textarea/TextArea";
 import Button from "components/lib/button/Button";
+import { parseSocials, removeEmptyValuedEntries } from './userInfo.utils';
 
 
 
@@ -21,15 +22,14 @@ type IFormInput = {
   full_name: string;
   detailed_description: string;
   email: string;
-  password: string;
+  current_password: string;
   new_password: string;
 };
 
 
 
 
-const UserInfo = ({ full_name, email,socials }) => {
-
+const UserInfo = ({ full_name, email, socials }) => {
   const [isVerificated, setIsVerificated] = useState(false);
   const [userSocials, setUserSocials] = useState([]);
   const [isEditBtnClicked, setIsEditBtnClicked] = useState(false);
@@ -39,32 +39,23 @@ const UserInfo = ({ full_name, email,socials }) => {
 
 
 
-  const { register,handleSubmit,formState: { errors } } = useForm<IFormInput>();
+  const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>();
 
 
 
 
   useEffect(() => {
-    let getSocials = [];
-
-    for (const [key, value] of Object.entries(socials)) {
-      getSocials.push({ name: key, url: value });
-    }
-    setUserSocials(getSocials);
+    parseSocials(socials, setUserSocials)
   }, []);
 
 
 
 
-  const onSubmit: SubmitHandler<IFormInput> = (data) => {
+  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+    const updatedData = await removeEmptyValuedEntries(data)
+    console.log(updatedData);
 
 
-    for (const [key, value] of Object.entries(data)) {
-        if (value.length <= 0) 
-            delete data[key]
-    }
-
-    console.log({...data});
   };
 
 
@@ -115,9 +106,9 @@ const UserInfo = ({ full_name, email,socials }) => {
                     width="100%"
                     maxHeight="5rem"
                     style={!isEditBtnClicked
-                        ? { background: "none", border: "none" }
-                        : {}}
-                      readonly={!isEditBtnClicked ? true: false}
+                      ? { background: "none", border: "none" }
+                      : {}}
+                    readonly={!isEditBtnClicked ? true : false}
                     {...register("full_name")}
                   />
                 </div>
@@ -125,21 +116,21 @@ const UserInfo = ({ full_name, email,socials }) => {
 
 
 
-            
-              <div className="about-user">
-                <TextArea
-                  className="f-size-p6 f-weight-r"
-                  color="white"
-                  size="medium"
-                  type="text"
-                  width="100%"
-                  minHeight="18rem"
-                  placeHolder={"ფრონტ-ენდ დეველოპერი 10 წლის გამოცდილებით, ვასწავლი 1000-ზე მეტ მოსწავლეს უნივერსიტეტებსა და სხვადასხვა სასწავლო დაწესებულებაში. ასევე ვასწავლის დიზაინს და ბექ-ენდ დეველოპმენტს."}
-                  style={!isEditBtnClicked ? { background: "none", border: "none" } : {}}
-                  readonly={!isEditBtnClicked ? true: false}
-                  {...register("detailed_description")}
-                />
-              </div> 
+
+                <div className="about-user">
+                  <TextArea
+                    className="f-size-p6 f-weight-r"
+                    color="white"
+                    size="medium"
+                    type="text"
+                    width="100%"
+                    minHeight="18rem"
+                    placeHolder={"ფრონტ-ენდ დეველოპერი 10 წლის გამოცდილებით, ვასწავლი 1000-ზე მეტ მოსწავლეს უნივერსიტეტებსა და სხვადასხვა სასწავლო დაწესებულებაში. ასევე ვასწავლის დიზაინს და ბექ-ენდ დეველოპმენტს."}
+                    style={!isEditBtnClicked ? { background: "none", border: "none" } : {}}
+                    readonly={!isEditBtnClicked ? true : false}
+                    {...register("detailed_description")}
+                  />
+                </div>
 
 
 
@@ -155,21 +146,21 @@ const UserInfo = ({ full_name, email,socials }) => {
                     type="text"
                     width="100%"
                     placeHolder={email}
-                      readonly={!isEditBtnClicked ? true: false}
+                    readonly={!isEditBtnClicked ? true : false}
                     //   disabled={!isEditBtnClicked ? true: false}
-                    {...register("email",{
-                        pattern: {
-                            value: emailRegex,
-                            message: "სწორად ჩაწერეთ თქვენი ელექტრონული ფოსტა",
-                        }
+                    {...register("email", {
+                      pattern: {
+                        value: emailRegex,
+                        message: "სწორად ჩაწერეთ თქვენი ელექტრონული ფოსტა",
+                      }
                     })}
                   />
 
-                {errors.email && (
+                  {errors.email && (
                     <p className="form_errors f-size-p6 f-weight-r">
-                        {errors.email.message}
+                      {errors.email.message}
                     </p>
-                )}
+                  )}
                 </div>
 
 
@@ -189,15 +180,15 @@ const UserInfo = ({ full_name, email,socials }) => {
                     width="100%"
                     iconRight={
                       <span onClick={() =>
-                          showHidePasswordHandler(
-                            setIsPasswordHidden,
-                            ".userPassword"
-                          )}>
+                        showHidePasswordHandler(
+                          setIsPasswordHidden,
+                          ".userPassword"
+                        )}>
                         {isPasswordHidden ? <EyeOff /> : <Eye />}
                       </span>
                     }
-                      readonly={!isEditBtnClicked ? true: false}
-                    {...register("password", {
+                    readonly={!isEditBtnClicked ? true : false}
+                    {...register("current_password", {
                       pattern: {
                         value: passwordRegex,
                         message: "თქვენი პაროლი არ არის საკმარისად ძლიერი",
@@ -205,52 +196,52 @@ const UserInfo = ({ full_name, email,socials }) => {
                     })}
                   />
 
-                    {errors.password && (
-                      <p className="form_errors f-size-p6 f-weight-r">
-                        {errors.password.message}
-                      </p>
-                    )}
+                  {errors.current_password && (
+                    <p className="form_errors f-size-p6 f-weight-r">
+                      {errors.current_password.message}
+                    </p>
+                  )}
                 </div>
 
 
 
 
 
-                  <div className="confirm-password">
-                    <div className="heading">
-                      <h1 className="f-size-p6 f-weight-b">
-                        დაადასტურეთ პაროლით
-                      </h1>
-                    </div>
-
-                    <Input
-                      className="f-size-p6 f-weight-r confirm_user_password"
-                      color="white"
-                      size="medium"
-                      type="password"
-                      width="100%"
-                      placeHolder="შეიყვანეთ პაროლი"
-                      disabled={false}
-                      readonly={false}
-                      iconRight={
-                        <span onClick={() =>
-                            showHidePasswordHandler(
-                                setConfirmIsPasswordHidden,
-                              ".confirm_user_password"
-                            )}>
-                          {isConfirmPasswordHidden ? <EyeOff /> : <Eye/>}
-                        </span>
-                      }
-                      {...register("new_password",{
-                        required: "აუცილებლად მიუთითეთ თქვენი პაროლი",
-                        pattern: {
-                            value: passwordRegex,
-                            message: "თქვენი პაროლი არ არის საკმარისად ძლიერი",
-                          }
-                      })}
-                    />
+                <div className="confirm-password">
+                  <div className="heading">
+                    <h1 className="f-size-p6 f-weight-b">
+                      დაადასტურეთ პაროლით
+                    </h1>
                   </div>
-                
+
+                  <Input
+                    className="f-size-p6 f-weight-r confirm_user_password"
+                    color="white"
+                    size="medium"
+                    type="password"
+                    width="100%"
+                    placeHolder="შეიყვანეთ პაროლი"
+                    disabled={false}
+                    readonly={false}
+                    iconRight={
+                      <span onClick={() =>
+                        showHidePasswordHandler(
+                          setConfirmIsPasswordHidden,
+                          ".confirm_user_password"
+                        )}>
+                        {isConfirmPasswordHidden ? <EyeOff /> : <Eye />}
+                      </span>
+                    }
+                    {...register("new_password", {
+                      required: "აუცილებლად მიუთითეთ თქვენი პაროლი",
+                      pattern: {
+                        value: passwordRegex,
+                        message: "თქვენი პაროლი არ არის საკმარისად ძლიერი",
+                      }
+                    })}
+                  />
+                </div>
+
 
 
 
@@ -283,10 +274,10 @@ const UserInfo = ({ full_name, email,socials }) => {
 
 
 
-            
+
                 <div className="edit-btn">
                   <Button
-                    style={!isEditBtnClicked ? {display:"none"} : {}}
+                    style={!isEditBtnClicked ? { display: "none" } : {}}
                     onClick={() => setIsEditBtnClicked(false)}
                     color="green"
                     size="large"
@@ -297,7 +288,7 @@ const UserInfo = ({ full_name, email,socials }) => {
                     <p className="f-weight-r f-size-p6">დადასტურება</p>
                   </Button>
                 </div>
-            </div>
+              </div>
             </form>
 
 

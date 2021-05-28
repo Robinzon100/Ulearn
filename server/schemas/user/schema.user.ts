@@ -9,5 +9,5 @@ export const updateUserSchema = Joi.object({
     description: Joi.string().max(1000),
     imageUrl: Joi.string().max(2048),
     payment_info: Joi.object(),
-    password: passwordUnencrypted().required()
+    current_password: passwordUnencrypted().required()
 })

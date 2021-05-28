@@ -24,7 +24,7 @@ export const createRefreshToken = async (res: Response, object: any) => {
     const refreshToken = await jwt.sign(
         object,
         process.env.JWT_REFRESH_TOKEN_SECRET!,
-        {expiresIn: process.env.JWT_REFRESH_TOKEN_EXPIRATION})
+        { expiresIn: process.env.JWT_REFRESH_TOKEN_EXPIRATION })
     res.setHeader("auth-refresh_token", `${refreshToken}`,)
 }
 
@@ -42,9 +42,8 @@ export const createTokenExpirationHeader = async (res: Response) => {
 
 
 //! ─── AUTH UTILS ───────────────────────────────────────────────────────────
-export const getHashedPassword = async (password: string) => {
-    const salt = await bcrypt.genSaltSync(10);
-    const hashedPassword = await bcrypt.hashSync(password, salt);
-
+export const getHashedPassword = async (password: string): Promise<string> => {
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
     return hashedPassword
 }

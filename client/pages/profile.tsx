@@ -6,12 +6,11 @@ import UserInfo from "components/pages/profile/UserInfo";
 
 //? UTILS
 import { getUser } from 'actions/client/user/profile/profile.action';
-import { authenticatedGet } from 'components/utils/auth/IfTokenExpiered';
+import { authenticatedRequestSSR } from 'components/utils/auth/tokenValidations';
 import { redirect } from 'components/utils/auth/redirect.utils';
 
 
 const profile = ({ user }) => {
-
 
     return (
         <>
@@ -20,10 +19,10 @@ const profile = ({ user }) => {
             </h1>
             <section className="profile-hero">
                 <div className="profile-hero__img" />
-                <UserInfo 
-                    full_name={user[0]?.full_name} 
-                    email={user[0]?.email}
-                    socials={user[0]?.socials}
+                <UserInfo
+                    full_name={user.full_name}
+                    email={user.email}
+                    socials={user.socials}
                 />
             </section>
         </>
@@ -31,9 +30,9 @@ const profile = ({ user }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-    const res = await authenticatedGet(getUser, ctx)
-    console.log(res);
-    
+    const res = await authenticatedRequestSSR(getUser, ctx)
+    console.log(res.user);
+
 
     if (res) {
         return {
