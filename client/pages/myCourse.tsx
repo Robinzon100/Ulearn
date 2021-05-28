@@ -6,7 +6,7 @@ import { Eye} from "react-feather";
 // import SideMenu from "components/lib/sidemenu/sideMenu";
 import CourseVideoPlayer from '../components/pages/myCourse/CourseVideoPlayer';
 import CoursesJson from "../public/json/Courses.json";
-import CourseTablist from "components/pages/myCourse/course_tabs";
+import CourseTablist from "components/pages/myCourse/course_tabs/Course_tabs";
 
 
 //! === INTERFACES(DO NOT DELETE)

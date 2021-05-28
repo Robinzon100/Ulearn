@@ -1,6 +1,6 @@
 import { IinputInterface } from "components/lib/inputs/Input.interface";
 import { forwardRef, PropsWithChildren } from "react";
-import { getInputSize, getColors } from "components/lib/inputs/inputs.style";
+import { getColors } from "components/lib/inputs/inputs.style";
 
 
 
@@ -8,7 +8,6 @@ import { getInputSize, getColors } from "components/lib/inputs/inputs.style";
 const TextArea = forwardRef<HTMLTextAreaElement, PropsWithChildren<IinputInterface>>(
   ({
     color,
-    size,
     placeHolder,
     disabled,
     style,
@@ -24,7 +23,6 @@ const TextArea = forwardRef<HTMLTextAreaElement, PropsWithChildren<IinputInterfa
     readonly,
     minHeight,
     maxHeight,
-    filled = true
   }, ref: React.Ref<HTMLTextAreaElement | null>,) => {
 
 
@@ -107,10 +105,8 @@ const TextArea = forwardRef<HTMLTextAreaElement, PropsWithChildren<IinputInterfa
 
               .input_field:focus {
                 background: var(--primary-white);
-                border: ${!filled && getColors(color).focusedBorder};
                 opacity: 100%;
-                padding: ${icon ? getInputSize(size).focusedPadding :
-                getInputSize(size).paddingWithOutIconsOnFocus};
+                padding: 0 0 0 2rem;
                 box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.03), 
                 0px 9px 23px -6px rgba(0, 0, 0, 0.1), 
                 inset 0px -3px 8px -4px rgba(0, 0, 0, 0.1);

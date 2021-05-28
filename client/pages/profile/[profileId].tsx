@@ -15,9 +15,9 @@ const profile = ({ user }) => {
 
     return (
         <>  
-             <h1>
+             {/* <h1>
                 <pre>{JSON.stringify(user, null, "\t")}</pre>
-            </h1>
+            </h1> */}
 
             <h1></h1>
             <section className="profile-hero">
@@ -25,7 +25,6 @@ const profile = ({ user }) => {
                 <UserInfo 
                     full_name={user[0]?.full_name} 
                     email={user[0]?.email}
-                    password={user[0]?.password}
                     socials={user[0]?.socials}
                 />
             </section>

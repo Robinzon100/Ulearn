@@ -13,8 +13,6 @@
             
             .user-profile {
                 background-color: var(--primary-white);
-                // height: 100%;
-                // max-height: 70rem;
                 max-width: 40rem;
                 width: 100%;
                 margin-top: -12rem;
@@ -65,12 +63,12 @@
                 &__creditionals {
                     margin-top: 10rem;
 
-                    .about_user {
-                        padding: 1rem;
+                    .about-user {
+                        margin-top: 1rem;
                     }
-
-                    .email,.password {
-                        margin-bottom: 4rem;
+                    
+                    .email,.password,.confirm-password {
+                        margin-top: 4rem;
                         .heading {
                             margin-bottom: 2.5rem;
                         }
@@ -82,25 +80,23 @@
                         margin: 4rem 0;
                         width: 100%;
 
-                        .social_url {
-                            width: 100%;
-                            padding: 1.5rem;
+                        &__container {
                             box-shadow: 0px 10px 26px -4px rgba(0, 0, 0, 0.09), 0px 4px 7px rgba(0, 0, 0, 0.02);
                             cursor: pointer;
-
+                        }
+                        .social_url {
+                        @include flex(center,center,row);
                             
                             .box {
                                 @include background-properties("/pictures/profile/socials/facebook.svg",contain);
-                                // padding: 2rem;
                                 width: 2rem;
                                 height: 2rem;
                                 margin: 0 auto;
                             }
                         }
                     }
-
                     .edit-btn {
-                        margin-top: 4rem;
+                        margin-top: 8rem;
                     }
                 }
 
