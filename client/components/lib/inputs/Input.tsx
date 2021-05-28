@@ -22,6 +22,7 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
     iconRight,
     width,
     defaultValue,
+    readonly,
     filled = true
   }, ref: React.Ref<HTMLInputElement | null>,) => {
 
@@ -52,6 +53,7 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
             placeholder={placeHolder}
             style={style}
             defaultValue={defaultValue}
+            readOnly={readonly}
           />
 
           {iconRight && (
@@ -70,9 +72,6 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
                 display: flex;
                 align-items: center;
                 border-radius: 8px;
-                background: ${color === "white"
-                ? getColors(color).defaultBg
-                : "var(--primary-white)"};
                 width: ${width && width};
                 outline: none !important;
               }
@@ -93,8 +92,8 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
               }
 
               .input_field:disabled {
-                color: var(--primary-grey);
-                opacity: 50%;
+                color: var(--primary-dark);
+                // opacity: 50%;
               }
 
               .input_field:hover {

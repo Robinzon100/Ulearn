@@ -3,7 +3,7 @@ import dayjs  from "dayjs";
 
 
 import NextLink from "components/utils/nextLink/NextLink";
-import { ShoppingCart, Check } from "react-feather";
+import { ShoppingCart } from "react-feather";
 import { stringToCut } from "components/utils/helpers/stringToCut";
 
 

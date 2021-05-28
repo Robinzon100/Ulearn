@@ -159,6 +159,10 @@ const RegisterComponent = () => {
               )}
             </div>
 
+
+
+
+
             <div className="base_input_styles recovery_email">
               <div className="heading">
                 <h1 className="f-size-p6 f-weight-b">
@@ -166,7 +170,7 @@ const RegisterComponent = () => {
                 </h1>
               </div>
 
-              {/* //* მგონი შესამოწმებელი გექნება რომ ერთიდა იგივე არ შეიყანოს */}
+
               <Input
                 size="large"
                 name="recovery_email"

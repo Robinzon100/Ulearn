@@ -9,17 +9,22 @@ import { getUser } from 'actions/client/user/profile/profile.action';
 import { authenticatedGet } from 'components/utils/auth/IfTokenExpiered';
 import { redirect } from 'components/utils/auth/redirect.utils';
 
+
 const profile = ({ user }) => {
+
 
     return (
         <>
-
             <h1>
                 <pre>{JSON.stringify(user, null, "\t")}</pre>
             </h1>
             <section className="profile-hero">
                 <div className="profile-hero__img" />
-                <UserInfo />
+                <UserInfo 
+                    full_name={user[0]?.full_name} 
+                    email={user[0]?.email}
+                    socials={user[0]?.socials}
+                />
             </section>
         </>
     );
@@ -43,6 +48,3 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
 export default profile;
 
-// <h1>
-//                 <pre>{JSON.stringify(user, null, "\t")}</pre>
-//             </h1>
