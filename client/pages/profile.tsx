@@ -13,8 +13,10 @@ const profile = ({ user }) => {
 
     return (
         <>
-            <pre>{JSON.stringify(user, null, "\t")}</pre>
 
+            <h1>
+                <pre>{JSON.stringify(user, null, "\t")}</pre>
+            </h1>
             <section className="profile-hero">
                 <div className="profile-hero__img" />
                 <UserInfo />
@@ -25,6 +27,8 @@ const profile = ({ user }) => {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
     const res = await authenticatedGet(getUser, ctx)
+    console.log(res);
+    
 
     if (res) {
         return {

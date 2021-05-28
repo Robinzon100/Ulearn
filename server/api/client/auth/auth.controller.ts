@@ -65,7 +65,9 @@ export const postLogin = async (req: Request, res: Response, next: NextFunction)
 
     try {
         const [user] = await User.query().where("email", email)
-        const doesPasswordMatch = user ? await bcrypt.compareSync(password, user.password) : false
+        const doesPasswordMatch = user
+            ? await bcrypt.compareSync(password, user.password)
+            : false
 
         if (doesPasswordMatch && user) {
             await createAccessToken(res, { userUUID: user.uuid })
