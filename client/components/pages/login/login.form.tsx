@@ -2,7 +2,8 @@
 import { Eye, EyeOff } from "react-feather";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useState } from "react";
-import { useRouter } from "next/router";
+import Router,{ useRouter } from "next/router";
+
 
 
 //! ─── OWN ────────────────────────────────────────────────────────────────────────
@@ -56,6 +57,7 @@ const loginComponent = () => {
     if (res.statusCode == 200) {
       setCookiesAndRedirect(res)
       setIsButtonLoading(true)
+      Router.reload();
       router.push("/");
     } else {
       return setServerErrors("მონაცემები არასწორია");

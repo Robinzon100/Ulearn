@@ -96,6 +96,9 @@ const UserInfo = ({ full_name, email, socials }) => {
 
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="user-profile__creditionals">
+
+
+                  {/* //* ===== NAME-SURNAME =====*/}
                 <div className="name-surname">
                   <TextArea
                     className="f-size-p2 f-weight-bl "
@@ -116,6 +119,7 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
 
+                  {/* //* ====  DESCRIPTION ===== */}
 
                 <div className="about-user">
                   <TextArea
@@ -133,6 +137,9 @@ const UserInfo = ({ full_name, email, socials }) => {
                 </div>
 
 
+
+
+                  {/* //* ======= EMAIL ===== */}
 
                 <div className="email">
                   <div className="heading">
@@ -165,6 +172,7 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
 
+                  {/* //* ======= PASSWORD ===== */}
 
                 <div className="password">
                   <div className="heading">
@@ -206,6 +214,7 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
 
+                  {/* //* ======= CONFIRM-PASSWORD ===== */}
 
                 <div className="confirm-password">
                   <div className="heading">
@@ -246,7 +255,7 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
 
-
+                  {/* //* ======= SOCIALS ===== */}
 
                 <div className="user-socials">
                   {userSocials?.map((el, i) => (
@@ -274,8 +283,9 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
 
+                {/* //* ======= ACCEPTBTN ===== */}
 
-                <div className="edit-btn">
+                <div className="confirmation-btn">
                   <Button
                     style={!isEditBtnClicked ? { display: "none" } : {}}
                     onClick={() => setIsEditBtnClicked(false)}

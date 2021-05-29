@@ -1,4 +1,4 @@
-$category-max-width:25rem;
+$category-max-width: 25rem;
 
 @media screen and (max-width: $small-screen) {
   .mobile-category {
@@ -8,7 +8,6 @@ $category-max-width:25rem;
     left: 0;
     top: 0;
     background: #191b1f82;
-    
 
     .mobile-category_container {
       @include flex(initial, initial, row);
@@ -22,24 +21,41 @@ $category-max-width:25rem;
       overflow: hidden;
       max-width: $category-max-width;
 
-      
-      .subSub-category-list,.sub-category-list,.category-navigation{
-            width: 100%;
-            max-width: $category-max-width;
+      .category-navigation {
+          .mobile-loginRegistration {
+            padding: 0.5rem 1rem;
+            @include flex(flex-start,flex-start,column);
+            
+            .mobile-registration {
+                margin-top: 1rem;
+            }
         }
+      }
+
+      .subSub-category-list,
+      .sub-category-list,
+      .category-navigation {
+        width: 100%;
+        max-width: $category-max-width;
+      }
 
       .category-navigation {
-      overflow: hidden;
+        overflow: hidden;
 
         background-color: var(--primary-white);
 
         .main-category-list,
-        .sub-category-list,.subSub-category-list {
-            z-index: 1;
+        .sub-category-list,
+        .subSub-category-list {
+          z-index: 1;
+        //   margin-right: 0 !important;
+
+
           &--item {
             @include flex(space-between, initial, row);
-
+            // margin-right: 0 !important;
             padding: 0.5rem 1rem;
+            width: 100%;
 
             &:not(:first-child) {
               margin-top: 0.7rem;
@@ -53,7 +69,7 @@ $category-max-width:25rem;
           background-color: var(--primary-white);
 
           height: 100%;
-        //   overflow: hidden;
+          //   overflow: hidden;
           display: block;
 
           .go-back-arrow {
@@ -63,7 +79,7 @@ $category-max-width:25rem;
             @include flex(center, center, row-reverse);
 
             .back {
-                margin-left: 1rem;
+              margin-left: 1rem;
             }
           }
         }
@@ -75,10 +91,9 @@ $category-max-width:25rem;
           left: 23rem !important;
           max-width: 18rem;
           height: 100%;
-        //   overflow: hidden;
+          //   overflow: hidden;
           display: block;
         }
-
 
         .mobile-loginRegistration {
           margin: 1rem 0;
@@ -92,20 +107,17 @@ $category-max-width:25rem;
           }
         }
       }
-
-
     }
 
     .caregory_closeBtn {
-        position: absolute;
-        left: $category-max-width + 1rem;
-        top: 1%;
-        background-color: var(--primary-white);
-        border-radius: 50%;
-        @include flex(center, center, row);
-        padding: 1rem;
-        cursor: pointer;
-      }
+      position: absolute;
+      left: $category-max-width + 1rem;
+      top: 1%;
+      background-color: var(--primary-white);
+      border-radius: 50%;
+      @include flex(center, center, row);
+      padding: 1rem;
+      cursor: pointer;
+    }
   }
-
 }

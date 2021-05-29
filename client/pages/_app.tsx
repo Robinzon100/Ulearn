@@ -5,6 +5,7 @@ import { SWRConfig } from 'swr'
 import { AppProps } from 'next/dist/next-server/lib/router/router';
 import { CookiesProvider } from 'react-cookie';
 
+
 import Navigation from "components/global/navigation/Navigation"
 import BottomNavigation from "components/global/bottom-navigation/BottomNavigation"
 import { RootStateProvider } from '../mobx/RootStateContext';
@@ -14,6 +15,8 @@ import { swrOptions } from '../constants/swrOptions';
 
 
 function MyApp({ Component, pageProps}: AppProps) {
+
+
     return (
         <>
             <Head>
@@ -38,6 +41,7 @@ function MyApp({ Component, pageProps}: AppProps) {
         </>
     )
 }
+
 
 
 

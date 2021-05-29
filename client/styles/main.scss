@@ -39,8 +39,7 @@
 @import "components/global/navigation/NavigationCategory";
 @import "components/global/bottom-navigation/bottomNavigationSearch";
 
-@import "components/global/navigation/mobile-header/mobile-header";
-@import "components/global/navigation/mobile-header/mobile-category";
+@import "components/global/navigation/mobile-caregory/mobile-category";
 @import "components/global/footer/footer";
 @import "components/global/bottom-navigation/bottom-navigation";
 
@@ -57,6 +56,7 @@
 
 // === === === === OUR LIBRARY COMPONENTS === === === ===
 @import "components/lib/button/buttons";
+@import "components/lib/loagout/logout";
 @import "components/lib/button/button_colors";
 @import "components/lib/button/button_loading";
 @import "components/lib/button/button_sizes";

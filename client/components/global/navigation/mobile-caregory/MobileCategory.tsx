@@ -52,14 +52,14 @@ const MobileCategory = ({
 
 
               <ul className="mobile-loginRegistration">
-                <li className="login">
+                <li className="mobile-login">
                   <NextLink route="/login" className="link">
                     <p className="c-secondary-dark-blue  f-size-p3 f-weight-r">
                       დალოგინება
                     </p>
                   </NextLink>
                 </li>
-                <li className="registration">
+                <li className="mobile-registration">
                   <NextLink route="/register" className="link">
                     <p className="c-secondary-dark-blue  f-size-p3 f-weight-r">
                       რეგისტრაცია

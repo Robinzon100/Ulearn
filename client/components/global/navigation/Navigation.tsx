@@ -1,32 +1,36 @@
 import { useEffect, useState } from "react";
 import useSWR from "swr";
 import { ShoppingCart, ChevronDown, Search } from "react-feather";
-import NextLink from "components/utils/nextLink/NextLink";
+import { useCookies } from "react-cookie";
+
 
 
 //! ─── OWN IMPORTS ────────────────────────────────────────────────────────────────────
+import { deleteCookie } from "components/utils/auth/deleteCookie"
+
 //? COMPONENTS
 import Category from "components/global/navigation/Category/Category";
 import Input from "components/lib/inputs/Input";
-import MobileHeader from "components/global/navigation/mobile-header/MobileHeader"
-// import MultiStepForm from "components/utils/stepForm/multiStepForm";
+import NextLink from "components/utils/nextLink/NextLink";
 import Button from "components/lib/button/Button";
+import Logout from "components/lib/logout/Logout";
+import MobileCategory from "components/global/navigation/mobile-caregory/MobileCategory";
 
 //? ACTIONS
 import { fetcher } from "actions/swr/fetchers";
-import { useCookies } from 'react-cookie';
-
-
 
 
 const Navigation = () => {
+
   const [isToggled, setIsToggled] = useState(false);
   const [isLogedIn, setIsLogedIn] = useState(false);
   const [isMouseleftCategory, setIsMouseLeftCategory] = useState(false);
-  const [cookies,] = useCookies(['name']);
 
-
-
+  const [isLougoutToggled, setIsLougoutToggled] = useState(false);
+  const [toggleMobileCategory, setToggleMobileCategory] = useState(false);
+  
+  const [cookies,removeCookie] = useCookies(["name"]);
+   
 
 
   const { data } = useSWR(
@@ -34,25 +38,33 @@ const Navigation = () => {
     fetcher
   );
 
+
+
+
   useEffect(() => {
-    setIsLogedIn(cookies.auth_refresh_token ? true : false)
-  }, [])
+    setIsLogedIn(cookies.auth_refresh_token ? true : false);
+  }, []);
+
+
 
 
 
   return (
     <>
       <header className="header">
-
         <div className="header-container">
-
           <div className="logo-search">
 
+
+              {/* //* ======= LOGO ===== */}
             <div className="logo_container">
               <NextLink route="/">
                 <div className="logo"></div>
               </NextLink>
             </div>
+
+
+              {/* //* ======= SEARCH ===== */}
 
             <div className="search">
               <Input
@@ -69,6 +81,8 @@ const Navigation = () => {
 
 
 
+
+            {/* //* ======= CATEGORY ===== */}
           <div
             className="header-category-menu"
             onClick={() => {
@@ -82,6 +96,10 @@ const Navigation = () => {
                 <ChevronDown />
               </span>
             </div>
+
+
+
+
 
             {/* //* ============== MAIN-CATEGORY */}
             {isToggled && isMouseleftCategory && (
@@ -99,8 +117,8 @@ const Navigation = () => {
 
 
 
-          <div className="login-profile">
 
+          <div className="login-profile">
             <div className="course-page">
               <NextLink route="/courses" className="link">
                 <p className="f-weight-r f-size-p6">კურსები</p>
@@ -109,13 +127,39 @@ const Navigation = () => {
 
 
 
+
+              {/* //* ======= BECOME LECTURE ===== */}
+
             <div className="become-lectore">
               <NextLink route="/myCourses" className="link">
                 <p className="f-weight-r f-size-p6">ლექტორი</p>
               </NextLink>
             </div>
-            
-            
+
+
+
+
+              {/* //* ======= PROFILE ===== */}
+            {isLogedIn && (
+              <div
+                className="profile"
+                onClick={() =>
+                  setIsLougoutToggled((isLougoutToggled) => !isLougoutToggled)
+                }
+              >
+                <div className="user-icon" />
+                <Logout 
+                    deleteCookie={() => deleteCookie(removeCookie)} 
+                    isLougoutToggled={isLougoutToggled} 
+                />
+              </div>
+            )}
+
+
+
+
+              {/* //* ======= CART ===== */}
+
             <div className="cart">
               <NextLink route="/shopping_cart">
                 <ShoppingCart />
@@ -123,37 +167,48 @@ const Navigation = () => {
             </div>
 
 
-            {isLogedIn &&
-              <NextLink route="/profile">
 
-                <div className="profile">
-                  <div className="user-icon" />
-                </div>
-              </NextLink>
-            }
 
-            {!isLogedIn &&
+              {/* //* ======= LOGIN ===== */}
+
+            {!isLogedIn && (
               <div className="login">
                 <Button route="/login" size="mini" color="blue">
                   <p className="f-weight-r f-size-p7">login / sign up</p>
                 </Button>
               </div>
-            }
+            )}
 
+
+
+
+
+              {/* //* ======= HAMBURGER ===== */}
+
+            <div
+              className="mobile_hamburger"
+              onClick={() =>
+                setToggleMobileCategory(
+                  (toggleMobileCategory) => !toggleMobileCategory
+                )
+              }
+            />
+            {toggleMobileCategory && (
+              <MobileCategory
+                toggleMobileCategory={toggleMobileCategory}
+                setToggleMobileCategory={() =>
+                  setToggleMobileCategory(
+                    (toggleMobileCategory) => !toggleMobileCategory
+                  )
+                }
+                categories={data?.categories}
+              />
+            )}
           </div>
-
-
-
         </div>
       </header>
-
-
-      {/* //* MOBILE HEADER */}
-      <MobileHeader categories={data?.categories} />
-
     </>
   );
 };
-
 
 export default Navigation;

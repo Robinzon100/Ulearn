@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Eye, EyeOff } from "react-feather";
-import { useRouter } from 'next/router'
+import Router,{ useRouter } from "next/router";
 
 
 //! ─── OWN ────────────────────────────────────────────────────────────────────────
@@ -77,6 +77,7 @@ const RegisterComponent = () => {
     if (res.statusCode == 200) {
       setCookiesAndRedirect(res)
       setIsButtonLoading(true)
+      Router.reload();
       router.push("/");
     } else {
       setOtherErrors("არასწორი მონაცემები");

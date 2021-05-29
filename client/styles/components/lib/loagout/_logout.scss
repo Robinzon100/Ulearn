@@ -1,0 +1,28 @@
+.logout {
+  position: absolute;
+  background-color: var(--primary-white);
+  left:-3rem;
+  border-radius: 3px;
+  box-shadow: 0px 49px 46px -28px rgb(0 0 0 / 27%), 0px 4px 37px rgb(0 0 0 / 30%);
+  top:110%;
+  display: none;
+  height: 100%;
+  min-height: 0rem;
+
+
+
+  .profile-link,
+  .logout-btn {
+    padding: 1rem;
+    p {
+        color: var(--primary-dark);
+        cursor: pointer;
+    }
+  }
+
+}
+[data-logout="true"] {
+    display: block !important;
+    height: 100% !important;
+    min-height: 9rem !important;
+}
