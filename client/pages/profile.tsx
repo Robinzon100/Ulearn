@@ -30,7 +30,7 @@ const profile = ({ user }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-    const res = await authenticatedRequest(getUser, undefined, ctx)
+    const res = await authenticatedRequest(getUser, null, ctx)
 
     if (res.statusCode == 200) {
         return {

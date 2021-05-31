@@ -27,7 +27,7 @@ type IFormInput = {
   email: string;
   current_password: string;
   new_password: string;
-  user_socials:any;
+  socials: any;
 };
 
 
@@ -36,7 +36,7 @@ type IFormInput = {
 const UserInfo = ({ full_name, email, socials }) => {
   const [isVerificated, setIsVerificated] = useState(false);
   const [userSocials, setUserSocials] = useState([]);
-  
+
   const [isEditable, setIsEditable] = useState(false);
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
   const [isConfirmPasswordHidden, setConfirmIsPasswordHidden] = useState(true);
@@ -59,7 +59,7 @@ const UserInfo = ({ full_name, email, socials }) => {
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     const updatedData = await removeEmptyValuedEntries(data);
     // const res = await authenticatedRequest(updateUserProfile, updatedData);
-    
+
     console.log(updatedData);
 
     // if (res.statusCode != 200) {
@@ -68,8 +68,8 @@ const UserInfo = ({ full_name, email, socials }) => {
     // console.log(res);
   };
 
-  
-  
+
+
 
 
   return (
@@ -226,100 +226,100 @@ const UserInfo = ({ full_name, email, socials }) => {
 
                 {/* //* ======= CONFIRM-PASSWORD ===== */}
                 {isEditable &&
-                <div className="confirm-password">
-                  <div className="heading">
-                    <h1 className="f-size-p6 f-weight-b">
-                      დაადასტურეთ პაროლით
-                    </h1>
-                  </div>
+                  <div className="confirm-password">
+                    <div className="heading">
+                      <h1 className="f-size-p6 f-weight-b">
+                        დაადასტურეთ პაროლით
+                      </h1>
+                    </div>
 
-                  <Input
-                    className="f-size-p6 f-weight-m confirm_user_password"
-                    color="white"
-                    size="medium"
-                    type="password"
-                    width="100%"
-                    placeHolder="შეიყვანეთ პაროლი"
-                    disabled={false}
-                    readonly={false}
-                    iconRight={
-                      <span onClick={() =>
-                        showHidePasswordHandler(
-                          setConfirmIsPasswordHidden,
-                          ".confirm_user_password"
-                        )}>
-                        {isConfirmPasswordHidden ? <EyeOff /> : <Eye />}
-                      </span>
-                    }
-                    {...register("current_password", {
-                      required: "აუცილებლად მიუთითეთ თქვენი პაროლი",
-                      pattern: {
-                        value: passwordRegex,
-                        message: "თქვენი პაროლი არ არის საკმარისად ძლიერი",
+                    <Input
+                      className="f-size-p6 f-weight-m confirm_user_password"
+                      color="white"
+                      size="medium"
+                      type="password"
+                      width="100%"
+                      placeHolder="შეიყვანეთ პაროლი"
+                      disabled={false}
+                      readonly={false}
+                      iconRight={
+                        <span onClick={() =>
+                          showHidePasswordHandler(
+                            setConfirmIsPasswordHidden,
+                            ".confirm_user_password"
+                          )}>
+                          {isConfirmPasswordHidden ? <EyeOff /> : <Eye />}
+                        </span>
                       }
-                    })}
-                  />
-                </div>
+                      {...register("current_password", {
+                        required: "აუცილებლად მიუთითეთ თქვენი პაროლი",
+                        pattern: {
+                          value: passwordRegex,
+                          message: "თქვენი პაროლი არ არის საკმარისად ძლიერი",
+                        }
+                      })}
+                    />
+                  </div>
                 }
 
 
 
 
                 {/* ======= SOCIALS =====  */}
-                {!isEditable && 
-                <div className="user-socials">
-                  {userSocials?.map((el, i) => (
-                    <div
-                      className="user-socials__container"
-                      key={i}
-                      style={el.url.length > 0
-                        ? { width: "100%", padding: "1.5rem" }
-                        : { display: "none" }}>
+                {!isEditable &&
+                  <div className="user-socials">
+                    {userSocials?.map((el, i) => (
+                      <div
+                        className="user-socials__container"
+                        key={i}
+                        style={el.url.length > 0
+                          ? { width: "100%", padding: "1.5rem" }
+                          : { display: "none" }}>
 
 
-                      {el.url.length > 0 && (
-                        <a href={parseWeatherItsHttp(el.url)} rel={'external'} target='_blank' className="social_url">
-                          <div className="box"
-                            style={{
-                              backgroundImage: `url(/pictures/profile/socials/${el.name + ".svg"}`,
-                            }}
-                          />
-                        </a>
-                      )}
-                    </div>
-                  ))}
-                </div>
+                        {el.url.length > 0 && (
+                          <a href={parseWeatherItsHttp(el.url)} rel={'external'} target='_blank' className="social_url">
+                            <div className="box"
+                              style={{
+                                backgroundImage: `url(/pictures/profile/socials/${el.name + ".svg"}`,
+                              }}
+                            />
+                          </a>
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 }
 
 
-                {isEditable && 
-                <div className="user-socials-inputs">
-                  {userSocials?.map((el, i) => (
-                    <div
-                      className="user-socials-inputs__container"
-                      key={i}>
+                {isEditable &&
+                  <div className="user-socials-inputs">
+                    {userSocials?.map((el, i) => (
+                      <div
+                        className="user-socials-inputs__container"
+                        key={i}>
 
 
-                      {el.url.length > 0 && (
-                           <Input
-                           className="social_inputs"
+                        {el.url.length > 0 && (
+                          <Input
+                            className="social_inputs"
                             color="green"
                             size="medium"
                             type="text"
                             placeHolder={el.url}
                             width="100%"
-                            {...register("user_socials")}
-                         />
-                      )}
-                    </div>
-                  ))}
-                </div>
+                            {...register(`socials.${el.name}`)}
+                          />
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 }
 
 
 
                 {/* //* ======= ACCEPTBTN ===== */}
-                            
+
                 <div className="confirmation-btn">
                   <Button
                     style={!isEditable ? { display: "none" } : {}}
@@ -333,7 +333,7 @@ const UserInfo = ({ full_name, email, socials }) => {
                     <p className="f-weight-r f-size-p6">დადასტურება</p>
                   </Button>
                 </div>
-                
+
               </div>
             </form>
 
@@ -342,10 +342,10 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
 
-            {!isEditable && 
+            {!isEditable &&
               <div className="edit-btn">
                 <Button
-                //  style={isEditable ? { display: "none" } : {}}
+                  //  style={isEditable ? { display: "none" } : {}}
                   onClick={() => setIsEditable(true)}
                   color="yellow"
                   size="large"
@@ -358,10 +358,10 @@ const UserInfo = ({ full_name, email, socials }) => {
               </div>
             }
 
-        {isEditable && 
-            <div className="cancel-btn">
+            {isEditable &&
+              <div className="cancel-btn">
                 <Button
-                //  style={isEditable ? { display: "none" } : {}}
+                  //  style={isEditable ? { display: "none" } : {}}
                   onClick={() => setIsEditable(false)}
                   color="red"
                   size="large"
