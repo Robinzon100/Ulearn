@@ -6,7 +6,7 @@ import UserInfo from "components/pages/profile/UserInfo";
 
 //? UTILS
 import { getUser } from 'actions/client/user/profile/profile.action';
-import { authenticatedRequestSSR } from 'components/utils/auth/tokenValidations';
+import { authenticatedRequest } from 'components/utils/auth/tokenValidations';
 import { redirect } from 'components/utils/auth/redirect.utils';
 
 
@@ -30,11 +30,9 @@ const profile = ({ user }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-    const res = await authenticatedRequestSSR(getUser, ctx)
-    console.log(res.user);
+    const res = await authenticatedRequest(getUser, undefined, ctx)
 
-
-    if (res) {
+    if (res.statusCode == 200) {
         return {
             props: {
                 user: res.user,

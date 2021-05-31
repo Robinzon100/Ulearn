@@ -13,6 +13,9 @@ import Input from "components/lib/inputs/Input";
 import TextArea from "components/lib/textarea/TextArea";
 import Button from "components/lib/button/Button";
 import { parseSocials, removeEmptyValuedEntries } from './userInfo.utils';
+import { parseWeatherItsHttp } from "components/utils/auth/linkParsing";
+import { updateUserProfiele } from "actions/client/user/profile/profile.action";
+import { authenticatedRequest } from "components/utils/auth/tokenValidations";
 
 
 
@@ -53,9 +56,9 @@ const UserInfo = ({ full_name, email, socials }) => {
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     const updatedData = await removeEmptyValuedEntries(data)
-    console.log(updatedData);
 
-
+    const res = await authenticatedRequest(updateUserProfiele, updatedData)
+    console.log(res);
   };
 
 
@@ -98,7 +101,7 @@ const UserInfo = ({ full_name, email, socials }) => {
               <div className="user-profile__creditionals">
 
 
-                  {/* //* ===== NAME-SURNAME =====*/}
+                {/* //* ===== NAME-SURNAME =====*/}
                 <div className="name-surname">
                   <TextArea
                     className="f-size-p2 f-weight-bl "
@@ -119,7 +122,7 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
 
-                  {/* //* ====  DESCRIPTION ===== */}
+                {/* //* ====  DESCRIPTION ===== */}
 
                 <div className="about-user">
                   <TextArea
@@ -139,7 +142,7 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
 
-                  {/* //* ======= EMAIL ===== */}
+                {/* //* ======= EMAIL ===== */}
 
                 <div className="email">
                   <div className="heading">
@@ -172,7 +175,7 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
 
-                  {/* //* ======= PASSWORD ===== */}
+                {/* //* ======= PASSWORD ===== */}
 
                 <div className="password">
                   <div className="heading">
@@ -196,7 +199,7 @@ const UserInfo = ({ full_name, email, socials }) => {
                       </span>
                     }
                     readonly={!isEditBtnClicked ? true : false}
-                    {...register("current_password", {
+                    {...register("new_password", {
                       pattern: {
                         value: passwordRegex,
                         message: "თქვენი პაროლი არ არის საკმარისად ძლიერი",
@@ -204,9 +207,9 @@ const UserInfo = ({ full_name, email, socials }) => {
                     })}
                   />
 
-                  {errors.current_password && (
+                  {errors.new_password && (
                     <p className="form_errors f-size-p6 f-weight-r">
-                      {errors.current_password.message}
+                      {errors.new_password.message}
                     </p>
                   )}
                 </div>
@@ -214,7 +217,7 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
 
-                  {/* //* ======= CONFIRM-PASSWORD ===== */}
+                {/* //* ======= CONFIRM-PASSWORD ===== */}
 
                 <div className="confirm-password">
                   <div className="heading">
@@ -241,7 +244,7 @@ const UserInfo = ({ full_name, email, socials }) => {
                         {isConfirmPasswordHidden ? <EyeOff /> : <Eye />}
                       </span>
                     }
-                    {...register("new_password", {
+                    {...register("current_password", {
                       required: "აუცილებლად მიუთითეთ თქვენი პაროლი",
                       pattern: {
                         value: passwordRegex,
@@ -255,7 +258,7 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
 
-                  {/* //* ======= SOCIALS ===== */}
+                {/* ======= SOCIALS =====  */}
 
                 <div className="user-socials">
                   {userSocials?.map((el, i) => (
@@ -268,10 +271,10 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
                       {el.url.length > 0 && (
-                        <a href={el.url} className="social_url">
+                        <a href={parseWeatherItsHttp(el.url)} rel={'external'} target='_blank' className="social_url">
                           <div className="box"
                             style={{
-                              backgroundImage: `url(/pictures/profile/socials/${el.name}.svg`,
+                              backgroundImage: `url(/pictures/profile/socials/${el.name + ".svg"}`,
                             }}
                           />
                         </a>
@@ -282,9 +285,7 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
 
-
-                {/* //* ======= ACCEPTBTN ===== */}
-
+                {/* ======= ACCEPTBTN =====  */}
                 <div className="confirmation-btn">
                   <Button
                     style={!isEditBtnClicked ? { display: "none" } : {}}

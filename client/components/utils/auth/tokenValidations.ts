@@ -26,33 +26,33 @@ export const renewAccExpCookies = async (res, ctx?) => {
     document.cookie = expirationCookie
     document.cookie = accessTokenCookie
   }
-
-  return [
-    accessTokenCookie,
-    expirationCookie
-  ]
 };
 
 
 
 
-//! ─── SSR TOKEN VALIDATIO ────────────────────────────────────────────────────────
-export const authenticatedRequestSSR = async (fetcher, ctx) => {
+//! ─── TOKEN VALIDATION ────────────────────────────────────────────────────────
+export const authenticatedRequest = async (fetcher, data?, ctx?) => {
   const {
     auth_access_token,
     auth_refresh_token,
-    auth_token_expiration } = cookie.parse(ctx.req.headers.cookie || '')
+    auth_token_expiration } =
+    cookie.parse(ctx ? ctx.req.headers.cookie : document.cookie)
+
   const date = new Date().getTime();
 
-
-  let res = date < +auth_token_expiration && await fetcher(auth_access_token);
+  let res = date < +auth_token_expiration && data
+    ? await fetcher(data, auth_access_token)
+    : await fetcher(auth_access_token);
 
 
   if (!res && res.statusCode != 200) {
     const tokenRes = await postRefreshToken(auth_refresh_token);
-    await renewAccExpCookies(tokenRes, ctx)
+    await renewAccExpCookies(tokenRes, ctx && ctx)
     const { auth_access_token } = cookie.parse(ctx.req.headers.cookie || '')
-    res = await fetcher(auth_access_token)
+    res = data
+      ? await fetcher(data, auth_access_token)
+      : await fetcher(auth_access_token)
 
     return res;
   }
@@ -60,10 +60,3 @@ export const authenticatedRequestSSR = async (fetcher, ctx) => {
   return res
 }
 
-
-
-
-
-
-
-//! ─── CLIENT SIDE VALIDATIO ────────────────────────────────────────────────────────
