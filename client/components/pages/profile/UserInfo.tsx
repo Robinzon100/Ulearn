@@ -52,15 +52,13 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-    const updatedData = await removeEmptyValuedEntries(data);
-    // const res = await authenticatedRequest(updateUserProfile, updatedData);
-
-    console.log(updatedData);
-
-    // if (res.statusCode != 200) {
-    //     setIsEditable(false)
-    // }
-    // console.log(res);
+    const updatedData = await removeEmptyValuedEntries(data, 'socials');
+    const res = await authenticatedRequest(updateUserProfile, updatedData);
+    
+    if (res.statusCode != 200) {
+        setIsEditable(false)
+    }
+    console.log(res);
   };
 
   return (
@@ -302,7 +300,7 @@ const UserInfo = ({ full_name, email, socials }) => {
                             type="text"
                             placeHolder={el.url}
                             width="100%"
-                            {...register("socials.name")}
+                            {...register(`socials.${el.name}`)}
                           />
                         )}
                       </div>
