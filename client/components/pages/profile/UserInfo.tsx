@@ -302,7 +302,7 @@ const UserInfo = ({ full_name, email, socials }) => {
                             type="text"
                             placeHolder={el.url}
                             width="100%"
-                            {...register("socials")}
+                            {...register("socials.name")}
                           />
                         )}
                       </div>
