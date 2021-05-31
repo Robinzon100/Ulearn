@@ -125,7 +125,7 @@ const loginComponent = () => {
                       ".registerPassword"
                     )
                     }>
-                    {isPasswordHidden ? <Eye /> : <EyeOff />}
+                    {isPasswordHidden ? <EyeOff /> : <Eye />}
                   </span>
                 }
                 {...register("password", {
