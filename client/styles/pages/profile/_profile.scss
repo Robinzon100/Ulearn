@@ -67,10 +67,10 @@
                         margin-top: 1rem;
                     }
                     
-                    .email,.password,.confirm-password {
-                        margin-top: 4rem;
+                    .email,.password,.confirm-password{
+                        margin-top: 3.5rem;
                         .heading {
-                            margin-bottom: 2.5rem;
+                            margin-bottom: 1.8rem;
                         }
                     }
 
@@ -96,10 +96,14 @@
                         }
                     }
                     .edit-btn,.confirmation-btn {
-                        margin-top: 8rem;
+                        margin-top: 5rem;
                     }
                 }
 
+                .cancel-btn {
+                    margin-top: 1rem;
+                }
+                
                 .user-socials-inputs {
                     &__container{
                         .social_inputs {
