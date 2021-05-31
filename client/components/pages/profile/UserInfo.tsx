@@ -7,16 +7,13 @@ import { showHidePasswordHandler } from "components/utils/helpers/showHidePasswo
 import { toggleVerification } from "./animation/ToggleVerification";
 import { emailRegex, passwordRegex } from "components/utils/regex/Regex";
 
-
-
 import Input from "components/lib/inputs/Input";
 import TextArea from "components/lib/textarea/TextArea";
 import Button from "components/lib/button/Button";
-import { parseSocials, removeEmptyValuedEntries } from './userInfo.utils';
+import { parseSocials, removeEmptyValuedEntries } from "./userInfo.utils";
 import { parseWeatherItsHttp } from "components/utils/auth/linkParsing";
 import { updateUserProfile } from "actions/client/user/profile/profile.action";
 import { authenticatedRequest } from "components/utils/auth/tokenValidations";
-
 
 
 
@@ -27,8 +24,9 @@ type IFormInput = {
   email: string;
   current_password: string;
   new_password: string;
-  user_socials:any;
+  socials: any;
 };
+
 
 
 
@@ -36,21 +34,18 @@ type IFormInput = {
 const UserInfo = ({ full_name, email, socials }) => {
   const [isVerificated, setIsVerificated] = useState(false);
   const [userSocials, setUserSocials] = useState([]);
-  
+
   const [isEditable, setIsEditable] = useState(false);
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
   const [isConfirmPasswordHidden, setConfirmIsPasswordHidden] = useState(true);
 
-
-
-
-  const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>();
+  const { register,handleSubmit,formState: { errors },reset } = useForm<IFormInput>();
 
 
 
 
   useEffect(() => {
-    parseSocials(socials, setUserSocials)
+    parseSocials(socials, setUserSocials);
   }, []);
 
 
@@ -59,7 +54,7 @@ const UserInfo = ({ full_name, email, socials }) => {
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     const updatedData = await removeEmptyValuedEntries(data);
     // const res = await authenticatedRequest(updateUserProfile, updatedData);
-    
+
     console.log(updatedData);
 
     // if (res.statusCode != 200) {
@@ -68,17 +63,11 @@ const UserInfo = ({ full_name, email, socials }) => {
     // console.log(res);
   };
 
-  
-  
-
-
   return (
     <>
       <div className="user-profile">
         <div className="user-profile__container">
           <div className="user-profile">
-
-
             <div className="picture">
               <motion.div
                 variants={toggleVerification}
@@ -86,8 +75,7 @@ const UserInfo = ({ full_name, email, socials }) => {
                 animate={isVerificated ? "opened" : "closed"}
                 className="verification-star"
                 onMouseEnter={() => setIsVerificated(true)}
-                onMouseLeave={() => setIsVerificated(false)}
-              >
+                onMouseLeave={() => setIsVerificated(false)}>
                 <div className="star">
                   <Star strokeWidth="0" stroke="#ffd703" fill="#ffd703" />
                 </div>
@@ -103,12 +91,9 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
 
-
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="user-profile__creditionals">
-
-
-                {/* //* ===== NAME-SURNAME =====*/}
+                {/* ===== NAME-SURNAME =====*/}
                 <div className="name-surname">
                   <TextArea
                     className="f-size-p2 f-weight-bl "
@@ -117,10 +102,8 @@ const UserInfo = ({ full_name, email, socials }) => {
                     type="text"
                     placeHolder={full_name}
                     width="100%"
-                    maxHeight="5rem"
-                    style={!isEditable
-                      ? { background: "none", border: "none" }
-                      : {}}
+                    minHeight="8rem"
+                    style={!isEditable ? { background: "none", border: "none" } : {}}
                     readonly={!isEditable ? true : false}
                     {...register("full_name")}
                   />
@@ -129,7 +112,7 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
 
-                {/* //* ====  DESCRIPTION ===== */}
+                {/*  ====  DESCRIPTION ===== */}
 
                 <div className="about-user">
                   <TextArea
@@ -149,7 +132,7 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
 
-                {/* //* ======= EMAIL ===== */}
+                {/*  ======= EMAIL ===== */}
 
                 <div className="email">
                   <div className="heading">
@@ -164,12 +147,11 @@ const UserInfo = ({ full_name, email, socials }) => {
                     width="100%"
                     placeHolder={email}
                     readonly={!isEditable ? true : false}
-                    //   disabled={!isEditable ? true: false}
                     {...register("email", {
                       pattern: {
                         value: emailRegex,
                         message: "სწორად ჩაწერეთ თქვენი ელექტრონული ფოსტა",
-                      }
+                      },
                     })}
                   />
 
@@ -182,7 +164,9 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
 
-                {/* //* ======= PASSWORD ===== */}
+
+
+                {/*  ======= PASSWORD ===== */}
 
                 <div className="password">
                   <div className="heading">
@@ -196,21 +180,21 @@ const UserInfo = ({ full_name, email, socials }) => {
                     placeHolder="ახალი პაროლი"
                     type="password"
                     width="100%"
+                    readonly={!isEditable ? true : false}
                     iconRight={
-                      <span onClick={() =>
-                        showHidePasswordHandler(
-                          setIsPasswordHidden,
-                          ".userPassword"
-                        )}>
+                      <span
+                        onClick={() =>
+                          showHidePasswordHandler(setIsPasswordHidden,".userPassword")
+                        }
+                      >
                         {isPasswordHidden ? <EyeOff /> : <Eye />}
                       </span>
                     }
-                    readonly={!isEditable ? true : false}
                     {...register("new_password", {
                       pattern: {
                         value: passwordRegex,
                         message: "თქვენი პაროლი არ არის საკმარისად ძლიერი",
-                      }
+                      },
                     })}
                   />
 
@@ -224,128 +208,137 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
 
-                {/* //* ======= CONFIRM-PASSWORD ===== */}
-                {isEditable &&
-                <div className="confirm-password">
-                  <div className="heading">
-                    <h1 className="f-size-p6 f-weight-b">
-                      დაადასტურეთ პაროლით
-                    </h1>
-                  </div>
+                {/* ======= CONFIRM-PASSWORD ===== */}
+                {isEditable && (
+                  <div className="confirm-password">
+                    <div className="heading">
+                      <h1 className="f-size-p6 f-weight-b">
+                        დაადასტურეთ პაროლით
+                      </h1>
+                    </div>
 
-                  <Input
-                    className="f-size-p6 f-weight-m confirm_user_password"
-                    color="white"
-                    size="medium"
-                    type="password"
-                    width="100%"
-                    placeHolder="შეიყვანეთ პაროლი"
-                    disabled={false}
-                    readonly={false}
-                    iconRight={
-                      <span onClick={() =>
-                        showHidePasswordHandler(
-                          setConfirmIsPasswordHidden,
-                          ".confirm_user_password"
-                        )}>
-                        {isConfirmPasswordHidden ? <EyeOff /> : <Eye />}
-                      </span>
-                    }
-                    {...register("current_password", {
-                      required: "აუცილებლად მიუთითეთ თქვენი პაროლი",
-                      pattern: {
-                        value: passwordRegex,
-                        message: "თქვენი პაროლი არ არის საკმარისად ძლიერი",
+                    <Input
+                      className="f-size-p6 f-weight-m confirm_user_password"
+                      color="white"
+                      size="medium"
+                      type="password"
+                      width="100%"
+                      placeHolder="შეიყვანეთ პაროლი"
+                      disabled={false}
+                      readonly={false}
+                      iconRight={
+                        <span
+                          onClick={() =>
+                            showHidePasswordHandler(setConfirmIsPasswordHidden,
+                            ".confirm_user_password")
+                          }>
+                          {isConfirmPasswordHidden ? <EyeOff /> : <Eye />}
+                        </span>
                       }
-                    })}
-                  />
-                </div>
-                }
+                      {...register("current_password", {
+                        required: "აუცილებლად მიუთითეთ თქვენი პაროლი",
+                        pattern: {
+                          value: passwordRegex,
+                          message: "თქვენი პაროლი არ არის საკმარისად ძლიერი",
+                        },
+                      })}
+                    />
+                  </div>
+                )}
+
 
 
 
 
                 {/* ======= SOCIALS =====  */}
-                {!isEditable && 
-                <div className="user-socials">
-                  {userSocials?.map((el, i) => (
-                    <div
-                      className="user-socials__container"
-                      key={i}
-                      style={el.url.length > 0
-                        ? { width: "100%", padding: "1.5rem" }
-                        : { display: "none" }}>
+                {!isEditable && (
+                  <div className="user-socials">
+                    {userSocials?.map((el, i) => (
+                      <div
+                        className="user-socials__container"
+                        key={i}
+                        style={el.url.length > 0
+                            ? { width: "100%", padding: "1.5rem" }
+                            : { display: "none" }}>
 
 
-                      {el.url.length > 0 && (
-                        <a href={parseWeatherItsHttp(el.url)} rel={'external'} target='_blank' className="social_url">
-                          <div className="box"
-                            style={{
-                              backgroundImage: `url(/pictures/profile/socials/${el.name + ".svg"}`,
-                            }}
-                          />
-                        </a>
-                      )}
-                    </div>
-                  ))}
-                </div>
-                }
+                        {el.url.length > 0 && (
+                          <a
+                            href={parseWeatherItsHttp(el.url)}
+                            rel={"external"}
+                            target="_blank"
+                            className="social_url">
+                            <div
+                              className="box"
+                              style={{
+                                backgroundImage: `url(/pictures/profile/socials/${
+                                el.name + ".svg"}`,}}/>
+                          </a>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
 
 
-                {isEditable && 
-                <div className="user-socials-inputs">
-                  {userSocials?.map((el, i) => (
-                    <div
-                      className="user-socials-inputs__container"
-                      key={i}>
 
 
-                      {el.url.length > 0 && (
-                           <Input
-                           className="social_inputs"
+                {/* ======= SOCIALS INPUTS =====  */}
+                {isEditable && (
+                  <div className="user-socials-inputs">
+                    {userSocials?.map((el, i) => (
+                      <div className="user-socials-inputs__container" key={i}>
+                        {el.url.length > 0 && (
+                          <p className="f-size-p6 f-weight-b input-labels">
+                              {el.name}
+                          </p>
+                        )}
+
+                        {el.url.length > 0 && (
+                          <Input
+                            className="social_inputs"
                             color="green"
                             size="medium"
                             type="text"
                             placeHolder={el.url}
                             width="100%"
-                            {...register("user_socials")}
-                         />
-                      )}
-                    </div>
-                  ))}
-                </div>
-                }
+                            {...register("socials")}
+                          />
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
 
 
 
-                {/* //* ======= ACCEPTBTN ===== */}
-                            
+
+
+                {/*  ======= ACCEPTBTN ===== */}
                 <div className="confirmation-btn">
                   <Button
                     style={!isEditable ? { display: "none" } : {}}
-                    // onClick={() => setisEditable(false)}
                     color="green"
                     size="large"
                     disabled={false}
                     loading={false}
                     width="100%"
-                    type="submit">
+                    type="submit"
+                  >
                     <p className="f-weight-r f-size-p6">დადასტურება</p>
                   </Button>
                 </div>
-                
               </div>
             </form>
 
 
 
 
+            {/*  ======= EDIT BTN ===== */}
 
-
-            {!isEditable && 
+            {!isEditable && (
               <div className="edit-btn">
                 <Button
-                //  style={isEditable ? { display: "none" } : {}}
                   onClick={() => setIsEditable(true)}
                   color="yellow"
                   size="large"
@@ -356,13 +349,25 @@ const UserInfo = ({ full_name, email, socials }) => {
                   <p className="f-weight-r f-size-p6">რედაქტირება</p>
                 </Button>
               </div>
-            }
+            )}
 
-        {isEditable && 
-            <div className="cancel-btn">
+
+
+
+            {/*  ======= CANCEL ===== */}
+
+            {isEditable && (
+              <div className="cancel-btn">
                 <Button
-                //  style={isEditable ? { display: "none" } : {}}
-                  onClick={() => setIsEditable(false)}
+                  onClick={() => {
+                    setIsEditable(false);
+                    reset({
+                      full_name: "",
+                      email: "",
+                      current_password: "",
+                      new_password: "",
+                    });
+                  }}
                   color="red"
                   size="large"
                   disabled={false}
@@ -372,7 +377,7 @@ const UserInfo = ({ full_name, email, socials }) => {
                   <p className="f-weight-r f-size-p6">გაუქმება</p>
                 </Button>
               </div>
-            }
+            )}
           </div>
         </div>
       </div>
