@@ -106,7 +106,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, PropsWithChildren<IinputInterfa
               .input_field:focus {
                 background: var(--primary-white);
                 opacity: 100%;
-                padding: 0 0 0 2rem;
+                // padding: 0 0 0 2rem;
                 box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.03), 
                 0px 9px 23px -6px rgba(0, 0, 0, 0.1), 
                 inset 0px -3px 8px -4px rgba(0, 0, 0, 0.1);

@@ -63,13 +63,6 @@ const UserInfo = ({ full_name, email, socials }) => {
     // console.log(res);
   };
 
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> 15a63b14cf7115adcbc3bdf4d6f1b699c4f06ab0
   return (
     <>
       <div className="user-profile">
@@ -215,13 +208,8 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
 
-<<<<<<< HEAD
-                {/* //* ======= CONFIRM-PASSWORD ===== */}
-                {isEditable &&
-=======
                 {/* ======= CONFIRM-PASSWORD ===== */}
                 {isEditable && (
->>>>>>> 15a63b14cf7115adcbc3bdf4d6f1b699c4f06ab0
                   <div className="confirm-password">
                     <div className="heading">
                       <h1 className="f-size-p6 f-weight-b">
@@ -239,19 +227,11 @@ const UserInfo = ({ full_name, email, socials }) => {
                       disabled={false}
                       readonly={false}
                       iconRight={
-<<<<<<< HEAD
-                        <span onClick={() =>
-                          showHidePasswordHandler(
-                            setConfirmIsPasswordHidden,
-                            ".confirm_user_password"
-                          )}>
-=======
                         <span
                           onClick={() =>
                             showHidePasswordHandler(setConfirmIsPasswordHidden,
                             ".confirm_user_password")
                           }>
->>>>>>> 15a63b14cf7115adcbc3bdf4d6f1b699c4f06ab0
                           {isConfirmPasswordHidden ? <EyeOff /> : <Eye />}
                         </span>
                       }
@@ -260,49 +240,24 @@ const UserInfo = ({ full_name, email, socials }) => {
                         pattern: {
                           value: passwordRegex,
                           message: "თქვენი პაროლი არ არის საკმარისად ძლიერი",
-<<<<<<< HEAD
-                        }
-                      })}
-                    />
-                  </div>
-                }
-=======
                         },
                       })}
                     />
                   </div>
                 )}
 
->>>>>>> 15a63b14cf7115adcbc3bdf4d6f1b699c4f06ab0
 
 
 
 
                 {/* ======= SOCIALS =====  */}
-<<<<<<< HEAD
-                {!isEditable &&
-=======
                 {!isEditable && (
->>>>>>> 15a63b14cf7115adcbc3bdf4d6f1b699c4f06ab0
                   <div className="user-socials">
                     {userSocials?.map((el, i) => (
                       <div
                         className="user-socials__container"
                         key={i}
                         style={el.url.length > 0
-<<<<<<< HEAD
-                          ? { width: "100%", padding: "1.5rem" }
-                          : { display: "none" }}>
-
-
-                        {el.url.length > 0 && (
-                          <a href={parseWeatherItsHttp(el.url)} rel={'external'} target='_blank' className="social_url">
-                            <div className="box"
-                              style={{
-                                backgroundImage: `url(/pictures/profile/socials/${el.name + ".svg"}`,
-                              }}
-                            />
-=======
                             ? { width: "100%", padding: "1.5rem" }
                             : { display: "none" }}>
 
@@ -318,25 +273,11 @@ const UserInfo = ({ full_name, email, socials }) => {
                               style={{
                                 backgroundImage: `url(/pictures/profile/socials/${
                                 el.name + ".svg"}`,}}/>
->>>>>>> 15a63b14cf7115adcbc3bdf4d6f1b699c4f06ab0
                           </a>
                         )}
                       </div>
                     ))}
                   </div>
-<<<<<<< HEAD
-                }
-
-
-                {isEditable &&
-                  <div className="user-socials-inputs">
-                    {userSocials?.map((el, i) => (
-                      <div
-                        className="user-socials-inputs__container"
-                        key={i}>
-
-
-=======
                 )}
 
 
@@ -353,7 +294,6 @@ const UserInfo = ({ full_name, email, socials }) => {
                           </p>
                         )}
 
->>>>>>> 15a63b14cf7115adcbc3bdf4d6f1b699c4f06ab0
                         {el.url.length > 0 && (
                           <Input
                             className="social_inputs"
@@ -362,24 +302,12 @@ const UserInfo = ({ full_name, email, socials }) => {
                             type="text"
                             placeHolder={el.url}
                             width="100%"
-<<<<<<< HEAD
-                            {...register(`socials.${el.name}`)}
-=======
                             {...register("socials")}
->>>>>>> 15a63b14cf7115adcbc3bdf4d6f1b699c4f06ab0
                           />
                         )}
                       </div>
                     ))}
                   </div>
-<<<<<<< HEAD
-                }
-
-
-
-                {/* //* ======= ACCEPTBTN ===== */}
-
-=======
                 )}
 
 
@@ -387,7 +315,6 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
                 {/*  ======= ACCEPTBTN ===== */}
->>>>>>> 15a63b14cf7115adcbc3bdf4d6f1b699c4f06ab0
                 <div className="confirmation-btn">
                   <Button
                     style={!isEditable ? { display: "none" } : {}}
@@ -401,10 +328,6 @@ const UserInfo = ({ full_name, email, socials }) => {
                     <p className="f-weight-r f-size-p6">დადასტურება</p>
                   </Button>
                 </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> 15a63b14cf7115adcbc3bdf4d6f1b699c4f06ab0
               </div>
             </form>
 
@@ -413,17 +336,9 @@ const UserInfo = ({ full_name, email, socials }) => {
 
             {/*  ======= EDIT BTN ===== */}
 
-<<<<<<< HEAD
-
-            {!isEditable &&
-              <div className="edit-btn">
-                <Button
-                  //  style={isEditable ? { display: "none" } : {}}
-=======
             {!isEditable && (
               <div className="edit-btn">
                 <Button
->>>>>>> 15a63b14cf7115adcbc3bdf4d6f1b699c4f06ab0
                   onClick={() => setIsEditable(true)}
                   color="yellow"
                   size="large"
@@ -441,13 +356,6 @@ const UserInfo = ({ full_name, email, socials }) => {
 
             {/*  ======= CANCEL ===== */}
 
-<<<<<<< HEAD
-            {isEditable &&
-              <div className="cancel-btn">
-                <Button
-                  //  style={isEditable ? { display: "none" } : {}}
-                  onClick={() => setIsEditable(false)}
-=======
             {isEditable && (
               <div className="cancel-btn">
                 <Button
@@ -460,7 +368,6 @@ const UserInfo = ({ full_name, email, socials }) => {
                       new_password: "",
                     });
                   }}
->>>>>>> 15a63b14cf7115adcbc3bdf4d6f1b699c4f06ab0
                   color="red"
                   size="large"
                   disabled={false}

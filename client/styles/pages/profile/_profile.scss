@@ -91,6 +91,7 @@
           .user-socials {
             @include flex(stretch, center, row);
             gap: 0 1.4vw;
+            margin: 4rem 0;
             width: 100%;
 
             &__container {
@@ -135,7 +136,7 @@
           }
         }
 
-        
+
       }
     }
   }
