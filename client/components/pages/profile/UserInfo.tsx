@@ -1,7 +1,7 @@
 import { Star, Eye, EyeOff } from "react-feather";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler, FieldError } from "react-hook-form";
 
 import { showHidePasswordHandler } from "components/utils/helpers/showHidePassword";
 import { toggleVerification } from "./animation/ToggleVerification";
@@ -27,6 +27,7 @@ type IFormInput = {
   email: string;
   current_password: string;
   new_password: string;
+  user_socials:string[]
 };
 
 
@@ -285,7 +286,33 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
 
-                {/* ======= ACCEPTBTN =====  */}
+                {/* <div className="user-socials-inputs">
+                  {userSocials?.map((el, i) => (
+                    <div
+                      className="user-socials-inputs__container"
+                      key={i}>
+
+
+                      {el.url.length > 0 && (
+                           <Input
+                           className="social_inputs"
+                            color="green"
+                            size="medium"
+                            type="text"
+                            placeHolder={el.url}
+                            width="100%"
+                            {...register("user_socials")}
+                         />
+                      )}
+                    </div>
+                  ))}
+                </div> */}
+
+
+
+                {/* //* ======= ACCEPTBTN ===== */}
+
+                
                 <div className="confirmation-btn">
                   <Button
                     style={!isEditBtnClicked ? { display: "none" } : {}}
@@ -307,9 +334,10 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
 
-            {!isEditBtnClicked && (
+
               <div className="edit-btn">
                 <Button
+                    style={isEditBtnClicked ? { display: "none" } : {}}
                   onClick={() => setIsEditBtnClicked(true)}
                   color="yellow"
                   size="large"
@@ -320,7 +348,7 @@ const UserInfo = ({ full_name, email, socials }) => {
                   <p className="f-weight-r f-size-p6">რედაქტირება</p>
                 </Button>
               </div>
-            )}
+            
           </div>
         </div>
       </div>
