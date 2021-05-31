@@ -1,8 +1,7 @@
 @media screen and (max-width: $medium-screen) {
   .header {
     .become-lectore,
-    .course-page,
-    .login{
+    .course-page{
       display: none;
     }
 
@@ -21,12 +20,9 @@
   .header {
     padding: 1.4vw 2vw !important;
 
-    // .login-profile {
-    //     .course-page,.become-lectore,.profile,.cart,.login {
-    //         margin-right: rem !important;
-    //     }
-    //   }
-
+    .course-page,.become-lectore,.profile,.cart,.login{
+        margin-right: 2rem !important;
+    }
 
     .header-category-menu,
     .search {
