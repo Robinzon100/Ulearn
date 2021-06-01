@@ -51,6 +51,8 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
 
+
+
   useEffect(() => {
     parseSocials(socials, setUserSocials);
   }, []);
@@ -58,8 +60,15 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
 
+  useEffect(() => {
+    
+  }, [isEditable]);
+
+
+
+
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-    const updatedData = await removeEmptyValuedEntries(data, 'socials');
+    const updatedData = await removeEmptyValuedEntries(data);
     const res = await authenticatedRequest(updateUserProfile, updatedData);
     
     if (res.statusCode != 200) {
@@ -67,6 +76,7 @@ const UserInfo = ({ full_name, email, socials }) => {
     }
     console.log(res);
   };
+
 
   return (
     <>
@@ -110,7 +120,7 @@ const UserInfo = ({ full_name, email, socials }) => {
                     placeHolder={userInfo.full_name}
                     width="100%"
                     isFocused={true}
-                    maxHeight="5.5rem"
+                    // maxHeight="5.5rem"
                     style={!isEditable ? { background: "none", border: "none" } : {}}
                     readonly={!isEditable ? true : false}
                     {...register("full_name")}
@@ -130,7 +140,8 @@ const UserInfo = ({ full_name, email, socials }) => {
                     type="text"
                     width="100%"
                     minHeight="18rem"
-                    placeHolder={"ფრონტ-ენდ დეველოპერი 10 წლის გამოცდილებით, ვასწავლი 1000-ზე მეტ მოსწავლეს უნივერსიტეტებსა და სხვადასხვა სასწავლო დაწესებულებაში. ასევე ვასწავლის დიზაინს და ბექ-ენდ დეველოპმენტს."}
+                    isFocused={true}
+                    placeHolder="დაამატეთ აღწერა თქვენს შესახებ..."
                     style={!isEditable ? { background: "none", border: "none" } : {}}
                     readonly={!isEditable ? true : false}
                     {...register("detailed_description")}

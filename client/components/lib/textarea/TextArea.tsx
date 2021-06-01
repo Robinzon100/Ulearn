@@ -53,6 +53,11 @@ const TextArea = forwardRef<HTMLTextAreaElement, PropsWithChildren<IinputInterfa
             style={style}
             defaultValue={defaultValue}
             readOnly={readonly}
+            onInput={() => {
+                let it = this || undefined
+                it.parentNode.dataset.value = it.value
+            }}
+            rows={1}
           />
 
 
