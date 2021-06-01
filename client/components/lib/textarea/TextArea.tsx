@@ -23,6 +23,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, PropsWithChildren<IinputInterfa
     readonly,
     minHeight,
     maxHeight,
+    isFocused = false,
   }, ref: React.Ref<HTMLTextAreaElement | null>,) => {
 
 
@@ -93,7 +94,21 @@ const TextArea = forwardRef<HTMLTextAreaElement, PropsWithChildren<IinputInterfa
                 height:100%;
                 min-height:${minHeight};
                 transition: all 0.1s cubic-bezier(0, 1.06, 0.37, 0.38);
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                padding:1rem;
+                box-shadow: 
               }
+
+
+              .input_field::-webkit-scrollbar {
+                display: none;
+                overflow: -moz-hidden-unscrollable;
+                width: 0 !important;
+                overflow: -moz-scrollbars-none;
+                -ms-overflow-style: none; 
+                scrollbar-width: none;
+            }
 
               .input_field:disabled {
                 color: var(--primary-dark);
@@ -106,10 +121,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, PropsWithChildren<IinputInterfa
               .input_field:focus {
                 background: var(--primary-white);
                 opacity: 100%;
-                // padding: 0 0 0 2rem;
-                box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.03), 
-                0px 9px 23px -6px rgba(0, 0, 0, 0.1), 
-                inset 0px -3px 8px -4px rgba(0, 0, 0, 0.1);
+                box-shadow: ${isFocused == false ? "0px 2px 3px rgba(0, 0, 0, 0.03), 0px 9px 23px -6px rgba(0, 0, 0, 0.1), inset 0px -3px 8px -4px rgba(0, 0, 0, 0.1" : "none"});
               }
 
               .input_field::placeholder {

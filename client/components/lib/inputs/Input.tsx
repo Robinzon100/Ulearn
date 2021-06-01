@@ -23,6 +23,7 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
     width,
     defaultValue,
     readonly,
+    isFocused = false,
     filled = true
   }, ref: React.Ref<HTMLInputElement | null>,) => {
 
@@ -93,7 +94,6 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
 
               .input_field:disabled {
                 color: var(--primary-dark);
-                // opacity: 50%;
               }
 
               .input_field:hover {
@@ -101,14 +101,12 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
               }
 
               .input_field:focus {
-                background: var(--primary-white);
+                background: ${isFocused == false ? "var(--primary-white)" : "var(--primary-grey)"};
                 border: ${!filled && getColors(color).focusedBorder};
                 opacity: 100%;
-                padding: ${icon ? getInputSize(size).focusedPadding :
-                getInputSize(size).paddingWithOutIconsOnFocus};
-                box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.03), 
-                0px 9px 23px -6px rgba(0, 0, 0, 0.1), 
-                inset 0px -3px 8px -4px rgba(0, 0, 0, 0.1);
+                padding: ${isFocused == false ? icon ? getInputSize(size).focusedPadding :
+                getInputSize(size).paddingWithOutIconsOnFocus : "none"};
+                box-shadow: ${isFocused == false ? "none" : "0px 2px 3px rgba(0, 0, 0, 0.03), 0px 9px 23px -6px rgba(0, 0, 0, 0.1), inset 0px -3px 8px -4px rgba(0, 0, 0, 0.1"});
               }
 
               .input_field::placeholder {

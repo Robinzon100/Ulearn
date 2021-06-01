@@ -45,9 +45,6 @@ const CardDetail = ({ id,name,created_at,difficulty,description}:
               {difficulty == 2 && <span style={{ color: "#ffd703" }}>საშუალო</span>}
 
               {difficulty == 3 && <span style={{ color: "#ff5c4d" }}>რთული</span>}
-
-
-              
             </p>
           </div>
           <div className="card_detail--container__description">

@@ -3,13 +3,19 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useForm, SubmitHandler } from "react-hook-form";
 
+
+
 import { showHidePasswordHandler } from "components/utils/helpers/showHidePassword";
 import { toggleVerification } from "./animation/ToggleVerification";
 import { emailRegex, passwordRegex } from "components/utils/regex/Regex";
 
+
+
 import Input from "components/lib/inputs/Input";
 import TextArea from "components/lib/textarea/TextArea";
 import Button from "components/lib/button/Button";
+
+
 import { parseSocials, removeEmptyValuedEntries } from "./userInfo.utils";
 import { parseWeatherItsHttp } from "components/utils/auth/linkParsing";
 import { updateUserProfile } from "actions/client/user/profile/profile.action";
@@ -41,6 +47,7 @@ const UserInfo = ({ full_name, email, socials }) => {
 
   const { register,handleSubmit,formState: { errors },reset } = useForm<IFormInput>();
 
+  const [userInfo,] = useState({ full_name,email });
 
 
 
@@ -67,6 +74,8 @@ const UserInfo = ({ full_name, email, socials }) => {
         <div className="user-profile__container">
           <div className="user-profile">
             <div className="picture">
+    
+
               <motion.div
                 variants={toggleVerification}
                 initial={{ maxWidth: "4.2rem", width: "100%" }}
@@ -98,9 +107,10 @@ const UserInfo = ({ full_name, email, socials }) => {
                     color="white"
                     size="medium"
                     type="text"
-                    placeHolder={full_name}
+                    placeHolder={userInfo.full_name}
                     width="100%"
-                    minHeight="8rem"
+                    isFocused={true}
+                    maxHeight="5.5rem"
                     style={!isEditable ? { background: "none", border: "none" } : {}}
                     readonly={!isEditable ? true : false}
                     {...register("full_name")}
@@ -138,12 +148,13 @@ const UserInfo = ({ full_name, email, socials }) => {
                   </div>
 
                   <Input
-                    className="f-size-p6 f-weight-m"
+                    className="f-weight-m"
                     color="white"
                     size="medium"
                     type="text"
                     width="100%"
-                    placeHolder={email}
+                    isFocused={true}
+                    placeHolder={userInfo.email}
                     readonly={!isEditable ? true : false}
                     {...register("email", {
                       pattern: {
@@ -178,6 +189,7 @@ const UserInfo = ({ full_name, email, socials }) => {
                     placeHolder="ახალი პაროლი"
                     type="password"
                     width="100%"
+                    isFocused={true}
                     readonly={!isEditable ? true : false}
                     iconRight={
                       <span
@@ -203,46 +215,6 @@ const UserInfo = ({ full_name, email, socials }) => {
                   )}
                 </div>
 
-
-
-
-                {/* ======= CONFIRM-PASSWORD ===== */}
-                {isEditable && (
-                  <div className="confirm-password">
-                    <div className="heading">
-                      <h1 className="f-size-p6 f-weight-b">
-                        დაადასტურეთ პაროლით
-                      </h1>
-                    </div>
-
-                    <Input
-                      className="f-size-p6 f-weight-m confirm_user_password"
-                      color="white"
-                      size="medium"
-                      type="password"
-                      width="100%"
-                      placeHolder="შეიყვანეთ პაროლი"
-                      disabled={false}
-                      readonly={false}
-                      iconRight={
-                        <span
-                          onClick={() =>
-                            showHidePasswordHandler(setConfirmIsPasswordHidden,
-                            ".confirm_user_password")
-                          }>
-                          {isConfirmPasswordHidden ? <EyeOff /> : <Eye />}
-                        </span>
-                      }
-                      {...register("current_password", {
-                        required: "აუცილებლად მიუთითეთ თქვენი პაროლი",
-                        pattern: {
-                          value: passwordRegex,
-                          message: "თქვენი პაროლი არ არის საკმარისად ძლიერი",
-                        },
-                      })}
-                    />
-                  </div>
-                )}
 
 
 
@@ -286,23 +258,22 @@ const UserInfo = ({ full_name, email, socials }) => {
                   <div className="user-socials-inputs">
                     {userSocials?.map((el, i) => (
                       <div className="user-socials-inputs__container" key={i}>
-                        {el.url.length > 0 && (
+                        
                           <p className="f-size-p6 f-weight-b input-labels">
                               {el.name}
                           </p>
-                        )}
-
-                        {el.url.length > 0 && (
-                          <Input
+                          
+                        <Input
                             className="social_inputs"
                             color="green"
                             size="medium"
                             type="text"
-                            placeHolder={el.url}
+                            placeHolder={el.url.length > 0 ? el.url : "დაამატეთ ინფორმაცია" }
                             width="100%"
+                            //@ts-ignore
                             {...register(`socials.${el.name}`)}
-                          />
-                        )}
+                        />
+                        
                       </div>
                     ))}
                   </div>
@@ -310,6 +281,43 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
 
+               {/* ======= CONFIRM-PASSWORD ===== */}
+               {isEditable && (
+                  <div className="confirm-password">
+                    <div className="heading">
+                      <h1 className="f-size-p6 f-weight-b">
+                        დაადასტურეთ პაროლით
+                      </h1>
+                    </div>
+
+                    <Input
+                      className="f-size-p6 f-weight-m confirm_user_password"
+                      color="white"
+                      size="medium"
+                      type="password"
+                      width="100%"
+                      placeHolder="შეიყვანეთ პაროლი"
+                      disabled={false}
+                      readonly={false}
+                      iconRight={
+                        <span
+                          onClick={() =>
+                            showHidePasswordHandler(setConfirmIsPasswordHidden,
+                            ".confirm_user_password")
+                          }>
+                          {isConfirmPasswordHidden ? <EyeOff /> : <Eye />}
+                        </span>
+                      }
+                      {...register("current_password", {
+                        required: "აუცილებლად მიუთითეთ თქვენი პაროლი",
+                        pattern: {
+                          value: passwordRegex,
+                          message: "თქვენი პაროლი არ არის საკმარისად ძლიერი",
+                        },
+                      })}
+                    />
+                  </div>
+                )}
 
 
                 {/*  ======= ACCEPTBTN ===== */}

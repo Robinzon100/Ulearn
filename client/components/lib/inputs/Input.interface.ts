@@ -15,6 +15,7 @@ export interface IinputInterface extends IGlobal {
     readonly?:boolean;
     minHeight?:string;
     maxHeight?:string;
+    isFocused?:boolean;
 }
 
 
