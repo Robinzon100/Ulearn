@@ -1,45 +1,32 @@
-interface ITabs {
-  iconsToRender?: any;
-  tabsToRender?: any;
-  contentTofetch?: any;
-  setTabIndex?: number | any;
-  setTabContent?: any;
-}
+import TabHeading from './TabHeading';
+import TabContent from './TabContent';
+import { useState } from 'react';
+import { ITabHeadings } from './TabHeading';
+import { ITabContent } from './TabContent';
 
-const Tabs = ({
-  iconsToRender,
-  tabsToRender,
-  contentTofetch,
-  setTabIndex,
-  setTabContent,
-}: ITabs) => {
+
+
+interface ITabs extends ITabHeadings, ITabContent { }
+
+
+const Tabs = ({ tabNamesAndIcons, rawHtml, component }: ITabs) => {
+  const [globalIndex, setglobalIndex] = useState(0)
+
+  const setTabIndex = (index) =>
+    setglobalIndex(index)
+
+
+
   return (
-
     <>
-      <nav>
-        <ul className="Tabs">
-          {tabsToRender.map((courseTab, i) => (
-            <li
-              style={{ cursor: "pointer" }}
-              className="Tabs--item noselect  Tab"
-              onClick={() => {
-                setTabContent(contentTofetch(courseTab.route));
-                setTabIndex(i);
-              }}
-              key={courseTab.id}
-            >
-              <div className="rendered_icon">
-                {iconsToRender(courseTab.iconComponent)}
-              </div>
-              <div className="rendered_title">
-                <p className="f-size-p5">{courseTab.title}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <TabHeading
+        tabNamesAndIcons={tabNamesAndIcons}
+        setTabIndex={setTabIndex} />
+      <TabContent
+        contentIndex={globalIndex}
+        rawHtml={rawHtml}
+        component={component} />
     </>
-    
   );
 };
 

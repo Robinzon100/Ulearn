@@ -24,6 +24,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, PropsWithChildren<IinputInterfa
     minHeight,
     maxHeight,
     isFocused = false,
+    resizable = false,
   }, ref: React.Ref<HTMLTextAreaElement | null>,) => {
 
 
@@ -33,6 +34,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, PropsWithChildren<IinputInterfa
       <>
         <div
           className="input_container"
+          data-value={value || placeHolder}
           style={
             disabled
               ? { cursor: "not-allowed", pointerEvents: "none" }
@@ -53,9 +55,8 @@ const TextArea = forwardRef<HTMLTextAreaElement, PropsWithChildren<IinputInterfa
             style={style}
             defaultValue={defaultValue}
             readOnly={readonly}
-            onInput={() => {
-                let it = this || undefined
-                it.parentNode.dataset.value = it.value
+            onInput={({ currentTarget }) => {
+              currentTarget.parentElement.dataset.value = currentTarget.value
             }}
             rows={1}
           />
@@ -87,7 +88,22 @@ const TextArea = forwardRef<HTMLTextAreaElement, PropsWithChildren<IinputInterfa
                 border-radius: 8px;
                 width: ${width && width};
                 outline: none !important;
+                display: grid;
               }
+
+              ${resizable ?
+                `.input_container::after{
+                  content: attr(data-value) " ";
+                  white-space: pre-wrap;
+                  visibility: hidden;
+                  font-size: var(--f-size-p2);
+                  font-weight: var(f-weight-bl)
+                }
+                .input_container > textarea,
+                .input_container::after {
+                  grid-area: 1 / 1 / 2 / 2;
+                }
+              `: ""}
 
               .input_field {
                 box-sizing: border-box;

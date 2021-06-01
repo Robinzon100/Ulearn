@@ -45,9 +45,9 @@ const UserInfo = ({ full_name, email, socials }) => {
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
   const [isConfirmPasswordHidden, setConfirmIsPasswordHidden] = useState(true);
 
-  const { register,handleSubmit,formState: { errors },reset } = useForm<IFormInput>();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<IFormInput>();
 
-  const [userInfo,] = useState({ full_name,email });
+  const [userInfo,] = useState({ full_name, email });
 
 
 
@@ -61,7 +61,7 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
   useEffect(() => {
-    
+
   }, [isEditable]);
 
 
@@ -70,9 +70,9 @@ const UserInfo = ({ full_name, email, socials }) => {
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     const updatedData = await removeEmptyValuedEntries(data);
     const res = await authenticatedRequest(updateUserProfile, updatedData);
-    
+
     if (res.statusCode != 200) {
-        setIsEditable(false)
+      setIsEditable(false)
     }
     console.log(res);
   };
@@ -84,7 +84,7 @@ const UserInfo = ({ full_name, email, socials }) => {
         <div className="user-profile__container">
           <div className="user-profile">
             <div className="picture">
-    
+
 
               <motion.div
                 variants={toggleVerification}
@@ -113,14 +113,14 @@ const UserInfo = ({ full_name, email, socials }) => {
                 {/* ===== NAME-SURNAME =====*/}
                 <div className="name-surname">
                   <TextArea
-                    className="f-size-p2 f-weight-bl "
+                    className="f-size-p2 f-weight-bl"
                     color="white"
                     size="medium"
                     type="text"
                     placeHolder={userInfo.full_name}
                     width="100%"
+                    resizable={true}
                     isFocused={true}
-                    // maxHeight="5.5rem"
                     style={!isEditable ? { background: "none", border: "none" } : {}}
                     readonly={!isEditable ? true : false}
                     {...register("full_name")}
@@ -205,7 +205,7 @@ const UserInfo = ({ full_name, email, socials }) => {
                     iconRight={
                       <span
                         onClick={() =>
-                          showHidePasswordHandler(setIsPasswordHidden,".userPassword")
+                          showHidePasswordHandler(setIsPasswordHidden, ".userPassword")
                         }
                       >
                         {isPasswordHidden ? <EyeOff /> : <Eye />}
@@ -239,8 +239,8 @@ const UserInfo = ({ full_name, email, socials }) => {
                         className="user-socials__container"
                         key={i}
                         style={el.url.length > 0
-                            ? { width: "100%", padding: "1.5rem" }
-                            : { display: "none" }}>
+                          ? { width: "100%", padding: "1.5rem" }
+                          : { display: "none" }}>
 
 
                         {el.url.length > 0 && (
@@ -252,8 +252,8 @@ const UserInfo = ({ full_name, email, socials }) => {
                             <div
                               className="box"
                               style={{
-                                backgroundImage: `url(/pictures/profile/socials/${
-                                el.name + ".svg"}`,}}/>
+                                backgroundImage: `url(/pictures/profile/socials/${el.name + ".svg"}`,
+                              }} />
                           </a>
                         )}
                       </div>
@@ -269,22 +269,22 @@ const UserInfo = ({ full_name, email, socials }) => {
                   <div className="user-socials-inputs">
                     {userSocials?.map((el, i) => (
                       <div className="user-socials-inputs__container" key={i}>
-                        
-                          <p className="f-size-p6 f-weight-b input-labels">
-                              {el.name}
-                          </p>
-                          
+
+                        <p className="f-size-p6 f-weight-b input-labels">
+                          {el.name}
+                        </p>
+
                         <Input
-                            className="social_inputs"
-                            color="green"
-                            size="medium"
-                            type="text"
-                            placeHolder={el.url.length > 0 ? el.url : "დაამატეთ ინფორმაცია" }
-                            width="100%"
-                            //@ts-ignore
-                            {...register(`socials.${el.name}`)}
+                          className="social_inputs"
+                          color="green"
+                          size="medium"
+                          type="text"
+                          placeHolder={el.url.length > 0 ? el.url : "დაამატეთ ინფორმაცია"}
+                          width="100%"
+                          //@ts-ignore
+                          {...register(`socials.${el.name}`)}
                         />
-                        
+
                       </div>
                     ))}
                   </div>
@@ -292,8 +292,8 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
 
-               {/* ======= CONFIRM-PASSWORD ===== */}
-               {isEditable && (
+                {/* ======= CONFIRM-PASSWORD ===== */}
+                {isEditable && (
                   <div className="confirm-password">
                     <div className="heading">
                       <h1 className="f-size-p6 f-weight-b">
@@ -314,7 +314,7 @@ const UserInfo = ({ full_name, email, socials }) => {
                         <span
                           onClick={() =>
                             showHidePasswordHandler(setConfirmIsPasswordHidden,
-                            ".confirm_user_password")
+                              ".confirm_user_password")
                           }>
                           {isConfirmPasswordHidden ? <EyeOff /> : <Eye />}
                         </span>

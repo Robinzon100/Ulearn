@@ -1,6 +1,7 @@
 .profile-hero {
   width: 100%;
   height: auto;
+
   &__img {
     @include background-properties("/pictures/profile/profile-hero-img.png");
     width: 100%;
@@ -15,7 +16,7 @@
 
 
 
-      
+
       .user-profile {
         background-color: var(--primary-white);
         max-width: 40rem;
@@ -59,6 +60,7 @@
               width: 24px;
               height: 24px;
             }
+
             .verification-message {
               margin: 0 0.2rem 0 1rem;
             }
@@ -80,13 +82,15 @@
           .password,
           .user-socials-inputs {
             margin-top: 3.5rem;
+
             .heading {
               margin-bottom: 1.8rem;
             }
           }
 
-          .confirm-password{
+          .confirm-password {
             margin-top: 8rem;
+
             .heading {
               margin-bottom: 1.8rem;
             }
@@ -111,10 +115,8 @@
               @include flex(center, center, row);
 
               .box {
-                @include background-properties(
-                  "/pictures/profile/socials/facebook.svg",
-                  contain
-                );
+                @include background-properties("/pictures/profile/socials/facebook.svg",
+                  contain);
                 width: 2rem;
                 height: 2rem;
                 margin: 0 auto;
