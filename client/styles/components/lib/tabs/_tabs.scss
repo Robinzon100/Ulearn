@@ -47,21 +47,6 @@
         width: 95%;
         justify-content: flex-start !important;
       }
-
-
-
-      .rendered_icon {
-
-
-        svg {
-          @media screen and (max-width: $ultra-small-screen) {
-            width: 16px;
-            height: 16px;
-          }
-        }
-
-
-      }
     }
   }
 }
