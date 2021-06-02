@@ -13,7 +13,9 @@ const TabContent = ({ rawHtml, component, contentIndex }: ITabContent) => {
     return (
         <>
             {rawHtml && rawHtml[contentIndex].length >= 0 && (
-                ReactHtmlParser(rawHtml[contentIndex])
+                <div className="СontentReveal">
+                    {ReactHtmlParser(rawHtml[contentIndex])}
+                </div>
             )}
             {component && component[contentIndex] != null && (
                 <>

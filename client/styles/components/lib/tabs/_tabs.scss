@@ -35,6 +35,14 @@
       margin-left: 1.3rem;
     }
 
+    [data-active="false"]{
+      border-bottom: none !important;
+      box-shadow: none !important;
+    }
+    [data-active="true"]{
+      font-weight: bold;
+    }
+
     &__item {
       cursor: pointer;
       @include flex(space-between);
