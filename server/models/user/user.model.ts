@@ -1,5 +1,6 @@
 import tableNames from "./../../constants/tableNames";
 import { Model } from 'objection'
+import Course from '../course/course.model';
 
 
 
@@ -50,6 +51,17 @@ export default class User extends Model {
         return tableNames.users;
     }
 
+
+    static relationMappings = {
+        owner: {
+            relation: Model.BelongsToOneRelation,
+            modelClass: Course,
+            join: {
+                from: 'user.id',
+                to: 'users.id'
+            }
+        }
+    };
     // static get jsonSchema() {
     //     return schema;
     // }

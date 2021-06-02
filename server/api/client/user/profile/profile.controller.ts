@@ -3,6 +3,7 @@ import User from "../../../../models/user/user.model";
 import customError from '../../../../utils/createError';
 import bcrypt from 'bcrypt';
 import { getHashedPassword } from '../../../../utils/auth/auth.util';
+import tableNames from "../../../../constants/tableNames";
 
 
 interface IClientUser {
@@ -26,62 +27,77 @@ interface IClientUser {
     affiliate_link: string[],
     instructor_category_id: number[],
     favorite_main_category_ids: number[],
-    favorite_sub_category_ids: number[]
+    favorite_sub_category_ids: number[],
+    liked_courses_ids: number[]
 }
 
 export const getUser = async (req: Request, res: Response, next: NextFunction) => {
-    const {
-        full_name,
-        email,
-        recovery_email,
-        description,
-        image_url,
-        notifications,
-        review_amount,
-        total_minutes_of_courses,
-        detailed_ratings,
-        rating,
-        verified,
-        isInstructor,
-        subscriber_count,
-        personal_detales,
-        socials,
-        purchased_courses_Receipts,
-        Ulearn_coins,
-        affiliate_link,
-        instructor_category_id,
-        favorite_main_category_ids,
-        favorite_sub_category_ids,
-    } = req.user[0] as IClientUser
+    try {
+        const {
+            full_name,
+            email,
+            recovery_email,
+            description,
+            image_url,
+            notifications,
+            review_amount,
+            total_minutes_of_courses,
+            detailed_ratings,
+            rating,
+            verified,
+            isInstructor,
+            subscriber_count,
+            personal_detales,
+            socials,
+            purchased_courses_Receipts,
+            Ulearn_coins,
+            affiliate_link,
+            instructor_category_id,
+            favorite_main_category_ids,
+            favorite_sub_category_ids,
+            liked_courses_ids
+        } = req.user[0] as IClientUser
 
-    const user = {
-        full_name,
-        email,
-        recovery_email,
-        description,
-        image_url,
-        notifications,
-        review_amount,
-        total_minutes_of_courses,
-        detailed_ratings,
-        rating,
-        verified,
-        isInstructor,
-        subscriber_count,
-        personal_detales,
-        socials,
-        purchased_courses_Receipts,
-        Ulearn_coins,
-        affiliate_link,
-        instructor_category_id,
-        favorite_main_category_ids,
-        favorite_sub_category_ids,
+
+
+        // const likedCourses = await User
+        //     .query()
+        //     .whereExists(
+        //        User.relatedQuery('courses').whereIn('id', liked_courses_ids)
+        //     )
+
+        const user = {
+            full_name,
+            email,
+            recovery_email,
+            description,
+            image_url,
+            notifications,
+            review_amount,
+            total_minutes_of_courses,
+            detailed_ratings,
+            rating,
+            verified,
+            isInstructor,
+            subscriber_count,
+            personal_detales,
+            socials,
+            purchased_courses_Receipts,
+            Ulearn_coins,
+            affiliate_link,
+            instructor_category_id,
+            favorite_main_category_ids,
+            favorite_sub_category_ids,
+            // likedCourses,
+        }
+
+
+        res.json({
+            user
+        })
+    } catch (err) {
+        customError(res, next, err.message, 500)
     }
-
-
-    res.json({
-        user
-    })
 }
 
 
@@ -117,6 +133,8 @@ export const updateUser = async (req: Request, res: Response, next: NextFunction
 
 
         if (passwordMatch) {
+
+
             const {
                 full_name,
                 email,
@@ -139,9 +157,15 @@ export const updateUser = async (req: Request, res: Response, next: NextFunction
                 instructor_category_id,
                 favorite_main_category_ids,
                 favorite_sub_category_ids,
+
+
             } = await User
                 .query()
                 .patchAndFetchById(id, req.body)
+
+
+
+
             return res.status(200).json({
                 update: {
                     full_name,
@@ -165,6 +189,7 @@ export const updateUser = async (req: Request, res: Response, next: NextFunction
                     instructor_category_id,
                     favorite_main_category_ids,
                     favorite_sub_category_ids,
+
                 }
             })
         }

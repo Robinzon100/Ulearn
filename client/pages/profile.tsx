@@ -31,7 +31,7 @@ const profile = ({ user }) => {
                 />
 
 
-                <div className="user-courses">
+                <div className="user-content">
                     <Tabs
                         tabNamesAndIcons={
                             [

@@ -2,6 +2,7 @@ import morgan from "morgan";
 import express, { Application, Request, Response, NextFunction } from 'express'
 import helmet from "helmet"
 import cors from 'cors'
+import cookieParser from 'cookie-parser'
 const compression = require('compression');
 
 
@@ -28,6 +29,7 @@ export const baseMiddlewares = (app: Application) => {
     app.use(compression());
     app.use(helmet())
     app.use(cors(corsOptions))
+    app.use(cookieParser())
 
     app.use((req: Request, res: Response, next: NextFunction) => {
         // res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
