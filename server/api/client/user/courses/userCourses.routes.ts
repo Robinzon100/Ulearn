@@ -2,22 +2,26 @@ import express from "express";
 
 
 //! ─── OWN ────────────────────────────────────────────────────────────────────────
-import { defaultRouterOptions } from "../../../constants/router.options";
+//? UTILS
+import { defaultRouterOptions } from "../../../../constants/router.options";
+import { getUserWithAccessToken } from "../../../../middleware/auth/validateToken.middleware";
 const router = express.Router(defaultRouterOptions);
-import profileRoutes from "./profile/profile.routes";
-import courseRoutes from "./courses/userCourses.routes";
 
 
+//? CONTROLLERS
+import { validateUpdateUserObject } from '../../../../middleware/body_validation/user.validation';
+import { postUserLikeCourse } from "./userCourses.controller";
 
-//! ─── CONTROLLERS AND MIDDLAWARES ────────────────────────────────────────────────
 
+//? MIDDLEWARES
+router.use(getUserWithAccessToken)
 
 
 
 
 // ─── ROUTES ─────────────────────────────────────────────────────────────────────
-router.use('/profile', profileRoutes);
-router.use('/course', courseRoutes);
+router.route('/addToLiked')
+    .post(postUserLikeCourse)
 
 
 export default router;

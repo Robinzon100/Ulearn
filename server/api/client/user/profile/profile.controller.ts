@@ -3,33 +3,9 @@ import User from "../../../../models/user/user.model";
 import customError from '../../../../utils/createError';
 import bcrypt from 'bcrypt';
 import { getHashedPassword } from '../../../../utils/auth/auth.util';
-import tableNames from "../../../../constants/tableNames";
 
 
-interface IClientUser {
-    full_name: string,
-    email: string,
-    recovery_email: string,
-    description: string,
-    image_url: string,
-    notifications: any[],
-    review_amount: number,
-    total_minutes_of_courses: number,
-    detailed_ratings: any,
-    rating: any,
-    verified: boolean,
-    isInstructor: boolean,
-    subscriber_count: number,
-    personal_detales: any,
-    socials: any,
-    purchased_courses_Receipts: any,
-    Ulearn_coins: number,
-    affiliate_link: string[],
-    instructor_category_id: number[],
-    favorite_main_category_ids: number[],
-    favorite_sub_category_ids: number[],
-    liked_courses_ids: number[]
-}
+
 
 export const getUser = async (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -56,15 +32,16 @@ export const getUser = async (req: Request, res: Response, next: NextFunction) =
             favorite_main_category_ids,
             favorite_sub_category_ids,
             liked_courses_ids
-        } = req.user[0] as IClientUser
+        } = req.user[0] as User
 
 
 
-        // const likedCourses = await User
-        //     .query()
-        //     .whereExists(
-        //        User.relatedQuery('courses').whereIn('id', liked_courses_ids)
-        //     )
+        const liked_courses = await User
+            .query()
+            .whereInComposite(
+                'id',
+                liked_courses_ids
+            )
 
         const user = {
             full_name,
@@ -88,7 +65,7 @@ export const getUser = async (req: Request, res: Response, next: NextFunction) =
             instructor_category_id,
             favorite_main_category_ids,
             favorite_sub_category_ids,
-            // likedCourses,
+            liked_courses,
         }
 
 
@@ -157,11 +134,9 @@ export const updateUser = async (req: Request, res: Response, next: NextFunction
                 instructor_category_id,
                 favorite_main_category_ids,
                 favorite_sub_category_ids,
-
-
             } = await User
                 .query()
-                .patchAndFetchById(id, req.body)
+                .patchAndFetchById(id, req.body) as User
 
 
 
@@ -189,7 +164,6 @@ export const updateUser = async (req: Request, res: Response, next: NextFunction
                     instructor_category_id,
                     favorite_main_category_ids,
                     favorite_sub_category_ids,
-
                 }
             })
         }
