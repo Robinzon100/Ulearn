@@ -1,7 +1,8 @@
 
 export const changeTabPositionAndColor = () => {
-  let main = document.querySelector<HTMLElement>(".Tabs");
-  let tabs = main.querySelectorAll<HTMLElement>(".Tab");
+  let main = document.querySelector<HTMLElement>(".tabs-heading--list");
+  let tabs = main.querySelectorAll<HTMLElement>(".tabs-heading--list__item");
+  
   const colors = ["#338eff", "#ff5c4d", "#16c93e", "#ffd703"];
   
   

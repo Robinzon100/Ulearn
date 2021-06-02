@@ -1,35 +1,42 @@
-.profile-hero {
+.user-profile-section {
   width: 100%;
   height: auto;
 
-  &__img {
+  .profile-hero-img {
     @include background-properties("/pictures/profile/profile-hero-img.png");
     width: 100%;
     height: 60vh;
   }
 
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 30px;
+  }
+
+  .user-content {
+    width: 100%;
+    max-width: 85rem;
+    padding: 8rem 0 0 0;
+    margin: 0 auto;
+  }
 
 
-  .user-profile {
+
+  .user-profile-info {
     &__container {
-      height: 100vh;
-
-
-
-
+      //   height: 100vh;
       .user-profile {
         background-color: var(--primary-white);
         max-width: 40rem;
         width: 100%;
         margin-top: -12rem;
         position: relative;
-        margin-left: 15vw;
+        margin-left: 12vw;
         border-radius: 21px;
         box-shadow: 0px 49px 46px -28px rgba(0, 0, 0, 0.13),
           0px 4px 37px rgba(0, 0, 0, 0.04);
         padding: 2rem;
-
-
 
         .picture {
           @include background-properties("/pictures/profile/user-pic.png");
@@ -43,8 +50,6 @@
           width: 100%;
           left: 22%;
           top: -15rem;
-
-
 
           .verification-star {
             position: absolute;
@@ -66,10 +71,6 @@
             }
           }
         }
-
-
-
-
 
         &__creditionals {
           margin-top: 10rem;
@@ -96,9 +97,6 @@
             }
           }
 
-
-
-
           .user-socials {
             @include flex(stretch, center, row);
             gap: 0 1.4vw;
@@ -115,37 +113,32 @@
               @include flex(center, center, row);
 
               .box {
-                @include background-properties("/pictures/profile/socials/facebook.svg",
-                  contain);
+                @include background-properties(
+                  "/pictures/profile/socials/facebook.svg",
+                  contain
+                );
                 width: 2rem;
                 height: 2rem;
                 margin: 0 auto;
               }
             }
           }
-
         }
-
-
 
         .edit-btn,
         .confirmation-btn {
           margin-top: 5rem;
         }
 
-
         .cancel-btn {
           margin-top: 1rem;
         }
 
         .user-socials-inputs {
-
           :not(:first-child) {
             margin-top: 1.5rem;
           }
         }
-
-
       }
     }
   }

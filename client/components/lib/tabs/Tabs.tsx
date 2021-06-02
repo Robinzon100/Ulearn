@@ -5,7 +5,6 @@ import { ITabHeadings } from './TabHeading';
 import { ITabContent } from './TabContent';
 
 
-
 interface ITabs extends ITabHeadings, ITabContent { }
 
 
@@ -17,15 +16,21 @@ const Tabs = ({ tabNamesAndIcons, rawHtml, component }: ITabs) => {
 
 
 
+
   return (
     <>
       <TabHeading
         tabNamesAndIcons={tabNamesAndIcons}
         setTabIndex={setTabIndex} />
-      <TabContent
-        contentIndex={globalIndex}
-        rawHtml={rawHtml}
-        component={component} />
+
+        <div className="tab-content-container">
+            <TabContent
+                contentIndex={globalIndex}
+                rawHtml={rawHtml}
+                component={component}
+            />
+        </div>
+      
     </>
   );
 };
