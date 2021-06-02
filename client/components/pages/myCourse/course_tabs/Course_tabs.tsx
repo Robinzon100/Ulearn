@@ -68,13 +68,13 @@ const Course_tabs = () => {
     <>
       <div className="section-courses--tablist">
         <div className="section-courses--tablist__container gray-border">
-          <Tabs
+          {/* <Tabs
             iconsToRender={renderIcon}
             tabsToRender={courseTabsToRender}
             contentTofetch={fetchTabContent}
             setTabIndex={setTabIndex}
             setTabContent={setTabContent}
-          />
+          /> */}
         </div>
 
         <div className="courses_content">

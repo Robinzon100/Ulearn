@@ -23,15 +23,15 @@
 @import "pages/login_registration/register";
 @import "pages/login_registration/login";
 @import "pages/profile/profile";
-
+@import "pages/profile/user-content";
 
 
 /// === === === QUERYS=== === === ===
-@import "media-querys/navigation_query";
-@import "media-querys/courses.media-query";
-@import "media-querys/landing_page";
-@import "media-querys/main-content_query";
-
+@import "media-querys/navigation.query";
+@import "media-querys/courses.query";
+@import "media-querys/landing_page.query";
+@import "media-querys/main-content.query";
+@import "media-querys/profile.query";
 
 
 /// === === ===  GLOBAL COMPONENTS === === === ===
@@ -55,6 +55,7 @@
 
 
 // === === === === OUR LIBRARY COMPONENTS === === === ===
+@import "components/lib/tabs/tabs";
 @import "components/lib/button/buttons";
 @import "components/lib/loagout/logout";
 @import "components/lib/button/button_colors";

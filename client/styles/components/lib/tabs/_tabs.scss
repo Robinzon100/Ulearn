@@ -1,0 +1,98 @@
+.tabs-heading {
+  //   max-width: 1100px;
+  //   width: 100%;
+  @include flex(space-between);
+  margin: 0 auto;
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    background-color: var(--secondary-dark-grey);
+    opacity: 30%;
+    height: 0.5px;
+    bottom: 2px;
+  }
+
+  &--list {
+    position: relative;
+    background-color: #fff;
+    width: 100%;
+    @include flex(space-between);
+    list-style: none;
+
+
+
+    @media screen and (max-width: $small-screen) {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    .rendered_title {
+      margin-left: 1.3rem;
+    }
+
+    &__item {
+      cursor: pointer;
+      @include flex(space-between);
+      padding: 1.5rem 2.7rem;
+
+
+      
+      @media screen and (max-width: $small-screen) {
+        padding: 1.5rem .3rem;
+        width: 95%;
+        justify-content: flex-start !important;
+      }
+
+
+
+      .rendered_icon {
+
+
+        svg {
+          @media screen and (max-width: $ultra-small-screen) {
+            width: 16px;
+            height: 16px;
+          }
+        }
+
+
+      }
+    }
+  }
+}
+
+
+
+.tab-content-container {
+  margin-top: 8rem;
+
+  .user-liked-courses-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 50px;
+  }
+
+  .PrimaryContentCard {
+    max-width: 40rem;
+
+    &:not(:last-child) {
+        margin-bottom: 3rem;
+    }
+
+    @media screen and (max-width: $large-screen) {
+      max-width: 35rem !important;
+    }
+
+    @media screen and (max-width: $small-screen) {
+      width: 100%;
+      max-width: initial !important;
+    }
+
+
+  }
+}

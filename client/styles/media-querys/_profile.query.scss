@@ -1,0 +1,45 @@
+@media screen and (max-width: $large-screen) {
+  .user-profile-section {
+    .user-content {
+      max-width: 75rem;
+    }
+  }
+
+  .user-profile-section .user-profile-info__container .user-profile {
+    margin-left: 3vw;
+  }
+}
+
+@media screen and (max-width: $medium-screen) {
+  .user-profile-section {
+    &__container {
+      justify-content: center;
+    }
+
+    .user-content {
+      max-width: 80rem;
+      padding: 2rem;
+      margin-top: 10rem;
+    }
+  }
+}
+
+
+
+@media screen and (max-width: $small-screen) {
+  .user-profile-section {
+    &__container {
+      padding-bottom: calc(var(--bottom-navigation-heigth) + 9vh);
+    }
+  }
+}
+
+
+
+
+@media screen and (max-width: $ultra-small-screen) {
+  .user-profile-section .user-profile-info__container .user-profile {
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+  }
+}

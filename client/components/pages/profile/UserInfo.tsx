@@ -80,8 +80,8 @@ const UserInfo = ({ full_name, email, socials }) => {
 
   return (
     <>
-      <div className="user-profile">
-        <div className="user-profile__container">
+      <div className="user-profile-info">
+        <div className="user-profile-info__container">
           <div className="user-profile">
             <div className="picture">
 

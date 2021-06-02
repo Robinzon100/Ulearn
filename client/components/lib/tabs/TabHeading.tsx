@@ -1,6 +1,8 @@
 
 import Icon from "components/lib/Icon/Icon";
+import { useEffect } from "react";
 
+import { changeTabPositionAndColor } from "components/pages/myCourse/course_tabs/utils/Underline";
 
 
 export interface ITabHeadings {
@@ -12,6 +14,7 @@ export interface ITabHeadings {
             strokeWidth?: number,
             size?: number,
             fill?: string,
+            stroke?:string
         }
     }[],
     setTabIndex?: number | any;
@@ -22,22 +25,28 @@ export interface ITabHeadings {
 
 
 const TabHeading = ({ tabNamesAndIcons, setTabIndex }: ITabHeadings) => {
+
+    useEffect(() => {
+        changeTabPositionAndColor();
+    }, [])
+
     return (
         <>
-            <nav>
-                <ul className="Tabs">
+            <nav className="tabs-heading">
+                <ul className="tabs-heading--list">
                     {tabNamesAndIcons.map((tab, i) => (
                         <li
-                            className="Tabs--item noselect  Tab"
+                            className="tabs-heading--list__item noselect  Tab"
                             onClick={() => setTabIndex(i)}
                             key={i}>
                             <div className="rendered_icon">
                                 <Icon
                                     name={tab.icon.name}
-                                    color={`var(--${tab.icon.color})`}
-                                    fill={`var(--${tab.icon.fill})`}
+                                    color={tab.icon.color}
+                                    fill={tab.icon.fill}
                                     strokeWidth={tab.icon.strokeWidth}
                                     size={tab.icon.size}
+                                    stroke={tab.icon.stroke}
                                 />
                             </div>
                             <div className="rendered_title">
