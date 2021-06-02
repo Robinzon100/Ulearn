@@ -1,10 +1,7 @@
-
 import { Eye, EyeOff } from "react-feather";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useState } from "react";
-import Router,{ useRouter } from "next/router";
-
-
+import Router, { useRouter } from "next/router";
 
 //! ─── OWN ────────────────────────────────────────────────────────────────────────
 //? COMPONENTS
@@ -15,35 +12,29 @@ import Button from "components/lib/button/Button";
 import { emailRegex } from "components/utils/regex/Regex";
 import { showHidePasswordHandler } from "components/utils/helpers/showHidePassword";
 
-
 //? ACTIONS
 import { postLogin } from "actions/client/login.action";
 import AuthUtils from "components/utils/auth/authUtils";
-
-
-
-
 
 type LoginValues = {
   email: string;
   password: string;
 };
 
-
-
 const loginComponent = () => {
-
   const router = useRouter();
 
-  const { register, handleSubmit, formState: { errors } } = useForm<LoginValues>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginValues>();
 
   const { setCookiesAndRedirect } = AuthUtils();
 
-
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
-  const [serverErrors, setServerErrors] = useState("")
+  const [serverErrors, setServerErrors] = useState("");
   const [isButtonLoading, setIsButtonLoading] = useState(false);
-
 
   const onSubmit: SubmitHandler<LoginValues> = async (data: LoginValues) => {
     let loginedUser: LoginValues = {
@@ -53,10 +44,9 @@ const loginComponent = () => {
 
     let res = await postLogin(loginedUser);
 
-
     if (res.statusCode == 200) {
-      setCookiesAndRedirect(res)
-      setIsButtonLoading(true)
+      setCookiesAndRedirect(res);
+      setIsButtonLoading(true);
       Router.reload();
       router.push("/");
     } else {
@@ -64,24 +54,24 @@ const loginComponent = () => {
     }
   };
 
-
-
-
   return (
     <>
-
-      <form onSubmit={handleSubmit(onSubmit)}>
+      
         <div className="base_form_styles login_forms">
           <div className="title">
             <h1 className="f-size-h7 f-weight-bl">ავტორიზაცია</h1>
           </div>
 
-          <div className="login-grid grid_base_styles">
+
+          
+          <div className="grid_base_styles">
+          <form onSubmit={handleSubmit(onSubmit)} className="login-grid">
+
             <div className="base_input_styles email">
               <div className="heading">
                 <h1 className="f-size-p6 f-weight-b">ელექტრონული ფოსტა</h1>
               </div>
-
+        
               <Input
                 size="large"
                 name="email"
@@ -105,6 +95,10 @@ const loginComponent = () => {
               )}
             </div>
 
+
+
+
+
             <div className="base_input_styles password">
               <div className="heading">
                 <h1 className="f-size-p6 f-weight-b">პაროლი</h1>
@@ -120,11 +114,13 @@ const loginComponent = () => {
                 color="white"
                 iconRight={
                   <span
-                    onClick={() => showHidePasswordHandler(
-                      setIsPasswordHidden,
-                      ".registerPassword"
-                    )
-                    }>
+                    onClick={() =>
+                      showHidePasswordHandler(
+                        setIsPasswordHidden,
+                        ".registerPassword"
+                      )
+                    }
+                  >
                     {isPasswordHidden ? <EyeOff /> : <Eye />}
                   </span>
                 }
@@ -144,37 +140,36 @@ const loginComponent = () => {
               <p className="form_errors f-size-p6 f-weight-r">{serverErrors}</p>
             </div>
 
-            <div className="submit_btn">
 
+
+
+
+            <div className="submit_btn">
               <Button
                 loading={isButtonLoading ? true : false}
                 type="submit"
                 width="100%"
                 size="medium"
-                color="black">
+                color="black"
+              >
                 <p className="f-weight-r f-size-p4 ">ავტორიზაცია</p>
               </Button>
             </div>
-
-
-
+            
+            </form>
+            <div className="register_btn">
+              <Button 
+              width="100%" 
+              size="small" 
+              color="green" 
+              route="/register">
+                <p className="f-weight-r f-size-p4 ">რეგისტრაცია</p>
+              </Button>
+            </div>
           </div>
         </div>
-      </form>
-      <div className="register_btn">
-        <Button
-          width="100%"
-          size="small"
-          color="green"
-          route='/register'>
-          <p className="f-weight-r f-size-p4 ">
-            რეგისტრაცია
-          </p>
-        </Button>
-
-      </div>
     </>
-  )
-}
+  );
+};
 
 export default loginComponent;

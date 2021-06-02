@@ -16,6 +16,10 @@ import InputSelectComponent from "components/lib/dropdowns/DropdownsContainer";
 import { getAllCategories } from "actions/client/categories.action";
 
 
+import { userCoursesLike } from "actions/client/user/courses/userCoursesLike.action";
+import { authenticatedRequest } from "components/utils/auth/tokenValidations";
+
+
 
 
 
@@ -35,6 +39,12 @@ const CourseCards = ({landingCourse}) => {
   useEffect(() => {
     fetchCarouselCategories();
   }, []);
+
+
+  const handleUserCourseLikes = async (liked_course_id) => {
+      const res = await authenticatedRequest(userCoursesLike,{liked_course_id})
+      console.log(res)
+    }
 
 
 
@@ -71,11 +81,11 @@ const CourseCards = ({landingCourse}) => {
                   numberOfVotes={20}
                   bestseller={card.bestseller}
                   discount_price={card.discount_price}
-                  isLiked={card.isLiked}
                   created_at={card.created_at}
                   difficulty={card.difficulty}
                   description={card.description}
                   descriptionList={card.hoverCardList}
+                  handleUserCourseLikes={handleUserCourseLikes}
                 />
               ))}
             </div>
