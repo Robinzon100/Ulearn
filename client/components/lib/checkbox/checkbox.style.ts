@@ -3,9 +3,9 @@ import {ICheckBoxSizeGroup,ICheckBoxStyle} from "./checkbox.interface";
 export const getCheckBoxColor = (color: string): ICheckBoxStyle => {
   const colors = {
     white: {
-      bg: "var(--primary-grey)",
-      defaultShadow: "var(--btn-shadow) rgba(var(--primary-white-shadow--rgb),0.2)",
-      hoverShadow:"var(--btn-hover-shadow) rgba(var(--primary-white-shadow--rgb),0.45)",
+      bg: "var(--primary-white)",
+    //   defaultShadow: "0px 20px 50px -10px rgba(0, 0, 0, 0.14)",
+      hoverShadow:"0px 29px 80px -10px rgba(0, 0, 0, 0.12)",
     },
   };
   return colors[color];

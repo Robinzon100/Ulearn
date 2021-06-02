@@ -10,6 +10,9 @@ import { Observer } from "mobx-react-lite";
 import { getAllCourseVideos } from "actions/client/course/landingPage/landing.courses.action"
 
 
+
+
+
 const Index = ({ data }) => {
   return (
     <Observer>
@@ -31,6 +34,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
     const landingCourse = await getAllCourseVideos();
     
+
     return {
         props: {
             data:landingCourse

@@ -251,15 +251,20 @@ const RegisterComponent = () => {
                 checkboxContent={checkboxContent}
               />
 
-              <div className="server_errors">
-                <p className="form_errors f-size-p6 f-weight-r">{categoryErrors}</p>
-              </div>
+              
 
             </div>
+
+            <div className="category_errors">
+                <p className="form_errors f-size-p6 f-weight-r">{categoryErrors}</p>
+              </div>
 
             <div className="server_errors">
               <p className="form_errors f-size-p6 f-weight-r">{otherErrors}</p>
             </div>
+            
+
+
 
             <div className="submit_btn">
               <Button

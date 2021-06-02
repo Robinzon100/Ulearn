@@ -9,16 +9,16 @@ import { getUser } from 'actions/client/user/profile/profile.action';
 import { authenticatedRequest } from 'components/utils/auth/tokenValidations';
 import { redirect } from 'components/utils/auth/redirect.utils';
 import { TabHeadings } from "components/pages/profile/tab.content"
+import Tabs from 'components/lib/tabs/Tabs';
 
 
 
 //* ACTIONS 
 import { getAllCourseVideos } from "actions/client/course/landingPage/landing.courses.action"
-import Tabs from 'components/lib/tabs/Tabs';
-
 
 
 const profile = ({ user, data }) => {
+
 
     return (
         <>
@@ -85,7 +85,6 @@ const profile = ({ user, data }) => {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
     const res = await authenticatedRequest(getUser, null, ctx)
-
 
 
     if (res.statusCode == 200) {

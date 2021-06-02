@@ -21,15 +21,14 @@ const Card = ({
   id,
   price,
   name,
-  bestseller,
   discount_price,
   numberOfVotes,
   thumbnail_imageUrl,
-  isLiked,
   created_at,
   difficulty,
   description,
   overall_rating,
+  handleUserCourseLikes,
 }: PrimaryContentCards) => {
   const selfRef = useRef<HTMLDivElement>(null);
 
@@ -39,13 +38,12 @@ const Card = ({
     width: 0,
   });
 
-  const [addToFavorites, setAddToFavorites] = useState<boolean>(isLiked);
+  const [addToFavorites, setAddToFavorites] = useState<boolean>(false);
 
   const [checkNewPrice] = useState<boolean | number>(discount_price);
 
   const [isClicked, setIsClicked] = useState<boolean | null>(false);
 
-  const [isBestSeller] = useState<boolean>(bestseller);
 
   const [, setIsVisible] = useState<boolean>(false);
 
@@ -61,6 +59,10 @@ const Card = ({
   };
 
 
+  const handleCourseLike = (e) => {
+    handleUserCourseLikes(id)
+    handleAddFavorite(e,setAddToFavorites)
+  }
 
 
   return (
@@ -153,18 +155,18 @@ const Card = ({
           </div>
         </div>
         <div className="PrimaryContentCard__like">
-          <label className={isBestSeller ? "label regular  f-size-p7" : null}>
-            {isBestSeller ? <p>ბესტსელერი</p> : null}
-          </label>
 
-          <div
-            className={
-              addToFavorites
-                ? "full-heart-svg heart heart-background"
-                : "stroke-heart-svg heart"
-            }
-            onClick={(e) => handleAddFavorite(e,setAddToFavorites)}
-          ></div>
+          
+              <div
+              className={
+                addToFavorites
+                  ? "full-heart-svg heart heart-background"
+                  : "stroke-heart-svg heart"
+              }
+              onClick={(e) => handleCourseLike(e)}
+            ></div>
+
+          
         </div>
       </div>
     </>

@@ -60,7 +60,7 @@ const CheckBox = forwardRef<HTMLInputElement,PropsWithChildren<ICheckBox>>(({
             <Loading bgColor="black" padding={getCheckBoxSize(size).padding} />
           )}
 
-          <span className="checkbox-title">{!loading && title}</span>
+          <p className="checkbox-title f-size-p5 f-weight-r">{!loading && title}</p>
           
         </label>
       </div>
@@ -75,14 +75,14 @@ const CheckBox = forwardRef<HTMLInputElement,PropsWithChildren<ICheckBox>>(({
           cursor: ${disabled || loading ? "not-allowed" : "pointer"};
           pointerEvents: ${disabled || loading && "none" };
           position: relative;
-          border-radius: 8px;
-          box-shadow:${color ? getCheckBoxColor(color).defaultShadow : "none"};
+          border-radius: 10px;
+          /* box-shadow:${color ? getCheckBoxColor(color).defaultShadow : "none"}; */
           padding: ${getCheckBoxSize(size).padding};
           display: inline-flex;
-          justify-content: center;
+          justify-content: flex-start;
           align-items: center;
           width: ${width && width};
-          border:none;
+          border: 0.5px solid var(--secondary-dark-grey);
           background:${color ? getCheckBoxColor(color).bg : "none"};
           transition: all .2s ease;
         }
@@ -108,9 +108,8 @@ const CheckBox = forwardRef<HTMLInputElement,PropsWithChildren<ICheckBox>>(({
         }
 
         .checkbox-title {
-          font-size: ${getCheckBoxSize(size).fontSize};
-          font-family: var(--button-fontFamily);
           color:${color ? "var(--secondary-light-black)" : "var(--primary-white)"};
+          margin-left: 6rem;
         }
       `}</style>
     </>

@@ -15,7 +15,7 @@ import { ifUserLoginOrRegister } from '../components/utils/auth/redirect.utils';
 
 
 
-const login = ({ value }) => {
+const login = () => {
 
     return (
         <>
@@ -23,7 +23,6 @@ const login = ({ value }) => {
                 <div className="login_registration_container">
 
                     <LoginForm />
-                    <h1>{value}</h1>
 
                 </div>
             </section>
