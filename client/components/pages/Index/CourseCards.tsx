@@ -42,8 +42,7 @@ const CourseCards = ({landingCourse}) => {
 
 
   const handleUserCourseLikes = async (liked_course_id) => {
-      const res = await authenticatedRequest(userCoursesLike,{liked_course_id})
-      console.log(res)
+      const res = await authenticatedRequest(userCoursesLike,liked_course_id, null)
     }
 
 
@@ -72,7 +71,8 @@ const CourseCards = ({landingCourse}) => {
               {landingCourse.courses.map((card) => (
                 <PrimaryContentCard
                   key={card.id}
-                  id={card.uuid}
+                  uuid={card.uuid}
+                  id={card.id}
                   name={card.title}
                   price={card.price}
                   thumbnail_imageUrl={card.thumbnail_imageUrl}

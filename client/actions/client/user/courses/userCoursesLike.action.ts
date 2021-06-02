@@ -4,13 +4,19 @@ import { axiosInstance } from 'actions/action.index';
 
 
 
-export const  userCoursesLike = async (accessToken) => {
+export const userCoursesLike = async ({ data: id, auth_access_token } ) => {
+    console.log(id);
+    
     return await axiosInstance
-        .post(`/user/courses/addToLiked`, {
-            headers: {
-                auth_access_token: `${accessToken}`
+        .post(`/user/course/addToLiked`,
+            {
+                liked_course_id: +id
             },
-        })
+            {
+                headers: {
+                    auth_access_token: `${auth_access_token}`
+                }
+            })
         .then(res => {
             return {
                 ...res.data,

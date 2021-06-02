@@ -3,6 +3,7 @@ import User from "../../../../models/user/user.model";
 import customError from '../../../../utils/createError';
 import bcrypt from 'bcrypt';
 import { getHashedPassword } from '../../../../utils/auth/auth.util';
+import Course from '../../../../models/course/course.model';
 
 
 
@@ -36,12 +37,15 @@ export const getUser = async (req: Request, res: Response, next: NextFunction) =
 
 
 
-        const liked_courses = await User
+        const liked_courses = await Course
             .query()
             .whereInComposite(
                 'id',
                 liked_courses_ids
             )
+
+        console.log(liked_courses);
+        
 
         const user = {
             full_name,

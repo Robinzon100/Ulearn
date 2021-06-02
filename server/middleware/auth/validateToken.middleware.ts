@@ -10,15 +10,13 @@ const decodeAccessToken = async (req: Request) => {
     const decoded = await jwt.verify(
         `${auth_access_token}`,
         process.env.JWT_ACCESS_TOKEN_SECRET!)
+
     return decoded
 }
 
 
 
-const getUserWithAccessToken = async (
-    req: Request,
-    res: Response,
-    next: NextFunction) => {
+const getUserWithAccessToken = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { userUUID } = await decodeAccessToken(req) as { userUUID: string }
         const user = await User.query().where('uuid', userUUID)
@@ -31,10 +29,7 @@ const getUserWithAccessToken = async (
 
 
 
-const validateAccessToken = async (
-    req: Request,
-    res: Response,
-    next: NextFunction) => {
+const validateAccessToken = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const decoded = await decodeAccessToken(req)
         if (decoded) {

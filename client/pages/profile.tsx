@@ -14,10 +14,8 @@ import Tabs from 'components/lib/tabs/Tabs';
 
 
 //* ACTIONS 
-import { getAllCourseVideos } from "actions/client/course/landingPage/landing.courses.action"
 
-
-const profile = ({ user, data }) => {
+const profile = ({ user}) => {
 
 
     return (
@@ -50,7 +48,7 @@ const profile = ({ user, data }) => {
                                 [
                                     <>
                                         <div className="user-liked-courses-container">
-                                            {data.courses.map(card => (
+                                            {user.liked_courses.map(card => (
                                                 <Card
                                                     key={card.id}
                                                     id={card.uuid}
@@ -88,11 +86,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
 
     if (res.statusCode == 200) {
-        const landingCourse = await getAllCourseVideos();
         return {
             props: {
                 user: res.user,
-                data: landingCourse
             },
         };
     }

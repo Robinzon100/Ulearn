@@ -9,7 +9,7 @@ const router = express.Router(defaultRouterOptions);
 
 
 //? CONTROLLERS
-import { validateUpdateUserObject } from '../../../../middleware/body_validation/user.validation';
+// import { validateUpdateUserObject } from '../../../../middleware/body_validation/user.validation';
 import { postUserLikeCourse } from "./userCourses.controller";
 
 

@@ -19,6 +19,7 @@ import NextLink from "components/utils/nextLink/NextLink";
 
 const Card = ({
   id,
+  uuid,
   price,
   name,
   discount_price,
@@ -70,10 +71,10 @@ const Card = ({
       <div
         ref={selfRef}
         className="PrimaryContentCard"
-        key={id}
+        key={uuid}
         onMouseLeave={() => handleHoverLeave()}
       >
-        <NextLink route={`/course/${id}`}>
+        <NextLink route={`/course/${uuid}`}>
           <div
             className={"PrimaryContentCard__img"}
             style={{ backgroundImage: `url(${thumbnail_imageUrl})` }}
