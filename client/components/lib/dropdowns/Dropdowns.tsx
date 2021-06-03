@@ -43,14 +43,14 @@ const Dropdowns: React.FC<SortingDropdown> = ({ type }) => {
                     color="yellow"
                     loading={false}
                     disabled={false}
-
+                    maxWidth="12vw"
+                    width="100%"
                 />
 
             )}
 
             {type === "time" && (
                 <Select
-                    // width="13vw"
                     size="small"  
                     placeHolder="ხანგძლივობა"
                     id={3}
@@ -58,7 +58,8 @@ const Dropdowns: React.FC<SortingDropdown> = ({ type }) => {
                     onChange={handleSelectChange}
                     icon={<Clock size={15} />}
                     color="red"
-
+                    maxWidth="12vw"
+                    width="100%"
                 />
             )}
         </>

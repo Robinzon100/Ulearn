@@ -10,6 +10,7 @@ import { authenticatedRequest } from 'components/utils/auth/tokenValidations';
 import { redirect } from 'components/utils/auth/redirect.utils';
 import { TabHeadings } from "components/pages/profile/tab.content"
 import Tabs from 'components/lib/tabs/Tabs';
+import RangeSlider from 'components/lib/RangeSlider/RangeSlider';
 
 
 
@@ -77,7 +78,7 @@ const profile = ({ user }) => {
                     </div>
                 </div>
 
-
+                <RangeSlider/>
             </section>
         </>
     );

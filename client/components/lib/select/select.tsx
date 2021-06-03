@@ -6,7 +6,6 @@ import { ChevronDown } from "react-feather";
 import {handleToggle,handleMouseLeave} from "../../../function/CustomeSelecHook";
 import { dropDownAnimation } from "components/lib/framer/framerAnimation";
 import { ISelect } from "./select.inteface";
-// import Stars from "components/lib/svg/Stars";
 import { getSelectSize, getSelectColors } from "./select.style";
 import Loading from "components/lib/loading/Loading";
 
@@ -25,6 +24,7 @@ const selectInput: React.FC<ISelect> = ({
   width,
   options,
   loading,
+  maxWidth
 }) => {
   const [mouseLeave, setMouseLeave] = useState<boolean>(false);
   const [isToggle, setIsToggle] = useState<boolean>(false);
@@ -119,6 +119,7 @@ const selectInput: React.FC<ISelect> = ({
             cursor: ${disabled || loading ? "not-allowed" : "pointer"};
             pointerevents: ${disabled || loading ? "none" : "auto"};
             opacity: ${disabled || loading ? "60%" : "100%"};
+            max-width:${maxWidth};
           }
           .select_icon {
             padding: ${getSelectSize(size).iconPadding};

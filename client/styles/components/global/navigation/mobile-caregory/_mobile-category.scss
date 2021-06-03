@@ -37,6 +37,7 @@ $category-max-width: 25rem;
       .category-navigation {
         width: 100%;
         max-width: $category-max-width;
+
       }
 
       .category-navigation {
@@ -47,13 +48,11 @@ $category-max-width: 25rem;
         .main-category-list,
         .sub-category-list,
         .subSub-category-list {
-          z-index: 1;
-        //   margin-right: 0 !important;
-
+          z-index: 1; 
+            margin-top: 1rem;
 
           &--item {
             @include flex(space-between, initial, row);
-            // margin-right: 0 !important;
             padding: 0.5rem 1rem;
             width: 100%;
 
@@ -69,7 +68,6 @@ $category-max-width: 25rem;
           background-color: var(--primary-white);
 
           height: 100%;
-          //   overflow: hidden;
           display: block;
 
           .go-back-arrow {
@@ -91,7 +89,6 @@ $category-max-width: 25rem;
           left: 23rem !important;
           max-width: 18rem;
           height: 100%;
-          //   overflow: hidden;
           display: block;
         }
 

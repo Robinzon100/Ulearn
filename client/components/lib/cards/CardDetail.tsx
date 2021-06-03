@@ -4,8 +4,6 @@ import dayjs  from "dayjs";
 
 import NextLink from "components/utils/nextLink/NextLink";
 import { ShoppingCart } from "react-feather";
-import { stringToCut } from "components/utils/helpers/stringToCut";
-
 
 
 //! ============= INTERFACE
@@ -23,7 +21,7 @@ const CardDetail = ({ id,name,created_at,difficulty,description}:
         <div className="inside_content">
           <div className="card_detail--container__title">
             <NextLink route={`/course/${id}`}>
-              <p className="f-size-p4">
+              <p className="f-size-p6">
                 {name}
               </p>
             </NextLink>

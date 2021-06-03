@@ -47,22 +47,6 @@
                     display: none !important;
                 }
 
-                //! მთავარ გვერდზე კურსების კარტების ჰოვერზე რომ კითხვის ნიშნები 
-                //! ჩნდება
-                .course_card_hover_logo_mobile {
-                    background-color: var(--primary-white) !important;
-                    border-radius: 50%;
-                    display: block !important;
-                    cursor: pointer;
-                    position: absolute;
-                    @include background-properties("/pictures/courses/card_hover_btn.svg",60%,center);
-                    right: 2%;
-                    top: 2%;
-                    width: 4rem;
-                    height: 4rem;
-                    
-                }
-
             }
         }
 

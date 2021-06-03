@@ -195,6 +195,7 @@ const Navigation = () => {
             />
             {toggleMobileCategory && (
               <MobileCategory
+                isLogedIn={isLogedIn}
                 toggleMobileCategory={toggleMobileCategory}
                 setToggleMobileCategory={() =>
                   setToggleMobileCategory(

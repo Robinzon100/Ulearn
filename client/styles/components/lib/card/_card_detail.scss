@@ -22,6 +22,11 @@ $card-detail-shadow:20px 30px 90px 10px rgba(19, 21, 26, 0.2);
     color: var(--primary-dark);
     text-align: left;
 
+    @media screen and (max-width: $small-screen) {
+        width: 26rem;
+        padding: 0.2rem 0rem;
+    }
+
     .inside_content {
         padding: 2rem;
 
@@ -51,7 +56,19 @@ $card-detail-shadow:20px 30px 90px 10px rgba(19, 21, 26, 0.2);
         }
         &__date {
             @include flex(space-between,center,row);
-            margin: 0.8rem 0 !important;
+            flex-wrap: wrap;
+            margin: 0.8rem 0;
+
+            @media screen and (max-width: $small-screen) {
+                margin: 1.5rem 0;
+                margin-top: 1rem;
+            }
+
+            p {
+                @media screen and (max-width: $small-screen) {
+                    margin-top: .8rem;
+                } 
+            }
         }
 
         &__list {

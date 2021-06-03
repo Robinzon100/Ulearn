@@ -23,6 +23,7 @@ const Card = ({
   description,
   overall_rating,
   handleUserCourseLikes,
+  isLiked
 }: PrimaryContentCards) => {
   const selfRef = useRef<HTMLDivElement>(null);
 
@@ -34,7 +35,7 @@ const Card = ({
 
 
   
-  const [addToFavorites, setAddToFavorites] = useState<boolean>(false);
+  const [addToFavorites, setAddToFavorites] = useState<boolean>(isLiked);
   const [favoriteMessageState, setFavoriteMessageState] = useState(false);
 
 

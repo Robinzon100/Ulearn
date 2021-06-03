@@ -81,6 +81,7 @@ const CourseCards = ({landingCourse}) => {
                   id={card.id}
                   name={card.title}
                   price={card.price}
+                  isLiked={true}
                   thumbnail_imageUrl={card.thumbnail_imageUrl}
                   creator={card.id}
                   overall_rating={card.overall_rating}

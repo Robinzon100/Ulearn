@@ -24,6 +24,7 @@ interface SubCategories {
 
 
 const MobileCategory = ({
+    isLogedIn,
   toggleMobileCategory,
   setToggleMobileCategory,
   categories: { main_categories, sub_categories, sub_sub_categories },
@@ -50,7 +51,8 @@ const MobileCategory = ({
             <nav className="category-navigation">
 
 
-
+            {!isLogedIn &&
+            <>
               <ul className="mobile-loginRegistration">
                 <li className="mobile-login">
                   <NextLink route="/login" className="link">
@@ -67,6 +69,7 @@ const MobileCategory = ({
                   </NextLink>
                 </li>
               </ul>
+               
 
               <Line
                 width="100%"
@@ -74,7 +77,8 @@ const MobileCategory = ({
                 color="#c9c9c9"
                 margin="1rem"
               />
-
+              </>
+            }
 
 
 

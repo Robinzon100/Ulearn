@@ -250,9 +250,7 @@ const RegisterComponent = () => {
                 onChange={categoryIdsHandler}
                 checkboxContent={checkboxContent}
               />
-
               
-
             </div>
 
             <div className="category_errors">

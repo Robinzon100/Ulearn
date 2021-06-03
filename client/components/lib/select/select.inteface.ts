@@ -15,6 +15,7 @@ export interface ISelect extends IGlobal {
     disabled?:boolean,
     loading?:boolean,
     id?:number,
+    maxWidth?:string;
     icon?:ReactNode,
     iconStyle?:CSSProperties
 }
