@@ -7,6 +7,7 @@ export interface PrimaryContentCards extends PrimaryContentCardHover{
     uuid?: string;
     name?: string;
     price?: number;
+    isLiked?:boolean;
     discount_price?:number;
     affiliation_price?:number;
     thumbnail_imageUrl?:string;

@@ -8,7 +8,7 @@ interface Props {
 }
 
 const CheckboxIcon: React.FC<Props> = ({ iconPosition,disabled, checked }) => {
-  const { fill, bg, stroke } = useMemo(() => {
+  const { stroke } = useMemo(() => {
     return {
       fill: "#000",
       bg: "#fff",
@@ -52,6 +52,10 @@ const CheckboxIcon: React.FC<Props> = ({ iconPosition,disabled, checked }) => {
           user-select: none;
           opacity: ${disabled ? 0.4 : 1};
           cursor: ${disabled ? "not-allowed" : "pointer"};
+        }
+
+        @media screen and (max-width: $small-screen) {
+            
         }
       `}</style>
     </>

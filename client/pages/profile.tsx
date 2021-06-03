@@ -15,14 +15,11 @@ import Tabs from 'components/lib/tabs/Tabs';
 
 //* ACTIONS 
 
-const profile = ({ user}) => {
+const profile = ({ user }) => {
 
 
     return (
         <>
-            {/* <h1>
-                <pre>{JSON.stringify(user, null, "\t")}</pre>
-            </h1> */}
             <section className="user-profile-section">
                 <div className="profile-hero-img" />
 
@@ -44,6 +41,8 @@ const profile = ({ user}) => {
                                 '<h1>ვიდეოზე ნახსენები საიტების და დამატებითი რესურსების ლინკები, ასევე ამ ვიდეოში დაწერილი კოდის ფაილები</h1><br/><p>vs code გადმოსაწერილი ლინკი : <a href=\"https://vscode.com\">https://vscode.com</a></p> <p>ვიდეოში ნანახი ბლოგპოსტის ლინკი: <a href=\"https://medium.com\"> https://medium.com</a></p><br/><br/><br/><br/><br/><br/><p><strong>ამ ვიდეოში დაწერილი კოდის ფაილები:</strong></p>'
 
                             ]}
+
+
                             component={
                                 [
                                     <>
@@ -51,17 +50,20 @@ const profile = ({ user}) => {
                                             {user.liked_courses.map(card => (
                                                 <Card
                                                     key={card.id}
-                                                    id={card.uuid}
+                                                    uuid={card.uuid}
+                                                    id={card.id}
                                                     name={card.title}
                                                     price={card.price}
                                                     thumbnail_imageUrl={card.thumbnail_imageUrl}
                                                     creator={card.id}
                                                     overall_rating={card.overall_rating}
                                                     numberOfVotes={20}
+                                                    bestseller={card.bestseller}
                                                     discount_price={card.discount_price}
                                                     created_at={card.created_at}
                                                     difficulty={card.difficulty}
                                                     description={card.description}
+                                                    descriptionList={card.hoverCardList}
                                                 />
 
                                             ))} </div>
@@ -80,6 +82,10 @@ const profile = ({ user}) => {
         </>
     );
 };
+
+
+
+
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
     const res = await authenticatedRequest(getUser, null, ctx)

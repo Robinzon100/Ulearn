@@ -1,79 +1,79 @@
 import { memo, useState, useEffect, forwardRef, PropsWithChildren, Ref } from "react";
 
-import { getCheckBoxSize,getCheckBoxColor } from "./checkbox.style";
+import { getCheckBoxSize, getCheckBoxColor } from "./checkbox.style";
 import { ICheckBox } from "./checkbox.interface";
 import Loading from "components/lib/loading/Loading";
 import CheckBoxIcon from "./checkbox-icon";
 
 
-const CheckBox = forwardRef<HTMLInputElement,PropsWithChildren<ICheckBox>>(({
-  width,
-  title,
-  className,
-  color,
-  size,
-  style,
-  loading,
-  disabled,
-  checked,
-  value,
-  onChange
-},ref: Ref<HTMLInputElement | null>) => {
-    
-  const [selfChecked, setSelfChecked] = useState<boolean>(false);
+const CheckBox = forwardRef<HTMLInputElement, PropsWithChildren<ICheckBox>>(({
+    width,
+    title,
+    className,
+    color,
+    size,
+    style,
+    loading,
+    disabled,
+    checked,
+    value,
+    onChange
+}, ref: Ref<HTMLInputElement | null>) => {
 
-  const changeHandler = (e,value) => {
-    if(disabled) return;
-    setSelfChecked(!selfChecked);
-    onChange({checked: e.target.checked, value: value})
-  };
-  
-  useEffect(() => {
-    if (checked === undefined) return;
-    setSelfChecked(checked);
-  }, [checked]);
-  
-  
-  return (
-    <>
-      <div className={`checkbox-wrapper noselect ${className ? className : ""}`} >
-          
-        <label className={`checkbox-label`} style={style}>
-          {!loading && (
-            <CheckBoxIcon 
-            iconPosition={getCheckBoxSize(size).iconPosition} 
-            disabled={disabled} 
-            checked={selfChecked}/>
-          )}
+    const [selfChecked, setSelfChecked] = useState<boolean>(false);
 
-          <input
-            ref={ref}
-            type="checkbox"
-            className="checkbox"
-            checked={selfChecked}
-            disabled={disabled}
-            onChange={(e) => changeHandler(e,value)}
-            value={value}
-          />
+    const changeHandler = (e, value) => {
+        if (disabled) return;
+        setSelfChecked(!selfChecked);
+        onChange({ checked: e.target.checked, value: value })
+    };
 
-          {loading && (
-            <Loading bgColor="black" padding={getCheckBoxSize(size).padding} />
-          )}
-
-          <p className="checkbox-title f-size-p5 f-weight-r">{!loading && title}</p>
-          
-        </label>
-      </div>
+    useEffect(() => {
+        if (checked === undefined) return;
+        setSelfChecked(checked);
+    }, [checked]);
 
 
+    return (
+        <>
+            <div className={`checkbox-wrapper noselect ${className ? className : ""}`} >
+
+                <label className={`checkbox-label`} style={style}>
+                    {!loading && (
+                        <CheckBoxIcon
+                            iconPosition={getCheckBoxSize(size).iconPosition}
+                            disabled={disabled}
+                            checked={selfChecked} />
+                    )}
+
+                    <input
+                        ref={ref}
+                        type="checkbox"
+                        className="checkbox"
+                        checked={selfChecked}
+                        disabled={disabled}
+                        onChange={(e) => changeHandler(e, value)}
+                        value={value}
+                    />
+
+                    {loading && (
+                        <Loading bgColor="black" padding={getCheckBoxSize(size).padding} />
+                    )}
+
+                    <p className="checkbox-title f-size-p6 f-weight-r">{!loading && title}</p>
+
+                </label>
+            </div>
 
 
-      <style jsx>{`
+
+
+            <style jsx>{`
 
         .checkbox-label {
           opacity: ${disabled || loading ? 0.8 : 1};
           cursor: ${disabled || loading ? "not-allowed" : "pointer"};
-          pointerEvents: ${disabled || loading && "none" };
+          pointerEvents: ${disabled || loading && "none"};
           position: relative;
           border-radius: 10px;
           /* box-shadow:${color ? getCheckBoxColor(color).defaultShadow : "none"}; */
@@ -111,9 +111,10 @@ const CheckBox = forwardRef<HTMLInputElement,PropsWithChildren<ICheckBox>>(({
           color:${color ? "var(--secondary-light-black)" : "var(--primary-white)"};
           margin-left: 6rem;
         }
-      `}</style>
-    </>
-  );
+        
+        `}</style>
+        </>
+    );
 }
 )
 

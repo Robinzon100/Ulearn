@@ -3,19 +3,12 @@ import { Star } from "react-feather";
 
 //! ==================OUR IMPORTS
 
-
-import { cardHoverHandler } from "./utils/cardHoverHandler"
-import { handleAddFavorite } from "./utils/handleAddFavorite"
-
-
+import { cardHoverHandler } from "./utils/cardHoverHandler";
 
 import { PrimaryContentCards } from "interfaces/PrimaryContentCard.interface";
 import { stringToCut } from "components/utils/helpers/stringToCut";
 import CardDetail from "./CardDetail";
 import NextLink from "components/utils/nextLink/NextLink";
-
-
-
 
 const Card = ({
   id,
@@ -39,16 +32,16 @@ const Card = ({
     width: 0,
   });
 
+
+  
   const [addToFavorites, setAddToFavorites] = useState<boolean>(false);
+  const [favoriteMessageState, setFavoriteMessageState] = useState(false);
 
-  const [checkNewPrice] = useState<boolean | number>(discount_price);
 
+  const [checkNewPrice,] = useState<boolean | number>(discount_price);
   const [isClicked, setIsClicked] = useState<boolean | null>(false);
 
-
   const [, setIsVisible] = useState<boolean>(false);
-
-
 
 
 
@@ -60,10 +53,14 @@ const Card = ({
   };
 
 
-  const handleCourseLike = (e) => {
-    handleUserCourseLikes(id)
-    handleAddFavorite(e,setAddToFavorites)
-  }
+
+
+  const handleCourseLike = () => {
+    handleUserCourseLikes(id);
+    setAddToFavorites((addToFavorites) => !addToFavorites);
+    setFavoriteMessageState(true)
+  };
+
 
 
   return (
@@ -72,21 +69,19 @@ const Card = ({
         ref={selfRef}
         className="PrimaryContentCard"
         key={uuid}
-        onMouseLeave={() => handleHoverLeave()}
-      >
+        onMouseLeave={() => handleHoverLeave()}>
         <NextLink route={`/course/${uuid}`}>
           <div
             className={"PrimaryContentCard__img"}
-            style={{ backgroundImage: `url(${thumbnail_imageUrl})` }}
-          >
+            style={{ backgroundImage: `url(${thumbnail_imageUrl})` }}>
             <div className="price-tag">
-            <div className="normal-price">
-              <p className="f-weight-b f-size-p3">
-                {discount_price}
-                <span style={{ color: "#00E267", fontWeight: "bold" }}>
-                  &#8382;
-                </span>
-              </p>
+              <div className="normal-price">
+                <p className="f-weight-b f-size-p3">
+                  {discount_price}
+                  <span style={{ color: "#00E267", fontWeight: "bold" }}>
+                    &#8382;
+                  </span>
+                </p>
               </div>
 
               <div className=" removed-price-tag">
@@ -111,9 +106,10 @@ const Card = ({
           </div>
         </NextLink>
         <div
+
           className="course_card_hover_logo course_card_hover_logo_mobile"
-          onClick={(e) => cardHoverHandler(e,selfRef,elProperties,setElProperties,setIsClicked)}
-        >
+          onClick={(e) =>
+            cardHoverHandler(e,selfRef,elProperties,setElProperties,setIsClicked)}>
           <div className={isClicked ? "card_detail" : "card_detail-display"}>
             {
               <CardDetail
@@ -126,6 +122,8 @@ const Card = ({
             }
           </div>
         </div>
+
+
         <div className="PrimaryContentCard__raiting">
           <div className="PrimaryContentCard__raiting--container">
             <div className="star">
@@ -135,6 +133,8 @@ const Card = ({
                 size={16}
               />
             </div>
+
+
             <div className="numbers">
               <p className="f-weight-r f-size-p5">
                 {overall_rating}
@@ -147,6 +147,8 @@ const Card = ({
               </p>
             </div>
           </div>
+
+
           <div className="PrimaryContentCard__raiting--name">
             <NextLink route="/#">
               <p className="f-weight-b f-size-p5">
@@ -155,19 +157,24 @@ const Card = ({
             </NextLink>
           </div>
         </div>
+
+
+
         <div className="PrimaryContentCard__like">
-
-          
-              <div
-              className={
-                addToFavorites
-                  ? "full-heart-svg heart heart-background"
-                  : "stroke-heart-svg heart"
-              }
-              onClick={(e) => handleCourseLike(e)}
-            ></div>
-
-          
+          <div
+            data-card-like-status={addToFavorites}
+            className="stroke-heart-svg"
+            onClick={() => handleCourseLike()}
+            onMouseEnter={() => setFavoriteMessageState(true)}
+            onMouseLeave={() => setFavoriteMessageState(false)}>
+            <div className="remove-from-favorites noselect" 
+                 data-like-status={favoriteMessageState}>
+                <p className="f-size-p8 pf-weight-m">
+                    {favoriteMessageState ? addToFavorites ? "ფავორიტებიდან ამოღება" :"ფავორიტებში დამატება":"ფავორიტებიდან ამოღება"}
+                </p>
+            </div>
+              
+          </div>
         </div>
       </div>
     </>

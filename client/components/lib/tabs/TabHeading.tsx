@@ -1,8 +1,7 @@
 
 import Icon from "components/lib/Icon/Icon";
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 
-import { changeTabPositionAndColor } from "components/pages/myCourse/course_tabs/utils/Underline";
 
 
 export interface ITabHeadings {

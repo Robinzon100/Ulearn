@@ -24,7 +24,7 @@ const CardDetail = ({ id,name,created_at,difficulty,description}:
           <div className="card_detail--container__title">
             <NextLink route={`/course/${id}`}>
               <p className="f-size-p4">
-                {stringToCut(name, 25)}
+                {name}
               </p>
             </NextLink>
           </div>

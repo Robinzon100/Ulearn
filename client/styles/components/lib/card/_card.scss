@@ -106,9 +106,16 @@
   }
 
   &__like {
-    @include flex(space-between, center, row);
-    justify-content: space-between;
+    @include flex(flex-end);
     width: 100%;
+    position: relative;
+
+    [data-card-like-status="true"] {
+      background-image: url("/pictures/courses/heart_active.svg") !important;
+      background-color: var(--primary-white);
+      box-shadow: 0px 7px 11px rgba(0, 0, 0, 0.19);
+      border-radius: 50%;
+    }
 
     .label {
       padding: 5px 21px 5px 21px;
@@ -128,27 +135,33 @@
       );
       cursor: pointer;
       padding: 1.9rem;
-
-      &:hover {
-        box-shadow: 0px 7px 11px rgba(0, 0, 0, 0.19);
-        border-radius: 50%;
-      }
-    }
-
-    .full-heart-svg {
-      @include background-properties(
-        "/pictures/courses/heart_active.svg",
-        initial,
-        center
-      );
-      cursor: pointer;
-      padding: 1.9rem;
-    }
-
-    .heart-background {
-      background-color: var(--primary-white);
       box-shadow: 0px 7px 11px rgba(0, 0, 0, 0.19);
-      border-radius: 50%;
+        border-radius: 50%;
+    }   
+    
+    [data-like-status="true"] {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
     }
+
+    .remove-from-favorites {
+        position: absolute;
+        display: none;
+        bottom: 100%;
+        width: 100%;
+        max-width: 18rem;
+        height: 100%;
+        max-height: 3rem;
+        border-radius: 3px;
+        z-index: 10;
+        left: 75%;
+        background-color: var(--secondary-darkest-gray);
+
+        p {
+            color:var(--primary-white);
+        }
+    }
+    
   }
 }
