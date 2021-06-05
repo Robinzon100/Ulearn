@@ -23,9 +23,10 @@ $card-detail-shadow:20px 30px 90px 10px rgba(19, 21, 26, 0.2);
     text-align: left;
 
     @media screen and (max-width: $small-screen) {
-        width: 26rem;
+        width: 28rem;
         padding: 0.2rem 0rem;
     }
+
 
     .inside_content {
         padding: 2rem;

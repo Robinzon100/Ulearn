@@ -1,69 +1,59 @@
-import { Clock, Star } from "react-feather";
+import { Clock, Star, Zap } from "react-feather";
 
 import Select from "components/lib/select/select";
 import SelectJson from "../../../public/json/Select.json";
 interface SortingDropdown {
-    type: string;
+  type: string;
 }
 
 const Dropdowns: React.FC<SortingDropdown> = ({ type }) => {
-    const handleSelectChange = (value) => {
-        console.log(value);
-    };
+  const handleSelectChange = (value) => {
+    console.log(value);
+  };
 
-
-
-    return (
-        <>
-            {/* {type === "date" && (
-        <Input
+  return (
+    <>
+      {type === "date" && (
+        <Select
+          size="small"
+          placeHolder="სირთულე"
           id={1}
-          type="sorting_date"
-          selectOptions={selectOptions}
+          options={SelectJson.SelectRatingsOptions}
           onChange={handleSelectChange}
-        >
-          <div
-            className="input_icon"
-            style={{ backgroundColor: "var(--primary-blue)" }}
-          >
-            <Calendar size={15} style={{ color: "blue", opacity: "1" }} />
-          </div>
-        </Input>
-      )} */}
+          icon={<Zap size={15} />}
+          color="green"
+          loading={false}
+          disabled={false}
+        />
+      )}
 
-            {type === "rating" && (
-                <Select
-                    // width="11vw"
-                    size="small"                 
-                    placeHolder="რეიტინგი"
-                    id={2}
-                    options={SelectJson.SelectRatingsOptions}
-                    onChange={handleSelectChange}
-                    icon={<Star size={15}/>}
-                    color="yellow"
-                    loading={false}
-                    disabled={false}
-                    maxWidth="12vw"
-                    width="100%"
-                />
+      {type === "rating" && (
+        <Select
+          size="small"
+          placeHolder="რეიტინგი"
+          id={2}
+          options={SelectJson.SelectRatingsOptions}
+          onChange={handleSelectChange}
+          icon={<Star size={15} />}
+          color="yellow"
+          loading={false}
+          disabled={false}
+        />
+      )}
 
-            )}
-
-            {type === "time" && (
-                <Select
-                    size="small"  
-                    placeHolder="ხანგძლივობა"
-                    id={3}
-                    options={SelectJson.SelectTimeOptions}
-                    onChange={handleSelectChange}
-                    icon={<Clock size={15} />}
-                    color="red"
-                    maxWidth="13vw"
-                    width="100%"
-                />
-            )}
-        </>
-    );
+      {type === "time" && (
+        <Select
+          size="small"
+          placeHolder="ხანგძლივობა"
+          id={3}
+          options={SelectJson.SelectTimeOptions}
+          onChange={handleSelectChange}
+          icon={<Clock size={15} />}
+          color="red"
+        />
+      )}
+    </>
+  );
 };
 
 export default Dropdowns;

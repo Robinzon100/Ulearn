@@ -38,21 +38,8 @@ const Card = ({
   const [addToFavorites, setAddToFavorites] = useState<boolean>(isLiked);
   const [favoriteMessageState, setFavoriteMessageState] = useState(false);
 
-  const [checkNewPrice] = useState<boolean | number>(discount_price);
+  const [checkNewPrice,] = useState<boolean | number>(discount_price);
   const [isClicked, setIsClicked] = useState<boolean | null>(false);
-
-  const [, setIsVisible] = useState<boolean>(false);
-
-
-
-
-  //! ეს გვეხმარება რომ როცა ჰოვერი მოხდება კარტა და ღილაღი გაქრეს!
-  const handleHoverLeave = () => {
-    setIsClicked(null);
-    setIsVisible(false);
-  };
-
-
 
 
 
@@ -71,7 +58,7 @@ const Card = ({
         ref={selfRef}
         className="PrimaryContentCard"
         key={uuid}
-        onMouseLeave={() => handleHoverLeave()}>
+        onMouseLeave={() => setIsClicked(null)}>
         <NextLink route={`/course/${uuid}`}>
           <div
             className={"PrimaryContentCard__img"}
