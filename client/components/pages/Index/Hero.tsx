@@ -28,18 +28,17 @@ const Hero: FC = () => {
           <div className="hero--steps__btn">
   
           <Button
-            // route="/register"
-            onClick={() => console.log("clicked")}
-            color="white"
-            size="large"
-            disabled={false}
-            loading={false}
-            // stroke="black"
-            icon={<ChevronDown/>}
-            width="55%">
-            <p className="f-weight-r f-size-p4 ">
-                შემოგვიერთდი
-            </p>
+                onClick={() => console.log("clicked")}
+                color="white"
+                size="large"
+                disabled={false}
+                loading={false}
+                // stroke="black"
+                icon={<ChevronDown/>}
+                width="55%">
+                <p className="f-weight-r f-size-p4 ">
+                    შემოგვიერთდი
+                </p>
             </Button>
 
 

@@ -24,6 +24,7 @@ export interface videoList {
     id: number;
     title: string;
     courseChapterTime?: number;
+    displayVideoNames?:any
     content: subTitle[];
     // handleClick:any
 }

@@ -1,33 +1,33 @@
-// import { useState} from "react";
-import Head from "next/head";
+
 import { Eye} from "react-feather";
+import Head from "next/head"
 
 //! ==== OTHER IMPORTS
-// import SideMenu from "components/lib/sidemenu/sideMenu";
+import SideMenu from "components/lib/sidemenu/sideMenu";
 import CourseVideoPlayer from '../components/pages/myCourse/CourseVideoPlayer';
 import CoursesJson from "../public/json/Courses.json";
-import CourseTablist from "components/pages/myCourse/course_tabs/Course_tabs";
+import CourseTabContent from "components/pages/myCourse/course_tabs/CourseTabContent";
+// import {displayVideoNames} from "components/pages/myCourse/course_tabs/utils/DisplayVideoNames";
 
-
-//! === INTERFACES(DO NOT DELETE)
-// import { AboutCourse } from "../interfaces/coursePage.interface";
 
 
 const Courses = () => {
-//   const [videoLists,] = useState(CoursesJson.videoLists);
-    
+  const videoLists = CoursesJson.videoLists.Lists;
+//   const [displayName, setDisplayName] = useState<string | null>("ვიდეო გაკვეთილები");
+
 
   return (
     <>
-      <Head>
-        {/* <script src="js/player.js" async defer></script> */}
+    <Head>
+        <script src="js/player.js" async defer/>
       </Head>
-   
+
+
         <div className="courses-page">
           <div className="courses-page--about">
             <div className="courses-page--name">
               <p className="f-size-p5">
-                <strong>{CoursesJson.aboutCourses.aboutCourse.title}</strong>
+                <strong>ვიდეო გაკვეთილები</strong>
               </p>
               <div className="viewers">
                 <Eye size={17} />
@@ -52,24 +52,21 @@ const Courses = () => {
                 <CourseVideoPlayer />
               </div>
               
-              <CourseTablist/>
+              <CourseTabContent/>
             </div>
             
-            {/* <div className="side-menu noselect ">
-              {videoLists.Lists.map((videoList) => (
-                <SideMenu
-                  key={videoList.id}
-                  id={videoList.id}
-                  title={videoList.title}
-                  courseChapterTime={videoList.courseChapterTime}
-                  subTitles={videoList.subTitles}
-                //   handleClick={handleDisplayVideoNameClick}
-                />
-              ))}
-
-              <br />
-              <br />
-            </div> */}
+            
+            <div className="side-menu noselect ">
+                {videoLists.map((data, i) => (
+                  <SideMenu
+                    id={i}
+                    key={i}
+                    title={data.title}
+                    courseChapterTime={45}
+                    content={data.subTitles}
+                  />
+                ))}
+              </div>
           </div>
         </div>
 

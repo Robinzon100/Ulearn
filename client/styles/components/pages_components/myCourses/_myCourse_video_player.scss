@@ -29,9 +29,9 @@
     }
 
     .vjs-big-play-button {
-      height: 12vw;
+      height: 16rem;
       border-radius: 100px;
-      width: 12vw;
+      width: 16rem;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -56,11 +56,11 @@
           content: "";
           display: block;
           position: absolute;
-          transform: translate(-40%, -47%);
+          transform: translate(-38%, -38%);
           top: 50%;
           left: 50%;
-          width: 4.9vw;
-          height: 6vw;
+          width: 8rem;
+          height: 10rem;
           background: {
             image: url("/SVG/player_elements/play.svg");
             size: cover;

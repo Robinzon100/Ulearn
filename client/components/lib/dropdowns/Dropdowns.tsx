@@ -58,7 +58,7 @@ const Dropdowns: React.FC<SortingDropdown> = ({ type }) => {
                     onChange={handleSelectChange}
                     icon={<Clock size={15} />}
                     color="red"
-                    maxWidth="12vw"
+                    maxWidth="13vw"
                     width="100%"
                 />
             )}

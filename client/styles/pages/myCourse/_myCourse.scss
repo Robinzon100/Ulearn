@@ -5,21 +5,18 @@ $card-shadow: 0px 19px 72px -2px rgba(25, 27, 29, 0.14);
   box-shadow: $card-shadow !important;
 }
 
-//! აქ არის კურსის გვერდის მთავარი სტილები,ხოლო(აღწერა,კითხვა-პასუხის და ა.შ)
-//! ცსს არის კურსის კომპონენეტის ფაილში.აქ ძალიან დიდდებოდა ამიტომ გადატანა მომიხდა (course_content)
+
 .courses-page {
   margin-top: 10rem;
   padding: var(--main-pading);
 
   &--name {
     display: flex;
-    // flex-direction: column;
-    justify-content: space-between;
-    width: 15%;
+    // justify-content: space-between;
+    // width: 15%;
 
     .viewers {
       @include flex(space-between,center,row);;
-      // width: 13%;
       padding: 0.3rem 1rem 0.3rem 1rem;
       background-color: #f2f2f2;
       border-radius: 8px;
@@ -46,11 +43,10 @@ $card-shadow: 0px 19px 72px -2px rgba(25, 27, 29, 0.14);
       &--video-player {
         margin-top: 3.5rem;
         border-radius: 8px;
-        // background: no-repeat url("/pictures/courses/video.png");
         background-size: cover;
         background-position: center;
         width: 100%;
-        height: 64.3vh;
+        height: 70vh;
       }
 
       &--tablist {
@@ -58,16 +54,10 @@ $card-shadow: 0px 19px 72px -2px rgba(25, 27, 29, 0.14);
         padding: 0 1.5vw;
         width: 100%;
         max-width: 95rem;
-        width: 100%;
         margin: calc(3rem + 2vw) auto;
+        // height: 150vh;
 
         
-
-        &__container {
-          @include flex(space-between,center,row);;
-          position: relative;
-          padding: 1.5rem 0rem 1.5rem 0rem;
-        }
 
         .flex-container {
           @include flex(space-between,center,row);;
@@ -89,8 +79,8 @@ $card-shadow: 0px 19px 72px -2px rgba(25, 27, 29, 0.14);
   }
 }
 
-@media screen and (max-width: 1600px) {
-  .courses-page .courses-container .section-courses--heading {
-    width: 50% !important;
-  }
-}
+// @media screen and (max-width: 1600px) {
+//   .courses-page .courses-container .section-courses--heading {
+//     width: 50% !important;
+//   }
+// }

@@ -135,7 +135,6 @@ const selectInput: React.FC<ISelect> = ({
           }
           .selectable {
             margin: 0vw 1vw;
-            // pointerEvents: ${disabled || (loading && "none")};
           }
           .dropdown {
             padding: ${getSelectSize(size).padding};

@@ -32,7 +32,7 @@
 @import "media-querys/landing_page.query";
 @import "media-querys/main-content.query";
 @import "media-querys/profile.query";
-
+@import "media-querys/myCourse.query";
 
 /// === === ===  GLOBAL COMPONENTS === === === ===
 @import "components/global/navigation/navigation";
@@ -56,6 +56,8 @@
 
 // === === === === OUR LIBRARY COMPONENTS === === === ===
 @import "components/lib/tabs/tabs";
+@import "components/lib/user-comments/user-comments";
+@import "components/lib/question-answer/question-answer";
 @import "components/lib/rangeSlider/rangeSlider";
 @import "components/lib/button/buttons";
 @import "components/lib/loagout/logout";
