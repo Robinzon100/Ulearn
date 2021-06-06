@@ -1,4 +1,4 @@
-export const TabHeadings =  [
+export const ProfileTabHeading =  [
     {
         title: 'მოწონებული',
         icon: {

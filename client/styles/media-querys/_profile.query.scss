@@ -29,7 +29,7 @@
 @media screen and (max-width: $small-screen) {
   .user-profile-section {
     &__container {
-      padding-bottom: calc(var(--bottom-navigation-heigth) + 9vh);
+      padding-bottom: var(--padding-bottom-for-containers);
     }
   }
 }

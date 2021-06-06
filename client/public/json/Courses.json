@@ -11,32 +11,17 @@
     "questionAnswers": {
         "questionAnswers": [
             {
+                "id":1,
                 "userName": "robo sokhashvili",
-                "imageUrl": "https://images.unsplash.com/photo-1593642634367-d91a135587b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-                "datePosted": "(2020-02-18)",
-                "text": "ვინმეს შეუძლია რომ დამეხმაროს კოდში ? რატომღაცროცა ვაკეთებ console log“welo world”) რათომღაც არმიწერს არაფერს",
-                "amountOfAnswer": 12,
-                "answers": [
+                "imageUrl": "https://images.pexels.com/photos/3310695/pexels-photo-3310695.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+                "text": "ვინმეს შეუძლია რომ დამეხმაროს კოდში ? რატომღაცროცა ვაკეთებ console log“welo world” რათომღაც არმიწერს არაფერს",
+                "replies": [
                     {
+                        "id":1,
                         "userName": "კარლო კაკაბაძე",
-                        "imageUrl": "https://images.unsplash.com/photo-1599677099934-d3c4e07056d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+                        "imageUrl": "https://images.pexels.com/photos/5119214/pexels-photo-5119214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
                         "datePosted": "(2020-02-20)",
                         "text": "უჰ,რა მაგარი იყო. აბა თქვენ იცით"
-                    }
-                ]
-            },
-            {
-                "userName": "beqa arabidze",
-                "imageUrl": "https://images.unsplash.com/photo-1599677099934-d3c4e07056d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
-                "datePosted": "(2020-03-22)",
-                "text": "  ვინმეს შეუძლია რომ დამეხმაროს კოდში ? რატომღაც როცა ვაკეთებ console log(“welo world”) რათომღაც არ მიწერს არაფერს",
-                "amountOfAnswer": 1,
-                "answers": [
-                    {
-                        "userName": "saxeli saxelasvili",
-                        "imageUrl": "https://images.unsplash.com/photo-1593642634367-d91a135587b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-                        "datePosted": "(2020-08-20)",
-                        "text": "ასე იქნება სწორი ჩემო ძმის გულო,აა ბრატ - console.log(“hello world”)"
                     }
                 ]
             }
@@ -52,6 +37,7 @@
     "ratings": {
         "ratings": [
             {
+                "id":1,
                 "userName": "ბექა არაბიძე",
                 "datePosted": "2020-08-12",
                 "amountOfStars": 4,
@@ -62,6 +48,7 @@
                 "isLikedByInstructor": true
             },
             {
+                "id":2,
                 "userName": "რობო რობოვიჩი",
                 "datePosted": "2020-08-12",
                 "amountOfStars": 2,
@@ -82,15 +69,15 @@
                 "subTitles": [
                     {
                         "id":1,
-                        "text": "რა აროს javascript",
+                        "title": "რა აროს javascript",
                         "videoUrl": "https://s4106-05.imovies.cc/video/imovie_hash_code/1/2020090407554015_high_ENG.mp4?md5=Ul1cPbbjqASrVDkrD7Cmqg&expires=1599656612&data=YTozOntzOjc6InVzZXJfaXAiO3M6MTU6IjE3Ni4yMjEuMTMyLjIxMCI7czoxMDoidXNlcl9hZ2VudCI7czoxMTQ6Ik1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS84NS4wLjQxODMuODMgU2FmYXJpLzUzNy4zNiI7czo3OiJyZWZlcmVyIjtzOjIzOiJodHRwczovL3d3dy5pbW92aWVzLmNjLyI7fQ==",
-                        "amountOfMinutes": 10
+                        "duration": 10
                     },
                     {
                         "id":2,
-                        "text": "რა არის ცვლადები",
+                        "title": "რა არის ცვლადები",
                         "videoUrl": "https://s4106-05.imovies.cc/video/imovie_hash_code/1/2020090407554015_high_ENG.mp4?md5=Ul1cPbbjqASrVDkrD7Cmqg&expires=1599656612&data=YTozOntzOjc6InVzZXJfaXAiO3M6MTU6IjE3Ni4yMjEuMTMyLjIxMCI7czoxMDoidXNlcl9hZ2VudCI7czoxMTQ6Ik1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS84NS4wLjQxODMuODMgU2FmYXJpLzUzNy4zNiI7czo3OiJyZWZlcmVyIjtzOjIzOiJodHRwczovL3d3dy5pbW92aWVzLmNjLyI7fQ==",
-                        "amountOfMinutes": 10
+                        "duration": 10
                     }
                     
                 ]
@@ -103,15 +90,15 @@
                 "subTitles": [
                     {
                         "id":1,
-                        "text": "როგორ შევცვალოთ სტილები",
+                        "title": "როგორ შევცვალოთ სტილები",
                         "videoUrl": "https://s4106-05.imovies.cc/video/imovie_hash_code/1/2020090407554015_high_ENG.mp4?md5=Ul1cPbbjqASrVDkrD7Cmqg&expires=1599656612&data=YTozOntzOjc6InVzZXJfaXAiO3M6MTU6IjE3Ni4yMjEuMTMyLjIxMCI7czoxMDoidXNlcl9hZ2VudCI7czoxMTQ6Ik1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS84NS4wLjQxODMuODMgU2FmYXJpLzUzNy4zNiI7czo3OiJyZWZlcmVyIjtzOjIzOiJodHRwczovL3d3dy5pbW92aWVzLmNjLyI7fQ==",
-                        "amountOfMinutes": 10
+                        "duration": 10
                     },
                     {
                         "id":2,
-                        "text": "განსხვავებული სელექტორები",
+                        "title": "განსხვავებული სელექტორები",
                         "videoUrl": "https://s4106-05.imovies.cc/video/imovie_hash_code/1/2020090407554015_high_ENG.mp4?md5=Ul1cPbbjqASrVDkrD7Cmqg&expires=1599656612&data=YTozOntzOjc6InVzZXJfaXAiO3M6MTU6IjE3Ni4yMjEuMTMyLjIxMCI7czoxMDoidXNlcl9hZ2VudCI7czoxMTQ6Ik1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS84NS4wLjQxODMuODMgU2FmYXJpLzUzNy4zNiI7czo3OiJyZWZlcmVyIjtzOjIzOiJodHRwczovL3d3dy5pbW92aWVzLmNjLyI7fQ==",
-                        "amountOfMinutes": 5
+                        "duration": 5
                     }
                     
                 ]

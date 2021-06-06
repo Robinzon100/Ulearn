@@ -1,0 +1,169 @@
+.comment {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5rem;
+
+  @media screen and (max-width: $small-screen) {
+    flex-direction: column;
+    padding: var(--main-pading);
+    margin-top: 8rem;
+  }
+
+  &__pic {
+    @include background-properties(
+      "/pictures/courses/profile_picture.png",
+      cover,
+      center
+    );
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    padding: 4rem;
+
+    @media screen and (max-width: $small-screen) {
+      display: none;
+    }
+  }
+
+  &__text {
+    margin-left: 2.5rem;
+
+    @media screen and (max-width: $small-screen) {
+      margin-left: initial !important;
+    }
+
+    .about-user {
+      display: flex;
+      align-items: center;
+
+      &__time {
+        margin-left: 1.2vw;
+        color: #636469;
+      }
+
+      &__raiting {
+        margin: 0.5vw 0vw 0.2vw 0vw;
+      }
+    }
+
+    .added-comment {
+      width: 100%;
+
+      p {
+        line-height: 180%;
+      }
+    }
+
+    .like-dislike {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-top: 2rem;
+
+      div {
+        cursor: pointer;
+      }
+
+      &__thumbs-down,
+      &__thumbs-up {
+        display: flex;
+        align-items: center;
+
+        p {
+          margin-left: 0.3rem;
+        }
+      }
+
+      &__thumbs-down {
+        margin-left: 2rem;
+      }
+
+      .instructor_like {
+        position: relative;
+        margin-left: 5rem;
+
+        .instructor__photo {
+          @include background-properties(
+            "/pictures/courses/profile_picture.png",
+            cover,
+            center
+          );
+          width: 3rem;
+          height: 3rem;
+          border-radius: 50%;
+        }
+
+        .heart {
+          position: absolute;
+          right: -22%;
+          top: 30%;
+        }
+      }
+    }
+  }
+}
+
+.add_comment {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  @media screen and (max-width: $small-screen) {
+    .add_comment {
+      flex-direction: column;
+    }
+  }
+
+  &--picture {
+    @include background-properties(
+      "/pictures/courses/profile_picture.png",
+      cover,
+      center
+    );
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+
+    @media screen and (max-width: $small-screen) {
+      display: none;
+    }
+  }
+  &--input {
+    width: 100%;
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (max-width: $small-screen) {
+      margin-left: initial !important;
+    }
+
+    .about_user {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      &--star {
+        margin-left: 2rem;
+      }
+    }
+
+    .comment_field {
+      margin: 1rem 0rem 1rem 0rem;
+    }
+
+    .add_btn {
+      align-self: flex-end;
+    }
+  }
+}
+
+@media screen and (max-width: $small-screen) {
+  .comment {
+    flex-direction: column;
+    padding: var(--main-pading);
+    margin-top: 8rem;
+  }
+  .add_comment {
+    flex-direction: column;
+  }
+}

@@ -3,7 +3,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  max-width: 45rem;
+  max-width: 47rem;
 
   &:hover {
     .course_card_hover_logo {
@@ -28,31 +28,30 @@
       }
     }
   }
-  
+
   @media screen and (max-width: $small-screen) {
     .course_card_hover_logo {
-        @include background-properties(
-          "/pictures/courses/card_hover_btn.svg",
-          60%,
-          center
-        );
-        background-color: var(--primary-white);
-        border-radius: 50%;
-        display: block;
-        cursor: pointer;
-        position: absolute;
-        right: 2%;
-        top: 2%;
-        width: 4rem;
-        height: 4rem;
-    
-        @media screen and (max-width: $small-screen) {
-          width: 3rem;
-          height: 3rem;
-        }
+      @include background-properties(
+        "/pictures/courses/card_hover_btn.svg",
+        60%,
+        center
+      );
+      background-color: var(--primary-white);
+      border-radius: 50%;
+      display: block;
+      cursor: pointer;
+      position: absolute;
+      right: 2%;
+      top: 2%;
+      width: 4rem;
+      height: 4rem;
+
+      @media screen and (max-width: $small-screen) {
+        width: 3rem;
+        height: 3rem;
       }
+    }
   }
-  
 
   a {
     text-decoration: none !important;
@@ -143,7 +142,9 @@
     [data-card-like-status="true"] {
       background-image: url("/pictures/courses/heart_active.svg") !important;
       background-color: var(--primary-white);
-      box-shadow: 0px 7px 11px rgba(0, 0, 0, 0.19);
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.03),
+        0px 13px 21px rgba(0, 0, 0, 0.06),
+        inset 0px -2px 3px rgba(0, 0, 0, 0.07);
       border-radius: 50%;
     }
 

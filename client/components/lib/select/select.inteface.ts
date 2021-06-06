@@ -28,4 +28,5 @@ export interface ISelectSizeGroup {
 }
 export interface ISelectColorGroup {
     iconBgColor?:string
+    boxShadow?:string
 }

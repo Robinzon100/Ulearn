@@ -20,7 +20,7 @@ const DropdownsContainer = () => {
             />
 
               <div className="main_content--selects">
-                {/* <SortingDropdown type="date" /> */}
+                <SortingDropdown type="date" />
                 <SortingDropdown type="rating" /> 
                 <SortingDropdown type="time" />
               </div>

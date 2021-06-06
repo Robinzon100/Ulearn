@@ -7,17 +7,13 @@ import PrimaryContentCardJson from "../../../public/json/PrimaryContentCard.json
 import CategoriesComponent from "components/pages/Index/SideCategories";
 import Overlay from "components/pages/Index/Overlay";
 
-
+import { handleUserCourseLikes } from "components/utils/helpers/handleUserCourseLikes";
 
 
 //! ===================== JSON
 import CategoriesImgs from "../../../public/json/categories.json";
 import InputSelectComponent from "components/lib/dropdowns/DropdownsContainer";
 import { getAllCategories } from "actions/client/categories.action";
-
-
-import { userCoursesLike } from "actions/client/user/courses/userCoursesLike.action";
-import { authenticatedRequest } from "components/utils/auth/tokenValidations";
 
 
 
@@ -45,11 +41,6 @@ const CourseCards = ({landingCourse}) => {
 
 
 
-  const handleUserCourseLikes = async (liked_course_id) => {
-    const res = await authenticatedRequest(userCoursesLike,liked_course_id, null);
-
-    return res
-  }
 
 
 

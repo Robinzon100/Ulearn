@@ -1,21 +1,32 @@
 
 import * as React from "react";
-import Input from "components/lib/inputs/Input";
-import NextLink from "components/utils/nextLink/NextLink";
+import TextArea from "components/lib/textarea/TextArea";
 import Stars from "components/lib/svg/Stars";
+import Button from "../button/Button";
 
-interface Props {
-    id: number,
-    name: string;
-    rating: number
+
+
+
+interface IInputCommentCards {
+    id?: number,
+    name?: string;
+    rating?: number;
+    imageUrl?:string
 }
 
-const InputCommentCards = ({id,name,rating}:Props) => {
+
+
+
+
+const InputCommentCards = ({id,name,rating}:IInputCommentCards) => {
 
     return (
 
         <div className="add_comment" key={id}>
-            <div className="add_comment--picture dummy_pics"></div>
+            <div
+                className="add_comment--picture"
+                // style={{ backgroundImage: `url(${imageUrl && imageUrl})` }}
+            />
             <div className="add_comment--input">
                 <div className="about_user">
                     <h1>{name}</h1>
@@ -26,19 +37,27 @@ const InputCommentCards = ({id,name,rating}:Props) => {
                 </div>
 
                 <div className="comment_field">
-                    <Input
+                    <TextArea
+                        isFocused={false}
+                        minHeight="15rem"
                         color="white"
                         size="large"
                         type="text"
-                        placeHolder="მოძებნე სასურველი კურსი"
-                        className=""
-                        width="100%" />
+                        placeHolder="დაწერეთ კონენტარი"
+                        className="f-size-p5 f-weight-m send-answer-input"
+                        width="100%" 
+                    />
                 </div>
 
-                <div className="add_btn btn Green">
-                    <NextLink route="">
-                        <p>დაკომენტარება</p>
-                    </NextLink>
+                <div className="add_btn">
+                <Button
+                  color="green"
+                  size="medium"
+                  disabled={false}
+                  loading={false}
+                  width="25rem">
+                  <p className="f-weight-r f-size-p6">დაკომენტარება</p>
+                </Button>
                 </div>
             </div>
         </div>

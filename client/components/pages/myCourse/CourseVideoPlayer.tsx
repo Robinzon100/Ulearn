@@ -30,7 +30,12 @@ const CourseVideoPlayer = () => {
 
     useEffect(() => {
         if (videoEl == null) return;
-        const player = videojs(videoEl, videoJsOptions)
+        const player = videojs(videoEl, videoJsOptions);
+
+
+        // const vid = document.createElement('video');
+        // document.body.appendChild(vid);
+        // const player = videojs(vid, videoJsOptions);
 
         return () => {
             player.dispose()

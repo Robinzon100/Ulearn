@@ -118,7 +118,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, PropsWithChildren<IinputInterfa
                 -webkit-box-sizing: border-box;
                 -moz-box-sizing: border-box;
                 padding:1rem;
-                box-shadow: 
+                box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.03), 0px 9px 23px -6px rgba(0, 0, 0, 0.1), inset 0px -3px 8px -4px rgba(0, 0, 0, 0.1); 
               }
 
 
@@ -142,7 +142,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, PropsWithChildren<IinputInterfa
               .input_field:focus {
                 background: var(--primary-white);
                 opacity: 100%;
-                box-shadow: ${isFocused == false ? "0px 2px 3px rgba(0, 0, 0, 0.03), 0px 9px 23px -6px rgba(0, 0, 0, 0.1), inset 0px -3px 8px -4px rgba(0, 0, 0, 0.1" : "none"});
+                box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.03), 0px 9px 23px -6px rgba(0, 0, 0, 0.1), inset 0px -3px 8px -4px rgba(0, 0, 0, 0.1);
               }
 
               .input_field::placeholder {

@@ -23,7 +23,7 @@ const Card = ({
   description,
   overall_rating,
   handleUserCourseLikes,
-  isLiked
+  isLiked,
 }: PrimaryContentCards) => {
   const selfRef = useRef<HTMLDivElement>(null);
 
@@ -38,29 +38,17 @@ const Card = ({
   const [addToFavorites, setAddToFavorites] = useState<boolean>(isLiked);
   const [favoriteMessageState, setFavoriteMessageState] = useState(false);
 
-
   const [checkNewPrice,] = useState<boolean | number>(discount_price);
   const [isClicked, setIsClicked] = useState<boolean | null>(false);
-
-  const [, setIsVisible] = useState<boolean>(false);
-
-
-
-
-  //! ეს გვეხმარება რომ როცა ჰოვერი მოხდება კარტა და ღილაღი გაქრეს!
-  const handleHoverLeave = () => {
-    setIsClicked(null);
-    setIsVisible(false);
-  };
-
 
 
 
   const handleCourseLike = () => {
     handleUserCourseLikes(id);
     setAddToFavorites((addToFavorites) => !addToFavorites);
-    setFavoriteMessageState(true)
+    setFavoriteMessageState(true);
   };
+
 
 
 
@@ -70,7 +58,7 @@ const Card = ({
         ref={selfRef}
         className="PrimaryContentCard"
         key={uuid}
-        onMouseLeave={() => handleHoverLeave()}>
+        onMouseLeave={() => setIsClicked(null)}>
         <NextLink route={`/course/${uuid}`}>
           <div
             className={"PrimaryContentCard__img"}
@@ -84,6 +72,8 @@ const Card = ({
                   </span>
                 </p>
               </div>
+
+
 
               <div className=" removed-price-tag">
                 {checkNewPrice && (
@@ -100,6 +90,9 @@ const Card = ({
             </div>
           </div>
 
+
+
+
           <div className="PrimaryContentCard__title">
             <p className="f-weight-b f-size-p5" title={name}>
               {stringToCut(name, 50)}
@@ -107,10 +100,17 @@ const Card = ({
           </div>
         </NextLink>
         <div
-
           className="course_card_hover_logo course_card_hover_logo_mobile"
           onClick={(e) =>
-            cardHoverHandler(e,selfRef,elProperties,setElProperties,setIsClicked)}>
+            cardHoverHandler(
+              e,
+              selfRef,
+              elProperties,
+              setElProperties,
+              setIsClicked
+            )
+          }
+        >
           <div className={isClicked ? "card_detail" : "card_detail-display"}>
             {
               <CardDetail
@@ -125,6 +125,7 @@ const Card = ({
         </div>
 
 
+
         <div className="PrimaryContentCard__raiting">
           <div className="PrimaryContentCard__raiting--container">
             <div className="star">
@@ -134,6 +135,7 @@ const Card = ({
                 size={16}
               />
             </div>
+
 
 
             <div className="numbers">
@@ -150,6 +152,7 @@ const Card = ({
           </div>
 
 
+
           <div className="PrimaryContentCard__raiting--name">
             <NextLink route="/#">
               <p className="f-weight-b f-size-p5">
@@ -160,6 +163,7 @@ const Card = ({
         </div>
 
 
+        
 
         <div className="PrimaryContentCard__like">
           <div
@@ -168,13 +172,16 @@ const Card = ({
             onClick={() => handleCourseLike()}
             onMouseEnter={() => setFavoriteMessageState(true)}
             onMouseLeave={() => setFavoriteMessageState(false)}>
-            <div className="remove-from-favorites noselect" 
-                 data-like-status={favoriteMessageState}>
-                <p className="f-size-p8 pf-weight-m">
-                    {favoriteMessageState ? addToFavorites ? "ფავორიტებიდან ამოღება" :"ფავორიტებში დამატება":"ფავორიტებიდან ამოღება"}
-                </p>
+            <div
+              className="remove-from-favorites noselect"
+              data-like-status={favoriteMessageState}>
+              <p className="f-size-p8 pf-weight-m">
+                {favoriteMessageState ? addToFavorites
+                    ? "ფავორიტებიდან ამოღება"
+                    : "ფავორიტებში დამატება"
+                    : "ფავორიტებიდან ამოღება"}
+              </p>
             </div>
-              
           </div>
         </div>
       </div>

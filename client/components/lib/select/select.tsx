@@ -131,11 +131,11 @@ const selectInput: React.FC<ISelect> = ({
             justify-content: center;
             background-color: ${getSelectColors(color).iconBgColor};
             color: white;
-            box-shadow: 0px 4px 11px rgba(255, 92, 77, 0.47);
+            box-shadow: ${getSelectColors(color).boxShadow}
+            // 0px 4px 11px rgba(255, 92, 77, 0.47);
           }
           .selectable {
             margin: 0vw 1vw;
-            // pointerEvents: ${disabled || (loading && "none")};
           }
           .dropdown {
             padding: ${getSelectSize(size).padding};

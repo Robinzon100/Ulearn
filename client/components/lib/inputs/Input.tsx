@@ -101,7 +101,7 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
               }
 
               .input_field:focus {
-                background: ${isFocused == false ? "var(--primary-white)" : "var(--primary-grey)"};
+                background: var(--primary-grey);
                 border: ${!filled && getColors(color).focusedBorder};
                 opacity: 100%;
                 padding: ${isFocused == false ? icon ? getInputSize(size).focusedPadding :

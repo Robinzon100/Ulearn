@@ -1,0 +1,44 @@
+@media screen and (max-width: $medium-screen) {
+  .courses-page .courses-container {
+    grid-template-columns: initial;
+    gap: 40px 40px;
+    grid-template-rows: 1fr auto;
+
+    .side-menu {
+      height: initial !important;
+      position: sticky;
+      margin-top: 3.4rem;
+      position: initial;
+      top: 100px;
+      grid-row: 1/2;
+    }
+    .СontentReveal img {
+      background-size: 100% 100%;
+      width: 100%;
+    }
+  }
+}
+@media screen and (max-width: $small-screen) {
+  .courses-page {
+    padding-bottom: var(--padding-bottom-for-containers);
+  }
+
+  .courses-page .courses-container {
+    grid-template-columns: initial;
+    gap: 40px 40px;
+    grid-template-rows: 1fr auto;
+
+    .section-courses--tablist {
+      margin-top: 5rem !important;
+    }
+
+    .side-menu {
+      height: initial !important;
+      position: sticky;
+      margin-top: 3.4rem;
+      position: initial;
+      top: 100px;
+      grid-row: 1/2;
+    }
+  }
+}
