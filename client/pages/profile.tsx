@@ -26,6 +26,7 @@ const profile = ({ user }) => {
 
 
                 <div className="user-profile-section__container">
+
                     <UserInfo
                         full_name={user.full_name}
                         email={user.email}
@@ -33,6 +34,16 @@ const profile = ({ user }) => {
                     />
 
                     <div className="user-content">
+                        <RangeSlider
+                            steps={.5}
+                            min={0}
+                            max={100}
+                            width='7rem'
+                            color={{
+                                back: 'var(--primary-blue)',
+                                front: 'var(--primary-grey)',
+                            }} />
+
                         <Tabs
                             tabNamesAndIcons={TabHeadings}
                             rawHtml={[
@@ -78,7 +89,6 @@ const profile = ({ user }) => {
                     </div>
                 </div>
 
-                <RangeSlider/>
             </section>
         </>
     );
