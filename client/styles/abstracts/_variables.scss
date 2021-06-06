@@ -15,7 +15,7 @@
 
     //! MAX WIDTH
     --max-width-in-rem: 170rem;
-    --main-pading: 0vw 2vw 0vw 2vw;
+    --main-pading: 0vw 3vw 0vw 3vw;
 
 
     // LOADING ANIMATION
@@ -25,7 +25,8 @@
 
     --navigation-heigth-for-mobile:7rem;
     --bottom-navigation-heigth:10rem;
-    --nav-bar-padding: 0.4vw 2vw;
+    --padding-bottom-for-containers:calc(var(--bottom-navigation-heigth) + 9vh);
+    --nav-bar-padding: 0.4vw 3vw;
 
     --large-screen: 1500px;
     --medium-screen: 1220px;

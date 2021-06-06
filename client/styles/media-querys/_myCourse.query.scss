@@ -20,7 +20,7 @@
 }
 @media screen and (max-width: $small-screen) {
   .courses-page {
-    padding-bottom: calc(var(--bottom-navigation-heigth) + 9vh);
+    padding-bottom: var(--padding-bottom-for-containers);
   }
 
   .courses-page .courses-container {

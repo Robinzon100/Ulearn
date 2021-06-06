@@ -189,23 +189,21 @@ const Navigation = () => {
               className="mobile_hamburger"
               onClick={() =>
                 setToggleMobileCategory(
-                  (toggleMobileCategory) => !toggleMobileCategory
-                )
-              }
-            />
+                (toggleMobileCategory) => !toggleMobileCategory)}/>
+
             {toggleMobileCategory && (
               <MobileCategory
                 isLogedIn={isLogedIn}
                 toggleMobileCategory={toggleMobileCategory}
                 setToggleMobileCategory={() =>
-                  setToggleMobileCategory(
-                    (toggleMobileCategory) => !toggleMobileCategory
-                  )
-                }
+                  setToggleMobileCategory((toggleMobileCategory) => !toggleMobileCategory
+                  )}
                 categories={data?.categories}
               />
             )}
           </div>
+
+
         </div>
       </header>
     </>

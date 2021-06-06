@@ -7,7 +7,7 @@
     align-items: center;
 
     @media screen and (max-width: $small-screen) {
-      padding-bottom: calc(var(--bottom-navigation-heigth) + 9vh);
+      padding-bottom: var(--padding-bottom-for-containers);
       padding-top: calc(var(--bottom-navigation-heigth) + 2vh);
     }
 
