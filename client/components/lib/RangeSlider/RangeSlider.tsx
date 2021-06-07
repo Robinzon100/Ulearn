@@ -86,6 +86,7 @@ const RangeSlider = ({
               color-stop(${gradientPosition}, ${back}),
               color-stop(${gradientPosition}, ${front})
             );
+            border:none;
           }
         `}
       </style>

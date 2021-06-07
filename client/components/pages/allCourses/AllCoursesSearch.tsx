@@ -37,7 +37,7 @@ const AllCoursesSearch = () => {
                             max={100}
                             back="var(--primary-green)"
                             front="var(--primary-grey)"
-                            width="22rem"
+                            width="11vw"
                         />
                     </div>
 
@@ -61,7 +61,7 @@ const AllCoursesSearch = () => {
                             max={100}
                             back="var(--primary-yellow)"
                             front="var(--primary-grey)"
-                            width="22rem"
+                            width="11vw"
                         />
                     </div>
 
@@ -80,7 +80,7 @@ const AllCoursesSearch = () => {
                             max={100}
                             back="var(--primary-blue)"
                             front="var(--primary-grey)"
-                            width="22rem"
+                            width="11vw"
                         />
                     </div>
 
