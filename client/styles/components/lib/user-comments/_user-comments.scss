@@ -15,13 +15,15 @@
       cover,
       center
     );
-    width: 8rem;
+    width: 19rem;
     height: 8rem;
-    border-radius: 50%;
-    padding: 4rem;
+    border-radius: 100px;
+
 
     @media screen and (max-width: $small-screen) {
-      display: none;
+        width: 6rem;
+        height: 6rem;
+        margin-bottom: 1rem;
     }
   }
 
@@ -90,7 +92,7 @@
           );
           width: 3rem;
           height: 3rem;
-          border-radius: 50%;
+          border-radius: 100px;
         }
 
         .heart {
@@ -103,15 +105,17 @@
   }
 }
 
+
+
+
 .add_comment {
   display: flex;
   flex-direction: row;
   width: 100%;
+
   @media screen and (max-width: $small-screen) {
-    .add_comment {
       flex-direction: column;
     }
-  }
 
   &--picture {
     @include background-properties(
@@ -119,12 +123,14 @@
       cover,
       center
     );
-    width: 10rem;
-    height: 10rem;
-    border-radius: 50%;
+    width: 9rem;
+    height: 9rem;
+    border-radius: 100px;
 
     @media screen and (max-width: $small-screen) {
-      display: none;
+        width: 6rem;
+        height: 6rem;
+        margin-bottom: 1rem;
     }
   }
   &--input {
@@ -154,16 +160,5 @@
     .add_btn {
       align-self: flex-end;
     }
-  }
-}
-
-@media screen and (max-width: $small-screen) {
-  .comment {
-    flex-direction: column;
-    padding: var(--main-pading);
-    margin-top: 8rem;
-  }
-  .add_comment {
-    flex-direction: column;
   }
 }

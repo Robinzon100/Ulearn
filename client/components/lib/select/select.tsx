@@ -24,7 +24,8 @@ const selectInput: React.FC<ISelect> = ({
   width,
   options,
   loading,
-  maxWidth
+  maxWidth,
+  minWidth
 }) => {
   const [mouseLeave, setMouseLeave] = useState<boolean>(false);
   const [isToggle, setIsToggle] = useState<boolean>(false);
@@ -120,6 +121,7 @@ const selectInput: React.FC<ISelect> = ({
             pointerevents: ${disabled || loading ? "none" : "auto"};
             opacity: ${disabled || loading ? "60%" : "100%"};
             max-width:${maxWidth};
+            min-width:${minWidth};
           }
           .select_icon {
             padding: ${getSelectSize(size).iconPadding};
@@ -135,7 +137,7 @@ const selectInput: React.FC<ISelect> = ({
             // 0px 4px 11px rgba(255, 92, 77, 0.47);
           }
           .selectable {
-            margin: 0vw 1vw;
+            margin: 0vw 1.5rem;
           }
           .dropdown {
             padding: ${getSelectSize(size).padding};

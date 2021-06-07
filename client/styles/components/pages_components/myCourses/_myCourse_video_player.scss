@@ -29,9 +29,9 @@
     }
 
     .vjs-big-play-button {
-      height: 16rem;
+      height: 20rem;
       border-radius: 100px;
-      width: 16rem;
+      width: 20rem;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -56,7 +56,7 @@
           content: "";
           display: block;
           position: absolute;
-          transform: translate(-38%, -38%);
+          transform: translate(-35%, -48%);
           top: 50%;
           left: 50%;
           width: 8rem;
@@ -114,9 +114,6 @@
     //     grid-area: settings;
     //     position: absolute;
     //     right: 2%;
-    //   }
-    //   .vjs-control {
-    //     // grid-area: timeline;
     //   }
     // }
   }

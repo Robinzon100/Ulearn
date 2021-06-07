@@ -2,9 +2,15 @@ import { Clock, Star, Zap } from "react-feather";
 
 import Select from "components/lib/select/select";
 import SelectJson from "../../../public/json/Select.json";
+
+
+
+
 interface SortingDropdown {
   type: string;
 }
+
+
 
 const Dropdowns: React.FC<SortingDropdown> = ({ type }) => {
   const handleSelectChange = (value) => {
@@ -24,6 +30,7 @@ const Dropdowns: React.FC<SortingDropdown> = ({ type }) => {
           color="green"
           loading={false}
           disabled={false}
+          width="21rem"
         />
       )}
 
@@ -38,6 +45,7 @@ const Dropdowns: React.FC<SortingDropdown> = ({ type }) => {
           color="yellow"
           loading={false}
           disabled={false}
+          width="21rem"
         />
       )}
 
@@ -50,6 +58,7 @@ const Dropdowns: React.FC<SortingDropdown> = ({ type }) => {
           onChange={handleSelectChange}
           icon={<Clock size={15} />}
           color="red"
+          width="24rem"
         />
       )}
     </>

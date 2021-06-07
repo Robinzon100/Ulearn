@@ -41,8 +41,13 @@ $overlay-container-gradient: linear-gradient(
     width: 100%;
     // height: 100%;
     display: grid;
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));;
     gap: 100px 20px;
     margin-top: 5rem;
+
+    .PrimaryContentCard{
+        max-width: initial;
+        width: 100%;
+    }
   }
 }

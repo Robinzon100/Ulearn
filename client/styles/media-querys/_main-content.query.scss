@@ -1,63 +1,101 @@
-@media screen and (max-width: 1700px) {
-    .landing_courses {
-        &--cards {
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
-        }
+@media screen and (max-width: $medium-screen) {
+  .main_content {
+    &--container {
+      grid-template-columns: 1fr !important;
+      .category {
+        display: none;
+      }
     }
-
+  }
 }
 
-@media screen and (max-width: $ultra-small-screen) {
-    .main_content {
 
-        &--container {
-            grid-template-columns: 1fr !important;
+@media screen and (max-width: 960px) {
+  .main_content {
+    &--input {
+      display: grid !important;
+      grid-template-rows:auto 1fr !important;
+      gap: 20px 0 !important;
+      justify-content: initial !important;
 
-            .category {
-                display: none !important;
-            }
-
-
-
-
-        }
-
-        .overlay_container {
-            display: none !important;
-        }
-
-        .landing_courses {
-            &--cards {
-                grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)) !important;
-                gap: 100px 0px;
-            }
-
-            .star {
-                margin-top: 0.1rem;
-            }
-
-            .removed-price-tag:after {
-                top: 1.6rem !important;
-            }
-
-            &--cards {
-                margin-top: 4rem !important;
-
-                .course_card_hover_logo {
-                    display: none !important;
-                }
-
-            }
-        }
-
-        &--input {
-            .input_container {
-                width: 100%;
-            }
-
-            .sorting {
-                display: none !important;
-            }
-        }
+      .input_container {
+        width: 100%;
+      }
     }
+
+    &--selects {
+      margin-left: initial !important;
+    }
+  }
+}
+
+
+@media screen and (max-width: $small-screen) {
+    .main_content {
+    
+        &--selects {
+            display: grid !important;
+            grid-template-rows:repeat(3,1fr)  !important;
+            grid-template-columns: 1fr !important;
+            gap: 20px 0 !important;
+            
+            .select {
+                width: 100% !important;
+
+                .dropdown {
+                    .dropdown-select {
+                        padding: 15px 8px;
+                        .dropdown_icon {
+                            margin-top: initial !important;
+                        }
+                    }
+                }
+            }
+        }
+      }
+}
+
+
+
+
+
+@media screen and (max-width: $ultra-small-screen) {
+  .main_content {
+    .overlay_container {
+      display: none !important;
+    }
+
+    .landing_courses {
+      &--cards {
+        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)) !important;
+        gap: 100px 0px;
+      }
+
+      .star {
+        margin-top: 0.1rem;
+      }
+
+      .removed-price-tag:after {
+        top: 1.6rem !important;
+      }
+
+      &--cards {
+        margin-top: 4rem !important;
+
+        .course_card_hover_logo {
+          display: none !important;
+        }
+      }
+    }
+
+    &--input {
+      .input_container {
+        width: 100%;
+      }
+
+      .sorting {
+        display: none !important;
+      }
+    }
+  }
 }

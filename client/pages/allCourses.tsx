@@ -10,13 +10,18 @@ import { getAllCourseVideos } from "actions/client/course/landingPage/landing.co
 import { handleUserCourseLikes } from "components/utils/helpers/handleUserCourseLikes";
 
 
+import AllCoursesSearch from "components/pages/allCourses/AllCoursesSearch";
+
+
 
 const AllCourses = ({data}) => {
     return (
         <>
             <section className="allCourses">
-                <div className="allCourses-hero-img" />
-
+                <div className="allCourses-hero-img">
+                    <AllCoursesSearch/>
+                </div>
+                
 
 
                 <div className="allCourses-container">
