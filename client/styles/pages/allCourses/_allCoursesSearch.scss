@@ -4,29 +4,91 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
+  .search {
+    padding: 1rem 1rem 1rem 3rem;
+    background: #ffffff;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.01),
+      0px 36px 35px -19px rgba(0, 0, 0, 0.07);
+    border-radius: 22px;
+    @include flex(space-between);
 
-    .search {
-      padding: 1rem 1rem 1rem 3rem;
-      background: #ffffff;
+    .course-search-btn {
+      background: #f5f5f5;
       box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.01),
-        0px 36px 35px -19px rgba(0, 0, 0, 0.07);
+        0px 36px 35px -19px rgba(0, 0, 0, 0.07),
+        inset 0px -7px 15px -10px rgba(0, 0, 0, 0.25);
       border-radius: 22px;
-      @include flex(space-between);
+      padding: 5rem 6rem;
+      cursor: pointer;
+      outline: none;
+      border: none;
+      margin-left: 1rem;
+    }
+  }
+}
 
-      
 
+
+@media screen and (max-width: $large-screen) {
+  .allCoursesSearch {
+    .search {
       .course-search-btn {
-        background: #f5f5f5;
-        box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.01),
-          0px 36px 35px -19px rgba(0, 0, 0, 0.07),
-          inset 0px -7px 15px -10px rgba(0, 0, 0, 0.25);
-        border-radius: 22px;
-        padding: 5rem 6rem;
-        cursor: pointer;
-        outline: none;
-        border: none;
-        margin-left: 1rem;
+        padding: 2rem;
       }
     }
-  
+  }
+}
+
+
+
+
+@media screen and (max-width: $medium-screen) {
+  .allCoursesSearch {
+    .search {
+      margin-top: 10rem;
+      padding: 3rem;
+      flex-direction: column !important;
+
+      & > div,
+      button {
+        margin-right: 0rem !important;
+        width: 100%;
+        margin-top: 2rem;
+      }
+
+      .price,
+      .rating,
+      .duration {
+        .range-container {
+          width: 100%;
+        }
+      }
+
+      .sub_category,
+      .difficulty {
+        .select {
+          width: 100%;
+        }
+      }
+      .course-search-btn {
+        padding: 4rem 2rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 100px) {
+    .allCoursesSearch {
+        width: 100%;
+        max-width: 700px;
+    }
+}
+@media screen and (max-width: $small-screen) {
+    .allCoursesSearch {
+        width: 90%;
+        .search{
+            margin-top: 25rem;
+        }
+    }
+
 }

@@ -10,7 +10,7 @@ import { getAllCourseVideos } from "actions/client/course/landingPage/landing.co
 import { handleUserCourseLikes } from "components/utils/helpers/handleUserCourseLikes";
 
 
-import AllCoursesSearch from "components/pages/allCourses/AllCoursesSearch";
+import AllCoursesSearch from "components/pages/courses/CoursesSearch";
 
 
 

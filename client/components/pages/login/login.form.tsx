@@ -16,19 +16,23 @@ import { showHidePasswordHandler } from "components/utils/helpers/showHidePasswo
 import { postLogin } from "actions/client/login.action";
 import AuthUtils from "components/utils/auth/authUtils";
 
+
+
+
+
 type LoginValues = {
   email: string;
   password: string;
 };
 
+
+
+
+
 const loginComponent = () => {
   const router = useRouter();
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<LoginValues>();
+  const {register,handleSubmit,formState: { errors },} = useForm<LoginValues>();
 
   const { setCookiesAndRedirect } = AuthUtils();
 

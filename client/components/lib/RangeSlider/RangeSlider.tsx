@@ -1,6 +1,10 @@
 import { useRef, useState, useEffect } from "react";
+import { forwardRef, PropsWithChildren } from "react";
+
+
 
 interface ISlider {
+  id:number;
   steps: number;
   back: string;
   front: string;
@@ -11,7 +15,8 @@ interface ISlider {
   currentValue?: string;
 }
 
-const RangeSlider = ({
+const RangeSlider = forwardRef<HTMLInputElement, PropsWithChildren<ISlider>> (({
+  id,
   steps,
   back,
   front,
@@ -19,7 +24,7 @@ const RangeSlider = ({
   max,
   width,
   maxWidth,
-}: ISlider) => {
+}, ref: React.Ref<HTMLInputElement | null>,) => {
   const sliderInputEl = useRef<HTMLInputElement>(null);
   const [sliderMinMax, setSliderMinMax] = useState({ min: min, max: max });
   const [gradientPosition, setGradientPosition] = useState(0);
@@ -48,11 +53,11 @@ const RangeSlider = ({
     <>
       <div className="range-container">
         <input
+          key={id}  
           onChange={() => sliderHandler()}
           ref={sliderInputEl}
           type="range"
           name="range"
-          id="range"
           step={steps}
           min={sliderMinMax.min}
           max={sliderMinMax.max}
@@ -92,6 +97,7 @@ const RangeSlider = ({
       </style>
     </>
   );
-};
+}
+);
 
 export default RangeSlider;

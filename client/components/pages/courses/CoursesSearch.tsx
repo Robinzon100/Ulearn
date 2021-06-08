@@ -1,5 +1,6 @@
 
-import { Calendar, Zap, Search,Star } from "react-feather";
+import { Calendar, Zap, Search, Star } from "react-feather";
+import { useForm, SubmitHandler } from "react-hook-form";
 
 
 import RangeSlider from 'components/lib/RangeSlider/RangeSlider';
@@ -8,21 +9,39 @@ import Select from 'components/lib/select/select';
 
 
 import SelectJson from "../../../public/json/Select.json";
+import { useState } from "react";
 
 
-const handleSelectChange = (value) => {
-    console.log(value);
-};
+type CourseSearchType = {
+    price: number;
+    rating: number;
+    duration:number
+    sub_category:any
+    difficulty:any
+  };
+
+  
 
 
+const CoursesSearch = () => {
 
-const AllCoursesSearch = () => {
+  const {register,handleSubmit} = useForm<CourseSearchType>();
+
+    const handleSelectChange = (value) => {
+        console.log(value);
+    };
+
+
+    const onSubmit: SubmitHandler<CourseSearchType> = (data: CourseSearchType) => {
+        console.log(data);
+    }
+
     return (
         <>
             <div className="allCoursesSearch">
+            <form onSubmit={handleSubmit(onSubmit)} >
 
                 <div className="search">
-
 
 
                     <div className="price margin-right">
@@ -32,12 +51,15 @@ const AllCoursesSearch = () => {
                             </h1>
                         </div>
                         <RangeSlider
+                            id={1}
                             steps={.5}
                             min={0}
                             max={100}
                             back="var(--primary-green)"
                             front="var(--primary-grey)"
                             width="11vw"
+                            // value={0}
+                            {...register("price")}
                         />
                     </div>
 
@@ -46,22 +68,24 @@ const AllCoursesSearch = () => {
 
                     <div className="rating margin-right">
                         <div className="heading">
-                            <h1 className="f-size-p5 f-weight-r">შეფასება:  
+                            <h1 className="f-size-p5 f-weight-r">შეფასება:
                                 <span className="c-primary-yellow">   4.5</span>
-                                <Star 
-                                    size={16} 
+                                <Star
+                                    size={16}
                                     fill="var(--primary-yellow)"
                                     stroke="var(--primary-yellow)"
-                                />  
+                                />
                             </h1>
                         </div>
                         <RangeSlider
+                            id={2}
                             steps={.5}
                             min={0}
                             max={100}
                             back="var(--primary-yellow)"
                             front="var(--primary-grey)"
                             width="11vw"
+                            {...register("rating")}
                         />
                     </div>
 
@@ -70,17 +94,19 @@ const AllCoursesSearch = () => {
                     <div className="duration margin-right">
                         <div className="heading">
                             <h1 className="f-size-p5 f-weight-r">
-                                ხანგძლივობა:  
+                                ხანგძლივობა:
                                 <span className="c-primary-blue">   4სთ</span>
                             </h1>
                         </div>
                         <RangeSlider
+                            id={3}
                             steps={.5}
                             min={0}
                             max={100}
                             back="var(--primary-blue)"
                             front="var(--primary-grey)"
                             width="11vw"
+                            {...register("duration")}
                         />
                     </div>
 
@@ -98,6 +124,7 @@ const AllCoursesSearch = () => {
                             loading={false}
                             disabled={false}
                             width="28rem"
+                            // {...register("sub_category")}
                         />
                     </div>
 
@@ -108,7 +135,7 @@ const AllCoursesSearch = () => {
                             size="small"
                             className="f-size-p5 f-weight-r"
                             placeHolder="სირთულე"
-                            id={1}
+                            id={2}
                             options={SelectJson.SelectTimeOptions}
                             onChange={handleSelectChange}
                             icon={<Zap size={25} />}
@@ -116,6 +143,7 @@ const AllCoursesSearch = () => {
                             loading={false}
                             disabled={false}
                             width="22rem"
+                            // {...register("difficulty")}
                         />
                     </div>
 
@@ -127,11 +155,11 @@ const AllCoursesSearch = () => {
                         />
                     </button>
 
-
                 </div>
+                </form>
             </div>
         </>
     )
 }
 
-export default AllCoursesSearch
+export default CoursesSearch

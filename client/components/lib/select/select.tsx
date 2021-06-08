@@ -1,6 +1,11 @@
 import { memo, useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown } from "react-feather";
+import { forwardRef, PropsWithChildren } from "react";
+
+
+
+
 
 // ============== OUR imports
 import {handleToggle,handleMouseLeave} from "../../../function/CustomeSelecHook";
@@ -9,7 +14,9 @@ import { ISelect } from "./select.inteface";
 import { getSelectSize, getSelectColors } from "./select.style";
 import Loading from "components/lib/loading/Loading";
 
-const selectInput: React.FC<ISelect> = ({
+
+const selectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>> (
+    ({
   color,
   size,
   placeHolder,
@@ -26,7 +33,7 @@ const selectInput: React.FC<ISelect> = ({
   loading,
   maxWidth,
   minWidth
-}) => {
+ },ref: React.Ref<HTMLInputElement | null>,) => {
   const [mouseLeave, setMouseLeave] = useState<boolean>(false);
   const [isToggle, setIsToggle] = useState<boolean>(false);
   const [selectLable, setSelectLable] = useState<string>(placeHolder);
@@ -42,12 +49,15 @@ const selectInput: React.FC<ISelect> = ({
   return (
     <>
       <div
+        onMouseLeave={() => handleMouseLeave(setIsToggle, setMouseLeave)}
         className={`select noselect ${className ? className : ""}`}
         style={disabled ? { cursor: "not-allowed", pointerEvents: "none" } : style}>
         <div
           className="dropdown"
           key={id}
-          onClick={() => handleToggle(setIsToggle, setMouseLeave)}>
+          onClick={() => handleToggle(setIsToggle, setMouseLeave)}
+          >
+
           <div className="dropdown-select">
             {icon && (
               <div className="select_icon" style={iconStyle}>
@@ -70,10 +80,10 @@ const selectInput: React.FC<ISelect> = ({
               <ChevronDown />
             </div>
           </div>
+
+
           {mouseLeave && (
             <motion.div
-              onMouseLeave={() => handleMouseLeave(setIsToggle, setMouseLeave)}
-            //   data-animation="dropdown"
               className="dropdown-list"
               variants={dropDownAnimation}
               initial={{ height: "0rem", display: "none" }}
@@ -81,6 +91,7 @@ const selectInput: React.FC<ISelect> = ({
               {options.map((option) => (
                 <div className="item" key={option.id}>
                   <input
+                    ref={ref}
                     id={option.value}
                     value={option.id}
                     onChange={handleSelect}
@@ -163,6 +174,6 @@ const selectInput: React.FC<ISelect> = ({
       </style>
     </>
   );
-};
-
+}
+);
 export default memo(selectInput);

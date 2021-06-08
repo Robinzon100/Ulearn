@@ -1,31 +1,35 @@
 .allCourses {
+  width: 100%;
+  height: auto;
+
+  .allCourses-hero-img {
+    @include background-properties("/pictures/profile/profile-hero-img.png");
     width: 100%;
-    height: auto;
+    height: 50vh;
+    position: relative;
+  }
 
-    .allCourses-hero-img {
-        @include background-properties("/pictures/profile/profile-hero-img.png");
-        width: 100%;
-        height: 50vh;
-        position: relative;
+  .allCourses-container {
+    margin-top: 27rem;
+    width: 100%;
+    padding: var(--main-pading);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    flex-wrap: wrap;
+    gap: 80px 50px;
+
+    @media screen and (max-width: $medium-screen) {
+      margin-top: 45rem;
     }
 
-    .allCourses-container {
-        margin-top: 27rem;
-        width: 100%;
-        padding: var(--main-pading);
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-        flex-wrap: wrap;
-        gap: 80px 50px;
-
-        @media screen and (max-width: $small-screen) {
-            padding-bottom: var(--padding-bottom-for-containers);
-        }
-
-        .PrimaryContentCard {
-            max-width: initial;
-        }
+    @media screen and (max-width: $small-screen) {
+      padding-bottom: var(--padding-bottom-for-containers);
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      margin-top: 50rem;
     }
+
+    .PrimaryContentCard {
+      max-width: initial;
+    }
+  }
 }
-
-
