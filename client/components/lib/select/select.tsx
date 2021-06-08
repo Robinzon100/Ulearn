@@ -22,7 +22,7 @@ const selectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>> (
   placeHolder,
   disabled,
   style,
-//   value,
+  value,
   onChange,
   className,
   id,
@@ -55,8 +55,7 @@ const selectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>> (
         <div
           className="dropdown"
           key={id}
-          onClick={() => handleToggle(setIsToggle, setMouseLeave)}
-          >
+          onClick={() => handleToggle(setIsToggle, setMouseLeave)}>
 
           <div className="dropdown-select">
             {icon && (
@@ -91,6 +90,7 @@ const selectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>> (
               {options.map((option) => (
                 <div className="item" key={option.id}>
                   <input
+                    key={id}
                     ref={ref}
                     id={option.value}
                     value={option.id}
@@ -101,10 +101,6 @@ const selectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>> (
                   />
                   <label className="f-size-p7" htmlFor={option.value}>
                     {option.value}
-
-                    {/* {placeHolder === "რეიტინგი" && (
-                      <Stars starWidth={16} numberOfStars={option.reiting} />
-                    )} */}
                   </label>
                 </div>
               ))}

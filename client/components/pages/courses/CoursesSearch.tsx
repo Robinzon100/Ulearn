@@ -1,6 +1,6 @@
 
 import { Calendar, Zap, Search, Star } from "react-feather";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useState } from "react";
 
 
 import RangeSlider from 'components/lib/RangeSlider/RangeSlider';
@@ -9,15 +9,14 @@ import Select from 'components/lib/select/select';
 
 
 import SelectJson from "../../../public/json/Select.json";
-import { useState } from "react";
 
 
 type CourseSearchType = {
-    price: number;
-    rating: number;
-    duration:number
-    sub_category:any
-    difficulty:any
+    price?: number;
+    rating?: number;
+    duration?:number
+    sub_category?:any
+    difficulty?:any
   };
 
   
@@ -25,21 +24,26 @@ type CourseSearchType = {
 
 const CoursesSearch = () => {
 
-  const {register,handleSubmit} = useForm<CourseSearchType>();
 
-    const handleSelectChange = (value) => {
-        console.log(value);
-    };
-
-
-    const onSubmit: SubmitHandler<CourseSearchType> = (data: CourseSearchType) => {
-        console.log(data);
+    const [courseSearch, setCourseSearch] = useState<CourseSearchType>({price:0,rating:0,duration:0})
+    
+    const handleSearchInputs = (value, field?:keyof(CourseSearchType)) => {
+        courseSearch[field] = value;
+        setCourseSearch({...courseSearch,[field]:value})
     }
+        
+
+
+    const handleSend =  () => {
+        console.log(courseSearch)
+    }
+
+
+    let { price, rating, duration } = courseSearch;
 
     return (
         <>
             <div className="allCoursesSearch">
-            <form onSubmit={handleSubmit(onSubmit)} >
 
                 <div className="search">
 
@@ -47,7 +51,7 @@ const CoursesSearch = () => {
                     <div className="price margin-right">
                         <div className="heading">
                             <h1 className="f-size-p5 f-weight-r">
-                                ფასი:  <span className="c-primary-green">   15₾</span>
+                                ფასი:  <span className="c-primary-green">   {price}₾</span>
                             </h1>
                         </div>
                         <RangeSlider
@@ -58,8 +62,8 @@ const CoursesSearch = () => {
                             back="var(--primary-green)"
                             front="var(--primary-grey)"
                             width="11vw"
-                            // value={0}
-                            {...register("price")}
+                            value={price}
+                            onChange={(value) => handleSearchInputs(value,"price")}
                         />
                     </div>
 
@@ -69,7 +73,7 @@ const CoursesSearch = () => {
                     <div className="rating margin-right">
                         <div className="heading">
                             <h1 className="f-size-p5 f-weight-r">შეფასება:
-                                <span className="c-primary-yellow">   4.5</span>
+                                <span className="c-primary-yellow">   {rating}</span>
                                 <Star
                                     size={16}
                                     fill="var(--primary-yellow)"
@@ -85,7 +89,8 @@ const CoursesSearch = () => {
                             back="var(--primary-yellow)"
                             front="var(--primary-grey)"
                             width="11vw"
-                            {...register("rating")}
+                            value={courseSearch.rating}
+                            onChange={(value) => handleSearchInputs(value,"rating")}
                         />
                     </div>
 
@@ -95,7 +100,7 @@ const CoursesSearch = () => {
                         <div className="heading">
                             <h1 className="f-size-p5 f-weight-r">
                                 ხანგძლივობა:
-                                <span className="c-primary-blue">   4სთ</span>
+                                <span className="c-primary-blue">   {duration}სთ</span>
                             </h1>
                         </div>
                         <RangeSlider
@@ -106,7 +111,8 @@ const CoursesSearch = () => {
                             back="var(--primary-blue)"
                             front="var(--primary-grey)"
                             width="11vw"
-                            {...register("duration")}
+                            value={courseSearch.duration}
+                            onChange={(value) => handleSearchInputs(value,"duration")}
                         />
                     </div>
 
@@ -118,13 +124,13 @@ const CoursesSearch = () => {
                             placeHolder="ქვე კატოგირიები"
                             id={1}
                             options={SelectJson.SelectRatingsOptions}
-                            onChange={handleSelectChange}
+                            // onChange={handleSelectChange}
                             icon={<Calendar size={25} />}
                             color="red"
                             loading={false}
                             disabled={false}
                             width="28rem"
-                            // {...register("sub_category")}
+                            onChange={(value) => handleSearchInputs(value,"sub_category")}
                         />
                     </div>
 
@@ -137,18 +143,18 @@ const CoursesSearch = () => {
                             placeHolder="სირთულე"
                             id={2}
                             options={SelectJson.SelectTimeOptions}
-                            onChange={handleSelectChange}
+                            // onChange={handleSelectChange}
                             icon={<Zap size={25} />}
                             color="green"
                             loading={false}
                             disabled={false}
                             width="22rem"
-                            // {...register("difficulty")}
+                            onChange={(value) => handleSearchInputs(value,"difficulty")}
                         />
                     </div>
 
 
-                    <button type="submit" className="course-search-btn">
+                    <button  onClick={() => handleSend()} className="course-search-btn">
                         <Search
                             size={35}
                             color="var(--secondary-darkest-gray)"
@@ -156,7 +162,6 @@ const CoursesSearch = () => {
                     </button>
 
                 </div>
-                </form>
             </div>
         </>
     )

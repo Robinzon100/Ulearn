@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import { forwardRef, PropsWithChildren } from "react";
+
 
 
 
@@ -13,9 +13,11 @@ interface ISlider {
   width?: string;
   maxWidth?: string;
   currentValue?: string;
+  onChange?:any
+  value?:number
 }
 
-const RangeSlider = forwardRef<HTMLInputElement, PropsWithChildren<ISlider>> (({
+const RangeSlider = ({
   id,
   steps,
   back,
@@ -24,7 +26,9 @@ const RangeSlider = forwardRef<HTMLInputElement, PropsWithChildren<ISlider>> (({
   max,
   width,
   maxWidth,
-}, ref: React.Ref<HTMLInputElement | null>,) => {
+  onChange,
+  value
+}:ISlider) => {
   const sliderInputEl = useRef<HTMLInputElement>(null);
   const [sliderMinMax, setSliderMinMax] = useState({ min: min, max: max });
   const [gradientPosition, setGradientPosition] = useState(0);
@@ -42,6 +46,7 @@ const RangeSlider = forwardRef<HTMLInputElement, PropsWithChildren<ISlider>> (({
     const sliderEl = sliderInputEl.current;
     setSliderMinMax({ min: +sliderEl.min, max: +sliderEl.max });
     setGradientPosition((+sliderEl.value - +sliderEl.min) / (+sliderEl.max - +sliderEl.min));
+    onChange(sliderEl.value)
   };
 
 
@@ -59,10 +64,10 @@ const RangeSlider = forwardRef<HTMLInputElement, PropsWithChildren<ISlider>> (({
           type="range"
           name="range"
           step={steps}
+          value={value}
           min={sliderMinMax.min}
           max={sliderMinMax.max}
         />
-        {/* <label htmlFor="range">50</label> */}
       </div>
 
 
@@ -97,7 +102,6 @@ const RangeSlider = forwardRef<HTMLInputElement, PropsWithChildren<ISlider>> (({
       </style>
     </>
   );
-}
-);
+};
 
 export default RangeSlider;
