@@ -13,7 +13,7 @@ export default class Course extends Model {
     difficulty!: number;
     thumbnail_imageUrl!: string;
     intro_videoUrl!: string;
-    duration!: string; 
+    duration!: number; 
     what_will_you_learn!: string[];
     student_amount!: number;
     detailed_rating!: any[];

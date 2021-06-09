@@ -10,7 +10,7 @@ const router = Router(defaultRouterOptions);
 import landingCourseRoutes from "./landingCourses/landingCourses.routes";
 
 //? CONTROLLERS
-import { getSingleCourses } from './courses.controller';
+import { getFilteredCourses, getSingleCourses } from './courses.controller';
 
 //? MIDDLEWARES
 
@@ -19,6 +19,7 @@ import { getSingleCourses } from './courses.controller';
 
 // ─── ROUTES ─────────────────────────────────────────────────────────────────────
 //? general
+router.get('/filter', getFilteredCourses)
 router.get('/:uuid', getSingleCourses)
 
 
