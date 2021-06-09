@@ -9,39 +9,33 @@ import Select from 'components/lib/select/select';
 
 
 import SelectJson from "../../../public/json/Select.json";
-import { removeEmptyValuedEntries } from "../profile/userInfo.utils";
 
 
 type CourseSearchType = {
     price?: number;
     rating?: number;
-    duration?:number
-    sub_category?:any
-    difficulty?:any
-  };
+    duration?: number
+    sub_category?: any
+    difficulty?: any
+};
 
-  
+
+
+let searchFilterObj = {}
+
 
 
 const CoursesSearch = () => {
+    const [courseSearch, setCourseSearch] = useState<CourseSearchType>({ price: 0, rating: 0, duration: 0 })
 
-
-    const [courseSearch, setCourseSearch] = useState<CourseSearchType>({price:0,rating:0,duration:0});
-
-    const searchFilterObj = {}
-    
-    const handleSearchInputs = (value, field?:keyof(CourseSearchType)) => {
-        // courseSearch[field] = value;
+    const handleSearchInputs = (value, field?: keyof (CourseSearchType)) => {
+        setCourseSearch({ ...courseSearch, [field]: value })
         searchFilterObj[field] = value
-        setCourseSearch({...courseSearch,[field]:value})
-        // debugger
     }
-        
 
 
-    const handleSend =  () => {
-        // debugger
-        // const res = removeEmptyValuedEntries(courseSearch);
+
+    const handleSend = () => {
         console.log(searchFilterObj)
     }
 
@@ -70,7 +64,7 @@ const CoursesSearch = () => {
                             front="var(--primary-grey)"
                             width="11vw"
                             value={price}
-                            onChange={(value) => handleSearchInputs(value,"price")}
+                            onChange={(value) => handleSearchInputs(value, "price")}
                         />
                     </div>
 
@@ -97,7 +91,7 @@ const CoursesSearch = () => {
                             front="var(--primary-grey)"
                             width="11vw"
                             value={courseSearch.rating}
-                            onChange={(value) => handleSearchInputs(value,"rating")}
+                            onChange={(value) => handleSearchInputs(value, "rating")}
                         />
                     </div>
 
@@ -119,7 +113,7 @@ const CoursesSearch = () => {
                             front="var(--primary-grey)"
                             width="11vw"
                             value={courseSearch.duration}
-                            onChange={(value) => handleSearchInputs(value,"duration")}
+                            onChange={(value) => handleSearchInputs(value, "duration")}
                         />
                     </div>
 
@@ -136,7 +130,7 @@ const CoursesSearch = () => {
                             loading={false}
                             disabled={false}
                             width="28rem"
-                            onChange={(value) => handleSearchInputs(value,"sub_category")}
+                            onChange={(value) => handleSearchInputs(value, "sub_category")}
                         />
                     </div>
 
@@ -154,12 +148,12 @@ const CoursesSearch = () => {
                             loading={false}
                             disabled={false}
                             width="22rem"
-                            onChange={(value) => handleSearchInputs(value,"difficulty")}
+                            onChange={(value) => handleSearchInputs(value, "difficulty")}
                         />
                     </div>
 
 
-                    <button  onClick={() => handleSend()} className="course-search-btn">
+                    <button onClick={() => handleSend()} className="course-search-btn">
                         <Search
                             size={35}
                             color="var(--secondary-darkest-gray)"
