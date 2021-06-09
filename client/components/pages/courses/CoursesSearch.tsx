@@ -13,9 +13,9 @@ import SelectJson from "../../../public/json/Select.json";
 
 type CourseSearchType = {
     price?: number;
-    rating?: number;
+    overall_rating?: number;
     duration?: number
-    sub_category?: any
+    sub_category_id?: any
     difficulty?: any
 };
 
@@ -26,7 +26,7 @@ let searchFilterObj = {}
 
 
 const CoursesSearch = () => {
-    const [courseSearch, setCourseSearch] = useState<CourseSearchType>({ price: 0, rating: 0, duration: 0 })
+    const [courseSearch, setCourseSearch] = useState<CourseSearchType>({ price: 0, overall_rating: 0, duration: 0 })
 
     const handleSearchInputs = (value, field?: keyof (CourseSearchType)) => {
         setCourseSearch({ ...courseSearch, [field]: value })
@@ -40,7 +40,7 @@ const CoursesSearch = () => {
     }
 
 
-    let { price, rating, duration } = courseSearch;
+    let { price, overall_rating, duration } = courseSearch;
 
     return (
         <>
@@ -74,7 +74,7 @@ const CoursesSearch = () => {
                     <div className="rating margin-right">
                         <div className="heading">
                             <h1 className="f-size-p5 f-weight-r">შეფასება:
-                                <span className="c-primary-yellow">   {rating}</span>
+                                <span className="c-primary-yellow">   {overall_rating}</span>
                                 <Star
                                     size={16}
                                     fill="var(--primary-yellow)"
@@ -90,8 +90,8 @@ const CoursesSearch = () => {
                             back="var(--primary-yellow)"
                             front="var(--primary-grey)"
                             width="11vw"
-                            value={courseSearch.rating}
-                            onChange={(value) => handleSearchInputs(value, "rating")}
+                            value={overall_rating}
+                            onChange={(value) => handleSearchInputs(value, "overall_rating")}
                         />
                     </div>
 
@@ -130,7 +130,7 @@ const CoursesSearch = () => {
                             loading={false}
                             disabled={false}
                             width="28rem"
-                            onChange={(value) => handleSearchInputs(value, "sub_category")}
+                            onChange={(value) => handleSearchInputs(value, "sub_category_id")}
                         />
                     </div>
 
