@@ -11,7 +11,7 @@ import MobileSubCategory from "./MobileSubCategory";
 
 import { handleHoverMainCategory,handleHoverSubCategory } from "components/global/navigation/Category/CategoryLogic";
 
-import { MobileCategoryAnimation } from "./MobileCategory.animation";
+import { MobileCategoryAnimation } from "./animation/MobileCategory.animation";
 
 
 
@@ -171,23 +171,14 @@ const MobileCategory = ({
               )} */}
 
             </nav>
-
-
-
-
-
-
-
-
-          </div>
+        </div>
 
           
 
 
           <div
               className="caregory_closeBtn"
-              onClick={() => closeMobileCategoryNavigation()}
-            >
+              onClick={() => closeMobileCategoryNavigation()}>
               <X size="25" stroke="var(--primary-dark)" />
             </div>
         </div>

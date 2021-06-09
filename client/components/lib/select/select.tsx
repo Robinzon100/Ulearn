@@ -22,7 +22,7 @@ const selectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>> (
   placeHolder,
   disabled,
   style,
-  value,
+//   value,
   onChange,
   className,
   id,

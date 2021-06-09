@@ -9,6 +9,7 @@ import Select from 'components/lib/select/select';
 
 
 import SelectJson from "../../../public/json/Select.json";
+// import { removeEmptyValuedEntries } from "../profile/userInfo.utils";
 
 
 type CourseSearchType = {
@@ -35,6 +36,8 @@ const CoursesSearch = () => {
 
 
     const handleSend =  () => {
+        // debugger
+        // const res = removeEmptyValuedEntries(courseSearch);
         console.log(courseSearch)
     }
 
@@ -124,7 +127,6 @@ const CoursesSearch = () => {
                             placeHolder="ქვე კატოგირიები"
                             id={1}
                             options={SelectJson.SelectRatingsOptions}
-                            // onChange={handleSelectChange}
                             icon={<Calendar size={25} />}
                             color="red"
                             loading={false}
@@ -143,7 +145,6 @@ const CoursesSearch = () => {
                             placeHolder="სირთულე"
                             id={2}
                             options={SelectJson.SelectTimeOptions}
-                            // onChange={handleSelectChange}
                             icon={<Zap size={25} />}
                             color="green"
                             loading={false}
