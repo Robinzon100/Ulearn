@@ -11,21 +11,24 @@ import { handleUserCourseLikes } from "components/utils/helpers/handleUserCourse
 
 
 import CourseSearch from "components/pages/courses/CoursesSearch";
+import { useState } from "react";
 
 
 
 const AllCourses = ({ data }) => {
+    const [courses, setCourses] = useState(data.courses)
+
     return (
         <>
             <section className="allCourses">
                 <div className="allCourses-hero-img">
-                    <CourseSearch />
+                    <CourseSearch result={(result) => setCourses(result) }/>
                 </div>
 
 
 
                 <div className="allCourses-container">
-                    {data.courses.map((card) => (
+                    {courses.map((card) => (
                         <Courses
                             key={card.id}
                             uuid={card.uuid}

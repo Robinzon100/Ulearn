@@ -8,7 +8,7 @@ import Select from 'components/lib/select/select';
 
 import SelectJson from "../../../public/json/Select.json";
 
-import {getFilteredCourses} from "actions/client/user/courses/getFilteredCourses";
+import { getFilteredCourses } from "actions/client/user/courses/getFilteredCourses";
 
 
 type CourseSearchType = {
@@ -25,8 +25,9 @@ let searchFilterObj = {}
 
 
 
-const CoursesSearch = () => {
-    const [courseSearch, setCourseSearch] = useState<CourseSearchType>({ price: 0, overall_rating: 0, duration: 0 })
+const CoursesSearch = ({result}) => {
+    const [courseSearch, setCourseSearch] = useState<CourseSearchType>({ price: 0, overall_rating: 0, duration: 0 });
+
 
     const handleSearchInputs = (value, field?: keyof (CourseSearchType)) => {
         setCourseSearch({ ...courseSearch, [field]: value })
@@ -35,8 +36,13 @@ const CoursesSearch = () => {
 
 
 
-    const handleSend = () => {
-        console.log(searchFilterObj)
+    const handleSend = async () => {
+        const res = await getFilteredCourses(searchFilterObj);
+
+        if(res.statusCode != 200) {
+            return
+        }
+        result(res.courses)
     }
 
 
@@ -57,9 +63,9 @@ const CoursesSearch = () => {
                         </div>
                         <RangeSlider
                             id={1}
-                            steps={.5}
+                            steps={5}
                             min={0}
-                            max={100}
+                            max={60}
                             back="var(--primary-green)"
                             front="var(--primary-grey)"
                             width="11vw"
@@ -86,7 +92,7 @@ const CoursesSearch = () => {
                             id={2}
                             steps={.5}
                             min={0}
-                            max={100}
+                            max={5}
                             back="var(--primary-yellow)"
                             front="var(--primary-grey)"
                             width="11vw"
@@ -106,9 +112,9 @@ const CoursesSearch = () => {
                         </div>
                         <RangeSlider
                             id={3}
-                            steps={.5}
+                            steps={.1}
                             min={0}
-                            max={100}
+                            max={20}
                             back="var(--primary-blue)"
                             front="var(--primary-grey)"
                             width="11vw"
