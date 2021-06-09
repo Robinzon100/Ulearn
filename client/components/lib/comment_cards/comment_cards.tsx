@@ -104,7 +104,7 @@ const comment_cards: React.FC<CommentCards> = (
               size={30}
             />
             <div className="like_counter">
-              <p className="f-size-p6 f-weight-m">
+              <p className=" f-weight-m">
                 {thumbsUp}
               </p>
             </div>
@@ -118,7 +118,7 @@ const comment_cards: React.FC<CommentCards> = (
               size={30}
             />
             <div className="unlike_counter">
-              <p className="f-size-p6 f-weight-m">
+              <p className="f-weight-m">
                 {thumbsDown}
               </p>
             </div>
