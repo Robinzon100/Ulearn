@@ -19,7 +19,7 @@ import { getFilteredCourses, getSingleCourses } from './courses.controller';
 
 // ─── ROUTES ─────────────────────────────────────────────────────────────────────
 //? general
-router.get('/filter', getFilteredCourses)
+router.post('/filter', getFilteredCourses)
 router.get('/:uuid', getSingleCourses)
 
 
