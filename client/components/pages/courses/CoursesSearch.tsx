@@ -6,8 +6,9 @@ import { useState } from "react";
 import RangeSlider from 'components/lib/RangeSlider/RangeSlider';
 import Select from 'components/lib/select/select';
 
+import SelectJson from "../../../public/json/Select.json";
 
- import SelectJson from "../../../public/json/Select.json";
+import {getFilteredCourses} from "actions/client/user/courses/getFilteredCourses";
 
 
 type CourseSearchType = {

@@ -1,9 +1,9 @@
 import { axiosInstance } from 'actions/action.index';
 
 
-export const postRegistration = async (data) => {
+export const getFilteredCourses = async (data) => {
     return await axiosInstance
-        .post(`/auth/register`, data)
+        .post(`/course/filter`, data)
         .then(res => {
             return {
                 ...res.data,
