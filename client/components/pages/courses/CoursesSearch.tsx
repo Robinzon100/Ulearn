@@ -9,7 +9,7 @@ import Select from 'components/lib/select/select';
 
 
 import SelectJson from "../../../public/json/Select.json";
-// import { removeEmptyValuedEntries } from "../profile/userInfo.utils";
+import { removeEmptyValuedEntries } from "../profile/userInfo.utils";
 
 
 type CourseSearchType = {
@@ -26,11 +26,15 @@ type CourseSearchType = {
 const CoursesSearch = () => {
 
 
-    const [courseSearch, setCourseSearch] = useState<CourseSearchType>({price:0,rating:0,duration:0})
+    const [courseSearch, setCourseSearch] = useState<CourseSearchType>({price:0,rating:0,duration:0});
+
+    const searchFilterObj = {}
     
     const handleSearchInputs = (value, field?:keyof(CourseSearchType)) => {
-        courseSearch[field] = value;
+        // courseSearch[field] = value;
+        searchFilterObj[field] = value
         setCourseSearch({...courseSearch,[field]:value})
+        // debugger
     }
         
 
@@ -38,7 +42,7 @@ const CoursesSearch = () => {
     const handleSend =  () => {
         // debugger
         // const res = removeEmptyValuedEntries(courseSearch);
-        console.log(courseSearch)
+        console.log(searchFilterObj)
     }
 
 

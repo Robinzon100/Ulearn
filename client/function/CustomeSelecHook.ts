@@ -1,10 +1,9 @@
 export const handleToggle = (setIsToggle,setMouseLeave) => {
-    setIsToggle((toggle) => !toggle);
+    setIsToggle(true);
     setMouseLeave(true);
 };
 export const handleMouseLeave = (setMouseLeave,setIsToggle) => {
-    setMouseLeave((mouseLeave) => !mouseLeave);
+    setMouseLeave(false);
     setIsToggle(false);
-    // setMouseLeave(true);
 };
 

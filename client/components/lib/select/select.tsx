@@ -50,12 +50,10 @@ const selectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>> (
     <>
       <div
         onMouseLeave={() => handleMouseLeave(setIsToggle, setMouseLeave)}
+        onClick={() => handleToggle(setIsToggle, setMouseLeave)}
         className={`select noselect ${className ? className : ""}`}
         style={disabled ? { cursor: "not-allowed", pointerEvents: "none" } : style}>
-        <div
-          className="dropdown"
-          key={id}
-          onClick={() => handleToggle(setIsToggle, setMouseLeave)}>
+        <div className="dropdown" key={id}>
 
           <div className="dropdown-select">
             {icon && (
