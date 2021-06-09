@@ -17,7 +17,7 @@ export const getSingleCourses = async (req: Request, res: Response, next: NextFu
             })
 
         return customError(res, next, 'no course found', 404)
-    } catch (err) {
+    } catch (err: any) {
         customError(res, next, err.message)
     }
 
@@ -27,25 +27,8 @@ export const getSingleCourses = async (req: Request, res: Response, next: NextFu
 
 
 export const getFilteredCourses = async (req: Request, res: Response, next: NextFunction) => {
-    const {
-        price,
-        rating,
-        duration,
-        sub_category,
-        difficulty,
-    } = req.body
-
-
     try {
-        const course = await Course.query().where(
-            {
-                'price': price,
-                'overall_rating': rating,
-                'duration': duration,
-                'sub_category_id': sub_category,
-                'difficulty': difficulty,
-            }
-        )
+        const course = await Course.query().where(req.body)
 
         if (course)
             return res.status(200).json({
@@ -54,7 +37,7 @@ export const getFilteredCourses = async (req: Request, res: Response, next: Next
             })
 
         return customError(res, next, 'no course found', 404)
-    } catch (err) {
+    } catch (err: any) {
         customError(res, next, err.message)
     }
 
