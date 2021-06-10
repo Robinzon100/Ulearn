@@ -7,7 +7,8 @@ import NextLink from "components/utils/nextLink/NextLink";
 
 import MobileMainCategory from "./MobileMainCategory";
 import MobileSubCategory from "./MobileSubCategory";
-// import MobileSubSubCategory from "./MobileSubSubCategory";
+
+
 
 import { handleHoverMainCategory,handleHoverSubCategory } from "components/global/navigation/Category/CategoryLogic";
 
@@ -24,7 +25,7 @@ interface SubCategories {
 
 
 const MobileCategory = ({
-    isLogedIn,
+  isLogedIn,
   toggleMobileCategory,
   setToggleMobileCategory,
   categories: { main_categories, sub_categories, sub_sub_categories },
@@ -34,14 +35,21 @@ const MobileCategory = ({
   const [closeMobileCategory,] = useState(false);
   const [isMainCategoryChosen, setIsMainCategoryChosen] = useState<boolean>(false);
   const [, setIsSubCategoryChosen] = useState<boolean>(false);
-
-
-
+  
+  
   const [rendersSubNames, setRendersSubNames] = useState<SubCategories[]>([]);
   const [, setRendersSubSubNames] = useState<SubCategories[]>([]);
 
+    
+  const [mainCategoryId, setMainCategoryId] = useState(null);
+
+
   const closeMobileCategoryNavigation = () =>
     setToggleMobileCategory(closeMobileCategory);
+
+
+
+
 
   return (
     <>
@@ -89,13 +97,14 @@ const MobileCategory = ({
                     id={data.id}
                     key={data.id}
                     name={data.name}
-                    handleFetchMainCategory={() =>
-                      handleHoverMainCategory(
+                    handleFetchMainCategory={() => {
+                    handleHoverMainCategory(
                         data.id,
                         sub_categories,
                         setRendersSubNames
-                      )
-                    }
+                    );
+                    setMainCategoryId(data.id)
+                }}
                     setIsMainCategoryChosen={setIsMainCategoryChosen}
                   />
                 ))}
@@ -132,7 +141,7 @@ const MobileCategory = ({
                 />
 
                 {rendersSubNames &&
-                  rendersSubNames?.map((data) => (
+                  rendersSubNames?.map((data,i) => (
                     <MobileSubCategory
                       handleFetchSubCategoryClick={() =>
                         handleHoverSubCategory(
@@ -143,7 +152,8 @@ const MobileCategory = ({
                       }
                       setIsSubCategoryChosen={setIsSubCategoryChosen}
                       key={data.id}
-                      id={data.id}
+                      id={i + 1}
+                      mainCategoryId={mainCategoryId}
                       name={data.name}
                     />
                   ))}

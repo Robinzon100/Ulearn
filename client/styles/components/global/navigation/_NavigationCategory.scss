@@ -58,6 +58,11 @@
           width: 100%;
           @include flex(space-between, center, row);
           cursor: pointer;
+          color: black;
+
+          .item {
+              width: 100%;
+          }
 
           &:not(:first-child) {
             margin-top: 2rem;

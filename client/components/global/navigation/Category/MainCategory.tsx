@@ -3,16 +3,16 @@ import NextLink from 'components/utils/nextLink/NextLink';
 
 
 
-const Category = ({ handleFetchMainCategory, setIsMainCategoryChosen, id, name }, props) => {
+const MainCategory = ({ handleFetchMainCategory, setIsMainCategoryChosen, id, name }, props) => {
 
   return (
     <>
       <NextLink
         route={`courses?m_i=${id}`}
-        className="list--items__links  f-size-p6">
+        className=" list__main-category--item  f-size-p6">
         <li
           key={props.key}
-          className="list__main-category--item"
+          className="item"
           onMouseEnter={() => {
             handleFetchMainCategory(id);
             setIsMainCategoryChosen(true)
@@ -37,4 +37,4 @@ const Category = ({ handleFetchMainCategory, setIsMainCategoryChosen, id, name }
   );
 };
 
-export default Category;
+export default MainCategory;

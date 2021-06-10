@@ -66,7 +66,7 @@ const carousel: React.FC<CarouselInterface> = ({ categories }) => {
               <div
                 className="carousel_card--pic"
                 style={{ backgroundImage: `url('/pictures/slider/${data.name.trim(" ")}.jpg')` }}
-              ></div>
+              />
               <div className="carousel_card--heading">
                 <p className="f-size-p5">{data.name}</p>
               </div>

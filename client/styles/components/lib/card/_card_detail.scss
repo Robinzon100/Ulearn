@@ -1,5 +1,4 @@
-// $card-detail-inside_content-padding:1.5rem;
-// $card-detail-padding:0.5rem 1.5rem;
+
 $card-detail-shadow:20px 30px 90px 10px rgba(19, 21, 26, 0.2);
 
 
@@ -10,6 +9,7 @@ $card-detail-shadow:20px 30px 90px 10px rgba(19, 21, 26, 0.2);
 
 }
 .card_detail {
+    cursor:default !important;
     display: flex;
     justify-content: center;
     position: absolute;
@@ -46,7 +46,7 @@ $card-detail-shadow:20px 30px 90px 10px rgba(19, 21, 26, 0.2);
         &__title {
             a {
                 text-decoration: none;
-                cursor: pointer !important;
+                // cursor: pointer !important;
                 color: var(--primary-dark);
 
                 &:hover {
@@ -103,7 +103,7 @@ $card-detail-shadow:20px 30px 90px 10px rgba(19, 21, 26, 0.2);
 
             border-radius: 0px 0px 12px 12px;
             padding: 2.5rem 2rem;
-            cursor: pointer;
+            // cursor: pointer;
             .heading {
                 color: var(--primary-white);
                 margin-right: 1rem;
