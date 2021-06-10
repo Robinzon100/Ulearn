@@ -9,7 +9,7 @@ const MobileSubCategory = ({
   mainCategoryId,
 }) => {
   return (
-    <NextLink route={`courses?m_i=${id}`} 
+    <NextLink route={`courses?m_i=${mainCategoryId}&s_i=${id}`} 
     className="link sub-category-list--item">
       <li
         className="item"

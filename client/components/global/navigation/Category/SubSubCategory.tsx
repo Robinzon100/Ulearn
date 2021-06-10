@@ -4,12 +4,13 @@ import NextLink from "components/utils/nextLink/NextLink";
 
 
 
-const SubSubCategory = ({ name, setSubCategoryId, id }) => {
+
+const SubSubCategory = ({ name, id, subCategoryId,mainCategoryId }) => {
   return (
 
 
     <NextLink
-      route={`courses?m_i=${setSubCategoryId}&s_i=${id}`}
+      route={`courses?m_i=${mainCategoryId}&s_i=${subCategoryId}&ss_i=${id}`}
       className="list__sub-category--item  regular f-size-p6" >
 
       <li className="item" key={id}>

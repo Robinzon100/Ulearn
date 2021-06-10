@@ -108,7 +108,8 @@ const Category: FC<categories> = ({ categories: { main_categories, sub_categorie
                     {rendersSubSubNames &&
                         rendersSubSubNames?.map((data,i) => (
                             <SubSubCategory 
-                            setSubCategoryId={subCategoryId}
+                            subCategoryId={subCategoryId}
+                            mainCategoryId={mainCategoryId}
                             key={data.id}
                             id={i + 1}
                             name={data.name} 
