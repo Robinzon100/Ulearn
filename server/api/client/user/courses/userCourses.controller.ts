@@ -1,8 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import User from "../../../../models/user/user.model";
 import customError from '../../../../utils/createError';
-import bcrypt from 'bcrypt';
-import { getHashedPassword } from '../../../../utils/auth/auth.util';
 import { raw } from "objection";
 
 
@@ -31,7 +29,21 @@ export const postUserLikeCourse = async (req: Request, res: Response, next: Next
         })
 
 
-    } catch (err) {
+    } catch (err: any) {
+        customError(res, next, err.message, 401)
+    }
+}
+
+
+
+
+export const getUserPreferedCategory = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        res.status(200).json({
+            user_prefered_categories: req.user[0].favorite_main_category_ids
+        })
+
+    } catch (err: any) {
         customError(res, next, err.message, 401)
     }
 }

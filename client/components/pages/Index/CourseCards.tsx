@@ -13,34 +13,21 @@ import { handleUserCourseLikes } from "components/utils/helpers/handleUserCourse
 //! ===================== JSON
 import CategoriesImgs from "../../../public/json/categories.json";
 import InputSelectComponent from "components/lib/dropdowns/DropdownsContainer";
-import { getAllCategories } from "actions/client/categories.action";
+import useSWR from 'swr';
+import { fetcher } from "actions/swr/fetchers";
 
 
 
 
 
-const CourseCards = ({landingCourse}) => {
+const CourseCards = ({ landingCourse }) => {
   const carouselImgs = CategoriesImgs.Categories;
   const CardsJson = PrimaryContentCardJson.contentCard;
 
-
-  const [data, setData] = useState([]);
-
-  
-  const fetchCarouselCategories = async () => {
-    const {categories: { main_categories }} = await getAllCategories();
-    setData(main_categories);
-  };
-
-
-
-  useEffect(() => {
-    fetchCarouselCategories();
-  }, []);
-
-
-
-
+  const { data } = useSWR(
+    `${process.env.BACK_END_URL}/api/categories/all`,
+    fetcher
+  )
 
 
 
@@ -48,7 +35,9 @@ const CourseCards = ({landingCourse}) => {
     <>
       <div className="main_content">
         {/* //! კარუსელი */}
-        <Carousel carouselJson={data} CarouselImgs={carouselImgs} />
+        {data &&
+          <Carousel categories={data.categories} CarouselImgs={carouselImgs} />
+        }
 
         {/* //! ინფუთები */}
         <div className="main_content--container">
@@ -56,7 +45,9 @@ const CourseCards = ({landingCourse}) => {
             <div className="category_heading">
               <p className="f-size-h8">კატეგორიები</p>
             </div>
-            <CategoriesComponent CategoriesJson={data} />
+            {data &&
+              <CategoriesComponent categories={data.categories} />
+            }
           </div>
 
           <div className="landing_courses">

@@ -11,18 +11,26 @@ import { handleUserCourseLikes } from "components/utils/helpers/handleUserCourse
 
 
 import CourseSearch from "components/pages/courses/CoursesSearch";
-import { useState } from "react";
+import { useState, useEffect } from 'react';
+import { getCoursesByUrlFilter } from "actions/client/course/course.index.action";
 
 
 
 const AllCourses = ({ data }) => {
     const [courses, setCourses] = useState(data.courses)
 
+
+    useEffect(() => {
+        setCourses(data.courses)
+    }, [data])
+
+
+
     return (
         <>
             <section className="allCourses">
                 <div className="allCourses-hero-img">
-                    <CourseSearch result={(result) => setCourses(result) }/>
+                    <CourseSearch result={(result) => setCourses(result)} />
                 </div>
 
 
@@ -57,15 +65,17 @@ const AllCourses = ({ data }) => {
 
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-
-    const allCourses = await getAllCourseVideos();
-
-    // console.log(ctx.query);
+    let courses
+    if ('m_i' in ctx.query) {
+        courses = await getCoursesByUrlFilter(Object.values(ctx.query))
+    } else {
+        courses = await getAllCourseVideos();
+    }
 
 
     return {
         props: {
-            data: allCourses,
+            data: courses,
             filterQuery: ctx.query
         }
     }

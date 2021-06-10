@@ -1,10 +1,11 @@
 
-import { Categories } from "../../../interfaces/categories.inteface";
 import NextLink from "components/utils/nextLink/NextLink";
 
+export interface Categories {
+  categories:any
+}
 
-
-const SideCategories: React.FC<Categories> = ({ CategoriesJson }) => {
+const SideCategories: React.FC<Categories> = ({ categories }) => {
   return (
     <>
       <div className="category_container">
@@ -18,7 +19,7 @@ const SideCategories: React.FC<Categories> = ({ CategoriesJson }) => {
             </div>
           </li>
 
-          {CategoriesJson?.map((data) => (
+          {categories.main_categories?.map((data) => (
             
               <li className="category_main--name category_main" key={data.id}>
                 <NextLink route="/#" className="f-size-p4">

@@ -3,16 +3,16 @@ import Link from "next/link";
 
 
 interface Props {
-    route:string,
-    children?:any,
-    className?:string
+  route: any,
+  children?: any,
+  className?: any
 }
 
 
-const NextLink:FC<Props> = ({ route,children,className }) => {
+const NextLink: FC<Props> = ({ route, children, className }) => {
   return (
     <Link href={route}>
-      <a style={{textDecoration:"none"}} className={className}>
+      <a style={{ textDecoration: "none" }} className={className}>
         {children}
       </a>
     </Link>

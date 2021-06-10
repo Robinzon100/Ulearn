@@ -1,32 +1,42 @@
 import { ChevronRight } from "react-feather";
 import NextLink from "components/utils/nextLink/NextLink";
 
-const sub_category = ({handleFetchSubCategoryClick,setIsSubCategoryChosen,setIsMouseleftSubSubCategory,id,name,},props) => {
+
+
+
+const sub_category = ({
+  handleFetchSubCategoryClick,
+  setIsSubCategoryChosen,
+  setIsMouseleftSubSubCategory,
+  id,
+  name,
+  mainCategoryId }) => {
   return (
     <>
-    <li
-        key={props.key}
-        className="list__sub-sub-category--item"
-        onMouseEnter={() => {
-          handleFetchSubCategoryClick(id);
-          setIsSubCategoryChosen(true);
-          setIsMouseleftSubSubCategory(true);
-        }}>
-        <div className="item-container">
-          <div className="item-container__cube-text">
-            <div className="text">
-              <NextLink
-                route=""
-                className="list--items__links  regular f-size-p6">
+      <NextLink
+        route={`courses?m_i=${mainCategoryId}&s_i=${id}`}
+        className="list--items__links  regular f-size-p6">
+
+        <li
+          key={id}
+          className="list__sub-sub-category--item"
+          onMouseEnter={() => {
+            handleFetchSubCategoryClick(mainCategoryId);
+            setIsSubCategoryChosen(true);
+            setIsMouseleftSubSubCategory(true);
+          }}>
+          <div className="item-container">
+            <div className="item-container__cube-text">
+              <div className="text">
                 {name}
-              </NextLink>
+              </div>
+            </div>
+            <div className="item-container__chevron">
+              <ChevronRight size={25} />
             </div>
           </div>
-          <div className="item-container__chevron">
-            <ChevronRight size={25} />
-          </div>
-        </div>
-      </li>
+        </li>
+      </NextLink>
     </>
   );
 };

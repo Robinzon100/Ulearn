@@ -20,7 +20,6 @@ export const getSingleCourses = async (req: Request, res: Response, next: NextFu
     } catch (err: any) {
         customError(res, next, err.message)
     }
-
 }
 
 
@@ -28,7 +27,17 @@ export const getSingleCourses = async (req: Request, res: Response, next: NextFu
 
 export const getFilteredCourses = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const course = await Course.query().where(req.body)
+        const { params } = req
+        const { body } = req
+
+        Object.keys(params).forEach(key => {
+            if (params[key] === undefined) {
+                delete params[key];
+            }
+        });
+
+
+        const course = await Course.query().where({ ...body, ...params })
 
         if (course)
             return res.status(200).json({

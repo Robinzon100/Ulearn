@@ -44,8 +44,7 @@ export const getUser = async (req: Request, res: Response, next: NextFunction) =
                 liked_courses_ids
             )
 
-        console.log(liked_courses);
-        
+
 
         const user = {
             full_name,
@@ -76,7 +75,7 @@ export const getUser = async (req: Request, res: Response, next: NextFunction) =
         res.json({
             user
         })
-    } catch (err) {
+    } catch (err: any) {
         customError(res, next, err.message, 500)
     }
 }
@@ -173,7 +172,7 @@ export const updateUser = async (req: Request, res: Response, next: NextFunction
         }
         customError(res, next, 'invalid data', 403)
 
-    } catch (err) {
+    } catch (err: any) {
         customError(res, next, 'invalid data', 403)
     }
 }

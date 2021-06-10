@@ -19,7 +19,7 @@ const decodeAccessToken = async (req: Request) => {
 const getUserWithAccessToken = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { userUUID } = await decodeAccessToken(req) as { userUUID: string }
-        const user = await User.query().where('uuid', userUUID)
+        const user= await User.query().where('uuid', userUUID)
         req.user = user
         next()
     } catch (err) {
