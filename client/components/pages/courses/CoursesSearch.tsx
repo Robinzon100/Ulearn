@@ -10,7 +10,7 @@ import SelectJson from "../../../public/json/Select.json";
 
 import { getFilteredCourses } from "actions/client/user/courses/getFilteredCourses";
 import { getAllCategories } from "actions/client/categories.action";
-import { Categories } from '../../../interfaces/maincategory.interface';
+// import { Categories } from '../../../interfaces/maincategory.interface';
 
 
 type CourseSearchType = {
@@ -166,6 +166,7 @@ const CoursesSearch = ({ result, userPrefferedCategoryIds }) => {
                         <Select
                             className="f-size-p5 f-weight-r"
                             size="small"
+                            // minHeight="28rem"
                             placeHolder="ქვე კატოგირიები"
                             id={1}
                             options={userSubCategories}

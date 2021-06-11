@@ -19,6 +19,7 @@ export interface ISelect extends IGlobal {
     minWidth?:string;
     icon?:ReactNode,
     iconStyle?:CSSProperties
+    minHeight?:string
 }
 
 

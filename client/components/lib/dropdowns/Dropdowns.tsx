@@ -54,7 +54,7 @@ const Dropdowns: React.FC<SortingDropdown> = ({ type }) => {
           size="small"
           placeHolder="ხანგძლივობა"
           id={3}
-          options={SelectJson.SelectTimeOptions}
+          options={SelectJson.difficulty}
           onChange={handleSelectChange}
           icon={<Clock size={15} />}
           color="red"

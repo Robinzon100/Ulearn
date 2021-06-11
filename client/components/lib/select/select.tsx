@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useState,useRef } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown } from "react-feather";
 import { forwardRef, PropsWithChildren } from "react";
@@ -8,11 +8,13 @@ import { forwardRef, PropsWithChildren } from "react";
 
 
 // ============== OUR imports
-import {handleToggle,handleMouseLeave} from "../../../function/CustomeSelecHook";
+// import {handleToggle,handleMouseLeave} from "../../../function/CustomeSelecHook";
 import { dropDownAnimation } from "components/lib/framer/framerAnimation";
 import { ISelect } from "./select.inteface";
 import { getSelectSize, getSelectColors } from "./select.style";
 import Loading from "components/lib/loading/Loading";
+import {useClickOutside} from "./utils/outSideClickHandler"
+
 
 
 const selectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>> (
@@ -32,27 +34,34 @@ const selectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>> (
   options,
   loading,
   maxWidth,
-  minWidth
+  minWidth,
+  minHeight
  },ref: React.Ref<HTMLInputElement | null>,) => {
-  const [mouseLeave, setMouseLeave] = useState<boolean>(false);
+
+  const wrapperRef = useRef(null);
   const [isToggle, setIsToggle] = useState<boolean>(false);
   const [selectLable, setSelectLable] = useState<string>(placeHolder);
 
   const handleSelect = ({ currentTarget: { id, value } }) => {
-    // debugger
     onChange(value);
     setSelectLable(id);
     setIsToggle(false);
-    setMouseLeave(false);
   };
+  
+
+  useClickOutside(wrapperRef,setIsToggle);
+
+
 
   return (
     <>
       <div
-        onBlur={() => handleMouseLeave(setIsToggle, setMouseLeave)}
-        onClick={() => handleToggle(setIsToggle, setMouseLeave)}
+        ref={wrapperRef}
+        onClick={() => setIsToggle(true)}
         className={`select noselect ${className ? className : ""}`}
         style={disabled ? { cursor: "not-allowed", pointerEvents: "none" } : style}>
+
+
         <div className="dropdown" key={id}>
 
           <div className="dropdown-select">
@@ -79,11 +88,11 @@ const selectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>> (
           </div>
 
 
-          {mouseLeave && (
+                
             <motion.div
               className="dropdown-list"
               variants={dropDownAnimation}
-              initial={{ height: "0rem", display: "none" }}
+              initial={{display: "none" }}
               animate={isToggle ? "open" : "closed"}>
               {options.map((option) => (
                 <div className="item" key={option.id}>
@@ -103,7 +112,7 @@ const selectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>> (
                 </div>
               ))}
             </motion.div>
-          )}
+          
         </div>
       </div>
 
@@ -138,8 +147,7 @@ const selectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>> (
             justify-content: center;
             background-color: ${getSelectColors(color).iconBgColor};
             color: white;
-            box-shadow: ${getSelectColors(color).boxShadow}
-            // 0px 4px 11px rgba(255, 92, 77, 0.47);
+            box-shadow: ${getSelectColors(color).boxShadow};
           }
           .selectable {
             margin: 0vw 1.5rem;
@@ -153,7 +161,7 @@ const selectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>> (
             border-radius: 8px;
             border: none;
           }
-
+          
           .dropdown-select {
             padding: 8px;
             position: relative;

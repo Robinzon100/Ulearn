@@ -1,6 +1,7 @@
 .allCourses {
   width: 100%;
   height: auto;
+  padding-bottom: 5rem;
 
   .allCourses-hero-img {
     @include background-properties("/pictures/profile/profile-hero-img.png");
@@ -30,6 +31,10 @@
 
     .PrimaryContentCard {
       max-width: initial;
+
+      a {
+          z-index: -1;
+      }
     }
   }
 }

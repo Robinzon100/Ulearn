@@ -13,7 +13,7 @@ export const arrowAnimation = {
 //!! INDEX DropDownAnimation ANIMATION
 export const dropDownAnimation = {
     open: {
-        height: "auto",
+        // height: "auto",
         opacity: 1,
         display: "block",
         transition: { 
