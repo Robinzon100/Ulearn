@@ -148,9 +148,7 @@ const Navigation = () => {
               <div
                 className="profile"
                 onClick={() =>
-                  setIsLougoutToggled((isLougoutToggled) => !isLougoutToggled)
-                }
-              >
+                  setIsLougoutToggled((isLougoutToggled) => !isLougoutToggled)}>
                 <div className="user-icon" />
                 <Logout
                   deleteCookie={() => deleteCookie(removeCookie)}

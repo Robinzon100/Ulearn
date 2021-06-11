@@ -4,24 +4,22 @@ import NextLink from "components/utils/nextLink/NextLink";
 
 
 
-const sub_category = ({
-  handleFetchSubCategoryClick,
+const SubCategory = ({
+  handleFetchSubCategory,
   setIsSubCategoryChosen,
   setIsMouseleftSubSubCategory,
   id,
   name,
   mainCategoryId }) => {
   return (
-    <>
       <NextLink
         route={`courses?m_i=${mainCategoryId}&s_i=${id}`}
-        className="list--items__links  regular f-size-p6">
-
+        className="list__sub-sub-category--item  regular f-size-p6">
         <li
-          key={id}
-          className="list__sub-sub-category--item"
+         key={id}
+          className="item"
           onMouseEnter={() => {
-            handleFetchSubCategoryClick(mainCategoryId);
+            handleFetchSubCategory(mainCategoryId);
             setIsSubCategoryChosen(true);
             setIsMouseleftSubSubCategory(true);
           }}>
@@ -37,7 +35,6 @@ const sub_category = ({
           </div>
         </li>
       </NextLink>
-    </>
   );
 };
-export default sub_category;
+export default SubCategory;

@@ -20,11 +20,10 @@ const CardDetail = ({ id,name,created_at,difficulty,description}:
       <div className="card_detail--container" key={id}>
         <div className="inside_content">
           <div className="card_detail--container__title">
-            <NextLink route={`/course/${id}`}>
+            
               <p className="f-size-p6">
                 {name}
               </p>
-            </NextLink>
           </div>
           <div className="card_detail--container__date">
             <p
@@ -52,7 +51,7 @@ const CardDetail = ({ id,name,created_at,difficulty,description}:
 
         </div>
 
-        <a href="#">
+        <NextLink route={`/course/${id}`}>
           <div className="card_detail--container__addtobucket">
             <div className="heading">
               <p className="f-size-p4">
@@ -66,7 +65,7 @@ const CardDetail = ({ id,name,created_at,difficulty,description}:
               />
             </div>
           </div>
-        </a>
+          </NextLink>
       </div>
     </>
   );

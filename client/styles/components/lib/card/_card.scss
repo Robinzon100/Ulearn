@@ -29,30 +29,6 @@
     }
   }
 
-  @media screen and (max-width: $small-screen) {
-    .course_card_hover_logo {
-      @include background-properties(
-        "/pictures/courses/card_hover_btn.svg",
-        60%,
-        center
-      );
-      background-color: var(--primary-white);
-      border-radius: 50%;
-      display: block;
-      cursor: pointer;
-      position: absolute;
-      right: 2%;
-      top: 2%;
-      width: 4rem;
-      height: 4rem;
-
-      @media screen and (max-width: $small-screen) {
-        width: 3rem;
-        height: 3rem;
-      }
-    }
-  }
-
   a {
     text-decoration: none !important;
   }

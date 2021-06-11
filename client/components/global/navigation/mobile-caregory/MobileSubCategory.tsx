@@ -1,36 +1,27 @@
-// import { ChevronRight } from "react-feather";
 
 import NextLink from "components/utils/nextLink/NextLink";
 
-
-const MobileSubCategory = (
-  {
-    handleFetchSubCategoryClick,
-    setIsSubCategoryChosen,
-    id,
-    name,
-  },
-  props
-) => {
+const MobileSubCategory = ({
+  handleFetchSubCategoryClick,
+  setIsSubCategoryChosen,
+  id,
+  name,
+  mainCategoryId,
+}) => {
   return (
-    <>
+    <NextLink route={`courses?m_i=${mainCategoryId}&s_i=${id}`} 
+    className="link sub-category-list--item">
       <li
-        className="sub-category-list--item"
-        key={props.key}
+        className="item"
+        key={id}
         onClick={() => {
-          handleFetchSubCategoryClick(id);
-          setIsSubCategoryChosen(true)
-        }}
-      >
-        <NextLink route="#" className="link">
-          <p className="c-primary-dark f-size-p3 f-weight-r">{name}</p>
-        </NextLink>
+          handleFetchSubCategoryClick(mainCategoryId);
+          setIsSubCategoryChosen(true);
+        }}>
+        <p className="c-primary-dark f-size-p3 f-weight-r">{name}</p>
 
-        {/* <div className="chevron">
-          <ChevronRight size={20} />
-        </div> */}
       </li>
-    </>
+    </NextLink>
   );
 };
 
