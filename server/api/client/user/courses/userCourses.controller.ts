@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import User from "../../../../models/user/user.model";
 import customError from '../../../../utils/createError';
 import { raw } from "objection";
+import { MainCategories } from '../../../../models/categories/categories.model';
 
 
 
@@ -37,10 +38,16 @@ export const postUserLikeCourse = async (req: Request, res: Response, next: Next
 
 
 
-export const getUserPreferedCategory = async (req: Request, res: Response, next: NextFunction) => {
+export const getUserPrefferedCategory = async (req: Request, res: Response, next: NextFunction) => {
     try {
+        const { favorite_main_category_ids } = req.user[0]
+
+        const mainCategories =
+            await MainCategories.query()
+                .findByIds(favorite_main_category_ids)
+
         res.status(200).json({
-            user_prefered_categories: req.user[0].favorite_main_category_ids
+            user_prefered_categories: mainCategories
         })
 
     } catch (err: any) {

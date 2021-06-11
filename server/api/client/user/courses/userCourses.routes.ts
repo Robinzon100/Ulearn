@@ -10,7 +10,7 @@ const router = express.Router(defaultRouterOptions);
 
 //? CONTROLLERS
 // import { validateUpdateUserObject } from '../../../../middleware/body_validation/user.validation';
-import { getUserPreferedCategory, postUserLikeCourse, } from "./userCourses.controller";
+import { getUserPrefferedCategory, postUserLikeCourse, } from "./userCourses.controller";
 
 
 //? MIDDLEWARES
@@ -20,10 +20,8 @@ router.use(getUserWithAccessToken)
 
 
 // ─── ROUTES ─────────────────────────────────────────────────────────────────────
-router.route('/addToLiked')
-    .post(postUserLikeCourse)
-
-router.get('/prefered_category', getUserPreferedCategory)
+router.post('/addToLiked', postUserLikeCourse)
+router.get('/preffered_category', getUserPrefferedCategory)
 
 export default router;
 

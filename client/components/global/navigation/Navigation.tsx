@@ -8,6 +8,7 @@ import { useCookies } from "react-cookie";
 //! ─── OWN IMPORTS ────────────────────────────────────────────────────────────────────
 import { deleteCookie } from "components/utils/auth/deleteCookie"
 
+
 //? COMPONENTS
 import Category from "components/global/navigation/Category/Category";
 import Input from "components/lib/inputs/Input";
@@ -16,21 +17,24 @@ import Button from "components/lib/button/Button";
 import Logout from "components/lib/logout/Logout";
 import MobileCategory from "components/global/navigation/mobile-caregory/MobileCategory";
 
+
 //? ACTIONS
 import { fetcher } from "actions/swr/fetchers";
 
 
-const Navigation = () => {
 
+
+
+const Navigation = () => {
   const [isToggled, setIsToggled] = useState(false);
   const [isLogedIn, setIsLogedIn] = useState(false);
   const [isMouseleftCategory, setIsMouseLeftCategory] = useState(false);
 
   const [isLougoutToggled, setIsLougoutToggled] = useState(false);
   const [toggleMobileCategory, setToggleMobileCategory] = useState(false);
-  
-  const [cookies,removeCookie] = useCookies(["name"]);
-   
+
+  const [cookies, removeCookie] = useCookies(["name"]);
+
 
 
   const { data } = useSWR(
@@ -56,7 +60,7 @@ const Navigation = () => {
           <div className="logo-search">
 
 
-              {/* //* ======= LOGO ===== */}
+            {/* //* ======= LOGO ===== */}
             <div className="logo_container">
               <NextLink route="/">
                 <div className="logo"></div>
@@ -64,7 +68,7 @@ const Navigation = () => {
             </div>
 
 
-              {/* //* ======= SEARCH ===== */}
+            {/* //* ======= SEARCH ===== */}
 
             <div className="search">
               <Input
@@ -82,7 +86,7 @@ const Navigation = () => {
 
 
 
-            {/* //* ======= CATEGORY ===== */}
+          {/* //* ======= CATEGORY ===== */}
           <div
             className="header-category-menu"
             onClick={() => {
@@ -128,7 +132,7 @@ const Navigation = () => {
 
 
 
-              {/* //* ======= BECOME LECTURE ===== */}
+            {/* //* ======= BECOME LECTURE ===== */}
 
             <div className="become-lectore">
               <NextLink route="/myCourses" className="link">
@@ -139,7 +143,7 @@ const Navigation = () => {
 
 
 
-              {/* //* ======= PROFILE ===== */}
+            {/* //* ======= PROFILE ===== */}
             {isLogedIn && (
               <div
                 className="profile"
@@ -148,9 +152,9 @@ const Navigation = () => {
                 }
               >
                 <div className="user-icon" />
-                <Logout 
-                    deleteCookie={() => deleteCookie(removeCookie)} 
-                    isLougoutToggled={isLougoutToggled} 
+                <Logout
+                  deleteCookie={() => deleteCookie(removeCookie)}
+                  isLougoutToggled={isLougoutToggled}
                 />
               </div>
             )}
@@ -158,7 +162,7 @@ const Navigation = () => {
 
 
 
-              {/* //* ======= CART ===== */}
+            {/* //* ======= CART ===== */}
 
             <div className="cart">
               <NextLink route="/shopping_cart">
@@ -169,7 +173,7 @@ const Navigation = () => {
 
 
 
-              {/* //* ======= LOGIN ===== */}
+            {/* //* ======= LOGIN ===== */}
 
             {!isLogedIn && (
               <div className="login">
@@ -183,13 +187,13 @@ const Navigation = () => {
 
 
 
-              {/* //* ======= HAMBURGER ===== */}
+            {/* //* ======= HAMBURGER ===== */}
 
             <div
               className="mobile_hamburger"
               onClick={() =>
                 setToggleMobileCategory(
-                (toggleMobileCategory) => !toggleMobileCategory)}/>
+                  (toggleMobileCategory) => !toggleMobileCategory)} />
 
             {toggleMobileCategory && (
               <MobileCategory

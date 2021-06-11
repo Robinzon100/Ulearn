@@ -49,7 +49,7 @@ const selectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>> (
   return (
     <>
       <div
-        onMouseLeave={() => handleMouseLeave(setIsToggle, setMouseLeave)}
+        onBlur={() => handleMouseLeave(setIsToggle, setMouseLeave)}
         onClick={() => handleToggle(setIsToggle, setMouseLeave)}
         className={`select noselect ${className ? className : ""}`}
         style={disabled ? { cursor: "not-allowed", pointerEvents: "none" } : style}>
@@ -90,15 +90,15 @@ const selectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>> (
                   <input
                     key={id}
                     ref={ref}
-                    id={option.value}
+                    id={option.name}
                     value={option.id}
                     onChange={handleSelect}
-                    checked={selectLable === option.value}
+                    checked={selectLable === option.name}
                     type="radio"
                     className="radio"
                   />
-                  <label className="f-size-p7" htmlFor={option.value}>
-                    {option.value}
+                  <label className="f-size-p7" htmlFor={option.name}>
+                    {option.name}
                   </label>
                 </div>
               ))}

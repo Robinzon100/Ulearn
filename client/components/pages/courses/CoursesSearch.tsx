@@ -1,6 +1,6 @@
 
 import { Calendar, Zap, Search, Star } from "react-feather";
-import { useState } from "react";
+import { useState, useEffect } from 'react';
 
 
 import RangeSlider from 'components/lib/RangeSlider/RangeSlider';
@@ -9,12 +9,15 @@ import Select from 'components/lib/select/select';
 import SelectJson from "../../../public/json/Select.json";
 
 import { getFilteredCourses } from "actions/client/user/courses/getFilteredCourses";
+import { getAllCategories } from "actions/client/categories.action";
+import { Categories } from '../../../interfaces/maincategory.interface';
 
 
 type CourseSearchType = {
     price?: number;
     overall_rating?: number;
     duration?: number
+    main_category_id?: any
     sub_category_id?: any
     difficulty?: any
 };
@@ -25,21 +28,56 @@ let searchFilterObj = {}
 
 
 
-const CoursesSearch = ({result}) => {
-    const [courseSearch, setCourseSearch] = useState<CourseSearchType>({ price: 0, overall_rating: 0, duration: 0 });
 
+const CoursesSearch = ({ result, userPrefferedCategoryIds }) => {
+    const [courseSearch, setCourseSearch] = useState<CourseSearchType>({ price: 0, overall_rating: 0, duration: 0 });
+    const [userSubCategories, setUserSubCategories] = useState([]);
 
     const handleSearchInputs = (value, field?: keyof (CourseSearchType)) => {
         setCourseSearch({ ...courseSearch, [field]: value })
-        searchFilterObj[field] = value
+        if (field == 'sub_category_id') {
+            searchFilterObj['main_category_id'] = value.main_category_id
+            searchFilterObj[field] = value.value
+        } else {
+            searchFilterObj[field] = value
+        }
     }
+
+
+    const getCurrentUserSubCategories = async () => {
+        const { categories } = await getAllCategories()
+        let userCategories = []
+
+        userPrefferedCategoryIds.map(userCategory => {
+            userCategories.push(
+                categories.sub_categories.filter(category =>
+                    category.main_category_id == userCategory.id))
+        })
+        setUserSubCategories([].concat.apply([], userCategories))
+    }
+
+
+
+
+
+    useEffect(() => {
+        if (userPrefferedCategoryIds != 0) {
+            getCurrentUserSubCategories()
+        } else {
+            getAllCategories()
+                .then(categories => {
+                    setUserSubCategories(categories.categories.sub_categories)
+                })
+        }
+    }, [])
+
 
 
 
     const handleSend = async () => {
         const res = await getFilteredCourses(searchFilterObj);
 
-        if(res.statusCode != 200) {
+        if (res.statusCode != 200) {
             return
         }
         result(res.courses)
@@ -130,13 +168,18 @@ const CoursesSearch = ({result}) => {
                             size="small"
                             placeHolder="ქვე კატოგირიები"
                             id={1}
-                            options={SelectJson.SelectRatingsOptions}
+                            options={userSubCategories}
                             icon={<Calendar size={25} />}
                             color="red"
                             loading={false}
                             disabled={false}
                             width="28rem"
-                            onChange={(value) => handleSearchInputs(value, "sub_category_id")}
+                            onChange={(value) => handleSearchInputs(
+                                {
+                                    value: value,
+                                    mainCategoryId: userSubCategories.find(ca => ca.id == value).main_category_id
+                                },
+                                "sub_category_id")}
                         />
                     </div>
 
@@ -148,7 +191,7 @@ const CoursesSearch = ({result}) => {
                             className="f-size-p5 f-weight-r"
                             placeHolder="სირთულე"
                             id={2}
-                            options={SelectJson.SelectTimeOptions}
+                            options={SelectJson.difficulty}
                             icon={<Zap size={25} />}
                             color="green"
                             loading={false}

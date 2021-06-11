@@ -1,46 +1,40 @@
-
-
 {
-    "SelectTimeOptions":[
-        {
+    "difficulty": [{
             "id": 1,
-            "value": "0-2 Hours"
-            
+            "name": "მარტივი"
+
         },
         {
             "id": 2,
-            "value": "3-6 Hours"
-                    },
+            "name": "საშუალო"
+        },
         {
             "id": 3,
-            "value": "7-16 Hours"
+            "name": "რთული"
         }
     ],
 
-    "SelectRatingsOptions":[
-        {
+    "SelectRatingsOptions": [{
             "id": 1,
             "value": "4.5 & up",
-            "reiting":4.5
+            "reiting": 4.5
         },
         {
             "id": 2,
             "value": "3.5 & up",
-            "reiting":3.5
+            "reiting": 3.5
         },
         {
             "id": 3,
             "value": "2.5 & up",
-            "reiting":2.5
-            
+            "reiting": 2.5
+
         },
         {
             "id": 4,
             "value": "1.5 & up",
-            "reiting":1.5
+            "reiting": 1.5
         }
     ]
 
 }
-
-

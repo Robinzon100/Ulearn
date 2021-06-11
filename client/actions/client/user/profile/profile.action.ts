@@ -39,8 +39,6 @@ export const getUser = async (accessToken) => {
 
 
 export const updateUserProfile = async (data?, accessToken?) => {
-   console.log({data, accessToken});
-    
     return await axiosInstance
         .patch(`/user/profile`, data, {
             headers: {
