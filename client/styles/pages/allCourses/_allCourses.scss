@@ -4,10 +4,11 @@
   padding-bottom: 5rem;
 
   .allCourses-hero-img {
-    @include background-properties("/pictures/profile/profile-hero-img.png");
+    @include background-properties("/pictures/allCourses/course_hero_pic.png");
     width: 100%;
     height: 50vh;
     position: relative;
+    border-radius: 0px 0px 39px 39px;
   }
 
   .allCourses-container {

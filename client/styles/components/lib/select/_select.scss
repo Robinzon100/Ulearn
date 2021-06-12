@@ -30,17 +30,17 @@ $select-drop-shadow: 0px 30px 60px rgba(0, 0, 0, 0.12),
 
 
 .dropdown-list::-webkit-scrollbar-track {
-  background-color: var(--primary-grey);
+  background-color: var(--primary-white);
 }
 
 .dropdown-list::-webkit-scrollbar {
-  width: 10px;
-  background-color: var(--primary-grey);
+  width: 8px;
+  background-color: var(--secondary-dark-grey);
 }
 
 .dropdown-list::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: var(--primary-blue);
+  background: var(--secondary-dark-grey);
 }
 
 

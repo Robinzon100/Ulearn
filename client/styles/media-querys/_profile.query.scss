@@ -28,6 +28,9 @@
 
 @media screen and (max-width: $small-screen) {
   .user-profile-section {
+    .profile-hero-img {
+        @include background-properties("/pictures/profile/profile_banner_final.png",center,41% 0%);
+      }
     &__container {
       padding-bottom: var(--padding-bottom-for-containers);
     }

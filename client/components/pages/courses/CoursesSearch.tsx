@@ -120,9 +120,10 @@ const CoursesSearch = ({ result, userPrefferedCategoryIds }) => {
                             <h1 className="f-size-p5 f-weight-r">შეფასება:
                                 <span className="c-primary-yellow">   {overall_rating}</span>
                                 <Star
-                                    size={16}
-                                    fill="var(--primary-yellow)"
-                                    stroke="var(--primary-yellow)"
+                                    style={{transform:"translateY(-7%)"}}
+                                    size={12}
+                                    fill="var(--secondary-dark-yellow)"
+                                    stroke="var(--secondary-dark-yellow)"
                                 />
                             </h1>
                         </div>

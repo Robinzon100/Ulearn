@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 
 //! ===========================OUR IMPORTS
 import PrimaryContentCard from "components/lib/cards/Card";

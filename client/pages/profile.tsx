@@ -10,8 +10,7 @@ import { redirect } from 'components/utils/auth/redirect.utils';
 
 import ProfileTabs  from "components/pages/profile/ProfileTabs";
 
-
-//* ACTIONS 
+// import FileUpload from "components/lib/upload/FileUpload";
 
 const profile = ({ user }) => {
 
@@ -33,6 +32,7 @@ const profile = ({ user }) => {
                     <ProfileTabs user={user}/>
                 </div>
 
+               {/* <FileUpload/> */}
             </section>
         </>
     );
