@@ -52,6 +52,8 @@ const CourseCards = ({ landingCourse }) => {
 
           <div className="landing_courses">
             <InputSelectComponent />
+
+            
             <Overlay CardsJson={CardsJson} />
 
             <div className="landing_courses--cards">

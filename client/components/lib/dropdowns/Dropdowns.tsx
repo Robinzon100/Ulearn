@@ -40,7 +40,7 @@ const Dropdowns: React.FC<SortingDropdown> = ({ type }) => {
           size="small"
           placeHolder="რეიტინგი"
           id={2}
-          minHeight="18rem"
+          minHeight="19rem"
           options={SelectJson.SelectRatingsOptions}
           onChange={handleSelectChange}
           icon={<Star size={15} />}

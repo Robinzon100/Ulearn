@@ -16,6 +16,7 @@ import { getCoursesByUrlFilter } from "actions/client/course/course.index.action
 import cookie from 'cookie';
 import { authenticatedRequest } from '../components/utils/auth/tokenValidations';
 import { getUsersPrefferedCategoryIds } from "actions/client/user/courses/getFilteredCourses";
+import { redirect } from './../components/utils/auth/redirect.utils';
 
 
 
@@ -73,19 +74,25 @@ const AllCourses = ({ data, userPrefferedCategoryIds }) => {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
     let courses
+    //@ts-ignore
     let userPrefferedCategoryIds = null
+    
     if ('m_i' in ctx.query) {
         courses = await getCoursesByUrlFilter(Object.values(ctx.query))
     } else {
         courses = await getAllCourseVideos();
     }
 
+    
     const { auth_access_token } =
         cookie.parse(ctx ? ctx.req.headers.cookie : document.cookie)
 
-    if (auth_access_token.length > 0) {
+
+    if (auth_access_token && auth_access_token.length > 0) {
         const { user_prefered_categories } = await authenticatedRequest(getUsersPrefferedCategoryIds, null, ctx)
         userPrefferedCategoryIds = user_prefered_categories
+    }else {
+        return redirect("/")
     }
 
 
