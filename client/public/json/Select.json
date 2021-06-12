@@ -16,23 +16,23 @@
 
     "SelectRatingsOptions": [{
             "id": 1,
-            "value": "4.5 & up",
+            "name": "4.5 & up",
             "reiting": 4.5
         },
         {
             "id": 2,
-            "value": "3.5 & up",
+            "name": "3.5 & up",
             "reiting": 3.5
         },
         {
             "id": 3,
-            "value": "2.5 & up",
+            "name": "2.5 & up",
             "reiting": 2.5
 
         },
         {
             "id": 4,
-            "value": "1.5 & up",
+            "name": "1.5 & up",
             "reiting": 1.5
         }
     ]

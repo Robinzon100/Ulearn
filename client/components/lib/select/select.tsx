@@ -57,7 +57,7 @@ const selectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>> (
     <>
       <div
         ref={wrapperRef}
-        onClick={() => setIsToggle(true)}
+        onClick={() => setIsToggle((isToggle) => !isToggle)}
         className={`select noselect ${className ? className : ""}`}
         style={disabled ? { cursor: "not-allowed", pointerEvents: "none" } : style}>
 
@@ -91,8 +91,9 @@ const selectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>> (
                 
             <motion.div
               className="dropdown-list"
+              style={{minHeight:`${minHeight}`}}
               variants={dropDownAnimation}
-              initial={{display: "none" }}
+              initial={{height:"0rem",display: "none" }}
               animate={isToggle ? "open" : "closed"}>
               {options.map((option) => (
                 <div className="item" key={option.id}>

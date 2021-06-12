@@ -24,7 +24,8 @@ const Dropdowns: React.FC<SortingDropdown> = ({ type }) => {
           size="small"
           placeHolder="სირთულე"
           id={1}
-          options={SelectJson.SelectRatingsOptions}
+          minHeight="19rem"
+          options={SelectJson.difficulty}
           onChange={handleSelectChange}
           icon={<Zap size={15} />}
           color="green"
@@ -39,6 +40,7 @@ const Dropdowns: React.FC<SortingDropdown> = ({ type }) => {
           size="small"
           placeHolder="რეიტინგი"
           id={2}
+          minHeight="18rem"
           options={SelectJson.SelectRatingsOptions}
           onChange={handleSelectChange}
           icon={<Star size={15} />}
@@ -54,6 +56,7 @@ const Dropdowns: React.FC<SortingDropdown> = ({ type }) => {
           size="small"
           placeHolder="ხანგძლივობა"
           id={3}
+          minHeight="18rem"
           options={SelectJson.difficulty}
           onChange={handleSelectChange}
           icon={<Clock size={15} />}

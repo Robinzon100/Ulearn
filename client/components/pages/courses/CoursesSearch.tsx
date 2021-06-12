@@ -166,7 +166,7 @@ const CoursesSearch = ({ result, userPrefferedCategoryIds }) => {
                         <Select
                             className="f-size-p5 f-weight-r"
                             size="small"
-                            // minHeight="28rem"
+                            minHeight="30rem"
                             placeHolder="ქვე კატოგირიები"
                             id={1}
                             options={userSubCategories}
@@ -190,6 +190,7 @@ const CoursesSearch = ({ result, userPrefferedCategoryIds }) => {
                         <Select
                             size="small"
                             className="f-size-p5 f-weight-r"
+                            minHeight="19rem"
                             placeHolder="სირთულე"
                             id={2}
                             options={SelectJson.difficulty}
