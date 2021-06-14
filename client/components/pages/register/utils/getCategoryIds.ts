@@ -8,7 +8,6 @@ export const getCategoryIds = (checkboxObjects, setError): {} => {
         });
 
         if (categoryIds.size < 1) setError("მონიშნეთ 1 კატეგორია მაინც");
-        else setError('')
-
+        
         return categoryIds
 }

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Eye, EyeOff } from "react-feather";
-import Router,{ useRouter } from "next/router";
+import Router, { useRouter } from "next/router";
 
 
 //! ─── OWN ────────────────────────────────────────────────────────────────────────
@@ -18,267 +18,272 @@ import { postRegistration } from "actions/client/registration.action";
 import { checkboxInterface } from 'components/lib/checkbox/checkbox-group';
 import { getCategoryIds } from "components/pages/register/utils/getCategoryIds";
 import { getCategoriesForCheckBoxes } from "components/pages/register/utils/getCategoriesForCheckBoxes"
-import  AuthUtils  from "components/utils/auth/authUtils";
+import AuthUtils from "components/utils/auth/authUtils";
 
 
 interface RegistrationValues {
-  full_name: string;
-  email: string;
-  password: string;
-  recovery_email: string;
-  favorite_main_category_ids: string;
-  favorite_sub_category_ids: string;
+    full_name: string;
+    email: string;
+    password: string;
+    recovery_email: string;
+    favorite_main_category_ids: string;
+    favorite_sub_category_ids: string;
 };
 
 
 
 const RegisterComponent = () => {
-    
-  const { register, handleSubmit, formState: { errors }, getValues } = useForm<RegistrationValues>();
+
+    const { register, handleSubmit, formState: { errors }, getValues } = useForm<RegistrationValues>();
 
 
-  const router = useRouter();
-
-  
-  const { setCookiesAndRedirect }  = AuthUtils();
+    const router = useRouter();
 
 
-  const [isPasswordHidden, setIsPasswordHidden] = useState(true);
-  const [otherErrors, setOtherErrors] = useState("");
-  const [categoryErrors, setCategoryErrors] = useState("");
-  const [checkboxContent, setCheckboxContent] = useState<checkboxInterface[]>([]);
-  const [isButtonLoading, setIsButtonLoading] = useState(false);
-  const [localCheckboxObjects, setLocalCheckboxObjects] = useState([]);
+    const { setCookiesAndRedirect } = AuthUtils();
 
 
-
-  const categoryIdsHandler = (checkboxObjects) => {
-    setLocalCheckboxObjects([])
-    setLocalCheckboxObjects(checkboxObjects)
-  }
+    const [isPasswordHidden, setIsPasswordHidden] = useState(true);
+    const [otherErrors, setOtherErrors] = useState("");
+    const [categoryErrors, setCategoryErrors] = useState("");
+    const [checkboxContent, setCheckboxContent] = useState<checkboxInterface[]>([]);
+    const [isButtonLoading, setIsButtonLoading] = useState(false);
+    const [localCheckboxObjects, setLocalCheckboxObjects] = useState([]);
 
 
 
-  const onSubmit: SubmitHandler<RegistrationValues> = async (data: RegistrationValues) => {
-    const categoryIds = getCategoryIds(localCheckboxObjects, setCategoryErrors) as any
-
-    let registeredUser: RegistrationValues = {
-      full_name: data.full_name,
-      email: data.email,
-      password: data.password,
-      recovery_email: data.recovery_email,
-      favorite_main_category_ids: JSON.stringify(Array.from(categoryIds)),
-      favorite_sub_category_ids: '[1]'
+    const categoryIdsHandler = (checkboxObjects) => {
+        setLocalCheckboxObjects([])
+        setLocalCheckboxObjects(checkboxObjects)
     }
 
-    const res = await postRegistration(registeredUser);
 
 
-    if (res.statusCode == 200) {
-      setCookiesAndRedirect(res)
-      setIsButtonLoading(true)
-      Router.reload();
-      router.push("/");
-    } else {
-      setOtherErrors("არასწორი მონაცემები");
-    }
-  };
+    const onSubmit: SubmitHandler<RegistrationValues> = async (data: RegistrationValues) => {
+        const categoryIds = getCategoryIds(localCheckboxObjects, setCategoryErrors) as any
 
+        let registeredUser: RegistrationValues = {
+            full_name: data.full_name,
+            email: data.email,
+            password: data.password,
+            recovery_email: data.recovery_email,
+            favorite_main_category_ids: JSON.stringify(Array.from(categoryIds)),
+            favorite_sub_category_ids: '[1]'
+        }
 
+        if (categoryIds.size <= 3){
+            const res = await postRegistration(registeredUser);
 
-
-  useEffect(() => {
-    getCategoriesForCheckBoxes(setCheckboxContent)
-  }, [])
-
-
-  return (
-    <>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="base_form_styles registration-forms">
-          <div className="title">
-            <h1 className="f-size-h7 f-weight-bl">რეგისტრაცია</h1>
-          </div>
-          <div className="registration-grid grid_base_styles">
-            <div className="base_input_styles full_name">
-              <div className="heading">
-                <h1 className="f-size-p6 f-weight-b">სახელი და გვარი</h1>
-              </div>
-
-              <Input
-                size="large"
-                name="full_name"
-                width="100%"
-                type="text"
-                placeHolder="beqa arabidze"
-                color="white"
-                {...register("full_name", {
-                  required: "აუცილებლად მიუთითეთ თქვენი სახელი და გვარი",
-                  minLength: {
-                    value: 2,
-                    message: "თქვენი სახელი 2 ასოზე პატარაა?",
-                  },
-                  maxLength: {
-                    value: 20,
-                    message: "თქვენი სახელი 20 ასოზე დიდია?",
-                  },
-                })}
-              />
-
-              {errors.full_name && (
-                <p className="form_errors f-size-p6 f-weight-r">
-                  {errors.full_name.message}
-                </p>
-              )}
-            </div>
-
-            <div className="base_input_styles email">
-              <div className="heading">
-                <h1 className="f-size-p6 f-weight-b">ელექტრონული ფოსტა</h1>
-              </div>
-
-              <Input
-                size="large"
-                name="email"
-                width="100%"
-                type="email"
-                placeHolder="arabson1009@gmail.com"
-                color="white"
-                {...register("email", {
-                  required: "აუცილებლად მიუთითეთ თქვენი ელექტრონული ფოსტა",
-                  pattern: {
-                    value: emailRegex,
-                    message: "სწორად ჩაწერეთ თქვენი ელექტრონული ფოსტა",
-                  },
-                })}
-              />
-
-              {errors.email && (
-                <p className="form_errors f-size-p6 f-weight-r">
-                  {errors.email.message}
-                </p>
-              )}
-            </div>
+            if (res.statusCode == 200) {
+                setCookiesAndRedirect(res)
+                setIsButtonLoading(true)
+                Router.reload();
+                router.push("/");
+            } else {
+                setOtherErrors("არასწორი მონაცემები");
+            }
+        }else {
+            setCategoryErrors("თქვენ უნდა აირჩიოთ მხოლოდ სამი კატეგორია")
+        }
+    };
 
 
 
 
-
-            <div className="base_input_styles recovery_email">
-              <div className="heading">
-                <h1 className="f-size-p6 f-weight-b">
-                  აღსადგენი ელექტრონული ფოსტა
-                </h1>
-              </div>
+    useEffect(() => {
+        getCategoriesForCheckBoxes(setCheckboxContent)
+    }, [])
 
 
-              <Input
-                size="large"
-                name="recovery_email"
-                width="100%"
-                type="email"
-                placeHolder="arab@gmail.com"
-                color="white"
-                {...register("recovery_email", {
-                  required:
-                    "აუცილებლად მიუთითეთ თქვენი ანგარიშიც აღსადგენი ელექტრონული ფოსტა",
-                  pattern: {
-                    value: emailRegex,
-                    message: "სწორად ჩაწერეთ თქვენი ელექტრონული ფოსტა",
-                  },
-                  validate: () => getValues("recovery_email") != getValues("email")
-                    || 'ელექტრონული ფოსტები არ უნდა ემთხვეოდეს ერთმანეთს',
-                })}
-              />
+    return (
+        <>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="base_form_styles registration-forms">
+                    <div className="title">
+                        <h1 className="f-size-h7 f-weight-bl">რეგისტრაცია</h1>
+                    </div>
+                    <div className="registration-grid grid_base_styles">
+                        <div className="base_input_styles full_name">
+                            <div className="heading">
+                                <h1 className="f-size-p6 f-weight-b">სახელი და გვარი</h1>
+                            </div>
 
-              {errors.recovery_email && (
-                <p className="form_errors f-size-p6 f-weight-r">
-                  {errors.recovery_email.message}
-                </p>
-              )}
-            </div>
+                            <Input
+                                size="large"
+                                name="full_name"
+                                width="100%"
+                                type="text"
+                                placeHolder="beqa arabidze"
+                                color="white"
+                                {...register("full_name", {
+                                    required: "აუცილებლად მიუთითეთ თქვენი სახელი და გვარი",
+                                    minLength: {
+                                        value: 2,
+                                        message: "თქვენი სახელი 2 ასოზე პატარაა?",
+                                    },
+                                    maxLength: {
+                                        value: 20,
+                                        message: "თქვენი სახელი 20 ასოზე დიდია?",
+                                    },
+                                })}
+                            />
 
-            <div className="base_input_styles password">
-              <div className="heading">
-                <h1 className="f-size-p6 f-weight-b">პაროლი</h1>
-              </div>
+                            {errors.full_name && (
+                                <p className="form_errors f-size-p6 f-weight-r">
+                                    {errors.full_name.message}
+                                </p>
+                            )}
+                        </div>
 
-              <Input
-                className="registerPassword"
-                size="large"
-                name="password"
-                width="100%"
-                type="password"
-                placeHolder="arabidze98"
-                color="white"
-                iconRight={
-                  <span
-                    onClick={() =>
-                      showHidePasswordHandler(setIsPasswordHidden,
-                        ".registerPassword"
-                      )
-                    }>
-                    {isPasswordHidden ? <EyeOff /> : <Eye />}
-                  </span>
-                }
-                {...register("password", {
-                  required: "აუცილებლად მიუთითეთ თქვენი პაროლი",
-                  minLength: {
-                    value: 5,
-                    message: "თქვენი პაროლი 5 სიმბოლოზე პატარაა",
-                  },
-                  pattern: {
-                    value: passwordRegex,
-                    message: "თქვენი პაროლი არ არის საკმარისად ძლიერი",
-                  },
-                })}
-              />
+                        <div className="base_input_styles email">
+                            <div className="heading">
+                                <h1 className="f-size-p6 f-weight-b">ელექტრონული ფოსტა</h1>
+                            </div>
 
-              {errors.password && (
-                <p className="form_errors f-size-p6 f-weight-r">
-                  {errors.password.message}
-                </p>
-              )}
-            </div>
+                            <Input
+                                size="large"
+                                name="email"
+                                width="100%"
+                                type="email"
+                                placeHolder="arabson1009@gmail.com"
+                                color="white"
+                                {...register("email", {
+                                    required: "აუცილებლად მიუთითეთ თქვენი ელექტრონული ფოსტა",
+                                    pattern: {
+                                        value: emailRegex,
+                                        message: "სწორად ჩაწერეთ თქვენი ელექტრონული ფოსტა",
+                                    },
+                                })}
+                            />
 
-            <div className="base_input_styles main_category">
-              <div className="heading">
-                <h1 className="f-size-p6 f-weight-b">სასურველი კატეგორიები</h1>
-              </div>
-
-              <CheckBoxGroup
-                onChange={categoryIdsHandler}
-                checkboxContent={checkboxContent}
-              />
-              
-            </div>
-
-            <div className="category_errors">
-                <p className="form_errors f-size-p6 f-weight-r">{categoryErrors}</p>
-              </div>
-
-            <div className="server_errors">
-              <p className="form_errors f-size-p6 f-weight-r">{otherErrors}</p>
-            </div>
-            
+                            {errors.email && (
+                                <p className="form_errors f-size-p6 f-weight-r">
+                                    {errors.email.message}
+                                </p>
+                            )}
+                        </div>
 
 
 
-            <div className="submit_btn">
-              <Button
-                loading={isButtonLoading ? true : false}
-                type="submit"
-                width="100%"
-                size="medium"
-                color="black">
-                <p className="f-weight-r f-size-p4 ">რეგისტრაცია</p>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </form>
-    </>
-  );
+
+
+                        <div className="base_input_styles recovery_email">
+                            <div className="heading">
+                                <h1 className="f-size-p6 f-weight-b">
+                                    აღსადგენი ელექტრონული ფოსტა
+                                </h1>
+                            </div>
+
+
+                            <Input
+                                size="large"
+                                name="recovery_email"
+                                width="100%"
+                                type="email"
+                                placeHolder="arab@gmail.com"
+                                color="white"
+                                {...register("recovery_email", {
+                                    required:
+                                        "აუცილებლად მიუთითეთ თქვენი ანგარიშიც აღსადგენი ელექტრონული ფოსტა",
+                                    pattern: {
+                                        value: emailRegex,
+                                        message: "სწორად ჩაწერეთ თქვენი ელექტრონული ფოსტა",
+                                    },
+                                    validate: () => getValues("recovery_email") != getValues("email")
+                                        || 'ელექტრონული ფოსტები არ უნდა ემთხვეოდეს ერთმანეთს',
+                                })}
+                            />
+
+                            {errors.recovery_email && (
+                                <p className="form_errors f-size-p6 f-weight-r">
+                                    {errors.recovery_email.message}
+                                </p>
+                            )}
+                        </div>
+
+                        <div className="base_input_styles password">
+                            <div className="heading">
+                                <h1 className="f-size-p6 f-weight-b">პაროლი</h1>
+                            </div>
+
+                            <Input
+                                className="registerPassword"
+                                size="large"
+                                name="password"
+                                width="100%"
+                                type="password"
+                                placeHolder="arabidze98"
+                                color="white"
+                                iconRight={
+                                    <span
+                                        onClick={() =>
+                                            showHidePasswordHandler(setIsPasswordHidden,
+                                                ".registerPassword"
+                                            )
+                                        }>
+                                        {isPasswordHidden ? <EyeOff /> : <Eye />}
+                                    </span>
+                                }
+                                {...register("password", {
+                                    required: "აუცილებლად მიუთითეთ თქვენი პაროლი",
+                                    minLength: {
+                                        value: 5,
+                                        message: "თქვენი პაროლი 5 სიმბოლოზე პატარაა",
+                                    },
+                                    pattern: {
+                                        value: passwordRegex,
+                                        message: "თქვენი პაროლი არ არის საკმარისად ძლიერი",
+                                    },
+                                })}
+                            />
+
+                            {errors.password && (
+                                <p className="form_errors f-size-p6 f-weight-r">
+                                    {errors.password.message}
+                                </p>
+                            )}
+                        </div>
+
+                        <div className="base_input_styles main_category">
+                            <div className="heading">
+                                <h1 className="f-size-p6 f-weight-b">სასურველი კატეგორიები</h1>
+                            </div>
+
+
+                            <CheckBoxGroup
+                                onChange={categoryIdsHandler}
+                                checkboxContent={checkboxContent}
+                            />
+
+                            <div className="category_errors">
+                                <p className="form_errors f-size-p6 f-weight-r">{categoryErrors}</p>
+                            </div>
+                        </div>
+
+
+
+                        <div className="server_errors">
+                            <p className="form_errors f-size-p6 f-weight-r">{otherErrors}</p>
+                        </div>
+
+
+
+
+                        <div className="submit_btn">
+                            <Button
+                                loading={isButtonLoading ? true : false}
+                                type="submit"
+                                width="100%"
+                                size="medium"
+                                color="black">
+                                <p className="f-weight-r f-size-p4 ">რეგისტრაცია</p>
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </>
+    );
 };
 
 export default RegisterComponent;

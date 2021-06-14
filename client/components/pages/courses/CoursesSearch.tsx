@@ -87,7 +87,7 @@ const CoursesSearch = ({ result, userPrefferedCategoryIds }) => {
     let { price, overall_rating, duration } = courseSearch;
 
     return (
-        <>
+        
             <div className="allCoursesSearch">
 
                 <div className="search">
@@ -214,7 +214,7 @@ const CoursesSearch = ({ result, userPrefferedCategoryIds }) => {
 
                 </div>
             </div>
-        </>
+        
     )
 }
 

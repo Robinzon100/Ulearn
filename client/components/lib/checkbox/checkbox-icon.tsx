@@ -22,7 +22,7 @@ const CheckboxIcon: React.FC<Props> = ({ iconPosition,disabled, checked }) => {
         {checked ? (
           <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="0.415527" y="0.943298" width="21.59" height="21.59" rx="5" fill="#191B1F"/>
-          <path d="M6.32715 11.532L10.1126 15.3172L17.2705 8.15936" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M6.32715 11.532L10.1126 15.3172L17.2705 8.15936" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         ) : (
           <svg
