@@ -38,11 +38,11 @@ export const getUser = async (accessToken) => {
 
 
 
-export const updateUserProfile = async (data?, accessToken?) => {
+export const updateUserProfile = async ({data, auth_access_token}) => {
     return await axiosInstance
         .patch(`/user/profile`, data, {
             headers: {
-                auth_access_token: `${accessToken}`,
+                auth_access_token: `${auth_access_token}`,
             }
         })
         .then(res => {

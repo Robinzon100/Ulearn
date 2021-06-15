@@ -27,6 +27,7 @@ const profile = ({ user }) => {
                         full_name={user.full_name}
                         email={user.email}
                         socials={user.socials}
+                        description={user.description}
                     />
 
                     <ProfileTabs user={user}/>

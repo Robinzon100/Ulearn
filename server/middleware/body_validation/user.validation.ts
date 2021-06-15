@@ -7,7 +7,7 @@ export const validateUpdateUserObject = async (req: Request, res: Response, next
     try {
         await updateUserSchema.validateAsync(req.body);
         next()
-    } catch (error) {
+    } catch (error: any) {
         customError(res, next, error.message, 400, false)
     }
 }

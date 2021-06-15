@@ -90,14 +90,16 @@ export const updateUser = async (req: Request, res: Response, next: NextFunction
     try {
         const { email, current_password } = req.body
         const { id } = req.user[0]
+
         let password: string
 
 
 
-        const existingEmail = await User.query().where('email', email)
-        if (existingEmail.length > 0)
-            return customError(res, next, 'invalid data', 401)
-
+        if (email) {
+            const existingEmail = await User.query().where('email', email)
+            if (existingEmail.length > 0)
+                return customError(res, next, 'invalid data', 401)
+        }
 
         if (req.body.new_password)
             req.body.password = await getHashedPassword(req.body.new_password)
@@ -106,6 +108,7 @@ export const updateUser = async (req: Request, res: Response, next: NextFunction
         const passwordMatch = current_password
             ? bcrypt.compareSync(current_password, req.user[0].password)
             : false
+
 
 
         delete req.body['current_password']
@@ -173,6 +176,6 @@ export const updateUser = async (req: Request, res: Response, next: NextFunction
         customError(res, next, 'invalid data', 403)
 
     } catch (err: any) {
-        customError(res, next, 'invalid data', 403)
+        customError(res, next, err.message, 403)
     }
 }

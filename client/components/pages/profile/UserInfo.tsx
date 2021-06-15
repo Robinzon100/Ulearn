@@ -29,7 +29,7 @@ import { uploadAndRead } from "components/lib/upload/utils/FileUploadLogic";
 
 type IFormInput = {
   full_name: string;
-  detailed_description: string;
+  description: string;
   email: string;
   current_password: string;
   new_password: string;
@@ -40,7 +40,7 @@ type IFormInput = {
 
 
 
-const UserInfo = ({ full_name, email, socials }) => {
+const UserInfo = ({ full_name, email, description, socials }) => {
   const [isVerificated, setIsVerificated] = useState(false);
   const [userSocials, setUserSocials] = useState([]);
 
@@ -83,14 +83,13 @@ const UserInfo = ({ full_name, email, socials }) => {
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     const updatedData = await removeEmptyValuedEntries(data);
-    const res = await authenticatedRequest(updateUserProfile, updatedData);
+    const res = await authenticatedRequest(updateUserProfile, updatedData, null);
+    console.log(res);
 
-    if (res.statusCode != 200) {
+
+    if (res.statusCode == 200) {
       setIsEditable(false)
     }
-    console.log(updatedData)
-    console.log(updateUserProfile)
-    console.log(res);
   };
 
 
@@ -171,20 +170,15 @@ const UserInfo = ({ full_name, email, socials }) => {
                     width="100%"
                     minHeight="18rem"
                     isFocused={true}
-                    placeHolder="დაამატეთ აღწერა თქვენს შესახებ..."
+                    placeHolder={description}
                     style={!isEditable ? { background: "none", border: "none" } : {}}
                     readonly={!isEditable ? true : false}
-                    {...register("detailed_description",{
-                        maxLength : {
-                            value: 200,
-                            message: 'აღწერა არ უნდა იყოს 200 ასოზე მეტი'
-                        }
-                    })}
+                    {...register("description")}
                   />
 
-                {errors.detailed_description && (
+                {errors.description && (
                     <p className="form_errors f-size-p6 f-weight-r">
-                      {errors.detailed_description.message}
+                      {errors.description.message}
                     </p>
                   )}
                 </div>
