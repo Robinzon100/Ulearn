@@ -5,7 +5,12 @@ import { IRadio } from "./radio.interface";
 import Loading from "components/lib/loading/Loading";
 import RadioIcon from "./radio-icon";
 
-const radio:FC<IRadio> = ({
+
+
+
+
+
+const Radio:FC<IRadio> = ({
     width,
     title,
     className,
@@ -110,4 +115,4 @@ const radio:FC<IRadio> = ({
 }
 
 
-export default memo(radio);
+export default memo(Radio);

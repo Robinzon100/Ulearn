@@ -23,7 +23,6 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
     width,
     defaultValue,
     readonly,
-    isFocused = false,
     filled = true
   }, ref: React.Ref<HTMLInputElement | null>,) => {
 
@@ -72,10 +71,12 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
                 display: flex;
                 align-items: center;
                 border-radius: 8px;
+                background: ${color === "white"
+                ? getColors(color).defaultBg
+                : "var(--primary-white)"};
                 width: ${width && width};
                 outline: none !important;
               }
-
               .input_field {
                 border: ${getColors(color).borderColor};
                 font-size: ${getInputSize(size).fontSize};
@@ -90,31 +91,29 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
                 width: 100%;
                 transition: all 0.1s cubic-bezier(0, 1.06, 0.37, 0.38);
               }
-
               .input_field:disabled {
-                color: var(--primary-dark);
+                color: var(--primary-grey);
+                opacity: 50%;
               }
-
               .input_field:hover {
-                background:${isFocused == false ? "none" : "var(--secondary-light-grey)"} ;
+                background: var(--secondary-light-grey);
               }
-
               .input_field:focus {
-                background: var(--primary-grey);
+                background: var(--primary-white);
                 border: ${!filled && getColors(color).focusedBorder};
                 opacity: 100%;
-                padding: ${isFocused == false ? icon ? getInputSize(size).focusedPadding :
-                getInputSize(size).paddingWithOutIconsOnFocus : "none"};
-                box-shadow: ${isFocused == false ? "none" : "0px 2px 3px rgba(0, 0, 0, 0.03), 0px 9px 23px -6px rgba(0, 0, 0, 0.1), inset 0px -3px 8px -4px rgba(0, 0, 0, 0.1"});
+                padding: ${icon ? getInputSize(size).focusedPadding :
+                getInputSize(size).paddingWithOutIconsOnFocus};
+                box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.03), 
+                0px 9px 23px -6px rgba(0, 0, 0, 0.1), 
+                inset 0px -3px 8px -4px rgba(0, 0, 0, 0.1);
               }
-
               .input_field::placeholder {
-                opacity: 50%;
+                opacity: 100%;
                 color: ${color === "red"
                 ? getColors(color).textColor
                 : "var(--secondary-light-black)"};
               }
-
               .icon_base-style {
                 position: absolute;
                 justify-content: center;
@@ -124,12 +123,10 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
                 opacity: 70%;
                 padding: 0px 15px;
               }
-
               .icon:disabled {
                 color: var(--primary-grey);
                 opacity: 50%;
               }
-
               .icon,
               .iconRight {
                 color: ${color === "red"

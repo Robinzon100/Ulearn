@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import { motion } from "framer-motion";
+
 
 
 //* OUR IMPORTS============================
@@ -9,7 +9,7 @@ import SurName from "components/utils/stepForm/surname";
 
 
 
-const multiStepForm = ({ isFormToggled, FormToggle }) => {
+const MultiStepForm = ({ isFormToggled, FormToggle }) => {
     const initialValue = 1;
 
     const [stepFormInfo, setStepFormInfo] = useState({
@@ -158,4 +158,4 @@ const multiStepForm = ({ isFormToggled, FormToggle }) => {
     );
 };
 
-export default multiStepForm;
+export default MultiStepForm;

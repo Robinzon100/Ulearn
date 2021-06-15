@@ -6,7 +6,7 @@ interface StarsWidth {
   numberOfStars:any;
 }
 
-const stars: React.FC<StarsWidth> = ({ starWidth, numberOfStars }) => {
+const Stars: React.FC<StarsWidth> = ({ starWidth, numberOfStars }) => {
 
   const [rating, setRating] = useState<number | string | null>(numberOfStars);
   const [hover, setHover] = useState<number | string | null>(null);
@@ -69,4 +69,4 @@ const stars: React.FC<StarsWidth> = ({ starWidth, numberOfStars }) => {
   );
 };
 
-export default stars;
+export default Stars;

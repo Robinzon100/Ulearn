@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 import { sideMenuAnimation } from "components/lib/framer/framerAnimation";
 
-const sideMenu: React.FC<videoList> = ({
+const SideMenu: React.FC<videoList> = ({
   id,
   title,
   courseChapterTime,
@@ -85,4 +85,4 @@ const sideMenu: React.FC<videoList> = ({
   );
 };
 
-export default sideMenu;
+export default SideMenu;

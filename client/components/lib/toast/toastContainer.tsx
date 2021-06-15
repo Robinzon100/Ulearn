@@ -9,8 +9,9 @@ const ToastContainerPortal = ({ toasts }) => {
 
     return createPortal(
         <>
-            {toasts && toasts.map(_ => (
+            {toasts && toasts.map((i:number) => (
                 <Toast
+                    key={i}
                     title='something'
                     color='primary'
                     size='large'

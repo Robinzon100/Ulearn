@@ -11,7 +11,7 @@ interface Props {
   radios?: radio[];
 }
 
-const radioGroup: FC<Props> = ({ onChange, radios}) => {
+const RadioGroup: FC<Props> = ({ onChange, radios}) => {
   const [radioCheck,] = useState(radios);
   const [initialValue, setInitialValue] = useState<any>("");
 
@@ -38,4 +38,4 @@ const radioGroup: FC<Props> = ({ onChange, radios}) => {
   );
 };
 
-export default radioGroup;
+export default RadioGroup;

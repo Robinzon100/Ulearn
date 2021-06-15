@@ -37,7 +37,7 @@
         border-radius: 21px;
         box-shadow: 0px 49px 46px -28px rgba(0, 0, 0, 0.13),
           0px 4px 37px rgba(0, 0, 0, 0.04);
-        padding: 10rem 2rem 2rem 2rem;
+        padding: 15rem 2rem 2rem 2rem;
 
         .picture {
           @include background-properties("/pictures/profile/user-pic.png");
@@ -82,17 +82,21 @@
 
         &__creditionals {
 
-          .about-user {
-            margin: 1rem 0 5rem 0;
-          }
+        .name-surname,.about-user {
+            p {
+                word-break: break-all;
+            }
+        }
+
 
           .email,
           .password,
-          .user-socials-inputs {
-            margin-top: 3.5rem;
+          .about-user,
+          .name-surname {
+            margin-top: 4rem;
 
             .heading {
-              margin-bottom: 1.8rem;
+              margin-bottom: 1rem;
             }
           }
 
@@ -107,7 +111,7 @@
           .user-socials {
             @include flex(stretch, center, row);
             gap: 0 1.4vw;
-            margin: 4rem 0;
+            margin: 5rem 0;
             width: 100%;
 
             &__container {
@@ -140,6 +144,7 @@
         }
 
         .user-socials-inputs {
+            margin-top: 8rem;
           :not(:first-child) {
             margin-top: 1.5rem;
           }

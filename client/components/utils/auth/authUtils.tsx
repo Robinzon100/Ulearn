@@ -5,7 +5,7 @@ import { useCookies } from 'react-cookie';
 
 
 
-const authUtils = () => {
+const AuthUtils = () => {
     const [, setCookie] = useCookies();
 
     const setCookiesAndRedirect = (res) => {
@@ -30,7 +30,7 @@ const authUtils = () => {
 
 
 
-export default authUtils
+export default AuthUtils
 
 
 

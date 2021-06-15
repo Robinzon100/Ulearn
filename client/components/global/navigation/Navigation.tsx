@@ -47,7 +47,7 @@ const Navigation = () => {
 
   useEffect(() => {
     setIsLogedIn(cookies.auth_refresh_token ? true : false);
-  }, []);
+  }, [cookies.auth_refresh_token]);
 
 
 

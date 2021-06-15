@@ -119,5 +119,5 @@ const CheckBox = forwardRef<HTMLInputElement, PropsWithChildren<ICheckBox>>(({
 )
 
 
-
+CheckBox.displayName = 'CheckBox';
 export default memo(CheckBox);

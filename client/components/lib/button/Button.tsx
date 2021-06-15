@@ -1,4 +1,4 @@
-import { FC, memo, useEffect, useMemo } from "react";
+import { FC, memo, useMemo } from "react";
 import { useRouter } from "next/router";
 
 //! ─── OWN IMPORTS ────────────────────────────────────────────────────────────────
@@ -36,11 +36,11 @@ const Button: FC<ButtonInterface> = ({
 
 
 
-  useEffect(() => {
-    if (route && onClick) {
-      console.warn("button can only have route or clikHandler");
-    }
-  }, []);
+//   useEffect(() => {
+//     if (route && onClick) {
+//       console.warn("button can only have route or clikHandler");
+//     }
+//   }, []);
 
 
 

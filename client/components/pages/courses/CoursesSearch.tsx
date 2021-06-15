@@ -44,6 +44,8 @@ const CoursesSearch = ({ result, userPrefferedCategoryIds }) => {
     }
 
 
+    
+
     const getCurrentUserSubCategories = async () => {
         const { categories } = await getAllCategories()
         let userCategories = []

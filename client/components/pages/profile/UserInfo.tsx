@@ -142,9 +142,11 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                 <div className="name-surname">
                   {isEditable ? (
                     <>
-                      <label htmlFor="full_name">სახელი</label>
+                    <div className="heading">
+                        <h1 className="f-size-p6 f-weight-b">სახელი და გვარი</h1>
+                    </div>
                       <Input
-                        className={`f-size-p2 f-weight-b ${!isEditable ? "remove_input_styles" : ""}`}
+                        className={`f-size-p4 f-weight-b ${!isEditable ? "remove_input_styles" : ""}`}
                         color="white"
                         size="medium"
                         type="text"
@@ -177,6 +179,9 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                 <div className="about-user">
                   {isEditable ? (
                     <>
+                    <div className="heading">
+                        <h1 className="f-size-p6 f-weight-b">თქვენს შესახებ</h1>
+                    </div>
                       <TextArea
                         className={`f-size-p6 f-weight-m ${!isEditable ? "remove_input_styles" : ""}`}
                         color="white"
@@ -217,6 +222,8 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                 {/*  ======= EMAIL ===== */}
 
                 <div className="email">
+                {isEditable ? (
+                <>
                   <div className="heading">
                     <h1 className="f-size-p6 f-weight-b">ელექტრონული ფოსტა</h1>
                   </div>
@@ -243,6 +250,11 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                       {errors.email.message}
                     </p>
                   )}
+
+
+                  </>
+                ) :<p className="f-size-p6 f-weight-m">{userInfo.email}</p>}
+
                 </div>
 
 
@@ -387,8 +399,11 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                 }
 
 
-                {/* ======= SOCIALS =====  */}
 
+
+
+                {/* ======= SOCIALS =====  */}
+                {!isEditable && (
                 <div className="user-socials">
                   {userSocials?.map((el, i) => (
                     <div
@@ -414,6 +429,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                     </div>
                   ))}
                 </div>
+                )}
 
 
 

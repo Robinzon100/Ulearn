@@ -29,7 +29,7 @@ type LoginValues = {
 
 
 
-const loginComponent = () => {
+const LoginForm = () => {
   const router = useRouter();
 
   const {register,handleSubmit,formState: { errors },} = useForm<LoginValues>();
@@ -176,4 +176,4 @@ const loginComponent = () => {
   );
 };
 
-export default loginComponent;
+export default LoginForm;

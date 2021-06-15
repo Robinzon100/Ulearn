@@ -1,4 +1,4 @@
-import { memo, useState,useRef } from "react";
+import { useState,useRef } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown } from "react-feather";
 import { forwardRef, PropsWithChildren } from "react";
@@ -17,7 +17,7 @@ import {useClickOutside} from "./utils/outSideClickHandler"
 
 
 
-const selectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>> (
+const SelectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>> (
     ({
   color,
   size,
@@ -179,4 +179,8 @@ const selectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>> (
   );
 }
 );
-export default memo(selectInput);
+
+
+
+SelectInput.displayName = 'SelectInput';
+export default SelectInput;

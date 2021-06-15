@@ -4,7 +4,7 @@ import { FC, useEffect, useRef, useState } from "react";
 import { IToast } from "./tooltip.interface";
 import TooltipContent from "./tooltip-content";
 
-const toolTip: FC<IToast> = ({
+const ToolTip: FC<IToast> = ({
   text,
   className,
   children,
@@ -58,4 +58,4 @@ const toolTip: FC<IToast> = ({
   );
 };
 
-export default toolTip;
+export default ToolTip;

@@ -23,7 +23,6 @@ const TextArea = forwardRef<HTMLTextAreaElement, PropsWithChildren<IinputInterfa
     readonly,
     minHeight,
     maxHeight,
-    isFocused = false,
     resizable = false,
     characterMaxSize,
   }, ref: React.Ref<HTMLTextAreaElement | null>,) => {
@@ -182,4 +181,8 @@ const TextArea = forwardRef<HTMLTextAreaElement, PropsWithChildren<IinputInterfa
     )
   }
 );
+
+
+
+TextArea.displayName = "TextArea";
 export default TextArea;

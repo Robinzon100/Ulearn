@@ -16,7 +16,7 @@ interface CommentCards {
   isLikedByInstructor: boolean;
 }
 
-const comment_cards: React.FC<CommentCards> = (
+const CommentCards: React.FC<CommentCards> = (
   {
     name,
     registrationDay,
@@ -142,4 +142,4 @@ const comment_cards: React.FC<CommentCards> = (
     </div>
   );
 };
-export default comment_cards;
+export default CommentCards;
