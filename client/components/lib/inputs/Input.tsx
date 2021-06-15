@@ -31,7 +31,6 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
 
 
 
-
     return (
       <>
         <div
@@ -110,7 +109,7 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
               }
 
               .input_field::placeholder {
-                opacity: 100%;
+                opacity: 50%;
                 color: ${color === "red"
                 ? getColors(color).textColor
                 : "var(--secondary-light-black)"};
@@ -144,4 +143,6 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
     )
   }
 );
+
+Input.displayName = 'text input'
 export default Input;

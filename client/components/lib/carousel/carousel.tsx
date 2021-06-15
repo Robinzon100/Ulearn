@@ -12,7 +12,7 @@ export interface CarouselInterface {
 
 
 
-const carousel: React.FC<CarouselInterface> = ({ categories }) => {
+const Carousel: React.FC<CarouselInterface> = ({ categories }) => {
   const [isDown, setIsDown] = useState<boolean>(false);
   const [isFinishedScrolling, setIsFinishedScrolling] = useState<boolean>(false);
   const [startX, setStartX] = useState<number>(0);
@@ -85,4 +85,4 @@ const carousel: React.FC<CarouselInterface> = ({ categories }) => {
   );
 };
 
-export default memo(carousel);
+export default memo(Carousel);

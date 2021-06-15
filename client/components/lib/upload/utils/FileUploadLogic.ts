@@ -3,9 +3,6 @@
 
 
 export const uploadAndRead = (setImage) =>{
-        
-
-    
       const preview = document.querySelector('#preview');
       const files   = document.querySelector<HTMLInputElement>('input[type=file]').files;
       

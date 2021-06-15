@@ -25,6 +25,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, PropsWithChildren<IinputInterfa
     maxHeight,
     isFocused = false,
     resizable = false,
+    characterMaxSize,
   }, ref: React.Ref<HTMLTextAreaElement | null>,) => {
 
 
@@ -53,6 +54,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, PropsWithChildren<IinputInterfa
             className={`input_field  ${className && className}`}
             placeholder={placeHolder}
             style={style}
+            maxLength={characterMaxSize}
             defaultValue={defaultValue}
             readOnly={readonly}
             onInput={({ currentTarget }) => {
@@ -96,8 +98,8 @@ const TextArea = forwardRef<HTMLTextAreaElement, PropsWithChildren<IinputInterfa
                   content: attr(data-value) " ";
                   white-space: pre-wrap;
                   visibility: hidden;
-                  font-size: var(--f-size-p2);
-                  font-weight: var(f-weight-bl)
+                  font-size: var(--f-size-p6);
+                  font-weight: var(f-weight-m)
                 }
                 .input_container > textarea,
                 .input_container::after {

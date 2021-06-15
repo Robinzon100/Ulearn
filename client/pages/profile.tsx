@@ -8,7 +8,7 @@ import { getUser } from 'actions/client/user/profile/profile.action';
 import { authenticatedRequest } from 'components/utils/auth/tokenValidations';
 import { redirect } from 'components/utils/auth/redirect.utils';
 
-import ProfileTabs  from "components/pages/profile/ProfileTabs";
+import ProfileTabs from "components/pages/profile/ProfileTabs";
 
 // import FileUpload from "components/lib/upload/FileUpload";
 
@@ -31,10 +31,10 @@ const profile = ({ user }) => {
                         image_url={user.image_url}
                     />
 
-                    <ProfileTabs user={user}/>
+                    <ProfileTabs user={user} />
                 </div>
 
-               {/* <FileUpload/> */}
+                {/* <FileUpload/> */}
             </section>
         </>
     );

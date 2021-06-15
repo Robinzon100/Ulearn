@@ -1,0 +1,20 @@
+.remove_input_styles {
+    background: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+
+    &:hover {
+        box-shadow: none !important;
+        background: none !important;
+        border: none !important;
+        padding-left: 0 !important;
+    }
+
+    &:focus {
+        box-shadow: none !important;
+        background: none !important;
+        border: none !important;
+        padding-left: 0 !important;
+    }
+}
