@@ -47,7 +47,7 @@ export const authenticatedRequest = async (fetcher, data?, ctx?) => {
 
   if (date < +auth_token_expiration) {
     res = data
-      ? await fetcher({data, auth_access_token})
+      ? await fetcher({ data, auth_access_token })
       : await fetcher(auth_access_token);
   }
 
@@ -55,12 +55,12 @@ export const authenticatedRequest = async (fetcher, data?, ctx?) => {
 
   if (!res || res.statusCode != 200) {
     const tokenRes = await postRefreshToken(auth_refresh_token);
-    
+
     await renewAccExpCookies(tokenRes, ctx && ctx)
     const { auth_access_token } = cookie.parse(ctx ? ctx.req.headers.cookie : document.cookie)
 
     res = data
-      ? await fetcher({data, auth_access_token})
+      ? await fetcher({ data, auth_access_token })
       : await fetcher(auth_access_token)
 
     return res;

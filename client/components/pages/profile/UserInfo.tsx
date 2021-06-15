@@ -26,7 +26,7 @@ import { authenticatedRequest } from "components/utils/auth/tokenValidations";
 
 type IFormInput = {
   full_name: string;
-  detailed_description: string;
+  description: string;
   email: string;
   current_password: string;
   new_password: string;
@@ -37,7 +37,7 @@ type IFormInput = {
 
 
 
-const UserInfo = ({ full_name, email, socials }) => {
+const UserInfo = ({ full_name, email, description, socials }) => {
   const [isVerificated, setIsVerificated] = useState(false);
   const [userSocials, setUserSocials] = useState([]);
 
@@ -69,12 +69,13 @@ const UserInfo = ({ full_name, email, socials }) => {
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     const updatedData = await removeEmptyValuedEntries(data);
-    const res = await authenticatedRequest(updateUserProfile, updatedData);
+    const res = await authenticatedRequest(updateUserProfile, updatedData, null);
+    console.log(res);
 
-    if (res.statusCode != 200) {
+
+    if (res.statusCode == 200) {
       setIsEditable(false)
     }
-    console.log(res);
   };
 
 
@@ -141,10 +142,10 @@ const UserInfo = ({ full_name, email, socials }) => {
                     width="100%"
                     minHeight="18rem"
                     isFocused={true}
-                    placeHolder="დაამატეთ აღწერა თქვენს შესახებ..."
+                    placeHolder={description}
                     style={!isEditable ? { background: "none", border: "none" } : {}}
                     readonly={!isEditable ? true : false}
-                    {...register("detailed_description")}
+                    {...register("description")}
                   />
                 </div>
 
