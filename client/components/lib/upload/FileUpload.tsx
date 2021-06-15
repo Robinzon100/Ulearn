@@ -1,17 +1,24 @@
 import { Upload } from "react-feather";
 
-import { uploadAndRead } from "./utils/FileUploadLogic";
+
+
+interface IFileUpload {
+    width?:string,
+    height?:string
+    onChange:any;
+    disabled?:boolean
+}
 
 
 
 
-
-const FileUpload = () => {
+const FileUpload = ({width="100%",height="100%",disabled,onChange}:IFileUpload) => {
   return (
+      <>
     <div className="upload_container drag-and-drop_image">
       <div className="upload_dashed">
 
-        <input type="file" id="file-upload" onChange={() => uploadAndRead()} />
+        <input disabled={disabled} type="file" id="file-upload" onChange={onChange} />
 
 
         <label htmlFor="file-upload" className="heading f-size-p4 f-weight-b">
@@ -22,8 +29,19 @@ const FileUpload = () => {
 
       </div>
 
-      <div id="preview"></div>
+      {/* <div id="preview"></div> */}
     </div>
+
+    
+    <style jsx>
+        {`
+        .upload_container {
+            width: ${width};
+            height: ${height};
+        }
+        `}
+    </style>
+    </>
   );
 };
 

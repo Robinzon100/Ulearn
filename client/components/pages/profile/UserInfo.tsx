@@ -14,12 +14,15 @@ import { emailRegex, passwordRegex } from "components/utils/regex/Regex";
 import Input from "components/lib/inputs/Input";
 import TextArea from "components/lib/textarea/TextArea";
 import Button from "components/lib/button/Button";
+import FileUpload from "components/lib/upload/FileUpload"
+
 
 
 import { parseSocials, removeEmptyValuedEntries } from "./userInfo.utils";
 import { parseWeatherItsHttp } from "components/utils/auth/linkParsing";
 import { updateUserProfile } from "actions/client/user/profile/profile.action";
 import { authenticatedRequest } from "components/utils/auth/tokenValidations";
+import { uploadAndRead } from "components/lib/upload/utils/FileUploadLogic";
 
 
 
@@ -50,6 +53,8 @@ const UserInfo = ({ full_name, email, socials }) => {
   const [userInfo,] = useState({ full_name, email });
 
 
+  const [image, setImage] = useState<string>("")
+
 
 
 
@@ -67,6 +72,15 @@ const UserInfo = ({ full_name, email, socials }) => {
 
 
 
+//   const imgUpload = () => {
+//     const profilePic = new FormData()
+
+//     // console.log(image)
+//     profilePic.append("img",image)
+//   }
+
+
+
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     const updatedData = await removeEmptyValuedEntries(data);
     const res = await authenticatedRequest(updateUserProfile, updatedData);
@@ -74,8 +88,12 @@ const UserInfo = ({ full_name, email, socials }) => {
     if (res.statusCode != 200) {
       setIsEditable(false)
     }
+    console.log(updatedData)
+    console.log(updateUserProfile)
     console.log(res);
   };
+
+
 
 
   return (
@@ -83,8 +101,11 @@ const UserInfo = ({ full_name, email, socials }) => {
       <div className="user-profile-info">
         <div className="user-profile-info__container">
           <div className="user-profile">
-            <div className="picture">
-
+            <div 
+            className="picture">
+            {image &&    
+                <img className="profile-use-pic"  src={`${image}`} alt="bla" />
+            }
 
               <motion.div
                 variants={toggleVerification}
@@ -106,22 +127,31 @@ const UserInfo = ({ full_name, email, socials }) => {
             </div>
 
 
+            {/* // FILE UPLOAD */}
+             
+            <FileUpload 
+                height="20rem"
+                disabled={!isEditable ? true : false}
+                onChange={() => uploadAndRead(setImage)}
+            />
+             
+
+
 
 
             <form onSubmit={handleSubmit(onSubmit)}>
+
+
               <div className="user-profile__creditionals">
                 {/* ===== NAME-SURNAME =====*/}
                 <div className="name-surname">
-                  <TextArea
-                    className="f-size-p2 f-weight-bl"
+                  <Input
                     color="white"
                     size="medium"
                     type="text"
                     placeHolder={userInfo.full_name}
                     width="100%"
-                    resizable={true}
                     isFocused={true}
-                    style={!isEditable ? { background: "none", border: "none" } : {}}
                     readonly={!isEditable ? true : false}
                     {...register("full_name")}
                   />
@@ -144,8 +174,19 @@ const UserInfo = ({ full_name, email, socials }) => {
                     placeHolder="დაამატეთ აღწერა თქვენს შესახებ..."
                     style={!isEditable ? { background: "none", border: "none" } : {}}
                     readonly={!isEditable ? true : false}
-                    {...register("detailed_description")}
+                    {...register("detailed_description",{
+                        maxLength : {
+                            value: 200,
+                            message: 'აღწერა არ უნდა იყოს 200 ასოზე მეტი'
+                        }
+                    })}
                   />
+
+                {errors.detailed_description && (
+                    <p className="form_errors f-size-p6 f-weight-r">
+                      {errors.detailed_description.message}
+                    </p>
+                  )}
                 </div>
 
 
@@ -327,6 +368,13 @@ const UserInfo = ({ full_name, email, socials }) => {
                         },
                       })}
                     />
+
+
+                {errors.current_password && (
+                    <p className="form_errors f-size-p6 f-weight-r">
+                      {errors.current_password.message}
+                    </p>
+                  )}
                   </div>
                 )}
 

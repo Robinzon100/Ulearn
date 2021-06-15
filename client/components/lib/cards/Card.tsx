@@ -1,4 +1,4 @@
-import { useState, memo, useRef } from "react";
+import { useState, useRef } from "react";
 import { Star } from "react-feather";
 
 //! ==================OUR IMPORTS
@@ -189,4 +189,4 @@ const Card = ({
   );
 };
 
-export default memo(Card);
+export default Card;

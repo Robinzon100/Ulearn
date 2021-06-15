@@ -4,16 +4,14 @@
       max-width: 75rem;
     }
   }
-
-  .user-profile-section .user-profile-info__container .user-profile {
-    margin-left: 3vw;
-  }
 }
 
 @media screen and (max-width: $medium-screen) {
   .user-profile-section {
     &__container {
       justify-content: center;
+      grid-template-rows: auto 1fr;
+      grid-template-columns: initial !important;
     }
 
     .user-content {
@@ -22,27 +20,23 @@
       margin-top: 10rem;
     }
   }
+
+  .user-profile-section .user-profile-info__container .user-profile {
+    margin: 0 auto !important;
+  }
 }
-
-
 
 @media screen and (max-width: $small-screen) {
   .user-profile-section {
     .profile-hero-img {
-        @include background-properties("/pictures/profile/profile_banner_final.png",center,41% 0%);
-      }
+      @include background-properties(
+        "/pictures/profile/profile_banner_final.png",
+        center,
+        41% 0%
+      );
+    }
     &__container {
       padding-bottom: var(--padding-bottom-for-containers);
     }
-  }
-}
-
-
-
-
-@media screen and (max-width: $ultra-small-screen) {
-  .user-profile-section .user-profile-info__container .user-profile {
-    margin-left: 0 !important;
-    margin-top: 0 !important;
   }
 }

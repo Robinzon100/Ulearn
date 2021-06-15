@@ -24,7 +24,7 @@ export const cardHoverHandler = (
 
     } else {
       descriptionEl.style.top = `${el.top - el.top - 40}px`;
-      descriptionEl.style.right = `${3}rem`;
+      descriptionEl.style.right = `${5}rem`;
 
     }
   }
