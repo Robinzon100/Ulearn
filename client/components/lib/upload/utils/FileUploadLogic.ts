@@ -10,7 +10,7 @@ export const uploadAndRead = (setImage) =>{
       const files   = document.querySelector<HTMLInputElement>('input[type=file]').files;
       
     
-      function readAndPreview(file,e) {
+      function readAndPreview(file) {
         if ( /\.(jpe?g|png|gif)$/i.test(file.name) ) {
           const reader = new FileReader();
     
@@ -20,7 +20,7 @@ export const uploadAndRead = (setImage) =>{
             image.title = file.name;
             image.src = reader.result as string;
             setImage(reader.result)
-            
+
             preview?.appendChild( image );
           }, false);
     

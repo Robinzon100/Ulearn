@@ -28,6 +28,7 @@ const profile = ({ user }) => {
                         email={user.email}
                         socials={user.socials}
                         description={user.description}
+                        image_url={user.image_url}
                     />
 
                     <ProfileTabs user={user}/>

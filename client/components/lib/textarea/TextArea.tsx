@@ -23,7 +23,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, PropsWithChildren<IinputInterfa
     readonly,
     minHeight,
     maxHeight,
-    // isFocused = false,
+    isFocused = false,
     resizable = false,
   }, ref: React.Ref<HTMLTextAreaElement | null>,) => {
 

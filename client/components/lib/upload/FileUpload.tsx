@@ -6,24 +6,25 @@ interface IFileUpload {
     width?:string,
     height?:string
     onChange:any;
-    disabled?:boolean
+    disabled?:boolean;
+    uploadIconSize?:string | number
 }
 
 
 
 
-const FileUpload = ({width="100%",height="100%",disabled,onChange}:IFileUpload) => {
+const FileUpload = ({width="100%",height="100%",disabled,onChange,uploadIconSize}:IFileUpload) => {
   return (
       <>
     <div className="upload_container drag-and-drop_image">
       <div className="upload_dashed">
 
-        <input disabled={disabled} type="file" id="file-upload" onChange={onChange} />
+        <input  disabled={disabled} type="file" id="file-upload" onChange={onChange} />
 
 
-        <label htmlFor="file-upload" className="heading f-size-p4 f-weight-b">
-          <Upload size={70} stroke="var(--secondary-darker-grey)" />
-          ფაილის ატრივრთვა
+        <label htmlFor="file-upload" className="heading f-size-p5 f-weight-b">
+          <Upload size={uploadIconSize} stroke="var(--secondary-darker-grey)" />
+          სურათის ატვირთვა
         </label>
 
 

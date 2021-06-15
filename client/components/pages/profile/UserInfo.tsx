@@ -40,7 +40,7 @@ type IFormInput = {
 
 
 
-const UserInfo = ({ full_name, email, description, socials }) => {
+const UserInfo = ({ full_name, email, description, socials,image_url }) => {
   const [isVerificated, setIsVerificated] = useState(false);
   const [userSocials, setUserSocials] = useState([]);
 
@@ -50,10 +50,10 @@ const UserInfo = ({ full_name, email, description, socials }) => {
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm<IFormInput>();
 
-  const [userInfo,] = useState({ full_name, email });
+  const [userInfo,] = useState({ full_name, email,description });
 
 
-  const [image, setImage] = useState<string>("")
+  const [imageBlob, setImageBlob] = useState<string>(image_url)
 
 
 
@@ -75,8 +75,8 @@ const UserInfo = ({ full_name, email, description, socials }) => {
 //   const imgUpload = () => {
 //     const profilePic = new FormData()
 
-//     // console.log(image)
-//     profilePic.append("img",image)
+//     // console.log(imageBlob)
+//     profilePic.append("img",imageBlob)
 //   }
 
 
@@ -84,7 +84,6 @@ const UserInfo = ({ full_name, email, description, socials }) => {
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     const updatedData = await removeEmptyValuedEntries(data);
     const res = await authenticatedRequest(updateUserProfile, updatedData, null);
-    console.log(res);
 
 
     if (res.statusCode == 200) {
@@ -101,10 +100,10 @@ const UserInfo = ({ full_name, email, description, socials }) => {
         <div className="user-profile-info__container">
           <div className="user-profile">
             <div 
-            className="picture">
-            {image &&    
+            className="picture" style={{backgroundImage:`url(${imageBlob})`}}>
+            {/* {image &&    
                 <img className="profile-use-pic"  src={`${image}`} alt="bla" />
-            }
+            } */}
 
               <motion.div
                 variants={toggleVerification}
@@ -129,9 +128,10 @@ const UserInfo = ({ full_name, email, description, socials }) => {
             {/* // FILE UPLOAD */}
              
             <FileUpload 
-                height="20rem"
+                height="18rem"
                 disabled={!isEditable ? true : false}
-                onChange={() => uploadAndRead(setImage)}
+                uploadIconSize={45}
+                onChange={() => uploadAndRead(setImageBlob)}
             />
              
 
@@ -145,6 +145,7 @@ const UserInfo = ({ full_name, email, description, socials }) => {
                 {/* ===== NAME-SURNAME =====*/}
                 <div className="name-surname">
                   <Input
+                    className="f-size-p4 f-weight-b"
                     color="white"
                     size="medium"
                     type="text"
@@ -170,7 +171,7 @@ const UserInfo = ({ full_name, email, description, socials }) => {
                     width="100%"
                     minHeight="18rem"
                     isFocused={true}
-                    placeHolder={description}
+                    placeHolder={userInfo.description}
                     style={!isEditable ? { background: "none", border: "none" } : {}}
                     readonly={!isEditable ? true : false}
                     {...register("description")}

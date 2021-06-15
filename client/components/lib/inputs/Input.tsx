@@ -97,7 +97,7 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
               }
 
               .input_field:hover {
-                background: var(--secondary-light-grey);
+                background:${isFocused == false ? "none" : "var(--secondary-light-grey)"} ;
               }
 
               .input_field:focus {
