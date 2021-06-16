@@ -24,6 +24,7 @@ import { updateUserProfile } from "actions/client/user/profile/profile.action";
 import { authenticatedRequest } from "components/utils/auth/tokenValidations";
 import { uploadAndRead } from "components/lib/upload/utils/FileUploadLogic";
 import NextLink from '../../utils/nextLink/NextLink';
+import { b64toBlob } from 'components/utils/file/blob.utils';
 
 
 
@@ -38,7 +39,7 @@ type IFormInput = {
 };
 
 
-
+let profileImage
 
 
 const UserInfo = ({ full_name, email, description, socials, image_url }) => {
@@ -50,11 +51,8 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
   const [isConfirmPasswordHidden, setConfirmIsPasswordHidden] = useState(true);
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm<IFormInput>();
-
   const [userInfo,] = useState({ full_name, email, description });
-
-
-  const [imageBlob, setImageBlob] = useState<string>(image_url)
+  const [imageBase64, setImageBase64] = useState<string>(image_url)
 
 
 
@@ -65,16 +63,23 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
 
 
 
-  const imageUploadHandler = () => {
-    const imgForm = new FormData();
+  // const imageUploadHandler = () => {
 
-    imgForm.append('img',imageBlob)
-  }
+  // }
 
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     const updatedData = await removeEmptyValuedEntries(data);
     const res = await authenticatedRequest(updateUserProfile, updatedData, null);
+    const imgForm = new FormData();
+
+    fetch(imageBase64)
+      .then(res => {
+        return res.blob();
+      })
+      .then(blob => {
+        imgForm.append('user_profile_image', blob);
+      });
 
 
     if (res.statusCode == 200) {
@@ -93,7 +98,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
         <div className="user-profile-info__container">
           <div className="user-profile">
             <div
-              className="picture" style={{ backgroundImage: `url(${imageBlob})` }}>
+              className="picture" style={{ backgroundImage: `url(${imageBase64})` }}>
               <motion.div
                 variants={toggleVerification}
                 initial={{ maxWidth: "4.2rem", width: "100%" }}
@@ -116,18 +121,18 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
 
 
             {/* // FILE UPLOAD */}
-
             {isEditable &&
               (
                 <FileUpload
                   height="18rem"
                   disabled={!isEditable ? true : false}
                   icon={<Upload size={20} />}
-                  multiple={true}
-                  uploadSize={25}
-                  onError={(errorType) => console.log(errorType)}
-                  fileType="pdf"
-                  onChange={() => uploadAndRead(setImageBlob)}
+                  uploadSize={20}
+                  onError={(errorType) => console.error(errorType)}
+                  accept=".pdf,.png,.jpg"
+                  onChange={() => {
+                    uploadAndRead(setImageBase64)
+                  }}
                 />
               )
             }
@@ -150,9 +155,9 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                 <div className="name-surname">
                   {isEditable ? (
                     <>
-                    <div className="heading">
+                      <div className="heading">
                         <h1 className="f-size-p6 f-weight-b">სახელი და გვარი</h1>
-                    </div>
+                      </div>
                       <Input
                         className={`f-size-p4 f-weight-b ${!isEditable ? "remove_input_styles" : ""}`}
                         color="white"
@@ -187,9 +192,9 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                 <div className="about-user">
                   {isEditable ? (
                     <>
-                    <div className="heading">
+                      <div className="heading">
                         <h1 className="f-size-p6 f-weight-b">თქვენს შესახებ</h1>
-                    </div>
+                      </div>
                       <TextArea
                         className={`f-size-p6 f-weight-m ${!isEditable ? "remove_input_styles" : ""}`}
                         color="white"
@@ -230,38 +235,38 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                 {/*  ======= EMAIL ===== */}
 
                 <div className="email">
-                {isEditable ? (
-                <>
-                  <div className="heading">
-                    <h1 className="f-size-p6 f-weight-b">ელექტრონული ფოსტა</h1>
-                  </div>
+                  {isEditable ? (
+                    <>
+                      <div className="heading">
+                        <h1 className="f-size-p6 f-weight-b">ელექტრონული ფოსტა</h1>
+                      </div>
 
-                  <Input
-                    className={`f-weight-m ${!isEditable ? "remove_input_styles" : ""}`}
-                    color="white"
-                    size="medium"
-                    type="text"
-                    width="100%"
-                    isFocused={true}
-                    placeHolder={userInfo.email}
-                    readonly={!isEditable ? true : false}
-                    {...register("email", {
-                      pattern: {
-                        value: emailRegex,
-                        message: "სწორად ჩაწერეთ თქვენი ელექტრონული ფოსტა",
-                      },
-                    })}
-                  />
+                      <Input
+                        className={`f-weight-m ${!isEditable ? "remove_input_styles" : ""}`}
+                        color="white"
+                        size="medium"
+                        type="text"
+                        width="100%"
+                        isFocused={true}
+                        placeHolder={userInfo.email}
+                        readonly={!isEditable ? true : false}
+                        {...register("email", {
+                          pattern: {
+                            value: emailRegex,
+                            message: "სწორად ჩაწერეთ თქვენი ელექტრონული ფოსტა",
+                          },
+                        })}
+                      />
 
-                  {errors.email && (
-                    <p className="form_errors f-size-p6 f-weight-r">
-                      {errors.email.message}
-                    </p>
-                  )}
+                      {errors.email && (
+                        <p className="form_errors f-size-p6 f-weight-r">
+                          {errors.email.message}
+                        </p>
+                      )}
 
 
-                  </>
-                ) :<p className="f-size-p6 f-weight-m">{userInfo.email}</p>}
+                    </>
+                  ) : <p className="f-size-p6 f-weight-m">{userInfo.email}</p>}
 
                 </div>
 
@@ -412,31 +417,31 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
 
                 {/* ======= SOCIALS =====  */}
                 {!isEditable && (
-                <div className="user-socials">
-                  {userSocials?.map((el, i) => (
-                    <div
-                      className="user-socials__container"
-                      key={i}
-                      style={el.url.length > 0
-                        ? { width: "100%", padding: "1.5rem" }
-                        : { display: "none" }}>
+                  <div className="user-socials">
+                    {userSocials?.map((el, i) => (
+                      <div
+                        className="user-socials__container"
+                        key={i}
+                        style={el.url.length > 0
+                          ? { width: "100%", padding: "1.5rem" }
+                          : { display: "none" }}>
 
 
-                      {el.url.length > 0 && (
-                        <NextLink
-                          inNewTab={true}
-                          route={parseWeatherItsHttp(el.url)}
-                          className="social_url">
-                          <div
-                            className="box"
-                            style={{
-                              backgroundImage: `url(/pictures/profile/socials/${el.name + ".svg"}`,
-                            }} />
-                        </NextLink>
-                      )}
-                    </div>
-                  ))}
-                </div>
+                        {el.url.length > 0 && (
+                          <NextLink
+                            inNewTab={true}
+                            route={parseWeatherItsHttp(el.url)}
+                            className="social_url">
+                            <div
+                              className="box"
+                              style={{
+                                backgroundImage: `url(/pictures/profile/socials/${el.name + ".svg"}`,
+                              }} />
+                          </NextLink>
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 )}
 
 

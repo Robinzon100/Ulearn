@@ -9,15 +9,15 @@ export const uploadAndRead = (setImage) => {
     if (/\.(jpe?g|png|gif)$/i.test(file.name)) {
       const reader = new FileReader();
 
-      reader.addEventListener("load",function () {
-          const image = new Image() as HTMLImageElement;
+      reader.addEventListener("load", function () {
+        const image = new Image() as HTMLImageElement;
 
-          image.title = file.name;
-          image.src = reader.result as string;
-          setImage(reader.result);
+        image.title = file.name;
+        image.src = reader.result as string;
+        setImage(reader.result);
 
-          preview?.appendChild(image);
-        },
+        preview?.appendChild(image);
+      },
         false
       );
 
@@ -31,53 +31,63 @@ export const uploadAndRead = (setImage) => {
 };
 
 
-export const ReturnFileSize = (e,uploadSize:number,inputError,fileType) => {
-    const inputEl = e.target;
-    const inputFiles = [...inputEl.files];
-    const imgUploadSizeInBytes = uploadSize * 1000;
 
 
-    if(isFileSizesCorrect(inputFiles,imgUploadSizeInBytes)) {
-        console.log(isFileSizesCorrect(inputFiles,imgUploadSizeInBytes));
-        
-        if(isTypeCorrect(inputFiles,fileType)) {
-            console.log(isTypeCorrect(inputFiles,fileType))
-            
-        }
+
+
+
+
+
+
+export const ReturnFileSize = (e, uploadSize: number, inputError, fileType) => {
+  const inputEl = e.target;
+  const inputFiles = [...inputEl.files];
+  const imgUploadSizeInBytes = uploadSize * 1000;
+
+
+  inputFiles.map(file => {
+    if (!isFileSizesCorrect(file, imgUploadSizeInBytes)) {
+      return inputError('size')
     }
-   
-    
+    if (!isTypeCorrect(file, fileType)) {
+      return inputError('type')
+    }
+  })
 }
 
 
-const isFileSizesCorrect = (files:any[],size:number):boolean => {
-    let isCorrect 
+const isFileSizesCorrect = (file: any, size: number): boolean => {
+  let isCorrect
 
-    files.map(file => {
-        if(file.size > size) {
-            isCorrect =  false
-        }else {
-            isCorrect =  true
-        }
-    })
+  if (file.size > size) {
+    isCorrect = false
+  } else {
+    isCorrect = true
+  }
 
-    return isCorrect
-
+  return isCorrect
 }
 
-const isTypeCorrect = (files:any[],type:string | string[]):boolean => {
-    let isCorrect:boolean
-    
-    files.map(file => {
-        const fileNameArray = file.name.split(".");
-        const inputedFileType = fileNameArray[fileNameArray.length - 1];
 
-        if(inputedFileType == type) {
-            isCorrect = true
-        }else {
-            isCorrect = false
-        }
-    })
+const isTypeCorrect = (file: any, type: string): boolean => {
+  let isCorrect: boolean
 
-    return isCorrect
+  const fileNameArray = file.name.split(".");
+  const inputedFileType = `.${fileNameArray[fileNameArray.length - 1]}`;
+  let condition
+
+  if (type.split(',').length > 1) {
+    condition = type.split(',').includes(inputedFileType)
+  } else {
+    condition = `.${inputedFileType}` == type
+  }
+
+
+  if (condition) {
+    isCorrect = true
+  } else {
+    isCorrect = false
+  }
+
+  return isCorrect
 }

@@ -1,4 +1,4 @@
-import { useState, ReactNode,useRef } from 'react';
+import { useState, ReactNode, useRef } from 'react';
 
 
 import { ReturnFileSize } from "components/lib/upload/utils/FileUploadLogic"
@@ -10,10 +10,10 @@ interface IFileUpload {
   onChange: any,
   disabled?: boolean,
   icon?: ReactNode,
-  multiple?:boolean,
-  uploadSize?:number,
-  onError?:any,
-  fileType?:any,
+  multiple?: boolean,
+  uploadSize?: number,
+  onError?: any,
+  accept: string
 }
 
 
@@ -22,16 +22,16 @@ interface IFileUpload {
 const FileUpload = ({
   width = "100%",
   height = "100%",
-  title = 'სურათის ატვირთვა',
+  title = 'ფაილის ატვირთვა',
   disabled,
   onChange,
   icon,
-  multiple= false,
+  multiple = false,
   uploadSize = 550,
   onError,
-  fileType = "image"
- }: IFileUpload) => {
-  
+  accept
+}: IFileUpload) => {
+
   const [isDragged, setIsDragged] = useState(false);
 
   return (
@@ -39,18 +39,20 @@ const FileUpload = ({
       <div className="upload_container drag-and-drop_image">
         <div className="upload_dashed">
 
-        <input
-            type=""
+          <input
+            type='file'
             id="file-upload"
             disabled={disabled}
             multiple={multiple}
-            onChange={(e) => 
-                {onChange();ReturnFileSize(e,uploadSize,onError,fileType)}}
+            onChange={(e) => {
+              onChange(e);
+              ReturnFileSize(e, uploadSize, onError, accept)
+            }}
             size={uploadSize * 1000}
             onDragOver={() => setIsDragged(true)}
-            onDragLeave={() => setIsDragged(false)} 
-            accept=".jpg, .jpeg, .png"
-        />
+            onDragLeave={() => setIsDragged(false)}
+            accept={accept}
+          />
 
           <label htmlFor="file-upload" className="heading f-size-p5 f-weight-b">
             {icon}
