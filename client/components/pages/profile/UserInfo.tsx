@@ -65,7 +65,11 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
 
 
 
+  const imageUploadHandler = () => {
+    const imgForm = new FormData();
 
+    imgForm.append('img',imageBlob)
+  }
 
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
@@ -119,6 +123,10 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                   height="18rem"
                   disabled={!isEditable ? true : false}
                   icon={<Upload size={20} />}
+                  multiple={true}
+                  uploadSize={25}
+                  onError={(errorType) => console.log(errorType)}
+                  fileType="pdf"
                   onChange={() => uploadAndRead(setImageBlob)}
                 />
               )

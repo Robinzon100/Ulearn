@@ -1,8 +1,5 @@
 .upload_container {
-//   width: 60rem;
-//   height: 30rem;
   background: #ffffff;
-  // margin-top: 14rem;
   box-sizing: border-box;
   box-shadow: 0px 11px 12px -5px rgba(17, 23, 53, 0.06);
   border-radius: 8px;
@@ -25,11 +22,15 @@
   }
 
   .upload_dashed {
-    border: 2px dashed #ebebeb;
+    border: 2px dashed var(--secondary-dark-grey);
     width: 80%;
     height: 60%;
     position: relative;
     @include flex();
+
+    &:hover {
+        border: 2px dashed var(--primary-blue);
+    }
 
     .heading {
       cursor: pointer;
@@ -53,9 +54,3 @@
   }
 }
 
-// .custom-file-upload {
-//     border: 1px solid #ccc;
-//     display: inline-block;
-//     padding: 6px 12px;
-//     cursor: pointer;
-// }
