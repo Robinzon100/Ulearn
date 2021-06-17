@@ -3,6 +3,7 @@ export default {
     user_types: "user_types",
     rating_titles: "rating_titles",
     courses: "courses",
+    course_content: "course_content",
 
     main_categories: "main_categories",
     sub_categories: "sub_categories",

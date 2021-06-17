@@ -27,7 +27,6 @@ export async function up(knex: Knex): Promise<void> {
         table.integer('student_amount').defaultTo(course.student_amount);
         table.jsonb('detailed_rating').notNullable().defaultTo(JSON.stringify(course.detailed_rating))
         table.float('overall_rating');
-        table.jsonb('course_content').notNullable();
         table.jsonb('units_sold').notNullable();
 
         table.float('price');
@@ -36,6 +35,7 @@ export async function up(knex: Knex): Promise<void> {
         table.float('affiliation_price');
         addTimestamps(table);
 
+        references(table, tableNames.course_content, true)
         references(table, tableNames.main_categories, true, 'main_category')
         references(table, tableNames.sub_categories, true, 'sub_category')
         references(table, tableNames.sub_sub_categories, true, 'sub_sub_category')
@@ -49,6 +49,7 @@ export async function down(knex: Knex): Promise<void> {
         [
             tableNames.questions,
             tableNames.comments,
-            tableNames.courses
+            tableNames.courses,
+            tableNames.course_content,
         ].map(async (tableName) => await knex.schema.dropTableIfExists(tableName)))
 }

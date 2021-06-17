@@ -6,7 +6,7 @@ import { sideMenuAnimation } from "components/lib/framer/framerAnimation";
 
 const SideMenu: React.FC<videoList> = ({
   id,
-  title,
+  name,
   courseChapterTime,
   content,
 }) => {
@@ -48,7 +48,7 @@ const SideMenu: React.FC<videoList> = ({
             <p className="f-size-p6">{id + 1}</p>
           </div>
           <div className="card__text">
-            <p className="f-weight-b f-size-p6">{title}</p>
+            <p className="f-weight-b f-size-p6">{name}</p>
           </div>
           <div className="card__time">
             <p className="f-size-p7">{courseChapterTime}m</p>
@@ -71,10 +71,10 @@ const SideMenu: React.FC<videoList> = ({
             onClick={(e) => {
               handleSetFinished(e);
             }}
-            data-title={data.title}>
+            data-title={data.name}>
             <div className="details_heading">
               <p className="f-weight-l f-size-p6">
-                {data.title}
+                {data.name}
                 <span className="f-weight-l f-size-p7">({data.duration}m)</span>
               </p>
             </div>

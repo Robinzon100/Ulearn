@@ -194,13 +194,13 @@ const course = ({ course }) => {
               </div>
 
               <div className="side-menu noselect ">
-                {course.course_content.map((data, i) => (
+                {course.course_content.curriculum.map((data, i) => (
                   <SideMenu
                     id={i}
                     key={i}
-                    title={data.title}
+                    name={data.name}
                     courseChapterTime={45}
-                    content={data.content}
+                    content={data.sub_videos}
                   />
                 ))}
               </div>
@@ -214,6 +214,7 @@ const course = ({ course }) => {
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { courseId } = ctx.params;
   const { course, statusCode } = await getCourse(courseId);
+
 
   if (statusCode != 200) {
     return {
