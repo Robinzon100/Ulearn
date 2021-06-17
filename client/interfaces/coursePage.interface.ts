@@ -14,7 +14,7 @@ export interface AboutCourse {
 //! video content
 interface subTitle {
     id: number,
-    title?: string,
+    name?: string,
     videoUrl?: string,
     duration?: number
 }
@@ -22,7 +22,7 @@ interface subTitle {
 
 export interface videoList {
     id: number;
-    title: string;
+    name: string;
     courseChapterTime?: number;
     displayVideoNames?:any
     content: subTitle[];

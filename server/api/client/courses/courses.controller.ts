@@ -1,6 +1,7 @@
 import { Response, Request, NextFunction } from 'express';
 import Course from '../../../models/course/course.model';
 import customError from '../../../utils/createError';
+import CourseContent from '../../../models/course/courseContent.model';
 
 
 
@@ -9,6 +10,8 @@ export const getSingleCourses = async (req: Request, res: Response, next: NextFu
 
     try {
         const course = await Course.query().where('uuid', uuid)
+        const courseContent = await CourseContent.query().findById(course[0].course_content_id)
+        course[0].course_content = courseContent
 
         if (course)
             return res.status(200).json({

@@ -1,6 +1,7 @@
+import { v4 } from 'uuid';
 
 let course = {
-    detailed_rating: { "5": 0, "4": 0, "3": 0, "2": 0, "1": 0},
+    detailed_rating: { "5": 0, "4": 0, "3": 0, "2": 0, "1": 0 },
     student_amount: 0
 }
 
@@ -40,8 +41,26 @@ let comment = {
 }
 
 
+let courseContent = {
+    curriculum: [
+        {
+            id: 1,
+            name: 'თავის სახელი',
+            sub_videos: [
+                {
+                    id: 1,
+                    name: 'ვიდეოს სახელწოდება',
+                    duration: 15,
+                    video_url: 'https://vimeo.com/431434644'
+                }
+            ]
+        },
+    ],
+}
+
 export {
     course,
+    courseContent,
     user,
     comment
 }

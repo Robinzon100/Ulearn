@@ -29,27 +29,13 @@ export async function seed(knex: Knex): Promise<void> {
             student_amount: 140,
             detailed_rating: JSON.stringify({ "5": 0, "4": 10, "3": 30, "2": 2, "1": 0 }),
             overall_rating: 4.5,
-            course_content: JSON.stringify([
-                {
-                    title: 'ჯავასცრიპტის ძირითადები',
-                    content: [
-                        {
-                            title: 'როგორო მუშაობს ჯავასკრიპტი',
-                            duration: 12
-                        },
-                        {
-                            title: 'როგორო მუშაობს ჯავასკრიპტი',
-                            duration: 12
-                        }
-                    ]
-                }
-            ]),
             units_sold: 25,
             price: 35,
             ulearn_coin_price: 200,
             discount_price: 15,
             affiliation_price: 25,
 
+            course_content_id: 1,
             main_category_id: 1,
             sub_category_id: 1,
             sub_sub_category_id: 1,
@@ -77,27 +63,13 @@ export async function seed(knex: Knex): Promise<void> {
             student_amount: 140,
             detailed_rating: JSON.stringify({ "5": 0, "4": 10, "3": 30, "2": 2, "1": 0 }),
             overall_rating: 4.5,
-            course_content: JSON.stringify([
-                {
-                    title: 'ჯავასცრიპტის ძირითადები',
-                    content: [
-                        {
-                            title: 'როგორო მუშაობს ჯავასკრიპტი',
-                            duration: 12
-                        },
-                        {
-                            title: 'როგორო მუშაობს ჯავასკრიპტი',
-                            duration: 12
-                        }
-                    ]
-                }
-            ]),
             units_sold: 25,
             price: 35,
             ulearn_coin_price: 200,
             discount_price: 15,
             affiliation_price: 25,
 
+            course_content_id: 1,
             main_category_id: 1,
             sub_category_id: 1,
             sub_sub_category_id: 1,
@@ -125,27 +97,13 @@ export async function seed(knex: Knex): Promise<void> {
             student_amount: 140,
             detailed_rating: JSON.stringify({ "5": 0, "4": 10, "3": 30, "2": 2, "1": 0 }),
             overall_rating: 4.5,
-            course_content: JSON.stringify([
-                {
-                    title: 'ჯავასცრიპტის ძირითადები',
-                    content: [
-                        {
-                            title: 'როგორო მუშაობს ჯავასკრიპტი',
-                            duration: 12
-                        },
-                        {
-                            title: 'როგორო მუშაობს ჯავასკრიპტი',
-                            duration: 12
-                        }
-                    ]
-                }
-            ]),
             units_sold: 25,
             price: 35,
             ulearn_coin_price: 200,
             discount_price: 15,
             affiliation_price: 25,
 
+            course_content_id: 1,
             main_category_id: 1,
             sub_category_id: 1,
             sub_sub_category_id: 1,
@@ -173,27 +131,13 @@ export async function seed(knex: Knex): Promise<void> {
             student_amount: 140,
             detailed_rating: JSON.stringify({ "5": 0, "4": 10, "3": 30, "2": 2, "1": 0 }),
             overall_rating: 4.5,
-            course_content: JSON.stringify([
-                {
-                    title: 'ჯავასცრიპტის ძირითადები',
-                    content: [
-                        {
-                            title: 'როგორო მუშაობს ჯავასკრიპტი',
-                            duration: 12
-                        },
-                        {
-                            title: 'როგორო მუშაობს ჯავასკრიპტი',
-                            duration: 12
-                        }
-                    ]
-                }
-            ]),
             units_sold: 25,
             price: 35,
             ulearn_coin_price: 200,
             discount_price: 15,
             affiliation_price: 25,
 
+            course_content_id: 1,
             main_category_id: 1,
             sub_category_id: 1,
             sub_sub_category_id: 1,
@@ -221,27 +165,13 @@ export async function seed(knex: Knex): Promise<void> {
             student_amount: 140,
             detailed_rating: JSON.stringify({ "5": 0, "4": 10, "3": 30, "2": 2, "1": 0 }),
             overall_rating: 4.5,
-            course_content: JSON.stringify([
-                {
-                    title: 'ჯავასცრიპტის ძირითადები',
-                    content: [
-                        {
-                            title: 'როგორო მუშაობს ჯავასკრიპტი',
-                            duration: 12
-                        },
-                        {
-                            title: 'როგორო მუშაობს ჯავასკრიპტი',
-                            duration: 12
-                        }
-                    ]
-                }
-            ]),
             units_sold: 25,
             price: 35,
             ulearn_coin_price: 200,
             discount_price: 15,
             affiliation_price: 25,
 
+            course_content_id: 1,
             main_category_id: 1,
             sub_category_id: 1,
             sub_sub_category_id: 1,
@@ -269,27 +199,13 @@ export async function seed(knex: Knex): Promise<void> {
             student_amount: 140,
             detailed_rating: JSON.stringify({ "5": 0, "4": 10, "3": 30, "2": 2, "1": 0 }),
             overall_rating: 4.5,
-            course_content: JSON.stringify([
-                {
-                    title: 'ჯავასცრიპტის ძირითადები',
-                    content: [
-                        {
-                            title: 'როგორო მუშაობს ჯავასკრიპტი',
-                            duration: 12
-                        },
-                        {
-                            title: 'როგორო მუშაობს ჯავასკრიპტი',
-                            duration: 12
-                        }
-                    ]
-                }
-            ]),
             units_sold: 25,
             price: 35,
             ulearn_coin_price: 200,
             discount_price: 15,
             affiliation_price: 25,
 
+            course_content_id: 1,
             main_category_id: 1,
             sub_category_id: 1,
             sub_sub_category_id: 1,
@@ -317,27 +233,13 @@ export async function seed(knex: Knex): Promise<void> {
             student_amount: 140,
             detailed_rating: JSON.stringify({ "5": 0, "4": 10, "3": 30, "2": 2, "1": 0 }),
             overall_rating: 4.5,
-            course_content: JSON.stringify([
-                {
-                    title: 'ჯავასცრიპტის ძირითადები',
-                    content: [
-                        {
-                            title: 'როგორო მუშაობს ჯავასკრიპტი',
-                            duration: 12
-                        },
-                        {
-                            title: 'როგორო მუშაობს ჯავასკრიპტი',
-                            duration: 12
-                        }
-                    ]
-                }
-            ]),
             units_sold: 25,
             price: 35,
             ulearn_coin_price: 200,
             discount_price: 15,
             affiliation_price: 25,
 
+            course_content_id: 1,
             main_category_id: 1,
             sub_category_id: 1,
             sub_sub_category_id: 1,

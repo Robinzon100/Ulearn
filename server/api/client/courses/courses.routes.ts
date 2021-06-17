@@ -8,6 +8,7 @@ const router = Router(defaultRouterOptions);
 
 //? ROUTES
 import landingCourseRoutes from "./landingCourses/landingCourses.routes";
+import newCourseRoutes from "./newCourse/newCourse.routes";
 
 //? CONTROLLERS
 import { getFilteredCourses, getSingleCourses } from './courses.controller';
@@ -19,8 +20,13 @@ import { getFilteredCourses, getSingleCourses } from './courses.controller';
 
 // ─── ROUTES ─────────────────────────────────────────────────────────────────────
 //? general
-router.post('/filter/:main_category_id?/:sub_category_id?/:sub_sub_category_id?', getFilteredCourses)
 router.get('/:uuid', getSingleCourses)
+
+//? new Course
+router.use('/new_course', newCourseRoutes)
+
+//? filter
+router.post('/filter/:main_category_id?/:sub_category_id?/:sub_sub_category_id?', getFilteredCourses)
 
 
 //? landing
