@@ -27,7 +27,8 @@ const FileUpload = ({
   onChange,
   icon,
   multiple = false,
-  uploadSize = 550,
+  //! UPLOADSIZE იგულისხმება ბაიტებში
+  uploadSize = 55,
   onError,
   accept
 }: IFileUpload) => {
@@ -48,7 +49,7 @@ const FileUpload = ({
               onChange(e);
               ReturnFileSize(e, uploadSize, onError, accept)
             }}
-            size={uploadSize * 1000}
+            size={uploadSize}
             onDragOver={() => setIsDragged(true)}
             onDragLeave={() => setIsDragged(false)}
             accept={accept}

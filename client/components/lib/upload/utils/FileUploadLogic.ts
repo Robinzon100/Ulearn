@@ -2,8 +2,7 @@
 
 export const uploadAndRead = (setImage) => {
   const preview = document.querySelector("#preview");
-  const files =
-    document.querySelector<HTMLInputElement>("input[type=file]").files;
+  const files = document.querySelector<HTMLInputElement>("input[type=file]").files;
 
   function readAndPreview(file) {
     if (/\.(jpe?g|png|gif)$/i.test(file.name)) {
@@ -39,18 +38,26 @@ export const uploadAndRead = (setImage) => {
 
 
 
-export const ReturnFileSize = (e, uploadSize: number, inputError, fileType) => {
+export const ReturnFileSize = (e, uploadSize: number, onError, acceptType) => {
   const inputEl = e.target;
   const inputFiles = [...inputEl.files];
-  const imgUploadSizeInBytes = uploadSize * 1000;
+  const imgUploadSizeInBytes = uploadSize * 1024;
+
+
 
 
   inputFiles.map(file => {
+
     if (!isFileSizesCorrect(file, imgUploadSizeInBytes)) {
-      return inputError('size')
+      return onError('სურათის ზომა ზედმეტად დიდია')
+    }else {
+        onError()
     }
-    if (!isTypeCorrect(file, fileType)) {
-      return inputError('type')
+
+    if (!isTypeCorrect(file, acceptType)) {
+      return onError('სურათი არ შეესაბამება დაშვებულ ფორმატს')
+    }else {
+        onError()
     }
   })
 }

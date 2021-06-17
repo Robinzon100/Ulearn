@@ -24,8 +24,6 @@ import { updateUserProfile } from "actions/client/user/profile/profile.action";
 import { authenticatedRequest } from "components/utils/auth/tokenValidations";
 import { uploadAndRead } from "components/lib/upload/utils/FileUploadLogic";
 import NextLink from '../../utils/nextLink/NextLink';
-import { b64toBlob } from 'components/utils/file/blob.utils';
-
 
 
 
@@ -39,20 +37,25 @@ type IFormInput = {
 };
 
 
-let profileImage
-
-
 const UserInfo = ({ full_name, email, description, socials, image_url }) => {
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<IFormInput>();
+
+
   const [isVerificated, setIsVerificated] = useState(false);
   const [userSocials, setUserSocials] = useState([]);
-
   const [isEditable, setIsEditable] = useState(false);
+
+
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
   const [isConfirmPasswordHidden, setConfirmIsPasswordHidden] = useState(true);
 
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<IFormInput>();
-  const [userInfo,] = useState({ full_name, email, description });
+
+  const [userInfo,setUserInfo] = useState({ full_name, email, description });
   const [imageBase64, setImageBase64] = useState<string>(image_url)
+  
+  
+  const [fileUploadError, setFileUploadError] = useState("");
+  
 
 
 
@@ -63,15 +66,27 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
 
 
 
-  // const imageUploadHandler = () => {
-
-  // }
 
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     const updatedData = await removeEmptyValuedEntries(data);
-    const res = await authenticatedRequest(updateUserProfile, updatedData, null);
     const imgForm = new FormData();
+    
+    if(!fileUploadError) {
+        const res = await authenticatedRequest(updateUserProfile, updatedData, null);
+        
+
+        if (res.statusCode == 200) {
+            setUserInfo({
+                full_name:res.update.full_name, 
+                email:res.update.email,
+                description:res.update.description
+            })
+            parseSocials(res.update.socials, setUserSocials);
+            setIsEditable(false)
+        }
+    }
+
 
     fetch(imageBase64)
       .then(res => {
@@ -80,12 +95,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
       .then(blob => {
         imgForm.append('user_profile_image', blob);
       });
-
-
-    if (res.statusCode == 200) {
-      setIsEditable(false)
-    }
-  };
+    };
 
 
 
@@ -127,8 +137,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                   height="18rem"
                   disabled={!isEditable ? true : false}
                   icon={<Upload size={20} />}
-                  uploadSize={20}
-                  onError={(errorType) => console.error(errorType)}
+                  onError={(errorType) => setFileUploadError(errorType)}
                   accept=".pdf,.png,.jpg"
                   onChange={() => {
                     uploadAndRead(setImageBase64)
@@ -137,6 +146,15 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
               )
             }
 
+
+
+        {isEditable && (
+            <div className="fileUpload-errors">
+                <p className="form_errors f-size-p6 f-weight-r">
+                    {fileUploadError}
+                </p>
+            </div>
+        )}
 
 
 
@@ -163,7 +181,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                         color="white"
                         size="medium"
                         type="text"
-                        placeHolder={userInfo.full_name}
+                        placeHolder={full_name}
                         width="100%"
                         isFocused={true}
                         readonly={!isEditable ? true : false}
@@ -204,7 +222,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                         minHeight="18rem"
                         characterMaxSize={250}
                         isFocused={true}
-                        placeHolder={userInfo.description}
+                        placeHolder={description}
                         readonly={!isEditable ? true : false}
                         {...register("description")}
                       />
@@ -248,7 +266,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                         type="text"
                         width="100%"
                         isFocused={true}
-                        placeHolder={userInfo.email}
+                        placeHolder={email}
                         readonly={!isEditable ? true : false}
                         {...register("email", {
                           pattern: {

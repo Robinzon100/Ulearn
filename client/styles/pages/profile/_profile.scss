@@ -24,7 +24,15 @@
   }
 
   .user-profile-info {
+
+    
+    .fileUpload-errors{
+        margin-top: 2rem;
+    }
+
+    
     &__container {
+        
 
       //   height: 100vh;
       .user-profile {
@@ -58,6 +66,8 @@
             border-bottom-left-radius: 100px;
             border-bottom-right-radius: 100px;
           }
+
+
 
           .verification-star {
             position: absolute;
