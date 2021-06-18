@@ -34,7 +34,7 @@ const Card = ({
   });
 
 
-  
+
   const [addToFavorites, setAddToFavorites] = useState<boolean>(isLiked);
   const [favoriteMessageState, setFavoriteMessageState] = useState(false);
 
@@ -54,19 +54,20 @@ const Card = ({
 
   return (
     <>
-      <div
-        ref={selfRef}
-        className="PrimaryContentCard"
-        key={uuid}
-        onMouseLeave={() => setIsClicked(null)}>
-        <NextLink route={`/course/${uuid}`}>
+      <NextLink route={`/course/${uuid}`}>
+
+        <div
+          ref={selfRef}
+          className="PrimaryContentCard"
+          key={uuid}
+          onMouseLeave={() => setIsClicked(null)}>
           <div
             className={"PrimaryContentCard__img"}
             style={{ backgroundImage: `url(${thumbnail_imageUrl})` }}>
             <div className="price-tag">
               <div className="normal-price">
                 <p className="f-weight-b f-size-p3">
-                  {discount_price}
+                  {discount_price != null ? discount_price : null}
                   <span style={{ color: "#00E267", fontWeight: "bold" }}>
                     &#8382;
                   </span>
@@ -75,9 +76,9 @@ const Card = ({
 
 
 
-              <div className=" removed-price-tag">
+              <div className="removed-price-tag">
                 {checkNewPrice && (
-                  <div className="removed-price-tag">
+                  <div className={`${discount_price != null ? '' : ''}`}>
                     <p className="f-weight-b f-size-p3">
                       {price}
                       <span style={{ color: "#00E267", fontWeight: "bold" }}>
@@ -98,93 +99,94 @@ const Card = ({
               {stringToCut(name, 50)}
             </p>
           </div>
-        </NextLink>
-        <div
-          className="course_card_hover_logo course_card_hover_logo_mobile"
-          onClick={(e) =>
-            cardHoverHandler(
-              e,
-              selfRef,
-              elProperties,
-              setElProperties,
-              setIsClicked
-            )
-          }
-        >
-          <div className={isClicked ? "card_detail" : "card_detail-display"}>
-            {
-              <CardDetail
-                id={id}
-                name={name}
-                created_at={created_at}
-                difficulty={difficulty}
-                description={description}
-              />
-            }
-          </div>
-        </div>
 
-
-
-        <div className="PrimaryContentCard__raiting">
-          <div className="PrimaryContentCard__raiting--container">
-            <div className="star">
-              <Star
-                key={id}
-                style={{ fill: "#FFD703", color: "#FFD703" }}
-                size={16}
-              />
-            </div>
-
-
-
-            <div className="numbers">
-              <p className="f-weight-r f-size-p5">
-                {overall_rating}
-                <span
-                  style={{ opacity: "50%" }}
-                  className="f-weight-r f-size-p6"
-                >
-                  ({numberOfVotes})
-                </span>
-              </p>
-            </div>
-          </div>
-
-
-
-          <div className="PrimaryContentCard__raiting--name">
-            <NextLink route="/#">
-              <p className="f-weight-b f-size-p5">
-                {/* {stringToCut(creator, 25)} */}
-              </p>
-            </NextLink>
-          </div>
-        </div>
-
-
-        
-
-        <div className="PrimaryContentCard__like">
           <div
-            data-card-like-status={addToFavorites}
-            className="stroke-heart-svg"
-            onClick={() => handleCourseLike()}
-            onMouseEnter={() => setFavoriteMessageState(true)}
-            onMouseLeave={() => setFavoriteMessageState(false)}>
+            className="course_card_hover_logo course_card_hover_logo_mobile"
+            onClick={(e) =>
+              cardHoverHandler(
+                e,
+                selfRef,
+                elProperties,
+                setElProperties,
+                setIsClicked
+              )
+            }
+          >
+            <div className={isClicked ? "card_detail" : "card_detail-display"}>
+              {
+                <CardDetail
+                  id={id}
+                  name={name}
+                  created_at={created_at}
+                  difficulty={difficulty}
+                  description={description}
+                />
+              }
+            </div>
+          </div>
+
+
+
+          <div className="PrimaryContentCard__raiting">
+            <div className="PrimaryContentCard__raiting--container">
+              <div className="star">
+                <Star
+                  key={id}
+                  style={{ fill: "#FFD703", color: "#FFD703" }}
+                  size={16}
+                />
+              </div>
+
+
+
+              <div className="numbers">
+                <p className="f-weight-r f-size-p5">
+                  {overall_rating}
+                  <span
+                    style={{ opacity: "50%" }}
+                    className="f-weight-r f-size-p6"
+                  >
+                    ({numberOfVotes})
+                  </span>
+                </p>
+              </div>
+            </div>
+
+
+
+            <div className="PrimaryContentCard__raiting--name">
+              <NextLink route="/#">
+                <p className="f-weight-b f-size-p5">
+                  {/* {stringToCut(creator, 25)} */}
+                </p>
+              </NextLink>
+            </div>
+          </div>
+
+
+
+
+          <div className="PrimaryContentCard__like">
             <div
-              className="remove-from-favorites noselect"
-              data-like-status={favoriteMessageState}>
-              <p className="f-size-p8 pf-weight-m">
-                {favoriteMessageState ? addToFavorites
+              data-card-like-status={addToFavorites}
+              className="stroke-heart-svg"
+              onClick={() => handleCourseLike()}
+              onMouseEnter={() => setFavoriteMessageState(true)}
+              onMouseLeave={() => setFavoriteMessageState(false)}>
+              <div
+                className="remove-from-favorites noselect"
+                data-like-status={favoriteMessageState}>
+                <p className="f-size-p8 pf-weight-m">
+                  {favoriteMessageState ? addToFavorites
                     ? "ფავორიტებიდან ამოღება"
                     : "ფავორიტებში დამატება"
                     : "ფავორიტებიდან ამოღება"}
-              </p>
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </NextLink>
     </>
   );
 };

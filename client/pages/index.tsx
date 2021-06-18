@@ -7,7 +7,9 @@ import CourseCards from "components/pages/Index/CourseCards";
 import { Observer } from "mobx-react-lite";
 
 //* ACTIONS 
-import { getAllCourseVideos } from "actions/client/course/landingPage/landing.courses.action"
+import { getAllCourseVideos, getAllUserCourseVideos } from "actions/client/course/landingPage/landing.courses.action"
+import { authenticatedRequest } from '../components/utils/auth/tokenValidations';
+import cookie from 'cookie';
 
 
 
@@ -19,7 +21,7 @@ const Index = ({ data }) => {
       {() => (
         <>
           <Hero />
-          <CourseCards 
+          <CourseCards
             landingCourse={data}
           />
         </>
@@ -30,16 +32,22 @@ const Index = ({ data }) => {
 
 
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const { auth_access_token } = cookie.parse(ctx.req.headers.cookie)
+  let landingCourse = null
 
-    const landingCourse = await getAllCourseVideos();
-    
+  if (auth_access_token && auth_access_token.length > 0 ) {
+    landingCourse = await authenticatedRequest(getAllUserCourseVideos, null, ctx);
+  } else {
+    landingCourse = await getAllCourseVideos()
+  }
 
-    return {
-        props: {
-            data:landingCourse
-        }
+
+  return {
+    props: {
+      data: landingCourse
     }
+  }
 }
 
 

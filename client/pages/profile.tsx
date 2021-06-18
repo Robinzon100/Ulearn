@@ -28,7 +28,7 @@ const profile = ({ user }) => {
                         email={user.email}
                         socials={user.socials}
                         description={user.description}
-                        image_url={user.image_url}
+                        image_url={user.image_url != 'null' ? "./pictures/profile/profile_banner_final.png" : user.image_url}
                     />
 
                     <ProfileTabs user={user} />

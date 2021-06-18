@@ -135,7 +135,7 @@ const Navigation = () => {
             {/* //* ======= BECOME LECTURE ===== */}
 
             <div className="become-lectore">
-              <NextLink route="/myCourses" className="link">
+              <NextLink route="/myCourse" className="link">
                 <p className="f-weight-r f-size-p6">ლექტორი</p>
               </NextLink>
             </div>

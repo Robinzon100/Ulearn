@@ -138,7 +138,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
               (
                 <FileUpload
                   height="18rem"
-                  uploadSize={55}
+                  uploadSize={600}
                   disabled={!isEditable ? true : false}
                   icon={<Upload size={20} />}
                   onError={(errorType) => setFileUploadError(errorType)}
@@ -170,7 +170,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
 
 
         {/* // FILE UPLOAD */}
-        {imageBase64 && 
+        {/* {imageBase64 && 
             <div className="fileProperties">
 
                 <h1 className="f-size-p5 f-weight-r file_size">
@@ -185,7 +185,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                     ფორმატი: {fileProperties.type}
                 </h1>
             </div>  
-        }
+        } */}
         
 
 

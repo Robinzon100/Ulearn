@@ -63,8 +63,8 @@ const Hero: FC = () => {
                   width="0"
                   transform="translate(90,0)"
                 >
-                  <feGaussianBlur stdDeviation="15" />
-                  <feOffset dx="0" dy="10" result="B" />
+                  <feGaussianBlur stdDeviation="20" />
+                  <feOffset dx="0" dy="20" result="B" />
                   <feMerge>
                     <feMergeNode in="B" />
                     <feMergeNode in="SourceGraphic" />

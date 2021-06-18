@@ -37,6 +37,7 @@ const ProfileTabs = ({user}) => {
                                             creator={card.id}
                                             overall_rating={card.overall_rating}
                                             numberOfVotes={20}
+                                            isLiked={true}
                                             bestseller={card.bestseller}
                                             discount_price={card.discount_price}
                                             created_at={card.created_at}

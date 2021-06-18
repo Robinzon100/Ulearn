@@ -52,7 +52,7 @@ const CourseCards = ({ landingCourse }) => {
           <div className="landing_courses">
             <InputSelectComponent />
 
-            
+
             <Overlay CardsJson={CardsJson} />
 
             <div className="landing_courses--cards">
@@ -64,7 +64,11 @@ const CourseCards = ({ landingCourse }) => {
                   id={card.id}
                   name={card.title}
                   price={card.price}
-                  isLiked={true}
+                  isLiked={
+                    landingCourse.liked_courses_ids
+                    &&
+                    landingCourse.liked_courses_ids.includes(card.id)
+                  }
                   thumbnail_imageUrl={card.thumbnail_imageUrl}
                   creator={card.id}
                   overall_rating={card.overall_rating}

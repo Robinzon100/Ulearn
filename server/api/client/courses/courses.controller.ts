@@ -28,6 +28,7 @@ export const getSingleCourses = async (req: Request, res: Response, next: NextFu
 
 
 
+
 export const getFilteredCourses = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { params } = req
@@ -52,6 +53,5 @@ export const getFilteredCourses = async (req: Request, res: Response, next: Next
     } catch (err: any) {
         customError(res, next, err.message)
     }
-
 }
 

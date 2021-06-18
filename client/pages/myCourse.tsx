@@ -61,7 +61,7 @@ const Courses = () => {
                   <SideMenu
                     id={i}
                     key={i}
-                    title={data.title}
+                    name={data.title}
                     courseChapterTime={45}
                     content={data.subTitles}
                   />
