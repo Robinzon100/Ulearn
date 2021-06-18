@@ -168,6 +168,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
 
 
 
+        {/*!! // tu surati ais mashin chans gaaswore */}
 
         {/* // FILE UPLOAD */}
         {/* {imageBase64 && 
@@ -185,8 +186,13 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                     ფორმატი: {fileProperties.type}
                 </h1>
             </div>  
+<<<<<<< HEAD
         } */}
         
+=======
+        }
+         */}
+>>>>>>> 9c3369ba222e53b05dcbf65307f21b0e5649d834
 
 
 

@@ -28,7 +28,11 @@ const profile = ({ user }) => {
                         email={user.email}
                         socials={user.socials}
                         description={user.description}
+<<<<<<< HEAD
                         image_url={user.image_url != 'null' ? "./pictures/profile/profile_banner_final.png" : user.image_url}
+=======
+                        image_url={"https://images.pexels.com/photos/3310695/pexels-photo-3310695.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"}
+>>>>>>> 9c3369ba222e53b05dcbf65307f21b0e5649d834
                     />
 
                     <ProfileTabs user={user} />

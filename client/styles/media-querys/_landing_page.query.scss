@@ -15,9 +15,16 @@
 }
 
 @media screen and (max-width: $large-screen) {
+
     .hero--video {
         video {
           margin-left: -21vw !important;
+        }
+    }
+
+    .landing_courses {
+        &--cards {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
         }
     }
 }
