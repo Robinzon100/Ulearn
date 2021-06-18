@@ -37,6 +37,9 @@ type IFormInput = {
 };
 
 
+
+
+
 const UserInfo = ({ full_name, email, description, socials, image_url }) => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm<IFormInput>();
 
@@ -56,7 +59,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
   
   const [fileUploadError, setFileUploadError] = useState("");
   
-
+  const [fileProperties, setFileProperties] = useState({name:"",size: 0 ,type:""})
 
 
 
@@ -135,9 +138,13 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
               (
                 <FileUpload
                   height="18rem"
+                  uploadSize={55}
                   disabled={!isEditable ? true : false}
                   icon={<Upload size={20} />}
                   onError={(errorType) => setFileUploadError(errorType)}
+                  fileProperties={
+                        (name,size,type) => setFileProperties({name:name,size:size,type:type})
+                  }
                   accept=".pdf,.png,.jpg"
                   onChange={() => {
                     uploadAndRead(setImageBase64)
@@ -148,6 +155,8 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
 
 
 
+
+
         {isEditable && (
             <div className="fileUpload-errors">
                 <p className="form_errors f-size-p6 f-weight-r">
@@ -155,6 +164,30 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                 </p>
             </div>
         )}
+
+
+
+
+
+        {/* // FILE UPLOAD */}
+        {imageBase64 && 
+            <div className="fileProperties">
+
+                <h1 className="f-size-p5 f-weight-r file_size">
+                    სახელი: {fileProperties.name}
+                </h1>
+
+                <h1 className="f-size-p5 f-weight-r">
+                    ზომა: {fileProperties.size} kb
+                </h1>
+
+                <h1 className="f-size-p5 f-weight-r">
+                    ფორმატი: {fileProperties.type}
+                </h1>
+            </div>  
+        }
+        
+
 
 
 

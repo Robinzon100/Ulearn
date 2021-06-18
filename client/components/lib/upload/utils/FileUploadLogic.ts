@@ -34,28 +34,23 @@ export const uploadAndRead = (setImage) => {
 
 
 
-
-
-
-
-export const ReturnFileSize = (e, uploadSize: number, onError, acceptType) => {
+export const ReturnFileSizeAndType = (e, uploadSize: number, onError, acceptType,fileProperties) => {
   const inputEl = e.target;
   const inputFiles = [...inputEl.files];
-  const imgUploadSizeInBytes = uploadSize * 1024;
 
 
+  inputFiles.map(file => { 
+    fileProperties(file.name,Math.floor(file.size / 1000),file.type)
 
 
-  inputFiles.map(file => {
-
-    if (!isFileSizesCorrect(file, imgUploadSizeInBytes)) {
-      return onError('სურათის ზომა ზედმეტად დიდია')
+    if (!isFileSizesCorrect(file, uploadSize)) {
+      return onError('ფაილის ზომა ზედმეტად დიდია')
     }else {
         onError()
     }
 
     if (!isTypeCorrect(file, acceptType)) {
-      return onError('სურათი არ შეესაბამება დაშვებულ ფორმატს')
+      return onError('ფაილის არ შეესაბამება დაშვებულ ფორმატს')
     }else {
         onError()
     }
@@ -66,7 +61,9 @@ export const ReturnFileSize = (e, uploadSize: number, onError, acceptType) => {
 const isFileSizesCorrect = (file: any, size: number): boolean => {
   let isCorrect
 
-  if (file.size > size) {
+  console.log(Math.floor(file.size / 1000))
+  console.log(size)
+  if (Math.floor(file.size / 1000) > size) {
     isCorrect = false
   } else {
     isCorrect = true

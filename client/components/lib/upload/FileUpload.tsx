@@ -1,7 +1,9 @@
-import { useState, ReactNode, useRef } from 'react';
+import { useState, ReactNode } from 'react';
 
 
-import { ReturnFileSize } from "components/lib/upload/utils/FileUploadLogic"
+import { ReturnFileSizeAndType } from "components/lib/upload/utils/FileUploadLogic"
+
+
 
 interface IFileUpload {
   width?: string,
@@ -11,9 +13,10 @@ interface IFileUpload {
   disabled?: boolean,
   icon?: ReactNode,
   multiple?: boolean,
-  uploadSize?: number,
-  onError?: any,
+  uploadSize: number,
+  onError: any,
   accept: string
+  fileProperties?:any;
 }
 
 
@@ -28,9 +31,10 @@ const FileUpload = ({
   icon,
   multiple = false,
   //! UPLOADSIZE იგულისხმება ბაიტებში
-  uploadSize = 55,
+  uploadSize = 50,
   onError,
-  accept
+  accept,
+  fileProperties
 }: IFileUpload) => {
 
   const [isDragged, setIsDragged] = useState(false);
@@ -47,7 +51,7 @@ const FileUpload = ({
             multiple={multiple}
             onChange={(e) => {
               onChange(e);
-              ReturnFileSize(e, uploadSize, onError, accept)
+              ReturnFileSizeAndType(e, uploadSize, onError, accept,fileProperties)
             }}
             size={uploadSize}
             onDragOver={() => setIsDragged(true)}

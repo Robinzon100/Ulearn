@@ -30,6 +30,13 @@
         margin-top: 2rem;
     }
 
+    .fileProperties {
+        margin-top: 2rem;
+        .file_size {
+            word-break: break-all;
+        }
+    }
+
     
     &__container {
         
