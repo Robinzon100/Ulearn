@@ -74,7 +74,7 @@ const SideMenu: React.FC<videoList> = ({
             data-title={data.name}>
             <div className="details_heading">
               <p className="f-weight-l f-size-p6">
-                {data.name}
+                {data.title}
                 <span className="f-weight-l f-size-p7">({data.duration}m)</span>
               </p>
             </div>

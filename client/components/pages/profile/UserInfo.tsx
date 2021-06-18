@@ -168,9 +168,10 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
 
 
 
+        {/*!! // tu surati ais mashin chans gaaswore */}
 
         {/* // FILE UPLOAD */}
-        {imageBase64 && 
+        {/* {imageBase64 && 
             <div className="fileProperties">
 
                 <h1 className="f-size-p5 f-weight-r file_size">
@@ -186,7 +187,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                 </h1>
             </div>  
         }
-        
+         */}
 
 
 
