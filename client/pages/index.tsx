@@ -32,26 +32,26 @@ const Index = ({ data }) => {
 
 
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const { auth_access_token } = cookie.parse(ctx.req.headers.cookie)
-  let landingCourse = null
+// export const getServerSideProps: GetServerSideProps = async (ctx) => {
+//   const { auth_access_token } = cookie.parse(ctx.req.headers.cookie)
+//   let landingCourse = null
 
-  if (auth_access_token && auth_access_token.length > 0) {
-    landingCourse = await authenticatedRequest(getAllUserCourseVideos, null, ctx);
-    if (landingCourse == undefined) {
-      landingCourse = await getAllCourseVideos()
-    }
-  } else {
-    landingCourse = await getAllCourseVideos()
-  }
+//   if (auth_access_token && auth_access_token.length > 0) {
+//     landingCourse = await authenticatedRequest(getAllUserCourseVideos, null, ctx);
+//     if (landingCourse == undefined) {
+//       landingCourse = await getAllCourseVideos()
+//     }
+//   } else {
+//     landingCourse = await getAllCourseVideos()
+//   }
 
 
-  return {
-    props: {
-      data: landingCourse
-    }
-  }
-}
+//   return {
+//     props: {
+//       data: landingCourse
+//     }
+//   }
+// }
 
 
 
