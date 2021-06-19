@@ -6,6 +6,10 @@ import { getHashedPassword } from '../../../../utils/auth/auth.util';
 import Course from '../../../../models/course/course.model';
 import { cloudUploadFile } from "../../../../utils/aws/s3/s3.utils";
 
+import fs from "fs";
+import util from "util";
+const unlinkFile = util.promisify(fs.unlink)
+
 
 
 
@@ -85,7 +89,9 @@ export const getUser = async (req: Request, res: Response, next: NextFunction) =
 
 
 export const uploadUserImage = async (req: Request, res: Response, next: NextFunction) => {
+    const { file } = req
     const s3Res = await cloudUploadFile(req.file);
+    unlinkFile(`${file?.path}`)
 
     res.json(
         {
