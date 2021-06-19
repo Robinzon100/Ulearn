@@ -64,7 +64,7 @@
         "Lists": [
             {
                 "id":1,
-                "title": "ჯავასკრიპტის ძირითადები",
+                "name": "ჯავასკრიპტის ძირითადები",
                 "courseChapterTime": 20,
                 "subTitles": [
                     {
@@ -85,7 +85,7 @@
             },
             {
                 "id":2,
-                "title": "საიტის მანიპულირება",
+                "name": "საიტის მანიპულირება",
                 "courseChapterTime":15,
                 "subTitles": [
                     {

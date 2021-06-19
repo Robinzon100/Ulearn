@@ -7,13 +7,10 @@ import SideMenu from "components/lib/sidemenu/sideMenu";
 import CourseVideoPlayer from '../components/pages/myCourse/CourseVideoPlayer';
 import CoursesJson from "../public/json/Courses.json";
 import CourseTabContent from "components/pages/myCourse/course_tabs/CourseTabContent";
-// import {displayVideoNames} from "components/pages/myCourse/course_tabs/utils/DisplayVideoNames";
-
 
 
 const Courses = () => {
   const videoLists = CoursesJson.videoLists.Lists;
-//   const [displayName, setDisplayName] = useState<string | null>("ვიდეო გაკვეთილები");
 
 
   return (
@@ -61,7 +58,7 @@ const Courses = () => {
                   <SideMenu
                     id={i}
                     key={i}
-                    name={data.title}
+                    name={data.name}
                     courseChapterTime={45}
                     content={data.subTitles}
                   />

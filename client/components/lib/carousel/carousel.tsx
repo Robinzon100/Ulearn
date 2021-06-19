@@ -5,14 +5,9 @@ import { mouseDown, mouseMove, mouseLeave, mouseUp, sideScroll } from "component
 
 
 
-export interface CarouselInterface {
-  categories: any,
-  CarouselImgs: any
-}
 
 
-
-const Carousel: React.FC<CarouselInterface> = ({ categories }) => {
+const Carousel = ({ categories }) => {
   const [isDown, setIsDown] = useState<boolean>(false);
   const [isFinishedScrolling, setIsFinishedScrolling] = useState<boolean>(false);
   const [startX, setStartX] = useState<number>(0);

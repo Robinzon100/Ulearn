@@ -116,6 +116,8 @@
       border-radius: 50%;
     }
 
+
+
     .label {
       padding: 5px 21px 5px 21px;
       background-color: var(--primary-green);
@@ -140,6 +142,7 @@
       display: flex !important;
       justify-content: center;
       align-items: center;
+      overflow: hidden;
     }
 
     .remove-from-favorites {
@@ -158,6 +161,7 @@
       p {
         color: var(--primary-white);
       }
+
     }
   }
 }
