@@ -15,7 +15,7 @@ const readAndPreview = async (file, result) => {
 
 
 export const uploadAndRead = async (e: React.FormEvent<HTMLInputElement>) => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve, _) => {
     const file = e.currentTarget.files[0];
     readAndPreview(file, (result) => {
       resolve(result)

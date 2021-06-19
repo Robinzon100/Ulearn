@@ -54,8 +54,8 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
 
 
   // FILE STATES
-  const [imageBase64, setImageBase64] = useState<string>(image_url);
-  const [isUpload, setIsUpload] = useState(false)
+  const [, setImageBase64] = useState<string>(image_url);
+  const [, setIsUpload] = useState(false)
   const [fileUploadError, setFileUploadError] = useState("");
   const [fileProperties, setFileProperties] = useState({ name: "", size: 0, type: "", base64: '' })
 
