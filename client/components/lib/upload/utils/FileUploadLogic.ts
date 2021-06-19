@@ -1,25 +1,22 @@
 
 
-export const uploadAndRead = (setImage) => {
-  const preview = document.querySelector("#preview");
-  const files = document.querySelector<HTMLInputElement>("input[type=file]").files;
+export const uploadAndRead = (e: React.FormEvent<HTMLInputElement>) => {
+  const files = e.currentTarget.files;
+
 
   function readAndPreview(file) {
     if (/\.(jpe?g|png|gif)$/i.test(file.name)) {
+
       const reader = new FileReader();
 
       reader.addEventListener("load", function () {
-        const image = new Image() as HTMLImageElement;
+           const base64 = reader.result as string;
+            return base64;
 
-        image.title = file.name;
-        image.src = reader.result as string;
-        setImage((reader.result));
-
-        preview?.appendChild(image);
-      },
+        },
         false
       );
-
+        
       reader.readAsDataURL(file);
     }
   }
@@ -40,20 +37,18 @@ export const ReturnFileSizeAndType = (e, uploadSize: number, onError, acceptType
 
 
   inputFiles.map(file => { 
-    fileProperties(file.name,Math.floor(file.size / 1000),file.type)
-
-
-    if (!isFileSizesCorrect(file, uploadSize)) {
-      return onError('ფაილის ზომა ზედმეტად დიდია')
-    }else {
-        onError()
-    }
-
-    if (!isTypeCorrect(file, acceptType)) {
-      return onError('ფაილის არ შეესაბამება დაშვებულ ფორმატს')
-    }else {
-        onError()
-    }
+      
+    if (!isFileSizesCorrect(file, uploadSize)) 
+        return onError('ფაილის ზომა ზედმეტად დიდია, თქვენი ფაილის ზომაა ' + Math.floor(file.size / 1000) + " kb")
+    
+    
+    if (!isTypeCorrect(file, acceptType)) 
+        return onError('ფაილის არ შეესაბამება დაშვებულ ფორმატს')
+    
+    
+    fileProperties(file.name,Math.floor(file.size / 1000),file.type,uploadAndRead(e))
+    console.log(uploadAndRead(e))
+    return onError();
   })
 }
 
@@ -61,9 +56,8 @@ export const ReturnFileSizeAndType = (e, uploadSize: number, onError, acceptType
 const isFileSizesCorrect = (file: any, size: number): boolean => {
   let isCorrect
 
-  console.log(Math.floor(file.size / 1000))
-  console.log(size)
   if (Math.floor(file.size / 1000) > size) {
+
     isCorrect = false
   } else {
     isCorrect = true

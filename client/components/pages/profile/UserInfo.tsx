@@ -43,24 +43,21 @@ type IFormInput = {
 const UserInfo = ({ full_name, email, description, socials, image_url }) => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm<IFormInput>();
 
-
+  // VERIFICATION STATES
   const [isVerificated, setIsVerificated] = useState(false);
   const [userSocials, setUserSocials] = useState([]);
   const [isEditable, setIsEditable] = useState(false);
-
-
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
   const [isConfirmPasswordHidden, setConfirmIsPasswordHidden] = useState(true);
-
-
   const [userInfo,setUserInfo] = useState({ full_name, email, description });
-  const [imageBase64, setImageBase64] = useState<string>(image_url)
-  
-  
-  const [fileUploadError, setFileUploadError] = useState("");
-  
-  const [fileProperties, setFileProperties] = useState({name:"",size: 0 ,type:""})
 
+
+  // FILE STATES
+  const [imageBase64, setImageBase64] = useState<string>(image_url);
+  const [isUpload, setIsUpload] = useState(false)
+  const [fileUploadError, setFileUploadError] = useState("");
+  const [fileProperties, setFileProperties] = useState({name:"",size: 0 ,type:"",base64:image_url})
+  const [uploadSize, setUploadSize] = useState<number>(0)
 
 
   useEffect(() => {
@@ -99,6 +96,8 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
       .then(blob => {
         imgForm.append('user_profile_image', blob);
       });
+
+
     };
 
 
@@ -111,8 +110,10 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
       <div className="user-profile-info">
         <div className="user-profile-info__container">
           <div className="user-profile">
-            <div
-              className="picture" style={{ backgroundImage: `url(${imageBase64})` }}>
+
+            <div className="picture" style={{ backgroundImage: `url(${fileProperties.base64})` }}>
+
+
               <motion.div
                 variants={toggleVerification}
                 initial={{ maxWidth: "4.2rem", width: "100%" }}
@@ -144,11 +145,12 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                   icon={<Upload size={20} />}
                   onError={(errorType) => setFileUploadError(errorType)}
                   fileProperties={
-                        (name,size,type) => setFileProperties({name:name,size:size,type:type})
+                        (name,size,type,base64) => 
+                        setFileProperties({name:name,size:size,type:type,base64:base64})
                   }
                   accept=".pdf,.png,.jpg"
-                  onChange={() => {
-                    uploadAndRead(setImageBase64)
+                  onChange={(e) => {
+                    uploadAndRead(e)
                   }}
                 />
               )
@@ -172,7 +174,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
         {/*!! // tu surati ais mashin chans gaaswore */}
 
         {/* // FILE UPLOAD */}
-        {imageBase64 && 
+        {isUpload && 
             <div className="fileProperties">
 
                 <h1 className="f-size-p5 f-weight-r file_size">
@@ -585,6 +587,8 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
               <div className="cancel-btn">
                 <Button
                   onClick={() => {
+                    setImageBase64(image_url)
+                    setIsUpload(false)
                     setIsEditable(false);
                     reset({
                       full_name: "",
