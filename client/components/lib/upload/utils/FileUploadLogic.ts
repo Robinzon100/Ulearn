@@ -13,7 +13,7 @@ export const uploadAndRead = (setImage) => {
 
         image.title = file.name;
         image.src = reader.result as string;
-        setImage(reader.result);
+        setImage((reader.result));
 
         preview?.appendChild(image);
       },

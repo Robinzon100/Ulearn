@@ -75,10 +75,11 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
     const updatedData = await removeEmptyValuedEntries(data);
     const imgForm = new FormData();
     
+
     if(!fileUploadError) {
         const res = await authenticatedRequest(updateUserProfile, updatedData, null);
         
-
+  
         if (res.statusCode == 200) {
             setUserInfo({
                 full_name:res.update.full_name, 
@@ -171,7 +172,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
         {/*!! // tu surati ais mashin chans gaaswore */}
 
         {/* // FILE UPLOAD */}
-        {/* {imageBase64 && 
+        {imageBase64 && 
             <div className="fileProperties">
 
                 <h1 className="f-size-p5 f-weight-r file_size">
@@ -187,7 +188,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                 </h1>
             </div>  
         }
-         */}
+        
 
 
 
@@ -215,7 +216,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                         color="white"
                         size="medium"
                         type="text"
-                        placeHolder={full_name}
+                        placeHolder={userInfo.full_name}
                         width="100%"
                         isFocused={true}
                         readonly={!isEditable ? true : false}
@@ -256,7 +257,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                         minHeight="18rem"
                         characterMaxSize={250}
                         isFocused={true}
-                        placeHolder={description}
+                        placeHolder={userInfo.description}
                         readonly={!isEditable ? true : false}
                         {...register("description")}
                       />
@@ -300,13 +301,15 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                         type="text"
                         width="100%"
                         isFocused={true}
-                        placeHolder={email}
+                        placeHolder={userInfo.email}
                         readonly={!isEditable ? true : false}
                         {...register("email", {
                           pattern: {
                             value: emailRegex,
                             message: "სწორად ჩაწერეთ თქვენი ელექტრონული ფოსტა",
                           },
+                        //   validate: () => getValues("email") === userInfo.email
+                        //         || 'ელექტრონული ფოსტები არ უნდა ემთხვეოდეს ერთმანეთს',
                         })}
                       />
 

@@ -79,7 +79,7 @@ $margin-top: 4rem;
 
       .ratings {
         display: grid;
-        grid-template-columns: repeat(2, auto);
+        grid-template-columns: .8fr 1fr;
 
         .lines_stars {
           .rating_lines {
@@ -95,10 +95,12 @@ $margin-top: 4rem;
 
         &__with-number {
           margin-top: -1.5vw;
+          @include flex(center,initial,column);
 
-          & > div {
-            width: 82%;
-          }
+
+        &--heading {
+            margin-right: 7rem;
+        }
 
           &--voice {
             @include flex(initial, center, initial);
