@@ -4,6 +4,7 @@ import customError from '../../../../utils/createError';
 import bcrypt from 'bcrypt';
 import { getHashedPassword } from '../../../../utils/auth/auth.util';
 import Course from '../../../../models/course/course.model';
+import { cloudUploadFile } from "../../../../utils/aws/s3/s3.utils";
 
 
 
@@ -82,6 +83,15 @@ export const getUser = async (req: Request, res: Response, next: NextFunction) =
 
 
 
+
+export const uploadUserImage = async (req: Request, res: Response, next: NextFunction) => {
+    const s3Res = await cloudUploadFile(req.file);
+
+    res.json(
+        {
+            fileKey: s3Res.key
+        })
+}
 
 
 

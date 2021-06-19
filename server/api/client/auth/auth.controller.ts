@@ -69,7 +69,7 @@ export const postLogin = async (req: Request, res: Response, next: NextFunction)
             ? await bcrypt.compare(password, user.password)
             : false
 
-        
+
 
         if (doesPasswordMatch && user) {
             await createAccessToken(res, { userUUID: user.uuid })
@@ -108,6 +108,28 @@ export const postRefreshToken = async (req: Request, res: Response, next: NextFu
         res.status(200).json({
             message: 'user authanticated',
         })
+
+    } catch (err: any) {
+        customError(res, next, err.message)
+    }
+}
+
+
+
+export const renewAccessToken = async (req: Request, res: Response, next: NextFunction) => {
+    const { auth_refresh_token } = req.headers
+
+    try {
+        const { userUUID } = jwt.verify(
+            `${auth_refresh_token}`, process.env.JWT_REFRESH_TOKEN_SECRET!) as { userUUID: string }
+
+        if (!userUUID)
+            customError(res, next, 'token not valid', 403)
+
+        await createAccessToken(res, { userUUID: userUUID })
+        await createTokenExpirationHeader(res)
+
+        next()
 
     } catch (err: any) {
         customError(res, next, err.message)

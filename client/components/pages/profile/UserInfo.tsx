@@ -1,4 +1,4 @@
-import { Star, Eye, EyeOff, Upload,Mail } from 'react-feather';
+import { Star, Eye, EyeOff, Upload, Mail } from 'react-feather';
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -24,6 +24,7 @@ import { updateUserProfile } from "actions/client/user/profile/profile.action";
 import { authenticatedRequest } from "components/utils/auth/tokenValidations";
 import { uploadAndRead } from "components/lib/upload/utils/FileUploadLogic";
 import NextLink from '../../utils/nextLink/NextLink';
+import { updateUserProfileImage } from '../../../actions/client/user/profile/profile.action';
 
 
 
@@ -49,14 +50,14 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
   const [isEditable, setIsEditable] = useState(false);
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
   const [isConfirmPasswordHidden, setConfirmIsPasswordHidden] = useState(true);
-  const [userInfo,setUserInfo] = useState({ full_name, email, description });
+  const [userInfo, setUserInfo] = useState({ full_name, email, description });
 
 
   // FILE STATES
   const [imageBase64, setImageBase64] = useState<string>(image_url);
   const [isUpload, setIsUpload] = useState(false)
   const [fileUploadError, setFileUploadError] = useState("");
-  const [fileProperties, setFileProperties] = useState({name:"",size: 0 ,type:"",base64:image_url})
+  const [fileProperties, setFileProperties] = useState({ name: "", size: 0, type: "", base64: '' })
   const [uploadSize, setUploadSize] = useState<number>(0)
 
 
@@ -71,34 +72,35 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     const updatedData = await removeEmptyValuedEntries(data);
     const imgForm = new FormData();
-    
 
-    if(!fileUploadError) {
-        const res = await authenticatedRequest(updateUserProfile, updatedData, null);
-        
-  
-        if (res.statusCode == 200) {
-            setUserInfo({
-                full_name:res.update.full_name, 
-                email:res.update.email,
-                description:res.update.description
-            })
-            parseSocials(res.update.socials, setUserSocials);
-            setIsEditable(false)
-        }
+
+    if (!fileUploadError) {
+      fetch(fileProperties.base64)
+        .then(res => {
+          return res.blob();
+        })
+        .then(async (blob) => {
+          imgForm.append('user_profile_image', blob);
+          const { fileKey } = await authenticatedRequest(updateUserProfileImage, imgForm, null)
+
+          if (fileKey) {
+            updatedData.image_url = fileKey
+            const res = await authenticatedRequest(updateUserProfile, updatedData, null);
+
+            if (res.statusCode == 200) {
+              setUserInfo({
+                full_name: res.update.full_name,
+                email: res.update.email,
+                description: res.update.description
+              })
+              parseSocials(res.update.socials, setUserSocials);
+              setIsEditable(false)
+            }
+          }
+
+        });
     }
-
-
-    fetch(imageBase64)
-      .then(res => {
-        return res.blob();
-      })
-      .then(blob => {
-        imgForm.append('user_profile_image', blob);
-      });
-
-
-    };
+  };
 
 
 
@@ -111,7 +113,12 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
         <div className="user-profile-info__container">
           <div className="user-profile">
 
-            <div className="picture" style={{ backgroundImage: `url(${fileProperties.base64})` }}>
+            <div className="picture" style={
+              fileProperties.base64 == '' ?
+                { backgroundImage: `url(${process.env.BACK_END_URL}/api/images/${image_url})` }
+                : { backgroundImage: `url(${fileProperties.base64})` }
+
+            }>
 
 
               <motion.div
@@ -140,15 +147,15 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
               (
                 <FileUpload
                   height="18rem"
-                  uploadSize={600}
+                  uploadSize={400}
                   disabled={!isEditable ? true : false}
                   icon={<Upload size={20} />}
                   onError={(errorType) => setFileUploadError(errorType)}
                   fileProperties={
-                        (name,size,type,base64) => 
-                        setFileProperties({name:name,size:size,type:type,base64:base64})
+                    (name, size, type, base64) =>
+                      setFileProperties({ name, size, type, base64 })
                   }
-                  accept=".pdf,.png,.jpg"
+                  accept=".png,.jpg"
                   onChange={(e) => {
                     uploadAndRead(e)
                   }}
@@ -160,37 +167,37 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
 
 
 
-        {isEditable && (
-            <div className="fileUpload-errors">
+            {isEditable && (
+              <div className="fileUpload-errors">
                 <p className="form_errors f-size-p6 f-weight-r">
-                    {fileUploadError}
+                  {fileUploadError}
                 </p>
-            </div>
-        )}
+              </div>
+            )}
 
 
 
 
-        {/*!! // tu surati ais mashin chans gaaswore */}
+            {/*!! // tu surati ais mashin chans gaaswore */}
 
-        {/* // FILE UPLOAD */}
-        {isUpload && 
-            <div className="fileProperties">
+            {/* // FILE UPLOAD */}
+            {/* {isEditable &&
+              <div className="fileProperties">
 
                 <h1 className="f-size-p5 f-weight-r file_size">
-                    სახელი: {fileProperties.name}
+                  სახელი: {fileProperties.name}
                 </h1>
 
                 <h1 className="f-size-p5 f-weight-r">
-                    ზომა: {fileProperties.size} kb
+                  ზომა: {fileProperties.size} kb
                 </h1>
 
                 <h1 className="f-size-p5 f-weight-r">
-                    ფორმატი: {fileProperties.type}
+                  ფორმატი: {fileProperties.type}
                 </h1>
-            </div>  
-        }
-        
+              </div>
+            } */}
+
 
 
 
@@ -271,7 +278,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                       )}
                     </>
                   ) : (
-                  <p className="f-size-p6 f-weight-m">{userInfo.description}</p>
+                    <p className="f-size-p6 f-weight-m">{userInfo.description}</p>
                   )}
                 </div>
 
@@ -310,8 +317,8 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                             value: emailRegex,
                             message: "სწორად ჩაწერეთ თქვენი ელექტრონული ფოსტა",
                           },
-                        //   validate: () => getValues("email") === userInfo.email
-                        //         || 'ელექტრონული ფოსტები არ უნდა ემთხვეოდეს ერთმანეთს',
+                          //   validate: () => getValues("email") === userInfo.email
+                          //         || 'ელექტრონული ფოსტები არ უნდა ემთხვეოდეს ერთმანეთს',
                         })}
                       />
 
@@ -325,7 +332,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                     </>
                   ) :
                     <div className="user-email">
-                      <Mail/>
+                      <Mail />
                       <p className="f-size-p6 f-weight-m">{userInfo.email}</p>
                     </div>
                   }

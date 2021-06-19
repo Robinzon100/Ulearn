@@ -9,11 +9,13 @@ const router = express.Router(defaultRouterOptions);
 
 
 //? CONTROLLERS
-import { getUser, updateUser } from "./profile.controller";
+import { getUser, updateUser, uploadUserImage } from "./profile.controller";
 import { validateUpdateUserObject } from '../../../../middleware/body_validation/user.validation';
+import { userProfileImageUpload } from "../../../../utils/files/multer.utils";
 
 //? MIDDLEWARES
 router.use(getUserWithAccessToken)
+
 
 
 
@@ -24,7 +26,10 @@ router.route('/')
     .patch(validateUpdateUserObject, updateUser)
 
 
-export default router;
+router.post('/user_image', userProfileImageUpload, uploadUserImage)
 
+
+
+export default router;
 
 

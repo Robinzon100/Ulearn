@@ -20,7 +20,7 @@ const s3 = new S3({
 
 
 // uploads a file to s3
-const uploadFile = async (file: any) => {
+export const cloudUploadFile = async (file: any) => {
     const fileStream = fs.createReadStream(file.path)
 
     const uploadParams = {
@@ -37,7 +37,7 @@ const uploadFile = async (file: any) => {
 
 
 // downloads a file from s3
-const getFileStream = async (fileKey: any) => {
+export const getFileStream = async (fileKey: any) => {
     const downloadParams = {
         Key: fileKey,
         Bucket: bucketName
@@ -49,8 +49,3 @@ const getFileStream = async (fileKey: any) => {
 
 
 
-
-module.exports = {
-    uploadFile,
-    getFileStream
-}

@@ -28,7 +28,7 @@ const profile = ({ user }) => {
                         email={user.email}
                         socials={user.socials}
                         description={user.description}
-                        image_url={"https://images.pexels.com/photos/3310695/pexels-photo-3310695.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"}
+                        image_url={user.image_url}
                     />
 
                     <ProfileTabs user={user} />

@@ -16,7 +16,7 @@ interface IFileUpload {
   uploadSize: number,
   onError: any,
   accept: string
-  fileProperties?:any;
+  fileProperties?: any;
 }
 
 
@@ -51,7 +51,7 @@ const FileUpload = ({
             multiple={multiple}
             onChange={(e) => {
               onChange(e);
-              ReturnFileSizeAndType(e, uploadSize, onError, accept,fileProperties)
+              ReturnFileSizeAndType(e, uploadSize, onError, accept, fileProperties)
             }}
             size={uploadSize}
             onDragOver={() => setIsDragged(true)}

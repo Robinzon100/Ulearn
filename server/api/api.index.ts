@@ -8,6 +8,7 @@ import authRoutes from "./client/auth/auth.routes";
 import userRoutes from "./client/user/user.routes";
 import categoriesRoutes from "./client/categories/categories.routes";
 import courseRoutes from "./client/courses/courses.routes";
+import imageRoutes from "./client/images/image.routes";
 
 
 
@@ -15,6 +16,7 @@ router.use("/user", userRoutes)
 router.use("/auth", authRoutes)
 router.use("/categories", categoriesRoutes)
 router.use("/course", courseRoutes)
+router.use("/images", imageRoutes)
 
 
 export default router
