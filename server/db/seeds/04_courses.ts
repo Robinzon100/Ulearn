@@ -32,7 +32,7 @@ export async function seed(knex: Knex): Promise<void> {
             units_sold: 25,
             price: 35,
             ulearn_coin_price: 200,
-            discount_price: 10,
+            discount_price: null,
             affiliation_price: 25,
 
             course_content_id: 1,
@@ -168,7 +168,7 @@ export async function seed(knex: Knex): Promise<void> {
             units_sold: 25,
             price: 35,
             ulearn_coin_price: 200,
-            discount_price: 15,
+            discount_price: null,
             affiliation_price: 25,
 
             course_content_id: 1,
@@ -202,7 +202,7 @@ export async function seed(knex: Knex): Promise<void> {
             units_sold: 25,
             price: 35,
             ulearn_coin_price: 200,
-            discount_price: 15,
+            discount_price: null,
             affiliation_price: 25,
 
             course_content_id: 1,

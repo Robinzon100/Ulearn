@@ -9,23 +9,36 @@ import { MainCategories } from '../../../../models/categories/categories.model';
 export const postUserLikeCourse = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { liked_course_id } = req.body
-
-        
-
-
-        const alreadyLiked = (req.user[0] as User)
-            .liked_courses_ids.find((el: number) => el == liked_course_id)
-
-        if (alreadyLiked)
-            return customError(res, next, 'already liked', 409)
+        const { liked } = req.params
+        let patchedLikedCourses
 
 
+        console.log(liked_course_id)
 
-        const patchedLikedCourses =
-            await User
-                .query()
-                .patch({ liked_courses_ids: raw(`liked_courses_ids || '[${liked_course_id}]'`) })
-                .findById(req.user[0].id)
+
+        if (JSON.parse((liked as string))) {
+            const alreadyLiked = (req.user[0] as User)
+                .liked_courses_ids.find((el: number) => el == liked_course_id)
+
+            if (alreadyLiked)
+                return customError(res, next, 'already liked', 409)
+
+            patchedLikedCourses =
+                await User
+                    .query()
+                    .patch({ liked_courses_ids: raw(`liked_courses_ids || '[${liked_course_id}]'`) })
+                    .findById(req.user[0].id)
+        } else {
+            const oldLikedCourseIds = req.user[0].liked_courses_ids as number[]
+            const newLikedCourseIds = [...oldLikedCourseIds.filter(el => el != liked_course_id)]
+
+            patchedLikedCourses =
+                await User
+                    .query()
+                    .patch({ liked_courses_ids: JSON.stringify(newLikedCourseIds) })
+                    .findById(req.user[0].id)
+        }
+
 
         res.json({
             patchedLikedCourses
