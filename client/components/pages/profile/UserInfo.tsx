@@ -58,8 +58,8 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
   const [isUpload, setIsUpload] = useState(false)
   const [fileUploadError, setFileUploadError] = useState("");
   const [fileProperties, setFileProperties] = useState({ name: "", size: 0, type: "", base64: '' })
-  const [uploadSize, setUploadSize] = useState<number>(0)
 
+  const [btnLoading, setBtnLoading] = useState(false);
 
   useEffect(() => {
     parseSocials(socials, setUserSocials);
@@ -75,17 +75,20 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
 
 
     if (!fileUploadError) {
-      fetch(fileProperties.base64)
+    
+        fetch(fileProperties.base64)
         .then(res => {
           return res.blob();
         })
         .then(async (blob) => {
+          setBtnLoading(true)
           imgForm.append('user_profile_image', blob);
           const { fileKey } = await authenticatedRequest(updateUserProfileImage, imgForm, null)
 
           if (fileKey) {
             updatedData.image_url = fileKey
             const res = await authenticatedRequest(updateUserProfile, updatedData, null);
+
 
             if (res.statusCode == 200) {
               setUserInfo({
@@ -94,6 +97,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                 description: res.update.description
               })
               parseSocials(res.update.socials, setUserSocials);
+              setBtnLoading(false)
               setIsEditable(false)
             }
           }
@@ -147,7 +151,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
               (
                 <FileUpload
                   height="18rem"
-                  uploadSize={400}
+                  uploadSize={800}
                   disabled={!isEditable ? true : false}
                   icon={<Upload size={20} />}
                   onError={(errorType) => setFileUploadError(errorType)}
@@ -203,7 +207,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
 
 
 
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
 
 
               <div className="user-profile__creditionals">
@@ -221,6 +225,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                         <h1 className="f-size-p6 f-weight-b">სახელი და გვარი</h1>
                       </div>
                       <Input
+                        autoComplate="off"
                         className={`f-size-p4 f-weight-b ${!isEditable ? "remove_input_styles" : ""}`}
                         color="white"
                         size="medium"
@@ -304,6 +309,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                       </div>
 
                       <Input
+                        autoComplate="off"
                         className={`f-weight-m ${!isEditable ? "remove_input_styles" : ""}`}
                         color="white"
                         size="medium"
@@ -354,6 +360,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                         </div>
 
                         <Input
+                          autoComplate="off"
                           className={`f-size-p6 f-weight-m userPassword`}
                           color="white"
                           size="medium"
@@ -405,6 +412,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                             </p>
 
                             <Input
+                              autoComplate="off"
                               className="social_inputs"
                               color="green"
                               size="medium"
@@ -443,6 +451,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                         </div>
 
                         <Input
+                          autoComplate="off"
                           className="f-size-p6 f-weight-m confirm_user_password"
                           color="white"
                           size="medium"
@@ -537,10 +546,9 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                     color="green"
                     size="large"
                     disabled={false}
-                    loading={false}
+                    loading={btnLoading}
                     width="100%"
-                    type="submit"
-                  >
+                    type="submit">
                     <p className="f-weight-r f-size-p6">დადასტურება</p>
                   </Button>
                 </div>
@@ -569,8 +577,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                   size="large"
                   disabled={false}
                   loading={false}
-                  width="100%"
-                >
+                  width="100%">
                   <p className="f-weight-r f-size-p6">რედაქტირება</p>
                 </Button>
               </div>

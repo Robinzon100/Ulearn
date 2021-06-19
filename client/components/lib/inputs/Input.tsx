@@ -23,7 +23,8 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
     width,
     defaultValue,
     readonly,
-    filled = true
+    filled = true,
+    autoComplate = ""
   }, ref: React.Ref<HTMLInputElement | null>,) => {
 
 
@@ -48,6 +49,7 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
             type={type}
             onChange={onChange}
             value={value}
+            autoComplete={`${autoComplate}`}
             className={`input_field  ${className && className}`}
             placeholder={placeHolder}
             style={style}
