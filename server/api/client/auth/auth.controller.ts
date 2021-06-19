@@ -69,7 +69,6 @@ export const postLogin = async (req: Request, res: Response, next: NextFunction)
             ? await bcrypt.compare(password, user.password)
             : false
 
-        console.log(doesPasswordMatch);
         
 
         if (doesPasswordMatch && user) {

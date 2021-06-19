@@ -9,7 +9,6 @@ export const getLandingCourses = async (req: Request, res: Response, next: NextF
     try {
         const allCourses = await Course.query()
 
-        console.log(req.headers.auth_access_token);
         
 
         let likeCourseIds = null
@@ -21,7 +20,6 @@ export const getLandingCourses = async (req: Request, res: Response, next: NextF
                 await User.query()
                     .where('uuid', userUUID)
                     .select('liked_courses_ids')
-                console.log(user);
                 
             likeCourseIds = user[0].liked_courses_ids
         }
