@@ -10,6 +10,8 @@ export const postUserLikeCourse = async (req: Request, res: Response, next: Next
     try {
         const { liked_course_id } = req.body
 
+        
+
 
         const alreadyLiked = (req.user[0] as User)
             .liked_courses_ids.find((el: number) => el == liked_course_id)

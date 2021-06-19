@@ -22,6 +22,7 @@ const getUserWithAccessToken = async (req: Request, res: Response, next: NextFun
         const { userUUID } = await decodeAccessToken(req) as { userUUID: string }
         if (!userUUID) {
             postRefreshToken(req, res, next)
+            
         }
         const user = await User.query().where('uuid', userUUID)
         req.user = user
