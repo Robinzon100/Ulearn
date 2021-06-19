@@ -110,7 +110,7 @@ export const postRefreshToken = async (req: Request, res: Response, next: NextFu
             message: 'user authanticated',
         })
 
-    } catch (err) {
+    } catch (err: any) {
         customError(res, next, err.message)
     }
 }

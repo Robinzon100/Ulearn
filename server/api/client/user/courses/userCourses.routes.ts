@@ -20,7 +20,7 @@ router.use(getUserWithAccessToken)
 
 
 // ─── ROUTES ─────────────────────────────────────────────────────────────────────
-router.post('/addToLiked', postUserLikeCourse)
+router.post('/addToLiked/:liked', postUserLikeCourse)
 router.get('/preffered_category', getUserPrefferedCategory)
 
 export default router;

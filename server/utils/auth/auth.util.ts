@@ -12,7 +12,7 @@ export const createAccessToken = async (res: Response, object: any) => {
         object,
         process.env.JWT_ACCESS_TOKEN_SECRET!,
         {
-            expiresIn: process.env.JWT_ACCESS_TOKEN_EXPIRATION,
+            expiresIn: `${process.env.JWT_ACCESS_TOKEN_EXPIRATION}`,
         })
 
     res.setHeader('auth-access_token', `${token}`)
@@ -24,7 +24,9 @@ export const createRefreshToken = async (res: Response, object: any) => {
     const refreshToken = await jwt.sign(
         object,
         process.env.JWT_REFRESH_TOKEN_SECRET!,
-        { expiresIn: process.env.JWT_REFRESH_TOKEN_EXPIRATION })
+        {
+            expiresIn: `${process.env.JWT_REFRESH_TOKEN_EXPIRATION}`
+        })
     res.setHeader("auth-refresh_token", `${refreshToken}`,)
 }
 
