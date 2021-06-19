@@ -98,6 +98,13 @@
         }
 
         &__creditionals {
+            .user-email {
+                @include flex(flex-start);
+
+                svg {
+                    margin-right: 2rem;
+                }
+            }
 
         .name-surname,.about-user {
             p {

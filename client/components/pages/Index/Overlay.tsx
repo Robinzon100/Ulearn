@@ -7,17 +7,16 @@ import { seeMoreAnimation } from "components/lib/framer/framerAnimation";
 
 
 
-const Overlay = ({CardsJson}) => {
+const Overlay = ({courses}) => {
     const [toggleSeeMore, setToggleSeeMore] = useState(false);
     return (
         <>
-        {CardsJson.length > 2 && (
+        {courses.length > 2 && (
               <motion.div
                 className="overlay_container"
                 variants={seeMoreAnimation}
                 initial={{ height: "0rem" }}
-                animate={!toggleSeeMore ? "open" : "closed"}
-              >
+                animate={!toggleSeeMore ? "open" : "closed"}>
                 <div className="wrapper" onClick={() => setToggleSeeMore(true)}>
                   <div className="see_more">
                     <p className="f-weight-r f-size-p1">

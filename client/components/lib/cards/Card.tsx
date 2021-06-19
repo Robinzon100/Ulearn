@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { Star } from "react-feather";
+import Link from "next/link";
 
 //! ==================OUR IMPORTS
 
@@ -8,7 +9,10 @@ import { cardHoverHandler } from "./utils/cardHoverHandler";
 import { PrimaryContentCards } from "interfaces/PrimaryContentCard.interface";
 import { stringToCut } from "components/utils/helpers/stringToCut";
 import CardDetail from "./CardDetail";
-import NextLink from "components/utils/nextLink/NextLink";
+
+
+
+
 
 const Card = ({
   id,
@@ -27,6 +31,8 @@ const Card = ({
 }: PrimaryContentCards) => {
   const selfRef = useRef<HTMLDivElement>(null);
 
+
+
   const [elProperties, setElProperties] = useState<any>({
     top: 0,
     left: 0,
@@ -34,11 +40,11 @@ const Card = ({
   });
 
 
-
+  
   const [addToFavorites, setAddToFavorites] = useState<boolean>(isLiked);
   const [favoriteMessageState, setFavoriteMessageState] = useState(false);
 
-  const [checkNewPrice,] = useState<boolean | number>(discount_price);
+  const [checkDicountPrice] = useState<boolean | number>(discount_price);
   const [isClicked, setIsClicked] = useState<boolean | null>(false);
 
 
@@ -52,141 +58,141 @@ const Card = ({
 
 
 
+
   return (
     <>
-      <NextLink route={`/course/${uuid}`}>
-
-        <div
-          ref={selfRef}
-          className="PrimaryContentCard"
-          key={uuid}
-          onMouseLeave={() => setIsClicked(null)}>
-          <div
-            className={"PrimaryContentCard__img"}
-            style={{ backgroundImage: `url(${thumbnail_imageUrl})` }}>
-            <div className="price-tag">
-              <div className="normal-price">
-                <p className="f-weight-b f-size-p3">
-                  {discount_price != null ? discount_price : null}
-                  <span style={{ color: "#00E267", fontWeight: "bold" }}>
-                    &#8382;
-                  </span>
-                </p>
-              </div>
+      <div
+        ref={selfRef}
+        className="PrimaryContentCard"
+        key={uuid}
+        onMouseLeave={() => setIsClicked(null)}>
+        <Link href={`/course/${uuid}`} passHref>
 
 
-
-              <div className="removed-price-tag">
-                {checkNewPrice && (
-                  <div className={`${discount_price != null ? '' : ''}`}>
+          <div className="container">
+              
+            <div
+              className={"PrimaryContentCard__img"}
+              style={{ backgroundImage: `url(${thumbnail_imageUrl})` }}>
+              <div className="price-tag">
+                {checkDicountPrice && checkDicountPrice != null && (
+                  <div className="removed-price-tag price-tag-base-styles">
                     <p className="f-weight-b f-size-p3">
-                      {price}
+                      {discount_price}
                       <span style={{ color: "#00E267", fontWeight: "bold" }}>
                         &#8382;
                       </span>
                     </p>
                   </div>
                 )}
+
+
+
+
+                <div className="normal-price price-tag-base-styles">
+                  {checkDicountPrice && checkDicountPrice != null && (
+                    <div className="discounted_price_line" />
+                  )}
+
+                  <p className="f-weight-b f-size-p3">
+                    {price}
+                    <span style={{ color: "#00E267", fontWeight: "bold" }}>
+                      &#8382;
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div className="PrimaryContentCard__title">
+              <p className="f-weight-b f-size-p5" title={name}>
+                {stringToCut(name, 50)}
+              </p>
+            </div>
+
+
+
+
+            <div className="PrimaryContentCard__raiting">
+              <div className="PrimaryContentCard__raiting--container">
+                <div className="star">
+                  <Star
+                    key={id}
+                    style={{ fill: "#FFD703", color: "#FFD703" }}
+                    size={16}
+                  />
+                </div>
+
+
+
+                <div className="numbers">
+                  <p className="f-weight-r f-size-p5">
+                    {overall_rating}
+                    <span
+                      style={{ opacity: "50%" }}
+                      className="f-weight-r f-size-p6">
+                      ({numberOfVotes})
+                    </span>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
+        </Link>
 
 
 
 
-          <div className="PrimaryContentCard__title">
-            <p className="f-weight-b f-size-p5" title={name}>
-              {stringToCut(name, 50)}
-            </p>
-          </div>
+        {/*  CARD DETAIL  */}
 
-          <div
-            className="course_card_hover_logo course_card_hover_logo_mobile"
-            onClick={(e) =>
-              cardHoverHandler(
-                e,
-                selfRef,
-                elProperties,
-                setElProperties,
-                setIsClicked
-              )
+        <div
+          className="course_card_hover_logo course_card_hover_logo_mobile"
+          onClick={(e) =>
+            cardHoverHandler(e,selfRef,elProperties,setElProperties,setIsClicked)}>
+
+          <div className={isClicked ? "card_detail" : "card_detail-display"}>
+            {
+              <CardDetail
+                id={id}
+                name={name}
+                created_at={created_at}
+                difficulty={difficulty}
+                description={description}
+              />
             }
-          >
-            <div className={isClicked ? "card_detail" : "card_detail-display"}>
-              {
-                <CardDetail
-                  id={id}
-                  name={name}
-                  created_at={created_at}
-                  difficulty={difficulty}
-                  description={description}
-                />
-              }
-            </div>
           </div>
-
-
-
-          <div className="PrimaryContentCard__raiting">
-            <div className="PrimaryContentCard__raiting--container">
-              <div className="star">
-                <Star
-                  key={id}
-                  style={{ fill: "#FFD703", color: "#FFD703" }}
-                  size={16}
-                />
-              </div>
-
-
-
-              <div className="numbers">
-                <p className="f-weight-r f-size-p5">
-                  {overall_rating}
-                  <span
-                    style={{ opacity: "50%" }}
-                    className="f-weight-r f-size-p6"
-                  >
-                    ({numberOfVotes})
-                  </span>
-                </p>
-              </div>
-            </div>
-
-
-
-            <div className="PrimaryContentCard__raiting--name">
-              <NextLink route="/#">
-                <p className="f-weight-b f-size-p5">
-                  {/* {stringToCut(creator, 25)} */}
-                </p>
-              </NextLink>
-            </div>
-          </div>
+        </div>
 
 
 
 
-          <div className="PrimaryContentCard__like">
-            <div
-              data-card-like-status={addToFavorites}
-              className="stroke-heart-svg"
-              onClick={() => handleCourseLike()}
-              onMouseEnter={() => setFavoriteMessageState(true)}
-              onMouseLeave={() => setFavoriteMessageState(false)}>
-              <div
-                className="remove-from-favorites noselect"
-                data-like-status={favoriteMessageState}>
-                <p className="f-size-p8 pf-weight-m">
-                  {favoriteMessageState ? addToFavorites
+        <div className="PrimaryContentCard__like">
+            
+          <div
+            data-card-like-status={addToFavorites}
+            className="stroke-heart-svg"
+            onClick={() => handleCourseLike()}
+            onMouseEnter={() => setFavoriteMessageState(true)}
+            onMouseLeave={() => setFavoriteMessageState(false)}>
+
+
+            {/* <div
+              className="remove-from-favorites noselect"
+              data-like-status={favoriteMessageState}>
+              <p className="f-size-p8 pf-weight-m">
+
+                {favoriteMessageState ? addToFavorites
                     ? "ფავორიტებიდან ამოღება"
                     : "ფავორიტებში დამატება"
                     : "ფავორიტებიდან ამოღება"}
-                </p>
-              </div>
-            </div>
+              </p>
+
+            </div> */}
           </div>
         </div>
-      </NextLink>
+      </div>
     </>
   );
 };

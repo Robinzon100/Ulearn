@@ -1,4 +1,4 @@
-import { Star, Eye, EyeOff, Upload } from 'react-feather';
+import { Star, Eye, EyeOff, Upload,Mail } from 'react-feather';
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -186,13 +186,8 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                     ფორმატი: {fileProperties.type}
                 </h1>
             </div>  
-<<<<<<< HEAD
-        } */}
-        
-=======
         }
          */}
->>>>>>> 9c3369ba222e53b05dcbf65307f21b0e5649d834
 
 
 
@@ -273,7 +268,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                       )}
                     </>
                   ) : (
-                    <p className="f-size-p6 f-weight-m">{userInfo.description}</p>
+                  <p className="f-size-p6 f-weight-m">{userInfo.description}</p>
                   )}
                 </div>
 
@@ -323,7 +318,12 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
 
 
                     </>
-                  ) : <p className="f-size-p6 f-weight-m">{userInfo.email}</p>}
+                  ) :
+                    <div className="user-email">
+                      <Mail/>
+                      <p className="f-size-p6 f-weight-m">{userInfo.email}</p>
+                    </div>
+                  }
 
                 </div>
 

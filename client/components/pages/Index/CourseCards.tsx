@@ -1,18 +1,19 @@
+import useSWR from "swr";
+
+
 
 //! ===========================OUR IMPORTS
 import PrimaryContentCard from "components/lib/cards/Card";
 import Carousel from "components/lib/carousel/carousel";
-import PrimaryContentCardJson from "../../../public/json/PrimaryContentCard.json";
 import CategoriesComponent from "components/pages/Index/SideCategories";
 import Overlay from "components/pages/Index/Overlay";
-
+import InputSelectComponent from "components/lib/dropdowns/DropdownsContainer";
 import { handleUserCourseLikes } from "components/utils/helpers/handleUserCourseLikes";
 
 
-//! ===================== JSON
-import CategoriesImgs from "../../../public/json/categories.json";
-import InputSelectComponent from "components/lib/dropdowns/DropdownsContainer";
-import useSWR from 'swr';
+
+
+//! ===================== ACTIONS
 import { fetcher } from "actions/swr/fetchers";
 
 
@@ -20,23 +21,23 @@ import { fetcher } from "actions/swr/fetchers";
 
 
 const CourseCards = ({ landingCourse }) => {
-  const carouselImgs = CategoriesImgs.Categories;
-  const CardsJson = PrimaryContentCardJson.contentCard;
 
   const { data } = useSWR(
     `${process.env.BACK_END_URL}/api/categories/all`,
     fetcher
-  )
-
-
+  );
 
   return (
     <>
       <div className="main_content">
+
+
         {/* //! კარუსელი */}
-        {data &&
-          <Carousel categories={data.categories} CarouselImgs={carouselImgs} />
-        }
+        {data && (
+          <Carousel categories={data.categories} />
+        )}
+
+
 
         {/* //! ინფუთები */}
         <div className="main_content--container">
@@ -44,19 +45,29 @@ const CourseCards = ({ landingCourse }) => {
             <div className="category_heading">
               <p className="f-size-h8">კატეგორიები</p>
             </div>
-            {data &&
-              <CategoriesComponent categories={data.categories} />
-            }
+            {data && <CategoriesComponent categories={data.categories} />}
           </div>
 
           <div className="landing_courses">
+
+
+            {/* // INDEX INPUTS AND SELECTS  */}
             <InputSelectComponent />
 
 
-            <Overlay CardsJson={CardsJson} />
+
+
+            {/* // CARDS OVERLAY  */}
+            <Overlay courses={landingCourse.courses} />
+
+
+
+
+
+
+
 
             <div className="landing_courses--cards">
-
               {landingCourse.courses.map((card) => (
                 <PrimaryContentCard
                   key={card.id}
@@ -65,8 +76,7 @@ const CourseCards = ({ landingCourse }) => {
                   name={card.title}
                   price={card.price}
                   isLiked={
-                    landingCourse.liked_courses_ids
-                    &&
+                    landingCourse.liked_courses_ids &&
                     landingCourse.liked_courses_ids.includes(card.id)
                   }
                   thumbnail_imageUrl={card.thumbnail_imageUrl}
