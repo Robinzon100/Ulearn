@@ -50,7 +50,8 @@ const Card = ({
 
 
   const handleCourseLike = () => {
-    handleUserCourseLikes(id);
+    handleUserCourseLikes({id: id, isLiked: !addToFavorites});
+    
     setAddToFavorites((addToFavorites) => !addToFavorites);
     setFavoriteMessageState(true);
   };

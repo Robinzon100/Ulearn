@@ -7,8 +7,10 @@ import { authenticatedRequest } from "components/utils/auth/tokenValidations";
 
 
 
-export const handleUserCourseLikes = async (liked_course_id) => {
-  const res = await authenticatedRequest(userCoursesLike,liked_course_id, null);
-
+export const handleUserCourseLikes = async ({ id, isLiked }) => {
+  const res = await authenticatedRequest(userCoursesLike, { id, isLiked }, null);
+  if (res.statusCode != 200) {
+    window.location.href = '/login'
+  }  
   return res
 }
