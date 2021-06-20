@@ -9,7 +9,9 @@ import CoursesJson from "../public/json/Courses.json";
 import CourseTabContent from "components/pages/myCourse/course_tabs/CourseTabContent";
 
 
-const Courses = () => {
+
+
+const MyCourse = () => {
   const videoLists = CoursesJson.videoLists.Lists;
 
 
@@ -72,4 +74,4 @@ const Courses = () => {
   );
 };
 
-export default Courses;
+export default MyCourse;
