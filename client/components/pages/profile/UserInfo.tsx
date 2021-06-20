@@ -152,8 +152,8 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
               (
                 <FileUpload
                   height="18rem"
-                  uploadSize={800}
-                  disabled={!isEditable ? true : false}
+                  uploadSize={300}
+                  disabled={!isEditable ? true : false} 
                   icon={<Upload size={20} />}
                   onError={(errorType) => setFileUploadError(errorType)}
                   fileProperties={

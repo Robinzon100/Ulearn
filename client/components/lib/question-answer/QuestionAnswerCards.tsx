@@ -16,6 +16,7 @@ export interface IQuestionAnswerCards {
   likes?: number;
   dislikes?: number;
   replies?: any;
+  userId?:string
 }
 
 const QuestionAnswerCards = (
@@ -23,13 +24,13 @@ const QuestionAnswerCards = (
   props
 ) => {
 
-    const [answerValue, setAnswerValue] = useState("");
+    const [answer, setAnswer] = useState({userId:"",text:""});
     const [toggleAnswer, setToggleAnswer] = useState(false)
 
 
 
     const handleSubmit = () => {
-        console.log(answerValue)
+        console.log({answer})
     }
 
   return (
@@ -96,8 +97,8 @@ const QuestionAnswerCards = (
                 width="100%"
                 disabled={false}
                 name="answer"
-                value={answerValue}
-                onChange={e => setAnswerValue(e.target.value)}
+                value={answer.text}
+                onChange={e => setAnswer({userId:"1",text:e.target.value})}
               />
 
             <Button
