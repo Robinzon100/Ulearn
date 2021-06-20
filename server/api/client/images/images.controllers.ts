@@ -5,8 +5,10 @@ import customError from '../../../utils/createError';
 export const getImage = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { key } = req.params
-        const readStream = await getFileStream(key)
-        readStream.pipe(res)
+        if (!key) {
+            const readStream = await getFileStream(key)
+            readStream.pipe(res)
+        }
     } catch (err: any) {
         customError(res, next, err.messagem, 404)
     }
