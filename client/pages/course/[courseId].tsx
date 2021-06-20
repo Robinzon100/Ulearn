@@ -24,7 +24,10 @@ const course = ({ course }) => {
       <>
         <section className="course">
           <div className="course__container">
-            <div className="course-hero">
+            <div className="course-hero" 
+            style={
+                { backgroundImage: `url(${course.thumbnail_imageUrl})` }}
+                > 
               <div className="course-hero__about-course">
 
                 <div className="course-hero__about-course--heading">
@@ -46,8 +49,7 @@ const course = ({ course }) => {
                       color="green"
                       size="medium"
                       disabled={false}
-                      loading={false}
-                    >
+                      loading={false}>
                       <p className="f-weight-r f-size-p6">კურსის შეძენა</p>
                     </Button>
                   </div>

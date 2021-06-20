@@ -42,7 +42,7 @@ type IFormInput = {
 
 
 const UserInfo = ({ full_name, email, description, socials, image_url }) => {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<IFormInput>();
+  const { register, handleSubmit, formState: { errors }, reset,getValues } = useForm<IFormInput>();
 
   // VERIFICATION STATES
   const [isVerificated, setIsVerificated] = useState(false);
@@ -54,10 +54,9 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
 
 
   // FILE STATES
-  const [imageBase64, setImageBase64] = useState<string>(image_url);
-  const [isUpload, setIsUpload] = useState(false)
   const [fileUploadError, setFileUploadError] = useState("");
-  const [fileProperties, setFileProperties] = useState({ name: "", size: 0, type: "", base64: '' })
+  const [fileProperties, setFileProperties] = useState({ name: "", size: 0, type: "", base64: '' });
+  const [authError, setAuthError] = useState("")
 
   const [btnLoading, setBtnLoading] = useState(false);
 
@@ -87,7 +86,9 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
 
           if (fileKey) {
             updatedData.image_url = fileKey
+            setBtnLoading(false)
             const res = await authenticatedRequest(updateUserProfile, updatedData, null);
+            setAuthError("დაფიქსირდა შეცდომა.შეასწორეთ თქვენი მონაცემები")
 
 
             if (res.statusCode == 200) {
@@ -96,7 +97,9 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                 email: res.update.email,
                 description: res.update.description
               })
+
               parseSocials(res.update.socials, setUserSocials);
+              setAuthError("")
               setBtnLoading(false)
               setIsEditable(false)
             }
@@ -120,9 +123,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
             <div className="picture" style={
               fileProperties.base64 == '' ?
                 { backgroundImage: `url(${process.env.BACK_END_URL}/api/images/${image_url})` }
-                : { backgroundImage: `url(${fileProperties.base64})` }
-
-            }>
+                : { backgroundImage: `url(${fileProperties.base64})` }}>
 
 
               <motion.div
@@ -182,10 +183,8 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
 
 
 
-            {/*!! // tu surati ais mashin chans gaaswore */}
-
             {/* // FILE UPLOAD */}
-            {/* {isEditable &&
+            {isEditable &&
               <div className="fileProperties">
 
                 <h1 className="f-size-p5 f-weight-r file_size">
@@ -200,7 +199,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                   ფორმატი: {fileProperties.type}
                 </h1>
               </div>
-            } */}
+            }
 
 
 
@@ -321,10 +320,10 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                         {...register("email", {
                           pattern: {
                             value: emailRegex,
-                            message: "სწორად ჩაწერეთ თქვენი ელექტრონული ფოსტა",
+                            message: "თქვენი ელექტრონული ფოსტა არასწორია",
                           },
-                          //   validate: () => getValues("email") === userInfo.email
-                          //         || 'ელექტრონული ფოსტები არ უნდა ემთხვეოდეს ერთმანეთს',
+                            validate: () => getValues("email") != userInfo.email
+                                || 'ელექტრონული ფოსტები არ უნდა ემთხვეოდეს ერთმანეთს',
                         })}
                       />
 
@@ -339,7 +338,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                   ) :
                     <div className="user-email">
                       <Mail />
-                      <p className="f-size-p6 f-weight-m">{userInfo.email}</p>
+                      <p className="f-size-p6 f-weight-b">{userInfo.email}</p>
                     </div>
                   }
 
@@ -490,6 +489,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                 }
 
 
+                <p className="auth-error form_errors f-size-p6 f-weight-r">{authError}</p>
 
 
 
@@ -572,7 +572,12 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
             {!isEditable && (
               <div className="edit-btn">
                 <Button
-                  onClick={() => setIsEditable(true)}
+                  onClick={() => {
+                    setIsEditable(true)
+                    reset({
+                        current_password: "",
+                    });
+                }}
                   color="yellow"
                   size="large"
                   disabled={false}
@@ -601,8 +606,11 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
               <div className="cancel-btn">
                 <Button
                   onClick={() => {
-                    setImageBase64(image_url)
-                    setIsUpload(false)
+                    setFileProperties(
+                        { name: "", size: 0, type: "", 
+                        base64: `${process.env.BACK_END_URL}/api/images/${image_url}` 
+                    })
+                    setAuthError("")
                     setIsEditable(false);
                     reset({
                       full_name: "",
@@ -615,8 +623,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                   disabled={false}
                   loading={false}
                   width="100%"
-                  stroke='red'
-                >
+                  stroke='red'>
                   <p className="f-weight-r f-size-p6">გაუქმება</p>
                 </Button>
               </div>

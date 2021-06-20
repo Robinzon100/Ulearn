@@ -42,7 +42,7 @@ const Card = ({
 
   
   const [addToFavorites, setAddToFavorites] = useState<boolean>(isLiked);
-  const [favoriteMessageState, setFavoriteMessageState] = useState(false);
+  const [, setFavoriteMessageState] = useState(false);
 
   const [checkDicountPrice] = useState<boolean | number>(discount_price);
   const [isClicked, setIsClicked] = useState<boolean | null>(false);

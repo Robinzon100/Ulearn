@@ -1,10 +1,10 @@
 const readAndPreview = async (file, result) => {
   let base64
-  if (/\.(jpe?g|png|gif)$/i.test(file.name)) {
+  if (/\.(jpe?g|png|gif)$/i.test(file?.name)) {
     const reader = new FileReader();
 
     reader.addEventListener("load", function () {
-      base64 = reader.result as string;
+      base64 = reader?.result as string;
       return result(base64)
     }, false);
     reader.readAsDataURL(file);
@@ -15,7 +15,7 @@ const readAndPreview = async (file, result) => {
 
 
 export const uploadAndRead = async (e: React.FormEvent<HTMLInputElement>) => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve, _) => {
     const file = e.currentTarget.files[0];
     readAndPreview(file, (result) => {
       resolve(result)
@@ -33,17 +33,17 @@ export const ReturnFileSizeAndType = async (e, uploadSize: number, onError, acce
   const inputFiles = [...inputEl.files];
 
   inputFiles.map(async (file) => {
-    const fileSize = Math.floor(file.size / 1000)
+    const fileSize = Math.floor(file?.size / 1000)
 
     if (!isFileSizesCorrect(file, uploadSize))
-      return onError('ფაილის ზომა ზედმეტად დიდია, თქვენი ფაილის ზომაა ' + Math.floor(file.size / 1000) + " kb")
+      return onError('ფაილის ზომა ზედმეტად დიდია, თქვენი ფაილის ზომაა ' + Math.floor(file?.size / 1000) + " kb")
 
     if (!isTypeCorrect(file, acceptType))
       return onError('ფაილის არ შეესაბამება დაშვებულ ფორმატს')
 
 
     const imageBase64 = await uploadAndRead(e)
-    fileProperties(file.name, fileSize, file.type, imageBase64 && imageBase64)
+    fileProperties(file?.name, fileSize, file?.type, imageBase64 && imageBase64)
     return onError();
   })
 }
@@ -58,7 +58,7 @@ export const ReturnFileSizeAndType = async (e, uploadSize: number, onError, acce
 const isFileSizesCorrect = (file: any, size: number): boolean => {
   let isCorrect
 
-  if (Math.floor(file.size / 1000) > size) {
+  if (Math.floor(file?.size / 1000) > size) {
     isCorrect = false
   } else {
     isCorrect = true
