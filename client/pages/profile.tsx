@@ -10,10 +10,8 @@ import { redirect } from 'components/utils/auth/redirect.utils';
 
 import ProfileTabs from "components/pages/profile/ProfileTabs";
 
-// import FileUpload from "components/lib/upload/FileUpload";
 
-const profile = ({ user }) => {
-
+const Profile = ({ user }) => {
 
     return (
         <>
@@ -59,5 +57,5 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     return redirect("/login");
 };
 
-export default profile;
+export default Profile;
 
