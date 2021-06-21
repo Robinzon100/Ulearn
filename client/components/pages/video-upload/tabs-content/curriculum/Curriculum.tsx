@@ -34,7 +34,8 @@ const Curriculum = ({ data }) => {
     }
 
     const remove = (id: number) => {
-        if (id != 1) {
+        // debugger
+        if (id != 1 || videoData.length != 1) {
             setVideoData(
                 [...videoData.filter(el => el.id != id)].map((chapter, i) => {
                     return Object.assign(chapter, { id: i + 1 })
