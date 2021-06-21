@@ -24,6 +24,21 @@
                         "text": "უჰ,რა მაგარი იყო. აბა თქვენ იცით"
                     }
                 ]
+            },
+            {
+                "id":2,
+                "userName": "robo sokhashvili",
+                "imageUrl": "https://images.pexels.com/photos/3310695/pexels-photo-3310695.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+                "text": "ვინმეს შეუძლია რომ დამეხმაროს კოდში ? რატომღაცროცა ვაკეთებ console log“welo world” რათომღაც არმიწერს არაფერს",
+                "replies": [
+                    {
+                        "id":2,
+                        "userName": "კარლო კაკაბაძე",
+                        "imageUrl": "https://images.pexels.com/photos/5119214/pexels-photo-5119214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+                        "datePosted": "(2020-02-20)",
+                        "text": "უჰ,რა მაგარი იყო. აბა თქვენ იცით"
+                    }
+                ]
             }
         ]
     },

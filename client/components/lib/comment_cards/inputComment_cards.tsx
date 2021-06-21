@@ -1,24 +1,31 @@
 
-import * as React from "react";
 import TextArea from "components/lib/textarea/TextArea";
 import Stars from "components/lib/svg/Stars";
 import Button from "../button/Button";
+import { useState } from "react";
 
 
 
 
 interface IInputCommentCards {
-    id?: number,
+    id?: number;
     name?: string;
     rating?: number;
-    imageUrl?:string
+    imageUrl?:string;
+    onChange?:any;
 }
 
 
 
 
 
-const InputCommentCards = ({id,name,rating}:IInputCommentCards) => {
+const InputCommentCards = ({ id,name,rating,onChange}:IInputCommentCards) => {
+  const [userCommentValue, setUserCommentValue] = useState("")
+
+
+    const handleSubmit = () => {
+        setUserCommentValue(onChange(userCommentValue))
+    }
 
     return (
 
@@ -46,11 +53,13 @@ const InputCommentCards = ({id,name,rating}:IInputCommentCards) => {
                         placeHolder="დაწერეთ კონენტარი"
                         className="f-size-p5 f-weight-m send-answer-input"
                         width="100%" 
+                        onChange={(e) => setUserCommentValue(e.target.value)}
                     />
                 </div>
 
                 <div className="add_btn">
                 <Button
+                  onClick={() => handleSubmit()}
                   color="green"
                   size="medium"
                   disabled={false}

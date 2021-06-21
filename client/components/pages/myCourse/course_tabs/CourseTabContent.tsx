@@ -1,5 +1,8 @@
-// import { useState } from "react";
-// import ReactHtmlParser from "react-html-parser";
+
+import { useState } from "react";
+
+
+
 
 //! ===========OUR IMPORTS
 import CoursesJson from "../../../../public/json/Courses.json";
@@ -20,6 +23,14 @@ import InputCommentCards from "components/lib/comment_cards/inputComment_cards";
 const CourseTabContent = () => {
   const questions = CoursesJson.questionAnswers.questionAnswers;
   const userComments = CoursesJson.ratings.ratings;
+
+  const [, setTakenCommentVal] = useState()
+
+  const inputCommentCardsValue = (value) => {
+    console.log(value)
+    setTakenCommentVal(value)
+  }
+ 
 
   return (
     <>
@@ -55,8 +66,9 @@ const CourseTabContent = () => {
                     key={1}
                     name={"ბექა არაბიძე"}
                     rating={2}
-                    // imageUrl="https://images.pexels.com/photos/3310695/pexels-photo-3310695.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                    onChange={(value) => inputCommentCardsValue(value)}
                 />
+
                 {userComments.map(rating => (
                 
                     <CommentCards
