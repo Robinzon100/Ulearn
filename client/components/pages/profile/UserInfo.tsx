@@ -42,7 +42,7 @@ type IFormInput = {
 
 
 const UserInfo = ({ full_name, email, description, socials, image_url }) => {
-  const { register, handleSubmit, formState: { errors }, reset,getValues } = useForm<IFormInput>();
+  const { register, handleSubmit, formState: { errors }, reset, getValues } = useForm<IFormInput>();
 
   // VERIFICATION STATES
   const [isVerificated, setIsVerificated] = useState(false);
@@ -74,8 +74,8 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
 
 
     if (!fileUploadError) {
-    
-        fetch(fileProperties.base64)
+
+      fetch(fileProperties.base64)
         .then(res => {
           return res.blob();
         })
@@ -121,7 +121,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
           <div className="user-profile">
 
             <div className="picture" style={
-              fileProperties.base64 == '' ?
+              fileProperties.base64 == '' && image_url != '' && image_url != null ?
                 { backgroundImage: `url(${process.env.BACK_END_URL}/api/images/${image_url})` }
                 : { backgroundImage: `url(${fileProperties.base64})` }}>
 
@@ -153,7 +153,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                 <FileUpload
                   height="18rem"
                   uploadSize={300}
-                  disabled={!isEditable ? true : false} 
+                  disabled={!isEditable ? true : false}
                   icon={<Upload size={20} />}
                   onError={(errorType) => setFileUploadError(errorType)}
                   fileProperties={
@@ -322,8 +322,8 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                             value: emailRegex,
                             message: "თქვენი ელექტრონული ფოსტა არასწორია",
                           },
-                            validate: () => getValues("email") != userInfo.email
-                                || 'ელექტრონული ფოსტები არ უნდა ემთხვეოდეს ერთმანეთს',
+                          validate: () => getValues("email") != userInfo.email
+                            || 'ელექტრონული ფოსტები არ უნდა ემთხვეოდეს ერთმანეთს',
                         })}
                       />
 
@@ -575,9 +575,9 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                   onClick={() => {
                     setIsEditable(true)
                     reset({
-                        current_password: "",
+                      current_password: "",
                     });
-                }}
+                  }}
                   color="yellow"
                   size="large"
                   disabled={false}
@@ -607,9 +607,10 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                 <Button
                   onClick={() => {
                     setFileProperties(
-                        { name: "", size: 0, type: "", 
-                        base64: `${process.env.BACK_END_URL}/api/images/${image_url}` 
-                    })
+                      {
+                        name: "", size: 0, type: "",
+                        base64: `${process.env.BACK_END_URL}/api/images/${image_url}`
+                      })
                     setAuthError("")
                     setIsEditable(false);
                     reset({
