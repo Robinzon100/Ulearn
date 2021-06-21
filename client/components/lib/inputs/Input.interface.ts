@@ -18,7 +18,8 @@ export interface IinputInterface extends IGlobal {
     isFocused?:boolean;
     resizable?: boolean;
     characterMaxSize?: number;
-    autoComplate?:string
+    autoComplate?:string;
+    maxLength?:number;
 }
 
 

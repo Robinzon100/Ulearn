@@ -13,12 +13,15 @@ import FileProperties from "components/lib/upload/FileProperties";
 
 
 interface SylabusVideoComponent {
-
+    id:number;
+    name:string;
+    duration:number;
+    video_url:string;
 }
 
 
 
-const SylabusVideoComponent = ({id}) => {
+const SylabusVideoComponent = ({id,name,duration,video_url}:SylabusVideoComponent) => {
 
     const [fileProperties, setFileProperties] = useState({ name: "", size: 0, type: "", base64: '' });
     const [fileUploadError, setFileUploadError] = useState("");
@@ -50,7 +53,7 @@ const SylabusVideoComponent = ({id}) => {
 
                     <ChangeVideoName
                         chapterNumber={1}
-                        chapterName={"ვიდეოს სახელი"}
+                        chapterName={name}
                     />
 
 
@@ -72,13 +75,25 @@ const SylabusVideoComponent = ({id}) => {
                             }}
                         />
 
+                     
+
+
+                        {/* // FILE UPLOAD PROPERTIES*/}
+
+                        <video src={video_url} controls autoPlay={false} />
+
                         <div className="fileUpload-errors">
                             <p className="form_errors f-size-p6 f-weight-r">
                                 {fileUploadError}
                             </p>
                         </div>
 
-                        {/* // FILE UPLOAD PROPERTIES*/}
+
+                        <div className="duration">
+                            <h1 className="f-size-p5 f-weight-r">ხანგძლივობა: {duration} წთ</h1>
+
+                        </div>   
+
 
                         <FileProperties
                             name={fileProperties.name}

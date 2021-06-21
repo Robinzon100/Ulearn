@@ -224,6 +224,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                         width="100%"
                         isFocused={true}
                         readonly={!isEditable ? true : false}
+                        maxLength={256}
                         {...register("full_name")}
                       />
                     </>
@@ -263,6 +264,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                         isFocused={true}
                         placeHolder={userInfo.description}
                         readonly={!isEditable ? true : false}
+                        maxLength={1000}
                         {...register("description")}
                       />
 
@@ -408,6 +410,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                               size="medium"
                               type="text"
                               width="100%"
+                              maxLength={2048}
                               placeHolder='ლინკი...'
                               defaultValue={el.url.length > 0 ? el.url : null}
                               //@ts-ignore

@@ -24,7 +24,8 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
     defaultValue,
     readonly,
     filled = true,
-    autoComplate = ""
+    autoComplate = "",
+    maxLength
   }, ref: React.Ref<HTMLInputElement | null>,) => {
 
 
@@ -55,6 +56,7 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
             style={style}
             defaultValue={defaultValue}
             readOnly={readonly}
+            maxLength={maxLength}
           />
 
           {iconRight && (

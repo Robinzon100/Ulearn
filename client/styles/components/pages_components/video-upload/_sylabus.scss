@@ -1,9 +1,7 @@
 .sylabus {
   .sylabus-container {
-
-    
     &:not(:first-child) {
-        margin-top: 5rem;
+      margin-top: 5rem;
     }
     .new-chapter {
       margin-top: 4rem;
@@ -12,7 +10,6 @@
       border: 0.5px solid var(--secondary-dark-grey);
       box-sizing: border-box;
       box-shadow: 0px 23px 42px -6px rgba(17, 23, 53, 0.1);
-
 
       .add-new-chapter {
         @include flex(space-between, center);
@@ -27,6 +24,7 @@
 
           .pencil {
             transform: translateY(7px);
+            cursor: pointer;
           }
         }
 
@@ -49,8 +47,6 @@
         }
       }
 
-
-
       /// SylabusVideoComponent
       .sylabus-video {
         width: 100%;
@@ -65,13 +61,28 @@
           box-sizing: border-box;
           box-shadow: 0px 23px 42px -6px rgba(17, 23, 53, 0.1);
 
+
+
           .video-upload-section {
-              .upload_container {
-                  margin-left: 4rem;
-              }
-              .fileProperties,.fileUpload-errors {
-                  margin: 2rem 0 0 4rem;
-              }
+
+
+            video {
+              height: auto;
+              width: 100%;
+              object-fit: cover;
+            }
+
+
+
+            .fileProperties {
+              margin: 0 0 0 4rem;
+            }
+            .fileUpload-errors,
+            .duration {
+              margin: 2rem 0 0 4rem;
+            }
+
+
           }
         }
       }
