@@ -4,7 +4,5 @@ import customError from '../../../../utils/createError';
 
 
 export const postNewCourse = async (req: Request, res: Response, next: NextFunction) => {
-   res.json({
-       message: 'asd'
-   }) 
+    
 }

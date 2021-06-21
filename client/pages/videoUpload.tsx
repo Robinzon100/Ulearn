@@ -15,7 +15,7 @@ let data = [
         id: 1,
         name: "მეტი ჯავასკრიპტზე",
         duration: 15,
-        video_url: "https://player.vimeo.com/external/488295369.sd.mp4?s=96338e16e3d0afae37be9399b9c67a4fb9efd063&profile_id=165&oauth2_token_id=57447761",
+        video_url: "https://player.vimeo.com/external/460626294.sd.mp4?s=d12e23c685d30a02ed1543f938a3b4e654391712&profile_id=139&oauth2_token_id=57447761",
       },
     ],
   },
