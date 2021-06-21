@@ -15,7 +15,7 @@ import Input from "components/lib/inputs/Input";
 import TextArea from "components/lib/textarea/TextArea";
 import Button from "components/lib/button/Button";
 import FileUpload from "components/lib/upload/FileUpload"
-
+import FileProperties from 'components/lib/upload/FileProperties';
 
 
 import { parseSocials, removeEmptyValuedEntries } from "./userInfo.utils";
@@ -183,22 +183,13 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
 
 
 
-            {/* // FILE UPLOAD */}
+            {/* // FILE UPLOAD PROPERTIES*/}
             {isEditable &&
-              <div className="fileProperties">
-
-                <h1 className="f-size-p5 f-weight-r file_size">
-                  სახელი: {fileProperties.name}
-                </h1>
-
-                <h1 className="f-size-p5 f-weight-r">
-                  ზომა: {fileProperties.size} kb
-                </h1>
-
-                <h1 className="f-size-p5 f-weight-r">
-                  ფორმატი: {fileProperties.type}
-                </h1>
-              </div>
+                <FileProperties
+                    name={fileProperties.name}
+                    size={fileProperties.size}
+                    type={fileProperties.type}
+                />
             }
 
 
