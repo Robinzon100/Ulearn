@@ -1,4 +1,4 @@
-export const VideoUploadHeading =  [
+export const NewCourseHeading =  [
     {
         title: 'მოწონებული',
         icon: {

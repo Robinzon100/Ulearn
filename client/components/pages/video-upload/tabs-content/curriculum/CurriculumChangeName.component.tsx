@@ -1,5 +1,5 @@
 
-import { Edit3, Trash2 } from "react-feather";
+import { Edit3, Trash2,ChevronDown } from "react-feather";
 import { useState } from "react";
 
 
@@ -8,19 +8,16 @@ import Input from "components/lib/inputs/Input"
 interface IChangeName  {
     chapterNumber:number;
     chapterName:string;
-    onClick?:any
+    onClick?:any;
+    onToggle?:any;
 }
 
 
 
 
-const SylabusChangeName = ({ chapterNumber,chapterName,onClick }:IChangeName) => {
+const SylabusChangeName = ({ chapterNumber,chapterName,onClick,onToggle }:IChangeName) => {
 
-    const [isEditable, setIsEditable] = useState(false);
-    
-   const editChapterName = () => {
-       
-   }
+    const [isEditable,] = useState(false);
 
 
     return (
@@ -52,7 +49,7 @@ const SylabusChangeName = ({ chapterNumber,chapterName,onClick }:IChangeName) =>
                       
                     
                   </div>
-                  <div className="pencil" onClick={() => editChapterName()}>
+                  <div className="pencil">
                     <Edit3 style={{ opacity: "60%" }} />
                   </div>
                 </div>
@@ -60,13 +57,14 @@ const SylabusChangeName = ({ chapterNumber,chapterName,onClick }:IChangeName) =>
   
   
                 <div className="delete-dropdown">
-                  {/* <div className="dropdown">
+
+                  <div className="dropdown" onClick={onToggle}>
                       <ChevronDown 
                           color={"var(--secondary-darkest-gray)"} 
                           style={{ opacity: "60%" }}
                           size={35} 
                       />
-                  </div> */}
+                  </div>
   
                   <div className="delete" onClick={onClick}>
                       <Trash2 color={"var(--primary-white)"} size={25} />

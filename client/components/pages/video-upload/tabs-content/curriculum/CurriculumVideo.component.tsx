@@ -2,30 +2,32 @@
 import { Upload } from "react-feather";
 import { useState } from "react";
 
+
 import { uploadAndRead } from "components/lib/upload/utils/FileUploadLogic";
 
 
-import ChangeVideoName from "components/pages/video-upload/tabs-content/sylabus/SylabusChangeName.component"
+import ChangeVideoName from "components/pages/video-upload/tabs-content/curriculum/CurriculumChangeName.component"
 import Button from "components/lib/button/Button";
 import FileUpload from "components/lib/upload/FileUpload";
 import FileProperties from "components/lib/upload/FileProperties";
 
 
 
-interface SylabusVideoComponent {
+interface CurriculumVideoComponent {
     id:number;
     name:string;
     duration:number;
     video_url:string;
+    onClick?:any
 }
 
 
 
-const SylabusVideoComponent = ({id,name,duration,video_url}:SylabusVideoComponent) => {
+const CurriculumVideoComponent = (
+    { id,name,duration,video_url,onClick}:CurriculumVideoComponent) => {
 
     const [fileProperties, setFileProperties] = useState({ name: "", size: 0, type: "", base64: '' });
     const [fileUploadError, setFileUploadError] = useState("");
-
 
 
 
@@ -34,7 +36,7 @@ const SylabusVideoComponent = ({id,name,duration,video_url}:SylabusVideoComponen
             
 
 
-            <div className="sylabus-video" key={id}>
+            <div className="curriculum-video" key={id} >
 
 
                 <Button
@@ -44,15 +46,16 @@ const SylabusVideoComponent = ({id,name,duration,video_url}:SylabusVideoComponen
                     loading={false}
                     width="25rem"
                     icon={<Upload size={22} />}
+                    onClick={onClick}
                     type="submit">
                     <p className="f-weight-r f-size-p5">დამატება</p>
                 </Button>
 
-                <div className="sylabus-video-container">
+                <div className="curriculum-video-container">
 
 
                     <ChangeVideoName
-                        chapterNumber={1}
+                        chapterNumber={id}
                         chapterName={name}
                     />
 
@@ -110,4 +113,4 @@ const SylabusVideoComponent = ({id,name,duration,video_url}:SylabusVideoComponen
     )
 }
 
-export default SylabusVideoComponent
+export default CurriculumVideoComponent

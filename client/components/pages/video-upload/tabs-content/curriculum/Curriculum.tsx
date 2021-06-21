@@ -1,21 +1,22 @@
 import { Upload } from "react-feather";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 
-
+import { ToggleElement } from "components/utils/helpers/ToggleElement";
 import Button from "components/lib/button/Button";
-import SylabusVideoComponent from "components/pages/video-upload/tabs-content/sylabus/SylabusVideo.component";
-import ChangeChapterName from "components/pages/video-upload/tabs-content/sylabus/SylabusChangeName.component";
+import CurriculumVideoComponent from "components/pages/video-upload/tabs-content/curriculum/CurriculumVideo.component";
+import ChangeChapterName from "components/pages/video-upload/tabs-content/curriculum/CurriculumChangeName.component";
 
 
 
 
-const Sylabus = ({ data }) => {
-    const [addComponent, setAddNewComponent] = useState(1);
+const Curriculum = ({ data }) => {
+    const [isToggled, setIsToggled] = useState({})
     const [videoData, setVideoData] = useState<any>(data)
 
+
+
     const add = () => {
-        console.log(videoData[videoData.length - 1]);
 
         setVideoData([...videoData,
         {
@@ -33,19 +34,26 @@ const Sylabus = ({ data }) => {
     }
 
     const remove = (id: number) => {
-        setVideoData(
-            [...videoData.filter(el => el.id != id)].map((chapter, i) => {
-                return Object.assign(chapter, { id: i + 1 })
-            }))
+        if (id != 1) {
+            setVideoData(
+                [...videoData.filter(el => el.id != id)].map((chapter, i) => {
+                    return Object.assign(chapter, { id: i + 1 })
 
+                }))
+        }
     }
+
+
+
+
+
 
 
 
     return (
         <>
-            <section className="sylabus">
-                <div className="sylabus-video-add-btn">
+            <section className="curriculum">
+                <div className="curriculum-video-add-btn">
                     <Button
                         color="blue"
                         size="medium"
@@ -61,22 +69,20 @@ const Sylabus = ({ data }) => {
 
 
                 {videoData.map((el, i: number) => (
-                    <div className="sylabus-container" key={i}>
+                    <div className="curriculum-container" key={i}>
 
-
-
-
-                        <div className="new-chapter" >
+                        <div className="new-chapter" data-state={isToggled[el?.id]}>
 
                             <ChangeChapterName
                                 chapterNumber={el?.id}
                                 chapterName={el?.name}
                                 onClick={() => remove(el.id)}
+                                onToggle={() => ToggleElement(el?.id, setIsToggled)}
                             />
 
 
-                            {el.sub_videos.map((sub, i) => (
-                                <SylabusVideoComponent
+                            {el.sub_videos.map((sub) => (
+                                <CurriculumVideoComponent
                                     key={sub?.id}
                                     id={sub?.id}
                                     name={sub?.name}
@@ -94,4 +100,4 @@ const Sylabus = ({ data }) => {
     );
 };
 
-export default Sylabus;
+export default Curriculum;
