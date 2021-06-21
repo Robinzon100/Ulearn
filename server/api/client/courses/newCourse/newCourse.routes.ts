@@ -21,7 +21,7 @@ router.use(getUserWithAccessToken)
 
 
 // ─── ROUTES ─────────────────────────────────────────────────────────────────────
-router.post('/all', postNewCourse);
+router.post('/', postNewCourse);
 
 
 
