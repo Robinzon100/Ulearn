@@ -91,11 +91,11 @@ export const getUser = async (req: Request, res: Response, next: NextFunction) =
 export const uploadUserImage = async (req: Request, res: Response, next: NextFunction) => {
     const { file } = req
     const s3Res = await cloudUploadFile(req.file);
-    unlinkFile(`${file?.path}`)
+    await unlinkFile(`${file?.path}`)
 
     res.json(
         {
-            fileKey: s3Res.key
+            fileKey: s3Res.key,
         })
 }
 

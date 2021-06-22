@@ -8,11 +8,11 @@ import Curriculum  from "components/pages/video-upload/tabs-content/curriculum/C
 
 let data = [
   {
-    id: 1,
+    id: 0,
     name: "ჯავასკრიპტი",
     sub_videos: [
       {
-        id: 1,
+        id: 0,
         name: "მეტი ჯავასკრიპტზე",
         duration: 15,
         video_url: "https://player.vimeo.com/external/460626294.sd.mp4?s=d12e23c685d30a02ed1543f938a3b4e654391712&profile_id=139&oauth2_token_id=57447761",

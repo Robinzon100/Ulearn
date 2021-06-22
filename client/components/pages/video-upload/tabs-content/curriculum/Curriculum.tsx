@@ -1,5 +1,5 @@
 import { Upload } from "react-feather";
-import { useState } from "react";
+import { useState, useEffect } from 'react';
 
 
 import { ToggleElement } from "components/utils/helpers/ToggleElement";
@@ -13,53 +13,64 @@ import ChangeChapterName from "components/pages/video-upload/tabs-content/curric
 const Curriculum = ({ data }) => {
     const [isToggled, setIsToggled] = useState({})
     const [videoData, setVideoData] = useState<any>(data)
+    const [subVideos, setSubVideos] = useState<any>()
     // const [sub_videos, setSub_videos] = useState(data[data.length - 1].sub_videos)
 
 
-    const add = (condition,id?) => {
-        debugger
+    const add = (condition, id?) => {
         const lastChapterId = videoData[videoData.length - 1].id;
 
-        if(condition === "main_videos") {
+        if (condition === "main_videos") {
             setVideoData([...videoData,
+            {
+                id: lastChapterId + 1,
+                name: "თავის სახელწოდება",
+                sub_videos: [
+                    {
+                        id: 1,
+                        name: "",
+                        duration: 0,
+                        video_url: "",
+                    },
+                ],
+            }])
+        } else {
+            const lastSubVideoId = videoData[id].sub_videos[videoData[id].sub_videos.length - 1].id
+            videoData[id].sub_videos.push(
                 {
-                    id:  lastChapterId + 1,
-                    name: "თავის სახელწოდება",
-                    sub_videos: [
-                        {
-                            id: 1,
-                            name: "",
-                            duration: 0,
-                            video_url: "",
-                        },
-                    ],
-                }])
-        }else {
-            const lastSubVideoId = videoData[id].sub_videos[videoData[id].sub_videos.length - 1] 
-
-            setVideoData([...videoData,
-                {
-                    id: 1,
-                    sub_videos: [
-                        {
-                            id: lastSubVideoId + 1,
-                            name: "თავში ახალი ვიდეო",
-                            duration: 0,
-                            video_url: "https://player.vimeo.com/external/191381863.sd.mp4?s=55cc5d1ba603cb56af5242ab115b45aefb2fae2f&profile_id=164&oauth2_token_id=57447761",
-                        },
-                    ],
-                }])
+                    id: lastSubVideoId + 1,
+                    name: "",
+                    duration: 0,
+                    video_url: ""
+                }
+            )
+            setVideoData(newVideoData => ([...newVideoData]))
         }
     }
 
-    const remove = (id: number) => {
-        // debugger
-        if (id != 1 || videoData.length != 1) {
-            setVideoData(
-                [...videoData.filter(el => el.id != id)].map((chapter, i) => {
-                    return Object.assign(chapter, { id: i + 1 })
 
-                }))
+
+
+
+
+
+    const remove = (chapterId: number, videoId?: number) => {
+        if (videoId == undefined) {
+            if (chapterId != 0 || videoData.length != 1) {
+                setVideoData(
+                    [...videoData.
+                        filter(el => el.id != chapterId)]
+                        .map((chapter, i) => Object.assign(chapter, { id: i })))
+            }
+        } else {
+            if (videoId != 0 || videoData[chapterId].sub_videos.length != 1) {
+                videoData[chapterId].sub_videos = videoData[chapterId].sub_videos
+                    .filter(el => el.id != videoId)
+                    .map((video, i) => Object.assign(video, { id: i }))
+
+                setVideoData(newVideoData => ([...newVideoData]))
+            }
+
         }
     }
 
@@ -94,20 +105,20 @@ const Curriculum = ({ data }) => {
                         <div className="new-chapter" data-open={isToggled[el?.id]}>
 
                             <ChangeChapterName
-                                chapterNumber={el?.id}
+                                chapterNumber={el?.id + 1}
                                 chapterName={el?.name}
                                 onClick={() => remove(el.id)}
                                 onToggle={() => ToggleElement(el?.id, setIsToggled)}
                             />
 
 
-                            
-                                <CurriculumVideoComponent
-                                    key={el.i}
-                                    id={el.id}
-                                    sub_videos={el.sub_videos}
-                                    onClick={() => add("sub_videos",i)}
-                                />
+                            <CurriculumVideoComponent
+                                key={el.i}
+                                id={el.id}
+                                sub_videos={videoData[i].sub_videos}
+                                onClick={() => add("sub_videos", i)}
+                                onRemove={(videoId) => remove(el.id, videoId)}
+                            />
 
                         </div>
                     </div>

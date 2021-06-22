@@ -8,8 +8,6 @@ export const getImage = async (req: Request, res: Response, next: NextFunction) 
         if (key) {
             try {
                 const readStream = await getFileStream(key)
-                console.log(readStream);
-
                 readStream.pipe(res)
             } catch (err: any) {
                 res.json({
