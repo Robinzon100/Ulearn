@@ -51,6 +51,7 @@ const MyCourse = () => {
                 <CourseVideoPlayer />
               </div>
               
+              {/* /// TAB HEADING CONTENT */}
               <CourseTabContent/>
             </div>
             

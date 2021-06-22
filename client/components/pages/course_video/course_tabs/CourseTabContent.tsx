@@ -47,6 +47,13 @@ const CourseTabContent = () => {
             component={[
               null,
               <>
+              <InputCommentCards
+                    id={1}
+                    key={1}
+                    name={"ბექა არაბიძე"}
+                    rating={2}
+                    onChange={(value) => inputCommentCardsValue(value)}
+                />
                 {questions.map((data) => (
                   <QuestionAnswerCards
                     id={data.id}
@@ -61,6 +68,7 @@ const CourseTabContent = () => {
               null,
 
               <>
+              
               <InputCommentCards
                     id={1}
                     key={1}

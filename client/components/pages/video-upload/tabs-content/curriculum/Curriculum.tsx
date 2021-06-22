@@ -13,24 +13,43 @@ import ChangeChapterName from "components/pages/video-upload/tabs-content/curric
 const Curriculum = ({ data }) => {
     const [isToggled, setIsToggled] = useState({})
     const [videoData, setVideoData] = useState<any>(data)
+    // const [sub_videos, setSub_videos] = useState(data[data.length - 1].sub_videos)
 
 
+    const add = (condition,id?) => {
+        debugger
+        const lastChapterId = videoData[videoData.length - 1].id;
 
-    const add = () => {
+        if(condition === "main_videos") {
+            setVideoData([...videoData,
+                {
+                    id:  lastChapterId + 1,
+                    name: "თავის სახელწოდება",
+                    sub_videos: [
+                        {
+                            id: 1,
+                            name: "",
+                            duration: 0,
+                            video_url: "",
+                        },
+                    ],
+                }])
+        }else {
+            const lastSubVideoId = videoData[id].sub_videos[videoData[id].sub_videos.length - 1] 
 
-        setVideoData([...videoData,
-        {
-            id: videoData[videoData.length - 1].id + 1,
-            name: "ჯავასკრიპტი",
-            sub_videos: [
+            setVideoData([...videoData,
                 {
                     id: 1,
-                    name: "",
-                    duration: 0,
-                    video_url: "",
-                },
-            ],
-        }])
+                    sub_videos: [
+                        {
+                            id: lastSubVideoId + 1,
+                            name: "თავში ახალი ვიდეო",
+                            duration: 0,
+                            video_url: "https://player.vimeo.com/external/191381863.sd.mp4?s=55cc5d1ba603cb56af5242ab115b45aefb2fae2f&profile_id=164&oauth2_token_id=57447761",
+                        },
+                    ],
+                }])
+        }
     }
 
     const remove = (id: number) => {
@@ -58,7 +77,7 @@ const Curriculum = ({ data }) => {
                     <Button
                         color="blue"
                         size="medium"
-                        onClick={() => add()}
+                        onClick={() => add("main_videos")}
                         disabled={false}
                         loading={false}
                         width="25rem"
@@ -82,15 +101,13 @@ const Curriculum = ({ data }) => {
                             />
 
 
-                            {el.sub_videos.map((sub) => (
+                            
                                 <CurriculumVideoComponent
-                                    key={sub?.id}
-                                    id={sub?.id}
-                                    name={sub?.name}
-                                    duration={sub?.duration}
-                                    video_url={sub?.video_url}
+                                    key={el.i}
+                                    id={el.id}
+                                    sub_videos={el.sub_videos}
+                                    onClick={() => add("sub_videos",i)}
                                 />
-                            ))}
 
                         </div>
                     </div>

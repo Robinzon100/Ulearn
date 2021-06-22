@@ -1,6 +1,6 @@
 
 import { Upload } from "react-feather";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 import { uploadAndRead } from "components/lib/upload/utils/FileUploadLogic";
@@ -14,29 +14,33 @@ import FileProperties from "components/lib/upload/FileProperties";
 
 
 interface CurriculumVideoComponent {
-    id:number;
-    name:string;
-    duration:number;
-    video_url:string;
-    onClick?:any
+    id: number;
+    // name: string;
+    // duration: number;
+    // video_url: string;
+    sub_videos:any[]
+    onClick?: any
 }
 
 
 
-const CurriculumVideoComponent = (
-    { id,name,duration,video_url,onClick}:CurriculumVideoComponent) => {
+const CurriculumVideoComponent = ({ id,sub_videos, onClick }: CurriculumVideoComponent) => {
 
     const [fileProperties, setFileProperties] = useState({ name: "", size: 0, type: "", base64: '' });
     const [fileUploadError, setFileUploadError] = useState("");
 
 
 
+    useEffect(() => {
+       console.log(sub_videos)
+    }, [])
+
     return (
         <>
-            
 
 
-            <div className="curriculum-video" key={id} >
+
+            <div className="curriculum-video" key={id}>
 
 
                 <Button
@@ -51,62 +55,65 @@ const CurriculumVideoComponent = (
                     <p className="f-weight-r f-size-p5">დამატება</p>
                 </Button>
 
-                <div className="curriculum-video-container">
+                {sub_videos.map((el) => (
+                    <div className="curriculum-video-container" key={el.id}>
 
 
-                    <ChangeVideoName
-                        chapterNumber={id}
-                        chapterName={name}
-                    />
-
-
-                    <div className="video-upload-section">
-                        <FileUpload
-                            height="18rem"
-                            width="37rem"
-                            uploadSize={1000}
-                            disabled={false}
-                            icon={<Upload size={20} />}
-                            onError={(errorType) => setFileUploadError(errorType)}
-                            fileProperties={
-                                (name, size, type, base64) =>
-                                    setFileProperties({ name, size, type, base64 })
-                            }
-                            accept=".mp4"
-                            onChange={(e) => {
-                                uploadAndRead(e)
-                            }}
+                        <ChangeVideoName
+                            chapterNumber={el.id}
+                            chapterName={el.name}
                         />
 
-                     
+
+                        <div className="video-upload-section">
+                            <FileUpload
+                                height="18rem"
+                                width="37rem"
+                                uploadSize={1000}
+                                disabled={false}
+                                icon={<Upload size={20} />}
+                                onError={(errorType) => setFileUploadError(errorType)}
+                                fileProperties={
+                                    (name, size, type, base64) =>
+                                        setFileProperties({ name, size, type, base64 })
+                                }
+                                accept=".mp4"
+                                onChange={(e) => {
+                                    uploadAndRead(e)
+                                }}
+                            />
 
 
-                        {/* // FILE UPLOAD PROPERTIES*/}
 
-                        <video src={video_url} controls autoPlay={false} />
 
-                        <div className="fileUpload-errors">
-                            <p className="form_errors f-size-p6 f-weight-r">
-                                {fileUploadError}
-                            </p>
+                            {/* // FILE UPLOAD PROPERTIES*/}
+
+                            <video src={el.video_url} controls autoPlay={false} />
+
+                            <div className="fileUpload-errors">
+                                <p className="form_errors f-size-p6 f-weight-r">
+                                    {fileUploadError}
+                                </p>
+                            </div>
+
+
+                            <div className="duration">
+                                <h1 className="f-size-p5 f-weight-r">ხანგძლივობა: {el.duration} წთ</h1>
+
+                            </div>
+
+
+                            <FileProperties
+                                name={fileProperties.name}
+                                size={fileProperties.size}
+                                type={fileProperties.type}
+                            />
                         </div>
 
 
-                        <div className="duration">
-                            <h1 className="f-size-p5 f-weight-r">ხანგძლივობა: {duration} წთ</h1>
-
-                        </div>   
-
-
-                        <FileProperties
-                            name={fileProperties.name}
-                            size={fileProperties.size}
-                            type={fileProperties.type}
-                        />
                     </div>
+                ))}
 
-
-                </div>
 
             </div>
         </>
