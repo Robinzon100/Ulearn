@@ -5,9 +5,13 @@ const readAndPreview = async (file, result) => {
 
     reader.addEventListener("load", function () {
       base64 = reader?.result as string;
+
       return result(base64)
+
     }, false);
     reader.readAsDataURL(file);
+  }else {
+      return result(false)
   }
 }
 
@@ -15,10 +19,14 @@ const readAndPreview = async (file, result) => {
 
 
 export const uploadAndRead = async (e: React.FormEvent<HTMLInputElement>) => {
-  return new Promise((resolve, _) => {
+  return new Promise((resolve, reject) => {
     const file = e.currentTarget.files[0];
     readAndPreview(file, (result) => {
-      resolve(result)
+        if(result) {
+            resolve(result)
+        }else {
+            reject(result)
+        }
     })
   })
 };
@@ -32,6 +40,7 @@ export const ReturnFileSizeAndType = async (e, uploadSize: number, onError, acce
   const inputEl = e.target;
   const inputFiles = [...inputEl.files];
 
+
   inputFiles.map(async (file) => {
     const fileSize = Math.floor(file?.size / 1000)
 
@@ -39,11 +48,17 @@ export const ReturnFileSizeAndType = async (e, uploadSize: number, onError, acce
       return onError('ფაილის ზომა ზედმეტად დიდია, თქვენი ფაილის ზომაა ' + Math.floor(file?.size / 1000) + " kb")
 
     if (!isTypeCorrect(file, acceptType))
-      return onError('ფაილის არ შეესაბამება დაშვებულ ფორმატს')
+      return onError('ფაილი არ შეესაბამება დაშვებულ ფორმატს')
+      
+    let imageBase64;
 
-
-    const imageBase64 = await uploadAndRead(e)
-    fileProperties(file?.name, fileSize, file?.type, imageBase64 && imageBase64)
+    try {
+        imageBase64 = await uploadAndRead(e)
+        fileProperties(file?.name, fileSize, file?.type, imageBase64 && imageBase64)
+    } catch (error) {
+        fileProperties(file?.name, fileSize, file?.type)
+    }
+    
     return onError();
   })
 }
@@ -80,10 +95,11 @@ const isTypeCorrect = (file: any, type: string): boolean => {
   const inputedFileType = `.${fileNameArray[fileNameArray.length - 1]}`;
   let condition
 
+  
   if (type.split(',').length > 1) {
     condition = type.split(',').includes(inputedFileType)
   } else {
-    condition = `.${inputedFileType}` == type
+    condition = `${inputedFileType}` == `${type}`
   }
 
 

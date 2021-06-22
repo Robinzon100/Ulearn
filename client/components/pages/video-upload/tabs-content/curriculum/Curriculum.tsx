@@ -1,5 +1,5 @@
 import { Upload } from "react-feather";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 
 import { ToggleElement } from "components/utils/helpers/ToggleElement";
