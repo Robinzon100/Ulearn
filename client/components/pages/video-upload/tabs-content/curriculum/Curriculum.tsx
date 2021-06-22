@@ -72,7 +72,7 @@ const Curriculum = ({ data }) => {
                 {videoData.map((el, i: number) => (
                     <div className="curriculum-container" key={i}>
 
-                        <div className="new-chapter" data-state={isToggled[el?.id]}>
+                        <div className="new-chapter" data-open={isToggled[el?.id]}>
 
                             <ChangeChapterName
                                 chapterNumber={el?.id}
