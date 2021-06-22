@@ -1,5 +1,5 @@
 import { Upload } from "react-feather";
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 
 import { ToggleElement } from "components/utils/helpers/ToggleElement";
@@ -13,14 +13,22 @@ import ChangeChapterName from "components/pages/video-upload/tabs-content/curric
 const Curriculum = ({ data }) => {
     const [isToggled, setIsToggled] = useState({})
     const [videoData, setVideoData] = useState<any>(data)
-    const [subVideos, setSubVideos] = useState<any>()
-    // const [sub_videos, setSub_videos] = useState(data[data.length - 1].sub_videos)
+    const [error, setError] = useState({
+        newChapterErr: "",
+        newVideoErr: ""
+    })
 
 
-    const add = (condition, id?) => {
+
+
+    const add = (id?) => {
         const lastChapterId = videoData[videoData.length - 1].id;
 
-        if (condition === "main_videos") {
+        if (videoData.length == 1 || videoData[id].sub_videos.length == 1)
+            setError({ newChapterErr: "", newVideoErr: "" })
+
+
+        if (id) {
             setVideoData([...videoData,
             {
                 id: lastChapterId + 1,
@@ -61,6 +69,8 @@ const Curriculum = ({ data }) => {
                     [...videoData.
                         filter(el => el.id != chapterId)]
                         .map((chapter, i) => Object.assign(chapter, { id: i })))
+            } else {
+                setError({ newChapterErr: "უნდა არსებობდეს ერთი თავი მაინც", newVideoErr: "" })
             }
         } else {
             if (videoId != 0 || videoData[chapterId].sub_videos.length != 1) {
@@ -69,14 +79,12 @@ const Curriculum = ({ data }) => {
                     .map((video, i) => Object.assign(video, { id: i }))
 
                 setVideoData(newVideoData => ([...newVideoData]))
+            } else {
+                setError({ newChapterErr: "", newVideoErr: "უნდა არსებობდეს ერთი ვიდეო გაკვეთილი მაინც" })
             }
 
         }
     }
-
-
-
-
 
 
 
@@ -110,13 +118,18 @@ const Curriculum = ({ data }) => {
                                 onClick={() => remove(el.id)}
                                 onToggle={() => ToggleElement(el?.id, setIsToggled)}
                             />
+                            <div className="video_upload-errors">
+                                <h1 className="color: red; f-size-p6 f-weight-r">{error.newChapterErr}</h1>
+                                <h1 className="color: red; f-size-p6 f-weight-r">{error.newVideoErr}</h1>
+                            </div>
+
 
 
                             <CurriculumVideoComponent
                                 key={el.i}
                                 id={el.id}
                                 sub_videos={videoData[i].sub_videos}
-                                onClick={() => add("sub_videos", i)}
+                                onClick={() => add(i)}
                                 onRemove={(videoId) => remove(el.id, videoId)}
                             />
 

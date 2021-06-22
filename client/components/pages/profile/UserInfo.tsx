@@ -184,13 +184,13 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
 
 
             {/* // FILE UPLOAD PROPERTIES*/}
-            {isEditable &&
+            {/* {isEditable &&
                 <FileProperties
                     name={fileProperties.name}
                     size={fileProperties.size}
                     type={fileProperties.type}
                 />
-            }
+            } */}
 
 
 

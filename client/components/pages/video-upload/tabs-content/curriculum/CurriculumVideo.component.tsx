@@ -15,9 +15,6 @@ import FileProperties from "components/lib/upload/FileProperties";
 
 interface CurriculumVideoComponent {
     id: number;
-    // name: string;
-    // duration: number;
-    // video_url: string;
     sub_videos: any[]
     onClick?: any
     onRemove?: any
@@ -101,15 +98,8 @@ const CurriculumVideoComponent = ({ id, sub_videos, onClick, onRemove }: Curricu
 
                                 <div className="duration">
                                     <h1 className="f-size-p5 f-weight-r">ხანგძლივობა: {el.duration} წთ</h1>
-
                                 </div>
 
-
-                                <FileProperties
-                                    name={fileProperties.name}
-                                    size={fileProperties.size}
-                                    type={fileProperties.type}
-                                />
                             </div>
 
 
