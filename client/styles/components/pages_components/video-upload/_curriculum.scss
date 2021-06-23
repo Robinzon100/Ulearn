@@ -74,16 +74,37 @@
           box-shadow: 0px 23px 42px -6px rgba(17, 23, 53, 0.1);
 
           .video-upload-section {
+
+            
             video {
               height: auto;
+              max-width: 37rem;
               width: 100%;
               object-fit: cover;
             }
 
+
+
             .fileProperties {
               margin: 0 0 0 4rem;
             }
+
+
+
+            .file-size-name {
+                @include flex(initial,center);
+
+                svg,h1 {
+                    color:var(--secondary-light-dark);
+                }
+                .file_size {
+                    margin: 0 1rem;
+                }
+            }
+
+
             .fileUpload-errors,
+            .file-size-name,
             .duration {
               margin: 2rem 0 0 4rem;
             }
