@@ -5,4 +5,20 @@ const upload = multer({ dest: 'uploads/' })
 export const userProfileImageUpload = upload.single('user_profile_image')
 
 
-export const courseCurriculumVideoUpload = upload.array('course_curriculum_videos', 40)
+
+
+
+
+
+const uploadVideo = multer({
+    storage: multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, 'uploads/')
+        },
+        filename: function (req, file, cb) {
+            cb(null, file.fieldname + '-' + Date.now())
+        }
+    })
+})
+
+export const courseCurriculumVideoUpload = uploadVideo.single('course_curriculum_videos')

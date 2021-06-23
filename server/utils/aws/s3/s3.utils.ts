@@ -1,6 +1,10 @@
+import { AWSError, S3 as s_3 } from "aws-sdk"
+
 require('dotenv').config()
 const fs = require('fs')
 const S3 = require('aws-sdk/clients/s3')
+
+
 
 
 const bucketName = process.env.S3_BUCKET_NAME
@@ -31,6 +35,21 @@ export const cloudUploadFile = async (file: any) => {
 
     return await s3.upload(uploadParams).promise()
 }
+
+
+
+
+// delete a file to s3
+export const cloudDeleteFile = async (key: any) => {
+    const deleteParams = {
+        Bucket: bucketName,
+        Key: key
+    }
+
+
+    return s3.deleteObject(deleteParams).promise()
+}
+
 
 
 

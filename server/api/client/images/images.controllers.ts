@@ -1,21 +1,21 @@
+import { AWSError, S3 as s_3 } from 'aws-sdk';
 import { NextFunction, Request, Response } from "express";
 import { getFileStream } from "../../../utils/aws/s3/s3.utils";
 import customError from '../../../utils/createError';
 
 export const getImage = async (req: Request, res: Response, next: NextFunction) => {
-    try {
-        const { key } = req.params
-        if (key) {
-            try {
-                const readStream = await getFileStream(key)
-                readStream.pipe(res)
-            } catch (err: any) {
-                res.json({
-                    error: err.message
-                })
-            }
-        }
-    } catch (err: any) {
-        customError(res, next, err.messagem, 404)
+    const { key } = req.params
+    if (key) {
+        const readStream = await getFileStream(key)
+        readStream
+            .on('error', (err: AWSError) => {
+                customError(res, next, err.message, 404)
+            })
+            .pipe(res)
+            .on('data', async (data: s_3.Types.DeleteObjectOutput) => {
+                if (data) {
+                    await readStream.pipe(res)
+                }
+            })
     }
 }
