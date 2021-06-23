@@ -161,15 +161,22 @@ const Navigation = () => {
 
 
             {/* //* ======= CART ===== */}
-
+{/* 
             <div className="cart">
               <NextLink route="/shopping_cart">
                 <ShoppingCart />
               </NextLink>
-            </div>
+            </div> */}
 
 
+            {isLogedIn && (
+                <Button route="/new_course" size="mini" color="black">
+                  <p className="f-weight-r f-size-p7">კურსის შექმნა</p>
+                </Button>
+              
+            )}
 
+            
 
             {/* //* ======= LOGIN ===== */}
 

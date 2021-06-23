@@ -7,6 +7,7 @@ import ChangeVideoName from "components/pages/video-upload/tabs-content/curricul
 import Button from "components/lib/button/Button";
 import FileUpload from "components/lib/upload/FileUpload";
 import { ToggleElement } from "components/utils/helpers/ToggleElement";
+import { authenticatedRequest } from "components/utils/auth/tokenValidations";
 
 
 
@@ -29,7 +30,40 @@ const CurriculumVideoComponent = ({ id,sub_videos,onClick,onRemove }: Curriculum
   const [fileUploadError, setFileUploadError] = useState("");
 
 
+  const uploadVideoHandler = ()  => {
+      const video = new FormData();
 
+      if (!fileUploadError) {
+
+        fetch(fileProperties.base64)
+          .then(res => {
+            return res.blob();
+          })
+          .then(async (blob) => {
+            video.append('course_curriculum_videos', blob);
+            const { fileKey } = await authenticatedRequest(updateUserProfileImage, imgForm, null)
+  
+            if (fileKey) {
+              updatedData.image_url = fileKey
+              const res = await authenticatedRequest(updateUserProfile, updatedData, null);
+              setAuthError("დაფიქსირდა შეცდომა.შეასწორეთ თქვენი მონაცემები")
+  
+  
+              if (res.statusCode == 200) {
+                setUserInfo({
+                  full_name: res.update.full_name,
+                  email: res.update.email,
+                  description: res.update.description
+                })
+  
+                parseSocials(res.update.socials, setUserSocials);
+                setAuthError("")
+              }
+            }
+  
+          });
+      }
+  }
 
   
   return (
@@ -82,7 +116,6 @@ const CurriculumVideoComponent = ({ id,sub_videos,onClick,onRemove }: Curriculum
                   onError={(errorType) => setFileUploadError(errorType)}
                   fileProperties={(name, size, type, base64) => {
                     setFileProperties({ name, size, type, base64 });
-                    console.log({name, size, type, base64})
                   }
                     }
                   accept=".mp4"
