@@ -21,7 +21,7 @@ const Curriculum = ({ data }) => {
 
 
 
-    const add = (condition,id?) => {
+    const add = (condition, id?) => {
         const lastChapterId = videoData[videoData.length - 1].id;
 
 
@@ -88,6 +88,21 @@ const Curriculum = ({ data }) => {
     }
 
 
+    const addVideoUrlToData = (chapterId, videoId, videoKey) => {
+        // Object.assign(
+        //     videoData[chapterId].sub_videos[videoId],
+        //     { video_url: `${process.env.BACK_END_URL}/api/videos/${videoKey}` }
+        // )
+        videoData[chapterId].sub_videos[videoId] =
+        {
+            ...videoData[chapterId].sub_videos[videoId],
+            video_url: `${process.env.BACK_END_URL}/api/videos/${videoKey}`
+        }
+
+        setVideoData(newVideoData => ([...newVideoData]))
+    }
+
+
 
 
     return (
@@ -119,7 +134,6 @@ const Curriculum = ({ data }) => {
                                 onClick={() => remove(el.id)}
                                 onToggle={() => ToggleElement(el?.id, setIsToggled)}
                                 chapterId={i}
-                                // videoId={i}
                             />
                             <div className="video_upload-errors">
                                 <h1 className="color: red; f-size-p6 f-weight-r">{error.newChapterErr}</h1>
@@ -132,8 +146,9 @@ const Curriculum = ({ data }) => {
                                 key={i}
                                 id={i}
                                 sub_videos={videoData[i].sub_videos}
-                                onClick={() => add("sub_videos",i)}
+                                onClick={() => add("sub_videos", i)}
                                 onRemove={(videoId) => remove(el.id, videoId)}
+                                onUpload={(videoId, videoKey) => addVideoUrlToData(i, videoId, videoKey)}
                             />
 
                         </div>

@@ -1,4 +1,4 @@
-import { useState, ReactNode } from 'react';
+import { useState, ReactNode, PropsWithChildren, forwardRef } from 'react';
 
 
 import { ReturnFileSizeAndType } from "components/lib/upload/utils/FileUploadLogic"
@@ -22,56 +22,58 @@ interface IFileUpload {
 
 
 
-const FileUpload = ({
-  width = "100%",
-  height = "100%",
-  title = 'ფაილის ატვირთვა',
-  disabled,
-  onChange,
-  icon,
-  multiple = false,
-  //! UPLOADSIZE იგულისხმება ბაიტებში
-  uploadSize = 50,
-  onError,
-  accept,
-  fileProperties
-}: IFileUpload) => {
+const FileUpload = forwardRef<HTMLInputElement, PropsWithChildren<IFileUpload>>(
+  ({
+    width = "100%",
+    height = "100%",
+    title = 'ფაილის ატვირთვა',
+    disabled,
+    onChange,
+    icon,
+    multiple = false,
+    uploadSize = 50,
+    onError,
+    accept,
+    fileProperties,
+  }, ref: React.Ref<HTMLInputElement | null>) => {
 
-  const [isDragged, setIsDragged] = useState(false);
 
-  return (
-    <>
-      <div className="upload_container drag-and-drop_image">
-        <div className="upload_dashed">
+    const [isDragged, setIsDragged] = useState(false);
 
-          <input
-            type='file'
-            id="file-upload"
-            disabled={disabled}
-            multiple={multiple}
-            onChange={(e) => {
-              onChange(e);
-              ReturnFileSizeAndType(e, uploadSize, onError, accept, fileProperties)
-            }}
-            size={uploadSize}
-            onDragOver={() => setIsDragged(true)}
-            onDragLeave={() => setIsDragged(false)}
-            accept={accept}
-          />
+    return (
+      <>
+        <div className="upload_container drag-and-drop_image">
+          <div className="upload_dashed">
 
-          <label htmlFor="file-upload" className="heading f-size-p5 f-weight-b">
-            {icon}
-            {isDragged ? 'ატვირთვა' : title}
-          </label>
+            <input
+              ref={ref}
+              type='file'
+              id="file-upload"
+              disabled={disabled}
+              multiple={multiple}
+              onChange={(e) => {
+                onChange(e);
+                ReturnFileSizeAndType(e, uploadSize, onError, accept, fileProperties)
+              }}
+              size={uploadSize}
+              onDragOver={() => setIsDragged(true)}
+              onDragLeave={() => setIsDragged(false)}
+              accept={accept}
+            />
+
+            <label htmlFor="file-upload" className="heading f-size-p5 f-weight-b">
+              {icon}
+              {isDragged ? 'ატვირთვა' : title}
+            </label>
+
+          </div>
+
 
         </div>
 
 
-      </div>
-
-
-      <style jsx>
-        {`
+        <style jsx>
+          {`
         .upload_container {
             width: ${width};
             height: ${height};
@@ -81,9 +83,10 @@ const FileUpload = ({
           border-color: ${isDragged ? "var(--primary-blue)" : ''}
         }
         `}
-      </style>
-    </>
-  );
-};
+        </style>
+      </>
+    );
+  }
+)
 
 export default FileUpload;

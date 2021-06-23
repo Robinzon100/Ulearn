@@ -28,8 +28,6 @@ export const deleteVideo = async (req: Request, res: Response, next: NextFunctio
         const { key } = req.params
         if (key) {
             const deleteRes = await cloudDeleteFile(key)
-            console.log(deleteRes);
-
             res.json({
                 deleted: deleteRes == {} && true
             })

@@ -1,13 +1,12 @@
 import { Upload, Youtube } from "react-feather";
-import { useState } from "react";
-
-import { uploadAndRead } from "components/lib/upload/utils/FileUploadLogic";
+import React, { useState, useRef } from 'react';
 
 import ChangeVideoName from "components/pages/video-upload/tabs-content/curriculum/CurriculumChangeName.component";
 import Button from "components/lib/button/Button";
 import FileUpload from "components/lib/upload/FileUpload";
 import { ToggleElement } from "components/utils/helpers/ToggleElement";
 import { authenticatedRequest } from "components/utils/auth/tokenValidations";
+import { postCurriculumVideo } from "actions/client/course/newCourse/curriculum.action";
 
 
 
@@ -17,55 +16,38 @@ interface CurriculumVideoComponent {
   sub_videos: any[];
   onClick?: any;
   onRemove?: any;
+  onUpload?: any;
 }
 
 
 
 
-const CurriculumVideoComponent = ({ id,sub_videos,onClick,onRemove }: CurriculumVideoComponent) => {
-
-
+const CurriculumVideoComponent = ({ id, sub_videos, onClick, onRemove, onUpload }: CurriculumVideoComponent) => {
   const [isToggled, setIsToggled] = useState({})
-  const [fileProperties, setFileProperties] = useState({name: "",size: 0,type: "",base64: ""});
+  const [fileProperties, setFileProperties] = useState({ name: "", size: 0, type: "", base64: "" });
   const [fileUploadError, setFileUploadError] = useState("");
 
 
-  const uploadVideoHandler = ()  => {
-      const video = new FormData();
+  const uploadVideoHandler = async (videoId, videoEl: React.RefObject<HTMLInputElement>) => {
+    const videoForm = new FormData();
 
-      if (!fileUploadError) {
+    if (!fileUploadError) {
+      videoForm.append('course_curriculum_videos', videoEl.current.files[0]);
+      const { fileKey } = await authenticatedRequest(postCurriculumVideo, videoForm, null)
 
-        fetch(fileProperties.base64)
-          .then(res => {
-            return res.blob();
-          })
-          .then(async (blob) => {
-            video.append('course_curriculum_videos', blob);
-            const { fileKey } = await authenticatedRequest(updateUserProfileImage, imgForm, null)
-  
-            if (fileKey) {
-              updatedData.image_url = fileKey
-              const res = await authenticatedRequest(updateUserProfile, updatedData, null);
-              setAuthError("დაფიქსირდა შეცდომა.შეასწორეთ თქვენი მონაცემები")
-  
-  
-              if (res.statusCode == 200) {
-                setUserInfo({
-                  full_name: res.update.full_name,
-                  email: res.update.email,
-                  description: res.update.description
-                })
-  
-                parseSocials(res.update.socials, setUserSocials);
-                setAuthError("")
-              }
-            }
-  
-          });
+
+      if (fileKey) {
+        onUpload(videoId, fileKey)
+        setFileUploadError("")
+      } else {
+        setFileUploadError("ვერ მოხერხდა ფაილის ატვირთვა")
       }
+    }
   }
 
-  
+
+  const videoElement = useRef(null)
+
   return (
     <>
       <div className="curriculum-video" key={id}>
@@ -89,11 +71,11 @@ const CurriculumVideoComponent = ({ id,sub_videos,onClick,onRemove }: Curriculum
 
         {sub_videos &&
           sub_videos.map((el, i) => (
-          <div className="curriculum-video-container" 
-            data-open={isToggled[el?.id]} 
-            key={el.id}>
+            <div className="curriculum-video-container"
+              data-open={isToggled[el?.id]}
+              key={el.id}>
 
-                
+
               <ChangeVideoName
                 chapterNumber={i + 1}
                 chapterName={el.name}
@@ -116,11 +98,11 @@ const CurriculumVideoComponent = ({ id,sub_videos,onClick,onRemove }: Curriculum
                   onError={(errorType) => setFileUploadError(errorType)}
                   fileProperties={(name, size, type, base64) => {
                     setFileProperties({ name, size, type, base64 });
-                  }
-                    }
+                  }}
                   accept=".mp4"
+                  ref={videoElement}
                   onChange={(e) => {
-                    uploadAndRead(e);
+                    uploadVideoHandler(i, videoElement)
                   }}
                 />
 
@@ -130,7 +112,7 @@ const CurriculumVideoComponent = ({ id,sub_videos,onClick,onRemove }: Curriculum
                 <div className="file-size-name">
                   <Youtube />
                   <h1 className="f-size-p5 f-weight-r file_size">
-                      {fileProperties.name} - {parseFloat(`${fileProperties.size / 1000}`).toPrecision(2)} MB
+                    {fileProperties.name} - {parseFloat(`${fileProperties.size / 1000}`).toPrecision(2)} MB
                   </h1>
                 </div>
 
