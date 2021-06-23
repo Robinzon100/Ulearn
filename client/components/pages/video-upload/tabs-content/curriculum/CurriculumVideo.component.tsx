@@ -1,12 +1,15 @@
 import { Upload, Youtube } from "react-feather";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { uploadAndRead } from "components/lib/upload/utils/FileUploadLogic";
 
 import ChangeVideoName from "components/pages/video-upload/tabs-content/curriculum/CurriculumChangeName.component";
 import Button from "components/lib/button/Button";
 import FileUpload from "components/lib/upload/FileUpload";
-import FileProperties from "components/lib/upload/FileProperties";
+import { ToggleElement } from "components/utils/helpers/ToggleElement";
+
+
+
 
 interface CurriculumVideoComponent {
   id: number;
@@ -15,10 +18,13 @@ interface CurriculumVideoComponent {
   onRemove?: any;
 }
 
+
+
+
 const CurriculumVideoComponent = ({ id,sub_videos,onClick,onRemove }: CurriculumVideoComponent) => {
 
 
-
+  const [isToggled, setIsToggled] = useState({})
   const [fileProperties, setFileProperties] = useState({name: "",size: 0,type: "",base64: ""});
   const [fileUploadError, setFileUploadError] = useState("");
 
@@ -49,11 +55,18 @@ const CurriculumVideoComponent = ({ id,sub_videos,onClick,onRemove }: Curriculum
 
         {sub_videos &&
           sub_videos.map((el, i) => (
-            <div className="curriculum-video-container" key={el.id}>
+          <div className="curriculum-video-container" 
+            data-open={isToggled[el?.id]} 
+            key={el.id}>
+
+                
               <ChangeVideoName
                 chapterNumber={i + 1}
                 chapterName={el.name}
                 onClick={() => onRemove(i)}
+                onToggle={() => ToggleElement(el?.id, setIsToggled)}
+                chapterId={id}
+                videoId={i}
               />
 
 

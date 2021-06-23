@@ -21,14 +21,15 @@ const Curriculum = ({ data }) => {
 
 
 
-    const add = (id?) => {
+    const add = (condition,id?) => {
         const lastChapterId = videoData[videoData.length - 1].id;
 
-        if (videoData.length == 1 || videoData[id].sub_videos.length == 1)
+
+        if (videoData[videoData.length - 1]?.id == 0 || videoData[id]?.sub_videos.length == 0)
             setError({ newChapterErr: "", newVideoErr: "" })
 
 
-        if (id) {
+        if (condition === "main_videos") {
             setVideoData([...videoData,
             {
                 id: lastChapterId + 1,
@@ -117,6 +118,8 @@ const Curriculum = ({ data }) => {
                                 chapterName={el?.name}
                                 onClick={() => remove(el.id)}
                                 onToggle={() => ToggleElement(el?.id, setIsToggled)}
+                                chapterId={i}
+                                // videoId={i}
                             />
                             <div className="video_upload-errors">
                                 <h1 className="color: red; f-size-p6 f-weight-r">{error.newChapterErr}</h1>
@@ -126,10 +129,10 @@ const Curriculum = ({ data }) => {
 
 
                             <CurriculumVideoComponent
-                                key={el.i}
-                                id={el.id}
+                                key={i}
+                                id={i}
                                 sub_videos={videoData[i].sub_videos}
-                                onClick={() => add(i)}
+                                onClick={() => add("sub_videos",i)}
                                 onRemove={(videoId) => remove(el.id, videoId)}
                             />
 

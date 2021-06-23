@@ -13,7 +13,7 @@ import { dropDownAnimation } from "components/lib/framer/framerAnimation";
 import { ISelect } from "./select.inteface";
 import { getSelectSize, getSelectColors } from "./select.style";
 import Loading from "components/lib/loading/Loading";
-import {useClickOutside} from "./utils/outSideClickHandler"
+import { useClickOutside } from "components/utils/helpers/outSideClickHandler"
 
 
 
