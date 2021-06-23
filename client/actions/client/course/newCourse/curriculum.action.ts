@@ -38,9 +38,9 @@ export const postCurriculumVideo = async ({ data, auth_access_token }) => {
 
 
 
-export const deleteCurriculumVideo = async ({ fileName, auth_access_token }) => {
+export const deleteCurriculumVideo = async ({ data, auth_access_token }) => {
     return await axiosInstance
-        .delete(`/videos/delete/${fileName}`,
+        .delete(`/videos/delete/${data}`,
             {
                 headers: {
                     auth_access_token: `${auth_access_token}`

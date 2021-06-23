@@ -10,18 +10,17 @@ interface IChangeName {
     chapterName: string;
     onClick?: any;
     onToggle?: any;
-    onDelete?:any
-    chapterId?:number;
-    videoId?:number;
+    chapterId?: number;
+    videoId?: number;
 }
 
 
 
 
-const SylabusChangeName = ({ chapterName,chapterNumber, onClick, onToggle,onDelete,chapterId,videoId }: IChangeName) => {
+const SylabusChangeName = ({ chapterName, chapterNumber, onClick, onToggle, chapterId, videoId }: IChangeName) => {
 
     const [isEditable, setIsEditable] = useState(false);
-    const [inputParams, setInputParams] = useState({ chapterName:chapterName,chapterId:0,videoId:0 })
+    const [inputParams, setInputParams] = useState({ chapterName: chapterName, chapterId: 0, videoId: 0 })
 
     const getInputValue = () => {
         console.log(inputParams)
@@ -42,9 +41,9 @@ const SylabusChangeName = ({ chapterName,chapterNumber, onClick, onToggle,onDele
                             <span className="f-size-h7 f-weight-b">
                                 {chapterNumber}.
                             </span>
-                            
+
                             {isEditable === false &&
-                                inputParams.chapterName 
+                                inputParams.chapterName
                             }
                         </p>
 
@@ -59,7 +58,7 @@ const SylabusChangeName = ({ chapterName,chapterNumber, onClick, onToggle,onDele
                                     color="white"
                                     size="medium"
                                     type="text"
-                                    onChange={(e) => setInputParams({chapterName:e.target.value,chapterId,videoId})}
+                                    onChange={(e) => setInputParams({ chapterName: e.target.value, chapterId, videoId })}
                                     placeHolder={chapterName}
                                     width="100%"
                                     isFocused={true}
@@ -76,7 +75,7 @@ const SylabusChangeName = ({ chapterName,chapterNumber, onClick, onToggle,onDele
                                     disabled={false}
                                     loading={false}
                                     width="50%"
-                                    onClick={() => {getInputValue();setIsEditable(false)}}>
+                                    onClick={() => { getInputValue(); setIsEditable(false) }}>
                                     <p className="f-weight-r f-size-p5">შენახვა</p>
                                 </Button>
                             </div>
@@ -108,7 +107,7 @@ const SylabusChangeName = ({ chapterName,chapterNumber, onClick, onToggle,onDele
                         />
                     </div>
 
-                    <div className="delete" onClick={() => {onClick();onDelete()}}>
+                    <div className="delete" onClick={() => onClick()}>
                         <Trash2 color={"var(--primary-white)"} size={25} />
                     </div>
                 </div>

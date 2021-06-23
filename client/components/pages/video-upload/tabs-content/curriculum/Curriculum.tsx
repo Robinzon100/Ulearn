@@ -6,6 +6,8 @@ import { ToggleElement } from "components/utils/helpers/ToggleElement";
 import Button from "components/lib/button/Button";
 import CurriculumVideoComponent from "components/pages/video-upload/tabs-content/curriculum/CurriculumVideo.component";
 import ChangeChapterName from "components/pages/video-upload/tabs-content/curriculum/CurriculumChangeName.component";
+import { authenticatedRequest } from '../../../../utils/auth/tokenValidations';
+import { deleteCurriculumVideo } from "actions/client/course/newCourse/curriculum.action";
 
 
 
@@ -72,21 +74,25 @@ const Curriculum = ({ data }) => {
                 setVideoData(
                     [...videoData.
                         filter(el => el.id != chapterId)]
-                        .map((chapter, i) => Object.assign(chapter, { id: i })))                        
+                        .map((chapter, i) => Object.assign(chapter, { id: i })))
             } else {
                 setError({ newChapterErr: "უნდა არსებობდეს ერთი თავი მაინც", newVideoErr: "" })
             }
         } else {
             if (videoId != 0 || videoData[chapterId].sub_videos.length != 1) {
+                await authenticatedRequest(
+                    deleteCurriculumVideo,
+                    videoData[chapterId].sub_videos[videoId].video_url,
+                    null)
+                    debugger
                 videoData[chapterId].sub_videos = videoData[chapterId].sub_videos
                     .filter(el => el.id != videoId)
                     .map((video, i) => Object.assign(video, { id: i }))
-
                 setVideoData(newVideoData => ([...newVideoData]))
+
             } else {
                 setError({ newChapterErr: "", newVideoErr: "უნდა არსებობდეს ერთი ვიდეო გაკვეთილი მაინც" })
             }
-
         }
     }
 
@@ -95,7 +101,7 @@ const Curriculum = ({ data }) => {
         videoData[chapterId].sub_videos[videoId] =
         {
             ...videoData[chapterId].sub_videos[videoId],
-            video_url: `${process.env.BACK_END_URL}/api/videos/${videoKey}`
+            video_url: `${videoKey}`
         }
 
         setVideoData(newVideoData => ([...newVideoData]))

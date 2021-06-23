@@ -1,14 +1,15 @@
 .curriculum {
-    min-height: 100vh;
+  min-height: 100vh;
+
   .curriculum-container {
     &:not(:first-child) {
       margin-top: 5rem;
     }
 
-    
+
     [data-open="true"] {
-        height: 8rem;
-        overflow: hidden;
+      height: 8rem;
+      overflow: hidden;
     }
 
 
@@ -25,7 +26,7 @@
       .video_upload-errors {
         padding: 0 0 0 4.5rem;
       }
-      
+
 
 
 
@@ -38,20 +39,20 @@
           @include flex(space-between, center);
 
           .chapter-name {
-            @include flex(initial,center);
+            @include flex(initial, center);
 
             .chapter-title {
-                margin-right: calc(1rem + .5vw);
+              margin-right: calc(1rem + .5vw);
             }
 
-            .change-name-input{
-                width: 100%;
-                @include flex();
+            .change-name-input {
+              width: 100%;
+              @include flex();
 
 
-                .editable-btn {
-                    margin-left: calc(1rem + .5vw);
-                }
+              .editable-btn {
+                margin-left: calc(1rem + .5vw);
+              }
             }
           }
 
@@ -97,6 +98,7 @@
         width: 100%;
         max-width: 68rem;
         margin: 7rem auto;
+        
 
         .curriculum-video-container {
           margin-top: 4rem;
@@ -108,14 +110,16 @@
 
           .video-upload-section {
             .upload_container {
-                margin: calc(2rem + 1vh);
+              margin: calc(2rem + 1vh);
             }
-            
+
             video {
               height: auto;
               max-width: 37rem;
               width: 100%;
               object-fit: cover;
+              border-radius: 10px;
+    margin-left: calc(2rem + 1vh);
             }
 
 
@@ -127,14 +131,16 @@
 
 
             .file-size-name {
-                @include flex(initial,center);
+              @include flex(initial, center);
 
-                svg,h1 {
-                    color:var(--secondary-light-dark);
-                }
-                .file_size {
-                    margin: 0 1rem;
-                }
+              svg,
+              h1 {
+                color: var(--secondary-light-dark);
+              }
+
+              .file_size {
+                margin: 0 1rem;
+              }
             }
 
 
