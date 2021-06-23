@@ -1,18 +1,16 @@
 
 import { Edit3, Trash2, ChevronDown } from "react-feather";
 import { useState } from "react";
-// import {useClickOutside} from "components/utils/helpers/outSideClickHandler"
-
 
 import Input from "components/lib/inputs/Input"
 import Button from "components/lib/button/Button"
-
 
 interface IChangeName {
     chapterNumber: number;
     chapterName: string;
     onClick?: any;
     onToggle?: any;
+    onDelete?:any
     chapterId?:number;
     videoId?:number;
 }
@@ -20,7 +18,7 @@ interface IChangeName {
 
 
 
-const SylabusChangeName = ({ chapterName,chapterNumber, onClick, onToggle,chapterId,videoId }: IChangeName) => {
+const SylabusChangeName = ({ chapterName,chapterNumber, onClick, onToggle,onDelete,chapterId,videoId }: IChangeName) => {
 
     const [isEditable, setIsEditable] = useState(false);
     const [inputParams, setInputParams] = useState({ chapterName:chapterName,chapterId:0,videoId:0 })
@@ -28,7 +26,6 @@ const SylabusChangeName = ({ chapterName,chapterNumber, onClick, onToggle,chapte
     const getInputValue = () => {
         console.log(inputParams)
     }
-
 
     return (
         <>
@@ -111,7 +108,7 @@ const SylabusChangeName = ({ chapterName,chapterNumber, onClick, onToggle,chapte
                         />
                     </div>
 
-                    <div className="delete" onClick={onClick}>
+                    <div className="delete" onClick={() => {onClick();onDelete()}}>
                         <Trash2 color={"var(--primary-white)"} size={25} />
                     </div>
                 </div>

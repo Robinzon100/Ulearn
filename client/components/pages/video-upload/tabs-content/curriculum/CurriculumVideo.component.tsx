@@ -9,6 +9,8 @@ import { authenticatedRequest } from "components/utils/auth/tokenValidations";
 import { postCurriculumVideo } from "actions/client/course/newCourse/curriculum.action";
 
 
+import { deleteCurriculumVideo } from "actions/client/course/newCourse/curriculum.action";
+
 
 
 interface CurriculumVideoComponent {
@@ -23,9 +25,14 @@ interface CurriculumVideoComponent {
 
 
 const CurriculumVideoComponent = ({ id, sub_videos, onClick, onRemove, onUpload }: CurriculumVideoComponent) => {
+  const videoElement = useRef(null)
+
+
+
   const [isToggled, setIsToggled] = useState({})
   const [fileProperties, setFileProperties] = useState({ name: "", size: 0, type: "", base64: "" });
   const [fileUploadError, setFileUploadError] = useState("");
+
 
 
   const uploadVideoHandler = async (videoId, videoEl: React.RefObject<HTMLInputElement>) => {
@@ -35,6 +42,7 @@ const CurriculumVideoComponent = ({ id, sub_videos, onClick, onRemove, onUpload 
       videoForm.append('course_curriculum_videos', videoEl.current.files[0]);
       const { fileKey } = await authenticatedRequest(postCurriculumVideo, videoForm, null)
 
+        console.log(fileKey)
 
       if (fileKey) {
         onUpload(videoId, fileKey)
@@ -46,7 +54,14 @@ const CurriculumVideoComponent = ({ id, sub_videos, onClick, onRemove, onUpload 
   }
 
 
-  const videoElement = useRef(null)
+  const deleteFile = async (video_url:string) => {
+    const res  = await authenticatedRequest(deleteCurriculumVideo,video_url,null)
+
+    if(res == 200) {
+        console.log(res.statusCode)
+    }
+  }
+  
 
   return (
     <>
@@ -75,6 +90,7 @@ const CurriculumVideoComponent = ({ id, sub_videos, onClick, onRemove, onUpload 
               data-open={isToggled[el?.id]}
               key={el.id}>
 
+                  <h1>{el.video_url}</h1>
 
               <ChangeVideoName
                 chapterNumber={i + 1}
@@ -83,6 +99,7 @@ const CurriculumVideoComponent = ({ id, sub_videos, onClick, onRemove, onUpload 
                 onToggle={() => ToggleElement(el?.id, setIsToggled)}
                 chapterId={id}
                 videoId={i}
+                onDelete={() => deleteFile(el.video_url)}
               />
 
 
@@ -101,7 +118,7 @@ const CurriculumVideoComponent = ({ id, sub_videos, onClick, onRemove, onUpload 
                   }}
                   accept=".mp4"
                   ref={videoElement}
-                  onChange={(e) => {
+                  onChange={() => {
                     uploadVideoHandler(i, videoElement)
                   }}
                 />

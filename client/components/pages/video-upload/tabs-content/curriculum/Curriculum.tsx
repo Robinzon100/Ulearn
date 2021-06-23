@@ -10,6 +10,8 @@ import ChangeChapterName from "components/pages/video-upload/tabs-content/curric
 
 
 
+
+
 const Curriculum = ({ data }) => {
     const [isToggled, setIsToggled] = useState({})
     const [videoData, setVideoData] = useState<any>(data)
@@ -63,13 +65,14 @@ const Curriculum = ({ data }) => {
 
 
 
-    const remove = (chapterId: number, videoId?: number) => {
+    const remove = async (chapterId: number, videoId?: number) => {
+
         if (videoId == undefined) {
             if (chapterId != 0 || videoData.length != 1) {
                 setVideoData(
                     [...videoData.
                         filter(el => el.id != chapterId)]
-                        .map((chapter, i) => Object.assign(chapter, { id: i })))
+                        .map((chapter, i) => Object.assign(chapter, { id: i })))                        
             } else {
                 setError({ newChapterErr: "უნდა არსებობდეს ერთი თავი მაინც", newVideoErr: "" })
             }
@@ -89,10 +92,6 @@ const Curriculum = ({ data }) => {
 
 
     const addVideoUrlToData = (chapterId, videoId, videoKey) => {
-        // Object.assign(
-        //     videoData[chapterId].sub_videos[videoId],
-        //     { video_url: `${process.env.BACK_END_URL}/api/videos/${videoKey}` }
-        // )
         videoData[chapterId].sub_videos[videoId] =
         {
             ...videoData[chapterId].sub_videos[videoId],
@@ -101,7 +100,6 @@ const Curriculum = ({ data }) => {
 
         setVideoData(newVideoData => ([...newVideoData]))
     }
-
 
 
 
