@@ -20,8 +20,8 @@ export const newCourseSchema = Joi.object({
     discount_price: Joi.number().min(5).max(150),
     affiliation_price: Joi.number().min(5).max(150).required(),
 
-    main_category_id: Joi.number(),
-    sub_category_id: Joi.number(),
+    main_category_id: Joi.number().required(),
+    sub_category_id: Joi.number().required(),
 })
 
  

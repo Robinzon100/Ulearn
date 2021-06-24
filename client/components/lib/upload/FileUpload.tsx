@@ -2,6 +2,7 @@ import { useState, ReactNode, PropsWithChildren, forwardRef } from 'react';
 
 
 import { ReturnFileSizeAndType } from "components/lib/upload/utils/FileUploadLogic"
+import Loading from 'components/lib/loading/Loading';
 
 
 
@@ -17,6 +18,7 @@ interface IFileUpload {
   onError: any,
   accept: string
   fileProperties?: any;
+  isLoading?: boolean;
 }
 
 
@@ -35,6 +37,7 @@ const FileUpload = forwardRef<HTMLInputElement, PropsWithChildren<IFileUpload>>(
     onError,
     accept,
     fileProperties,
+    isLoading
   }, ref: React.Ref<HTMLInputElement | null>) => {
 
 
@@ -62,8 +65,17 @@ const FileUpload = forwardRef<HTMLInputElement, PropsWithChildren<IFileUpload>>(
             />
 
             <label htmlFor="file-upload" className="heading f-size-p5 f-weight-b">
-              {icon}
-              {isDragged ? 'ატვირთვა' : title}
+              {!isLoading ?
+                <>
+                  {icon}
+                  {isDragged ? 'ატვირთვა' : title}
+                </>
+                :
+                <>
+                  <Loading bgColor={'var(--primary-dark)'} />
+                  იტვირთება
+                </>
+              }
             </label>
 
           </div>

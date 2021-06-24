@@ -24,7 +24,7 @@ let data = [
         id: 0,
         name: "მეტი ჯავასკრიპტზე",
         duration: 15,
-        video_url: "",
+        video_url: "undefined-1624555404026",
       },
     ],
   },

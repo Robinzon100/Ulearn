@@ -13,12 +13,16 @@ const accessKeyId = process.env.S3_BUCKET_ACCESS_KEY
 const secretAccessKey = process.env.S3_BUCKET_SECRET_KEY
 
 
-const s3 = new S3({
+export const s3 = new S3({
     region,
     accessKeyId,
     secretAccessKey
 })
 
+
+export const s3GetParams = {
+    Bucket: bucketName
+}
 
 
 
@@ -65,6 +69,48 @@ export const getFileStream = async (fileKey: any) => {
     return await s3.getObject(downloadParams).createReadStream()
 }
 
+
+
+
+// downloads a file from s3
+export const getVideoFileStream = async (fileKey: any, { start, end }: any) => {
+    const downloadParams = {
+        Key: fileKey,
+        Bucket: bucketName
+    }
+
+    return await
+        s3.getObject(downloadParams)
+            .createReadStream({
+                start: start,
+                end: end
+            })
+}
+
+
+
+// downloads a file from s3
+export const getFile = async (fileKey: any) => {
+    const downloadParams = {
+        Key: fileKey,
+        Bucket: bucketName
+    }
+
+    return await s3.getObject(downloadParams).promise()
+}
+
+
+// downloads a file from s3
+export const getFileSize = async (fileKey: any) => {
+    const downloadParams = {
+        Key: fileKey,
+        Bucket: bucketName
+    }
+
+    return await s3.headObject(downloadParams)
+        .promise()
+        .then((res: any) => res.ContentLength);
+}
 
 
 

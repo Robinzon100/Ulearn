@@ -29,21 +29,25 @@ const CurriculumVideoComponent = ({ id, sub_videos, onClick, onRemove, onUpload 
     const [isToggled, setIsToggled] = useState({})
     const [file, setFile] = useState<any>({ file: "", base64: "" });
     const [fileUploadError, setFileUploadError] = useState("");
+    const [videoIsUploading, setVideoIsUploading] = useState<boolean>(false)
+    const [videoTime, setVideoTime] = useState<number>(0)
 
 
 
     const uploadVideoHandler = async (videoId, videoEl: React.RefObject<HTMLInputElement>) => {
         const videoForm = new FormData();
+        setVideoIsUploading(true)
+
 
         if (!fileUploadError) {
             videoForm.append('course_curriculum_videos', videoEl.current.files[0]);
             const { fileKey } = await authenticatedRequest(postCurriculumVideo, videoForm, null)
 
-            //   console.log(fileKey)
 
             if (fileKey) {
                 onUpload(videoId, fileKey)
                 setFileUploadError("")
+                setVideoIsUploading(false)
             } else {
                 setFileUploadError("ვერ მოხერხდა ფაილის ატვირთვა")
             }
@@ -96,8 +100,9 @@ const CurriculumVideoComponent = ({ id, sub_videos, onClick, onRemove, onUpload 
                                 <FileUpload
                                     height="18rem"
                                     width="37rem"
+                                    isLoading={videoIsUploading}
+                                    disabled={videoIsUploading}
                                     uploadSize={1000 * 300}
-                                    disabled={false}
                                     icon={<Upload size={20} />}
                                     onError={(errorType) => setFileUploadError(errorType)}
                                     fileProperties={(file, base64) => {
@@ -112,7 +117,7 @@ const CurriculumVideoComponent = ({ id, sub_videos, onClick, onRemove, onUpload 
 
 
 
-                                {el.video_url != "" && 
+                                {el.video_url != "" &&
                                     <>
                                         <div className="file-size-name">
                                             <Youtube />
@@ -121,7 +126,15 @@ const CurriculumVideoComponent = ({ id, sub_videos, onClick, onRemove, onUpload 
                                             </h1>
                                         </div>
 
-                                        <video src={`${process.env.BACK_END_URL}/api/videos/${el.video_url}`} controls autoPlay={false} />
+                                        <video
+                                            typeof='video/mp4'
+                                            controls
+                                            autoPlay={true}
+                                            preload={`${process.env.BACK_END_URL}/api/videos/videoStream/${el.video_url}`}>
+                                            <source
+                                                src={`${process.env.BACK_END_URL}/api/videos/videoStream/${el.video_url}`}
+                                                type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+                                        </video>
                                     </>
                                 }
 

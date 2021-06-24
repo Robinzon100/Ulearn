@@ -16,10 +16,13 @@ export const postNewCourse = async (req: Request, res: Response, next: NextFunct
 export const postCurriculumVideos = async (req: Request, res: Response, next: NextFunction) => {
     const { file } = req
     const s3Res = await cloudUploadFile(req.file);
-    await unlinkFile(`${file?.path}`)
 
-    res.json(
-        {
-            fileKey: s3Res.key,
-        })
+    if (s3Res.Key) {
+        await unlinkFile(`${file?.path}`)
+        res.json(
+            {
+                fileKey: s3Res.Key,
+            })
+    }
+
 }

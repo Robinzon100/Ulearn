@@ -3,7 +3,7 @@ import express from "express";
 
 //! ─── OWN ────────────────────────────────────────────────────────────────────────
 import { defaultRouterOptions } from "../../../constants/router.options";
-import { deleteVideo, getVideo } from "./videos.controllers";
+import { deleteVideo, getVideoFile, getVideoStream } from "./videos.controllers";
 const router = express.Router(defaultRouterOptions);
 
 
@@ -15,7 +15,8 @@ const router = express.Router(defaultRouterOptions);
 
 
 // ─── ROUTES ─────────────────────────────────────────────────────────────────────
-router.get('/:key', getVideo);
+router.get('/:key', getVideoStream);
+router.get('/videoStream/:key', getVideoStream);
 router.delete('/delete/:key', deleteVideo);
 
 

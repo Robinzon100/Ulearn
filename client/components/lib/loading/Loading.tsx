@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { ILoadingInterface } from "../../../interfaces/global.interface";
 
-const Loading: React.FC<ILoadingInterface> = ({bgColor,padding,style}) => {
+const Loading: React.FC<ILoadingInterface> = ({ bgColor, padding, style }) => {
   return (
     <div className="btn-loading" style={style}>
       <div className="dot-wrapper">
