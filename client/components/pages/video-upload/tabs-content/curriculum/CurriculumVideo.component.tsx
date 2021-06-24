@@ -11,134 +11,137 @@ import { postCurriculumVideo } from "actions/client/course/newCourse/curriculum.
 
 
 interface CurriculumVideoComponent {
-  id: number;
-  sub_videos: any[];
-  onClick?: any;
-  onRemove?: any;
-  onUpload?: any;
+    id: number;
+    sub_videos: any[];
+    onClick?: any;
+    onRemove?: any;
+    onUpload?: any;
 }
 
 
 
 
 const CurriculumVideoComponent = ({ id, sub_videos, onClick, onRemove, onUpload }: CurriculumVideoComponent) => {
-  const videoElement = useRef(null)
+    const videoElement = useRef(null)
 
 
 
-  const [isToggled, setIsToggled] = useState({})
-  const [fileProperties, setFileProperties] = useState({ name: "", size: 0, type: "", base64: "" });
-  const [fileUploadError, setFileUploadError] = useState("");
+    const [isToggled, setIsToggled] = useState({})
+    const [file, setFile] = useState<any>({ file: "", base64: "" });
+    const [fileUploadError, setFileUploadError] = useState("");
 
 
 
-  const uploadVideoHandler = async (videoId, videoEl: React.RefObject<HTMLInputElement>) => {
-    const videoForm = new FormData();
+    const uploadVideoHandler = async (videoId, videoEl: React.RefObject<HTMLInputElement>) => {
+        const videoForm = new FormData();
 
-    if (!fileUploadError) {
-      videoForm.append('course_curriculum_videos', videoEl.current.files[0]);
-      const { fileKey } = await authenticatedRequest(postCurriculumVideo, videoForm, null)
+        if (!fileUploadError) {
+            videoForm.append('course_curriculum_videos', videoEl.current.files[0]);
+            const { fileKey } = await authenticatedRequest(postCurriculumVideo, videoForm, null)
 
-    //   console.log(fileKey)
+            //   console.log(fileKey)
 
-      if (fileKey) {
-        onUpload(videoId, fileKey)
-        setFileUploadError("")
-      } else {
-        setFileUploadError("ვერ მოხერხდა ფაილის ატვირთვა")
-      }
+            if (fileKey) {
+                onUpload(videoId, fileKey)
+                setFileUploadError("")
+            } else {
+                setFileUploadError("ვერ მოხერხდა ფაილის ატვირთვა")
+            }
+        }
     }
-  }
-
-
-  return (
-    <>
-      <div className="curriculum-video" key={id}>
-
-
-        <Button
-          color="blue"
-          size="medium"
-          disabled={false}
-          loading={false}
-          width="25rem"
-          icon={<Upload size={22} />}
-          onClick={onClick}
-          type="submit">
-          <p className="f-weight-r f-size-p5">დამატება</p>
-        </Button>
 
 
 
+    return (
+        <>
+            <div className="curriculum-video" key={id}>
 
 
-        {sub_videos &&
-          sub_videos.map((el, i) => (
-            <div className="curriculum-video-container"
-              data-open={isToggled[el?.id]}
-              key={el.id}>
-
-
-              <ChangeVideoName
-                chapterNumber={i + 1}
-                chapterName={el.name}
-                onClick={() => onRemove(i)}
-                onToggle={() => ToggleElement(el?.id, setIsToggled)}
-                chapterId={id}
-                videoId={i}
-              />
+                <Button
+                    color="blue"
+                    size="medium"
+                    disabled={false}
+                    loading={false}
+                    width="25rem"
+                    icon={<Upload size={22} />}
+                    onClick={onClick}
+                    type="submit">
+                    <p className="f-weight-r f-size-p5">დამატება</p>
+                </Button>
 
 
 
 
-              <div className="video-upload-section">
-                <FileUpload
-                  height="18rem"
-                  width="37rem"
-                  uploadSize={1000 * 30}
-                  disabled={false}
-                  icon={<Upload size={20} />}
-                  onError={(errorType) => setFileUploadError(errorType)}
-                  fileProperties={(name, size, type, base64) => {
-                    setFileProperties({ name, size, type, base64 });
-                  }}
-                  accept=".mp4"
-                  ref={videoElement}
-                  onChange={() => {
-                    uploadVideoHandler(i, videoElement)
-                  }}
-                />
+
+                {sub_videos &&
+                    sub_videos.map((el, i) => (
+                        <div className="curriculum-video-container"
+                            data-open={isToggled[el?.id]}
+                            key={el.id}>
+
+
+                            <ChangeVideoName
+                                chapterNumber={i + 1}
+                                chapterName={el.name}
+                                onClick={() => onRemove(i)}
+                                onToggle={() => ToggleElement(el?.id, setIsToggled)}
+                                chapterId={id}
+                                videoId={i}
+                            />
 
 
 
 
-                <div className="file-size-name">
-                  <Youtube />
-                  <h1 className="f-size-p5 f-weight-r file_size">
-                    {fileProperties.name} - {parseFloat(`${fileProperties.size / 1000}`).toPrecision(2)} MB
-                  </h1>
-                </div>
+                            <div className="video-upload-section">
+                                <FileUpload
+                                    height="18rem"
+                                    width="37rem"
+                                    uploadSize={1000 * 300}
+                                    disabled={false}
+                                    icon={<Upload size={20} />}
+                                    onError={(errorType) => setFileUploadError(errorType)}
+                                    fileProperties={(file, base64) => {
+                                        setFile({ file, base64 });
+                                    }}
+                                    accept=".mp4"
+                                    ref={videoElement}
+                                    onChange={() => {
+                                        uploadVideoHandler(i, videoElement)
+                                    }}
+                                />
 
 
-                <video src={`${process.env.BACK_END_URL}/api/videos/${el.video_url}`} controls autoPlay={false} />
 
-                <div className="fileUpload-errors">
-                  <p className="form_errors f-size-p6 f-weight-r">
-                    {fileUploadError}
-                  </p>
-                </div>
+                                {el.video_url != "" && 
+                                    <>
+                                        <div className="file-size-name">
+                                            <Youtube />
+                                            <h1 className="f-size-p5 f-weight-r file_size">
+                                                {file.file.name} - {parseFloat(`${+file.file.size / 1000 / 1000}`).toPrecision(2)} MB
+                                            </h1>
+                                        </div>
 
-                <div className="duration">
-                  <h1 className="f-size-p5 f-weight-r">
-                    ხანგძლივობა: {el.duration} წთ
-                  </h1>
-                </div>
-              </div>
+                                        <video src={`${process.env.BACK_END_URL}/api/videos/${el.video_url}`} controls autoPlay={false} />
+                                    </>
+                                }
+
+                                <div className="fileUpload-errors">
+                                    <p className="form_errors f-size-p6 f-weight-r">
+                                        {fileUploadError}
+                                    </p>
+                                </div>
+
+                                <div className="duration">
+                                    <h1 className="f-size-p5 f-weight-r">
+                                        ხანგძლივობა: {el.duration} წთ
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
             </div>
-          ))}
-      </div>
-    </>
-  );
+        </>
+    );
 };
 
 export default CurriculumVideoComponent;

@@ -8,7 +8,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { showHidePasswordHandler } from "components/utils/helpers/showHidePassword";
 import { toggleVerification } from "./animation/ToggleVerification";
 import { emailRegex, passwordRegex } from "components/utils/regex/Regex";
-
+import FileProperties from 'components/lib/upload/FileProperties';
 
 
 import Input from "components/lib/inputs/Input";
@@ -54,8 +54,8 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
 
   // FILE STATES
   const [fileUploadError, setFileUploadError] = useState("");
-  const [fileProperties, setFileProperties] = useState({ name: "", size: 0, type: "", base64: '' });
-  const [authError, setAuthError] = useState("")
+  const [file, setFile] = useState({file:"",base64:""});
+  const [authError, setAuthError] = useState("");
 
   const [btnLoading, setBtnLoading] = useState(false);
 
@@ -74,7 +74,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
 
     if (!fileUploadError) {
 
-      fetch(fileProperties.base64)
+      fetch(file.base64)
         .then(res => {
           return res.blob();
         })
@@ -82,6 +82,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
           setBtnLoading(true)
           imgForm.append('user_profile_image', blob);
           const { fileKey } = await authenticatedRequest(updateUserProfileImage, imgForm, null)
+
 
           if (fileKey) {
             updatedData.image_url = fileKey
@@ -111,8 +112,6 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
 
 
 
-
-
   return (
     <>
       <div className="user-profile-info">
@@ -120,10 +119,9 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
           <div className="user-profile">
 
             <div className="picture" style={
-              fileProperties.base64 == '' && image_url != '' && image_url != null ?
+              file.base64 == '' && image_url != '' && image_url != null ?
                 { backgroundImage: `url(${process.env.BACK_END_URL}/api/images/${image_url})` }
-                : { backgroundImage: `url(${fileProperties.base64})` }}>
-
+                : { backgroundImage: `url(${file.base64})` }}>
 
               <motion.div
                 variants={toggleVerification}
@@ -156,8 +154,8 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                   icon={<Upload size={20} />}
                   onError={(errorType) => setFileUploadError(errorType)}
                   fileProperties={
-                    (name, size, type, base64) =>
-                      setFileProperties({ name, size, type, base64 })
+                    (file,base64) =>
+                      setFile({file,base64})
                   }
                   accept=".png,.jpg"
                   onChange={(e) => {
@@ -178,18 +176,6 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                 </p>
               </div>
             )}
-
-
-
-
-            {/* // FILE UPLOAD PROPERTIES*/}
-            {/* {isEditable &&
-                <FileProperties
-                    name={fileProperties.name}
-                    size={fileProperties.size}
-                    type={fileProperties.type}
-                />
-            } */}
 
 
 
@@ -599,9 +585,9 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
               <div className="cancel-btn">
                 <Button
                   onClick={() => {
-                    setFileProperties(
+                    setFile(
                       {
-                        name: "", size: 0, type: "",
+                        file:"",  
                         base64: `${process.env.BACK_END_URL}/api/images/${image_url}`
                       })
                     setAuthError("")

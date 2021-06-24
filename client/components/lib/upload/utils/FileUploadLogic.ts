@@ -45,18 +45,19 @@ export const ReturnFileSizeAndType = async (e, uploadSize: number, onError, acce
     const fileSize = Math.floor(file?.size / 1000)
 
     if (!isFileSizesCorrect(file, uploadSize))
-      return onError('ფაილის ზომა ზედმეტად დიდია, თქვენი ფაილის ზომაა ' + Math.floor(file?.size / 1000) + " kb")
+      return onError('ფაილის ზომა ზედმეტად დიდია, თქვენი ფაილის ზომაა ' + fileSize + " kb")
 
     if (!isTypeCorrect(file, acceptType))
       return onError('ფაილი არ შეესაბამება დაშვებულ ფორმატს')
       
+
     let imageBase64;
 
     try {
         imageBase64 = await uploadAndRead(e)
-        fileProperties(file?.name, fileSize, file?.type, imageBase64 && imageBase64)
+        fileProperties(file, imageBase64 && imageBase64)
     } catch (error) {
-        fileProperties(file?.name, fileSize, file?.type)
+        fileProperties(file)
     }
     
     return onError();
