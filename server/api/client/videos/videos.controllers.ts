@@ -21,9 +21,6 @@ export const getVideoStream = async (req: Request, res: Response, next: NextFunc
             console.error(err);
             return next();
         }
-        
-        var stream = s3.getObject(params).createReadStream();
-
 
 
         const size = await getFileSize(key)
@@ -41,9 +38,7 @@ export const getVideoStream = async (req: Request, res: Response, next: NextFunc
         // let chunksize = 10 ** 6;
 
 
-        stream.on('error', function error(err: any) {
-            return next();
-        });
+
 
         res.writeHead(206, {
             "Content-Type": "video/mp4",
@@ -52,6 +47,13 @@ export const getVideoStream = async (req: Request, res: Response, next: NextFunc
             "Accept-Ranges": "bytes",
             'Last-Modified': data.LastModified,
             'ETag': data.ETag,
+        });
+
+
+        const stream = s3.getObject(params).createReadStream();
+
+        stream.on('error', function error(err: any) {
+            return next();
         });
 
         stream.on('end', () => {
