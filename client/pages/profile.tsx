@@ -11,6 +11,9 @@ import { redirect } from 'components/utils/auth/redirect.utils';
 import ProfileTabs from "components/pages/profile/ProfileTabs";
 
 
+
+
+
 const Profile = ({ user }) => {
 
     return (

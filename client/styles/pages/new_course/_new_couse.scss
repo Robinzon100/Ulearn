@@ -1,15 +1,23 @@
-.video-upload {
-    .video-upload-hero {
+.new_course {
+    .new_course-hero {
         @include background-properties("/pictures/profile/profile_banner_final.png"
     );
     width: 100%;
     height: 60vh;
     }
 
-    .video-upload-tabs {
+    .new_course-tabs {
         width: 100%;
         max-width: 95rem;
         margin: 7rem auto;
         padding: var(--main-pading);
+    }
+}
+
+
+
+@media screen and (max-width: $small-screen) {
+    .new_course-tabs {
+        padding-bottom: var(--padding-bottom-for-containers);
     }
 }

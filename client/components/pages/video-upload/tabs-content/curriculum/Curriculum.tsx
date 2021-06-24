@@ -2,11 +2,17 @@ import { Upload } from "react-feather";
 import { useState } from 'react';
 
 
+// ========== COMPONENTS
+
 import { ToggleElement } from "components/utils/helpers/ToggleElement";
 import Button from "components/lib/button/Button";
 import CurriculumVideoComponent from "components/pages/video-upload/tabs-content/curriculum/CurriculumVideo.component";
 import ChangeChapterName from "components/pages/video-upload/tabs-content/curriculum/CurriculumChangeName.component";
-import { authenticatedRequest } from '../../../../utils/auth/tokenValidations';
+
+
+// ========== ACTIONS
+
+import { authenticatedRequest } from "components/utils/auth/tokenValidations";
 import { deleteCurriculumVideo } from "actions/client/course/newCourse/curriculum.action";
 
 
@@ -80,11 +86,12 @@ const Curriculum = ({ data }) => {
             }
         } else {
             if (videoId != 0 || videoData[chapterId].sub_videos.length != 1) {
+
                 await authenticatedRequest(
                     deleteCurriculumVideo,
                     videoData[chapterId].sub_videos[videoId].video_url,
                     null)
-                    debugger
+
                 videoData[chapterId].sub_videos = videoData[chapterId].sub_videos
                     .filter(el => el.id != videoId)
                     .map((video, i) => Object.assign(video, { id: i }))

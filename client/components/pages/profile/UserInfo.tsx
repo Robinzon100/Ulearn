@@ -15,7 +15,6 @@ import Input from "components/lib/inputs/Input";
 import TextArea from "components/lib/textarea/TextArea";
 import Button from "components/lib/button/Button";
 import FileUpload from "components/lib/upload/FileUpload"
-import FileProperties from 'components/lib/upload/FileProperties';
 
 
 import { parseSocials, removeEmptyValuedEntries } from "./userInfo.utils";

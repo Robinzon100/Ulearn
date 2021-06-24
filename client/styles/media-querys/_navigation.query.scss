@@ -1,7 +1,19 @@
+@media screen and (max-width: $large-screen) {
+  .header {
+    .login-profile {
+      .login {
+        margin-left: 0rem !important;
+      }
+    }
+  }
+}
+
+
+
 @media screen and (max-width: $medium-screen) {
   .header {
     .become-lectore,
-    .course-page{
+    .course-page {
       display: none;
     }
 
@@ -12,6 +24,10 @@
     .login-profile {
       max-width: initial !important;
       width: initial !important;
+
+      .login {
+        margin-left: 0rem !important;
+      }
     }
   }
 }
@@ -20,8 +36,13 @@
   .header {
     padding: 1.4vw 4vw !important;
 
-    .course-page,.become-lectore,.profile,.cart,.login{
-        margin-right: 2.5rem !important;
+    .course-page,
+    .become-lectore,
+    .profile,
+    .cart,
+    .login,
+    .btn {
+      margin-right: 2.5rem !important;
     }
 
     .header-category-menu,
@@ -36,7 +57,6 @@
         cover,
         center
       );
-    //   margin-right: 0 !important;
 
       width: 2.5rem !important;
       height: 2.5rem !important;
@@ -52,7 +72,7 @@
 
   .header {
     .login {
-        display: none;
+      display: none;
     }
   }
 }

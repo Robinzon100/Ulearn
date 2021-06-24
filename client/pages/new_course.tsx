@@ -1,7 +1,16 @@
+import { GetServerSideProps } from "next";
+
+
+// ========== COMPONENTS
 import { NewCourseHeading } from "components/pages/video-upload/newCourse.content";
 import Tabs from "components/lib/tabs/Tabs";
-
 import Curriculum  from "components/pages/video-upload/tabs-content/curriculum/Curriculum";
+
+
+// ========== ACTIONS
+import { authenticatedRequest } from "components/utils/auth/tokenValidations";
+import { getUser } from "actions/client/user/profile/profile.action";
+import { redirect } from "components/utils/auth/redirect.utils";
 
 
 
@@ -27,10 +36,10 @@ let data = [
 const NewCourse = () => {
   return (
     <>
-      <section className="video-upload">
-        <div className="video-upload-hero" />
+      <section className="new_course">
+        <div className="new_course-hero" />
 
-        <div className="video-upload-tabs">
+        <div className="new_course-tabs">
           <div className="user-content">
             <Tabs
               tabNamesAndIcons={NewCourseHeading}
@@ -55,5 +64,24 @@ const NewCourse = () => {
     </>
   );
 };
+
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+    const res = await authenticatedRequest(getUser, null, ctx)
+
+
+    if (res.statusCode == 200) {
+        return {
+            props: {
+                user: res.user,
+            },
+        };
+    }
+
+    return redirect("/login");
+}
+
+
+
 
 export default NewCourse;

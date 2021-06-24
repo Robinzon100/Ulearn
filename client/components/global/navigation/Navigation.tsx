@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import useSWR from "swr";
-import { ShoppingCart, ChevronDown, Search } from "react-feather";
+import { ChevronDown, Search } from "react-feather";
 import { useCookies } from "react-cookie";
 
 

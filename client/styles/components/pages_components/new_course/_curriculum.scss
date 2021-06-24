@@ -10,6 +10,10 @@
     [data-open="true"] {
       height: 8rem;
       overflow: hidden;
+
+      @media screen and (max-width: $small-screen) {
+        height: 6.2rem;
+      }
     }
 
 
@@ -35,8 +39,9 @@
         @include flex(space-between, center);
 
         .change-chapter_name {
-          padding: 0 0 0 4rem;
+          padding: 0 0 0 3vw;
           @include flex(space-between, center);
+
 
           .chapter-name {
             @include flex(initial, center);
@@ -76,6 +81,10 @@
           .dropdown {
             margin-right: 3rem;
             cursor: pointer;
+
+            @media screen and (max-width: $small-screen) {
+                margin: 0 1rem;
+            }
           }
 
           .delete {
@@ -85,6 +94,11 @@
             border-radius: 0px 18px;
             cursor: pointer;
             @include flex();
+
+            @media screen and (max-width: $small-screen) {
+                width: 7rem;
+                height: 6rem;
+              }
           }
         }
       }
@@ -96,8 +110,9 @@
       /// curriculumVideoComponent
       .curriculum-video {
         width: 100%;
-        max-width: 68rem;
+        max-width: 75rem;
         margin: 7rem auto;
+        padding: 0 2vw;
         
 
         .curriculum-video-container {
@@ -111,6 +126,11 @@
           .video-upload-section {
             .upload_container {
               margin: calc(2rem + 1vh);
+
+              @media screen and (max-width: $small-screen) {
+                max-width: initial !important;
+                width: initial;
+              }
             }
 
             video {
@@ -119,7 +139,13 @@
               width: 100%;
               object-fit: cover;
               border-radius: 10px;
-    margin-left: calc(2rem + 1vh);
+              margin-left: calc(2rem + 1vh);
+
+              @media screen and (max-width: $small-screen) {
+                max-width: initial !important;
+                width: 90%;
+                margin-left: calc(1rem + 1vh);
+              }
             }
 
 

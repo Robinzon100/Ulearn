@@ -113,7 +113,7 @@ const RegisterComponent = () => {
                                 name="full_name"
                                 width="100%"
                                 type="text"
-                                placeHolder="beqa arabidze"
+                                placeHolder="თქვენი სახელი და გვარი"
                                 color="white"
                                 {...register("full_name", {
                                     required: "აუცილებლად მიუთითეთ თქვენი სახელი და გვარი",
@@ -145,7 +145,7 @@ const RegisterComponent = () => {
                                 name="email"
                                 width="100%"
                                 type="email"
-                                placeHolder="arabson1009@gmail.com"
+                                placeHolder="თქვენი ელექტრონული ფოსტა"
                                 color="white"
                                 {...register("email", {
                                     required: "აუცილებლად მიუთითეთ თქვენი ელექტრონული ფოსტა",
@@ -180,11 +180,11 @@ const RegisterComponent = () => {
                                 name="recovery_email"
                                 width="100%"
                                 type="email"
-                                placeHolder="arab@gmail.com"
+                                placeHolder="აღსადგენი ელექტრონული ფოსტა"
                                 color="white"
                                 {...register("recovery_email", {
                                     required:
-                                        "აუცილებლად მიუთითეთ თქვენი ანგარიშიც აღსადგენი ელექტრონული ფოსტა",
+                                        "აუცილებლად მიუთითეთ თქვენი ანგარიშის აღსადგენი ელექტრონული ფოსტა",
                                     pattern: {
                                         value: emailRegex,
                                         message: "სწორად ჩაწერეთ თქვენი ელექტრონული ფოსტა",
@@ -212,7 +212,7 @@ const RegisterComponent = () => {
                                 name="password"
                                 width="100%"
                                 type="password"
-                                placeHolder="arabidze98"
+                                placeHolder="თქვენი პაროლი"
                                 color="white"
                                 iconRight={
                                     <span

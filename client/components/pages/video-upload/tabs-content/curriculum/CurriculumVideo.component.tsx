@@ -9,9 +9,6 @@ import { authenticatedRequest } from "components/utils/auth/tokenValidations";
 import { postCurriculumVideo } from "actions/client/course/newCourse/curriculum.action";
 
 
-import { deleteCurriculumVideo } from "actions/client/course/newCourse/curriculum.action";
-
-
 
 interface CurriculumVideoComponent {
   id: number;
@@ -42,7 +39,7 @@ const CurriculumVideoComponent = ({ id, sub_videos, onClick, onRemove, onUpload 
       videoForm.append('course_curriculum_videos', videoEl.current.files[0]);
       const { fileKey } = await authenticatedRequest(postCurriculumVideo, videoForm, null)
 
-      console.log(fileKey)
+    //   console.log(fileKey)
 
       if (fileKey) {
         onUpload(videoId, fileKey)
@@ -52,15 +49,6 @@ const CurriculumVideoComponent = ({ id, sub_videos, onClick, onRemove, onUpload 
       }
     }
   }
-
-
-  // const deleteFile = async (video_url:string) => {
-  //   const res  = await authenticatedRequest(deleteCurriculumVideo,video_url,null)
-
-  //   if(res == 200) {
-  //       console.log(res.statusCode)
-  //   }
-  // }
 
 
   return (
@@ -90,7 +78,6 @@ const CurriculumVideoComponent = ({ id, sub_videos, onClick, onRemove, onUpload 
               data-open={isToggled[el?.id]}
               key={el.id}>
 
-              <h1>{el.video_url}</h1>
 
               <ChangeVideoName
                 chapterNumber={i + 1}

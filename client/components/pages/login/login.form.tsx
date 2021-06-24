@@ -81,7 +81,7 @@ const LoginForm = () => {
                 name="email"
                 width="100%"
                 type="email"
-                placeHolder="arabson1009@gmail.com"
+                placeHolder="თქვენი ელექტრონული ფოსტა"
                 color="white"
                 {...register("email", {
                   required: "აუცილებლად მიუთითეთ თქვენი ელექტრონული ფოსტა",
@@ -114,7 +114,7 @@ const LoginForm = () => {
                 name="password"
                 width="100%"
                 type="password"
-                placeHolder="arabidze98"
+                placeHolder="თქვენი პაროლი"
                 color="white"
                 iconRight={
                   <span
