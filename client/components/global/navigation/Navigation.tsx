@@ -161,12 +161,6 @@ const Navigation = () => {
 
 
             {/* //* ======= CART ===== */}
-{/* 
-            <div className="cart">
-              <NextLink route="/shopping_cart">
-                <ShoppingCart />
-              </NextLink>
-            </div> */}
 
 
             {isLogedIn && (

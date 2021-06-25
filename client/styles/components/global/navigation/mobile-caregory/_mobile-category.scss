@@ -56,6 +56,16 @@ $category-max-width: 25rem;
             padding: 0.5rem 1rem;
             width: 100%;
 
+            .cube-text {
+              display: flex;
+            //   align-items: center;
+
+                svg {
+                    transform: translate(8%,20%);
+                    margin-right: 1rem;
+                }
+            }
+
             .item {
                 width: 100%;
             }

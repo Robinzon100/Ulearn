@@ -1,11 +1,11 @@
 export const NewCourseHeading =  [
     {
-        title: 'მოწონებული',
+        title: 'ძირითადი',
         icon: {
-            name: 'Heart',
+            name: 'Clipboard',
             strokeWidth: 2,
-            fill: 'var(--primary-red)',
-            stroke:"var(--primary-red)"
+            fill: 'var(--primary-white)',
+            stroke:"var(--primary-blue)"
         }
     },
     {
@@ -18,21 +18,21 @@ export const NewCourseHeading =  [
         }
     },
     {
-        title: 'რაღაცა',
+        title: 'რესურსები',
         icon: {
-            name: 'Camera',
+            name: 'Folder',
             strokeWidth: 2,
             fill: 'var(--primary-white)',
-            stroke:"blue"
+            stroke:"var(--primary-green)"
         }
     },
     {
-        title: 'რაღაცა',
+        title: 'ფასი/ფასდაკლებები',
         icon: {
-            name: 'Eye',
+            name: 'DollarSign',
             strokeWidth: 2,
             fill: 'var(--primary-white)',
-            stroke:"blue"
+            stroke:"var(--primary-yellow)"
         }
     }
 ]

@@ -49,7 +49,7 @@ const Category: FC<categories> = ({ categories: { main_categories, sub_categorie
                 animate={isMainCategoryChosen && "left"}>
 
 
-                {main_categories?.map((data) => (
+                {main_categories?.map((data,i) => (
 
                     <MainCategory
                         handleFetchMainCategory={() => {
@@ -57,7 +57,7 @@ const Category: FC<categories> = ({ categories: { main_categories, sub_categorie
                             setmainCategoryId(data.id)
                         }}
                         setIsMainCategoryChosen={setIsMainCategoryChosen}
-                        key={data.id}
+                        key={i}
                         id={data.id}
                         name={data.name}
                     />
