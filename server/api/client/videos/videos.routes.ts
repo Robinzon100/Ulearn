@@ -15,8 +15,8 @@ const router = express.Router(defaultRouterOptions);
 
 
 // ─── ROUTES ─────────────────────────────────────────────────────────────────────
-router.get('/:key', getVideoStream);
 router.get('/videoStream/:key', getVideoStream);
+// router.get('/:key', getVideoStream);
 router.delete('/delete/:key', deleteVideo);
 
 
