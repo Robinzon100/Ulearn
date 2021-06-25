@@ -12,6 +12,7 @@ import RichTextEditor from "components/lib/rich-text-editor/RichTextEditor";
 import { authenticatedRequest } from "components/utils/auth/tokenValidations";
 import { getUser } from "actions/client/user/profile/profile.action";
 import { redirect } from "components/utils/auth/redirect.utils";
+import CourseForm from '../components/pages/new_course/tabs-content/info/CourseForm';
 
 
 
@@ -52,7 +53,7 @@ const NewCourse = () => {
               ]}
               component={[
                 <>
-                  <RichTextEditor/>
+                  <CourseForm/>
                 </>,
                 <>
                   <Curriculum data={data} />
