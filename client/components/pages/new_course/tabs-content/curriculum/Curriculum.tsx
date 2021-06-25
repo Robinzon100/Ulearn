@@ -7,10 +7,10 @@ import { useState } from 'react';
 import { ToggleElement } from "components/utils/helpers/ToggleElement";
 import Button from "components/lib/button/Button";
 import dynamic from 'next/dynamic'
-// import CurriculumVideoComponent from "components/pages/video-upload/tabs-content/curriculum/CurriculumVideo.component";
 
-const CurriculumVideoComponent = dynamic(() => import('components/pages/video-upload/tabs-content/curriculum/CurriculumVideo.component'), { ssr: false })
-import ChangeChapterName from "components/pages/video-upload/tabs-content/curriculum/CurriculumChangeName.component";
+
+const CurriculumVideoComponent = dynamic(() => import('components/pages/new_course/tabs-content/curriculum/CurriculumVideo.component'), { ssr: false })
+import ChangeChapterName from "components/pages/new_course/tabs-content/curriculum/CurriculumChangeName.component";
 
 
 // ========== ACTIONS

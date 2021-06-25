@@ -1,7 +1,7 @@
 import { Upload, Youtube } from "react-feather";
 import React, { useState, useRef } from 'react';
 
-import ChangeVideoName from "components/pages/video-upload/tabs-content/curriculum/CurriculumChangeName.component";
+import ChangeVideoName from "components/pages/new_course/tabs-content/curriculum/CurriculumChangeName.component";
 import Button from "components/lib/button/Button";
 import FileUpload from "components/lib/upload/FileUpload";
 import { ToggleElement } from "components/utils/helpers/ToggleElement";
@@ -30,7 +30,7 @@ const CurriculumVideoComponent = ({ id, sub_videos, onClick, onRemove, onUpload 
     const [file, setFile] = useState<any>({ file: "", base64: "" });
     const [fileUploadError, setFileUploadError] = useState("");
     const [videoIsUploading, setVideoIsUploading] = useState<boolean>(false)
-    const [videoTime, setVideoTime] = useState<number>(0)
+
 
 
 
