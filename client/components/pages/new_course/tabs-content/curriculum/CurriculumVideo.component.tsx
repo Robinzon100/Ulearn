@@ -130,6 +130,7 @@ const CurriculumVideoComponent = ({ id, sub_videos, onClick, onRemove, onUpload 
                                             typeof='video/mp4'
                                             controls
                                             autoPlay={true}
+                                            muted={true}
                                             preload={`none`}>
                                             <source
                                                 src={`${process.env.BACK_END_URL}/api/videos/videoStream/${el.video_url}`}

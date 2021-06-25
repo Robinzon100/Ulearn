@@ -9,72 +9,60 @@ export const getVideoStream = async (req: Request, res: Response, next: NextFunc
 
 
 
-
-    var params = {
-        Bucket: s3GetParams.Bucket,
-        Key: key
-    } as any;
-
-
-    s3.headObject(params, async (err: any, data: any) => {
-        if (err) {
-            console.error(err);
-            return next();
-        }
-
-
-        const size = await getFileSize(key)
-        // console.log(req.headers);
-
-        let range = req.headers.range;
-        if (!range) {
-            return res.sendStatus(416);
-        }
-
-        let positions = range.replace(/bytes=/, "").split("-");
-        let start = parseInt(positions[0], 10);
-        let end = positions[1] ? parseInt(positions[1], 10) : size - 1;
-        let chunksize = (end - start) + 1;
-        // let chunksize = 10 ** 6;
-
-
-
-
-        res.writeHead(206, {
-            "Content-Type": "video/mp4",
-            'Content-Length': chunksize,
-            "Content-Range": "bytes " + start + "-" + end + "/" + size,
-            "Accept-Ranges": "bytes",
-            'Last-Modified': data.LastModified,
-            'ETag': data.ETag,
-        });
-
-
-        const stream = s3.getObject(params).createReadStream();
-
-        stream.on('error', function error(err: any) {
-            return next();
-        });
-
-        stream.on('end', () => {
-            console.log('Served by Amazon S3: ' + key);
-        });
-        //Pipe the s3 object to the response
-        stream.pipe(res);
-    });
-
-
-
-
-
-
-
-
-
     if (key) {
+        var params = {
+            Bucket: s3GetParams.Bucket,
+            Key: key
+        } as any;
+
+
+        return s3.headObject(params, async (err: any, data: any) => {
+            if (err) {
+                console.error(err);
+                return next();
+            }
+
+
+            const size = await getFileSize(key)
+            // console.log(req.headers);
+
+            let range = req.headers.range;
+            if (!range) {
+                return res.sendStatus(416);
+            }
+
+            let positions = range.replace(/bytes=/, "").split("-");
+            let start = parseInt(positions[0], 10);
+            let end = positions[1] ? parseInt(positions[1], 10) : size - 1;
+            let chunksize = (end - start) + 1;
+            // let chunksize = 10 ** 6;
 
 
 
+
+            res.writeHead(206, {
+                "Content-Type": "video/mp4",
+                'Content-Length': chunksize,
+                "Content-Range": "bytes " + start + "-" + end + "/" + size,
+                "Accept-Ranges": "bytes",
+                'Last-Modified': data.LastModified,
+                'ETag': data.ETag,
+            });
+
+
+            const stream = s3.getObject(params).createReadStream();
+
+            stream.on('error', function error(err: any) {
+                res.end()
+                return next();
+            });
+
+            stream.on('end', () => {
+                console.log('Served by Amazon S3: ' + key);
+            });
+            //Pipe the s3 object to the response
+            stream.pipe(res);
+        });
 
     } else {
         customError(res, next, 'no key provided for the file', 404)
