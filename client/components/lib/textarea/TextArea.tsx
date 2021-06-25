@@ -24,7 +24,9 @@ const TextArea = forwardRef<HTMLTextAreaElement, PropsWithChildren<IinputInterfa
     minHeight,
     maxHeight,
     resizable = false,
-    characterMaxSize,
+    // characterMaxSize,
+    maxLength,
+    minLength
   }, ref: React.Ref<HTMLTextAreaElement | null>,) => {
 
 
@@ -47,13 +49,15 @@ const TextArea = forwardRef<HTMLTextAreaElement, PropsWithChildren<IinputInterfa
           <textarea
             ref={ref}
             name={name}
+            maxLength={maxLength}
+            minLength={minLength}
             disabled={disabled}
             onChange={onChange}
             value={value}
             className={`input_field  ${className && className}`}
             placeholder={placeHolder}
             style={style}
-            maxLength={characterMaxSize}
+            // maxLength={characterMaxSize}
             defaultValue={defaultValue}
             readOnly={readonly}
             onInput={({ currentTarget }) => {

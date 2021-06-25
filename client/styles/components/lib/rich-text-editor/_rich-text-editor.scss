@@ -1,6 +1,46 @@
 .text-editor {
+    height: 200vh;
+  &__container {
+    
 
-    &__container {
+    .name,
+    .short-description,
+    .detailed-description,
+    .categories-selects {
+      margin-top: 6rem;
 
+      .heading {
+        margin-bottom: 1.5rem;
+      }
     }
+
+
+
+    .detailed-description {
+      &__text-area {
+          min-height: 55rem;
+          height: 100%;
+      }
+    }
+
+    .categories-selects {
+        width: 100%;
+        &__container {
+            @include flex(space-between);
+
+            // .select {
+            //     .dropdown {
+            //         width: initial;
+                    
+            //         .dropdown-select {
+            //             .selectable {
+            //                 margin: 0vw 6vw 0 1vw;
+            //             }
+            //         }
+            //     }
+            // }
+        }
+    }
+
+  }
 }

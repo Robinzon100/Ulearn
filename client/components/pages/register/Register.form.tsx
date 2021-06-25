@@ -103,6 +103,8 @@ const RegisterComponent = () => {
                         <h1 className="f-size-h7 f-weight-bl">რეგისტრაცია</h1>
                     </div>
                     <div className="registration-grid grid_base_styles">
+
+                        
                         <div className="base_input_styles full_name">
                             <div className="heading">
                                 <h1 className="f-size-p6 f-weight-b">სახელი და გვარი</h1>

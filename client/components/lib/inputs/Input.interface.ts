@@ -20,6 +20,7 @@ export interface IinputInterface extends IGlobal {
     characterMaxSize?: number;
     autoComplate?:string;
     maxLength?:number;
+    minLength?:number;
 }
 
 
