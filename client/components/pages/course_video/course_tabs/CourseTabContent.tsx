@@ -9,6 +9,7 @@ import CoursesJson from "../../../../public/json/Courses.json";
 import CommentCards from "components/lib/comment_cards/comment_cards";
 import QuestionAnswerCards from "components/lib/question-answer/QuestionAnswerCards";
 import { MyCourseTabHeading } from "components/pages/course_video/course_tabs/MyCourseTabHeading";
+
 import Tabs from "components/lib/tabs/Tabs";
 import InputCommentCards from "components/lib/comment_cards/inputComment_cards";
 

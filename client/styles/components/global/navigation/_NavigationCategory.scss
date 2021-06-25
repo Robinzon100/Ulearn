@@ -75,6 +75,10 @@
             &__cube-text {
               display: flex;
               align-items: center;
+              
+              svg {
+                  transform: translate(8%,8%);
+              }
 
               .cube {
                 @include background-properties("/pictures/cube.svg",

@@ -201,6 +201,10 @@ const RegisterComponent = () => {
                             )}
                         </div>
 
+
+
+
+
                         <div className="base_input_styles password">
                             <div className="heading">
                                 <h1 className="f-size-p6 f-weight-b">პაროლი</h1>
@@ -242,7 +246,17 @@ const RegisterComponent = () => {
                                     {errors.password.message}
                                 </p>
                             )}
+
+                            <h1>
+                                სიგრძე 8 ასო, 1 დიდი ასო, 1 ციფრი, 1 სპეციალური სიმბოლო
+                            </h1>
                         </div>
+
+
+
+
+
+
 
                         <div className="base_input_styles main_category">
                             <div className="heading">
