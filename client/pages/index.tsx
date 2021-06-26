@@ -33,7 +33,8 @@ const Index = ({ data }) => {
 
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const { auth_access_token } = cookie.parse(ctx.req.headers.cookie)
+
+  const { auth_access_token } = cookie.parse(`${ctx.req.headers.cookie}`)
   let landingCourse = null
 
   if (auth_access_token && auth_access_token.length > 0) {

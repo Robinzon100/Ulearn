@@ -1,5 +1,4 @@
-import dynamic from "next/dynamic";
-import { Zap, Clipboard,X } from "react-feather"
+import { Zap, Clipboard, X } from "react-feather"
 import { useState } from "react"
 
 
@@ -11,10 +10,13 @@ import Button from "components/lib/button/Button"
 
 
 import SelectJson from "../../../../../public/json/Select.json";
-const RichTextEditor = dynamic(() =>
-    import('components/lib/rich-text-editor/RichTextEditor'),
-    { ssr: false }
-)
+import RichTextEditor from "components/lib/rich-text-editor/RichTextEditor";
+// import dynamic from "next/dynamic";
+// const RichTextEditor = dynamic(() =>
+//     import('components/lib/rich-text-editor/RichTextEditor'),
+//     { ssr: false }
+// )
+
 
 
 
@@ -22,19 +24,19 @@ const RichTextEditor = dynamic(() =>
 const CourseForm = () => {
 
     const [WWULInputs, setWWULInputs] = useState([{
-        id:0
+        id: 0
     }])
     const [WWULValues, setWWULValues] = useState([{
-        id:0,
-        value:""
+        id: 0,
+        value: ""
     }
-])
+    ])
 
 
     //  ===== ADDING INPUTS
     const addInputHandler = () => {
         const lastInputId = WWULInputs[WWULInputs.length - 1].id
-        setWWULInputs([...WWULInputs,{
+        setWWULInputs([...WWULInputs, {
             id: lastInputId + 1
         }])
     }
@@ -42,23 +44,23 @@ const CourseForm = () => {
 
 
     //  ===== DELETING INPUTS
-    const deleteInputHandler = (id:number) => {
+    const deleteInputHandler = (id: number) => {
         const newList = WWULInputs.filter(el => el.id != id)
             .map((el, i) => Object.assign(el, { id: i }))
 
-        setWWULInputs(newList)   
+        setWWULInputs(newList)
     }
 
 
 
-    const inputValuesHandler = (e,id) => {
-        // debugger
-        setWWULValues([{ id:id,value:e.target.value }])
+    const inputValuesHandler = (e, id) => {
+        setWWULValues([{ id: id, value: e.target.value }])
     }
 
-   const submitHandler = () => {
-    console.log([...WWULValues])
-   }
+
+    const submitHandler = () => {
+        console.log([...WWULValues])
+    }
 
     return (
         <>
@@ -168,29 +170,29 @@ const CourseForm = () => {
                         </div>
 
                         <div className="container">
-                        {WWULInputs.map((el,_) => (
-                               <Input
-                               key={el.id}
-                               id={el.id}
-                               onChange={(e) => inputValuesHandler(e,el.id)}
-                               size="large"
-                               name="full_name"
-                               width="100%"
-                               type="text"
-                               placeHolder="ამ კურსში ისწავლით,თუ როგორ გახდეთ დეველოპერი..."
-                               color="white"
-                               minLength={20}
-                               maxLength={100}
-                               iconRight={
-                               <X size="30" style={{cursor:"pointer"}} 
-                                onClick={() => deleteInputHandler(el.id)} />
-                               }
-                           /> 
-                        ))} 
+                            {WWULInputs.map((el, _) => (
+                                <Input
+                                    key={el.id}
+                                    id={el.id}
+                                    onChange={(e) => inputValuesHandler(e, el.id)}
+                                    size="large"
+                                    name="full_name"
+                                    width="100%"
+                                    type="text"
+                                    placeHolder="ამ კურსში ისწავლით,თუ როგორ გახდეთ დეველოპერი..."
+                                    color="white"
+                                    minLength={20}
+                                    maxLength={100}
+                                    iconRight={
+                                        <X size="30" style={{ cursor: "pointer" }}
+                                            onClick={() => deleteInputHandler(el.id)} />
+                                    }
+                                />
+                            ))}
 
-                            <InputAdder 
+                            <InputAdder
                                 minHeight="8rem"
-                                onClick={() => addInputHandler()}  
+                                onClick={() => addInputHandler()}
                             />
                         </div>
 
@@ -228,16 +230,16 @@ const CourseForm = () => {
 
 
 
-                <Button 
+                <Button
                     className="course-form-btn"
-                    width="35rem" 
-                    size="large" 
-                    color="black" 
+                    width="35rem"
+                    size="large"
+                    color="black"
                     onClick={() => submitHandler()}
-                    // route="#"
-                    >
-                <p className="f-weight-r f-size-p4 ">გაგზავნა</p>
-              </Button>
+                // route="#"
+                >
+                    <p className="f-weight-r f-size-p4 ">გაგზავნა</p>
+                </Button>
 
 
 

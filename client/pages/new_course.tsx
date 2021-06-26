@@ -4,7 +4,7 @@ import { GetServerSideProps } from "next";
 // ========== COMPONENTS
 import { NewCourseHeading } from "components/pages/new_course/newCourse.content";
 import Tabs from "components/lib/tabs/Tabs";
-import Curriculum  from "components/pages/new_course/tabs-content/curriculum/Curriculum";
+import Curriculum from "components/pages/new_course/tabs-content/curriculum/Curriculum";
 import RichTextEditor from "components/lib/rich-text-editor/RichTextEditor";
 
 
@@ -13,6 +13,7 @@ import { authenticatedRequest } from "components/utils/auth/tokenValidations";
 import { getUser } from "actions/client/user/profile/profile.action";
 import { redirect } from "components/utils/auth/redirect.utils";
 import CourseForm from '../components/pages/new_course/tabs-content/info/CourseForm';
+import cookie from 'cookie';
 
 
 
@@ -53,7 +54,7 @@ const NewCourse = () => {
               ]}
               component={[
                 <>
-                  <CourseForm/>
+                  <CourseForm />
                 </>,
                 <>
                   <Curriculum data={data} />
@@ -71,18 +72,23 @@ const NewCourse = () => {
 
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
+
+  const { auth_access_token } = cookie.parse(`${ctx.req.headers.cookie}`)
+  if (auth_access_token) {
     const res = await authenticatedRequest(getUser, null, ctx)
 
-
+    // TODO: add condition if the user is authanticated
+    
     if (res.statusCode == 200) {
-        return {
-            props: {
-                user: res.user,
-            },
-        };
+      return {
+        props: {
+          user: res.user,
+        },
+      };
     }
+  }
+  return redirect("/login");
 
-    return redirect("/login");
 }
 
 

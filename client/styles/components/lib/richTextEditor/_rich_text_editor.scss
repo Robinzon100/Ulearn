@@ -1,0 +1,48 @@
+.rich_text_editor_container {
+    background-color: var(--primary-grey);
+    border-radius: 8px !important;
+    border: none !important;
+    padding: 1.2rem 0rem 1.2rem 1.2rem;
+
+    .ql-editor.ql-blank::before {
+        font-size: calc(16px + (18 - 16) * ((100vw - 300px) / (1900 - 700))) !important;
+    }
+
+
+    .ql-toolbar {
+        border-radius: 8px !important;
+        border: none !important;
+        background: white !important;
+        box-shadow: 0px 20px 60px -10px #2121422a !important;
+        width: 98.5%;
+        z-index: 5;
+        position: relative;
+    }
+
+    .ql-container.ql-snow {
+        border: none !important;
+        width: 98.5%;
+
+        .ql-editor {
+            border: none;
+            border-radius: 0 0 8px 8px !important;
+            transform: translateY(-8px);
+            padding-top: 26px;
+        }
+
+
+    }
+
+
+    .ql-container {
+        border: none;
+
+        .ql-editor {
+            border: none;
+        }
+
+        :focus {
+            background-color: white;
+        }
+    }
+}

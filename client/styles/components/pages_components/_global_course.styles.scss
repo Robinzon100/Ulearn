@@ -1,9 +1,87 @@
 //! კურსის კონტენტის დასაწყისი
 
+
+.raw_html_styles {
+  * {
+    font-family: 'georgian', 'Inter', sans-serif;
+
+  }
+
+
+  h1 {
+    font-size: calc(24px + (36 - 24) * ((100vw - 300px) / (1900 - 700))) !important;
+    line-height: 180%;
+    font-weight: $f-weight-black;
+  }
+
+  h2 {
+    font-size: calc(20px + (30 - 20) * ((100vw - 300px) / (1900 - 700))) !important;
+    line-height: 180%;
+    font-weight: $f-weight-black;
+  }
+
+  p {
+    font-size: calc(16px + (18 - 16) * ((100vw - 300px) / (1900 - 700))) !important;
+    line-height: 180%;
+
+    span {
+      font-size: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
+    }
+  }
+
+  ul {
+    list-style: none;
+    margin-left: 1.5rem;
+
+    li {
+      margin-top: 0.8vw;
+
+      p {
+        font-size: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
+        line-height: 180%;
+      }
+
+
+    }
+  }
+
+  ol {
+    list-style-type: none !important;
+    padding: 0;
+    margin-top: -1rem;
+
+
+
+    li {
+      margin-top: 4.5rem;
+      position: relative;
+    }
+  }
+
+  hr {
+    width: 85%;
+    margin: 5rem auto;
+    border: 1px solid #c9c9c961;
+  }
+
+
+
+  img {
+    width: 85%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 20px;
+    object-fit: cover;
+
+  }
+}
+
+
+
+
 .СontentReveal {
   * {
     font-family: 'georgian', 'Inter', sans-serif !important;
-
   }
 
 
