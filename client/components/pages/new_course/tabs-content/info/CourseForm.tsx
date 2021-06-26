@@ -21,44 +21,41 @@ const RichTextEditor = dynamic(() =>
 
 const CourseForm = () => {
 
-    const [WWULInputs, setWWULInputs] = useState([{
-        id:0
-    }])
-    const [WWULValues, setWWULValues] = useState([{
-        id:0,
-        value:""
-    }
-])
+    let [WWULInputs, setWWULInputs] = useState(["","",""])
+    const [WWULInputErr,] = useState("ინფუთების რაოდენობა არ უნდა აჭარბებდეს 6 და არ უნდა იყოს ნაკლები 3")
+
 
 
     //  ===== ADDING INPUTS
     const addInputHandler = () => {
-        const lastInputId = WWULInputs[WWULInputs.length - 1].id
-        setWWULInputs([...WWULInputs,{
-            id: lastInputId + 1
-        }])
+        WWULInputs.push("")
+        setWWULInputs(WWULInputs => ([...WWULInputs]))
     }
 
 
 
     //  ===== DELETING INPUTS
-    const deleteInputHandler = (id:number) => {
-        const newList = WWULInputs.filter(el => el.id != id)
-            .map((el, i) => Object.assign(el, { id: i }))
-
-        setWWULInputs(newList)   
+    const deleteInputHandler = (index:number) => {
+        let deleted = [...WWULInputs];
+        deleted.splice(index,1);
+        setWWULInputs(deleted);
     }
 
 
 
-    const inputValuesHandler = (e,id) => {
-        // debugger
-        setWWULValues([{ id:id,value:e.target.value }])
+    const inputValuesHandler =  (e,index) => {
+        WWULInputs[index] = e.target.value;
+        setWWULInputs(WWULInputs => ([...WWULInputs]))
     }
+
+
 
    const submitHandler = () => {
-    console.log([...WWULValues])
+       console.log(WWULInputs)
    }
+
+
+
 
     return (
         <>
@@ -83,8 +80,6 @@ const CourseForm = () => {
                         />
                     </div>
 
-
-
                     {/* ///  short-description */}
                     <div className="short-description">
                         <div className="heading">
@@ -102,10 +97,6 @@ const CourseForm = () => {
                             maxLength={100}
                         />
                     </div>
-
-
-
-
 
 
 
@@ -168,32 +159,39 @@ const CourseForm = () => {
                         </div>
 
                         <div className="container">
-                        {WWULInputs.map((el,_) => (
-                               <Input
-                               key={el.id}
-                               id={el.id}
-                               onChange={(e) => inputValuesHandler(e,el.id)}
+                        {WWULInputs.map((el,i) => (
+                            <Input
+                               key={i}
+                               id={i}
+                               onChange={(e) => inputValuesHandler(e,i)}
+                               value={el}
                                size="large"
                                name="full_name"
                                width="100%"
                                type="text"
                                placeHolder="ამ კურსში ისწავლით,თუ როგორ გახდეთ დეველოპერი..."
                                color="white"
-                               minLength={20}
-                               maxLength={100}
-                               iconRight={
+                               minLength={10}
+                               maxLength={70}
+                               iconRight={ i  > 2 &&
                                <X size="30" style={{cursor:"pointer"}} 
-                                onClick={() => deleteInputHandler(el.id)} />
+                                onClick={() => deleteInputHandler(i)} />
                                }
                            /> 
                         ))} 
 
+                        {WWULInputs.length <= 5 &&
                             <InputAdder 
                                 minHeight="8rem"
                                 onClick={() => addInputHandler()}  
                             />
+                        }
                         </div>
-
+                        {WWULInputs.length == 6 &&
+                            <h1 className="form_errors f-size-p6 f-weight-r">
+                                {WWULInputErr}
+                            </h1>
+                        }
                     </div>
 
 
