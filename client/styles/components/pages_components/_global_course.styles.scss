@@ -1,25 +1,25 @@
 //! კურსის კონტენტის დასაწყისი
 
 .СontentReveal {
+  * {
+    font-family: 'georgian', 'Inter', sans-serif !important;
+
+  }
+
+
   h1 {
-    font-size: calc(
-      18px + (28 - 18) * ((100vw - 300px) / (1900 - 700))
-    ) !important;
+    font-size: calc(18px + (28 - 18) * ((100vw - 300px) / (1900 - 700))) !important;
     display: inline-block;
     line-height: 180%;
   }
 
   p {
-    font-size: calc(
-      13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))
-    ) !important;
+    font-size: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
     display: inline-block;
     line-height: 180%;
 
     span {
-      font-size: calc(
-        13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))
-      ) !important;
+      font-size: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
     }
   }
 
@@ -32,20 +32,16 @@
       margin-top: 0.8vw;
 
       p {
-        font-size: calc(
-          13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))
-        ) !important;
+        font-size: calc(13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))) !important;
         display: inline-block;
         line-height: 180%;
       }
 
       &:before {
         @include after;
-        @include background-properties(
-          "/pictures/courses/blue_bullet.svg",
+        @include background-properties("/pictures/courses/blue_bullet.svg",
           cover,
-          center
-        );
+          center);
         display: inline-block;
         width: 1.2rem;
         height: 1.2rem;
@@ -74,11 +70,9 @@
 
       &:before {
         @include after;
-        @include background-properties(
-          "/pictures/courses/courses_side_menu_finished.svg",
+        @include background-properties("/pictures/courses/courses_side_menu_finished.svg",
           cover,
-          center
-        );
+          center);
         display: block !important;
         top: 0;
         height: 2.5rem !important;
@@ -102,11 +96,9 @@
 
 .СontentReveal {
   img {
-    @include background-properties(
-      "/pictures/courses/portfolio_photo.png",
-      cover,
-      center
-    );
+    // @include background-properties("/pictures/courses/portfolio_photo.png",
+    //   cover,
+    //   center);
     width: 85%;
     height: 45vh;
     margin: 0 auto;

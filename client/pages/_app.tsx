@@ -1,4 +1,5 @@
 import '../styles/main.scss'
+
 import Head from "next/head";
 import 'video.js/dist/video-js.css'
 import { SWRConfig } from 'swr'

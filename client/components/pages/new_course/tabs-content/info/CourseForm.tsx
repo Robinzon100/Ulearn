@@ -1,13 +1,17 @@
 import { Zap } from "react-feather"
-
+import dynamic from "next/dynamic";
 
 /// ===== COMPONENTS
 import Input from "components/lib/inputs/Input"
-import TextArea from "components/lib/textarea/TextArea";
 import Select from "components/lib/select/select"
 
 
 import SelectJson from "../../../../../public/json/Select.json";
+const RichTextEditor = dynamic(() =>
+    import('components/lib/rich-text-editor/RichTextEditor'),
+    { ssr: false }
+)
+
 
 
 
@@ -65,9 +69,9 @@ const CourseForm = () => {
                             <h1 className="f-size-p6 f-weight-b">დეტალური აღწერა</h1>
                         </div>
 
-                        
+                        <RichTextEditor />
 
-                   </div>
+                    </div>
 
 
 
