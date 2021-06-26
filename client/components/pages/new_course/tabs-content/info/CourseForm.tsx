@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-import { Zap } from "react-feather"
 import dynamic from "next/dynamic";
-=======
 import { Zap, Clipboard,X } from "react-feather"
 import { useState } from "react"
 
->>>>>>> 783909a4ff37326786f926a431d4425748c65b51
 
 /// ===== COMPONENTS
 import Input from "components/lib/inputs/Input"
@@ -120,25 +116,9 @@ const CourseForm = () => {
                             <h1 className="f-size-p5 f-weight-bl">დეტალური აღწერა</h1>
                         </div>
 
-<<<<<<< HEAD
                         <RichTextEditor />
 
                     </div>
-=======
-
-
-                    </div>
-
-
-
-
-
-
-
-
-
-
->>>>>>> 783909a4ff37326786f926a431d4425748c65b51
 
 
 
