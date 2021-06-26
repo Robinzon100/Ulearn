@@ -1,0 +1,9 @@
+.delete-inputs {
+  border: 2px dashed var(--secondary-darker-grey);
+    cursor: pointer;
+    @include flex();
+    width: 100%;
+    height: 100%;
+    position: relative;
+  
+}

@@ -1,0 +1,82 @@
+.text-editor {
+  height: 200vh;
+
+  &__container {
+    margin-bottom: 25rem;
+
+    .name,
+    .short-description,
+    .detailed-description,
+    .categories-selects {
+      margin-top: 6rem;
+
+      .heading {
+        margin-bottom: 1.5rem;
+      }
+    }
+
+
+
+    .what-will-you-learn {
+      margin-top: 15rem;
+    }
+
+
+
+    .detailed-description {
+      &__text-area {
+        min-height: 55rem;
+        height: 100%;
+      }
+    }
+
+
+
+    .categories-selects {
+      width: 100%;
+      &__container {
+        @include flex(space-between);
+      }
+    }
+
+
+
+
+
+    .what-will-you-learn {
+      margin-top: 15rem;
+
+      .heading {
+        margin-bottom: 1.5rem;
+      }
+      
+      .container {
+        .input_container {
+          &:not(:first-child) {
+            margin-top: 3rem;
+          }
+        }
+        
+        .delete-inputs {
+          margin-top: 5rem;
+
+          &:hover {
+            border: 2px dashed var(--primary-blue);
+          }
+        }
+      }
+    }
+
+    .difficulty {
+        margin-top: 15rem;
+        .heading {
+            margin-bottom: 1.5rem;
+        }
+    }
+  }
+
+
+  .course-form-btn {
+      margin: 0 auto;
+  }
+}
