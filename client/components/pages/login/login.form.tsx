@@ -154,13 +154,15 @@ const LoginForm = () => {
                 type="submit"
                 width="100%"
                 size="medium"
-                color="black"
-              >
+                color="black">
                 <p className="f-weight-r f-size-p4 ">ავტორიზაცია</p>
               </Button>
             </div>
             
             </form>
+
+
+
             <div className="register_btn">
               <Button 
               width="100%" 
