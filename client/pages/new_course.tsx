@@ -6,7 +6,6 @@ import cookie from 'cookie';
 import { NewCourseHeading } from "components/pages/new_course/newCourse.content";
 import Tabs from "components/lib/tabs/Tabs";
 import Curriculum from "components/pages/new_course/tabs-content/curriculum/Curriculum";
-// import RichTextEditor from "components/lib/rich-text-editor/RichTextEditor";
 
 
 // ========== ACTIONS
@@ -80,7 +79,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     const res = await authenticatedRequest(getUser, null, ctx)
 
     // TODO: add condition if the user is authanticated
-    
+
     if (res.statusCode == 200) {
       return {
         props: {

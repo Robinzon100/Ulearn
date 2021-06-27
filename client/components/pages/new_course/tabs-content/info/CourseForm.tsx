@@ -10,12 +10,12 @@ import Button from "components/lib/button/Button"
 
 
 import SelectJson from "../../../../../public/json/Select.json";
-import RichTextEditor from "components/lib/rich-text-editor/RichTextEditor";
-// import dynamic from "next/dynamic";
-// const RichTextEditor = dynamic(() =>
-//     import('components/lib/rich-text-editor/RichTextEditor'),
-//     { ssr: false }
-// )
+// import RichTextEditor from "components/lib/rich-text-editor/RichTextEditor";
+import dynamic from "next/dynamic";
+const RichTextEditor = dynamic(() =>
+    import('components/lib/rich-text-editor/RichTextEditor'),
+    { ssr: false }
+)
 
 
 
@@ -28,13 +28,13 @@ const CourseForm = () => {
 
 
     const [courseForm, setCourseForm] = useState({
-        title:"",
-        description:"",
-        detailed_description:"",
-        what_will_you_learn:["","",""],
-        main_category_id:"",
-        sub_category_id:"",
-        difficulty:""
+        title: "",
+        description: "",
+        detailed_description: "",
+        what_will_you_learn: ["", "", ""],
+        main_category_id: "",
+        sub_category_id: "",
+        difficulty: ""
     })
 
     const [mainCategories, setMainCategories] = useState<any>([])
@@ -43,7 +43,7 @@ const CourseForm = () => {
 
     useEffect(() => {
         fetchCategories()
-   }, [])
+    }, [])
 
 
 
@@ -51,58 +51,58 @@ const CourseForm = () => {
     //  ===== ADDING WHAT-WILL-YOU-LEARN INPUTS
     const addInputHandler = () => {
         courseForm.what_will_you_learn.push("")
-        setCourseForm(courseForm => ({...courseForm}))
+        setCourseForm(courseForm => ({ ...courseForm }))
     }
 
 
 
     //  ===== DELETING WHAT-WILL-YOU-LEARN INPUTS
-    const deleteInputHandler = (index:number) => {
+    const deleteInputHandler = (index: number) => {
         let deleted = [...courseForm.what_will_you_learn];
-        deleted.splice(index,1);
-        
+        deleted.splice(index, 1);
+
         courseForm.what_will_you_learn = deleted
-        setCourseForm(courseForm => ({...courseForm}))
+        setCourseForm(courseForm => ({ ...courseForm }))
     }
 
 
     // ==== ==== WHAT-WILL-YOU-LEARN HANDLER
-    const inputValuesHandler =  (e,index) => {
+    const inputValuesHandler = (e, index) => {
         courseForm.what_will_you_learn[index] = e.target.value;
-        setCourseForm(courseForm => ({...courseForm}))
+        setCourseForm(courseForm => ({ ...courseForm }))
     }
 
 
 
     // ==== ==== CATEGORY
-    const CourseCategoryFormHandler = (value?,field?:string) => {
-        setCourseForm({...courseForm,[field]:value})
+    const CourseCategoryFormHandler = (value?, field?: string) => {
+        setCourseForm({ ...courseForm, [field]: value })
     }
 
 
     // ==== ==== INPUTS
-    const CourseInputFormHandler = (e?,field?:string) => {
-        setCourseForm({...courseForm,[field]:e.target.value})
+    const CourseInputFormHandler = (e?, field?: string) => {
+        setCourseForm({ ...courseForm, [field]: e.target.value })
     }
 
 
 
 
     // === === SUBMIT COURSEFORM OBJECT
-   const submitHandler = () => {
-       console.log(courseForm)
-   }
+    const submitHandler = () => {
+        console.log(courseForm)
+    }
 
 
 
 
-   /// ===== FETCH CATEGOREIS
-   const fetchCategories = async() => {
+    /// ===== FETCH CATEGOREIS
+    const fetchCategories = async () => {
         const { categories: { main_categories, sub_categories } } = await getAllCategories();
-        
+
         setMainCategories(main_categories)
         setSubCategories(sub_categories)
-   } 
+    }
 
 
 
@@ -123,7 +123,7 @@ const CourseForm = () => {
                             name="name"
                             width="100%"
                             type="text"
-                            onChange={(e) => CourseInputFormHandler(e,"title")}
+                            onChange={(e) => CourseInputFormHandler(e, "title")}
                             value={courseForm.title}
                             placeHolder="ისწავლეთ თუ როგორ გახდეთ javascript დეველოპერი"
                             color="white"
@@ -144,7 +144,7 @@ const CourseForm = () => {
                         <Input
                             size="large"
                             name="short-description"
-                            onChange={(e) => CourseInputFormHandler(e,"description")}
+                            onChange={(e) => CourseInputFormHandler(e, "description")}
                             value={courseForm.description}
                             width="100%"
                             type="text"
@@ -164,7 +164,9 @@ const CourseForm = () => {
                             <h1 className="f-size-p5 f-weight-bl">დეტალური აღწერა</h1>
                         </div>
 
-                        <RichTextEditor />
+                        <RichTextEditor onSave={(editorContent) => {
+                            setCourseForm({ ...courseForm, detailed_description: editorContent })
+                        }} />
 
                     </div>
 
@@ -186,8 +188,8 @@ const CourseForm = () => {
                                 name="main_categories"
                                 minHeight="19rem"
                                 options={mainCategories}
-                                onChange={(value) => 
-                                    CourseCategoryFormHandler(value,"main_category_id")
+                                onChange={(value) =>
+                                    CourseCategoryFormHandler(value, "main_category_id")
                                 }
                                 icon={<Zap size={25} />}
                                 color="green"
@@ -202,12 +204,12 @@ const CourseForm = () => {
                                 id={2}
                                 name="sub_categories"
                                 minHeight="19rem"
-                                onChange={(value) => 
-                                    CourseCategoryFormHandler(value,"sub_category_id")
+                                onChange={(value) =>
+                                    CourseCategoryFormHandler(value, "sub_category_id")
                                 }
                                 options={
                                     subCategories
-                                        .filter(el => el.main_category_id 
+                                        .filter(el => el.main_category_id
                                             == courseForm.main_category_id)}
                                 icon={<Zap size={25} />}
                                 color="green"
@@ -227,39 +229,39 @@ const CourseForm = () => {
                         </div>
 
                         <div className="container">
-                        {courseForm.what_will_you_learn.map((el,i) => (
-                            <Input
-                               key={i}
-                               id={i}
-                               onChange={(e) => inputValuesHandler(e,i)}
-                               value={el}
-                               size="large"
-                               name="what-you-learn"
-                               width="100%"
-                               type="text"
-                               placeHolder="ამ კურსში ისწავლით,თუ როგორ გახდეთ დეველოპერი..."
-                               color="white"
-                               minLength={10}
-                               maxLength={70}
-                               iconRight={ i  > 2 &&
-                               <X size="30" style={{cursor:"pointer"}} 
-                                onClick={() => deleteInputHandler(i)} />
-                               }
-                           /> 
-                        ))} 
+                            {courseForm.what_will_you_learn.map((el, i) => (
+                                <Input
+                                    key={i}
+                                    id={i}
+                                    onChange={(e) => inputValuesHandler(e, i)}
+                                    value={el}
+                                    size="large"
+                                    name="what-you-learn"
+                                    width="100%"
+                                    type="text"
+                                    placeHolder="ამ კურსში ისწავლით,თუ როგორ გახდეთ დეველოპერი..."
+                                    color="white"
+                                    minLength={10}
+                                    maxLength={70}
+                                    iconRight={i > 2 &&
+                                        <X size="30" style={{ cursor: "pointer" }}
+                                            onClick={() => deleteInputHandler(i)} />
+                                    }
+                                />
+                            ))}
 
-                        {courseForm.what_will_you_learn.length <= 5 ? 
-                            <InputAdder 
-                                minHeight="8rem"
-                                onClick={() => addInputHandler()}
-                            />
-                            :<h1 className="form_errors f-size-p6 f-weight-r">
-                            ინფუთების რაოდენობა არ უნდა აჭარბებდეს 6 და არ უნდა იყოს ნაკლები 3
-                            </h1>
-                        }
+                            {courseForm.what_will_you_learn.length <= 5 ?
+                                <InputAdder
+                                    minHeight="8rem"
+                                    onClick={() => addInputHandler()}
+                                />
+                                : <h1 className="form_errors f-size-p6 f-weight-r">
+                                    ინფუთების რაოდენობა არ უნდა აჭარბებდეს 6 და არ უნდა იყოს ნაკლები 3
+                                </h1>
+                            }
                         </div>
 
-                        
+
                     </div>
 
 
@@ -277,7 +279,7 @@ const CourseForm = () => {
                             name="difficulty"
                             minHeight="19rem"
                             options={SelectJson.difficulty}
-                            onChange={(value) => CourseCategoryFormHandler(value,"difficulty")}
+                            onChange={(value) => CourseCategoryFormHandler(value, "difficulty")}
                             icon={<Clipboard size={25} />}
                             color="green"
                             loading={false}

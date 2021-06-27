@@ -3,7 +3,7 @@ import express from "express";
 
 //! ─── OWN ────────────────────────────────────────────────────────────────────────
 import { defaultRouterOptions } from "../../../constants/router.options";
-import { getImage } from "./images.controllers";
+import { getImage, deleteImage } from './images.controllers';
 const router = express.Router(defaultRouterOptions);
 
 
@@ -16,6 +16,7 @@ const router = express.Router(defaultRouterOptions);
 
 // ─── ROUTES ─────────────────────────────────────────────────────────────────────
 router.get('/:key', getImage);
+router.delete('/delete/:key', deleteImage);
 
 
 
