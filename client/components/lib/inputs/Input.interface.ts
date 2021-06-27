@@ -7,7 +7,7 @@ export interface IinputInterface extends IGlobal {
     type: "text" | "email" | "password" | "number";
     placeHolder?: string;
     containerStyle?: any;
-    value?: string;
+    value?: string | number ;
     onChange?: any;    
     name?: string;
     filled?: boolean,

@@ -27,20 +27,20 @@ const QuestionAnswerCards = (
   const [toggleAnswer, setToggleAnswer] = useState(false);
   
 
-  const handleSubmit = () => {
-    setAnswer([...answer,{
-        id: answer[answer.length - 1].id + 1,
-        imageUrl:"https://www.pexels.com/photo/fashionable-young-female-model-sitting-in-dark-room-and-looking-away-6758064/",
-        userName:"ბექა არაბიძე",
-        text:"ეს რა პროგრამირების ენააა?",
-        replies:[{
-            id: 1,
-            imageUrl:"https://www.pexels.com/photo/fashionable-young-female-model-sitting-in-dark-room-and-looking-away-6758064/",
-            userName:"ბექა არაბიძე",
-            text:"ეს რა პროგრამირების ენააა"
-        }]
-    }]);
-  };
+//   const handleSubmit = () => {
+//     setAnswer([...answer,{
+//         id: answer[answer.length - 1].id + 1,
+//         imageUrl:"https://www.pexels.com/photo/fashionable-young-female-model-sitting-in-dark-room-and-looking-away-6758064/",
+//         userName:"ბექა არაბიძე",
+//         text:"ეს რა პროგრამირების ენააა?",
+//         replies:[{
+//             id: 1,
+//             imageUrl:"https://www.pexels.com/photo/fashionable-young-female-model-sitting-in-dark-room-and-looking-away-6758064/",
+//             userName:"ბექა არაბიძე",
+//             text:"ეს რა პროგრამირების ენააა"
+//         }]
+//     }]);
+//   };
 
 
 
@@ -125,7 +125,7 @@ const QuestionAnswerCards = (
 
                   <Button
                     className="send-answer-btn"
-                    onClick={() => handleSubmit()}
+                    // onClick={() => handleSubmit()}
                     color="green"
                     size="medium"
                     disabled={false}
