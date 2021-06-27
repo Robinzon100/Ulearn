@@ -2,13 +2,12 @@ import { Star, Eye, EyeOff, Upload, Mail } from 'react-feather';
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useForm, SubmitHandler } from "react-hook-form";
-
+import Router from "next/router";
 
 
 import { showHidePasswordHandler } from "components/utils/helpers/showHidePassword";
 import { toggleVerification } from "./animation/ToggleVerification";
 import { emailRegex, passwordRegex } from "components/utils/regex/Regex";
-import FileProperties from 'components/lib/upload/FileProperties';
 
 
 import Input from "components/lib/inputs/Input";
@@ -56,8 +55,9 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
   const [fileUploadError, setFileUploadError] = useState("");
   const [file, setFile] = useState({file:"",base64:""});
   const [authError, setAuthError] = useState("");
-
   const [btnLoading, setBtnLoading] = useState(false);
+
+
 
   useEffect(() => {
     parseSocials(socials, setUserSocials);
@@ -102,6 +102,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
               setAuthError("")
               setBtnLoading(false)
               setIsEditable(false)
+              Router.reload()
             }
           }
 

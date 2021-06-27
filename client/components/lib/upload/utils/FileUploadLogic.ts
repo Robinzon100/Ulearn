@@ -50,7 +50,7 @@ export const ReturnFileSizeAndType = async (e, uploadSize: number, onError, acce
     if (!isTypeCorrect(file, acceptType))
       return onError('ფაილი არ შეესაბამება დაშვებულ ფორმატს')
       
-
+      
     let imageBase64;
 
     try {

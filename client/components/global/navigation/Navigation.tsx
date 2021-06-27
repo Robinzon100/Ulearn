@@ -20,6 +20,8 @@ import MobileCategory from "components/global/navigation/mobile-caregory/MobileC
 
 //? ACTIONS
 import { fetcher } from "actions/swr/fetchers";
+import { getUser } from "actions/client/user/profile/profile.action";
+import { authenticatedRequest } from "components/utils/auth/tokenValidations";
 
 
 
@@ -34,15 +36,21 @@ const Navigation = () => {
   const [toggleMobileCategory, setToggleMobileCategory] = useState(false);
 
   const [cookies, removeCookie] = useCookies(["name"]);
-
+  const [getUserPic, setGetUserPic] = useState("")  
 
 
   const { data } = useSWR(
     `${process.env.BACK_END_URL}/api/categories/all`,
     fetcher
   );
+    
+  const getUserPicture = async () => {
+    const res = await authenticatedRequest(getUser, null, null);
 
 
+    if(res.statusCode == 200)
+        setGetUserPic(res.user?.image_url);
+  }
 
 
   useEffect(() => {
@@ -51,6 +59,11 @@ const Navigation = () => {
 
 
 
+
+  useEffect(() => {
+    if(cookies.auth_access_token && cookies.auth_access_token.length > 0 ) 
+        getUserPicture()
+    }, [cookies.auth_access_token])
 
 
   return (
@@ -149,7 +162,13 @@ const Navigation = () => {
                 className="profile"
                 onClick={() =>
                   setIsLougoutToggled((isLougoutToggled) => !isLougoutToggled)}>
-                <div className="user-icon" />
+                <div className="user-icon" 
+                    style={
+                        getUserPic != '' && getUserPic != null ?
+                          { backgroundImage: `url(${process.env.BACK_END_URL}/api/images/${getUserPic})` }
+                          : { backgroundImage: "url(/pictures/unregistered_user.svg)" }}
+                
+                />
                 <Logout
                   deleteCookie={() => deleteCookie(removeCookie)}
                   isLougoutToggled={isLougoutToggled}

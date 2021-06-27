@@ -50,7 +50,7 @@ const Curriculum = ({ data }) => {
                 sub_videos: [
                     {
                         id: 1,
-                        name: "",
+                        name: "ვიდეოს სახელწოდება",
                         duration: 0,
                         video_url: "",
                     },
@@ -61,7 +61,7 @@ const Curriculum = ({ data }) => {
             videoData[id].sub_videos.push(
                 {
                     id: lastSubVideoId + 1,
-                    name: "",
+                    name: "ვიდეოს სახელწოდება",
                     duration: 0,
                     video_url: ""
                 }

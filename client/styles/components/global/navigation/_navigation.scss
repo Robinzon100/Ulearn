@@ -95,7 +95,7 @@
   .profile {
       position: relative;
     .user-icon {
-        // margin-right: 0 !important;
+       border-radius: 50px;
       @include background-properties("/pictures/unregistered_user.svg",
         cover,
         center);

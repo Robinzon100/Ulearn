@@ -20,9 +20,14 @@ interface IChangeName {
 const SylabusChangeName = ({ chapterName, chapterNumber, onClick, onToggle, chapterId, videoId }: IChangeName) => {
 
     const [isEditable, setIsEditable] = useState(false);
-    const [inputParams, setInputParams] = useState({ chapterName: "", chapterId: 0, videoId: 0 })
+    const [inputParams, setInputParams] = useState({ chapterName, chapterId, videoId })
 
     const getInputValue = () => {
+        setInputParams({
+            chapterName:inputParams.chapterName,
+            chapterId:inputParams.chapterId,
+            videoId:inputParams.videoId
+        })
         console.log(inputParams)
     }
 
@@ -61,8 +66,9 @@ const SylabusChangeName = ({ chapterName, chapterNumber, onClick, onToggle, chap
                                     onChange={(e) => setInputParams(
                                         { chapterName: e.target.value, chapterId, videoId }
                                     )}
-                                    placeHolder={chapterName}
+                                    placeHolder={inputParams.chapterName}
                                     width="100%"
+                                    value={inputParams.chapterName}
                                     isFocused={true}
                                     maxLength={50}
                                     readonly={!isEditable ? true : false}

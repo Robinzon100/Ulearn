@@ -31,10 +31,12 @@ let searchFilterObj = {}
 
 const CoursesSearch = ({ result, userPrefferedCategoryIds }) => {
     const [courseSearch, setCourseSearch] = useState<CourseSearchType>({ price: 0, overall_rating: 0, duration: 0 });
+
     const [userSubCategories, setUserSubCategories] = useState([]);
 
     const handleSearchInputs = (value, field?: keyof (CourseSearchType)) => {
         setCourseSearch({ ...courseSearch, [field]: value })
+        
         if (field == 'sub_category_id') {
             searchFilterObj['main_category_id'] = value.main_category_id
             searchFilterObj[field] = value.value

@@ -7,7 +7,7 @@ import FileUpload from "components/lib/upload/FileUpload";
 import { ToggleElement } from "components/utils/helpers/ToggleElement";
 import { authenticatedRequest } from "components/utils/auth/tokenValidations";
 import { postCurriculumVideo } from "actions/client/course/newCourse/curriculum.action";
-
+import { getVideoDuration } from "components/utils/helpers/getVideoDuration"
 
 
 interface CurriculumVideoComponent {
@@ -30,7 +30,8 @@ const CurriculumVideoComponent = ({ id, sub_videos, onClick, onRemove, onUpload 
     const [file, setFile] = useState<any>({ file: "", base64: "" });
     const [fileUploadError, setFileUploadError] = useState("");
     const [videoIsUploading, setVideoIsUploading] = useState<boolean>(false)
-
+    // TODO daamate roca gilaks sheqmni obieqtshi
+    const [duration, setDuration] = useState(0)
 
 
 
@@ -39,12 +40,19 @@ const CurriculumVideoComponent = ({ id, sub_videos, onClick, onRemove, onUpload 
         setVideoIsUploading(true)
 
 
+
+
         if (!fileUploadError) {
             videoForm.append('course_curriculum_videos', videoEl.current.files[0]);
             const { fileKey } = await authenticatedRequest(postCurriculumVideo, videoForm, null)
 
-
             if (fileKey) {
+                const videoDuration = await getVideoDuration(videoEl.current.files[0]) as any
+
+                let  minutes = Math.floor(videoDuration.duration / 60);
+                let  seconds = Math.floor(videoDuration.duration - minutes * 60);
+                setDuration(+`${minutes}.${seconds}`);
+
                 onUpload(videoId, fileKey)
                 setFileUploadError("")
                 setVideoIsUploading(false)
@@ -53,6 +61,7 @@ const CurriculumVideoComponent = ({ id, sub_videos, onClick, onRemove, onUpload 
             }
         }
     }
+
 
 
 
@@ -147,7 +156,7 @@ const CurriculumVideoComponent = ({ id, sub_videos, onClick, onRemove, onUpload 
 
                                 <div className="duration">
                                     <h1 className="f-size-p5 f-weight-r">
-                                        ხანგძლივობა: {el.duration} წთ
+                                        ხანგძლივობა: { duration}  წთ
                                     </h1>
                                 </div>
                             </div>

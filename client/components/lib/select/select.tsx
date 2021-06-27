@@ -58,7 +58,7 @@ const SelectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>> (
       <div
         ref={wrapperRef}
         onClick={() => setIsToggle((isToggle) => !isToggle)}
-        className={`select noselect ${className ? className : ""}`}
+        className={`select noselect ${disabled && "select-disabled"} ${className ? className : ""}`}
         style={disabled ? { cursor: "not-allowed", pointerEvents: "none" } : style}>
 
 
@@ -95,7 +95,7 @@ const SelectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>> (
               variants={dropDownAnimation}
               initial={{height:"0rem",display: "none" }}
               animate={isToggle ? "open" : "closed"}>
-              {options.map((option) => (
+              {options && options.map((option) => (
                 <div className="item" key={option.id}>
                   <input
                     key={id}
@@ -122,6 +122,11 @@ const SelectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>> (
 
       <style jsx>
         {`
+          .select-disabled {
+              coursor:none;
+              user-selection:none;
+              opacity:.5;
+          }
           .select {
             width: ${width ? width : ""};
             border-radius: 8px;
