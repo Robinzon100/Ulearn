@@ -1,5 +1,5 @@
 .text-editor {
-  height: 200vh;
+//   height: 200vh;
 
   &__container {
     margin-bottom: 25rem;
@@ -36,6 +36,15 @@
       width: 100%;
       &__container {
         @include flex(space-between);
+
+        @media screen and (max-width: $small-screen) {
+            flex-direction: column;
+
+            .select {
+                width: 100%;
+                margin-top: 2rem;
+            }
+        }   
       }
     }
 
@@ -69,6 +78,12 @@
 
     .difficulty {
         margin-top: 15rem;
+
+        @media screen and (max-width: $small-screen) {
+            .select {
+                width: 100%;
+            }
+        } 
         .heading {
             margin-bottom: 1.5rem;
         }
@@ -78,5 +93,9 @@
 
   .course-form-btn {
       margin: 0 auto;
+
+      @media screen and (max-width: $small-screen) {
+        width: 100%;
+    }
   }
 }

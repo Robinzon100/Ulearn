@@ -43,14 +43,17 @@ const Navigation = () => {
     `${process.env.BACK_END_URL}/api/categories/all`,
     fetcher
   );
+
+
     
   const getUserPicture = async () => {
     const res = await authenticatedRequest(getUser, null, null);
-
-
+    
     if(res.statusCode == 200)
         setGetUserPic(res.user?.image_url);
   }
+
+
 
 
   useEffect(() => {
@@ -65,6 +68,8 @@ const Navigation = () => {
         getUserPicture()
     }, [cookies.auth_access_token])
 
+
+    
 
   return (
     <>

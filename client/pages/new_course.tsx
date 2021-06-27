@@ -5,7 +5,7 @@ import { GetServerSideProps } from "next";
 import { NewCourseHeading } from "components/pages/new_course/newCourse.content";
 import Tabs from "components/lib/tabs/Tabs";
 import Curriculum from "components/pages/new_course/tabs-content/curriculum/Curriculum";
-import RichTextEditor from "components/lib/rich-text-editor/RichTextEditor";
+// import RichTextEditor from "components/lib/rich-text-editor/RichTextEditor";
 
 
 // ========== ACTIONS

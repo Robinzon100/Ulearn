@@ -95,7 +95,7 @@ const CurriculumVideoComponent = ({ id, sub_videos, onClick, onRemove, onUpload 
 
                             <ChangeVideoName
                                 chapterNumber={i + 1}
-                                chapterName={el.name}
+                                name={el.name}
                                 onClick={() => onRemove(i)}
                                 onToggle={() => ToggleElement(el?.id, setIsToggled)}
                                 chapterId={id}
