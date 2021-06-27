@@ -164,7 +164,9 @@ const CourseForm = () => {
                             <h1 className="f-size-p5 f-weight-bl">დეტალური აღწერა</h1>
                         </div>
 
-                        <RichTextEditor />
+                        <RichTextEditor onSave={(editorContent) => {
+                            setCourseForm({ ...courseForm, detailed_description: editorContent })
+                        }} />
 
                     </div>
 

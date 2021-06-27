@@ -1,107 +1,96 @@
-import { useQuill } from "react-quilljs"
-
-import 'quill/dist/quill.snow.css';
-import { useState, useEffect } from 'react';
-import { allBrandColors } from "constant/colors";
-import { authenticatedRequest } from '../../utils/auth/tokenValidations';
-import { postCourseImage } from '../../../actions/client/course/newCourse/courseInfo.action';
+import { useState, useEffect, useRef, useMemo } from 'react';
+import 'react-quill/dist/quill.snow.css';
+import dynamic from "next/dynamic";
 import { selectLocalImage } from './richTextEditor.utils';
+import Button from 'components/lib/button/Button';
 
 
 
 
-const RichTextEditor = () => {
-    const theme = 'snow';
-    const modules = {
-        toolbar: [
-            [{ 'header': 1 }, { 'header': 2 }],
-
-            ['bold', 'italic', 'underline', 'strike'],
-            [{ color: [...allBrandColors] }, { background: [...allBrandColors] }],
-            ['blockquote', 'code-block'],
-            [{ list: 'ordered' }, { list: 'bullet' }],
-            [{ indent: '-1' }, { indent: '+1' }],
-            [{ align: [] }],
-            ['link', 'image', 'video'],
-            ['clean'],
-        ],
-        clipboard: {
-            matchVisual: false,
-        },
-    };
-
-    const placeholder = 'დეტალური აღწერა კურსის შესახებ';
-    const formats = ['bold', 'italic', 'underline', 'strike'];
-    const { quill, quillRef } = useQuill({ theme, modules, placeholder });
-    const [editorContent, setEditorContent] = useState(null)
-
-    // useEffect(() => {
-    //     if (quill) {
-    //         quill.getModule("toolbar").addHandler("image", selectLocalImage(quill));
-    //     }
-    // }, [quill])
-
-
-    quill &&
-        quill.on('text-change', (delta, oldContents, source) => {
-            if (source !== 'user') return;
-
-            const inserted = getImgUrls(delta);
-            const deleted = getImgUrls(quill.getContents().diff(oldContents));
-            // console.log(inserted);
-
-            if (inserted.length) {
-                const base64Image = quillRef.current.querySelector(`img[src="${inserted[0]}"]`) as HTMLImageElement;
-                base64Image.remove()
-                fetch(inserted)
-                    .then(res => {
-                        return res.blob();
-                    })
-                    .then(async (editorImage) => {
-                        const courseImageForm = new FormData()
-                        courseImageForm.append('course_image', editorImage)
-                        const { fileKey } = await authenticatedRequest(postCourseImage, courseImageForm, null)
-
-                        if (fileKey) {
-                            quill.insertEmbed(10, 'image', `${process.env.BACK_END_URL}/api/images/${fileKey}`);
-                        }
-                    })
-                deleted.length && console.log('delete', deleted)
-                console.log(quill.getContents());
-            }
-
-            if (deleted.length) {
-                console.log({ deleted });
-            }
-        })
-
-
-    // quill.on('text-change', (delta, oldContents, source) => {
-    //     if (source !== 'user') return;
-
-    //     const inserted = getImgUrls(delta);
-    //     const deleted = getImgUrls(quill.getContents().diff(oldContents));
-    //     inserted.length && console.log('insert', inserted)
-    //     deleted.length && console.log('delete', deleted)
-
-    //     console.log(quill.getContents());
-
-    //     // setEditorContent(quill.getContents())
-
-
-    // });
-
-    function getImgUrls(delta) {
-        return delta.ops.filter(i => i.insert && i.insert.image).map(i => i.insert.image);
+const ReactQuill = dynamic(
+    async () => {
+        const { default: RQ } = await import("react-quill");
+        // @ts-ignore
+        return ({ forwardedRef, ...props }) => <RQ ref={forwardedRef} {...props} />;
+    },
+    {
+        ssr: false
     }
+);
+
+
+
+
+const RichTextEditor = ({ onSave, value }: { onSave: any, value?: string }) => {
+    const [editorContent, setEditorContent] = useState("");
+    const [isEditing, setIsEditing] = useState(false);
+
+    const quillRef = useRef();
+
+
+
+
+    const modules = useMemo(() => ({
+        toolbar: {
+            container: [
+                [{ header: '1' }, { header: '2' }],
+                ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+                [
+                    { list: 'ordered' },
+                    { list: 'bullet' },
+                    { indent: '-1' },
+                    { indent: '+1' },
+                ],
+                ['link', 'image', 'video'],
+                ['clean'],
+            ],
+            handlers: {
+                image: () => {
+                    // @ts-ignore
+                    selectLocalImage(quillRef.current.getEditor().selection.root)
+                },
+            },
+        }
+    }), [])
+
+
+
 
 
 
     return (
         <>
+            {isEditing && (
+                <Button
+                    width="15rem"
+                    size="medium"
+                    color="black"
+                    style={{
+                        margin: '1rem 0'
+                    }}
+                    onClick={() => {
+                        setIsEditing(false)
+                        // @ts-ignore
+                        onSave(editorContent)
+                    }}>
+                    <p className="f-weight-r f-size-p4 ">გაგზავნა</p>
+                </Button>
+            )}
             <div
                 className="raw_html_styles rich_text_editor_container">
-                <div ref={quillRef} />
+                <ReactQuill
+                    // @ts-ignore
+                    forwardedRef={quillRef}
+                    onFocus={() => setIsEditing(true)}
+                    theme="snow"
+                    value={editorContent}
+                    onChange={(value) => setEditorContent(value)}
+                    id={'quill'}
+                    className='text_editor'
+                    modules={modules}
+                />
+
+
             </div>
         </>
     )
