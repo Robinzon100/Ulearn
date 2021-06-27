@@ -1,11 +1,5 @@
 import { Response, Request, NextFunction } from 'express';
-import Course from '../../../../models/course/course.model'
-import customError from '../../../../utils/createError';
-
-import fs from "fs";
-import util from "util";
-import { cloudUploadFile } from '../../../../utils/aws/s3/s3.utils';
-const unlinkFile = util.promisify(fs.unlink)
+import { uploadtFileToS3 } from '../../../../utils/files/fileUploads.utils';
 
 
 
@@ -13,16 +7,12 @@ export const postNewCourse = async (req: Request, res: Response, next: NextFunct
 
 }
 
+
+export const postNewCourseImage = async (req: Request, res: Response, next: NextFunction) => {
+    await uploadtFileToS3(req, res)
+}
+
+
 export const postCurriculumVideos = async (req: Request, res: Response, next: NextFunction) => {
-    const { file } = req
-    const s3Res = await cloudUploadFile(req.file);
-
-    if (s3Res.Key) {
-        await unlinkFile(`${file?.path}`)
-        res.json(
-            {
-                fileKey: s3Res.Key,
-            })
-    }
-
+    uploadtFileToS3(req, res)
 }

@@ -16,9 +16,13 @@ const uploadVideo = multer({
             cb(null, 'uploads/')
         },
         filename: function (req, file, cb) {
-            cb(null, file.filename + '-' + Date.now())
+            cb(null, file.originalname + '-' + Date.now())
         }
     })
 })
 
+
+
+
 export const courseCurriculumVideoUpload = uploadVideo.single('course_curriculum_videos')
+export const courseImageUpload = uploadVideo.single('course_image')

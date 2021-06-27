@@ -9,13 +9,13 @@ const router = Router(defaultRouterOptions);
 
 
 //? CONTROLLERS
-import { postNewCourse, postCurriculumVideos } from './newCourse.controller';
+import { postNewCourse, postCurriculumVideos, postNewCourseImage } from './newCourse.controller';
 
 
 //? MIDDLEWARES
 import { getUserWithAccessToken } from "../../../../middleware/auth/validateToken.middleware";
 import { validateNewCourse } from "../../../../middleware/body_validation/newCourse.validation";
-import { courseCurriculumVideoUpload } from '../../../../utils/files/multer.utils';
+import { courseCurriculumVideoUpload, courseImageUpload } from '../../../../utils/files/multer.utils';
 
 
 router.use(getUserWithAccessToken)
@@ -24,6 +24,8 @@ router.use(getUserWithAccessToken)
 
 // ─── ROUTES ─────────────────────────────────────────────────────────────────────
 router.post('/', validateNewCourse, postNewCourse);
+router.post('/images', courseImageUpload, postNewCourseImage);
+
 router.post(
     '/curriculum_videos',
     courseCurriculumVideoUpload,
