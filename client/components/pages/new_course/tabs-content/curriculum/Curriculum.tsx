@@ -144,7 +144,7 @@ const Curriculum = ({ data }) => {
 
                             <ChangeChapterName
                                 chapterNumber={el?.id + 1}
-                                chapterName={el?.name}
+                                name={el?.name}
                                 onClick={() => remove(el.id)}
                                 onToggle={() => ToggleElement(el?.id, setIsToggled)}
                                 chapterId={i}

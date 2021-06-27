@@ -6,8 +6,8 @@ import Input from "components/lib/inputs/Input"
 import Button from "components/lib/button/Button"
 
 interface IChangeName {
-    chapterNumber: number;
-    chapterName: string;
+    chapterNumber?: number;
+    name: string;
     onClick?: any;
     onToggle?: any;
     chapterId?: number;
@@ -17,17 +17,18 @@ interface IChangeName {
 
 
 
-const SylabusChangeName = ({ chapterName, chapterNumber, onClick, onToggle, chapterId, videoId }: IChangeName) => {
+const SylabusChangeName = ({ name, chapterNumber, onClick, onToggle, chapterId, videoId }: IChangeName) => {
 
     const [isEditable, setIsEditable] = useState(false);
-    const [inputParams, setInputParams] = useState({ chapterName, chapterId, videoId })
+    const [inputParams, setInputParams] = useState({ name, chapterId, videoId })
 
     const getInputValue = () => {
         setInputParams({
-            chapterName:inputParams.chapterName,
+            name:inputParams.name,
             chapterId:inputParams.chapterId,
             videoId:inputParams.videoId
         })
+
         console.log(inputParams)
     }
 
@@ -48,7 +49,7 @@ const SylabusChangeName = ({ chapterName, chapterNumber, onClick, onToggle, chap
                             </span>
 
                             {isEditable === false &&
-                                inputParams.chapterName
+                                inputParams.name
                             }
                         </p>
 
@@ -64,11 +65,11 @@ const SylabusChangeName = ({ chapterName, chapterNumber, onClick, onToggle, chap
                                     size="medium"
                                     type="text"
                                     onChange={(e) => setInputParams(
-                                        { chapterName: e.target.value, chapterId, videoId }
+                                        { name: e.target.value, chapterId, videoId }
                                     )}
-                                    placeHolder={inputParams.chapterName}
+                                    placeHolder={inputParams.name}
                                     width="100%"
-                                    value={inputParams.chapterName}
+                                    value={inputParams.name}
                                     isFocused={true}
                                     maxLength={50}
                                     readonly={!isEditable ? true : false}
