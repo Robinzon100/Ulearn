@@ -6,7 +6,6 @@ import { useEffect, useState } from "react"
 import Input from "components/lib/inputs/Input"
 import Select from "components/lib/select/select"
 import InputAdder from "components/lib/input-adder-component/InputAdder.component"
-import Button from "components/lib/button/Button"
 import FileUpload from "components/lib/upload/FileUpload"
 
 
@@ -37,7 +36,6 @@ const CourseForm = observer(() => {
     const [subCategories, setSubCategories] = useState<any>([])
     const [fileUploadError, setFileUploadError] = useState("");
     const [, setFile] = useState({ file: "", base64: "" });
-    const [error,] = useState("")
     const [fileLoading, setFileLoading] = useState(false);
 
     useEffect(() => {
@@ -100,14 +98,6 @@ const CourseForm = observer(() => {
         const { categories: { main_categories, sub_categories } } = await getAllCategories();
         setMainCategories(main_categories)
         setSubCategories(sub_categories)
-    }
-
-
-
-    // === === SUBMIT COURSEFORM OBJECT
-    const submitHandler = () => {
-        console.log(JSON.parse(JSON.stringify(newCourseStore.newCourseData)));
-
     }
 
 
@@ -388,10 +378,6 @@ const CourseForm = observer(() => {
                         <p className="form_errors f-size-p6 f-weight-r">
                             {fileUploadError}
                         </p>
-                    </div>
-
-                    <div className="error">
-                        <h1 className="form_errors f-size-p4 f-weight-r">{error}</h1>
                     </div>
 
                 </div>

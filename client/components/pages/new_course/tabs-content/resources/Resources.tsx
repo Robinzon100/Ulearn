@@ -1,11 +1,12 @@
-import {  Upload } from "react-feather"
+import { Upload, Folder } from "react-feather"
 import { useState } from "react";
 
 
 import FileUpload from "components/lib/upload/FileUpload"
-import { uploadAndRead } from "components/lib/upload/utils/FileUploadLogic";
 import { observer } from 'mobx-react-lite';
 import { useNewCourseStore } from "mobx/newCourseStateContext";
+import { authenticatedRequest } from "components/utils/auth/tokenValidations";
+import { postCourseImage } from "actions/client/course/newCourse/courseInfo.action";
 
 
 
@@ -15,42 +16,80 @@ import { useNewCourseStore } from "mobx/newCourseStateContext";
 const Resources = observer(() => {
     let { newCourseStore } = useNewCourseStore()
     const [fileUploadError, setFileUploadError] = useState("");
-    const [file, setFile] = useState({ file: "", base64: "" });
+    const [file, setFile] = useState<any>({ file: "" });
+
+    const [fileLoading, setFileLoading] = useState(false);
 
 
+    const fileOnChangeHandler = async (e) => {
+        if (!fileUploadError) {
+            setFileLoading(true)
+
+            const imgForm = new FormData();
+            imgForm.append('course_image', e.currentTarget.files[0]);
+            const { fileKey } = await authenticatedRequest(postCourseImage, imgForm, null);
+
+            console.log(fileKey);
+
+            if (fileKey)
+                newCourseStore.newCourseData.courseInfo.resource_file_url = fileKey;
+            setFileLoading(false)
+        }
+    }
 
 
     return (
         <>
             <div className="resources">
                 <div className="resources__container">
-                <div className="course-image">
-                        <div className="heading">
-                            <h1 className="f-size-p5 f-weight-bl">კურსის სურათი</h1>
-                            <h2 className="f-size-p7 f-weight-bl">(სურათი უნდა იყოს 3 MB ნაკლები)</h2>
-                        </div>
+                    <div className="course-image">
+                        
 
 
                         <div className="course-image__container">
+
+                        <div className="heading">
+                            <h1 className="f-size-p5 f-weight-bl">
+                                რესურსის ფაილის ატვირთვა
+
+                                <br />
+
+                                <span className="f-size-p7 f-weight-r">
+                                    (უნდა იყოს 3 MB ნაკლები, მხოლოდ zip ფაილი )
+                                </span>
+                            </h1>
+
+
+                        </div>
                             <FileUpload
                                 height="18rem"
                                 uploadSize={300 * 10}
                                 disabled={false}
+                                isLoading={fileLoading}
                                 icon={<Upload size={20} />}
                                 onError={(errorType) => setFileUploadError(errorType)}
                                 fileProperties={
-                                    (file, base64) =>
-                                        setFile({ file, base64 })
+                                    (file) =>
+                                        setFile({ file })
                                 }
                                 accept=".zip"
                                 onChange={(e) => {
-                                    uploadAndRead(e)
+                                    fileOnChangeHandler(e)
                                 }}
                             />
 
-                            <div className="thumbnail"
-                                style={{ backgroundImage: `url(${file.base64})` }}
-                            />
+
+                            {newCourseStore.newCourseData.courseInfo.resource_file_url.length > 0 &&
+                                <div className="file-size-name">
+                                    <Folder />
+                                    <h1 className="f-size-p5 f-weight-r file_size">
+                                        {newCourseStore.newCourseData.courseInfo.resource_file_url} -
+                                        {parseFloat(`${+file.file.size / 1000 / 1000}`).toPrecision(2)} MB
+                                    </h1>
+
+                                    <a href="http://localhost:5000/api/files/8ae97e1b12a1a5615c201ae772e26146">ფაილის ლინკი</a>
+                                </div>
+                            }
                         </div>
 
                     </div>

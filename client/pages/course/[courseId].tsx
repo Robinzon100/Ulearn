@@ -27,7 +27,7 @@ const course = ({ course }) => {
         <section className="course">
           <div className="course__container">
             <div className="course-hero" 
-            style={{ backgroundImage: `url(${course.thumbnail_imageUrl})` }}> 
+            style={{ backgroundImage: `url(${course.image_url})` }}> 
             <div className="course-hero-blur"></div>
 
               <div className="course-hero__about-course">

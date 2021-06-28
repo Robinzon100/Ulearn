@@ -14,6 +14,7 @@ interface ICourseInfo {
     price: number,
     discount_price: number,
     ulearn_coin_price: number,
+    resource_file_url:string 
 }
 
 interface ISubVideos {

@@ -41,7 +41,8 @@ const NewCourse = observer(() => {
                 image_url: "",
                 price: 0,
                 discount_price: 0,
-                ulearn_coin_price: 0
+                ulearn_coin_price: 0,
+                resource_file_url:"" 
             },
             curriculum: [
                 {
