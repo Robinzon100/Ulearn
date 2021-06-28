@@ -20,7 +20,7 @@ interface IInputCommentCards {
 
 
 
-const InputCommentCards = ({ id, name, rating, imageUrl, onChange,onClick }: IInputCommentCards) => {
+const InputCommentCards = ({ id, name, rating, imageUrl, onChange, }: IInputCommentCards) => {
     //   const [userCommentValue, setUserCommentValue] = useState("")
 
 

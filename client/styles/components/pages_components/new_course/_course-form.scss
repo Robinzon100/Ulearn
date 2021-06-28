@@ -1,3 +1,7 @@
+.price-sale-error {
+  margin-top: 2rem;
+}
+
 .text-editor {
   //   height: 200vh;
 
@@ -23,8 +27,6 @@
       }
     }
 
-
-
     .categories-selects {
       width: 100%;
       &__container {
@@ -40,8 +42,6 @@
         }
       }
     }
-
-
 
     .what-will-you-learn {
       margin-top: 15rem;
@@ -67,8 +67,6 @@
       }
     }
 
-
-
     .difficulty {
       margin-top: 15rem;
 
@@ -83,8 +81,6 @@
     }
   }
 
-
-
   .course-form-btn {
     margin: 0 auto;
 
@@ -92,9 +88,6 @@
       width: 100%;
     }
   }
-
-
-
 
   .course-image {
     &__container {
@@ -126,8 +119,5 @@
         }
       }
     }
-
-
-
   }
 }

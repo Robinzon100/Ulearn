@@ -3,11 +3,14 @@ import Input from "components/lib/inputs/Input"
 import Button from "components/lib/button/Button"
 import { useState } from "react"
 
+import { useNewCourseStore } from 'mobx/newCourseStateContext';
 
 
 
 
 const PriceSale = () => {
+    let { newCourseStore } = useNewCourseStore()
+
 
     const [values, setValues] = useState({ price:0,sale:0,coin:0 })
     const [PriceSaleErr, setPriceSaleErr] = useState("")
@@ -107,7 +110,7 @@ const PriceSale = () => {
                     </div>
 
 
-                <div className="price-sale-error">
+                <div className="error">
                     <h1 className="form_errors f-size-p4 f-weight-r">{PriceSaleErr}</h1>
                 </div>
                 

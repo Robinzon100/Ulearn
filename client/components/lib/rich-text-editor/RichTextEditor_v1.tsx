@@ -5,7 +5,7 @@ import { allBrandColors } from "constant/colors";
 import { authenticatedRequest } from '../../utils/auth/tokenValidations';
 import { postCourseImage, deleteCourseImage } from '../../../actions/client/course/newCourse/courseInfo.action';
 import Button from "../button/Button";
-import { useState } from 'react';
+// import { useState } from 'react';
 
 
 
@@ -32,7 +32,7 @@ const RichTextEditor = ({ onChange }) => {
 
     const placeholder = 'დეტალური აღწერა კურსის შესახებ';
     const { quill, quillRef } = useQuill({ theme, modules, placeholder });
-    const [startedEditing, setstartedEditing] = useState(false)
+    // const [startedEditing, setstartedEditing] = useState(false)
 
 
 

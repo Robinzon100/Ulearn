@@ -38,21 +38,22 @@ const CourseForm = observer(() => {
 
 
 
-    const [courseForm, setCourseForm] = useState({
-        title: "",
-        description: "",
-        detailed_description: "",
-        what_will_you_learn: ["", "", ""],
-        main_category_id: "",
-        sub_category_id: "",
-        difficulty: "",
-        image_url: ""
-    })
+    // const [courseForm, setCourseForm] = useState({
+    //     title: "",
+    //     description: "",
+    //     detailed_description: "",
+    //     what_will_you_learn: ["", "", ""],
+    //     main_category_id: "",
+    //     sub_category_id: "",
+    //     difficulty: "",
+    //     image_url: ""
+    // })
 
     const [mainCategories, setMainCategories] = useState<any>([])
     const [subCategories, setSubCategories] = useState<any>([])
     const [fileUploadError, setFileUploadError] = useState("");
     const [file, setFile] = useState({ file: "", base64: "" });
+    const [error,] = useState("")
 
 
     useEffect(() => {
@@ -92,14 +93,6 @@ const CourseForm = observer(() => {
     }
 
 
-
-
-    // === === SUBMIT COURSEFORM OBJECT
-    const submitHandler = () => {
-        console.log(JSON.parse(JSON.stringify(newCourseStore.newCourseData)));
-    }
-
-
     
     // === === IMAGE UPLOAD HANDLER
     const imageOnChangeHandler = () => {
@@ -114,9 +107,15 @@ const CourseForm = observer(() => {
               .then(async (blob) => {
                 imgForm.append('course_image', blob);
                 const { fileKey } = await authenticatedRequest(postCourseImage, imgForm, null);
-                console.log(fileKey)
+
+                if(fileKey)
+                    newCourseStore.newCourseData.courseInfo.image_url = fileKey;
+                    // console.log(fileKey)
             });
-          }
+        }
+
+        
+
     }
 
 
@@ -128,6 +127,23 @@ const CourseForm = observer(() => {
         setSubCategories(sub_categories)
     }
 
+
+
+
+
+    // const {title,description,what_will_you_learn,main_category_id,sub_category_id,difficulty,image_url} = newCourseStore.newCourseData.courseInfo;
+
+
+    // === === SUBMIT COURSEFORM OBJECT
+    const submitHandler = () => {
+        // if(title.length || description.length || what_will_you_learn.length || 
+        //     main_category_id.length || sub_category_id.length || difficulty.length 
+        //     || image_url.length < 0 ){
+        //         return setError("ყველა ველი უნდა იყოს შევსებული")
+        // }
+        console.log(JSON.parse(JSON.stringify(newCourseStore.newCourseData)));
+
+    }
 
 
 
@@ -347,7 +363,6 @@ const CourseForm = observer(() => {
 
                     </div>
 
-                    {/* <h1>{file.base64}</h1> */}
 
 
                     <div className="fileUpload-errors">
@@ -356,7 +371,9 @@ const CourseForm = observer(() => {
                         </p>
                     </div>
 
-
+                <div className="error">
+                    <h1 className="form_errors f-size-p4 f-weight-r">{error}</h1>
+                </div>               
 
                 </div>
 
@@ -369,9 +386,7 @@ const CourseForm = observer(() => {
                     color="black"
                     onClick={() => {
                         submitHandler()
-                    }}
-                // route="#"
-                >
+                    }}>
                     <p className="f-weight-r f-size-p4 ">გაგზავნა</p>
                 </Button>
 

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo } from 'react';
+import { useState, useRef, useMemo } from 'react';
 import 'react-quill/dist/quill.snow.css';
 import dynamic from "next/dynamic";
 import { selectLocalImage } from './richTextEditor.utils';
@@ -21,7 +21,7 @@ const ReactQuill = dynamic(
 
 
 
-const RichTextEditor = ({ onSave, value }: { onSave: any, value?: string }) => {
+const RichTextEditor = ({ onSave }: { onSave: any, value?: string }) => {
     const [editorContent, setEditorContent] = useState("");
     const [isEditing, setIsEditing] = useState(false);
 

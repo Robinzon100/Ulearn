@@ -9,7 +9,8 @@ interface ICourseInfo {
     what_will_you_learn: string[],
     main_category_id: string,
     sub_category_id: string,
-    difficulty: string
+    difficulty: string,
+    image_url:string,
 }
 
 interface ISubVideos {
@@ -25,11 +26,18 @@ interface ICurriculum {
     sub_videos: ISubVideos[],
 }
 
+interface IPriceAndSale {
+    price:number,
+    sale:number,
+    coin:number
+}
+
 
 export class NewCourseStore {
     newCourseData: {
         curriculum: ICurriculum[],
         courseInfo: ICourseInfo,
+        priceAndSale:IPriceAndSale
     }
 
 
