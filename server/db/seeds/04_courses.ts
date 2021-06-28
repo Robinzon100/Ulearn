@@ -15,7 +15,7 @@ export async function seed(knex: Knex): Promise<void> {
             description: 'გავივლით DJ-ის პროფესიის ყველა ნიუანს, რას აკეთებს რეალრად DJ რა ევალება ნებისმიერ დაწესებულებაში და ასევე შევქმნით რამოდენიმე ტრეკს რომლის გაყიდვას და გაპიარებასაც შეძლებთ',
             detailed_description: `<p><strong>ამ კურსის სწავლებით შეძლებთ რომ ისწავლოთ javascript</strong></p><p>კურსის დასაწყისში ვისწავლით თუ რას წარმოადგენს ეს პროგრამირების ენა და რატო გვჭირდება ვებ-დეველოპერებს.</p><br/><br/><p><strong>გავივლით ყველაზე ძირითად თემებს როგორიცაა:</strong></p><ul><li><p >javascrip ენის სინტაქსი და პროგრამირების ძირითადებ</p></li><li><p >რა არის DOM და DOM მანიპულირება</p></li><li><p >ინტერაქიულობის შექმნა</p></li><li><p >სხვა და სხვა ტიპი even-ები და მათი დანიშნულება</p></li><li><p >რთული ინტერაქტივები</p></li></ul><br/><br/><p>ამ კურსზე შევქმნით თვენი პორფოლიოსთვის პროექტებს რომელიც საშუალებას მოგცემს რომ დაიწყოთ ამ ინდუსტრიში მუშობა, როგორც კომპანიაში ასევე თვენივე ბიზნესში.</p>`,
             difficulty: 3,
-            thumbnail_imageUrl: `https://source.unsplash.com/collection/${Math.floor(Math.random() * 1000)}/1600x900`,
+            image_url: `https://source.unsplash.com/collection/${Math.floor(Math.random() * 1000)}/1600x900`,
             resource_file_url: 'https://temp.media/video/?height=1080&width=1920&length=10',
             duration: 6.30,
             what_will_you_learn: JSON.stringify([
@@ -39,7 +39,7 @@ export async function seed(knex: Knex): Promise<void> {
             main_category_id: 1,
             sub_category_id: 1,
             sub_sub_category_id: 1,
-            
+
 
             creator_id: 1,
         },
@@ -49,7 +49,7 @@ export async function seed(knex: Knex): Promise<void> {
             description: 'გავივლით DJ-ის პროფესიის ყველა ნიუანს, რას აკეთებს რეალრად DJ რა ევალება ნებისმიერ დაწესებულებაში და ასევე შევქმნით რამოდენიმე ტრეკს რომლის გაყიდვას და გაპიარებასაც შეძლებთ',
             detailed_description: `<p><strong>ამ კურსის სწავლებით შეძლებთ რომ ისწავლოთ javascript</strong></p><p>კურსის დასაწყისში ვისწავლით თუ რას წარმოადგენს ეს პროგრამირების ენა და რატო გვჭირდება ვებ-დეველოპერებს.</p><br/><br/><p><strong>გავივლით ყველაზე ძირითად თემებს როგორიცაა:</strong></p><ul><li><p >javascrip ენის სინტაქსი და პროგრამირების ძირითადებ</p></li><li><p >რა არის DOM და DOM მანიპულირება</p></li><li><p >ინტერაქიულობის შექმნა</p></li><li><p >სხვა და სხვა ტიპი even-ები და მათი დანიშნულება</p></li><li><p >რთული ინტერაქტივები</p></li></ul><br/><br/><p>ამ კურსზე შევქმნით თვენი პორფოლიოსთვის პროექტებს რომელიც საშუალებას მოგცემს რომ დაიწყოთ ამ ინდუსტრიში მუშობა, როგორც კომპანიაში ასევე თვენივე ბიზნესში.</p>`,
             difficulty: 3,
-            thumbnail_imageUrl: `https://source.unsplash.com/collection/${Math.floor(Math.random() * 1000)}/1600x900`,
+            image_url: `https://source.unsplash.com/collection/${Math.floor(Math.random() * 1000)}/1600x900`,
             resource_file_url: 'https://temp.media/video/?height=1920&width=1920&length=10',
             duration: 6.30,
             what_will_you_learn: JSON.stringify([
@@ -73,7 +73,7 @@ export async function seed(knex: Knex): Promise<void> {
             main_category_id: 2,
             sub_category_id: 2,
             sub_sub_category_id: 1,
-            
+
 
             creator_id: 1,
         },
@@ -83,7 +83,7 @@ export async function seed(knex: Knex): Promise<void> {
             description: 'გავივლით DJ-ის პროფესიის ყველა ნიუანს, რას აკეთებს რეალრად DJ რა ევალება ნებისმიერ დაწესებულებაში და ასევე შევქმნით რამოდენიმე ტრეკს რომლის გაყიდვას და გაპიარებასაც შეძლებთ',
             detailed_description: `<p><strong>ამ კურსის სწავლებით შეძლებთ რომ ისწავლოთ javascript</strong></p><p>კურსის დასაწყისში ვისწავლით თუ რას წარმოადგენს ეს პროგრამირების ენა და რატო გვჭირდება ვებ-დეველოპერებს.</p><br/><br/><p><strong>გავივლით ყველაზე ძირითად თემებს როგორიცაა:</strong></p><ul><li><p >javascrip ენის სინტაქსი და პროგრამირების ძირითადებ</p></li><li><p >რა არის DOM და DOM მანიპულირება</p></li><li><p >ინტერაქიულობის შექმნა</p></li><li><p >სხვა და სხვა ტიპი even-ები და მათი დანიშნულება</p></li><li><p >რთული ინტერაქტივები</p></li></ul><br/><br/><p>ამ კურსზე შევქმნით თვენი პორფოლიოსთვის პროექტებს რომელიც საშუალებას მოგცემს რომ დაიწყოთ ამ ინდუსტრიში მუშობა, როგორც კომპანიაში ასევე თვენივე ბიზნესში.</p>`,
             difficulty: 3,
-            thumbnail_imageUrl: `https://source.unsplash.com/collection/${Math.floor(Math.random() * 1000)}/1600x900`,
+            image_url: `https://source.unsplash.com/collection/${Math.floor(Math.random() * 1000)}/1600x900`,
             resource_file_url: 'https://temp.media/video/?height=1921&width=1920&length=10',
             duration: 6.30,
             what_will_you_learn: JSON.stringify([
@@ -107,7 +107,7 @@ export async function seed(knex: Knex): Promise<void> {
             main_category_id: 1,
             sub_category_id: 1,
             sub_sub_category_id: 1,
-            
+
 
             creator_id: 1,
         },
@@ -117,7 +117,7 @@ export async function seed(knex: Knex): Promise<void> {
             description: 'გავივლით DJ-ის პროფესიის ყველა ნიუანს, რას აკეთებს რეალრად DJ რა ევალება ნებისმიერ დაწესებულებაში და ასევე შევქმნით რამოდენიმე ტრეკს რომლის გაყიდვას და გაპიარებასაც შეძლებთ',
             detailed_description: `<p><strong>ამ კურსის სწავლებით შეძლებთ რომ ისწავლოთ javascript</strong></p><p>კურსის დასაწყისში ვისწავლით თუ რას წარმოადგენს ეს პროგრამირების ენა და რატო გვჭირდება ვებ-დეველოპერებს.</p><br/><br/><p><strong>გავივლით ყველაზე ძირითად თემებს როგორიცაა:</strong></p><ul><li><p >javascrip ენის სინტაქსი და პროგრამირების ძირითადებ</p></li><li><p >რა არის DOM და DOM მანიპულირება</p></li><li><p >ინტერაქიულობის შექმნა</p></li><li><p >სხვა და სხვა ტიპი even-ები და მათი დანიშნულება</p></li><li><p >რთული ინტერაქტივები</p></li></ul><br/><br/><p>ამ კურსზე შევქმნით თვენი პორფოლიოსთვის პროექტებს რომელიც საშუალებას მოგცემს რომ დაიწყოთ ამ ინდუსტრიში მუშობა, როგორც კომპანიაში ასევე თვენივე ბიზნესში.</p>`,
             difficulty: 3,
-            thumbnail_imageUrl: `https://source.unsplash.com/collection/${Math.floor(Math.random() * 1000)}/1600x900`,
+            image_url: `https://source.unsplash.com/collection/${Math.floor(Math.random() * 1000)}/1600x900`,
             resource_file_url: 'https://temp.media/video/?height=1080&width=1800&length=10',
             duration: 6.30,
             what_will_you_learn: JSON.stringify([
@@ -141,7 +141,7 @@ export async function seed(knex: Knex): Promise<void> {
             main_category_id: 1,
             sub_category_id: 1,
             sub_sub_category_id: 1,
-            
+
 
             creator_id: 1,
         },
@@ -151,7 +151,7 @@ export async function seed(knex: Knex): Promise<void> {
             description: 'გავივლით DJ-ის პროფესიის ყველა ნიუანს, რას აკეთებს რეალრად DJ რა ევალება ნებისმიერ დაწესებულებაში და ასევე შევქმნით რამოდენიმე ტრეკს რომლის გაყიდვას და გაპიარებასაც შეძლებთ',
             detailed_description: `<p><strong>ამ კურსის სწავლებით შეძლებთ რომ ისწავლოთ javascript</strong></p><p>კურსის დასაწყისში ვისწავლით თუ რას წარმოადგენს ეს პროგრამირების ენა და რატო გვჭირდება ვებ-დეველოპერებს.</p><br/><br/><p><strong>გავივლით ყველაზე ძირითად თემებს როგორიცაა:</strong></p><ul><li><p >javascrip ენის სინტაქსი და პროგრამირების ძირითადებ</p></li><li><p >რა არის DOM და DOM მანიპულირება</p></li><li><p >ინტერაქიულობის შექმნა</p></li><li><p >სხვა და სხვა ტიპი even-ები და მათი დანიშნულება</p></li><li><p >რთული ინტერაქტივები</p></li></ul><br/><br/><p>ამ კურსზე შევქმნით თვენი პორფოლიოსთვის პროექტებს რომელიც საშუალებას მოგცემს რომ დაიწყოთ ამ ინდუსტრიში მუშობა, როგორც კომპანიაში ასევე თვენივე ბიზნესში.</p>`,
             difficulty: 3,
-            thumbnail_imageUrl: `https://source.unsplash.com/collection/${Math.floor(Math.random() * 1000)}/1600x900`,
+            image_url: `https://source.unsplash.com/collection/${Math.floor(Math.random() * 1000)}/1600x900`,
             resource_file_url: 'https://temp.media/video/?height=1080&width=1920&length=10',
             duration: 6.30,
             what_will_you_learn: JSON.stringify([
@@ -175,7 +175,7 @@ export async function seed(knex: Knex): Promise<void> {
             main_category_id: 1,
             sub_category_id: 1,
             sub_sub_category_id: 1,
-            
+
 
             creator_id: 1,
         },
@@ -185,7 +185,7 @@ export async function seed(knex: Knex): Promise<void> {
             description: 'გავივლით DJ-ის პროფესიის ყველა ნიუანს, რას აკეთებს რეალრად DJ რა ევალება ნებისმიერ დაწესებულებაში და ასევე შევქმნით რამოდენიმე ტრეკს რომლის გაყიდვას და გაპიარებასაც შეძლებთ',
             detailed_description: `<p><strong>ამ კურსის სწავლებით შეძლებთ რომ ისწავლოთ javascript</strong></p><p>კურსის დასაწყისში ვისწავლით თუ რას წარმოადგენს ეს პროგრამირების ენა და რატო გვჭირდება ვებ-დეველოპერებს.</p><br/><br/><p><strong>გავივლით ყველაზე ძირითად თემებს როგორიცაა:</strong></p><ul><li><p >javascrip ენის სინტაქსი და პროგრამირების ძირითადებ</p></li><li><p >რა არის DOM და DOM მანიპულირება</p></li><li><p >ინტერაქიულობის შექმნა</p></li><li><p >სხვა და სხვა ტიპი even-ები და მათი დანიშნულება</p></li><li><p >რთული ინტერაქტივები</p></li></ul><br/><br/><p>ამ კურსზე შევქმნით თვენი პორფოლიოსთვის პროექტებს რომელიც საშუალებას მოგცემს რომ დაიწყოთ ამ ინდუსტრიში მუშობა, როგორც კომპანიაში ასევე თვენივე ბიზნესში.</p>`,
             difficulty: 3,
-            thumbnail_imageUrl: `https://source.unsplash.com/collection/${Math.floor(Math.random() * 1000)}/1600x900`,
+            image_url: `https://source.unsplash.com/collection/${Math.floor(Math.random() * 1000)}/1600x900`,
             resource_file_url: 'https://temp.media/video/?height=1080&width=1920&length=10',
             duration: 6.30,
             what_will_you_learn: JSON.stringify([
@@ -209,7 +209,7 @@ export async function seed(knex: Knex): Promise<void> {
             main_category_id: 1,
             sub_category_id: 1,
             sub_sub_category_id: 1,
-            
+
 
             creator_id: 1,
         },
@@ -219,7 +219,7 @@ export async function seed(knex: Knex): Promise<void> {
             description: 'გავივლით DJ-ის პროფესიის ყველა ნიუანს, რას აკეთებს რეალრად DJ რა ევალება ნებისმიერ დაწესებულებაში და ასევე შევქმნით რამოდენიმე ტრეკს რომლის გაყიდვას და გაპიარებასაც შეძლებთ',
             detailed_description: `<p><strong>ამ კურსის სწავლებით შეძლებთ რომ ისწავლოთ javascript</strong></p><p>კურსის დასაწყისში ვისწავლით თუ რას წარმოადგენს ეს პროგრამირების ენა და რატო გვჭირდება ვებ-დეველოპერებს.</p><br/><br/><p><strong>გავივლით ყველაზე ძირითად თემებს როგორიცაა:</strong></p><ul><li><p >javascrip ენის სინტაქსი და პროგრამირების ძირითადებ</p></li><li><p >რა არის DOM და DOM მანიპულირება</p></li><li><p >ინტერაქიულობის შექმნა</p></li><li><p >სხვა და სხვა ტიპი even-ები და მათი დანიშნულება</p></li><li><p >რთული ინტერაქტივები</p></li></ul><br/><br/><p>ამ კურსზე შევქმნით თვენი პორფოლიოსთვის პროექტებს რომელიც საშუალებას მოგცემს რომ დაიწყოთ ამ ინდუსტრიში მუშობა, როგორც კომპანიაში ასევე თვენივე ბიზნესში.</p>`,
             difficulty: 3,
-            thumbnail_imageUrl: `https://source.unsplash.com/collection/${Math.floor(Math.random() * 1000)}/1600x900`,
+            image_url: `https://source.unsplash.com/collection/${Math.floor(Math.random() * 1000)}/1600x900`,
             resource_file_url: 'https://temp.media/video/?height=1080&width=1920&length=10',
             duration: 6.30,
             what_will_you_learn: JSON.stringify([
@@ -243,7 +243,7 @@ export async function seed(knex: Knex): Promise<void> {
             main_category_id: 1,
             sub_category_id: 1,
             sub_sub_category_id: 1,
-            
+
 
             creator_id: 1,
         }
