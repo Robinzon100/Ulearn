@@ -13,6 +13,8 @@ import { getUser } from "actions/client/user/profile/profile.action";
 import { redirect } from "components/utils/auth/redirect.utils";
 import CourseForm from '../components/pages/new_course/tabs-content/info/CourseForm';
 import cookie from 'cookie';
+import { useNewCourseStore } from 'mobx/newCourseStateContext';
+import { useEffect } from 'react';
 
 
 
@@ -36,6 +38,44 @@ let data = [
 
 
 const NewCourse = () => {
+  let { newCourseStore } = useNewCourseStore()
+
+
+  useEffect(() => {
+    newCourseStore.newCourseData = {
+      courseInfo: {
+        title: "",
+        description: "",
+        detailed_description: "",
+        what_will_you_learn: ["", "", ""],
+        main_category_id: "",
+        sub_category_id: "",
+        difficulty: ""
+      },
+      curriculum: [
+        {
+          id: 0,
+          name: "ჯავასკრიპტი",
+          sub_videos: [
+            {
+              id: 0,
+              name: "მეტი ჯავასკრიპტზე",
+              duration: 15,
+              video_url: "",
+            },
+          ],
+        },
+      ]
+    }
+
+
+    console.log(newCourseStore);
+    
+  }, [])
+
+
+
+
   return (
     <>
       <section className="new_course">
@@ -65,6 +105,10 @@ const NewCourse = () => {
           </div>
         </div>
       </section>
+
+      <pre>
+        {JSON.stringify(newCourseStore.newCourseData)}
+      </pre>
     </>
   );
 };
@@ -79,6 +123,10 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     // TODO: add condition if the user is authanticated
 
     if (res.statusCode == 200) {
+
+
+
+
       return {
         props: {
           user: res.user,

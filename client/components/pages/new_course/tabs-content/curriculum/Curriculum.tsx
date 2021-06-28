@@ -17,6 +17,7 @@ import ChangeChapterName from "components/pages/new_course/tabs-content/curricul
 
 import { authenticatedRequest } from "components/utils/auth/tokenValidations";
 import { deleteCurriculumVideo } from "actions/client/course/newCourse/curriculum.action";
+import { useNewCourseStore } from "mobx/newCourseStateContext";
 
 
 
@@ -24,6 +25,7 @@ import { deleteCurriculumVideo } from "actions/client/course/newCourse/curriculu
 
 
 const Curriculum = ({ data }) => {
+    const { newCourseStore } = useNewCourseStore()
     const [isToggled, setIsToggled] = useState({})
     const [videoData, setVideoData] = useState<any>(data)
     const [error, setError] = useState({
@@ -35,38 +37,48 @@ const Curriculum = ({ data }) => {
 
 
     const add = (condition, id?) => {
-        const lastChapterId = videoData[videoData.length - 1].id;
 
 
-        if (videoData[videoData.length - 1]?.id == 0 || videoData[id]?.sub_videos.length == 0)
+
+        if (newCourseStore.newCourseData.curriculum[newCourseStore.newCourseData.curriculum.length - 1]?.id == 0 ||
+            newCourseStore.newCourseData.curriculum[id]?.sub_videos.length == 0)
             setError({ newChapterErr: "", newVideoErr: "" })
 
 
+
         if (condition === "main_videos") {
-            setVideoData([...videoData,
-            {
-                id: lastChapterId + 1,
-                name: "თავის სახელწოდება",
-                sub_videos: [
+            const lastChapterId = newCourseStore.newCourseData.curriculum
+            [newCourseStore.newCourseData.curriculum.length - 1].id;
+
+            newCourseStore.newCourseData.curriculum.push(
+                {
+                    id: lastChapterId + 1,
+                    name: "თავის სახელწოდება",
+                    sub_videos: [
+                        {
+                            id: 1,
+                            name: "ვიდეოს სახელწოდება",
+                            duration: 0,
+                            video_url: "",
+                        },
+                    ],
+                })
+        } else {
+            const lastSubVideoId =
+                newCourseStore.newCourseData.curriculum[id]
+                    .sub_videos[newCourseStore.newCourseData.curriculum[id]
+                        .sub_videos.length - 1].id
+
+
+            newCourseStore.newCourseData.curriculum[id]
+                .sub_videos.push(
                     {
-                        id: 1,
+                        id: lastSubVideoId + 1,
                         name: "ვიდეოს სახელწოდება",
                         duration: 0,
-                        video_url: "",
-                    },
-                ],
-            }])
-        } else {
-            const lastSubVideoId = videoData[id].sub_videos[videoData[id].sub_videos.length - 1].id
-            videoData[id].sub_videos.push(
-                {
-                    id: lastSubVideoId + 1,
-                    name: "ვიდეოს სახელწოდება",
-                    duration: 0,
-                    video_url: ""
-                }
-            )
-            setVideoData(newVideoData => ([...newVideoData]))
+                        video_url: ""
+                    }
+                )
         }
     }
 
@@ -80,10 +92,9 @@ const Curriculum = ({ data }) => {
 
         if (videoId == undefined) {
             if (chapterId != 0 || videoData.length != 1) {
-                setVideoData(
-                    [...videoData.
-                        filter(el => el.id != chapterId)]
-                        .map((chapter, i) => Object.assign(chapter, { id: i })))
+                newCourseStore.newCourseData.curriculum
+                    .filter(el => el.id != chapterId)
+                    .map((chapter, i) => Object.assign(chapter, { id: i }))
             } else {
                 setError({ newChapterErr: "უნდა არსებობდეს ერთი თავი მაინც", newVideoErr: "" })
             }
@@ -121,55 +132,58 @@ const Curriculum = ({ data }) => {
 
     return (
         <>
-            <section className="curriculum">
-                <div className="curriculum-video-add-btn">
-                    <Button
-                        color="blue"
-                        size="medium"
-                        onClick={() => add("main_videos")}
-                        disabled={false}
-                        loading={false}
-                        width="25rem"
-                        icon={<Upload size={22} />}
-                        type="submit">
-                        <p className="f-weight-r f-size-p5">დამატება</p>
-                    </Button>
-                </div>
+            {newCourseStore.newCourseData.curriculum &&
+                (
+                    <section className="curriculum">
+                        <div className="curriculum-video-add-btn">
+                            <Button
+                                color="blue"
+                                size="medium"
+                                onClick={() => add("main_videos")}
+                                disabled={false}
+                                loading={false}
+                                width="25rem"
+                                icon={<Upload size={22} />}
+                                type="submit">
+                                <p className="f-weight-r f-size-p5">დამატება</p>
+                            </Button>
+                        </div>
 
 
-                {videoData.map((el, i: number) => (
-                    <div className="curriculum-container" key={i}>
+                        {newCourseStore.newCourseData.curriculum.map((el, i: number) => (
+                            <div className="curriculum-container" key={i}>
 
-                        <div className="new-chapter" data-open={isToggled[el?.id]}>
+                                <div className="new-chapter" data-open={isToggled[el?.id]}>
 
-                            <ChangeChapterName
-                                chapterNumber={el?.id + 1}
-                                name={el?.name}
-                                onClick={() => remove(el.id)}
-                                onToggle={() => ToggleElement(el?.id, setIsToggled)}
-                                chapterId={i}
-                            />
-                            <div className="video_upload-errors">
-                                <h1 className="color: red; f-size-p6 f-weight-r">{error.newChapterErr}</h1>
-                                <h1 className="color: red; f-size-p6 f-weight-r">{error.newVideoErr}</h1>
+                                    <ChangeChapterName
+                                        chapterNumber={el?.id + 1}
+                                        name={el?.name}
+                                        onClick={() => remove(el.id)}
+                                        onToggle={() => ToggleElement(el?.id, setIsToggled)}
+                                        chapterId={i}
+                                    />
+                                    <div className="video_upload-errors">
+                                        <h1 className="color: red; f-size-p6 f-weight-r">{error.newChapterErr}</h1>
+                                        <h1 className="color: red; f-size-p6 f-weight-r">{error.newVideoErr}</h1>
+                                    </div>
+
+
+
+                                    <CurriculumVideoComponent
+                                        key={i}
+                                        id={i}
+                                        sub_videos={newCourseStore.newCourseData.curriculum[i].sub_videos}
+                                        onClick={() => add("sub_videos", i)}
+                                        onRemove={(videoId) => remove(el.id, videoId)}
+                                        onUpload={(videoId, videoKey) => addVideoUrlToData(i, videoId, videoKey)}
+                                    />
+
+                                </div>
                             </div>
 
-
-
-                            <CurriculumVideoComponent
-                                key={i}
-                                id={i}
-                                sub_videos={videoData[i].sub_videos}
-                                onClick={() => add("sub_videos", i)}
-                                onRemove={(videoId) => remove(el.id, videoId)}
-                                onUpload={(videoId, videoKey) => addVideoUrlToData(i, videoId, videoKey)}
-                            />
-
-                        </div>
-                    </div>
-
-                ))}
-            </section>
+                        ))}
+                    </section>
+                )}
         </>
     );
 };
