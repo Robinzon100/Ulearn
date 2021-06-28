@@ -216,7 +216,7 @@ const CourseForm = observer(() => {
                                 options={mainCategories}
                                 defaultValue={
                                     newCourseStore.newCourseData.courseInfo.main_category_id &&
-                                    mainCategories.find(el => el.id == +newCourseStore.newCourseData.courseInfo.main_category_id).name
+                                    mainCategories[+newCourseStore.newCourseData.courseInfo.difficulty - 1].name
                                 }
                                 onChange={(value) =>
                                     CourseCategoryFormHandler(value, "main_category_id")
