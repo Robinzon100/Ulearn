@@ -3,6 +3,7 @@ const upload = multer({ dest: 'uploads/' })
 
 
 export const userProfileImageUpload = upload.single('user_profile_image')
+export const courseImageUpload = upload.single('course_image')
 
 
 
@@ -24,4 +25,3 @@ const uploadVideo = multer({
 
 
 export const courseCurriculumVideoUpload = uploadVideo.single('course_curriculum_videos')
-export const courseImageUpload = upload.single('course_image')

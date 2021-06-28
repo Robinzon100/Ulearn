@@ -63,7 +63,7 @@ const RichTextEditor = ({ onSave }: { onSave: any, value?: string }) => {
 
     return (
         <>
-            {isEditing && (
+            {/* {isEditing && (
                 <Button
                     width="15rem"
                     size="medium"
@@ -73,12 +73,11 @@ const RichTextEditor = ({ onSave }: { onSave: any, value?: string }) => {
                     }}
                     onClick={() => {
                         setIsEditing(false)
-                        // @ts-ignore
-                        onSave(editorContent)
+                        onSave(newCourseStore.newCourseData.courseInfo.detailed_description)
                     }}>
                     <p className="f-weight-r f-size-p4 ">გაგზავნა</p>
                 </Button>
-            )}
+            )} */}
             <div
                 className="raw_html_styles rich_text_editor_container">
                 <ReactQuill
