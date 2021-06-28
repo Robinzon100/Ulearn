@@ -14,7 +14,6 @@ import FileUpload from "components/lib/upload/FileUpload"
 
 
 import SelectJson from "../../../../../public/json/Select.json";
-// import RichTextEditor from "components/lib/rich-text-editor/RichTextEditor";
 import dynamic from "next/dynamic";
 const RichTextEditor = dynamic(() =>
     import('components/lib/rich-text-editor/RichTextEditor'),
@@ -24,7 +23,6 @@ const RichTextEditor = dynamic(() =>
 
 
 import { getAllCategories } from "actions/client/categories.action";
-import { uploadAndRead } from "components/lib/upload/utils/FileUploadLogic"
 import { authenticatedRequest } from "components/utils/auth/tokenValidations"
 import { postCourseImage } from "actions/client/course/newCourse/courseInfo.action"
 import { useNewCourseStore } from "mobx/newCourseStateContext"
@@ -38,9 +36,9 @@ const CourseForm = observer(() => {
     const [mainCategories, setMainCategories] = useState<any>([])
     const [subCategories, setSubCategories] = useState<any>([])
     const [fileUploadError, setFileUploadError] = useState("");
-    const [file, setFile] = useState({ file: "", base64: "" });
+    const [, setFile] = useState({ file: "", base64: "" });
     const [error,] = useState("")
-
+    const [fileLoading, setFileLoading] = useState(false);
 
     useEffect(() => {
         fetchCategories()
@@ -81,28 +79,19 @@ const CourseForm = observer(() => {
 
 
     // === === IMAGE UPLOAD HANDLER
-    const imageOnChangeHandler = () => {
-        const imgForm = new FormData();
-
+    const imageOnChangeHandler = async (e) => {
         if (!fileUploadError) {
+            setFileLoading(true)
 
-            fetch(file.base64)
-              .then(res => {
-                return res.blob();
-            })
-              .then(async (blob) => {
-                imgForm.append('course_image', blob);
-                const { fileKey } = await authenticatedRequest(postCourseImage, imgForm, null);
+            const imgForm = new FormData();
+            imgForm.append('course_image', e.currentTarget.files[0]);
+            const { fileKey } = await authenticatedRequest(postCourseImage, imgForm, null);
 
-                if(fileKey)
-                    newCourseStore.newCourseData.courseInfo.image_url = fileKey;
-                    console.log(fileKey)
-            });
+            if (fileKey)
+                newCourseStore.newCourseData.courseInfo.image_url = fileKey;
+                setFileLoading(false)
+            }
         }
-
-
-
-    }
 
 
 
@@ -111,23 +100,12 @@ const CourseForm = observer(() => {
         const { categories: { main_categories, sub_categories } } = await getAllCategories();
         setMainCategories(main_categories)
         setSubCategories(sub_categories)
-        console.log(main_categories, sub_categories);
     }
 
 
 
-
-
-    // const {title,description,what_will_you_learn,main_category_id,sub_category_id,difficulty,image_url} = newCourseStore.newCourseData.courseInfo;
-
-
     // === === SUBMIT COURSEFORM OBJECT
     const submitHandler = () => {
-        // if(title.length || description.length || what_will_you_learn.length || 
-        //     main_category_id.length || sub_category_id.length || difficulty.length 
-        //     || image_url.length < 0 ){
-        //         return setError("ყველა ველი უნდა იყოს შევსებული")
-        // }
         console.log(JSON.parse(JSON.stringify(newCourseStore.newCourseData)));
 
     }
@@ -342,6 +320,7 @@ const CourseForm = observer(() => {
                                 height="18rem"
                                 uploadSize={300}
                                 disabled={false}
+                                isLoading={fileLoading}
                                 icon={<Upload size={20} />}
                                 onError={(errorType) => setFileUploadError(errorType)}
                                 fileProperties={
@@ -350,8 +329,7 @@ const CourseForm = observer(() => {
                                 }
                                 accept=".png,.jpg"
                                 onChange={(e) => {
-                                    uploadAndRead(e)
-                                    imageOnChangeHandler()
+                                    imageOnChangeHandler(e)
                                 }}
                             />
 
