@@ -110,7 +110,7 @@ const CourseForm = observer(() => {
 
                 if(fileKey)
                     newCourseStore.newCourseData.courseInfo.image_url = fileKey;
-                    // console.log(fileKey)
+                    console.log(fileKey)
             });
         }
 
@@ -357,7 +357,7 @@ const CourseForm = observer(() => {
                             />
 
                             <div className="thumbnail"
-                                style={{ backgroundImage: `url(${file.base64})` }}
+                                style={{ backgroundImage: `url(${process.env.BACK_END_URL}/api/images/${newCourseStore.newCourseData.courseInfo.image_url})` }}
                             />
                         </div>
 

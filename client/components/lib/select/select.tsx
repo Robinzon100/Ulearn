@@ -44,7 +44,7 @@ const SelectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>> (
 
   const handleSelect = ({ currentTarget: { id, value } }) => {
     onChange(value);
-    setSelectLable(id);
+    setSelectLable(value);
     setIsToggle(false);
   };
   

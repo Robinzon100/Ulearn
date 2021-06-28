@@ -161,6 +161,8 @@ const CurriculumVideoComponent = observer(({ id, sub_videos, onClick, onRemove, 
                                     </h1>
                                 </div>
                             </div>
+
+                            
                         </div>
                     ))}
             </div>

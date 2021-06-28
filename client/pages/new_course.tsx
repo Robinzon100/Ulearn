@@ -6,6 +6,8 @@ import cookie from 'cookie';
 import { NewCourseHeading } from "components/pages/new_course/newCourse.content";
 import Tabs from "components/lib/tabs/Tabs";
 import Curriculum from "components/pages/new_course/tabs-content/curriculum/Curriculum";
+import Resources from "components/pages/new_course/tabs-content/resources/Resources";
+
 
 
 // ========== ACTIONS
@@ -81,7 +83,7 @@ const NewCourse = () => {
                             rawHtml={[
                                 "",
                                 "",
-                                '<h1>ვიდეოზე ნახსენები საიტების და დამატებითი რესურსების ლინკები, ასევე ამ ვიდეოში დაწერილი კოდის ფაილები</h1><br/><p>vs code გადმოსაწერილი ლინკი : <a href="https://vscode.com">https://vscode.com</a></p> <p>ვიდეოში ნანახი ბლოგპოსტის ლინკი: <a href="https://medium.com"> https://medium.com</a></p><br/><br/><br/><br/><br/><br/><p><strong>ამ ვიდეოში დაწერილი კოდის ფაილები:</strong></p>',
+                                "",
                                 "",
                             ]}
                             component={[
@@ -91,7 +93,9 @@ const NewCourse = () => {
                                 <>
                                     <Curriculum />
                                 </>,
-                                null,
+                                <>
+                                    <Resources/>
+                                </>,
                                 <>
                                     <PriceSale />,
                                 </>

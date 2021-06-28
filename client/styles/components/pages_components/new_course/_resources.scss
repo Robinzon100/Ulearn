@@ -1,0 +1,35 @@
+.resources {
+  &__container {
+    .course-image {
+      &__container {
+        @include flex();
+        gap: 20px;
+
+        @media screen and (max-width: $small-screen) {
+          flex-wrap: wrap;
+        }
+
+        .thumbnail {
+          @include background-properties(
+            "/pictures/bottom-navigation/bottom_navigation_search.png"
+          );
+          width: 50%;
+          min-height: 30rem;
+          height: 100%;
+          border-radius: 20px;
+
+          @media screen and (max-width: $small-screen) {
+            min-height: 25rem;
+          }
+        }
+        .upload_container {
+          width: 50%;
+
+          @media screen and (max-width: $small-screen) {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
