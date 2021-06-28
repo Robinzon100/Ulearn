@@ -30,11 +30,10 @@ const Resources = observer(() => {
             imgForm.append('course_image', e.currentTarget.files[0]);
             const { fileKey } = await authenticatedRequest(postCourseImage, imgForm, null);
 
-            console.log(fileKey);
 
             if (fileKey)
                 newCourseStore.newCourseData.courseInfo.resource_file_url = fileKey;
-            setFileLoading(false)
+                setFileLoading(false)
         }
     }
 
