@@ -10,15 +10,19 @@ import { useState } from "react"
 const PriceSale = () => {
 
     const [values, setValues] = useState({ price:0,sale:0,coin:0 })
-
+    const [PriceSaleErr, setPriceSaleErr] = useState("")
 
     const getPriceSaleValues = (e,field:string) => {
         setValues({...values,
             [field]:e.target.value
         })
+
     }
 
     const handleSubmit = () => {
+        if(values.price <= 0 || values.sale <= 0 || values.coin < 0){
+            return setPriceSaleErr("სწორად შეინატანეთ თანხა")
+        }
         console.log(values)
     }
 
@@ -50,6 +54,9 @@ const PriceSale = () => {
                             minLength={5}
                             maxLength={150}
                         />
+
+
+                        
                     </div>
 
 
@@ -100,7 +107,10 @@ const PriceSale = () => {
                     </div>
 
 
-
+                <div className="price-sale-error">
+                    <h1 className="form_errors f-size-p4 f-weight-r">{PriceSaleErr}</h1>
+                </div>
+                
 
                     <div className="btn-container">
                         <Button
@@ -115,6 +125,8 @@ const PriceSale = () => {
                     </div>
 
                 </div>
+
+
             </div>
         </>
     )

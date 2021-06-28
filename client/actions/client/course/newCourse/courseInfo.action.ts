@@ -39,6 +39,10 @@ export const postCourseImage = async ({ data, auth_access_token }) => {
 
 
 
+
+
+
+
 export const deleteCourseImage = async ({ data, auth_access_token }) => {
     return await axiosInstance
         .delete(`/images/delete/${data}`,

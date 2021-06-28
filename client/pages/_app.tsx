@@ -1,12 +1,12 @@
 import '../styles/main.scss'
 
-import Head from "next/head";
 import 'video.js/dist/video-js.css'
 import { SWRConfig } from 'swr'
 import { AppProps } from 'next/dist/next-server/lib/router/router';
 import { CookiesProvider } from 'react-cookie';
 
 
+import HeadAndMeta from 'components/global/head/HeadAndMeta';
 import Navigation from "components/global/navigation/Navigation"
 import BottomNavigation from "components/global/bottom-navigation/BottomNavigation"
 import { RootStateProvider } from '../mobx/RootStateContext';
@@ -20,14 +20,15 @@ function MyApp({ Component, pageProps}: AppProps) {
 
     return (
         <>
-            <Head>
-                <title>Ulearn</title>
-                <link rel="shortcut icon" href="#" />
-                <meta name="viewport" content="height=device-height, 
-                      width=device-width, initial-scale=1, 
-                      minimum-scale=1, maximum-scale=1, 
-                      user-scalable=no, target-densitydpi=device-dpi"></meta>
-            </Head>
+            <HeadAndMeta
+                title="Ulearn"
+                description="You teach and learn on Ulearn"
+                favIconImagePath="/pictures/icon.svg"
+                baseUrl="https://oxeni.dev/meta_images/og_image.png"
+                ogTitle="📖 Ulearn"
+                ogDescription="You teach and learn on Ulearn"
+                ogImagePath=""
+            />
             <SWRConfig value={swrOptions}>
                 <RootStateProvider>
                     <CookiesProvider>

@@ -1,4 +1,4 @@
-import { Zap, Clipboard, X } from "react-feather"
+import { Zap, Clipboard, X, Upload } from "react-feather"
 import { useEffect, useState } from "react"
 
 
@@ -7,6 +7,10 @@ import Input from "components/lib/inputs/Input"
 import Select from "components/lib/select/select"
 import InputAdder from "components/lib/input-adder-component/InputAdder.component"
 import Button from "components/lib/button/Button"
+import FileUpload from "components/lib/upload/FileUpload"
+
+
+
 
 
 import SelectJson from "../../../../../public/json/Select.json";
@@ -20,6 +24,9 @@ const RichTextEditor = dynamic(() =>
 
 
 import { getAllCategories } from "actions/client/categories.action";
+import { uploadAndRead } from "components/lib/upload/utils/FileUploadLogic"
+import { authenticatedRequest } from "components/utils/auth/tokenValidations"
+import { postCourseImage } from "actions/client/course/newCourse/courseInfo.action"
 
 
 
@@ -34,11 +41,14 @@ const CourseForm = () => {
         what_will_you_learn: ["", "", ""],
         main_category_id: "",
         sub_category_id: "",
-        difficulty: ""
+        difficulty: "",
+        image_url: ""
     })
 
     const [mainCategories, setMainCategories] = useState<any>([])
     const [subCategories, setSubCategories] = useState<any>([])
+    const [fileUploadError, setFileUploadError] = useState("");
+    const [file, setFile] = useState({ file: "", base64: "" });
 
 
     useEffect(() => {
@@ -89,10 +99,29 @@ const CourseForm = () => {
 
 
     // === === SUBMIT COURSEFORM OBJECT
-    const submitHandler = () => {
-        console.log(courseForm)
+    const submitHandler = async () => {
+        console.log(courseForm) 
     }
 
+
+    
+    // === === IMAGE UPLOAD HANDLER
+    const imageOnChangeHandler = () => {
+        const imgForm = new FormData();
+
+        if (!fileUploadError) {
+
+            fetch(file.base64)
+              .then(res => {
+                return res.blob();
+            })
+              .then(async (blob) => {
+                imgForm.append('course_image', blob);
+                const { fileKey } = await authenticatedRequest(postCourseImage, imgForm, null);
+                console.log(fileKey)
+            });
+          }
+    }
 
 
 
@@ -266,7 +295,7 @@ const CourseForm = () => {
 
 
 
-
+                {/* ///  difficulty */}
                     <div className="difficulty">
                         <div className="heading">
                             <h1 className="f-size-p5 f-weight-bl">სირთულე</h1>
@@ -286,6 +315,48 @@ const CourseForm = () => {
                             disabled={false}
                             width="43%"
                         />
+                    </div>
+
+
+
+
+                {/* ///  course-image */}
+                    <div className="course-image">
+                        <div className="heading">
+                            <h1 className="f-size-p5 f-weight-bl">კურსის სურათი</h1>
+                        </div>
+                        <div className="course-image__container">
+                            <FileUpload
+                                height="18rem"
+                                uploadSize={300}
+                                disabled={false}
+                                icon={<Upload size={20} />}
+                                onError={(errorType) => setFileUploadError(errorType)}
+                                fileProperties={
+                                    (file, base64) =>
+                                        setFile({ file, base64 })
+                                }
+                                accept=".png,.jpg"
+                                onChange={(e) => {
+                                    uploadAndRead(e)
+                                    imageOnChangeHandler()
+                                }}
+                            />
+
+                            <div className="thumbnail"
+                                style={{ backgroundImage: `url(${file.base64})` }}
+                            />
+                        </div>
+
+                    </div>
+
+                    {/* <h1>{file.base64}</h1> */}
+
+
+                    <div className="fileUpload-errors">
+                        <p className="form_errors f-size-p6 f-weight-r">
+                            {fileUploadError}
+                        </p>
                     </div>
 
 
