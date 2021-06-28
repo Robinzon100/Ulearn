@@ -13,15 +13,15 @@ import { course } from "../../constants/defaults";
 
 export async function up(knex: Knex): Promise<void> {
     await knex.raw('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');
-    await knex.schema.createTable(tableNames.courses, (table:Knex.TableBuilder) => {
+    await knex.schema.createTable(tableNames.courses, (table: Knex.TableBuilder) => {
         table.increments('id');
         table.uuid('uuid').defaultTo(knex.raw('uuid_generate_v4()'));
         table.string('title', 100).notNullable();
         table.string('description', 250).notNullable();
         table.string('detailed_description', 3500).notNullable();
         table.integer('difficulty', 4).unsigned().notNullable();
-        table.string('thumbnail_imageUrl', 254).notNullable();
-        table.string('intro_videoUrl', 254).notNullable();
+        table.string('image_url', 2048).notNullable();
+        table.string('resource_file_url', 2048).notNullable();
         table.float('duration');
         table.jsonb('what_will_you_learn').notNullable();
         table.integer('student_amount').defaultTo(course.student_amount);
