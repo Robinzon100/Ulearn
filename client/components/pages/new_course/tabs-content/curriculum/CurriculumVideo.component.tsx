@@ -9,6 +9,7 @@ import { authenticatedRequest } from "components/utils/auth/tokenValidations";
 import { postCurriculumVideo } from "actions/client/course/newCourse/curriculum.action";
 import { getVideoDuration } from "components/utils/helpers/getVideoDuration"
 import { observer } from 'mobx-react-lite';
+import { useNewCourseStore } from '../../../../../mobx/newCourseStateContext';
 
 
 interface CurriculumVideoComponent {
@@ -23,36 +24,33 @@ interface CurriculumVideoComponent {
 
 
 const CurriculumVideoComponent = observer(({ id, sub_videos, onClick, onRemove, onUpload }: CurriculumVideoComponent) => {
+    let { newCourseStore } = useNewCourseStore()
     const videoElement = useRef(null)
-
-
-
     const [isToggled, setIsToggled] = useState({})
     const [file, setFile] = useState<any>({ file: "", base64: "" });
     const [fileUploadError, setFileUploadError] = useState("");
     const [videoIsUploading, setVideoIsUploading] = useState<boolean>(false)
-    // TODO daamate roca gilaks sheqmni obieqtshi
-    const [duration, setDuration] = useState(0)
 
 
 
-    const uploadVideoHandler = async (videoId, videoEl: React.RefObject<HTMLInputElement>) => {
-        const videoForm = new FormData();
+    const uploadVideoHandler = async (videoId, { currentTarget }: any) => {
         setVideoIsUploading(true)
 
 
-
-
         if (!fileUploadError) {
-            videoForm.append('course_curriculum_videos', videoEl.current.files[0]);
+            const videoForm = new FormData();
+            videoForm.append('course_curriculum_videos', currentTarget.files[0]);
             const { fileKey } = await authenticatedRequest(postCurriculumVideo, videoForm, null)
 
             if (fileKey) {
-                const videoDuration = await getVideoDuration(videoEl.current.files[0]) as any
+                const videoDuration = await getVideoDuration(currentTarget.files[0]) as any
 
                 let minutes = Math.floor(videoDuration.duration / 60);
                 let seconds = Math.floor(videoDuration.duration - minutes * 60);
-                setDuration(+`${minutes}.${seconds}`);
+
+                newCourseStore.newCourseData
+                    .curriculum[id]
+                    .sub_videos[videoId].duration = +`${minutes}.${seconds}`
 
                 onUpload(videoId, fileKey)
                 setFileUploadError("")
@@ -96,7 +94,6 @@ const CurriculumVideoComponent = observer(({ id, sub_videos, onClick, onRemove, 
 
                             <ChangeVideoName
                                 chapterNumber={i + 1}
-                                name={el.name}
                                 onClick={() => onRemove(i)}
                                 onToggle={() => ToggleElement(el?.id, setIsToggled)}
                                 chapterId={id}
@@ -108,11 +105,12 @@ const CurriculumVideoComponent = observer(({ id, sub_videos, onClick, onRemove, 
 
                             <div className="video-upload-section">
                                 <FileUpload
+                                    key={el.id}
                                     height="18rem"
                                     width="37rem"
                                     isLoading={videoIsUploading}
                                     disabled={videoIsUploading}
-                                    uploadSize={1000 * 300}
+                                    uploadSize={1000 * 50}
                                     icon={<Upload size={20} />}
                                     onError={(errorType) => setFileUploadError(errorType)}
                                     fileProperties={(file, base64) => {
@@ -120,8 +118,8 @@ const CurriculumVideoComponent = observer(({ id, sub_videos, onClick, onRemove, 
                                     }}
                                     accept=".mp4"
                                     ref={videoElement}
-                                    onChange={() => {
-                                        uploadVideoHandler(i, videoElement)
+                                    onChange={(e) => {
+                                        uploadVideoHandler(i, e)
                                     }}
                                 />
 
@@ -157,7 +155,7 @@ const CurriculumVideoComponent = observer(({ id, sub_videos, onClick, onRemove, 
 
                                 <div className="duration">
                                     <h1 className="f-size-p5 f-weight-r">
-                                        ხანგძლივობა: {duration}  წთ
+                                        ხანგძლივობა: {newCourseStore.newCourseData.curriculum[id].sub_videos[i].duration}  წთ
                                     </h1>
                                 </div>
                             </div>

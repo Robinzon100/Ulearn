@@ -4,10 +4,11 @@ import { useState } from "react";
 
 import Input from "components/lib/inputs/Input"
 import Button from "components/lib/button/Button"
+import { observer } from 'mobx-react-lite';
+import { useNewCourseStore } from '../../../../../mobx/newCourseStateContext';
 
 interface IChangeName {
     chapterNumber?: number;
-    name: string;
     onClick?: any;
     onToggle?: any;
     chapterId?: number;
@@ -17,107 +18,139 @@ interface IChangeName {
 
 
 
-const SylabusChangeName = ({ name, chapterNumber, onClick, onToggle, chapterId, videoId }: IChangeName) => {
-
+const SylabusChangeName = observer(({ chapterNumber, onClick, onToggle, chapterId, videoId }: IChangeName) => {
     const [isEditable, setIsEditable] = useState(false);
-    const [inputParams, setInputParams] = useState({ name, chapterId, videoId })
+    let { newCourseStore } = useNewCourseStore()
 
-    const getInputValue = () => {
-        console.log(inputParams)
-    }
+
 
     return (
         <>
-            <div className="add-new-chapter">
+            {newCourseStore.newCourseData.curriculum && (
+                <div className="add-new-chapter">
+                    <div className="change-chapter_name">
+                        <div className="chapter-name">
+                            <p className="f-size-p3 f-weight-bl chapter-title">
+                                <span className="f-size-h7 f-weight-b">
+                                    {chapterNumber}.
+                                </span>
 
-                <div className="change-chapter_name">
+                                {isEditable === false &&
+                                    (
+                                        newCourseStore.newCourseData
+                                            .curriculum[chapterId]
+                                            .sub_videos[videoId] == undefined
+                                            ?
+                                            newCourseStore.newCourseData
+                                                .curriculum[chapterId].name
+                                            :
+                                            newCourseStore.newCourseData
+                                                .curriculum[chapterId]
+                                                .sub_videos[videoId].name
+                                    )
+                                }
+                            </p>
+
+                            {isEditable &&
+                                <div className="change-name-input">
+                                    <Input
+                                        autoComplate="off"
+                                        className={`f-size-p6 f-weight-b chapter-input `}
+                                        color="white"
+                                        size="medium"
+                                        type="text"
+                                        onChange={(e) => {
+                                            newCourseStore.newCourseData
+                                                .curriculum[chapterId]
+                                                .sub_videos[videoId] == undefined
+                                                ?
+                                                newCourseStore.newCourseData
+                                                    .curriculum[chapterId].name = e.target.value
+                                                :
+                                                newCourseStore.newCourseData
+                                                    .curriculum[chapterId]
+                                                    .sub_videos[videoId].name = e.target.value
+                                        }}
+                                        placeHolder={
+                                            newCourseStore.newCourseData
+                                                .curriculum[chapterId]
+                                                .sub_videos[videoId] == undefined
+                                                ?
+                                                newCourseStore.newCourseData
+                                                    .curriculum[chapterId].name
+                                                :
+                                                newCourseStore.newCourseData
+                                                    .curriculum[chapterId]
+                                                    .sub_videos[videoId].name
+                                        }
+                                        width="100%"
+                                        value={
+                                            newCourseStore.newCourseData
+                                                .curriculum[chapterId]
+                                                .sub_videos[videoId] == undefined
+                                                ?
+                                                newCourseStore.newCourseData
+                                                    .curriculum[chapterId].name
+                                                :
+                                                newCourseStore.newCourseData
+                                                    .curriculum[chapterId]
+                                                    .sub_videos[videoId].name
+                                        }
+                                        isFocused={true}
+                                        maxLength={50}
+                                        readonly={!isEditable ? true : false}
+                                    />
 
 
-                    <div className="chapter-name">
 
+                                    <Button
+                                        color="black"
+                                        size="small"
+                                        className="editable-btn"
+                                        disabled={false}
+                                        loading={false}
+                                        width="50%"
+                                        onClick={() => { setIsEditable(false) }}>
+                                        <p className="f-weight-r f-size-p5">შენახვა</p>
+                                    </Button>
+                                </div>
 
-
-                        <p className="f-size-p3 f-weight-bl chapter-title">
-                            <span className="f-size-h7 f-weight-b">
-                                {chapterNumber}.
-                            </span>
-
-                            {isEditable === false &&
-                                inputParams.name
                             }
-                        </p>
 
 
 
 
-                        {isEditable &&
-                            <div className="change-name-input">
-                                <Input
-                                    autoComplate="off"
-                                    className={`f-size-p6 f-weight-b chapter-input `}
-                                    color="white"
-                                    size="medium"
-                                    type="text"
-                                    onChange={(e) => setInputParams(
-                                        { name: e.target.value, chapterId, videoId }
-                                    )}
-                                    placeHolder={inputParams.name}
-                                    width="100%"
-                                    value={inputParams.name}
-                                    isFocused={true}
-                                    maxLength={50}
-                                    readonly={!isEditable ? true : false}
-                                />
+                        </div>
 
-
-
-                                <Button
-                                    color="black"
-                                    size="small"
-                                    className="editable-btn"
-                                    disabled={false}
-                                    loading={false}
-                                    width="50%"
-                                    onClick={() => { getInputValue(); setIsEditable(false) }}>
-                                    <p className="f-weight-r f-size-p5">შენახვა</p>
-                                </Button>
+                        {isEditable === false &&
+                            <div className="pencil" onClick={() => setIsEditable(true)}>
+                                <Edit3 style={{ opacity: "60%" }} />
                             </div>
-
                         }
 
-
-
-
                     </div>
 
-                    {isEditable === false &&
-                        <div className="pencil" onClick={() => setIsEditable(true)}>
-                            <Edit3 style={{ opacity: "60%" }} />
+
+
+                    <div className="delete-dropdown">
+
+                        <div className="dropdown" onClick={onToggle}>
+                            <ChevronDown
+                                color={"var(--secondary-darkest-gray)"}
+                                style={{ opacity: "60%" }}
+                                size={35}
+                            />
                         </div>
-                    }
 
-                </div>
-
-
-
-                <div className="delete-dropdown">
-
-                    <div className="dropdown" onClick={onToggle}>
-                        <ChevronDown
-                            color={"var(--secondary-darkest-gray)"}
-                            style={{ opacity: "60%" }}
-                            size={35}
-                        />
+                        <div className="delete" onClick={() => onClick()}>
+                            <Trash2 color={"var(--primary-white)"} size={25} />
+                        </div>
                     </div>
 
-                    <div className="delete" onClick={() => onClick()}>
-                        <Trash2 color={"var(--primary-white)"} size={25} />
-                    </div>
                 </div>
-
-            </div>
+            )}
         </>
     )
-}
+})
 
 export default SylabusChangeName

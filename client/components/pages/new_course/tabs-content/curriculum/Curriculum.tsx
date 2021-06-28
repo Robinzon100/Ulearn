@@ -27,6 +27,7 @@ import { observer } from 'mobx-react-lite';
 
 const Curriculum = observer(() => {
     const { newCourseStore } = useNewCourseStore()
+    
     const [isToggled, setIsToggled] = useState({})
     const [error, setError] = useState({
         newChapterErr: "",
@@ -150,7 +151,6 @@ const Curriculum = observer(() => {
 
                                     <ChangeChapterName
                                         chapterNumber={el?.id + 1}
-                                        name={el?.name}
                                         onClick={() => remove(el.id)}
                                         onToggle={() => ToggleElement(el?.id, setIsToggled)}
                                         chapterId={i}

@@ -3,6 +3,7 @@ import 'react-quill/dist/quill.snow.css';
 import dynamic from "next/dynamic";
 import { selectLocalImage } from './richTextEditor.utils';
 import Button from 'components/lib/button/Button';
+import { useNewCourseStore } from 'mobx/newCourseStateContext';
 
 
 
@@ -22,6 +23,8 @@ const ReactQuill = dynamic(
 
 
 const RichTextEditor = ({ onSave }: { onSave: any, value?: string }) => {
+    const { newCourseStore } = useNewCourseStore()
+
     const [editorContent, setEditorContent] = useState("");
     const [isEditing, setIsEditing] = useState(false);
 
@@ -83,8 +86,10 @@ const RichTextEditor = ({ onSave }: { onSave: any, value?: string }) => {
                     forwardedRef={quillRef}
                     onFocus={() => setIsEditing(true)}
                     theme="snow"
-                    value={editorContent}
-                    onChange={(value) => setEditorContent(value)}
+                    value={newCourseStore.newCourseData.courseInfo.detailed_description}
+                    onChange={(value) => {
+                        newCourseStore.newCourseData.courseInfo.detailed_description = value
+                    }}
                     id={'quill'}
                     className='text_editor'
                     modules={modules}

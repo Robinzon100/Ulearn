@@ -35,20 +35,6 @@ import { observer } from "mobx-react-lite"
 
 const CourseForm = observer(() => {
     let { newCourseStore } = useNewCourseStore()
-
-
-
-    // const [courseForm, setCourseForm] = useState({
-    //     title: "",
-    //     description: "",
-    //     detailed_description: "",
-    //     what_will_you_learn: ["", "", ""],
-    //     main_category_id: "",
-    //     sub_category_id: "",
-    //     difficulty: "",
-    //     image_url: ""
-    // })
-
     const [mainCategories, setMainCategories] = useState<any>([])
     const [subCategories, setSubCategories] = useState<any>([])
     const [fileUploadError, setFileUploadError] = useState("");
@@ -93,7 +79,7 @@ const CourseForm = observer(() => {
     }
 
 
-    
+
     // === === IMAGE UPLOAD HANDLER
     const imageOnChangeHandler = () => {
         const imgForm = new FormData();
@@ -114,7 +100,7 @@ const CourseForm = observer(() => {
             });
         }
 
-        
+
 
     }
 
@@ -125,6 +111,7 @@ const CourseForm = observer(() => {
         const { categories: { main_categories, sub_categories } } = await getAllCategories();
         setMainCategories(main_categories)
         setSubCategories(sub_categories)
+        console.log(main_categories, sub_categories);
     }
 
 
@@ -190,8 +177,8 @@ const CourseForm = observer(() => {
                             type="text"
                             placeHolder="ამ კურსში ისწავლით,თუ როგორ გახდეთ დეველოპერი..."
                             color="white"
-                            minLength={20}
-                            maxLength={100}
+                            minLength={30}
+                            maxLength={250}
                         />
                     </div>
 
@@ -227,6 +214,10 @@ const CourseForm = observer(() => {
                                 name="main_categories"
                                 minHeight="19rem"
                                 options={mainCategories}
+                                defaultValue={
+                                    newCourseStore.newCourseData.courseInfo.main_category_id &&
+                                    mainCategories.find(el => el.id == +newCourseStore.newCourseData.courseInfo.main_category_id).name
+                                }
                                 onChange={(value) =>
                                     CourseCategoryFormHandler(value, "main_category_id")
                                 }
@@ -245,6 +236,10 @@ const CourseForm = observer(() => {
                                 minHeight="19rem"
                                 onChange={(value) =>
                                     CourseCategoryFormHandler(value, "sub_category_id")
+                                }
+                                defaultValue={
+                                    newCourseStore.newCourseData.courseInfo.sub_category_id &&
+                                    subCategories.find(el => el.id == +newCourseStore.newCourseData.courseInfo.sub_category_id).name
                                 }
                                 options={
                                     subCategories
@@ -308,7 +303,7 @@ const CourseForm = observer(() => {
 
 
 
-                {/* ///  difficulty */}
+                    {/* ///  difficulty */}
                     <div className="difficulty">
                         <div className="heading">
                             <h1 className="f-size-p5 f-weight-bl">სირთულე</h1>
@@ -321,6 +316,10 @@ const CourseForm = observer(() => {
                             name="difficulty"
                             minHeight="19rem"
                             options={SelectJson.difficulty}
+                            defaultValue={
+                                newCourseStore.newCourseData.courseInfo.difficulty &&
+                                SelectJson.difficulty[+newCourseStore.newCourseData.courseInfo.difficulty - 1].name
+                            }
                             onChange={(value) => CourseCategoryFormHandler(value, "difficulty")}
                             icon={<Clipboard size={25} />}
                             color="green"
@@ -333,7 +332,7 @@ const CourseForm = observer(() => {
 
 
 
-                {/* ///  course-image */}
+                    {/* ///  course-image */}
                     <div className="course-image">
                         <div className="heading">
                             <h1 className="f-size-p5 f-weight-bl">კურსის სურათი</h1>
@@ -371,9 +370,9 @@ const CourseForm = observer(() => {
                         </p>
                     </div>
 
-                <div className="error">
-                    <h1 className="form_errors f-size-p4 f-weight-r">{error}</h1>
-                </div>               
+                    <div className="error">
+                        <h1 className="form_errors f-size-p4 f-weight-r">{error}</h1>
+                    </div>
 
                 </div>
 

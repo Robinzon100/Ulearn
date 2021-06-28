@@ -1,138 +1,102 @@
 
 import Input from "components/lib/inputs/Input"
-import Button from "components/lib/button/Button"
-import { useState } from "react"
-
 import { useNewCourseStore } from 'mobx/newCourseStateContext';
+import { observer } from 'mobx-react-lite';
 
 
 
 
-const PriceSale = () => {
+const PriceSale = observer(() => {
     let { newCourseStore } = useNewCourseStore()
 
 
-    const [values, setValues] = useState({ price:0,sale:0,coin:0 })
-    const [PriceSaleErr, setPriceSaleErr] = useState("")
 
-    const getPriceSaleValues = (e,field:string) => {
-        setValues({...values,
-            [field]:e.target.value
-        })
-
-    }
-
-    const handleSubmit = () => {
-        if(values.price <= 0 || values.sale <= 0 || values.coin < 0){
-            return setPriceSaleErr("სწორად შეინატანეთ თანხა")
-        }
-        console.log(values)
+    const getPriceSaleValues = (e, field: string) => {
+        newCourseStore.newCourseData.courseInfo[field] = e.target.value
     }
 
 
 
     return (
         <>
-            <div className="price-sale">
-                <div className="price-sale__container">
+            {newCourseStore.newCourseData && (
+                <div className="price-sale">
+                    <div className="price-sale__container">
 
 
 
 
-                    <div className="price">
-                        <div className="heading">
-                            <h1 className="f-size-p5 f-weight-bl">ფასი</h1>
+                        <div className="price">
+                            <div className="heading">
+                                <h1 className="f-size-p5 f-weight-bl">ფასი</h1>
+                            </div>
+
+
+                            <Input
+                                size="large"
+                                name="price"
+                                width="100%"
+                                type="number"
+                                onChange={(e) => getPriceSaleValues(e, "price")}
+                                value={newCourseStore.newCourseData.courseInfo.price}
+                                placeHolder="ფასი"
+                                color="white"
+                                minLength={5}
+                                maxLength={150}
+                            />
                         </div>
 
 
-                        <Input
-                            size="large"
-                            name="price"
-                            width="100%"
-                            type="number"
-                            onChange={(e) => getPriceSaleValues(e,"price")}
-                            value={values.price}
-                            placeHolder="ფასი"
-                            color="white"
-                            minLength={5}
-                            maxLength={150}
-                        />
-
-
-                        
-                    </div>
 
 
 
+                        <div className="sale">
+                            <div className="heading">
+                                <h1 className="f-size-p5 f-weight-bl">ფასდაკლება</h1>
+                                <h2 className="f-size-p7 f-weight-bl">(შეგიძლიათ არ მიუთითოთ)</h2>
+                            </div>
 
-
-                    <div className="sale">
-                        <div className="heading">
-                            <h1 className="f-size-p5 f-weight-bl">ფასდაკლება</h1>
-                            <h2 className="f-size-p7 f-weight-bl">(შეგიძლიათ არ მიუთითოთ)</h2>
+                            <Input
+                                size="large"
+                                name="sale"
+                                width="100%"
+                                type="number"
+                                onChange={(e) => getPriceSaleValues(e, "discount_price")}
+                                value={newCourseStore.newCourseData.courseInfo.discount_price}
+                                placeHolder="ფასდაკლება"
+                                color="white"
+                                minLength={5}
+                                maxLength={150}
+                            />
                         </div>
 
-                        <Input
-                            size="large"
-                            name="sale"
-                            width="100%"
-                            type="number"
-                            onChange={(e) => getPriceSaleValues(e,"sale")}
-                            value={values.sale}
-                            placeHolder="ფასდაკლება"
-                            color="white"
-                            minLength={5}
-                            maxLength={150}
-                        />
-                    </div>
 
 
 
 
+                        <div className="coin">
+                            <div className="heading">
+                                <h1 className="f-size-p5 f-weight-bl">ფასდაკლება</h1>
+                            </div>
 
-                    <div className="coin">
-                        <div className="heading">
-                            <h1 className="f-size-p5 f-weight-bl">ფასდაკლება</h1>
+                            <Input
+                                size="large"
+                                name="sale"
+                                width="100%"
+                                type="number"
+                                onChange={(e) => getPriceSaleValues(e, "ulearn_coin_price")}
+                                value={newCourseStore.newCourseData.courseInfo.ulearn_coin_price}
+                                placeHolder="Ulearn ქოინი"
+                                color="white"
+                                minLength={100}
+                                maxLength={200}
+                            />
                         </div>
-
-                        <Input
-                            size="large"
-                            name="sale"
-                            width="100%"
-                            type="number"
-                            onChange={(e) => getPriceSaleValues(e,"coin")}
-                            value={values.coin}
-                            placeHolder="Ulearn ქოინი"
-                            color="white"
-                            minLength={100}
-                            maxLength={200}
-                        />
                     </div>
-
-
-                <div className="error">
-                    <h1 className="form_errors f-size-p4 f-weight-r">{PriceSaleErr}</h1>
                 </div>
-                
-
-                    <div className="btn-container">
-                        <Button
-                            className="price-sale-btn"
-                            width="100%"
-                            maxWidth="35rem"
-                            size="large"
-                            color="black"
-                            onClick={() => handleSubmit()}>
-                            <p className="f-weight-r f-size-p4 ">შენახვა</p>
-                        </Button>
-                    </div>
-
-                </div>
-
-
-            </div>
+            )}
         </>
     )
-}
+})
 
 export default PriceSale
