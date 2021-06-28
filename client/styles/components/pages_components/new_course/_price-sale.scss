@@ -1,0 +1,38 @@
+.price-sale {
+  &__container {
+
+    
+    .price,
+    .sale,
+    .coin {
+      margin-top: 6rem;
+
+      .heading {
+        margin-bottom: 1.5rem;
+      }
+    }
+
+
+
+    .sale {
+      .heading {
+          @include flex(flex-start,center);
+        h2 {
+          font-style: italic;
+          opacity: 70%;
+        }
+      }
+    }
+
+
+    .btn-container {
+        @include flex();
+        width: 100%;
+        
+        .price-sale-btn {
+            margin-top: 8rem;
+        }
+    }
+    
+  }
+}

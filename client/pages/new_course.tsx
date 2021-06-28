@@ -1,4 +1,5 @@
 import { GetServerSideProps } from "next";
+import cookie from 'cookie';
 
 
 // ========== COMPONENTS
@@ -12,11 +13,11 @@ import { authenticatedRequest } from "components/utils/auth/tokenValidations";
 import { getUser } from "actions/client/user/profile/profile.action";
 import { redirect } from "components/utils/auth/redirect.utils";
 import CourseForm from '../components/pages/new_course/tabs-content/info/CourseForm';
-import cookie from 'cookie';
 import { useNewCourseStore } from 'mobx/newCourseStateContext';
 import { useEffect } from 'react';
 
 
+import PriceSale from "components/pages/new_course/tabs-content/price-sale/PriceSale"
 
 
 let data = [
@@ -89,7 +90,7 @@ const NewCourse = () => {
                 "",
                 "",
                 '<h1>ვიდეოზე ნახსენები საიტების და დამატებითი რესურსების ლინკები, ასევე ამ ვიდეოში დაწერილი კოდის ფაილები</h1><br/><p>vs code გადმოსაწერილი ლინკი : <a href="https://vscode.com">https://vscode.com</a></p> <p>ვიდეოში ნანახი ბლოგპოსტის ლინკი: <a href="https://medium.com"> https://medium.com</a></p><br/><br/><br/><br/><br/><br/><p><strong>ამ ვიდეოში დაწერილი კოდის ფაილები:</strong></p>',
-                '<h1>ვიდეოზე ნახსენები საიტების და დამატებითი რესურსების ლინკები, ასევე ამ ვიდეოში დაწერილი კოდის ფაილები</h1><br/><p>vs code გადმოსაწერილი ლინკი : <a href="https://vscode.com">https://vscode.com</a></p> <p>ვიდეოში ნანახი ბლოგპოსტის ლინკი: <a href="https://medium.com"> https://medium.com</a></p><br/><br/><br/><br/><br/><br/><p><strong>ამ ვიდეოში დაწერილი კოდის ფაილები:</strong></p>',
+                "",
               ]}
               component={[
                 <>
@@ -99,7 +100,9 @@ const NewCourse = () => {
                   <Curriculum data={data} />
                 </>,
                 null,
-                null,
+                <>
+                <PriceSale/>,
+                </>
               ]}
             />
           </div>

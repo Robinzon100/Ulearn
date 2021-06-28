@@ -18,6 +18,7 @@ interface CommentCards {
 
 const CommentCards: React.FC<CommentCards> = (
   {
+    id,
     name,
     registrationDay,
     addedComment,
@@ -26,8 +27,7 @@ const CommentCards: React.FC<CommentCards> = (
     like,
     dislike,
     isLikedByInstructor,
-  },
-  props
+  }
 ) => {
   const [thumbsUp, setThumbsUp] = useState<number>(like);
 
@@ -59,8 +59,9 @@ const CommentCards: React.FC<CommentCards> = (
     }
   };
 
+
   return (
-    <div className="comment" key={props.key}>
+    <div className="comment" key={id}>
       <div
         className="comment__pic"
         style={{ backgroundImage: `url(${imageUrl})` }}

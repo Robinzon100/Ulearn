@@ -23,12 +23,6 @@ const SylabusChangeName = ({ name, chapterNumber, onClick, onToggle, chapterId, 
     const [inputParams, setInputParams] = useState({ name, chapterId, videoId })
 
     const getInputValue = () => {
-        setInputParams({
-            name:inputParams.name,
-            chapterId:inputParams.chapterId,
-            videoId:inputParams.videoId
-        })
-
         console.log(inputParams)
     }
 
