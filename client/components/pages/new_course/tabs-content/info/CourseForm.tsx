@@ -364,9 +364,10 @@ const CourseForm = observer(() => {
                             />
 
                             <div className="thumbnail"
-                                style={
+                                style={ 
                                     { backgroundImage: `url(${process.env.BACK_END_URL}/api/images/${newCourseStore.newCourseData.courseInfo.image_url})` }
                                 }
+                                
                             />
                         </div>
 

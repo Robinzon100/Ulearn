@@ -99,7 +99,7 @@ const NewCourse = observer(() => {
                                         <Resources />
                                     </>,
                                     <>
-                                        <PriceSale />,
+                                        <PriceSale />
                                     </>
                                 ]}
                             />
