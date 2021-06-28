@@ -40,7 +40,7 @@ const Card = ({
   });
 
 
-  
+
   const [addToFavorites, setAddToFavorites] = useState<boolean>(isLiked);
   const [, setFavoriteMessageState] = useState(false);
 
@@ -50,8 +50,8 @@ const Card = ({
 
 
   const handleCourseLike = () => {
-    handleUserCourseLikes({id: id, isLiked: !addToFavorites});
-    
+    handleUserCourseLikes({ id: id, isLiked: !addToFavorites });
+
     setAddToFavorites((addToFavorites) => !addToFavorites);
     setFavoriteMessageState(true);
   };
@@ -71,10 +71,10 @@ const Card = ({
 
 
           <div className="container">
-              
+
             <div
               className={"PrimaryContentCard__img"}
-              style={{ backgroundImage: `url(${thumbnail_imageUrl})` }}>
+              style={{ backgroundImage: `url(${process.env.BACK_END_URL}/api/images/${thumbnail_imageUrl})` }}>
               <div className="price-tag">
                 {checkDicountPrice && checkDicountPrice != null && (
                   <div className="removed-price-tag price-tag-base-styles">
@@ -151,7 +151,7 @@ const Card = ({
         <div
           className="course_card_hover_logo course_card_hover_logo_mobile"
           onClick={(e) =>
-            cardHoverHandler(e,selfRef,elProperties,setElProperties,setIsClicked)}>
+            cardHoverHandler(e, selfRef, elProperties, setElProperties, setIsClicked)}>
 
           <div className={isClicked ? "card_detail" : "card_detail-display"}>
             {
@@ -170,7 +170,7 @@ const Card = ({
 
 
         <div className="PrimaryContentCard__like">
-            
+
           <div
             data-card-like-status={addToFavorites}
             className="stroke-heart-svg"

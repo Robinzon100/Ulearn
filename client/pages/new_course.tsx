@@ -20,6 +20,7 @@ import { useEffect } from 'react';
 import PriceSale from "components/pages/new_course/tabs-content/price-sale/PriceSale"
 import { observer } from 'mobx-react-lite';
 import Button from "components/lib/button/Button";
+import { postNewCourse } from "actions/client/course/newCourse/newCourse.action";
 
 
 
@@ -42,7 +43,8 @@ const NewCourse = observer(() => {
                 price: 0,
                 discount_price: 0,
                 ulearn_coin_price: 0,
-                resource_file_url:"" 
+                resource_file_url: "",
+                duration: 0
             },
             curriculum: [
                 {
@@ -64,8 +66,11 @@ const NewCourse = observer(() => {
     }, [])
 
 
-    const submitHandler = () => {
-        console.log(JSON.parse(JSON.stringify(newCourseStore.newCourseData)));
+    const submitHandler = async () => {
+        const newCourse = JSON.parse(JSON.stringify(newCourseStore.newCourseData))
+        const res = await authenticatedRequest(postNewCourse, newCourse, null)
+        console.log(res);
+
     }
 
 

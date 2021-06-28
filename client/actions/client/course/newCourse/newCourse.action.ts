@@ -2,9 +2,9 @@ import { axiosInstance } from 'actions/action.index';
 
 
 
-export const postCurriculumVideo = async ({ data, auth_access_token }) => {
+export const postNewCourse = async ({ data, auth_access_token }) => {
     return await axiosInstance
-        .post(`/course/new_course/curriculum_videos`,
+        .post(`/course/new_course/`,
             data,
             {
                 headers: {
