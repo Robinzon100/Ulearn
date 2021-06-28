@@ -11,6 +11,9 @@ export const getFile = async (req: Request, res: Response, next: NextFunction) =
             .on('error', (err: AWSError) => {
                 customError(res, next, err.message, 404)
             })
+            .on('close', () => {
+                res.end()
+            })
             .pipe(res)
             .on('data', async (data: s_3.Types.DeleteObjectOutput) => {
                 if (data) {
