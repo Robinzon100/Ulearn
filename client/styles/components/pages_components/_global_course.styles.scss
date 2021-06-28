@@ -4,6 +4,8 @@
   .quill {
     .ql-container {
       .ql-editor {
+
+
         * {
           font-family: "georgian", "Inter", sans-serif !important;
         }
@@ -37,21 +39,25 @@
           }
         }
 
+
+
         ul {
-          list-style: none !important;
-          margin-left: 1.5rem !important;
+          list-style-type: none !important;
+          padding: 0 !important;
+          margin-top: -1rem !important;
 
           li {
-            margin-top: 0.8vw !important;
+            margin-top: 2.5rem !important;
+            position: relative !important;
 
-            p {
-              font-size: calc(
-                13px + (17 - 13) * ((100vw - 300px) / (1900 - 700))
-              ) !important;
-              line-height: 180% !important;
-            }
+            font-size: calc(
+              16px + (18 - 16) * ((100vw - 300px) / (1900 - 700))
+            ) !important;
           }
         }
+
+
+
 
         ol {
           list-style-type: none !important;
@@ -63,8 +69,8 @@
             position: relative !important;
 
             font-size: calc(
-            16px + (18 - 16) * ((100vw - 300px) / (1900 - 700))
-          ) !important;
+              16px + (18 - 16) * ((100vw - 300px) / (1900 - 700))
+            ) !important;
           }
         }
 
@@ -85,10 +91,6 @@
     }
   }
 }
-
-
-
-
 
 .СontentReveal {
   * {

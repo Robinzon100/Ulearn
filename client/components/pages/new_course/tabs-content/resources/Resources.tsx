@@ -30,11 +30,10 @@ const Resources = observer(() => {
             imgForm.append('course_image', e.currentTarget.files[0]);
             const { fileKey } = await authenticatedRequest(postCourseImage, imgForm, null);
 
-            console.log(fileKey);
 
             if (fileKey)
                 newCourseStore.newCourseData.courseInfo.resource_file_url = fileKey;
-            setFileLoading(false)
+                setFileLoading(false)
         }
     }
 
@@ -84,8 +83,10 @@ const Resources = observer(() => {
                                 <div className="file-size-name">
                                     <Folder />
                                     <h1 className="f-size-p5 f-weight-r file_size">
-                                        {newCourseStore.newCourseData.courseInfo.resource_file_url} -
-                                        {parseFloat(`${+file.file.size / 1000 / 1000}`).toPrecision(2)} MB
+                                        {newCourseStore.newCourseData.courseInfo.resource_file_url}
+                                        {parseFloat(`${+file.file.size / 1000 / 1000}`).toPrecision(2) != "NaN" ?
+
+                                            " - " + parseFloat(`${+file.file.size / 1000 / 1000}`).toPrecision(2) + " MB " : " "}
                                     </h1>
 
                                 </div>

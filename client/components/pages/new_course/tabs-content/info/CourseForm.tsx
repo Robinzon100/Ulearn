@@ -268,7 +268,7 @@ const CourseForm = observer(() => {
                                     type="text"
                                     placeHolder="ამ კურსში ისწავლით,თუ როგორ გახდეთ დეველოპერი..."
                                     color="white"
-                                    minLength={10}
+                                    minLength={4}
                                     maxLength={70}
                                     iconRight={i > 2 &&
                                         <X size="30" style={{ cursor: "pointer" }}
@@ -364,9 +364,10 @@ const CourseForm = observer(() => {
                             />
 
                             <div className="thumbnail"
-                                style={
+                                style={ 
                                     { backgroundImage: `url(${process.env.BACK_END_URL}/api/images/${newCourseStore.newCourseData.courseInfo.image_url})` }
                                 }
+                                
                             />
                         </div>
 

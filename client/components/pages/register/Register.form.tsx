@@ -71,7 +71,7 @@ const RegisterComponent = () => {
             favorite_sub_category_ids: '[1]'
         }
 
-        if (categoryIds.size <= 3){
+        if (categoryIds.size <= 3) {
             const res = await postRegistration(registeredUser);
 
             if (res.statusCode == 200) {
@@ -82,7 +82,7 @@ const RegisterComponent = () => {
             } else {
                 setOtherErrors("არასწორი მონაცემები");
             }
-        }else {
+        } else {
             setCategoryErrors("თქვენ უნდა აირჩიოთ მხოლოდ სამი კატეგორია")
         }
     };
@@ -104,7 +104,7 @@ const RegisterComponent = () => {
                     </div>
                     <div className="registration-grid grid_base_styles">
 
-                        
+
                         <div className="base_input_styles full_name">
                             <div className="heading">
                                 <h1 className="f-size-p6 f-weight-b">სახელი და გვარი</h1>
@@ -210,6 +210,10 @@ const RegisterComponent = () => {
                         <div className="base_input_styles password">
                             <div className="heading">
                                 <h1 className="f-size-p6 f-weight-b">პაროლი</h1>
+
+                                <h1 style={{fontStyle:"italic",opacity:"60%"}}>
+                                    სიგრძე 8 ასო, 1 დიდი ასო, 1 ციფრი, 1 სპეციალური სიმბოლო
+                                </h1>
                             </div>
 
                             <Input
@@ -249,9 +253,6 @@ const RegisterComponent = () => {
                                 </p>
                             )}
 
-                            <h1>
-                                სიგრძე 8 ასო, 1 დიდი ასო, 1 ციფრი, 1 სპეციალური სიმბოლო
-                            </h1>
                         </div>
 
 
