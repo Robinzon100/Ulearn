@@ -10,6 +10,7 @@ import categoriesRoutes from "./client/categories/categories.routes";
 import courseRoutes from "./client/courses/courses.routes";
 import imageRoutes from "./client/images/image.routes";
 import videoRoutes from "./client/videos/videos.routes";
+import fileRoutes from "./client/files/file.routes";
 
 
 
@@ -19,6 +20,7 @@ router.use("/categories", categoriesRoutes)
 router.use("/course", courseRoutes)
 router.use("/images", imageRoutes)
 router.use("/videos", videoRoutes)
+router.use("/files", fileRoutes)
 
 
 export default router
