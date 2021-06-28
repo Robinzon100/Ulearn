@@ -27,11 +27,15 @@ import { getAllCategories } from "actions/client/categories.action";
 import { uploadAndRead } from "components/lib/upload/utils/FileUploadLogic"
 import { authenticatedRequest } from "components/utils/auth/tokenValidations"
 import { postCourseImage } from "actions/client/course/newCourse/courseInfo.action"
+import { useNewCourseStore } from "mobx/newCourseStateContext"
+import { observer } from "mobx-react-lite"
 
 
 
 
-const CourseForm = () => {
+const CourseForm = observer(() => {
+    let { newCourseStore } = useNewCourseStore()
+
 
 
     const [courseForm, setCourseForm] = useState({
@@ -58,49 +62,41 @@ const CourseForm = () => {
 
 
 
-    //  ===== ADDING WHAT-WILL-YOU-LEARN INPUTS
-    const addInputHandler = () => {
-        courseForm.what_will_you_learn.push("")
-        setCourseForm(courseForm => ({ ...courseForm }))
-    }
-
-
-
-    //  ===== DELETING WHAT-WILL-YOU-LEARN INPUTS
-    const deleteInputHandler = (index: number) => {
-        let deleted = [...courseForm.what_will_you_learn];
-        deleted.splice(index, 1);
-
-        courseForm.what_will_you_learn = deleted
-        setCourseForm(courseForm => ({ ...courseForm }))
-    }
-
 
     // ==== ==== WHAT-WILL-YOU-LEARN HANDLER
     const inputValuesHandler = (e, index) => {
-        courseForm.what_will_you_learn[index] = e.target.value;
-        setCourseForm(courseForm => ({ ...courseForm }))
+        newCourseStore.newCourseData.courseInfo
+            .what_will_you_learn[index] = e.target.value;
     }
 
+    const addInputHandler = () => {
+        newCourseStore.newCourseData.courseInfo.what_will_you_learn.push('')
+    }
+
+
+    const deleteInputHandler = (index: number) => {
+        newCourseStore.newCourseData.courseInfo
+            .what_will_you_learn.splice(index, 1)
+    }
 
 
     // ==== ==== CATEGORY
     const CourseCategoryFormHandler = (value?, field?: string) => {
-        setCourseForm({ ...courseForm, [field]: value })
+        newCourseStore.newCourseData.courseInfo[field] = value
     }
 
 
     // ==== ==== INPUTS
     const CourseInputFormHandler = (e?, field?: string) => {
-        setCourseForm({ ...courseForm, [field]: e.target.value })
+        newCourseStore.newCourseData.courseInfo[field] = e.target.value
     }
 
 
 
 
     // === === SUBMIT COURSEFORM OBJECT
-    const submitHandler = async () => {
-        console.log(courseForm) 
+    const submitHandler = () => {
+        console.log(JSON.parse(JSON.stringify(newCourseStore.newCourseData)));
     }
 
 
@@ -128,7 +124,6 @@ const CourseForm = () => {
     /// ===== FETCH CATEGOREIS
     const fetchCategories = async () => {
         const { categories: { main_categories, sub_categories } } = await getAllCategories();
-
         setMainCategories(main_categories)
         setSubCategories(sub_categories)
     }
@@ -137,7 +132,7 @@ const CourseForm = () => {
 
 
     return (
-        <>
+        <>{newCourseStore.newCourseData &&
             <div className="text-editor">
                 <div className="text-editor__container">
 
@@ -153,7 +148,7 @@ const CourseForm = () => {
                             width="100%"
                             type="text"
                             onChange={(e) => CourseInputFormHandler(e, "title")}
-                            value={courseForm.title}
+                            value={newCourseStore.newCourseData.courseInfo.title}
                             placeHolder="ისწავლეთ თუ როგორ გახდეთ javascript დეველოპერი"
                             color="white"
                             minLength={20}
@@ -174,7 +169,7 @@ const CourseForm = () => {
                             size="large"
                             name="short-description"
                             onChange={(e) => CourseInputFormHandler(e, "description")}
-                            value={courseForm.description}
+                            value={newCourseStore.newCourseData.courseInfo.description}
                             width="100%"
                             type="text"
                             placeHolder="ამ კურსში ისწავლით,თუ როგორ გახდეთ დეველოპერი..."
@@ -192,11 +187,10 @@ const CourseForm = () => {
                         <div className="heading">
                             <h1 className="f-size-p5 f-weight-bl">დეტალური აღწერა</h1>
                         </div>
-
                         <RichTextEditor onSave={(editorContent) => {
-                            setCourseForm({ ...courseForm, detailed_description: editorContent })
+                            newCourseStore.newCourseData
+                                .courseInfo.detailed_description = editorContent
                         }} />
-
                     </div>
 
 
@@ -239,11 +233,14 @@ const CourseForm = () => {
                                 options={
                                     subCategories
                                         .filter(el => el.main_category_id
-                                            == courseForm.main_category_id)}
+                                            == newCourseStore.newCourseData.courseInfo
+                                                .main_category_id)}
                                 icon={<Zap size={25} />}
                                 color="green"
                                 loading={false}
-                                disabled={courseForm.main_category_id.length <= 0}
+                                disabled={
+                                    newCourseStore.newCourseData.courseInfo
+                                        .main_category_id.length <= 0}
                                 width="43%"
                             />
                         </div>
@@ -258,7 +255,7 @@ const CourseForm = () => {
                         </div>
 
                         <div className="container">
-                            {courseForm.what_will_you_learn.map((el, i) => (
+                            {newCourseStore.newCourseData.courseInfo.what_will_you_learn.map((el, i) => (
                                 <Input
                                     key={i}
                                     id={i}
@@ -279,7 +276,7 @@ const CourseForm = () => {
                                 />
                             ))}
 
-                            {courseForm.what_will_you_learn.length <= 5 ?
+                            {newCourseStore.newCourseData.courseInfo.what_will_you_learn.length <= 5 ?
                                 <InputAdder
                                     minHeight="8rem"
                                     onClick={() => addInputHandler()}
@@ -365,15 +362,14 @@ const CourseForm = () => {
 
 
 
-
-
-
                 <Button
                     className="course-form-btn"
                     width="35rem"
                     size="large"
                     color="black"
-                    onClick={() => submitHandler()}
+                    onClick={() => {
+                        submitHandler()
+                    }}
                 // route="#"
                 >
                     <p className="f-weight-r f-size-p4 ">გაგზავნა</p>
@@ -383,8 +379,9 @@ const CourseForm = () => {
 
 
             </div>
+        }
         </>
     )
-}
+})
 
 export default CourseForm

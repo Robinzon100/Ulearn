@@ -11,11 +11,12 @@ import Navigation from "components/global/navigation/Navigation"
 import BottomNavigation from "components/global/bottom-navigation/BottomNavigation"
 import { RootStateProvider } from '../mobx/RootStateContext';
 import { swrOptions } from '../constants/swrOptions';
+import { NewCourseStateProvider } from 'mobx/newCourseStateContext';
 
 
 
 
-function MyApp({ Component, pageProps}: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
 
 
     return (
@@ -30,15 +31,17 @@ function MyApp({ Component, pageProps}: AppProps) {
                 ogImagePath=""
             />
             <SWRConfig value={swrOptions}>
-                <RootStateProvider>
-                    <CookiesProvider>
-                        <Navigation />
-                        <main className='main'>
-                            <Component {...pageProps} />
-                        </main>
-                        <BottomNavigation />
-                    </CookiesProvider>
-                </RootStateProvider>
+                <NewCourseStateProvider>
+                    <RootStateProvider>
+                        <CookiesProvider>
+                            <Navigation />
+                            <main className='main'>
+                                <Component {...pageProps} />
+                            </main>
+                            <BottomNavigation />
+                        </CookiesProvider>
+                    </RootStateProvider>
+                </NewCourseStateProvider>
             </SWRConfig>
         </>
     )

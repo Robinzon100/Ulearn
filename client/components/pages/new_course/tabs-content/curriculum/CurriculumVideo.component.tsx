@@ -8,6 +8,7 @@ import { ToggleElement } from "components/utils/helpers/ToggleElement";
 import { authenticatedRequest } from "components/utils/auth/tokenValidations";
 import { postCurriculumVideo } from "actions/client/course/newCourse/curriculum.action";
 import { getVideoDuration } from "components/utils/helpers/getVideoDuration"
+import { observer } from 'mobx-react-lite';
 
 
 interface CurriculumVideoComponent {
@@ -21,7 +22,7 @@ interface CurriculumVideoComponent {
 
 
 
-const CurriculumVideoComponent = ({ id, sub_videos, onClick, onRemove, onUpload }: CurriculumVideoComponent) => {
+const CurriculumVideoComponent = observer(({ id, sub_videos, onClick, onRemove, onUpload }: CurriculumVideoComponent) => {
     const videoElement = useRef(null)
 
 
@@ -49,8 +50,8 @@ const CurriculumVideoComponent = ({ id, sub_videos, onClick, onRemove, onUpload 
             if (fileKey) {
                 const videoDuration = await getVideoDuration(videoEl.current.files[0]) as any
 
-                let  minutes = Math.floor(videoDuration.duration / 60);
-                let  seconds = Math.floor(videoDuration.duration - minutes * 60);
+                let minutes = Math.floor(videoDuration.duration / 60);
+                let seconds = Math.floor(videoDuration.duration - minutes * 60);
                 setDuration(+`${minutes}.${seconds}`);
 
                 onUpload(videoId, fileKey)
@@ -156,7 +157,7 @@ const CurriculumVideoComponent = ({ id, sub_videos, onClick, onRemove, onUpload 
 
                                 <div className="duration">
                                     <h1 className="f-size-p5 f-weight-r">
-                                        ხანგძლივობა: { duration}  წთ
+                                        ხანგძლივობა: {duration}  წთ
                                     </h1>
                                 </div>
                             </div>
@@ -165,6 +166,6 @@ const CurriculumVideoComponent = ({ id, sub_videos, onClick, onRemove, onUpload 
             </div>
         </>
     );
-};
+});
 
 export default CurriculumVideoComponent;
