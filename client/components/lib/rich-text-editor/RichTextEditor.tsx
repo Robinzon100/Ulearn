@@ -2,7 +2,6 @@ import { useState, useRef, useMemo } from 'react';
 import 'react-quill/dist/quill.snow.css';
 import dynamic from "next/dynamic";
 import { selectLocalImage } from './richTextEditor.utils';
-import Button from 'components/lib/button/Button';
 import { useNewCourseStore } from 'mobx/newCourseStateContext';
 
 
@@ -22,11 +21,11 @@ const ReactQuill = dynamic(
 
 
 
-const RichTextEditor = ({ onSave }: { onSave: any, value?: string }) => {
+const RichTextEditor = ({  }: { onSave: any, value?: string }) => {
     const { newCourseStore } = useNewCourseStore()
 
-    const [editorContent, setEditorContent] = useState("");
-    const [isEditing, setIsEditing] = useState(false);
+    // const [editorContent, setEditorContent] = useState("");
+    const [, setIsEditing] = useState(false);
 
     const quillRef = useRef();
 

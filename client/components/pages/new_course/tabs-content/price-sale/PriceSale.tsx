@@ -76,7 +76,10 @@ const PriceSale = observer(() => {
 
                         <div className="coin">
                             <div className="heading">
-                                <h1 className="f-size-p5 f-weight-bl">ფასდაკლება</h1>
+                                <h1 className="f-size-p5 f-weight-bl">Ulean coin</h1>
+                                <h1 style={{fontStyle:"italic",opacity:"60%"}}>
+                                    1 ლარი = 5 coin 
+                                </h1>
                             </div>
 
                             <Input

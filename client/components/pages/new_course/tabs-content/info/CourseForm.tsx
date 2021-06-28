@@ -37,6 +37,9 @@ const CourseForm = observer(() => {
     const [fileUploadError, setFileUploadError] = useState("");
     const [, setFile] = useState({ file: "", base64: "" });
     const [fileLoading, setFileLoading] = useState(false);
+    // const [globalError, setGlobalError] = useState("")
+
+
 
     useEffect(() => {
         fetchCategories()
@@ -115,6 +118,9 @@ const CourseForm = observer(() => {
                     <div className="name">
                         <div className="heading">
                             <h1 className="f-size-p5 f-weight-bl">დასახელება</h1>
+                            <h1 className="allowed-length">
+                                უნდა იყოს მინიმუმ:20 სიტყვა და მაქსიმუმ:100
+                            </h1>
                         </div>
 
                         <Input
@@ -143,6 +149,9 @@ const CourseForm = observer(() => {
                     <div className="short-description">
                         <div className="heading">
                             <h1 className="f-size-p5 f-weight-bl">მოკლე აღწერა</h1>
+                            <h1 className="allowed-length">
+                                უნდა იყოს მინიმუმ:30 სიტყვა და მაქსიმუმ:250
+                            </h1>
                         </div>
 
                         <Input
@@ -171,6 +180,9 @@ const CourseForm = observer(() => {
                     <div className="detailed-description">
                         <div className="heading">
                             <h1 className="f-size-p5 f-weight-bl">დეტალური აღწერა</h1>
+                            <h1 className="allowed-length">
+                                უნდა იყოს მინიმუმ:250 სიტყვა და მაქსიმუმ:3500
+                            </h1>
                         </div>
                         <RichTextEditor onSave={(editorContent) => {
                             newCourseStore.newCourseData
@@ -190,6 +202,7 @@ const CourseForm = observer(() => {
                     <div className="categories-selects">
                         <div className="heading">
                             <h1 className="f-size-p5 f-weight-bl">კატეგორიები</h1>
+                            
                         </div>
 
 
@@ -253,6 +266,9 @@ const CourseForm = observer(() => {
                     <div className="what-will-you-learn">
                         <div className="heading">
                             <h1 className="f-size-p5 f-weight-bl">რას ისწავლიან თქვენი კურსით?</h1>
+                            <h1 className="allowed-length">
+                                უნდა იყოს მინიმუმ:4 სიტყვა და მაქსიმუმ:70
+                            </h1>
                         </div>
 
                         <div className="container">
@@ -268,7 +284,7 @@ const CourseForm = observer(() => {
                                     type="text"
                                     placeHolder="ამ კურსში ისწავლით,თუ როგორ გახდეთ დეველოპერი..."
                                     color="white"
-                                    minLength={4}
+                                    minLength={3}
                                     maxLength={70}
                                     iconRight={i > 2 &&
                                         <X size="30" style={{ cursor: "pointer" }}
