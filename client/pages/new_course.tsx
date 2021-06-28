@@ -16,17 +16,16 @@ import CourseForm from '../components/pages/new_course/tabs-content/info/CourseF
 import { useNewCourseStore } from 'mobx/newCourseStateContext';
 import { useEffect } from 'react';
 import PriceSale from "components/pages/new_course/tabs-content/price-sale/PriceSale"
+import { observer } from 'mobx-react-lite';
+import Button from "components/lib/button/Button";
 
 
 
 
 
-const NewCourse = () => {
+const NewCourse = observer(() => {
     let { newCourseStore } = useNewCourseStore()
 
-
-
-    
     useEffect(() => {
         newCourseStore.newCourseData = {
             courseInfo: {
@@ -37,7 +36,10 @@ const NewCourse = () => {
                 main_category_id: "",
                 sub_category_id: "",
                 difficulty: "",
-                image_url: ""
+                image_url: "",
+                price: 0,
+                discount_price: 0,
+                ulearn_coin_price: 0
             },
             curriculum: [
                 {
@@ -47,66 +49,72 @@ const NewCourse = () => {
                         {
                             id: 0,
                             name: "მეტი ჯავასკრიპტზე",
-                            duration: 15,
+                            duration: 0,
                             video_url: "",
                         },
                     ],
                 },
             ],
-            priceAndSale: {
-                price: 0,
-                sale: 0,
-                coin: 0
-            }
 
         }
 
-
-        console.log(newCourseStore);
-
     }, [])
+
+
+    const submitHandler = () =>{
+        console.log(newCourseStore.newCourseData);
+    }
+
 
 
 
 
     return (
         <>
-            <section className="new_course">
-                <div className="new_course-hero" />
+            {newCourseStore.newCourseData && (
+                <section className="new_course">
+                    <div className="new_course-hero" />
 
-                <div className="new_course-tabs">
-                    <div className="user-content">
-                        <Tabs
-                            tabNamesAndIcons={NewCourseHeading}
-                            rawHtml={[
-                                "",
-                                "",
-                                '<h1>ვიდეოზე ნახსენები საიტების და დამატებითი რესურსების ლინკები, ასევე ამ ვიდეოში დაწერილი კოდის ფაილები</h1><br/><p>vs code გადმოსაწერილი ლინკი : <a href="https://vscode.com">https://vscode.com</a></p> <p>ვიდეოში ნანახი ბლოგპოსტის ლინკი: <a href="https://medium.com"> https://medium.com</a></p><br/><br/><br/><br/><br/><br/><p><strong>ამ ვიდეოში დაწერილი კოდის ფაილები:</strong></p>',
-                                "",
-                            ]}
-                            component={[
-                                <>
-                                    <CourseForm />
-                                </>,
-                                <>
-                                    <Curriculum />
-                                </>,
-                                null,
-                                <>
-                                    <PriceSale />,
-                                </>
-                            ]}
-                        />
+                    <div className="new_course-tabs">
+                        <div className="user-content">
+                            <Tabs
+                                tabNamesAndIcons={NewCourseHeading}
+                                rawHtml={[
+                                    "",
+                                    "",
+                                    '<h1>ვიდეოზე ნახსენები საიტების და დამატებითი რესურსების ლინკები, ასევე ამ ვიდეოში დაწერილი კოდის ფაილები</h1><br/><p>vs code გადმოსაწერილი ლინკი : <a href="https://vscode.com">https://vscode.com</a></p> <p>ვიდეოში ნანახი ბლოგპოსტის ლინკი: <a href="https://medium.com"> https://medium.com</a></p><br/><br/><br/><br/><br/><br/><p><strong>ამ ვიდეოში დაწერილი კოდის ფაილები:</strong></p>',
+                                    "",
+                                ]}
+                                component={[
+                                    <>
+                                        <CourseForm />
+                                    </>,
+                                    <>
+                                        <Curriculum />
+                                    </>,
+                                    null,
+                                    <>
+                                        <PriceSale />,
+                                    </>
+                                ]}
+                            />
+                        </div>
+
+                        <Button
+                            className="course-form-btn"
+                            width="45rem"
+                            size="large"
+                            color="black"
+                            onClick={() => submitHandler()}>
+                            <p className="f-weight-r f-size-p4 ">გაგზავნა</p>
+                        </Button>
+
                     </div>
-                </div>
-            </section>
-
-            <pre>
-                {JSON.stringify(newCourseStore.newCourseData)}
-            </pre>
+                </section>
+            )}
         </>
     );
-};
+})
 
 
 

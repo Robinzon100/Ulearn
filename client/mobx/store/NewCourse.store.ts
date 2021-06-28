@@ -10,7 +10,10 @@ interface ICourseInfo {
     main_category_id: string,
     sub_category_id: string,
     difficulty: string,
-    image_url:string,
+    image_url: string,
+    price: number,
+    discount_price: number,
+    ulearn_coin_price: number,
 }
 
 interface ISubVideos {
@@ -26,18 +29,12 @@ interface ICurriculum {
     sub_videos: ISubVideos[],
 }
 
-interface IPriceAndSale {
-    price:number,
-    sale:number,
-    coin:number
-}
 
 
 export class NewCourseStore {
     newCourseData: {
         curriculum: ICurriculum[],
         courseInfo: ICourseInfo,
-        priceAndSale:IPriceAndSale
     }
 
 

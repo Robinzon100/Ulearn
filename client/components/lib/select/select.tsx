@@ -1,4 +1,4 @@
-import { useState,useRef } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown } from "react-feather";
 import { forwardRef, PropsWithChildren } from "react";
@@ -17,83 +17,83 @@ import { useClickOutside } from "components/utils/helpers/outSideClickHandler"
 
 
 
-const SelectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>> (
-    ({
-  color,
-  size,
-  placeHolder,
-  disabled,
-  style,
-//   value,
-  onChange,
-  className,
-  id,
-  icon,
-  iconStyle,
-  width,
-  options,
-  loading,
-  maxWidth,
-  minWidth,
-  minHeight
- },ref: React.Ref<HTMLInputElement | null>,) => {
+const SelectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>>(
+  ({
+    color,
+    size,
+    placeHolder,
+    disabled,
+    style,
+    defaultValue,
+    onChange,
+    className,
+    id,
+    icon,
+    iconStyle,
+    width,
+    options,
+    loading,
+    maxWidth,
+    minWidth,
+    minHeight
+  }, ref: React.Ref<HTMLInputElement | null>,) => {
 
-  const wrapperRef = useRef(null);
-  const [isToggle, setIsToggle] = useState<boolean>(false);
-  const [selectLable, setSelectLable] = useState<string>(placeHolder);
+    const wrapperRef = useRef(null);
+    const [isToggle, setIsToggle] = useState<boolean>(false);
+    const [selectLable, setSelectLable] = useState<string>(defaultValue ? defaultValue : placeHolder);
 
-  const handleSelect = ({ currentTarget: { id, value } }) => {
-    onChange(value);
-    setSelectLable(id);
-    setIsToggle(false);
-  };
-  
-
-  useClickOutside(wrapperRef,setIsToggle);
+    const handleSelect = ({ currentTarget: { id, value } }) => {
+      onChange(value);
+      setSelectLable(id);
+      setIsToggle(false);
+    };
 
 
-
-  return (
-    <>
-      <div
-        ref={wrapperRef}
-        onClick={() => setIsToggle((isToggle) => !isToggle)}
-        className={`select noselect ${disabled && "select-disabled"} ${className ? className : ""}`}
-        style={disabled ? { cursor: "not-allowed", pointerEvents: "none" } : style}>
+    useClickOutside(wrapperRef, setIsToggle);
 
 
-        <div className="dropdown" key={id}>
 
-          <div className="dropdown-select">
-            {icon && (
-              <div className="select_icon" style={iconStyle}>
-                {icon}
+    return (
+      <>
+        <div
+          ref={wrapperRef}
+          onClick={() => setIsToggle((isToggle) => !isToggle)}
+          className={`select noselect ${disabled && "select-disabled"} ${className ? className : ""}`}
+          style={disabled ? { cursor: "not-allowed", pointerEvents: "none" } : style}>
+
+
+          <div className="dropdown" key={id}>
+
+            <div className="dropdown-select">
+              {icon && (
+                <div className="select_icon" style={iconStyle}>
+                  {icon}
+                </div>
+              )}
+
+              <span className="selectable regular f-size-p6">
+                {!loading && selectLable}
+              </span>
+
+              {loading && (
+                <Loading
+                  bgColor={color == "white" ? "black" : getSelectColors(color).iconBgColor}
+                  style={{ margin: "0vw 1.5vw" }}
+                />
+              )}
+
+              <div className="dropdown_icon" style={{ opacity: "70%", marginTop: "3%" }}>
+                <ChevronDown />
               </div>
-            )}
-
-            <span className="selectable regular f-size-p6">
-              {!loading && selectLable}
-            </span>
-
-            {loading && (
-              <Loading
-                bgColor={color == "white"? "black": getSelectColors(color).iconBgColor}
-                style={{ margin: "0vw 1.5vw" }}
-              />
-            )}
-
-            <div className="dropdown_icon" style={{ opacity: "70%",marginTop:"3%" }}>
-              <ChevronDown />
             </div>
-          </div>
 
 
-                
+
             <motion.div
               className="dropdown-list"
-              style={{minHeight:`${minHeight}`}}
+              style={{ minHeight: `${minHeight}` }}
               variants={dropDownAnimation}
-              initial={{height:"0rem",display: "none" }}
+              initial={{ height: "0rem", display: "none" }}
               animate={isToggle ? "open" : "closed"}>
               {options && options.map((option) => (
                 <div className="item" key={option.id}>
@@ -113,15 +113,15 @@ const SelectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>> (
                 </div>
               ))}
             </motion.div>
-          
+
+          </div>
         </div>
-      </div>
 
 
 
 
-      <style jsx>
-        {`
+        <style jsx>
+          {`
           .select-disabled {
               coursor:none;
               user-selection:none;
@@ -179,10 +179,10 @@ const SelectInput = forwardRef<HTMLInputElement, PropsWithChildren<ISelect>> (
             transition: all 1s ease;
           }
         `}
-      </style>
-    </>
-  );
-}
+        </style>
+      </>
+    );
+  }
 );
 
 

@@ -23,6 +23,5 @@ const uploadVideo = multer({
 
 
 
-
 export const courseCurriculumVideoUpload = uploadVideo.single('course_curriculum_videos')
-export const courseImageUpload = uploadVideo.single('course_image')
+export const courseImageUpload = upload.single('course_image')
