@@ -24,4 +24,6 @@ export const newCourseSchema = Joi.object({
     sub_category_id: Joi.number().required(),
 })
 
+
+
  

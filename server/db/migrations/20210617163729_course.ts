@@ -21,7 +21,7 @@ export async function up(knex: Knex): Promise<void> {
         table.string('detailed_description', 3500).notNullable();
         table.integer('difficulty', 4).unsigned().notNullable();
         table.string('thumbnail_imageUrl', 254).notNullable();
-        table.string('intro_videoUrl', 254).notNullable();
+        table.string('resource_file_url', 254).notNullable();
         table.float('duration');
         table.jsonb('what_will_you_learn').notNullable();
         table.integer('student_amount').defaultTo(course.student_amount);
