@@ -18,6 +18,8 @@ const Resources = observer(() => {
     const [file, setFile] = useState({ file: "", base64: "" });
 
 
+
+
     return (
         <>
             <div className="resources">
@@ -25,11 +27,14 @@ const Resources = observer(() => {
                 <div className="course-image">
                         <div className="heading">
                             <h1 className="f-size-p5 f-weight-bl">კურსის სურათი</h1>
+                            <h2 className="f-size-p7 f-weight-bl">(სურათი უნდა იყოს 3 MB ნაკლები)</h2>
                         </div>
+
+
                         <div className="course-image__container">
                             <FileUpload
                                 height="18rem"
-                                uploadSize={300}
+                                uploadSize={300 * 10}
                                 disabled={false}
                                 icon={<Upload size={20} />}
                                 onError={(errorType) => setFileUploadError(errorType)}

@@ -234,7 +234,7 @@ const CourseForm = observer(() => {
                                 onChange={(value) =>
                                     CourseCategoryFormHandler(value, "sub_category_id")
                                 }
-                                
+
                                 options={
                                     subCategories
                                         .filter(el => el.main_category_id
@@ -349,8 +349,12 @@ const CourseForm = observer(() => {
                     {/* ///  course-image */}
                     <div className="course-image">
                         <div className="heading">
-                            <h1 className="f-size-p5 f-weight-bl">კურსის სურათი</h1>
+                            <h1 className="f-size-p5 f-weight-bl">
+                                კურსის სურათი
+                            </h1>
+                            <h2 className="f-size-p7 f-weight-bl">(სურათი უნდა იყოს 300კბ ნაკლები)</h2>
                         </div>
+
                         <div className="course-image__container">
                             <FileUpload
                                 height="18rem"

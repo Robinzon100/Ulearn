@@ -90,6 +90,16 @@
   }
 
   .course-image {
+    .heading {
+      @include flex(flex-start, center);
+
+      h2 {
+        font-style: italic;
+        opacity: 70%;
+      }
+    }
+
+    
     &__container {
       @include flex();
       gap: 20px;
