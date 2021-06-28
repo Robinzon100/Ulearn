@@ -18,16 +18,16 @@ import ChangeChapterName from "components/pages/new_course/tabs-content/curricul
 import { authenticatedRequest } from "components/utils/auth/tokenValidations";
 import { deleteCurriculumVideo } from "actions/client/course/newCourse/curriculum.action";
 import { useNewCourseStore } from "mobx/newCourseStateContext";
+import { observer } from 'mobx-react-lite';
 
 
 
 
 
 
-const Curriculum = ({ data }) => {
+const Curriculum = observer(() => {
     const { newCourseStore } = useNewCourseStore()
     const [isToggled, setIsToggled] = useState({})
-    const [videoData, setVideoData] = useState<any>(data)
     const [error, setError] = useState({
         newChapterErr: "",
         newVideoErr: ""
@@ -37,14 +37,9 @@ const Curriculum = ({ data }) => {
 
 
     const add = (condition, id?) => {
-
-
-
         if (newCourseStore.newCourseData.curriculum[newCourseStore.newCourseData.curriculum.length - 1]?.id == 0 ||
             newCourseStore.newCourseData.curriculum[id]?.sub_videos.length == 0)
             setError({ newChapterErr: "", newVideoErr: "" })
-
-
 
         if (condition === "main_videos") {
             const lastChapterId = newCourseStore.newCourseData.curriculum
@@ -63,6 +58,8 @@ const Curriculum = ({ data }) => {
                         },
                     ],
                 })
+
+
         } else {
             const lastSubVideoId =
                 newCourseStore.newCourseData.curriculum[id]
@@ -70,16 +67,16 @@ const Curriculum = ({ data }) => {
                         .sub_videos.length - 1].id
 
 
-            newCourseStore.newCourseData.curriculum[id]
-                .sub_videos.push(
-                    {
-                        id: lastSubVideoId + 1,
-                        name: "ვიდეოს სახელწოდება",
-                        duration: 0,
-                        video_url: ""
-                    }
-                )
+            newCourseStore.newCourseData.curriculum[id].sub_videos.push(
+                {
+                    id: lastSubVideoId + 1,
+                    name: "ვიდეოს სახელწოდება",
+                    duration: 0,
+                    video_url: ""
+                }
+            )
         }
+
     }
 
 
@@ -91,26 +88,24 @@ const Curriculum = ({ data }) => {
     const remove = async (chapterId: number, videoId?: number) => {
 
         if (videoId == undefined) {
-            if (chapterId != 0 || videoData.length != 1) {
-                newCourseStore.newCourseData.curriculum
+            if (chapterId != 0 || newCourseStore.newCourseData.curriculum.length != 1) {
+                newCourseStore.newCourseData.curriculum = newCourseStore.newCourseData.curriculum
                     .filter(el => el.id != chapterId)
                     .map((chapter, i) => Object.assign(chapter, { id: i }))
             } else {
                 setError({ newChapterErr: "უნდა არსებობდეს ერთი თავი მაინც", newVideoErr: "" })
             }
         } else {
-            if (videoId != 0 || videoData[chapterId].sub_videos.length != 1) {
-
+            if (videoId != 0 || newCourseStore.newCourseData.curriculum[chapterId].sub_videos.length != 1) {
                 await authenticatedRequest(
                     deleteCurriculumVideo,
-                    videoData[chapterId].sub_videos[videoId].video_url,
+                    newCourseStore.newCourseData.curriculum[chapterId].sub_videos[videoId].video_url,
                     null)
 
-                videoData[chapterId].sub_videos = videoData[chapterId].sub_videos
-                    .filter(el => el.id != videoId)
-                    .map((video, i) => Object.assign(video, { id: i }))
-                setVideoData(newVideoData => ([...newVideoData]))
-
+                newCourseStore.newCourseData.curriculum[chapterId].sub_videos =
+                    newCourseStore.newCourseData.curriculum[chapterId].sub_videos
+                        .filter(el => el.id != videoId)
+                        .map((video, i) => Object.assign(video, { id: i }))
             } else {
                 setError({ newChapterErr: "", newVideoErr: "უნდა არსებობდეს ერთი ვიდეო გაკვეთილი მაინც" })
             }
@@ -119,13 +114,11 @@ const Curriculum = ({ data }) => {
 
 
     const addVideoUrlToData = (chapterId, videoId, videoKey) => {
-        videoData[chapterId].sub_videos[videoId] =
+        newCourseStore.newCourseData.curriculum[chapterId].sub_videos[videoId] =
         {
-            ...videoData[chapterId].sub_videos[videoId],
+            ...newCourseStore.newCourseData.curriculum[chapterId].sub_videos[videoId],
             video_url: `${videoKey}`
         }
-
-        setVideoData(newVideoData => ([...newVideoData]))
     }
 
 
@@ -186,6 +179,6 @@ const Curriculum = ({ data }) => {
                 )}
         </>
     );
-};
+});
 
 export default Curriculum;

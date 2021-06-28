@@ -20,20 +20,20 @@ import { useEffect } from 'react';
 import PriceSale from "components/pages/new_course/tabs-content/price-sale/PriceSale"
 
 
-let data = [
-  {
-    id: 0,
-    name: "ჯავასკრიპტი",
-    sub_videos: [
-      {
-        id: 0,
-        name: "მეტი ჯავასკრიპტზე",
-        duration: 15,
-        video_url: "undefined-1624555404026",
-      },
-    ],
-  },
-];
+// let data = [
+//   {
+//     id: 0,
+//     name: "ჯავასკრიპტი",
+//     sub_videos: [
+//       {
+//         id: 0,
+//         name: "მეტი ჯავასკრიპტზე",
+//         duration: 15,
+//         video_url: "undefined-1624555404026",
+//       },
+//     ],
+//   },
+// ];
 
 
 
@@ -97,7 +97,7 @@ const NewCourse = () => {
                   <CourseForm />
                 </>,
                 <>
-                  <Curriculum data={data} />
+                  <Curriculum />
                 </>,
                 null,
                 <>
