@@ -7,6 +7,7 @@ import { observer } from 'mobx-react-lite';
 import { useNewCourseStore } from "mobx/newCourseStateContext";
 import { authenticatedRequest } from "components/utils/auth/tokenValidations";
 import { postCourseImage } from "actions/client/course/newCourse/courseInfo.action";
+import { downloadZipFileWithS3Key } from '../../../../utils/file/zipFile.utils';
 
 
 
@@ -43,24 +44,24 @@ const Resources = observer(() => {
             <div className="resources">
                 <div className="resources__container">
                     <div className="course-image">
-                        
+
 
 
                         <div className="course-image__container">
 
-                        <div className="heading">
-                            <h1 className="f-size-p5 f-weight-bl">
-                                რესურსის ფაილის ატვირთვა
+                            <div className="heading">
+                                <h1 className="f-size-p5 f-weight-bl">
+                                    რესურსის ფაილის ატვირთვა
 
-                                <br />
+                                    <br />
 
-                                <span className="f-size-p7 f-weight-r">
-                                    (უნდა იყოს 3 MB ნაკლები, მხოლოდ zip ფაილი )
-                                </span>
-                            </h1>
+                                    <span className="f-size-p7 f-weight-r">
+                                        (უნდა იყოს 3 MB ნაკლები, მხოლოდ zip ფაილი )
+                                    </span>
+                                </h1>
 
 
-                        </div>
+                            </div>
                             <FileUpload
                                 height="18rem"
                                 uploadSize={300 * 10}
@@ -87,13 +88,11 @@ const Resources = observer(() => {
                                         {parseFloat(`${+file.file.size / 1000 / 1000}`).toPrecision(2)} MB
                                     </h1>
 
-                                    <a href="http://localhost:5000/api/files/8ae97e1b12a1a5615c201ae772e26146">ფაილის ლინკი</a>
                                 </div>
                             }
                         </div>
 
                     </div>
-
 
 
                     <div className="fileUpload-errors">
