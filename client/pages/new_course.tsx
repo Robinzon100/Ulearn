@@ -63,8 +63,8 @@ const NewCourse = observer(() => {
     }, [])
 
 
-    const submitHandler = () =>{
-        console.log(newCourseStore.newCourseData);
+    const submitHandler = () => {
+        console.log(JSON.parse(JSON.stringify(newCourseStore.newCourseData)));
     }
 
 
@@ -95,7 +95,7 @@ const NewCourse = observer(() => {
                                         <Curriculum />
                                     </>,
                                     <>
-                                    <Resources/>
+                                        <Resources />
                                     </>,
                                     <>
                                         <PriceSale />,
@@ -108,7 +108,7 @@ const NewCourse = observer(() => {
                             className="course-form-btn"
                             width="45rem"
                             size="large"
-                            color="black"
+                            color="blue"
                             onClick={() => submitHandler()}>
                             <p className="f-weight-r f-size-p4 ">გაგზავნა</p>
                         </Button>

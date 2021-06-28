@@ -89,9 +89,9 @@ const CourseForm = observer(() => {
 
             if (fileKey)
                 newCourseStore.newCourseData.courseInfo.image_url = fileKey;
-                setFileLoading(false)
-            }
+            setFileLoading(false)
         }
+    }
 
 
 
@@ -117,6 +117,10 @@ const CourseForm = observer(() => {
             <div className="text-editor">
                 <div className="text-editor__container">
 
+
+
+
+
                     {/* ///  NAME */}
                     <div className="name">
                         <div className="heading">
@@ -136,6 +140,11 @@ const CourseForm = observer(() => {
                             maxLength={100}
                         />
                     </div>
+
+
+
+
+
 
 
 
@@ -163,6 +172,11 @@ const CourseForm = observer(() => {
 
 
 
+
+
+
+
+
                     {/* ///  detailed-description */}
                     <div className="detailed-description">
                         <div className="heading">
@@ -176,12 +190,17 @@ const CourseForm = observer(() => {
 
 
 
+
+
+
+
+
+
                     {/* ///  categories-selects */}
                     <div className="categories-selects">
                         <div className="heading">
                             <h1 className="f-size-p5 f-weight-bl">კატეგორიები</h1>
                         </div>
-
 
 
                         <div className="categories-selects__container">
@@ -192,10 +211,10 @@ const CourseForm = observer(() => {
                                 name="main_categories"
                                 minHeight="19rem"
                                 options={mainCategories}
-                                defaultValue={
-                                    newCourseStore.newCourseData.courseInfo.main_category_id &&
-                                    mainCategories[+newCourseStore.newCourseData.courseInfo.difficulty - 1].name
-                                }
+                                // defaultValue={
+                                //     newCourseStore.newCourseData.courseInfo.main_category_id &&
+                                //     mainCategories[+newCourseStore.newCourseData.courseInfo.main_category_id - 1].name
+                                // }
                                 onChange={(value) =>
                                     CourseCategoryFormHandler(value, "main_category_id")
                                 }
@@ -215,10 +234,7 @@ const CourseForm = observer(() => {
                                 onChange={(value) =>
                                     CourseCategoryFormHandler(value, "sub_category_id")
                                 }
-                                defaultValue={
-                                    newCourseStore.newCourseData.courseInfo.sub_category_id &&
-                                    subCategories.find(el => el.id == +newCourseStore.newCourseData.courseInfo.sub_category_id).name
-                                }
+                                
                                 options={
                                     subCategories
                                         .filter(el => el.main_category_id
@@ -237,10 +253,16 @@ const CourseForm = observer(() => {
 
 
 
-                    {/* ///  categories-selects */}
+
+
+
+
+
+
+                    {/* ///  what will you learn */}
                     <div className="what-will-you-learn">
                         <div className="heading">
-                            <h1 className="f-size-p5 f-weight-bl">კატეგორიები</h1>
+                            <h1 className="f-size-p5 f-weight-bl">რას ისწავლიან თქვენი კურსით?</h1>
                         </div>
 
                         <div className="container">
@@ -281,6 +303,12 @@ const CourseForm = observer(() => {
 
 
 
+
+
+
+
+
+
                     {/* ///  difficulty */}
                     <div className="difficulty">
                         <div className="heading">
@@ -310,6 +338,14 @@ const CourseForm = observer(() => {
 
 
 
+
+
+
+
+
+
+
+
                     {/* ///  course-image */}
                     <div className="course-image">
                         <div className="heading">
@@ -334,7 +370,9 @@ const CourseForm = observer(() => {
                             />
 
                             <div className="thumbnail"
-                                style={{ backgroundImage: `url(${process.env.BACK_END_URL}/api/images/${newCourseStore.newCourseData.courseInfo.image_url})` }}
+                                style={
+                                    { backgroundImage: `url(${process.env.BACK_END_URL}/api/images/${newCourseStore.newCourseData.courseInfo.image_url})` }
+                                }
                             />
                         </div>
 
@@ -353,23 +391,6 @@ const CourseForm = observer(() => {
                     </div>
 
                 </div>
-
-
-
-                <Button
-                    className="course-form-btn"
-                    width="35rem"
-                    size="large"
-                    color="black"
-                    onClick={() => {
-                        submitHandler()
-                    }}>
-                    <p className="f-weight-r f-size-p4 ">გაგზავნა</p>
-                </Button>
-
-
-
-
             </div>
         }
         </>
