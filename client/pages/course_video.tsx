@@ -47,10 +47,12 @@ const MyCourse = () => {
           <div className="courses-container">
             <div className="section-courses">
 
+
               <div id="player" className="section-courses--video-player">
                 <CourseVideoPlayer />
               </div>
               
+
               {/* /// TAB HEADING CONTENT */}
               <CourseTabContent/>
             </div>
