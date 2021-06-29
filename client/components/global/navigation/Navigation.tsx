@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useSWR from "swr";
 import { ChevronDown, Search } from "react-feather";
 import { useCookies } from "react-cookie";
@@ -22,12 +22,15 @@ import MobileCategory from "components/global/navigation/mobile-caregory/MobileC
 import { fetcher } from "actions/swr/fetchers";
 import { getUser } from "actions/client/user/profile/profile.action";
 import { authenticatedRequest } from "components/utils/auth/tokenValidations";
+import { useClickOutside } from "components/utils/helpers/outSideClickHandler"
 
 
 
 
 
 const Navigation = () => {
+
+  const wrapperRef = useRef(null);    
   const [isToggled, setIsToggled] = useState(false);
   const [isLogedIn, setIsLogedIn] = useState(false);
   const [isMouseleftCategory, setIsMouseLeftCategory] = useState(false);
@@ -69,7 +72,10 @@ const Navigation = () => {
     }, [cookies.auth_access_token])
 
 
-    
+
+
+    useClickOutside(wrapperRef, setIsLougoutToggled);
+
 
   return (
     <>
@@ -164,20 +170,28 @@ const Navigation = () => {
             {/* //* ======= PROFILE ===== */}
             {isLogedIn && (
               <div
+              ref={wrapperRef}
                 className="profile"
                 onClick={() =>
                   setIsLougoutToggled((isLougoutToggled) => !isLougoutToggled)}>
                 <div className="user-icon" 
-                    style={
-                        getUserPic != '' && getUserPic != null ?
-                          { backgroundImage: `url(${process.env.BACK_END_URL}/api/images/${getUserPic})` }
-                          : { backgroundImage: "url(/pictures/unregistered_user.svg)" }}
+                    style={{
+                        backgroundImage: `url(${getUserPic ?
+                            process.env.BACK_END_URL + '/api/images/' + getUserPic :
+                            '/pictures/unregistered_user.svg'
+                            })`
+                    }}
                 
                 />
+
+
                 <Logout
                   deleteCookie={() => deleteCookie(removeCookie)}
                   isLougoutToggled={isLougoutToggled}
+                 
                 />
+
+
               </div>
             )}
 
@@ -212,8 +226,10 @@ const Navigation = () => {
             <div
               className="mobile_hamburger"
               onClick={() =>
-                setToggleMobileCategory(
-                  (toggleMobileCategory) => !toggleMobileCategory)} />
+                setToggleMobileCategory((toggleMobileCategory) => !toggleMobileCategory)} 
+              />
+
+
 
             {toggleMobileCategory && (
               <MobileCategory
@@ -221,7 +237,9 @@ const Navigation = () => {
                 toggleMobileCategory={toggleMobileCategory}
                 setToggleMobileCategory={() =>
                   setToggleMobileCategory((toggleMobileCategory) => !toggleMobileCategory
-                  )}
+                )}
+
+
                 categories={data?.categories}
               />
             )}

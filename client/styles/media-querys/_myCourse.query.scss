@@ -29,10 +29,16 @@
 
     .section-courses--tablist {
       margin-top: 5rem !important;
+
+      .get-resources-btn {
+          width: 100%;
+          max-width: initial !important;
+      }
     }
 
     .side-menu {
       height: initial !important;
+      grid-area: 1/1;
       position: sticky;
       margin-top: 3.4rem;
       position: initial;

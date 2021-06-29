@@ -1,9 +1,13 @@
 import NextLink from 'components/utils/nextLink/NextLink';
 
+
+
 const Logout = ({ isLougoutToggled, deleteCookie }) => {
+
+
     return (
-        <>
-            <ul className="logout" data-logout={isLougoutToggled}>
+        <>  
+            <ul  className="logout" data-logout={isLougoutToggled}>
                 <li className="profile-link item">
                     <NextLink route="/profile">
                         <p className="f-size-p6 f-weight-r">პროფილი</p>
@@ -20,6 +24,7 @@ const Logout = ({ isLougoutToggled, deleteCookie }) => {
                 </li>
 
             </ul>
+    
         </>
     )
 }

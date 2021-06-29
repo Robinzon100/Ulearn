@@ -17,7 +17,6 @@ import { GetServerSideProps } from 'next';
 import { getUser } from "actions/client/user/profile/profile.action";
 import { getCourse } from '../../../actions/client/course/course.index.action';
 import { authenticatedRequest } from "components/utils/auth/tokenValidations";
-import { useCommentStore } from "mobx/commentContext";
 
 
 // const CourseVideoPlayer = dynamic(() =>
@@ -31,7 +30,6 @@ import { useCommentStore } from "mobx/commentContext";
 const MyCourse = ({ course,user }) => {
     const [currentVideo, setCurrentVideo] = useState(course.course_content.curriculum[0].sub_videos[0].video_url)
 
-    let { commentStore } = useCommentStore()
 
 
 

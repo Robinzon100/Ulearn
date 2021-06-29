@@ -125,7 +125,7 @@ const RegisterComponent = () => {
                                     },
                                     maxLength: {
                                         value: 20,
-                                        message: "თქვენი სახელი 20 ასოზე დიდია?",
+                                        message: "თქვენი სახელი 200 ასოზე დიდია?",
                                     },
                                 })}
                             />

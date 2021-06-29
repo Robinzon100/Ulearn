@@ -40,7 +40,7 @@ const CourseTabContent = ({ course, user }) => {
 
 
     const addComment = () => {
-        debugger
+        // debugger
         userComments.push({
             id: userComments[userComments.length - 1].id + 1,
             comment: commentBody,
@@ -81,7 +81,7 @@ const CourseTabContent = ({ course, user }) => {
                             </>,
                             <>
                                 <Button
-                                    className="course-form-btn"
+                                    className="get-resources-btn"
                                     width="41rem"
                                     size="large"
                                     color="green"

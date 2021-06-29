@@ -1,5 +1,5 @@
 import { X, ArrowLeft } from "react-feather";
-import { useState } from "react";
+import {  useState } from "react";
 import { motion } from "framer-motion";
 
 import Line from "components/lib/line/Line";
@@ -30,7 +30,6 @@ const MobileCategory = ({
   categories: { main_categories, sub_categories, sub_sub_categories },
 }) => {
 
-    
   const [closeMobileCategory,] = useState(false);
   const [isMainCategoryChosen, setIsMainCategoryChosen] = useState<boolean>(false);
   const [, setIsSubCategoryChosen] = useState<boolean>(false);
@@ -47,15 +46,13 @@ const MobileCategory = ({
     setToggleMobileCategory(closeMobileCategory);
 
 
-
-
-
   return (
     <>
       {toggleMobileCategory && (
         <div className="mobile-category">
           <div className="mobile-category_container">
-            <nav className="category-navigation">
+
+            <nav className="category-navigation" >
 
 
             
@@ -173,6 +170,7 @@ const MobileCategory = ({
                   ))}
               </motion.ul>
             </nav>
+
         </div>
 
           

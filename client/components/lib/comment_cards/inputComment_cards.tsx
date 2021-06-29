@@ -1,6 +1,5 @@
 
 import TextArea from "components/lib/textarea/TextArea";
-import Stars from "components/lib/svg/Stars";
 import Button from "../button/Button";
 import { useState } from "react";
 import HoverableStars from 'components/lib/svg/HoverableStars';
@@ -24,7 +23,7 @@ interface IInputCommentCards {
 
 
 const InputCommentCards = (
-    { id, full_name, image_url, rating, getCommentBody, getCurrentRating, addComment }: IInputCommentCards) => {
+    { id, full_name, image_url, rating, getCommentBody, addComment }: IInputCommentCards) => {
 
 
     const [answer, setAnswer] = useState("");

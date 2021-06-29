@@ -122,8 +122,11 @@ const UserInfo = ({ full_name, email, description, socials, image_url,verified }
           <div className="user-profile">
 
             <div className="picture" style={
-              file.base64 == '' && image_url != '' && image_url != null ?
-                { backgroundImage: `url(${process.env.BACK_END_URL}/api/images/${image_url})` }
+              file.base64 == ''  ?
+                { backgroundImage: `url(${image_url ?
+                    process.env.BACK_END_URL + '/api/images/' + image_url :
+                        '/pictures/unregistered_user.svg'
+                    })` }
                 : { backgroundImage: `url(${file.base64})` }}>
 
 
@@ -152,7 +155,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url,verified }
 
 
 
-
+{/* 
              {image_url.length == 0 &&
                 <h1 className="form_errors f-size-p6 f-weight-r" 
                 style={{marginBottom:"2rem"}}>
@@ -160,7 +163,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url,verified }
                 </h1>
              }
 
-
+ */}
 
 
 
