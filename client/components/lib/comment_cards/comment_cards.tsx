@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { ThumbsUp, ThumbsDown, Heart } from "react-feather";
 import HoverableStars from "components/lib/svg/HoverableStars";
+import Stars from 'components/lib/svg/Stars';
 
 interface CommentCards {
     id?: number;
@@ -30,7 +31,6 @@ const CommentCards: React.FC<CommentCards> = (
         like,
         dislike,
         isLikedByInstructor,
-        getCurrentRating
     }
 ) => {
     const [thumbsUp, setThumbsUp] = useState<number>(like);
@@ -92,11 +92,9 @@ const CommentCards: React.FC<CommentCards> = (
 
 
                 <div className="about-user__raiting">
-                    <HoverableStars
+                    <Stars
                         starWidth={20}
                         numberOfStars={4}
-                        getCurrentRating={(value, id) => getCurrentRating(value, id)}
-
                     />
                 </div>
                 <div className="added-comment">

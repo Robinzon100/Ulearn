@@ -115,6 +115,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     const { course, statusCode } = await getCourse(courseId);
     const { user } = await authenticatedRequest(getUser, null, ctx);
 
+    
 
     if (statusCode != 200) {
         return {

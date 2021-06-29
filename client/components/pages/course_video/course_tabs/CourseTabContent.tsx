@@ -32,10 +32,10 @@ const CourseTabContent = ({ course, user }) => {
 
     const [userComments, setUserComments] = useState<any>(comments)
 
-    
+
     // === GETTING CURRENT RATING TO PASS TO ACTION
-    const getCurrentRating = (currentRating,id) => {
-        console.log({currentRating,id})
+    const getCurrentRating = (currentRating, id) => {
+        console.log({ currentRating, id })
     }
 
 
@@ -43,10 +43,10 @@ const CourseTabContent = ({ course, user }) => {
         debugger
         userComments.push({
             id: userComments[userComments.length - 1].id + 1,
-            comment:commentBody,
-            image_url:user.image_url,
-            full_name:user.full_name,
-            rating:user.rating
+            comment: commentBody,
+            image_url: user.image_url,
+            full_name: user.full_name,
+            rating: user.rating
         })
 
         setUserComments(userComments => ([...userComments]))
@@ -93,13 +93,6 @@ const CourseTabContent = ({ course, user }) => {
                             </>,
 
                             <>
-
-
-
-
-
-
-
                                 <InputCommentCards
                                     id={user.id}
                                     full_name={user.full_name}
@@ -117,10 +110,10 @@ const CourseTabContent = ({ course, user }) => {
                                         comment={el.comment}
                                         image_url={el.image_url}
                                         rating={el.rating}
-                                        getCurrentRating={(value,id) => getCurrentRating(value,id)}
-                                        // like={el.like}
-                                        // dislike={el.dislike}
-                                        // isLikedByInstructor={el.isLikedByInstructor}
+                                        getCurrentRating={(value, id) => getCurrentRating(value, id)}
+                                    // like={el.like}
+                                    // dislike={el.dislike}
+                                    // isLikedByInstructor={el.isLikedByInstructor}
                                     />
 
                                 ))}

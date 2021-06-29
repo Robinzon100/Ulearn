@@ -12,6 +12,7 @@ import imageRoutes from "./client/images/image.routes";
 import videoRoutes from "./client/videos/videos.routes";
 import fileRoutes from "./client/files/file.routes";
 import affiliateRoutes from "./client/affiliation/affiliation.routes";
+import commentsRoutes from "./client/commetns/comments.routes";
 
 
 
@@ -23,6 +24,7 @@ router.use("/images", imageRoutes)
 router.use("/videos", videoRoutes)
 router.use("/files", fileRoutes)
 router.use("/affiliate", affiliateRoutes)
+router.use("/comments", commentsRoutes)
 
 
 export default router

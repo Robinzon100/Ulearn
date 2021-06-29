@@ -29,7 +29,7 @@ export const getAllCategories = async (req: Request, res: Response, next: NextFu
                 sub_sub_categories
             }
         })
-    } catch (err) {
+    } catch (err: any) {
         customError(res, next, err.message)
     }
 }

@@ -3,6 +3,7 @@ import TextArea from "components/lib/textarea/TextArea";
 import Stars from "components/lib/svg/Stars";
 import Button from "../button/Button";
 import { useState } from "react";
+import HoverableStars from 'components/lib/svg/HoverableStars';
 
 
 
@@ -13,9 +14,9 @@ interface IInputCommentCards {
     rating?: number;
     image_url?: string;
     getCommentBody?: any;
-    onClick?:any
-    getCurrentRating?:any
-    addComment?:any
+    onClick?: any
+    getCurrentRating?: any
+    addComment?: any
 }
 
 
@@ -23,7 +24,7 @@ interface IInputCommentCards {
 
 
 const InputCommentCards = (
-    { id, full_name, image_url,rating, getCommentBody,getCurrentRating,addComment }: IInputCommentCards) => {
+    { id, full_name, image_url, rating, getCommentBody, getCurrentRating, addComment }: IInputCommentCards) => {
 
 
     const [answer, setAnswer] = useState("");
@@ -38,8 +39,11 @@ const InputCommentCards = (
         <div className="add_comment" key={id}>
             <div
                 className="add_comment--picture"
-                style={{ 
-                    backgroundImage: `url(${process.env.BACK_END_URL}/api/images/${image_url})` 
+                style={{
+                    backgroundImage: `url(${image_url ?
+                        process.env.BACK_END_URL + '/api/images/' + image_url :
+                        '/pictures/unregistered_user.svg'
+                        })`
                 }}
             />
             <div className="add_comment--input">
@@ -47,10 +51,11 @@ const InputCommentCards = (
                     <h1>{full_name}</h1>
 
                     <div className="about_user--star">
-                    <Stars 
-                        starWidth={20} 
-                        numberOfStars={rating} 
-                    />
+                        <HoverableStars
+                            starWidth={20}
+                            numberOfStars={rating}
+                            // getCurrentRating={ }
+                        />
                     </div>
                 </div>
 
@@ -70,7 +75,7 @@ const InputCommentCards = (
 
                 <div className="add_btn">
                     <Button
-                        onClick={() => {addComment();setCommentBody()}}
+                        onClick={() => { addComment(); setCommentBody() }}
                         color="green"
                         size="medium"
                         disabled={false}
