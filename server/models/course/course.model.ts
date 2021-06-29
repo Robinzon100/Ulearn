@@ -31,6 +31,8 @@ export default class Course extends Model {
     sub_category_id!: number;
     creator_id!: number;
 
+    instructor?: any
+
     static get tableName() {
         return tableNames.courses;
     }

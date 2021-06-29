@@ -9,9 +9,11 @@ const SideMenu: React.FC<videoList> = ({
   name,
   courseChapterTime,
   content,
+  onChange,
+  isDisabled = false
 }) => {
   const [revealContent, setRevealContent] = useState<boolean>(false);
-  
+
   const handleSetRevealContent = () => {
     setRevealContent((revealContent) => !revealContent);
   };
@@ -21,6 +23,7 @@ const SideMenu: React.FC<videoList> = ({
   //! ეს ცვლის სტილს დაამთავრა თუ არა ესა თუ ის დავალება
   const handleSetFinished = (e) => {
     const menuElements = document.querySelectorAll(".details_not_finished");
+    onChange(e.currentTarget.dataset.videourl)
 
     menuElements.forEach((element) => {
       if (element.classList.contains("details_finished")) {
@@ -68,8 +71,13 @@ const SideMenu: React.FC<videoList> = ({
           <div
             key={i}
             className="card_container__info--details details_not_finished"
+            data-videourl={data.video_url}
             onClick={(e) => {
-              handleSetFinished(e);
+              if (isDisabled) {
+                return
+              }else{
+                handleSetFinished(e);
+              }
             }}
             data-title={data.name}>
             <div className="details_heading">

@@ -16,10 +16,10 @@ export const getVideoStream = async (req: Request, res: Response, next: NextFunc
         } as any;
 
 
-        return s3.headObject(params, async (err: any, data: any) => {
+         s3.headObject(params, async (err: any, data: any) => {
             if (err) {
                 console.error(err);
-                return next();
+                res.end()
             }
 
 
@@ -53,14 +53,13 @@ export const getVideoStream = async (req: Request, res: Response, next: NextFunc
             const stream = s3.getObject(params).createReadStream();
 
             stream.on('error', function error(err: any) {
+                console.log('ERROORR ' + err.message);
                 res.end()
-                return next();
             });
-
             stream.on('end', () => {
                 console.log('Served by Amazon S3: ' + key);
+                res.end()
             });
-            //Pipe the s3 object to the response
             stream.pipe(res);
         });
 

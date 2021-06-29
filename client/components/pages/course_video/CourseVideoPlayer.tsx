@@ -2,15 +2,14 @@ import { useCallback, useEffect, useState } from 'react'
 import videojs from 'video.js'
 import hotkeys from 'videojs-hotkeys'
 
-const CourseVideoPlayer = () => {
+const CourseVideoPlayer = ({ src }) => {
     const [videoEl, setVideoEl] = useState(null)
     const onVideo = useCallback((el) => {
         setVideoEl(el)
     }, [])
 
 
-
-    const videoJsOptions = {
+    const [videoOptions, setVideoOptions] = useState({
         autoplay: false,
         controls: true,
         poster: "pictures/courses/card_picture.png",
@@ -21,32 +20,30 @@ const CourseVideoPlayer = () => {
         plugins: {
             hotkeys
         },
-        sources: [
+        source: [
             {
-                src: '/Videos/hero_section_animation.mp4'
+                src: `${src}`
             },
         ],
-    }
+    })
+
 
     useEffect(() => {
         if (videoEl == null) return;
-        const player = videojs(videoEl, videoJsOptions);
-
-
-        // const vid = document.createElement('video');
-        // document.body.appendChild(vid);
-        // const player = videojs(vid, videoJsOptions);
+        const player = videojs(videoEl, videoOptions);
 
         return () => {
             player.dispose()
         }
-    }, [videoJsOptions, videoEl])
+    }, [videoOptions, videoEl])
 
     return (
         <>
             <div className='course_video_player_container' >
                 <div data-vjs-player>
-                    <video ref={onVideo} className="video-js vjs-default-skin course_video_player" playsInline />
+                    <video preload="auto" ref={onVideo} className="video-js vjs-default-skin course_video_player" playsInline>
+                        {/* <source src={`${src}`} type="video/mp4" /> */}
+                    </video>
                 </div>
             </div>
         </>

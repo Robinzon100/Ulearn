@@ -1,20 +1,28 @@
 
 import { Eye } from "react-feather";
 import Head from "next/head"
+import dynamic from "next/dynamic";
 
 //! ==== OTHER IMPORTS
 import SideMenu from "components/lib/sidemenu/sideMenu";
-import CourseVideoPlayer from 'components/pages/course_video/CourseVideoPlayer';
 import CoursesJson from "public/json/Courses.json";
 import CourseTabContent from "components/pages/course_video/course_tabs/CourseTabContent";
 import { GetServerSideProps } from 'next';
 import { getCourse } from '../../../actions/client/course/course.index.action';
+import { useState } from 'react';
+
+
+const CourseVideoPlayer = dynamic(() =>
+    import('components/pages/course_video/CourseVideoPlayer'),
+    { ssr: false }
+)
 
 
 
 
-const MyCourse = () => {
+const MyCourse = ({ course }) => {
     const videoLists = CoursesJson.videoLists.Lists;
+    const [currentVideo, setCurrentVideo] = useState(course.course_content.curriculum[0].sub_videos[0].video_url)
 
 
     return (
@@ -37,40 +45,38 @@ const MyCourse = () => {
                             </p>
                         </div>
                     </div>
-
-                    <div className="courses-page--about__heading">
-                        {/* {!displayName ? null : (
-                  <p className="f-size-p5">
-                    ვიდეოს დასახელება - {displayName}
-                  </p>
-                )} */}
-                    </div>
-                    <div className="courses-container">
-                        <div className="section-courses">
-
-
-                            <div id="player" className="section-courses--video-player">
-                                <CourseVideoPlayer />
-                            </div>
-
-
-                            {/* /// TAB HEADING CONTENT */}
-                            <CourseTabContent />
+                </div>
+                <div className="courses-container">
+                    <div className="section-courses">
+                        <div id="player" className="section-courses--video-player">
+                            {/* <CourseVideoPlayer src={`${process.env.BACK_END_URL}/api/videos/videoStream/${currentVideo}`} /> */}
+                            <video
+                                preload='auto'
+                                controls src={`${process.env.BACK_END_URL}/api/videos/videoStream/${currentVideo}`}
+                                style={{
+                                    width: '100%',
+                                    height: 'auto',
+                                    objectFit: 'fill',
+                                    borderRadius: '15px',
+                                }} />
                         </div>
 
                         {/* /// TAB HEADING CONTENT */}
-                        <CourseTabContent />
+                        <CourseTabContent
+                            course={course}
+                        />
                     </div>
 
 
                     <div className="side-menu noselect ">
-                        {videoLists.map((data, i) => (
+                        {course.course_content.curriculum.map((data, i) => (
                             <SideMenu
                                 id={i}
                                 key={i}
                                 name={data.name}
                                 courseChapterTime={45}
-                                content={data.subTitles}
+                                content={data.sub_videos}
+                                onChange={(videoUrl) => setCurrentVideo(videoUrl)}
                             />
                         ))}
                     </div>
