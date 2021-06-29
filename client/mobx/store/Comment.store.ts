@@ -1,27 +1,34 @@
 import { makeObservable, observable } from 'mobx';
+import User from '../../../server/models/user/user.model';
 
 
 interface IComments {
-    id:number;
-    userId:number;
-    course_id:number;
-    text:string;
-    rating:number;
-    likes:number;
-    dislikes:number;
-    liked_by_instructor:boolean
+    id: number;
+    user_id: number;
+    course_id: number;
+    text: string;
+    rating: number;
+    likes: number;
+    dislikes: number;
+    liked_by_instructor: boolean,
+    user: User
+}
+
+interface ICurrentComments {
+    text: string,
+    rating: number
 }
 
 
 export class CommentStore {
-    comment: {
-        ratingComments:IComments[]
-    }
+    ratingComments: IComments[]
+    currentComment: ICurrentComments
+    courseId: number
 
 
     constructor() {
         makeObservable(this, {
-            comment: observable
+            ratingComments: observable
         })
     }
 }

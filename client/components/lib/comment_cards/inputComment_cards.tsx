@@ -3,6 +3,10 @@ import TextArea from "components/lib/textarea/TextArea";
 import Button from "../button/Button";
 import { useState } from "react";
 import HoverableStars from 'components/lib/svg/HoverableStars';
+import { useCommentStore } from '../../../mobx/commentContext';
+import { observer } from "mobx-react-lite";
+import { authenticatedRequest } from '../../utils/auth/tokenValidations';
+import { postComment } from "actions/client/course/course.index.action";
 
 
 
@@ -22,16 +26,37 @@ interface IInputCommentCards {
 
 
 
-const InputCommentCards = (
-    { id, full_name, image_url, rating, getCommentBody, addComment }: IInputCommentCards) => {
+const InputCommentCards = observer(({ id, full_name, image_url, rating, getCommentBody, getCurrentRating, addComment }: IInputCommentCards) => {
+    const { commentStore } = useCommentStore()
+    const [error, setError] = useState(false)
 
 
-    const [answer, setAnswer] = useState("");
+    const handleComment = async () => {
+        if (commentStore.currentComment.text.length <= 0) {
+            setError(true)
+        }
 
-    // === GETTING CURRENT COMMENT BODY
-    const setCommentBody = () => {
-        getCommentBody(answer)
-    };
+        setError(false)
+        const newComment = await authenticatedRequest(postComment, {
+            courseId: commentStore.courseId,
+            comment: {
+                text: commentStore.currentComment.text,
+                rating: commentStore.currentComment.rating
+            }
+        }, null)
+
+        console.log(newComment);
+
+
+        if (newComment.statusCode != 403) {
+            commentStore.ratingComments.unshift(newComment)
+            commentStore.currentComment.text = ''
+            commentStore.currentComment.rating = 0
+        } else {
+            setError(true)
+        }
+    }
+
 
     return (
 
@@ -52,8 +77,10 @@ const InputCommentCards = (
                     <div className="about_user--star">
                         <HoverableStars
                             starWidth={20}
-                            numberOfStars={rating}
-                            // getCurrentRating={ }
+                            numberOfStars={commentStore.currentComment.rating}
+                            getCurrentRating={(rating) => {
+                                commentStore.currentComment.rating = rating
+                            }}
                         />
                     </div>
                 </div>
@@ -68,13 +95,22 @@ const InputCommentCards = (
                         placeHolder="დაწერეთ კონენტარი"
                         className="f-size-p5 f-weight-m send-answer-input"
                         width="100%"
-                        onChange={(e) => setAnswer(e.target.value)}
+                        onChange={(e) => {
+                            commentStore.currentComment.text = e.target.value
+                        }}
                     />
+                    {error && (
+                        <p className="form_errors f-size-p6 f-weight-r">
+                            თქვენ უკვე მიეცით შეფასება ამ კურს ან ცარიელია კომენტარი ველი
+                        </p>
+                    )}
                 </div>
 
                 <div className="add_btn">
                     <Button
-                        onClick={() => { addComment(); setCommentBody() }}
+                        onClick={() => {
+                            handleComment()
+                        }}
                         color="green"
                         size="medium"
                         disabled={false}
@@ -87,6 +123,6 @@ const InputCommentCards = (
         </div>
 
     );
-};
+})
 
 export default InputCommentCards;

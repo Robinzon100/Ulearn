@@ -15,6 +15,8 @@ import InputCommentCards from "components/lib/comment_cards/inputComment_cards";
 import Button from "components/lib/button/Button";
 import { downloadZipFileWithS3Key } from '../../../utils/file/zipFile.utils';
 import { Folder } from 'react-feather';
+import { observer } from 'mobx-react-lite';
+import { useCommentStore } from "mobx/commentContext";
 
 
 
@@ -24,12 +26,13 @@ import { Folder } from 'react-feather';
 
 
 
-const CourseTabContent = ({ course, user }) => {
+const CourseTabContent = observer(({ course, user }: any) => {
+    let { commentStore } = useCommentStore()
+
+
     const questions = CoursesJson.questionAnswers.questionAnswers;
     const comments = CoursesJson.ratings.ratings;
-
     const [commentBody, setCommentBody] = useState("")
-
     const [userComments, setUserComments] = useState<any>(comments)
 
 
@@ -61,24 +64,12 @@ const CourseTabContent = ({ course, user }) => {
                         tabNamesAndIcons={MyCourseTabHeading}
                         rawHtml={[
                             course.detailed_description,
-                            "",
                             '',
                             "",
                         ]}
                         component={[
                             null,
-                            <>
-                                {questions.map((data) => (
-                                    <QuestionAnswerCards
-                                        id={data.id}
-                                        key={data.id}
-                                        imageUrl={data.imageUrl}
-                                        userName={data.userName}
-                                        text={data.text}
-                                        replies={data.replies}
-                                    />
-                                ))}
-                            </>,
+
                             <>
                                 <Button
                                     className="get-resources-btn"
@@ -93,33 +84,34 @@ const CourseTabContent = ({ course, user }) => {
                             </>,
 
                             <>
-                                <InputCommentCards
-                                    id={user.id}
-                                    full_name={user.full_name}
-                                    rating={user.rating}
-                                    image_url={user.image_url}
-                                    getCommentBody={(value) => setCommentBody(value)}
-                                    addComment={() => addComment()}
-                                />
+                                {commentStore.ratingComments &&
+                                    <>
+                                        <InputCommentCards
+                                            id={user.id}
+                                            full_name={user.full_name}
+                                            rating={user.rating}
+                                            image_url={user.image_url}
+                                            getCommentBody={(value) => setCommentBody(value)}
+                                            addComment={() => addComment()}
+                                        />
 
-                                {userComments.map(el => (
-                                    <CommentCards
-                                        key={el.id}
-                                        id={el.id}
-                                        full_name={el.full_name}
-                                        comment={el.comment}
-                                        image_url={el.image_url}
-                                        rating={el.rating}
-                                        getCurrentRating={(value, id) => getCurrentRating(value, id)}
-                                    // like={el.like}
-                                    // dislike={el.dislike}
-                                    // isLikedByInstructor={el.isLikedByInstructor}
-                                    />
-
-                                ))}
-                            </>
-
-
+                                        {commentStore.ratingComments.map(el => (
+                                            <CommentCards
+                                                key={el.id}
+                                                id={el.id}
+                                                full_name={el.user.full_name}
+                                                comment={el.text}
+                                                image_url={el.user.image_url}
+                                                rating={el.rating}
+                                                getCurrentRating={(value, id) => getCurrentRating(value, id)}
+                                            // like={el.like}
+                                            // dislike={el.dislike}
+                                            // isLikedByInstructor={el.isLikedByInstructor}
+                                            />
+                                        ))}
+                                    </>
+                                }
+                            </>,
                         ]}
 
                     />
@@ -127,6 +119,6 @@ const CourseTabContent = ({ course, user }) => {
             </div>
         </>
     );
-};
+})
 
 export default CourseTabContent;

@@ -70,7 +70,6 @@ const NewCourse = observer(() => {
         const newCourse = JSON.parse(JSON.stringify(newCourseStore.newCourseData))
         const res = await authenticatedRequest(postNewCourse, newCourse, null)
         console.log(res);
-
     }
 
 
@@ -116,7 +115,7 @@ const NewCourse = observer(() => {
                             size="large"
                             color="blue"
                             onClick={() => submitHandler()}>
-                            <p className="f-weight-r f-size-p4 ">გაგზავნა</p>
+                            <p className="f-weight-r f-size-p4 ">შენახვალ</p>
                         </Button>
 
                     </div>

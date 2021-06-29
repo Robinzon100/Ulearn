@@ -9,15 +9,6 @@ export const MyCourseTabHeading =  [
         }
     },
     {
-        title: 'კითხვა-პასუხი',
-        icon: {
-            name: 'HelpCircle',
-            strokeWidth: 2,
-            fill: 'var(--primary-white)',
-            stroke:"var(--primary-red)"
-        }
-    },
-    {
         title: 'რესურსები',
         icon: {
             name: 'Folder',
