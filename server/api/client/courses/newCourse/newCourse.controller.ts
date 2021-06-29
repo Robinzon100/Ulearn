@@ -9,6 +9,7 @@ import customError from '../../../../utils/createError';
 
 export const postNewCourse = async (req: Request, res: Response, next: NextFunction) => {
     const { courseInfo, curriculum } = req.body
+
     try {
         // console.log({ courseInfo, curriculum });
 
@@ -24,6 +25,7 @@ export const postNewCourse = async (req: Request, res: Response, next: NextFunct
         courseInfo.course_content_id = courseContent.id
         courseInfo.sub_sub_category_id = 1
         courseInfo.creator_id = req.user[0].id
+
         const postedCourse = await Course.query().insertAndFetch(courseInfo)
 
 

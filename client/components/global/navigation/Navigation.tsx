@@ -153,8 +153,8 @@ const Navigation = () => {
             {/* //* ======= BECOME LECTURE ===== */}
 
             <div className="become-lectore">
-              <NextLink route="/course_video" className="link">
-                <p className="f-weight-r f-size-p6">გაკვეთილები</p>
+              <NextLink route="mailto:info@ulearn.com" className="link">
+                <p className="f-weight-r f-size-p6">გახდი ლექტორი</p>
               </NextLink>
             </div>
 

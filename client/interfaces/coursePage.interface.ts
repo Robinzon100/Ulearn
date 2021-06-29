@@ -5,86 +5,88 @@
 
 //!  about course 
 export interface AboutCourse {
-    title:string,
-    peopleWatched:number
+  title: string,
+  peopleWatched: number
 }
 
 
 
 //! video content
 interface subTitle {
-    id: number,
-    name?: string,
-    videoUrl?: string,
-    duration?: number
+  id: number,
+  name?: string,
+  video_url?: string,
+  duration?: number
 }
 
 
 export interface videoList {
-    id: number;
-    name: string;
-    courseChapterTime?: number;
-    displayVideoNames?:any
-    content: subTitle[];
-    // handleClick:any
+  id: number;
+  name: string;
+  courseChapterTime?: number;
+  displayVideoNames?: any
+  content: subTitle[];
+  onChange?: any,
+  isDisabled?: boolean
+  // handleClick:any
 }
 
 
 //====================================================
 
-  //! description tab
-  export interface Description_type {
-    html: string;
-  }
+//! description tab
+export interface Description_type {
+  html: string;
+}
 
 
 
-  //! question tab
-  interface Answer {
-    userName: string,
-    imageUrl: string,
-    datePosted: string,
-    text:string,
-  }
+//! question tab
+interface Answer {
+  userName: string,
+  imageUrl: string,
+  datePosted: string,
+  text: string,
+}
 
-  interface Question {
-    userName: string,
-    imageUrl: string,
-    datePosted: string,
-    text:string,
-    amountOfAnswer: number,
-    answers: Answer[]
-  }
+interface Question {
+  userName: string,
+  imageUrl: string,
+  datePosted: string,
+  text: string,
+  amountOfAnswer: number,
+  answers: Answer[]
+}
 
-  export interface QuestionAnswer_type {
-    questionAnswers: Question[];
-  }
-
-
-  //! resources tab
-  interface Resource {
-    title: string,
-    filePath: string
-  }
-
-  export interface Resources_type {
-    html: string;
-    resource: Resource
-  }
+export interface QuestionAnswer_type {
+  questionAnswers: Question[];
+}
 
 
- //! resources tab
-  interface Rating{
-    userName: string,
-    datePosted: string,  
-    amountOfStars: number,
-    comment: string,
-    dislike: number,
-    like: number,
-    isLikedByInstructor: boolean
-    imageUrl:string
-  }
- 
-  export interface Estimates_type {
-    ratings: Rating[];
-  }
+//! resources tab
+interface Resource {
+  title: string,
+  filePath: string
+}
+
+export interface Resources_type {
+  html: string;
+  resource: Resource
+}
+
+
+//! resources tab
+interface Rating {
+  userName: string,
+  datePosted: string,
+  amountOfStars: number,
+  comment: string,
+  dislike: number,
+  like: number,
+  isLikedByInstructor: boolean
+  imageUrl: string
+}
+
+export interface Estimates_type {
+  ratings: Rating[];
+}

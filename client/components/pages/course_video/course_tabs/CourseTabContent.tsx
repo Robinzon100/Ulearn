@@ -12,6 +12,9 @@ import { MyCourseTabHeading } from "components/pages/course_video/course_tabs/My
 
 import Tabs from "components/lib/tabs/Tabs";
 import InputCommentCards from "components/lib/comment_cards/inputComment_cards";
+import Button from "components/lib/button/Button";
+import { downloadZipFileWithS3Key } from '../../../utils/file/zipFile.utils';
+import { Folder } from 'react-feather';
 
 
 
@@ -21,7 +24,7 @@ import InputCommentCards from "components/lib/comment_cards/inputComment_cards";
 
 
 
-const CourseTabContent = () => {
+const CourseTabContent = ({ course }) => {
   const questions = CoursesJson.questionAnswers.questionAnswers;
   const userComments = CoursesJson.ratings.ratings;
 
@@ -31,7 +34,7 @@ const CourseTabContent = () => {
     console.log(value)
     setTakenCommentVal(value)
   }
- 
+
 
   return (
     <>
@@ -40,20 +43,20 @@ const CourseTabContent = () => {
           <Tabs
             tabNamesAndIcons={MyCourseTabHeading}
             rawHtml={[
-              "<h1>ამ კურსის სწავლებით შეძლებთ რომ ისწავლოთ javascript</h1><br /><br /><p>კურსის დასაწყისში ვისწავლით თუ რას წარმოადგენს ეს პროგრამირების ენა და რატო გვჭირდება ვებ-დეველოპერებს.</p><br /><br /><br /><p>გავივლით ყველაზე ძირითად თემებს როგორიცაა:</p><br /><ul><li><p>javascrip ენის სინტაქსი და პროგრამირების ძირითადებ</p></li><li><p>რა არის DOM და DOM მანიპულირება</p></li><li><p>ინტერაქიულობის შექმნა</p></li><li><p>სხვა და სხვა ტიპი even-ები და მათი დანიშნულება</p></li><li><p>რთული ინტერაქტივები</p></li></ul><hr /><p>ამ კურსზე შევქმნით თვენი პორფოლიოსთვის პროექტებს რომელიცსაშუალებას მოგცემს რომ დაიწყოთ ამ ინდუსტრიში მუშობა,როგორც კომპანიაში ასევე თვენივე ბიზნესში.</p><br /><br /><br /><img></img><br /><br/><p>ეს არის ერთერთი პროექტის სურათი რომელსაც ჩვენ გავაკეთებთდა ყველა ელემენტს დიდი ყურადღებას მივაქცევთ და საჭირო ელემენტებს გავდით ინტერაქტულს რათა თქვენმა მომხმარებელმა მაქსიმალურად დიდხანს ისარგებლოს თვენი საიტის სერვისით და შდაბეჭდილება მოახდინოს.</p><br /><br /><br /><p><span>იმ შემთხვევაში თუ არ იცით რა არის HTML ან CSS</span>შეგიძლიათ ნახოთ ჩემი სხვა კურსი სადაც დეტალურად ვხსნი ამ ორ ენას </p>",
+              course.detailed_description,
               "",
-              '<h1>ვიდეოზე ნახსენები საიტების და დამატებითი რესურსების ლინკები, ასევე ამ ვიდეოში დაწერილი კოდის ფაილები</h1><br/><p>vs code გადმოსაწერილი ლინკი : <a href="https://vscode.com">https://vscode.com</a></p> <p>ვიდეოში ნანახი ბლოგპოსტის ლინკი: <a href="https://medium.com"> https://medium.com</a></p>',
+              '',
               "",
             ]}
             component={[
               null,
               <>
-              <InputCommentCards
-                    id={1}
-                    key={1}
-                    name={"ბექა არაბიძე"}
-                    rating={2}
-                    onChange={(value) => inputCommentCardsValue(value)}
+                <InputCommentCards
+                  id={1}
+                  key={1}
+                  name={"ბექა არაბიძე"}
+                  rating={2}
+                  onChange={(value) => inputCommentCardsValue(value)}
                 />
                 {questions.map((data) => (
                   <QuestionAnswerCards
@@ -66,33 +69,42 @@ const CourseTabContent = () => {
                   />
                 ))}
               </>,
-              null,
+              <>
+                <Button
+                  className="course-form-btn"
+                  width="41rem"
+                  size="large"
+                  color="green"
+                  icon={<Folder fill={'white'} />}
+                  onClick={() => downloadZipFileWithS3Key(course.resource_file_url)}
+                >
+                  <p className="f-weight-r f-size-p4 ">რესურსების zip ფაილი</p>
+                </Button>
+              </>,
 
               <>
-              
-              <InputCommentCards
-                    id={1}
-                    key={1}
-                    name={"ბექა არაბიძე"}
-                    rating={2}
-                    onChange={(value) => inputCommentCardsValue(value)}
+                <InputCommentCards
+                  id={1}
+                  key={1}
+                  name={"ბექა არაბიძე"}
+                  rating={2}
+                  onChange={(value) => inputCommentCardsValue(value)}
                 />
 
                 {userComments.map(rating => (
-                
-                    <CommentCards
-                      key={rating.id}
-                      id={rating.id}
-                      name={rating.userName}
-                      registrationDay={rating.datePosted}
-                      addedComment={rating.comment}
-                      imageUrl={rating.imageUrl}
-                      rating={rating.amountOfStars}
-                      like={rating.like}
-                      dislike={rating.dislike}
-                      isLikedByInstructor={rating.isLikedByInstructor}
-                    />
-                  
+                  <CommentCards
+                    key={rating.id}
+                    id={rating.id}
+                    name={rating.userName}
+                    registrationDay={rating.datePosted}
+                    addedComment={rating.comment}
+                    imageUrl={rating.imageUrl}
+                    rating={rating.amountOfStars}
+                    like={rating.like}
+                    dislike={rating.dislike}
+                    isLikedByInstructor={rating.isLikedByInstructor}
+                  />
+
                 ))}
               </>,
             ]}
