@@ -20,23 +20,20 @@
     width: 100%;
 
     :not(:last-child) {
-      margin-right: 4.5rem;
+      margin-right: 3.5rem;
     }
   }
 
   .login-profile {
     @include flex(flex-end, center);
-    max-width: 56rem;
+    max-width: 60rem;
     width: 100%;
 
 
     .course-page,.become-lectore,.profile{
         margin-right: 4.5rem;
     }
-    
-    // .login {
-    //     margin-left: 4.5rem;
-    // }
+
   }
   
 

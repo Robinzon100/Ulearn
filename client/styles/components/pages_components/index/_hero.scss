@@ -83,11 +83,11 @@ $hero-paragraph-margin: 0vw 0vw 3vw 0vw;
   }
 }
 
-//! ეს არის ჰიროუზე რომ მარცხნივ კოლოფია მისი ფილტრი
+// //! ეს არის ჰიროუზე რომ მარცხნივ კოლოფია მისი ფილტრი
 @supports ((-webkit-backdrop-filter: blur(47px)) or (filter: blur(47px))) {
   .hero--steps {
     background: rgba(207, 207, 207, 0.26);
-    box-shadow: inset 0px 0px 10px rgba(255, 255, 255, 0.4);
+    box-shadow: inset 0px 0px 10px rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(47px);
-  }
+    }
 }

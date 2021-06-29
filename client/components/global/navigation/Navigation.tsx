@@ -97,6 +97,7 @@ const Navigation = () => {
                 icon={<Search size={20} />}
                 width="100%"
                 disabled={false}
+                maxWidth="50rem"
               />
             </div>
           </div>
@@ -130,8 +131,7 @@ const Navigation = () => {
                 onMouseLeave={() => {
                   setIsToggled(false);
                   setIsMouseLeftCategory(false);
-                }}
-              >
+                }}>
                 <Category categories={data.categories} />
               </div>
             )}

@@ -148,12 +148,28 @@ const UserInfo = ({ full_name, email, description, socials, image_url,verified }
             )}
             </div>
 
+                
+
+
+
+
+             {image_url.length == 0 &&
+                <h1 className="form_errors f-size-p6 f-weight-r" 
+                style={{marginBottom:"2rem"}}>
+                    დაამატეთ პროფილის სურათი
+                </h1>
+             }
+
+
+
+
+
 
             {/* // FILE UPLOAD */}
             {isEditable &&
               (
                 <>
-                <h2 className="f-size-p7 f-weight-bl" style={{opacity:"60%",fontStyle:"italic"}}>
+                <h2 className="f-size-p7 f-weight-bl" style={{opacity:"60%"}}>
                     (სურათი უნდა იყოს 30კბ - ზე  ნაკლები)
                 </h2>
                 <FileUpload
@@ -186,9 +202,6 @@ const UserInfo = ({ full_name, email, description, socials, image_url,verified }
                 </p>
               </div>
             )}
-
-
-
 
 
 

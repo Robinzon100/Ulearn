@@ -1,28 +1,39 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 
 import Button from "components/lib/button/Button";
 import { ChevronDown} from 'react-feather';
 
 
 const Hero: FC = () => {
+    const [firefox, setFirefox] = useState<boolean>(false)
+
+    useEffect(() => {
+        setFirefox(navigator.userAgent.search('Firefox') > -1)
+    }, [firefox])
+
+
 
   return (
     <>
 
-      <section className="hero">
+      <section className="hero" 
+      style={{filter:`${firefox ? "none" : "url(#offset)"}`}}>
+
         <div className="hero--mobile-bg"></div>
         <div className="hero--steps">
           <div className="hero--steps__heading">
-            <h1 className="f-size-h5">
-              რაღაცა ტექსტი იქნება აქ რომელიც აღწერს სერვის
-            </h1>
+            <h3 className="f-size-h4 f-weight-bl c-primary-white">
+              ჩვენ ვასწავლით 
+            <br/>
+              თქვენ სწავლობთ
+            </h3>
           </div>
           <div className="hero--steps__line"></div>
           <div className="hero--steps__paragraph">
             <p className="f-size-p5">
-              რაიმე პატარა ტექსტი რომელიც უფრო დეტალურად აღწერს რას აკეთებს
-              საიტი და ისეთი სიტყვები იქნება რაც SEO-ს დაევასება და googl-იც
-              მაღლა აგვაგდებს
+              Ulearn არის თანამედროვე ონლაინ სასწავლო კურსების პლათფორმა,სადაც 
+              ნებისმიერი მომხმარებელი შეძლებს,რომ მიიღოს პროფესიული დონის განათლება 
+              და გამოცდილება.
             </p>
           </div>
           <div className="hero--steps__btn">

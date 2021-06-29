@@ -13,7 +13,7 @@ const SideCategories: React.FC<Categories> = ({ categories }) => {
   return (
       <div className="category_container">
         <ul>
-        <NextLink route="/courses" className="f-size-p4">
+        {/* <NextLink route="/courses" className="f-size-p4">
 
           <li className="category_main--name categoryAll">
             <p className="f-size-p4">ყველა</p>
@@ -22,7 +22,7 @@ const SideCategories: React.FC<Categories> = ({ categories }) => {
               <p className="f-size-p7">20</p>
             </div>
           </li>
-        </NextLink>
+        </NextLink> */}
 
 
           {categories.main_categories?.map((data) => (
@@ -35,9 +35,9 @@ const SideCategories: React.FC<Categories> = ({ categories }) => {
               <li className="names category_main">
                 {data.name}
 
-                <div className="category_main--number">
+                {/* <div className="category_main--number">
                   <p className="f-size-p7">20</p>
-                </div>
+                </div> */}
               </li>
             </NextLink>
           ))}
