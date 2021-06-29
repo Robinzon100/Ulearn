@@ -4,12 +4,12 @@ export const ProfileTabHeading =  [
         icon: {
             name: 'Heart',
             strokeWidth: 2,
-            fill: 'var(--primary-red)',
+            fill: 'var(--primary-white)',
             stroke:"var(--primary-red)"
         }
     },
     {
-        title: 'რაღაცა',
+        title: 'სტატები',
         icon: {
             name: 'Clipboard',
             strokeWidth: 2,
@@ -18,21 +18,12 @@ export const ProfileTabHeading =  [
         }
     },
     {
-        title: 'რაღაცა',
+        title: 'ბმულები',
         icon: {
-            name: 'Camera',
+            name: 'Link',
             strokeWidth: 2,
             fill: 'var(--primary-white)',
-            stroke:"blue"
-        }
-    },
-    {
-        title: 'რაღაცა',
-        icon: {
-            name: 'Eye',
-            strokeWidth: 2,
-            fill: 'var(--primary-white)',
-            stroke:"blue"
+            stroke:"black"
         }
     }
 ]
