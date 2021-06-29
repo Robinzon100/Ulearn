@@ -106,6 +106,13 @@ const CurriculumVideoComponent = observer(({ id, sub_videos, onClick, onRemove, 
 
 
                             <div className="video-upload-section">
+                              <div className="heading">
+                              <h2 className="f-size-p7 f-weight-bl" 
+                              style={{opacity:"60%",fontStyle:"italic"}}>
+                                ( ვიდეო უნდა იყოს 50MB - ზე ნაკლები )
+                            </h2>
+                            </div>  
+                            
                                 <FileUpload
                                     key={el.id}
                                     height="18rem"

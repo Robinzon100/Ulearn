@@ -124,6 +124,7 @@ const CourseForm = observer(() => {
                         </div>
 
                         <Input
+                            className="c-secondary-dark-yellow"
                             size="large"
                             name="name"
                             width="100%"
@@ -358,7 +359,7 @@ const CourseForm = observer(() => {
                             <h1 className="f-size-p5 f-weight-bl">
                                 კურსის სურათი
                             </h1>
-                            <h2 className="f-size-p7 f-weight-bl">(სურათი უნდა იყოს 300კბ ნაკლები)</h2>
+                            <h2 className="f-size-p7 f-weight-bl">(სურათი უნდა იყოს 300კბ - ზე  ნაკლები)</h2>
                         </div>
 
                         <div className="course-image__container">

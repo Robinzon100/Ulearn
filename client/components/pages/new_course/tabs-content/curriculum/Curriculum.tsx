@@ -49,11 +49,11 @@ const Curriculum = observer(() => {
             newCourseStore.newCourseData.curriculum.push(
                 {
                     id: lastChapterId + 1,
-                    name: "თავის სახელწოდება",
+                    name: "თავის სახელი",
                     sub_videos: [
                         {
                             id: 1,
-                            name: "ვიდეოს სახელწოდება",
+                            name: "ვიდეოს სახელი",
                             duration: 0,
                             video_url: "",
                         },
@@ -71,7 +71,7 @@ const Curriculum = observer(() => {
             newCourseStore.newCourseData.curriculum[id].sub_videos.push(
                 {
                     id: lastSubVideoId + 1,
-                    name: "ვიდეოს სახელწოდება",
+                    name: "ვიდეოს სახელი",
                     duration: 0,
                     video_url: ""
                 }

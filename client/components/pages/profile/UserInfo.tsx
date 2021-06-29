@@ -152,6 +152,10 @@ const UserInfo = ({ full_name, email, description, socials, image_url,verified }
             {/* // FILE UPLOAD */}
             {isEditable &&
               (
+                <>
+                <h2 className="f-size-p7 f-weight-bl" style={{opacity:"60%",fontStyle:"italic"}}>
+                    (სურათი უნდა იყოს 30კბ - ზე  ნაკლები)
+                </h2>
                 <FileUpload
                   height="18rem"
                   uploadSize={300}
@@ -167,6 +171,7 @@ const UserInfo = ({ full_name, email, description, socials, image_url,verified }
                     uploadAndRead(e)
                   }}
                 />
+                </>
               )
             }
 

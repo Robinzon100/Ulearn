@@ -26,7 +26,8 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
     filled = true,
     autoComplate = "",
     maxLength,
-    minLength
+    minLength,
+    maxWidth
   }, ref: React.Ref<HTMLInputElement | null>,) => {
 
 
@@ -95,6 +96,7 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
                 border-radius: 8px;
                 outline: none !important;
                 width: 100%;
+                max-width:${maxWidth};
                 transition: all 0.1s cubic-bezier(0, 1.06, 0.37, 0.38);
               }
               .input_field:disabled {

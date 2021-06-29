@@ -49,11 +49,11 @@ const NewCourse = observer(() => {
             curriculum: [
                 {
                     id: 0,
-                    name: "ჯავასკრიპტი",
+                    name: "თავის სახელი",
                     sub_videos: [
                         {
                             id: 0,
-                            name: "მეტი ჯავასკრიპტზე",
+                            name: "ვიდეოს სახელი",
                             duration: 0,
                             video_url: "",
                         },

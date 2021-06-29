@@ -7,7 +7,7 @@ import { observer } from 'mobx-react-lite';
 import { useNewCourseStore } from "mobx/newCourseStateContext";
 import { authenticatedRequest } from "components/utils/auth/tokenValidations";
 import { postCourseImage } from "actions/client/course/newCourse/courseInfo.action";
-import { downloadZipFileWithS3Key } from '../../../../utils/file/zipFile.utils';
+// import { downloadZipFileWithS3Key } from '../../../../utils/file/zipFile.utils';
 
 
 

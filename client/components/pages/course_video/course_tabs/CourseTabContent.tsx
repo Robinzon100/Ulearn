@@ -75,6 +75,7 @@ const CourseTabContent = () => {
                     key={1}
                     name={"ბექა არაბიძე"}
                     rating={2}
+                    imageUrl="https://images.pexels.com/photos/3310695/pexels-photo-3310695.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                     onChange={(value) => inputCommentCardsValue(value)}
                 />
 

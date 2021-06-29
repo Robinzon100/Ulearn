@@ -1,6 +1,6 @@
 
 import TextArea from "components/lib/textarea/TextArea";
-import Stars from "components/lib/svg/Stars";
+import HoverableStars from "components/lib/svg/HoverableStars";
 import Button from "../button/Button";
 import { useState } from "react";
 
@@ -20,7 +20,7 @@ interface IInputCommentCards {
 
 
 
-const InputCommentCards = ({ id, name, rating, imageUrl, onChange, }: IInputCommentCards) => {
+const InputCommentCards = ({ id, name, imageUrl, onChange, }: IInputCommentCards) => {
     //   const [userCommentValue, setUserCommentValue] = useState("")
 
 
@@ -44,7 +44,7 @@ const InputCommentCards = ({ id, name, rating, imageUrl, onChange, }: IInputComm
                     <h1>{name}</h1>
 
                     <div className="about_user--star">
-                        <Stars starWidth={17} numberOfStars={rating} />
+                    <HoverableStars starWidth={20} numberOfStars={4} />
                     </div>
                 </div>
 

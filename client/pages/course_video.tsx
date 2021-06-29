@@ -57,7 +57,7 @@ const MyCourse = () => {
             </div>
 
             {/* /// TAB HEADING CONTENT */}
-            <CourseTabContent />
+            {/* <CourseTabContent /> */}
           </div>
 
 
