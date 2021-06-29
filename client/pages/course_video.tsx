@@ -1,5 +1,5 @@
 
-import { Eye} from "react-feather";
+import { Eye } from "react-feather";
 import Head from "next/head"
 
 //! ==== OTHER IMPORTS
@@ -17,60 +17,58 @@ const MyCourse = () => {
 
   return (
     <>
-    <Head>
-        <script src="js/player.js" async defer/>
+      <Head>
+        <script src="js/player.js" async defer />
       </Head>
 
 
-        <div className="courses-page">
-          <div className="courses-page--about">
-            <div className="courses-page--name">
-              <p className="f-size-p5">
-                <strong>ვიდეო გაკვეთილები</strong>
+      <div className="courses-page">
+        <div className="courses-page--about">
+          <div className="courses-page--name">
+            <p className="f-size-p5">
+              <strong>ვიდეო გაკვეთილები</strong>
+            </p>
+            <div className="viewers">
+              <Eye size={17} />
+              <p className="f-size-p7 f-weight-b">
+                {CoursesJson.aboutCourses.aboutCourse.peopleWatched}
               </p>
-              <div className="viewers">
-                <Eye size={17} />
-                <p className="f-size-p7 f-weight-b">
-                  {CoursesJson.aboutCourses.aboutCourse.peopleWatched}
-                </p>
-              </div>
             </div>
+          </div>
 
-            <div className="courses-page--about__heading">
-              {/* {!displayName ? null : (
+          <div className="courses-page--about__heading">
+            {/* {!displayName ? null : (
                 <p className="f-size-p5">
                   ვიდეოს დასახელება - {displayName}
                 </p>
               )} */}
-            </div>
-          </div>
-          <div className="courses-container">
-            <div className="section-courses">
-
-              <div id="player" className="section-courses--video-player">
-                <CourseVideoPlayer />
-              </div>
-              
-              {/* /// TAB HEADING CONTENT */}
-              <CourseTabContent/>
-            </div>
-            
-            
-            <div className="side-menu noselect ">
-                {videoLists.map((data, i) => (
-                  <SideMenu
-                    id={i}
-                    key={i}
-                    name={data.name}
-                    courseChapterTime={45}
-                    content={data.subTitles}
-                  />
-                ))}
-              </div>
           </div>
         </div>
+        <div className="courses-container">
+          <div className="section-courses">
+
+            <div id="player" className="section-courses--video-player">
+              <CourseVideoPlayer />
+            </div>
+
+            {/* /// TAB HEADING CONTENT */}
+            <CourseTabContent />
+          </div>
 
 
+          <div className="side-menu noselect ">
+            {videoLists.map((data, i) => (
+              <SideMenu
+                id={i}
+                key={i}
+                name={data.name}
+                courseChapterTime={45}
+                content={data.subTitles}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
     </>
   );
 };
