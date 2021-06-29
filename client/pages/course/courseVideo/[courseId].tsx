@@ -1,29 +1,50 @@
 
 import { Eye } from "react-feather";
 import Head from "next/head"
-import dynamic from "next/dynamic";
+import { useEffect, useState } from 'react';
 
-//! ==== OTHER IMPORTS
+// import dynamic from "next/dynamic";
+
+
+
+//! ==== COMPONENTS
 import SideMenu from "components/lib/sidemenu/sideMenu";
 import CoursesJson from "public/json/Courses.json";
 import CourseTabContent from "components/pages/course_video/course_tabs/CourseTabContent";
 import { GetServerSideProps } from 'next';
+
+//! ==== ACTIONS
+import { getUser } from "actions/client/user/profile/profile.action";
 import { getCourse } from '../../../actions/client/course/course.index.action';
-import { useState } from 'react';
+import { authenticatedRequest } from "components/utils/auth/tokenValidations";
+import { useCommentStore } from "mobx/commentContext";
 
 
-const CourseVideoPlayer = dynamic(() =>
-    import('components/pages/course_video/CourseVideoPlayer'),
-    { ssr: false }
-)
+// const CourseVideoPlayer = dynamic(() =>
+//     import('components/pages/course_video/CourseVideoPlayer'),
+//     { ssr: false }
+// )
 
 
 
 
-const MyCourse = ({ course }) => {
-    const videoLists = CoursesJson.videoLists.Lists;
+const MyCourse = ({ course,user }) => {
     const [currentVideo, setCurrentVideo] = useState(course.course_content.curriculum[0].sub_videos[0].video_url)
 
+    let { commentStore } = useCommentStore()
+
+
+
+
+    useEffect(() => {
+        // console.log(user)
+
+        // commentStore.comment = [{
+
+        // }]
+
+
+    }, [])
 
     return (
         <>
@@ -64,6 +85,7 @@ const MyCourse = ({ course }) => {
                         {/* /// TAB HEADING CONTENT */}
                         <CourseTabContent
                             course={course}
+                            user={user}
                         />
                     </div>
 
@@ -91,6 +113,7 @@ const MyCourse = ({ course }) => {
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
     const { courseId } = ctx.params;
     const { course, statusCode } = await getCourse(courseId);
+    const { user } = await authenticatedRequest(getUser, null, ctx);
 
 
     if (statusCode != 200) {
@@ -105,6 +128,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     return {
         props: {
             course,
+            user
         },
     };
 }

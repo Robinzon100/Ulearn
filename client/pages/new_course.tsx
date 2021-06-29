@@ -135,7 +135,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
     const { auth_access_token } = cookie.parse(`${ctx.req.headers.cookie}`)
     if (auth_access_token) {
-        const res = await authenticatedRequest(getUser, null, ctx)
+        const res = await authenticatedRequest(getUser, null, ctx);
 
         // TODO: add condition if the user is authanticated
 

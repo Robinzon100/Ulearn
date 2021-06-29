@@ -12,7 +12,7 @@ import BottomNavigation from "components/global/bottom-navigation/BottomNavigati
 import { RootStateProvider } from '../mobx/RootStateContext';
 import { swrOptions } from '../constants/swrOptions';
 import { NewCourseStateProvider } from 'mobx/newCourseStateContext';
-
+import { CommentProvider } from 'mobx/commentContext';
 
 
 
@@ -32,15 +32,17 @@ function MyApp({ Component, pageProps }: AppProps) {
             />
             <SWRConfig value={swrOptions}>
                 <NewCourseStateProvider>
-                    <RootStateProvider>
-                        <CookiesProvider>
-                            <Navigation />
-                            <main className='main'>
-                                <Component {...pageProps} />
-                            </main>
-                            <BottomNavigation />
-                        </CookiesProvider>
-                    </RootStateProvider>
+                    <CommentProvider>
+                        <RootStateProvider>
+                            <CookiesProvider>
+                                <Navigation />
+                                <main className='main'>
+                                    <Component {...pageProps} />
+                                </main>
+                                <BottomNavigation />
+                            </CookiesProvider>
+                        </RootStateProvider>
+                    </CommentProvider>
                 </NewCourseStateProvider>
             </SWRConfig>
         </>
