@@ -83,12 +83,14 @@ const CourseTabContent = ({ course }) => {
               </>,
 
               <>
-                <InputCommentCards
-                  id={1}
-                  key={1}
-                  name={"ბექა არაბიძე"}
-                  rating={2}
-                  onChange={(value) => inputCommentCardsValue(value)}
+              
+              <InputCommentCards
+                    id={1}
+                    key={1}
+                    name={"ბექა არაბიძე"}
+                    rating={2}
+                    imageUrl="https://images.pexels.com/photos/3310695/pexels-photo-3310695.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                    onChange={(value) => inputCommentCardsValue(value)}
                 />
 
                 {userComments.map(rating => (

@@ -59,6 +59,7 @@ const SylabusChangeName = observer(({ chapterNumber, onClick, onToggle, chapterI
                                         color="white"
                                         size="medium"
                                         type="text"
+                                        maxWidth="22rem"
                                         onChange={(e) => {
                                             newCourseStore.newCourseData
                                                 .curriculum[chapterId]
@@ -105,7 +106,7 @@ const SylabusChangeName = observer(({ chapterNumber, onClick, onToggle, chapterI
 
                                     <Button
                                         color="black"
-                                        size="small"
+                                        size="mini"
                                         className="editable-btn"
                                         disabled={false}
                                         loading={false}

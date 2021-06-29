@@ -1,8 +1,7 @@
 import { useState } from "react";
 
 import { ThumbsUp, ThumbsDown, Heart } from "react-feather";
-
-import Stars from "components/lib/svg/Stars";
+import HoverableStars from "components/lib/svg/HoverableStars";
 
 interface CommentCards {
   id: number;
@@ -15,6 +14,10 @@ interface CommentCards {
   dislike: number;
   isLikedByInstructor: boolean;
 }
+
+
+
+
 
 const CommentCards: React.FC<CommentCards> = (
   {
@@ -37,7 +40,10 @@ const CommentCards: React.FC<CommentCards> = (
 
   const [onClickDislike, setOnClickDislike] = useState<boolean>(false);
 
-  const handleSetThumbsUp = () => {
+
+
+
+  const handleSetThumbsUp = (id) => {
     if (like > 0) {
       setThumbsUp(like + 1);
       setThumbsDown(dislike);
@@ -48,7 +54,9 @@ const CommentCards: React.FC<CommentCards> = (
     }
   };
 
-  const handleSetThumbsDown = () => {
+
+
+  const handleSetThumbsDown = (id) => {
     if (dislike > 0) {
       setThumbsDown(dislike - 1);
       setThumbsUp(like);
@@ -88,7 +96,7 @@ const CommentCards: React.FC<CommentCards> = (
 
 
         <div className="about-user__raiting">
-            <Stars starWidth={20} numberOfStars={4} />
+            <HoverableStars starWidth={20} numberOfStars={4} />
         </div>
         <div className="added-comment">
           <p className="f-size-p5 f-weight-m">{addedComment}</p>
@@ -98,7 +106,7 @@ const CommentCards: React.FC<CommentCards> = (
 
 
         <div className="like-dislike">
-          <div className="like-dislike__thumbs-up" onClick={handleSetThumbsUp}>
+          <div className="like-dislike__thumbs-up" onClick={() => handleSetThumbsUp(id)}>
             <ThumbsUp
               fill={onClickLike ? "#338EFF" : "#ffffff"}
               color={onClickLike ? "#ffffff" : "#191B1F"}
@@ -112,7 +120,7 @@ const CommentCards: React.FC<CommentCards> = (
           </div>
           <div
             className="like-dislike__thumbs-down"
-            onClick={handleSetThumbsDown}>
+            onClick={() => handleSetThumbsDown(id)}>
             <ThumbsDown
               fill={onClickDislike ? "#338EFF" : "#ffffff"}
               color={onClickDislike ? "#ffffff" : "#191B1F"}

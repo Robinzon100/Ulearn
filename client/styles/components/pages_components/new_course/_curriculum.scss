@@ -126,6 +126,11 @@
           box-shadow: 0px 23px 42px -6px rgba(17, 23, 53, 0.1);
 
           .video-upload-section {
+            .heading {
+                margin: 1rem 0;
+                padding: 0 2vw;
+            }
+
             .upload_container {
               margin: calc(2rem + 1vh);
 
