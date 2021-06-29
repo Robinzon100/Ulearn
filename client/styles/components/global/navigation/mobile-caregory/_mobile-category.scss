@@ -25,10 +25,6 @@ $category-max-width: 25rem;
           .mobile-loginRegistration {
             padding: 0.5rem 1rem;
             @include flex(flex-start,flex-start,column);
-            
-            .mobile-registration {
-                margin-top: 1rem;
-            }
         }
       }
 
@@ -58,7 +54,6 @@ $category-max-width: 25rem;
 
             .cube-text {
               display: flex;
-            //   align-items: center;
 
                 svg {
                     transform: translate(8%,20%);

@@ -33,17 +33,19 @@ type IFormInput = {
   current_password: string;
   new_password: string;
   socials: any;
+  verified:boolean
 };
 
 
 
 
 
-const UserInfo = ({ full_name, email, description, socials, image_url }) => {
+const UserInfo = ({ full_name, email, description, socials, image_url,verified }) => {
   const { register, handleSubmit, formState: { errors }, reset, getValues } = useForm<IFormInput>();
 
   // VERIFICATION STATES
-  const [isVerificated, setIsVerificated] = useState(false);
+  const [isHovered, setIsHovered] = useState(false)
+  const [isVerificated, ] = useState(verified);
   const [userSocials, setUserSocials] = useState([]);
   const [isEditable, setIsEditable] = useState(false);
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
@@ -124,24 +126,26 @@ const UserInfo = ({ full_name, email, description, socials, image_url }) => {
                 { backgroundImage: `url(${process.env.BACK_END_URL}/api/images/${image_url})` }
                 : { backgroundImage: `url(${file.base64})` }}>
 
-              <motion.div
+
+            {isVerificated && (
+            <motion.div
                 variants={toggleVerification}
                 initial={{ maxWidth: "4.2rem", width: "100%" }}
-                animate={isVerificated ? "opened" : "closed"}
+                animate={isHovered ? "opened" : "closed"}
                 className="verification-star"
-                onMouseEnter={() => setIsVerificated(true)}
-                onMouseLeave={() => setIsVerificated(false)}>
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                >
                 <div className="star">
                   <Star strokeWidth="0" stroke="#ffd703" fill="#ffd703" />
                 </div>
 
 
-                {isVerificated && (
                   <div className="verification-message">
                     <p className="f-size-p8 f-weight-r">ვერიფიცირებული</p>
                   </div>
-                )}
               </motion.div>
+            )}
             </div>
 
 

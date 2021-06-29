@@ -5,13 +5,19 @@
 .allowed-length {
     font-style: italic;
     opacity: 60%;
+
+   
 }
 
 .text-editor {
-  //   height: 200vh;
 
   &__container {
     margin-bottom: 25rem;
+
+    @media screen and (max-width: $small-screen) {
+        margin-bottom: 10rem;
+    }
+
 
     .name,
     .short-description,
@@ -94,9 +100,16 @@
     }
   }
 
+
+
+
   .course-image {
     .heading {
       @include flex(flex-start, center);
+
+      @media screen and (max-width: $small-screen) {
+        flex-wrap: wrap;
+      }
 
       h2 {
         font-style: italic;
@@ -123,8 +136,14 @@
         border-radius: 20px;
 
         @media screen and (max-width: $small-screen) {
-          min-height: 25rem;
+          min-height: 30rem;
+          width: 70%;
         }
+
+        @media screen and (max-width: $ultra-small-screen) {
+            width: 100%;
+          }
+
       }
       .upload_container {
         width: 50%;

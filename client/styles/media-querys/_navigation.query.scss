@@ -50,6 +50,10 @@
       display: none;
     }
 
+    .new_course_btn {
+        display: none !important;
+      }
+
     .mobile_hamburger {
       display: block !important;
       @include background-properties(

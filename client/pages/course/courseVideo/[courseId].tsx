@@ -40,17 +40,22 @@ const MyCourse = () => {
 
                     <div className="courses-page--about__heading">
                         {/* {!displayName ? null : (
-                <p className="f-size-p5">
-                  ვიდეოს დასახელება - {displayName}
-                </p>
-              )} */}
+                  <p className="f-size-p5">
+                    ვიდეოს დასახელება - {displayName}
+                  </p>
+                )} */}
                     </div>
-                </div>
-                <div className="courses-container">
-                    <div className="section-courses">
+                    <div className="courses-container">
+                        <div className="section-courses">
 
-                        <div id="player" className="section-courses--video-player">
-                            <CourseVideoPlayer />
+
+                            <div id="player" className="section-courses--video-player">
+                                <CourseVideoPlayer />
+                            </div>
+
+
+                            {/* /// TAB HEADING CONTENT */}
+                            <CourseTabContent />
                         </div>
 
                         {/* /// TAB HEADING CONTENT */}

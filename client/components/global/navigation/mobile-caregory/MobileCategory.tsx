@@ -9,7 +9,6 @@ import MobileMainCategory from "./MobileMainCategory";
 import MobileSubCategory from "./MobileSubCategory";
 
 
-
 import { handleHoverMainCategory,handleHoverSubCategory } from "components/global/navigation/Category/CategoryLogic";
 
 import { MobileCategoryAnimation } from "./animation/MobileCategory.animation";
@@ -59,9 +58,11 @@ const MobileCategory = ({
             <nav className="category-navigation">
 
 
-            {!isLogedIn &&
-            <>
+            
+            
               <ul className="mobile-loginRegistration">
+                {!isLogedIn &&
+                <>
                 <li className="mobile-login">
                   <NextLink route="/login" className="link">
                     <p className="c-secondary-dark-blue  f-size-p3 f-weight-r">
@@ -76,6 +77,20 @@ const MobileCategory = ({
                     </p>
                   </NextLink>
                 </li>
+                </>
+                }
+                
+
+            {isLogedIn &&
+                <li className="mobile-registration">
+                <NextLink route="/new_course" className="link">
+                    <p className="c-secondary-dark-blue  f-size-p3 f-weight-r">
+                      კურსის შექმნა
+                    </p>
+                  </NextLink>
+                </li>
+            }
+        
               </ul>
                
 
@@ -85,8 +100,7 @@ const MobileCategory = ({
                 color="#c9c9c9"
                 margin="1rem"
               />
-              </>
-            }
+            
 
 
 
@@ -158,28 +172,6 @@ const MobileCategory = ({
                     />
                   ))}
               </motion.ul>
-
-
-
-
-
-
-            {/* 
-
-              {setIsSubCategoryChosen && (
-                <motion.ul
-                  className="subSub-category-list"
-                  variants={MobileSubSubCategoryAnimation}
-                  animate={isSubCategoryChosen ? "open" : "closed"}
-                >
-                  {setIsSubCategoryChosen &&
-                    rendersSubSubNames &&
-                    rendersSubSubNames?.map((data) => (
-                      <MobileSubSubCategory key={data.id} name={data.name} />
-                    ))}
-                </motion.ul>
-              )} */}
-
             </nav>
         </div>
 

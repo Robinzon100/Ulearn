@@ -43,12 +43,17 @@ const MyCourse = () => {
                 </p>
               )} */}
           </div>
-        </div>
-        <div className="courses-container">
-          <div className="section-courses">
+          <div className="courses-container">
+            <div className="section-courses">
 
-            <div id="player" className="section-courses--video-player">
-              <CourseVideoPlayer />
+
+              <div id="player" className="section-courses--video-player">
+                <CourseVideoPlayer />
+              </div>
+              
+
+              {/* /// TAB HEADING CONTENT */}
+              <CourseTabContent/>
             </div>
 
             {/* /// TAB HEADING CONTENT */}

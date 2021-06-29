@@ -153,8 +153,8 @@ const Navigation = () => {
             {/* //* ======= BECOME LECTURE ===== */}
 
             <div className="become-lectore">
-              <NextLink route="/myCourse" className="link">
-                <p className="f-weight-r f-size-p6">ლექტორი</p>
+              <NextLink route="/course_video" className="link">
+                <p className="f-weight-r f-size-p6">გაკვეთილები</p>
               </NextLink>
             </div>
 
@@ -184,11 +184,8 @@ const Navigation = () => {
 
 
 
-            {/* //* ======= CART ===== */}
-
-
             {isLogedIn && (
-                <Button route="/new_course" size="mini" color="black">
+                <Button route="/new_course" className="new_course_btn" size="mini" color="black">
                   <p className="f-weight-r f-size-p7">კურსის შექმნა</p>
                 </Button>
               
