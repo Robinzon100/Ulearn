@@ -14,6 +14,7 @@ export default class Comment extends Model {
     text!: string;
     rating!: any;
     liked_by_instructor!: boolean;
+    user?: User
 
 
     static get tableName() {
@@ -21,20 +22,33 @@ export default class Comment extends Model {
     }
 
 
-    static relationMappings = {
-        movies: {
-            relation: Model.ManyToManyRelation,
-            modelClass: User,
-            join: {
-                from: 'comments.id',
-                through: {
-                    from: 'comments_user.comment_id',
-                    to: 'comments_user.user_id'
-                },
-                to: 'users.id'
-            }
-        }
-    };
+    // static relationMappings = {
+    //     users: {
+    //         relation: Model.ManyToManyRelation,
+    //         modelClass: User,
+    //         join: {
+    //             from: 'comments.id',
+    //             through: {
+    //                 from: 'comments_user.comment_id',
+    //                 to: 'comments_user.user_id'
+    //             },
+    //             to: 'users.id'
+    //         }
+    //     }
+    // };
+
+    static get relationMappings() {
+        return {
+            user: {
+                relation: Model.BelongsToOneRelation,
+                modelClass: User,
+                join: {
+                    from: 'comments.user_id',
+                    to: 'users.id'
+                }
+            },
+        };
+    }
 
     // static get jsonSchema() {
     //     return schema;

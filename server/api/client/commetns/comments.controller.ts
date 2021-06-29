@@ -3,10 +3,8 @@ import { Request, Response, NextFunction } from "express";
 
 
 //! ─── OWN ────────────────────────────────────────────────────────────────────────
-import { MainCategories, SubCategories, SubSubCategories } from '../../../models/categories/categories.model';
 import Comment from "../../../models/course/comments.model";
 import customError from '../../../utils/createError';
-import User from '../../../models/user/user.model';
 
 
 
@@ -17,21 +15,17 @@ export const getAllComments = async (req: Request, res: Response, next: NextFunc
         const currentCourseComents = await Comment
             .query()
             .where('course_id', courseId)
-
-        const numRelatedRows = await Comment
-            .relatedQuery('users')
-            .relate(req.user[0].id);
-
-        res.json(numRelatedRows)
+            .withGraphFetched('user')
+            .orderBy('id', 'DESC')
 
 
-        // res.status(200).json({
-        //     categories: {
-        //         main_categories,
-        //         sub_categories,
-        //         sub_sub_categories
-        //     }
-        // })
+        // const numRelatedRows = await Comment
+        //     .relatedQuery('users')
+        //     .relate(req.user[0].id);
+
+        res.json({
+            comments: currentCourseComents
+        })
     } catch (err: any) {
         customError(res, next, err.message)
     }
@@ -44,6 +38,18 @@ export const postComment = async (req: Request, res: Response, next: NextFunctio
     try {
         const { courseId } = req.params
         const { rating, text } = req.body
+
+
+        const alreadyComented = await Comment
+            .query()
+            .where('user_id', req.user[0].id)
+
+
+        if (alreadyComented.length != 0) {
+            customError(res, next, 'user already rated the course', 403)
+            return
+        }
+
         const postedComment = await Comment
             .query()
             .insertAndFetch({
@@ -52,6 +58,11 @@ export const postComment = async (req: Request, res: Response, next: NextFunctio
                 user_id: req.user[0].id,
                 course_id: courseId
             })
+
+
+
+        postedComment.user = req.user[0]
+
 
         res.json(postedComment)
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from 'react';
 
 import { ThumbsUp, ThumbsDown, Heart } from "react-feather";
 import HoverableStars from "components/lib/svg/HoverableStars";
@@ -27,7 +27,7 @@ const CommentCards: React.FC<CommentCards> = (
         full_name,
         comment,
         image_url,
-        // rating,
+        rating,
         like,
         dislike,
         isLikedByInstructor,
@@ -40,7 +40,6 @@ const CommentCards: React.FC<CommentCards> = (
     const [onClickLike, setOnClickLike] = useState<boolean>(false);
 
     const [onClickDislike, setOnClickDislike] = useState<boolean>(false);
-
 
 
 
@@ -73,7 +72,11 @@ const CommentCards: React.FC<CommentCards> = (
         <div className="comment" key={id}>
             <div
                 className="comment__pic"
-                style={{ backgroundImage: `url(${process.env.BACK_END_URL}/api/images/${image_url})` }}
+                style={{
+                    backgroundImage: `url(${image_url ?
+                        process.env.BACK_END_URL + 'image_url' + image_url :
+                        '/pictures/unregistered_user.svg'})`
+                }}
             />
 
 
@@ -94,7 +97,7 @@ const CommentCards: React.FC<CommentCards> = (
                 <div className="about-user__raiting">
                     <Stars
                         starWidth={20}
-                        numberOfStars={4}
+                        numberOfStars={rating}
                     />
                 </div>
                 <div className="added-comment">

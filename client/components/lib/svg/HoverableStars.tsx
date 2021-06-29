@@ -1,36 +1,33 @@
-import { useState} from "react";
+import { useState } from "react";
 import { Star } from "react-feather";
 
 interface StarsWidth {
   starWidth: number;
-  numberOfStars:any;
-  getCurrentRating?:any;
+  numberOfStars: any;
+  getCurrentRating?: any;
 }
 
-const Stars: React.FC<StarsWidth> = ({ starWidth, numberOfStars,getCurrentRating }) => {
+const Stars: React.FC<StarsWidth> = ({ starWidth, numberOfStars, getCurrentRating }) => {
 
   const [rating, setRating] = useState<number | string | null>(numberOfStars);
   const [hover, setHover] = useState<number | string | null>(null);
 
-  
-  const setCurrentRating = (rating) => {
-    getCurrentRating(rating)
-  } 
-    
+
+
   return (
     <div className="stars">
-      {[...Array(5)].map((_,i) => {
+      {[...Array(5)].map((_, i) => {
         const ratingValue = i + 1;
-    
 
-        
+
+
         return (
           <label className="star_component" key={i}>
             <input
               type="radio"
               name="rating"
-              value={numberOfStars}
-              onClick={() => {setCurrentRating(rating);setRating(ratingValue)}}
+              value={i + 1}
+              onClick={(e) => { getCurrentRating(e.currentTarget.value); setRating(e.currentTarget.value) }}
             />
 
             <Star
