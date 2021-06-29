@@ -8,6 +8,7 @@ import User from '../../../models/user/user.model';
 import customError from '../../../utils/createError';
 import { regsiterUserSchemaWithEncryptedPassword } from '../../../schemas/auth/schema.registration';
 import { createRefreshToken, createTokenExpirationHeader } from '../../../utils/auth/auth.util';
+import { createUserAffiliatedLink } from '../../../utils/affiliatedLinks/affiliatedLinks.utils';
 
 
 
@@ -36,6 +37,14 @@ export const postRegistration = async (req: Request, res: Response, next: NextFu
 
         if (validatedUser) {
             const { uuid } = await User.query().insertAndFetch(validatedUser);
+            const affiliationLinkToken = await createUserAffiliatedLink(uuid)
+            console.log(affiliationLinkToken);
+
+            await User.query()
+                .where('uuid', uuid)
+                .patch({
+                    affiliate_link: affiliationLinkToken
+                })
 
             await createAccessToken(res, { userUUID: uuid })
             await createRefreshToken(res, { userUUID: uuid })

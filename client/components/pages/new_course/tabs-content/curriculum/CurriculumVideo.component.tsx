@@ -50,9 +50,9 @@ const CurriculumVideoComponent = observer(({ id, sub_videos, onClick, onRemove, 
 
                 newCourseStore.newCourseData
                     .curriculum[id]
-                    .sub_videos[videoId].duration = +`${minutes}.${seconds < 10 ? seconds : "0" + seconds}`
+                    .sub_videos[videoId].duration = +`${minutes}.${seconds > 10 ? seconds : "0" + seconds}`
 
-                newCourseStore.newCourseData.courseInfo.duration += +`${minutes}.${seconds < 10 ? seconds : "0" + seconds}`
+                newCourseStore.newCourseData.courseInfo.duration += +`${minutes}.${seconds > 10 ? seconds : "0" + seconds}`
 
                 onUpload(videoId, fileKey)
                 setFileUploadError("")
