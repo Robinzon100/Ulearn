@@ -5,11 +5,8 @@ import { ShoppingCart } from "react-feather";
 
 
 
-import NextLink from "components/utils/nextLink/NextLink";
 import SideMenu from "components/lib/sidemenu/sideMenu";
 import RatingsMenu from "components/pages/course/RatingsMenu";
-import Stars from "components/lib/svg/Stars";
-import MyCoursesJson from "../../public/json/MyCourses.json";
 import Button from "components/lib/button/Button";
 import Line from "components/lib/line/Line";
 

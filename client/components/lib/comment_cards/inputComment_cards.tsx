@@ -26,7 +26,7 @@ interface IInputCommentCards {
 
 
 
-const InputCommentCards = observer(({ id, full_name, image_url, rating, getCommentBody, getCurrentRating, addComment }: IInputCommentCards) => {
+const InputCommentCards = observer(({ id, full_name, image_url }: IInputCommentCards) => {
     const { commentStore } = useCommentStore()
     const [error, setError] = useState(false)
 

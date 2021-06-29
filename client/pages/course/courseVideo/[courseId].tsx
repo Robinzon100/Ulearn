@@ -1,6 +1,5 @@
 
 import { Eye } from "react-feather";
-import Head from "next/head"
 import { useEffect, useState } from 'react';
 
 // import dynamic from "next/dynamic";
@@ -20,12 +19,6 @@ import { authenticatedRequest } from "components/utils/auth/tokenValidations";
 import { useCommentStore } from "mobx/commentContext";
 import { observer } from 'mobx-react-lite';
 import { redirect } from 'components/utils/auth/redirect.utils';
-
-
-// const CourseVideoPlayer = dynamic(() =>
-//     import('components/pages/course_video/CourseVideoPlayer'),
-//     { ssr: false }
-// )
 
 
 
