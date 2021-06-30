@@ -33,6 +33,8 @@ const PriceSale = observer(() => {
 
 
                             <Input
+                                className="f-size-p6 f-weight-m"
+                                placeholderColor="var(--secondary-light-dark)"
                                 size="large"
                                 name="price"
                                 width="100%"
@@ -57,6 +59,8 @@ const PriceSale = observer(() => {
                             </div>
 
                             <Input
+                                className="f-size-p6 f-weight-m"
+                                placeholderColor="var(--secondary-light-dark)"
                                 size="large"
                                 name="sale"
                                 width="100%"
@@ -83,6 +87,8 @@ const PriceSale = observer(() => {
                             </div>
 
                             <Input
+                                className="f-size-p6 f-weight-m"
+                                placeholderColor="var(--secondary-light-dark)"
                                 size="large"
                                 name="sale"
                                 width="100%"

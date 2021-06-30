@@ -16,10 +16,19 @@
 
 @media screen and (max-width: $medium-screen) {
   .header {
+      
     .become-lectore,
     .course-page {
       display: none;
     }
+
+
+    .search {
+        .input_field {
+            width: 30rem;
+        }
+    }
+
 
     .logo-search {
       max-width: initial !important;
@@ -36,12 +45,23 @@
   }
 }
 
+@media screen and (max-width: 920px) {
+    .header {
+        .search {
+            .input_field {
+                width: initial;
+            }
+        }
+    }
+    
+}
 
 
 
 @media screen and (max-width: $small-screen) {
   .header {
     padding: 1.4vw 4vw !important;
+
 
     .course-page,
     .become-lectore,

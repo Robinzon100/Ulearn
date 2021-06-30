@@ -100,4 +100,11 @@ const CourseCards = ({ landingCourse }) => {
   );
 };
 
+
+
+
+
+
+
+
 export default CourseCards;

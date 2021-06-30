@@ -18,7 +18,9 @@ import { getSingleUser } from '../../actions/client/user/user.action';
 
 
 
-const course = ({ course, instructor }) => {
+const Course = ({ course, instructor }) => {
+
+
   return (
     <>
       <section className="course">
@@ -233,4 +235,4 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   };
 };
 
-export default course;
+export default Course;
