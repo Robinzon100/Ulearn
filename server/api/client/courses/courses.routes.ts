@@ -11,7 +11,7 @@ import landingCourseRoutes from "./landingCourses/landingCourses.routes";
 import newCourseRoutes from "./newCourse/newCourse.routes";
 
 //? CONTROLLERS
-import { getFilteredCourses, getSingleCourses } from './courses.controller';
+import { getFilteredCourses, getSearchedCourses, getSingleCourses } from './courses.controller';
 
 //? MIDDLEWARES
 
@@ -31,6 +31,11 @@ router.get('/:uuid', getSingleCourses)
 
 //? filter
 router.post('/filter/:main_category_id?/:sub_category_id?/:sub_sub_category_id?', getFilteredCourses)
+
+
+
+//? search
+router.get('/search/:searchQuery', getSearchedCourses)
 
 
 //? landing

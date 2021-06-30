@@ -83,6 +83,11 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
         courses = await getAllCourseVideos();
     }
 
+
+    if ('search' in ctx.query) {
+        console.log('this is for search');
+        
+    } 
     
     const { auth_access_token } =
         cookie.parse(ctx ? ctx.req.headers.cookie : document.cookie)

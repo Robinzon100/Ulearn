@@ -2,6 +2,7 @@ import { Response, Request, NextFunction } from 'express';
 import Course from '../../../models/course/course.model';
 import customError from '../../../utils/createError';
 import CourseContent from '../../../models/course/courseContent.model';
+import { raw } from 'objection';
 
 
 
@@ -55,3 +56,21 @@ export const getFilteredCourses = async (req: Request, res: Response, next: Next
     }
 }
 
+
+
+export const getSearchedCourses = async (req: Request, res: Response, next: NextFunction) => {
+    const { searchQuery } = req.params
+
+    try {
+        const searchedCourses = await Course
+            .query()
+            .select('*')
+            .whereRaw(`to_tsvector(title || ' ' || description) @@ to_tsquery('${searchQuery}')`)
+
+
+
+        res.json(searchedCourses)
+    } catch (err: any) {
+        customError(res, next, err.message, 400)
+    }
+}
