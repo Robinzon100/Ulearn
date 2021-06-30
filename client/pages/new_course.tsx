@@ -115,7 +115,7 @@ const NewCourse = observer(() => {
                             size="large"
                             color="blue"
                             onClick={() => submitHandler()}>
-                            <p className="f-weight-r f-size-p4 ">შენახვალ</p>
+                            <p className="f-weight-r f-size-p4 ">შენახვა</p>
                         </Button>
 
                     </div>

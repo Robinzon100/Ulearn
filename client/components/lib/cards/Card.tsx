@@ -135,7 +135,7 @@ const Card = ({
                     <span
                       style={{ opacity: "50%" }}
                       className="f-weight-r f-size-p6">
-                      ({Object.values(ratingAmount).reduce((a,c) => +a + +c)})
+                      {/* ({Object.values(ratingAmount).reduce((a,c) => +a + +c)}) */}
                     </span>
                   </p>
                 </div>

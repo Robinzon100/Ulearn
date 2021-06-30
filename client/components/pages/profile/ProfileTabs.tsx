@@ -4,7 +4,7 @@ import { ProfileTabHeading } from "components/pages/profile/ProfileTab.content"
 import Tabs from 'components/lib/tabs/Tabs';
 import Card from "components/lib/cards/Card";
 import { copyClipboard } from "components/utils/clipboard/clipboard.utils";
-import { Copy } from "react-feather";
+import { Copy,DollarSign } from "react-feather";
 
 
 
@@ -50,7 +50,8 @@ const ProfileTabs = ({ user }) => {
                             </>,
                             <>
                                 <h1 className="f-size-h5 f-weight-bl">
-                                    Ulearn Coins: {user.Ulearn_coins}
+                                     Ulearn Coins: <span style={{color:"var(--primary-yellow)"}}>{user.Ulearn_coins}</span>
+                                     <DollarSign stroke="var(--primary-yellow)" />
                                 </h1>
                             </>,
                             <>
