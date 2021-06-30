@@ -42,7 +42,7 @@ const RatingMenu = ({
       <div className="ratings ">
         <div className="ratings__with-number">
           <div className="ratings__with-number--heading">
-            <p className="f-size-h1">{overall_rating}</p>
+            <p className="f-size-h1">{overall_rating ? overall_rating : 0}</p>
           </div>
           <div className="ratings__with-number--stars">
             <Stars starWidth={20} numberOfStars={4} />
