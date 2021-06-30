@@ -92,7 +92,7 @@ const RatingMenu = ({
           <div className="time-length">
             <h1 className="f-size-h7">
               {duration}
-              <span className="f-size-h7">სთ</span>
+              <span className="f-size-h7">წთ</span>
             </h1>
             <p className="f-size-p6">ხანგძლივობა</p>
           </div>
