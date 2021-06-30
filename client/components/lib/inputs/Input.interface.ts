@@ -23,6 +23,7 @@ export interface IinputInterface extends IGlobal {
     minLength?:number;
     maxWidth?:string;
     placeholderColor?:string;
+    onKeyDown?: any
 }
 
 

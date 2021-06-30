@@ -28,7 +28,8 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
     maxLength,
     minLength,
     maxWidth,
-    placeholderColor
+    placeholderColor,
+    onKeyDown
   }, ref: React.Ref<HTMLInputElement | null>,) => {
 
 
@@ -61,6 +62,7 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
             readOnly={readonly}
             maxLength={maxLength}
             minLength={minLength}
+            onKeyDown={onKeyDown}
           />
 
           {iconRight && (

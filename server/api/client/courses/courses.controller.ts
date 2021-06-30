@@ -60,16 +60,20 @@ export const getFilteredCourses = async (req: Request, res: Response, next: Next
 
 export const getSearchedCourses = async (req: Request, res: Response, next: NextFunction) => {
     const { searchQuery } = req.params
+    const parsedSearchQuery = searchQuery.replace(/\s/g, ' | ')
+
 
     try {
         const searchedCourses = await Course
             .query()
             .select('*')
-            .whereRaw(`to_tsvector(title || ' ' || description) @@ to_tsquery('${searchQuery}')`)
+            .whereRaw(`to_tsvector(title || '' || description) @@ to_tsquery('${parsedSearchQuery}')`)
 
 
 
-        res.json(searchedCourses)
+        res.json({
+            searchedCourses: searchedCourses
+        });
     } catch (err: any) {
         customError(res, next, err.message, 400)
     }

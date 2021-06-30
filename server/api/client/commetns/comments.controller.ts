@@ -5,6 +5,7 @@ import { Request, Response, NextFunction } from "express";
 //! ─── OWN ────────────────────────────────────────────────────────────────────────
 import Comment from "../../../models/course/comments.model";
 import customError from '../../../utils/createError';
+import Course from '../../../models/course/course.model';
 
 
 
@@ -19,7 +20,7 @@ export const getAllComments = async (req: Request, res: Response, next: NextFunc
             .orderBy('id', 'DESC')
 
 
-        
+
 
 
         // const numRelatedRows = await Comment
@@ -43,6 +44,10 @@ export const postComment = async (req: Request, res: Response, next: NextFunctio
         const { rating, text } = req.body
 
 
+
+
+
+
         const alreadyComented = await Comment
             .query()
             .where('user_id', req.user[0].id)
@@ -53,6 +58,39 @@ export const postComment = async (req: Request, res: Response, next: NextFunctio
             return
         }
 
+
+        const { detailed_rating } = await Course
+            .query()
+            .select('detailed_rating')
+            .findById(courseId)
+
+        detailed_rating[+rating] += 1
+
+
+        await Course
+            .query()
+            .findById(courseId)
+            .patch({
+                detailed_rating: detailed_rating
+            })
+
+        let sum = 0
+        for (const [key, value] of Object.entries(detailed_rating)) {
+            sum += +key * value
+        }
+
+        const overallRating = (sum / 5).toFixed(1)
+
+
+        await Course
+            .query()
+            .findById(courseId)
+            .patch({
+                overall_rating: overallRating
+            })
+
+
+
         const postedComment = await Comment
             .query()
             .insertAndFetch({
@@ -61,8 +99,6 @@ export const postComment = async (req: Request, res: Response, next: NextFunctio
                 user_id: req.user[0].id,
                 course_id: courseId
             })
-
-
 
         postedComment.user = req.user[0]
 

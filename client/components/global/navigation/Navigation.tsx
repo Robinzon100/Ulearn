@@ -23,6 +23,7 @@ import { fetcher } from "actions/swr/fetchers";
 import { getUser } from "actions/client/user/profile/profile.action";
 import { authenticatedRequest } from "components/utils/auth/tokenValidations";
 import { useClickOutside } from "components/utils/helpers/outSideClickHandler"
+import { useRouter } from 'next/router';
 
 
 
@@ -30,7 +31,7 @@ import { useClickOutside } from "components/utils/helpers/outSideClickHandler"
 
 const Navigation = () => {
 
-  const wrapperRef = useRef(null);    
+  const wrapperRef = useRef(null);
   const [isToggled, setIsToggled] = useState(false);
   const [isLogedIn, setIsLogedIn] = useState(false);
   const [isMouseleftCategory, setIsMouseLeftCategory] = useState(false);
@@ -39,7 +40,8 @@ const Navigation = () => {
   const [toggleMobileCategory, setToggleMobileCategory] = useState(false);
 
   const [cookies, removeCookie] = useCookies(["name"]);
-  const [getUserPic, setGetUserPic] = useState("")  
+  const [getUserPic, setGetUserPic] = useState("")
+  const router = useRouter()
 
 
   const { data } = useSWR(
@@ -48,12 +50,12 @@ const Navigation = () => {
   );
 
 
-    
+
   const getUserPicture = async () => {
     const res = await authenticatedRequest(getUser, null, null);
-    
-    if(res.statusCode == 200)
-        setGetUserPic(res.user?.image_url);
+
+    if (res.statusCode == 200)
+      setGetUserPic(res.user?.image_url);
   }
 
 
@@ -67,14 +69,17 @@ const Navigation = () => {
 
 
   useEffect(() => {
-    if(cookies.auth_access_token && cookies.auth_access_token.length > 0 ) 
-        getUserPicture()
-    }, [cookies.auth_access_token])
+    if (cookies.auth_access_token && cookies.auth_access_token.length > 0)
+      getUserPicture()
+  }, [cookies.auth_access_token])
 
 
 
 
-    useClickOutside(wrapperRef, setIsLougoutToggled);
+  useClickOutside(wrapperRef, setIsLougoutToggled);
+
+
+
 
 
   return (
@@ -104,6 +109,10 @@ const Navigation = () => {
                 width="100%"
                 disabled={false}
                 maxWidth="50rem"
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter')
+                    router.push(`/courses?search=${e.currentTarget.value}`)
+                }}
               />
             </div>
           </div>
@@ -170,25 +179,25 @@ const Navigation = () => {
             {/* //* ======= PROFILE ===== */}
             {isLogedIn && (
               <div
-              ref={wrapperRef}
+                ref={wrapperRef}
                 className="profile"
                 onClick={() =>
                   setIsLougoutToggled((isLougoutToggled) => !isLougoutToggled)}>
-                <div className="user-icon" 
-                    style={{
-                        backgroundImage: `url(${getUserPic ?
-                            process.env.BACK_END_URL + '/api/images/' + getUserPic :
-                            '/pictures/unregistered_user.svg'
-                        })`
-                    }}
-                
+                <div className="user-icon"
+                  style={{
+                    backgroundImage: `url(${getUserPic ?
+                      process.env.BACK_END_URL + '/api/images/' + getUserPic :
+                      '/pictures/unregistered_user.svg'
+                      })`
+                  }}
+
                 />
 
 
                 <Logout
                   deleteCookie={() => deleteCookie(removeCookie)}
                   isLougoutToggled={isLougoutToggled}
-                 
+
                 />
 
 
@@ -199,13 +208,13 @@ const Navigation = () => {
 
 
             {isLogedIn && (
-                <Button route="/new_course" className="new_course_btn" size="mini" color="black">
-                  <p className="f-weight-r f-size-p7">კურსის შექმნა</p>
-                </Button>
-              
+              <Button route="/new_course" className="new_course_btn" size="mini" color="black">
+                <p className="f-weight-r f-size-p7">კურსის შექმნა</p>
+              </Button>
+
             )}
 
-            
+
 
             {/* //* ======= LOGIN ===== */}
 
@@ -226,8 +235,8 @@ const Navigation = () => {
             <div
               className="mobile_hamburger"
               onClick={() =>
-                setToggleMobileCategory((toggleMobileCategory) => !toggleMobileCategory)} 
-              />
+                setToggleMobileCategory((toggleMobileCategory) => !toggleMobileCategory)}
+            />
 
 
 
@@ -237,7 +246,7 @@ const Navigation = () => {
                 toggleMobileCategory={toggleMobileCategory}
                 setToggleMobileCategory={() =>
                   setToggleMobileCategory((toggleMobileCategory) => !toggleMobileCategory
-                )}
+                  )}
 
 
                 categories={data?.categories}

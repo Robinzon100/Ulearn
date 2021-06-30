@@ -16,6 +16,7 @@ import { getCoursesByUrlFilter } from "actions/client/course/course.index.action
 import cookie from 'cookie';
 import { authenticatedRequest } from '../components/utils/auth/tokenValidations';
 import { getUsersPrefferedCategoryIds } from "actions/client/user/courses/getFilteredCourses";
+import { getCourseSearch } from "actions/client/user/courses/userCourseSearch.action";
 // import { redirect } from './../components/utils/auth/redirect.utils';
 
 
@@ -76,19 +77,29 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     let courses
     //@ts-ignore
     let userPrefferedCategoryIds = null
-    
+
     if ('m_i' in ctx.query) {
-        courses = await getCoursesByUrlFilter(Object.values(ctx.query))
+        const filteredCourses = await getCoursesByUrlFilter(Object.values(ctx.query))
+        courses = filteredCourses
+        if (filteredCourses == undefined) {
+            courses = await getAllCourseVideos();
+        }
     } else {
         courses = await getAllCourseVideos();
     }
 
 
     if ('search' in ctx.query) {
-        console.log('this is for search');
-        
-    } 
-    
+        const { searchedCourses } = await getCourseSearch(ctx.query.search)
+        courses.courses = searchedCourses
+        if (searchedCourses == undefined) {
+            courses = await getAllCourseVideos();
+        }
+    } else {
+        courses = await getAllCourseVideos();
+    }
+
+
     const { auth_access_token } =
         cookie.parse(ctx ? ctx.req.headers.cookie : document.cookie)
 

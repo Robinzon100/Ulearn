@@ -4,9 +4,10 @@ import { axiosInstance } from 'actions/action.index';
 
 
 
-export const getUserCourseSearch = async (query) => {
+export const getCourseSearch = async (query) => {
+
     return await axiosInstance
-        .get(`/course/search/${query.trim()}`)
+        .get(`/course/search/${encodeURI(query.trim())}`)
         .then(res => {
             return {
                 ...res.data,
