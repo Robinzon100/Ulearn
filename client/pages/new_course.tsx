@@ -21,6 +21,7 @@ import PriceSale from "components/pages/new_course/tabs-content/price-sale/Price
 import { observer } from 'mobx-react-lite';
 import Button from "components/lib/button/Button";
 import { postNewCourse } from "actions/client/course/newCourse/newCourse.action";
+import { useRouter } from 'next/router';
 
 
 
@@ -28,6 +29,7 @@ import { postNewCourse } from "actions/client/course/newCourse/newCourse.action"
 
 const NewCourse = observer(() => {
     let { newCourseStore } = useNewCourseStore()
+    const router = useRouter()
 
     useEffect(() => {
         newCourseStore.newCourseData = {
@@ -70,7 +72,7 @@ const NewCourse = observer(() => {
         const newCourse = JSON.parse(JSON.stringify(newCourseStore.newCourseData))
         const res = await authenticatedRequest(postNewCourse, newCourse, null)
         console.log(res);
-        
+        router.push(`/course/${newCourse.postedCourse.uuid}`)
     }
 
 
