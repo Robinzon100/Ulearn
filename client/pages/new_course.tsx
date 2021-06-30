@@ -70,6 +70,7 @@ const NewCourse = observer(() => {
         const newCourse = JSON.parse(JSON.stringify(newCourseStore.newCourseData))
         const res = await authenticatedRequest(postNewCourse, newCourse, null)
         console.log(res);
+        
     }
 
 
