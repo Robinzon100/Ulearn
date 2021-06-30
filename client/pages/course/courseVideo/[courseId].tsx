@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react';
 
 //! ==== COMPONENTS
 import SideMenu from "components/lib/sidemenu/sideMenu";
-import CoursesJson from "public/json/Courses.json";
 import CourseTabContent from "components/pages/course_video/course_tabs/CourseTabContent";
 import { GetServerSideProps } from 'next';
 

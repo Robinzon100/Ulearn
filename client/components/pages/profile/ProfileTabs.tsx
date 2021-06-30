@@ -36,7 +36,7 @@ const ProfileTabs = ({ user }) => {
                                             thumbnail_imageUrl={card.image_url}
                                             creator={card.id}
                                             overall_rating={card.overall_rating}
-                                            numberOfVotes={20}
+                                            ratingAmount={card.detailed_rating}
                                             isLiked={true}
                                             bestseller={card.bestseller}
                                             discount_price={card.discount_price}

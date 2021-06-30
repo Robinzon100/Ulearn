@@ -1,11 +1,9 @@
 
-import {  useState } from "react";
 
 
 
 
 //! ===========OUR IMPORTS
-import CoursesJson from "../../../../public/json/Courses.json";
 import CommentCards from "components/lib/comment_cards/comment_cards";
 import { MyCourseTabHeading } from "components/pages/course_video/course_tabs/MyCourseTabHeading";
 
@@ -28,9 +26,6 @@ import { useCommentStore } from "mobx/commentContext";
 const CourseTabContent = observer(({ course, user }: any) => {
     let { commentStore } = useCommentStore()
 
-    const comments = CoursesJson.ratings.ratings;
-    const [commentBody, setCommentBody] = useState("")
-    const [userComments, setUserComments] = useState<any>(comments)
 
 
     // === GETTING CURRENT RATING TO PASS TO ACTION
@@ -39,18 +34,6 @@ const CourseTabContent = observer(({ course, user }: any) => {
     }
 
 
-    const addComment = () => {
-        // debugger
-        userComments.push({
-            id: userComments[userComments.length - 1].id + 1,
-            comment: commentBody,
-            image_url: user.image_url,
-            full_name: user.full_name,
-            rating: user.rating
-        })
-
-        setUserComments(userComments => ([...userComments]))
-    }
 
 
     return (
@@ -88,8 +71,6 @@ const CourseTabContent = observer(({ course, user }: any) => {
                                             full_name={user.full_name}
                                             rating={user.rating}
                                             image_url={user.image_url}
-                                            getCommentBody={(value) => setCommentBody(value)}
-                                            addComment={() => addComment()}
                                         />
 
                                         {commentStore.ratingComments.map(el => (

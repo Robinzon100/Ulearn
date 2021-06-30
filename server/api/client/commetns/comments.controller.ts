@@ -50,7 +50,10 @@ export const postComment = async (req: Request, res: Response, next: NextFunctio
 
         const alreadyComented = await Comment
             .query()
-            .where('user_id', req.user[0].id)
+            .where({
+                user_id: req.user[0].id,
+                course_id: courseId
+            })
 
 
         if (alreadyComented.length != 0) {

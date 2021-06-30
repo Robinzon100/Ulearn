@@ -79,10 +79,10 @@ const CourseCards = ({ landingCourse }) => {
                     landingCourse.liked_courses_ids &&
                     landingCourse.liked_courses_ids.includes(card.id)
                   }
+                  ratingAmount={card.detailed_rating}
                   thumbnail_imageUrl={card.image_url}
                   creator={card.id}
                   overall_rating={card.overall_rating}
-                  numberOfVotes={20}
                   bestseller={card.bestseller}
                   discount_price={card.discount_price}
                   created_at={card.created_at}

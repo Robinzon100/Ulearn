@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { Star } from "react-feather";
 import Link from "next/link";
 
@@ -20,7 +20,6 @@ const Card = ({
   price,
   name,
   discount_price,
-  numberOfVotes,
   thumbnail_imageUrl,
   created_at,
   difficulty,

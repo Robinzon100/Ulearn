@@ -133,7 +133,7 @@ const CoursesSearch = ({ result, userPrefferedCategoryIds }) => {
                         </div>
                         <RangeSlider
                             id={2}
-                            steps={.5}
+                            steps={.1}
                             min={0}
                             max={5}
                             back="var(--primary-yellow)"

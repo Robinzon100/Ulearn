@@ -14,7 +14,7 @@ export const newCourseSchema = Joi.object({
         description: Joi.string().min(30).max(250).required(),
         detailed_description: Joi.string().min(20).max(3500).required(),
         difficulty: Joi.number().min(1).max(3).required(),
-        duration: Joi.number().min(.3).max(900).required(),
+        duration: Joi.number().max(900).required(),
         what_will_you_learn: Joi.array().min(3).max(6).items(Joi.string().min(4).max(70)).required(),
         image_url: Joi.string().max(2048),
         resource_file_url: Joi.string().max(2048),

@@ -28,7 +28,6 @@ const AllCourses = ({ data, userPrefferedCategoryIds }) => {
 
     useEffect(() => {
         setCourses(data.courses)
-        console.log(data)
     }, [data])
 
 
