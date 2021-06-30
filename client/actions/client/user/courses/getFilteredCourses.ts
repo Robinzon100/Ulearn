@@ -63,3 +63,4 @@ export const getUsersPrefferedCategoryIds = async (accessToken?) => {
             }
         });
 }
+

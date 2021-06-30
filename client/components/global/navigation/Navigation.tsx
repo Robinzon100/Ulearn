@@ -179,7 +179,7 @@ const Navigation = () => {
                         backgroundImage: `url(${getUserPic ?
                             process.env.BACK_END_URL + '/api/images/' + getUserPic :
                             '/pictures/unregistered_user.svg'
-                            })`
+                        })`
                     }}
                 
                 />

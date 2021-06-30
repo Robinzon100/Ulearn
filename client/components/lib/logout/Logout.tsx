@@ -1,8 +1,11 @@
 import NextLink from 'components/utils/nextLink/NextLink';
 
+interface ILogOut {
+    isLougoutToggled?:any;
+    deleteCookie?:any
+} 
 
-
-const Logout = ({ isLougoutToggled, deleteCookie }) => {
+const Logout = ({ isLougoutToggled, deleteCookie }:ILogOut) => {
 
 
     return (

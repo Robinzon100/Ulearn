@@ -1,12 +1,12 @@
+
 import { axiosInstance } from 'actions/action.index';
 
 
 
 
-
-export const getSingleUser = async (userId) => {
+export const getUserCourseSearch = async (query) => {
     return await axiosInstance
-        .get(`/user/${userId}`)
+        .get(`/course/search/${query}`)
         .then(res => {
             return {
                 ...res.data,
@@ -30,6 +30,3 @@ export const getSingleUser = async (userId) => {
             }
         });
 }
-
-
-

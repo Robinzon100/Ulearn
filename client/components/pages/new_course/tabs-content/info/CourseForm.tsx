@@ -124,7 +124,7 @@ const CourseForm = observer(() => {
                         </div>
 
                         <Input
-                            className="c-secondary-dark-yellow"
+                            className="f-size-p6 f-weight-m"
                             size="large"
                             name="name"
                             width="100%"
@@ -156,6 +156,7 @@ const CourseForm = observer(() => {
                         </div>
 
                         <Input
+                            className="f-size-p6 f-weight-m"
                             size="large"
                             name="short-description"
                             onChange={(e) => CourseInputFormHandler(e, "description")}
@@ -275,6 +276,7 @@ const CourseForm = observer(() => {
                         <div className="container">
                             {newCourseStore.newCourseData.courseInfo.what_will_you_learn.map((el, i) => (
                                 <Input
+                                    className="f-size-p6 f-weight-m"
                                     key={i}
                                     id={i}
                                     onChange={(e) => inputValuesHandler(e, i)}
