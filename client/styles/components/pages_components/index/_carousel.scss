@@ -1,101 +1,129 @@
-$carousel-card-shadow:0px 23px 42px -6px rgba(17, 23, 53, 0.1);
-$slider_btn-gradient:linear-gradient(271.08deg, #FFFFFF 62.68%, rgba(255, 255, 255, 0) 99.18%);
+$carousel-card-shadow: 0px 23px 42px -6px rgba(17, 23, 53, 0.1);
+$slider_btn-gradient: linear-gradient(
+  271.08deg,
+  #ffffff 62.68%,
+  rgba(255, 255, 255, 0) 99.18%
+);
 
 .carousel {
-    position: relative;
-    // margin-bottom: 10rem;
-    
-    .arrow_btns_gradient {
-        background: $slider_btn-gradient;
-        width: 24.5rem;
-        height: 100%;
-        position: absolute;
-        z-index: 1;
-        top: 1%;
+  position: relative;
+  // margin-bottom: 10rem;
 
+  .arrow_btns_gradient {
+    background: $slider_btn-gradient;
+    width: 24.5rem;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 1%;
+  }
+
+  .right-carousel-gradient {
+    right: 0%;
+  }
+  .left-carousel-gradient {
+    left: -3%;
+    transform: rotateY(-180deg);
+  }
+
+  .arrow_btns {
+    cursor: pointer;
+    width: 12.5rem;
+    height: 12.5rem;
+    left: 40%;
+    top: 5%;
+    position: absolute;
+    z-index: 2;
+  }
+
+  .right_slider_btn {
+    @include background-properties(
+      "/pictures/slider/rigth_slide_button.svg",
+      cover,
+      center
+    );
+  }
+  .left_slider_btn {
+    @include background-properties(
+      "/pictures/slider/left_slide_button.svg",
+      cover,
+      center
+    );
+    transform: rotateY(180deg);
+  }
+
+  .carousel_container {
+    padding-bottom: 5rem;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow: -moz-scrollbars-none;
+  }
+  .carousel_container::-webkit-scrollbar {
+    width: 0 !important;
+  }
+
+  .carousel_card {
+    display: flex;
+    flex-direction: row;
+    box-shadow: $carousel-card-shadow;
+    padding: 1.8rem;
+    border-radius: 18px;
+    cursor: pointer;
+
+    &:not(:first-child) {
+      margin-left: 4rem;
     }
-     
-    .right-carousel-gradient {
-        right: 0%;
+
+    &--pic {
+      @include background-properties(
+        "/pictures/courses/carousel_pic.png",
+        cover,
+        center
+      );
+      width: 10rem;
+      height: 9rem;
+      border-radius: 18px;
     }
-    .left-carousel-gradient {
-        left: -3%;
-        transform: rotateY(-180deg);
+
+    &--heading {
+      text-align: center;
+      align-self: center;
+      color: var(--primary-dark);
+      width: 20rem;
+      margin: 0 10px 0 10px;
     }
-    
-    .arrow_btns {
-        cursor: pointer;
-        width: 12.5rem;
-        height: 12.5rem;
-        left: 40%;
-        top: 5%;
-        position: absolute;
-        z-index: 2;
+  }
+}
+
+@media screen and (max-width: $small-screen) {
+  .carousel {
+    .arrow_btns_gradient {
+      background: none;
+      width: 15rem;
     }
 
     .right_slider_btn {
-        @include background-properties("/pictures/slider/rigth_slide_button.svg",cover,center);
+        left: 30%;
     }
+
     .left_slider_btn {
-        @include background-properties("/pictures/slider/left_slide_button.svg",cover,center);
-        transform: rotateY(180deg);
+        left: 30%;
     }
-    
-    .carousel_container {
-        padding-bottom: 5rem;
-        display: flex;
-        flex-direction: row;
-        position: relative;
-        overflow-x: scroll;
-        -ms-overflow-style: none;  
-        scrollbar-width: none; 
-        overflow: -moz-scrollbars-none;
+    .right_slider_btn,
+    .left_slider_btn {
+      width: 11rem;
+      height: 11rem;
+      top: 9%;
     }
-    .carousel_container::-webkit-scrollbar{
-        width: 0 !important 
-    }
-
-
-
-    .carousel_card {
-        display: flex;
-        flex-direction: row;
-        box-shadow: $carousel-card-shadow;
-        padding: 1.8rem;
-        border-radius: 18px;
-        cursor: pointer;
-
-        &:not(:first-child) {
-            margin-left: 4rem;
-        }
-
-
-        &--pic {
-            @include background-properties("/pictures/courses/carousel_pic.png",cover,center);
-            width: 10rem;
-            height: 9rem;
-            border-radius: 18px;
-        }
-
-
-        &--heading {
-            text-align: center;
-            align-self: center;
-            color: var(--primary-dark);
-            width: 20rem;
-            margin: 0 10px 0 10px;
-        }
-    }
+  }
 }
 
 @media screen and (max-width: 340px) {
-    .right_slider_btn, .left_slider_btn {
-        display: none !important;
-    }
-
-    .main_content--carousel .carousel_card {
-        
-        margin: 0rem 0 8rem 0rem !important;
-       
-    }
+  .main_content--carousel .carousel_card {
+    margin: 0rem 0 8rem 0rem !important;
+  }
 }

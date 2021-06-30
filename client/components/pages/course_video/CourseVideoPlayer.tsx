@@ -9,7 +9,7 @@ const CourseVideoPlayer = ({ src }) => {
     }, [])
 
 
-    const [videoOptions, setVideoOptions] = useState({
+    const [videoOptions, ] = useState({
         autoplay: false,
         controls: true,
         poster: "pictures/courses/card_picture.png",

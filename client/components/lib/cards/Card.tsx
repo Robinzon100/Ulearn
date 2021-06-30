@@ -157,6 +157,7 @@ const Card = ({
             {
               <CardDetail
                 id={id}
+                uuid={uuid}
                 name={name}
                 created_at={created_at}
                 difficulty={difficulty}

@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 
 import Button from "components/lib/button/Button";
-import { ChevronDown} from 'react-feather';
+import { ArrowRight} from 'react-feather';
 
 
 const Hero: FC = () => {
@@ -39,13 +39,12 @@ const Hero: FC = () => {
           <div className="hero--steps__btn">
   
           <Button
-                onClick={() => console.log("clicked")}
                 color="white"
                 size="large"
                 disabled={false}
                 loading={false}
-                // stroke="black"
-                icon={<ChevronDown/>}
+                route="/register"
+                iconRight={<ArrowRight/>}
                 width="35rem">
                 <p className="f-weight-r f-size-p4 ">
                     შემოგვიერთდი

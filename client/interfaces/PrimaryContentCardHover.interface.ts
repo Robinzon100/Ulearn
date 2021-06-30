@@ -5,6 +5,7 @@ interface hoverCardDetailList {
 
 export interface PrimaryContentCardHover{
     id?: number,
+    uuid?:number,
     name?: string;
     created_at?: string,
     difficulty?:number,

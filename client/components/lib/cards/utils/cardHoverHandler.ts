@@ -23,8 +23,8 @@ export const cardHoverHandler = (
       descriptionEl.style.left = `${el.width - el.width + 35}px`;
 
     } else {
-      descriptionEl.style.top = `${el.top - el.top - 40}px`;
-      descriptionEl.style.right = `${5}rem`;
+      descriptionEl.style.top = `${el.top - el.top + 100}%`;
+      descriptionEl.style.right = `${0}rem`;
 
     }
   }

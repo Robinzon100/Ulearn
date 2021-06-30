@@ -8,10 +8,6 @@
       margin-left: -10vw !important;
     }
   }
-
-  .hero--steps {
-    width: 40% !important;
-  }
 }
 
 @media screen and (max-width: $large-screen) {
@@ -30,6 +26,12 @@
 }
 
 @media screen and (max-width: $medium-screen) {
+    .hero {
+        &--steps {
+            width: 80% !important;
+
+        }
+    }
     .hero--video {
         video {
           margin-left: -38vw !important;
@@ -42,7 +44,7 @@
 @media screen and (max-width: $small-screen) {
   .hero {
     @include background-properties(
-      "/pictures/hero_mobile_bg.png",
+      "/pictures/mobile_hero_pic.jpg",
       cover,
       center
     );
@@ -57,17 +59,17 @@
       display: none !important;
     }
 
-    &--mobile-bg {
-      display: block !important;
-      position: absolute;
-      @include background-properties(
-        "/pictures/mobile_illustration.svg",120%);
-      width: 100%;
-      height: 60%;
-      z-index: 1;
-      top: 0;
-      left: -5%;
-    }
+    // &--mobile-bg {
+    //   display: block !important;
+    //   position: absolute;
+    //   @include background-properties(
+    //     "/pictures/mobile_illustration.svg",120%);
+    //   width: 100%;
+    //   height: 60%;
+    //   z-index: 1;
+    //   top: 0;
+    //   left: -5%;
+    // }
 
     &--steps {
       width: 100% !important;
