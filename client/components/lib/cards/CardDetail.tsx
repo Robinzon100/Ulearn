@@ -11,7 +11,7 @@ import { PrimaryContentCardHover } from "../../../interfaces/PrimaryContentCardH
 
 
 
-const CardDetail = ({ id,name,created_at,difficulty,description}:
+const CardDetail = ({ id,uuid,name,created_at,difficulty,description}:
     PrimaryContentCardHover) => {
 
 
@@ -51,7 +51,7 @@ const CardDetail = ({ id,name,created_at,difficulty,description}:
 
         </div>
 
-        <NextLink route={`/course/${id}`}>
+        <NextLink route={`/course/${uuid}`}>
           <div className="card_detail--container__addtobucket">
             <div className="heading">
               <p className="f-size-p4">

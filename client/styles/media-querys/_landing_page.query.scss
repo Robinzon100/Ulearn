@@ -8,10 +8,6 @@
       margin-left: -10vw !important;
     }
   }
-
-  .hero--steps {
-    width: 80% !important;
-  }
 }
 
 @media screen and (max-width: $large-screen) {
@@ -30,6 +26,12 @@
 }
 
 @media screen and (max-width: $medium-screen) {
+    .hero {
+        &--steps {
+            width: 80% !important;
+
+        }
+    }
     .hero--video {
         video {
           margin-left: -38vw !important;

@@ -57,6 +57,10 @@
           top: 45%;
           opacity: 60%;
           z-index: 1;
+
+          @media screen and (max-width: $small-screen) {
+            width: 3rem;
+          }
         }
     }
   
