@@ -73,6 +73,9 @@ const AllCourses = ({ data, userPrefferedCategoryIds }) => {
 }
 
 
+
+
+
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
     let courses
     //@ts-ignore

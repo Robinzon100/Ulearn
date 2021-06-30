@@ -32,7 +32,12 @@
 
 @media screen and (max-width: $small-screen) {
     .main_content {
-    
+        padding-bottom: var(--padding-bottom-for-containers) !important;
+
+        .overlay_container {
+            display: none !important;
+          }
+
         &--selects {
             display: grid !important;
             grid-template-rows:repeat(3,1fr)  !important;
@@ -61,9 +66,7 @@
 
 @media screen and (max-width: $ultra-small-screen) {
   .main_content {
-    .overlay_container {
-      display: none !important;
-    }
+
 
     .landing_courses {
       &--cards {

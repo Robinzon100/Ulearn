@@ -54,8 +54,9 @@ const SylabusChangeName = observer(({ chapterNumber, onClick, onToggle, chapterI
                             {isEditable &&
                                 <div className="change-name-input">
                                     <Input
+                                        placeholderColor="red"
                                         autoComplate="off"
-                                        className={`f-size-p6 f-weight-b chapter-input `}
+                                        // className={`f-size-p6 f-weight-m chapter-input `}
                                         color="white"
                                         size="medium"
                                         type="text"

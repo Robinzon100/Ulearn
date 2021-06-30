@@ -125,7 +125,7 @@ const CourseForm = observer(() => {
 
                         <Input
                             className="f-size-p6 f-weight-m"
-                            placeholderColor="var(--secondary-darker-grey)"
+                            placeholderColor="var(--secondary-light-dark)"
                             size="large"
                             name="name"
                             width="100%"
@@ -158,7 +158,7 @@ const CourseForm = observer(() => {
 
                         <Input
                             className="f-size-p6 f-weight-m"
-                            placeholderColor="var(--secondary-darker-grey)"
+                            placeholderColor="var(--secondary-light-dark)"
                             size="large"
                             name="short-description"
                             onChange={(e) => CourseInputFormHandler(e, "description")}
@@ -279,7 +279,7 @@ const CourseForm = observer(() => {
                             {newCourseStore.newCourseData.courseInfo.what_will_you_learn.map((el, i) => (
                                 <Input
                                     className="f-size-p6 f-weight-m"
-                                    placeholderColor="var(--secondary-darker-grey)"
+                                    placeholderColor="var(--secondary-light-dark)"
                                     key={i}
                                     id={i}
                                     onChange={(e) => inputValuesHandler(e, i)}
