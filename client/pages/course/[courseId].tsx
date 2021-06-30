@@ -112,7 +112,7 @@ const Course = ({ course, instructor }) => {
                 <Line
                   width="80%"
                   thickness="1px"
-                  color="#c9c9c9"
+                  color="var(--secondary-dark-grey)"
                   borderRadius="10px"
                   margin="6rem"
                 />
@@ -129,7 +129,7 @@ const Course = ({ course, instructor }) => {
               <Line
                 width="80%"
                 thickness="1px"
-                color="#c9c9c9"
+                color="var(--secondary-dark-grey)"
                 borderRadius="10px"
                 margin="6rem"
               />
