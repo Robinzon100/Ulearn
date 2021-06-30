@@ -28,6 +28,7 @@ const AllCourses = ({ data, userPrefferedCategoryIds }) => {
 
     useEffect(() => {
         setCourses(data.courses)
+        console.log(data)
     }, [data])
 
 
@@ -54,6 +55,7 @@ const AllCourses = ({ data, userPrefferedCategoryIds }) => {
                             price={card.price}
                             isLiked={false}
                             thumbnail_imageUrl={card.image_url}
+                            ratingAmount={card.detailed_rating}
                             creator={card.id}
                             overall_rating={card.overall_rating}
                             numberOfVotes={20}

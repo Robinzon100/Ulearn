@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Star } from "react-feather";
 import Link from "next/link";
 
@@ -26,6 +26,7 @@ const Card = ({
   difficulty,
   description,
   overall_rating,
+  ratingAmount,
   handleUserCourseLikes,
   isLiked,
 }: PrimaryContentCards) => {
@@ -55,7 +56,6 @@ const Card = ({
     setAddToFavorites((addToFavorites) => !addToFavorites);
     setFavoriteMessageState(true);
   };
-
 
 
 
@@ -130,11 +130,13 @@ const Card = ({
 
                 <div className="numbers">
                   <p className="f-weight-r f-size-p5">
-                    {overall_rating}
+                    {overall_rating ? overall_rating : 0}
+                    
+
                     <span
                       style={{ opacity: "50%" }}
                       className="f-weight-r f-size-p6">
-                      ({numberOfVotes})
+                      ({Object.values(ratingAmount).reduce((a,c) => +a + +c)})
                     </span>
                   </p>
                 </div>

@@ -29,4 +29,5 @@ export interface PrimaryContentCards extends PrimaryContentCardHover{
     bestseller?: boolean;
     liked_courses_ids?:number[];
     handleUserCourseLikes?:any;
+    ratingAmount?:any
 }
