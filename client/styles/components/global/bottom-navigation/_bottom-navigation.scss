@@ -105,6 +105,8 @@
   }
 }
 
+
+
 @media screen and (max-width: $ultra-small-screen) {
   .bottom-navigation {
     &__container {
@@ -112,7 +114,7 @@
 
       .search {
         height: 14rem;
-        width: 9rem;
+        width: 13rem;
         margin-top: -4.2rem;
         margin-left: 0 !important;
         background-size: cover !important;
@@ -120,3 +122,16 @@
     }
   }
 }
+
+
+@media screen and (max-width: 400) {
+    .bottom-navigation {
+      &__container {
+    
+        .search {
+          height: 14rem;
+          width: 9rem;
+        }
+      }
+    }
+  }
