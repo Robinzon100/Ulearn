@@ -19,6 +19,9 @@ export const getAllComments = async (req: Request, res: Response, next: NextFunc
             .orderBy('id', 'DESC')
 
 
+        
+
+
         // const numRelatedRows = await Comment
         //     .relatedQuery('users')
         //     .relate(req.user[0].id);

@@ -62,7 +62,7 @@ const MyCourse = observer(({ course, user, comments }: any) => {
                             <div className="viewers">
                                 <Eye size={17} />
                                 <p className="f-size-p7 f-weight-b">
-                                    {CoursesJson.aboutCourses.aboutCourse.peopleWatched}
+                                    {course.student_amount}
                                 </p>
                             </div>
                         </div>
