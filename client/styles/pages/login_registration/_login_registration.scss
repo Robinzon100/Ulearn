@@ -12,7 +12,7 @@
 
     @media screen and (max-width: $small-screen) {
       padding-bottom: var(--padding-bottom-for-containers);
-      padding-top: calc(var(--bottom-navigation-heigth) + 2vh);
+    //   padding-top: calc(var(--bottom-navigation-heigth) + 2vh);
     }
 
     .base_form_styles {
@@ -78,6 +78,11 @@
 
     .login_forms {
       height: 100vh;
+      @media screen and (max-width: $small-screen) {
+        padding-top: calc(var(--bottom-navigation-heigth) + 4vh);
+        padding-bottom: var(--padding-bottom-for-containers);
+        height: 55rem;
+      }
     }
 
     .registration-forms {
