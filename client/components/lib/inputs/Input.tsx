@@ -27,7 +27,8 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
     autoComplate = "",
     maxLength,
     minLength,
-    maxWidth
+    maxWidth,
+    placeholderColor
   }, ref: React.Ref<HTMLInputElement | null>,) => {
 
 
@@ -99,13 +100,20 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
                 max-width:${maxWidth};
                 transition: all 0.1s cubic-bezier(0, 1.06, 0.37, 0.38);
               }
+
+
+              .input_field::placeholder {
+                color: ${placeholderColor} !important;
+              }
               .input_field:disabled {
                 color: var(--primary-grey);
                 opacity: 50%;
               }
+
               .input_field:hover {
                 background: var(--secondary-light-grey);
               }
+
               .input_field:focus {
                 background: var(--primary-white);
                 border: ${!filled && getColors(color).focusedBorder};
@@ -116,12 +124,14 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
                 0px 9px 23px -6px rgba(0, 0, 0, 0.1), 
                 inset 0px -3px 8px -4px rgba(0, 0, 0, 0.1);
               }
+              
               .input_field::placeholder {
                 opacity: 100%;
                 color: ${color === "red"
                 ? getColors(color).textColor
                 : "var(--secondary-light-black)"};
               }
+
               .icon_base-style {
                 position: absolute;
                 justify-content: center;
@@ -135,6 +145,7 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<IinputInterface>>(
                 color: var(--primary-grey);
                 opacity: 50%;
               }
+
               .icon,
               .iconRight {
                 color: ${color === "red"

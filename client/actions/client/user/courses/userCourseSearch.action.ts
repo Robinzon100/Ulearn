@@ -6,7 +6,7 @@ import { axiosInstance } from 'actions/action.index';
 
 export const getUserCourseSearch = async (query) => {
     return await axiosInstance
-        .get(`/course/search/${query}`)
+        .get(`/course/search/${query.trim()}`)
         .then(res => {
             return {
                 ...res.data,

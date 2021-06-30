@@ -22,6 +22,7 @@ export interface IinputInterface extends IGlobal {
     maxLength?:number;
     minLength?:number;
     maxWidth?:string;
+    placeholderColor?:string;
 }
 
 
