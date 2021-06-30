@@ -52,7 +52,7 @@ const AllCourses = ({ data, userPrefferedCategoryIds }) => {
                             name={card.title}
                             price={card.price}
                             isLiked={false}
-                            thumbnail_imageUrl={card.thumbnail_imageUrl}
+                            thumbnail_imageUrl={card.image_url}
                             creator={card.id}
                             overall_rating={card.overall_rating}
                             numberOfVotes={20}
